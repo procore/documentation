@@ -2,6 +2,8 @@
 permalink: /new-application
 title: Building an Application
 layout: default
+section_title: Building Applications
+
 ---
 
 Whether you are a Procore client or a Procore Technology partner, you can leverage the Procore API to build applications that interact directly with the data and resources available in Procore tools at both the company and project level.
