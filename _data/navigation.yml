@@ -1,0 +1,25 @@
+- title: Overview
+  items:
+    - title: Welcome
+      url: /introduction
+    - title: Build a Custom Integration
+      url: /custom-overview
+    - title: Build a Marketplace Integration
+      url: /partner-overview
+    - title: Developer Training
+      url: /training
+    - title: Developer Resources
+      url: /dev-resources
+
+- title: Getting Started
+  items:
+    - title: Rest API Overview
+      url: /rest-api-overview
+    - title: API Lifecycle
+      url: /rest-api-lifecycle
+    - title: Registering a New Developer Account
+      url: /new-account
+    - title: Sandbox Environments
+      url: /development-environments
+    - title: Making Your First API Call
+      url: /making-first-call
