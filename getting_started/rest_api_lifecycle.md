@@ -26,7 +26,3 @@ This table provides additional information on how the Rest API product is manage
 ## Support
 
 Please reach out to <apisupport@procore.com> if you have any questions regarding the API lifecycle.
-
-
-
-

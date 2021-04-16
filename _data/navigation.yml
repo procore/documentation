@@ -1,7 +1,9 @@
 - title: Overview
   items:
-    - title: Welcome
+    - title: Welcome!
       url: /introduction
+    - title: Vapid API Deprecation
+      url: /vapid-deprecation
     - title: Build a Custom Integration
       url: /custom-overview
     - title: Build a Marketplace Integration
@@ -23,3 +25,182 @@
       url: /development-environments
     - title: Making Your First API Call
       url: /making-first-call
+
+- title: OAuth 2.0 Authentication
+  items:
+    - title: Introduction to OAuth 2.0
+      url: /oauth-introduction
+    - title: Understanding OAuth 2.0 Roles
+      url: /oauth-roles
+    - title: OAuth 2.0 Access Tokens
+      url: /oauth-access-tokens
+    - title: Managing OAuth Credentials and Redirect URIs
+      url: /oauth-keys
+    - title: Choosing an OAuth 2.0 Grant Type
+      url: /oauth-choose-grant-type
+    - title: OAuth 2.0 Authorization Code Grant Flow
+      url: /oauth-example
+    - title: OAuth 2.0 Implicit Grant Flow
+      url: /oauth-implicit-example
+    - title: Using the OAuth 2.0 Client Credentials Grant Type
+      url: /oauth-client-credentials
+    - title: OAuth 2.0 for Installed Applications
+      url: /oauth-installed-apps
+    - title: Procore API Authentication Endpoints
+      url: /oauth-endpoints
+
+- title: Building Applications
+  items:
+    - title: Introduction
+      url: /building-apps-intro
+    - title: Understanding App Types
+      url: /building-apps-app-types
+    - title: App Installation Architecture
+      url: /building-apps-install-arch
+    - title: Creating a New App
+      url: /building-apps-create-new
+    - title: Creating an App Manifest
+      url: /building-apps-define-manifest
+    - title: Promoting a Sandbox Manifest to Production
+      url: /building-apps-promote-manifest
+    - title: Submitting a Production App Manifest for Review
+      url: /building-apps-review-manifest
+    - title: Creating a Marketplace Listing and Submitting for Review
+      url: /building-apps-submit-marketplace
+    - title: Managing App Collaboration
+      url: /building-apps-manage-collabs
+    - title: Working with App Metrics
+      url: /building-apps-metrics
+    - title: Embedded App Helper Library
+      url: /building-apps-helper-library
+
+- title: API Essentials
+  items:
+    - title: RESTful API Concepts
+      url: /restful-api-concepts
+    - title: API Security Overview
+      url: /api-security-overview
+    - title: Rate Limiting
+      url: /rate-limiting
+    - title: Pagination
+      url: /pagination
+    - title: Data Model Considerations
+      url: /data-model-considerations
+    - title: Transport Layer Security Requirements
+      url: /tls-reqs
+
+- title: Best Practices
+  items:
+    - title: Dates and Times
+      url: /date-time
+    - title: Working with Time Zones
+      url: /tutorial-timezones
+    - title: Using Country Codes
+      url: /country-codes
+
+- title: Webhooks
+  items:
+    - title: Introduction to Webhooks
+      url: /webhooks
+    - title: Using the Webhooks API
+      url: /webhooks-api
+
+- title: Procore API Resource Guide
+  items:
+    - title: Overview
+      url: /object-model-overview
+    - title: General Resources
+      url: /object-model-general
+    - title: Company-level Resources
+      url: /object-model-company
+    - title: Project-level Resources
+      url: /object-model-project
+
+- title: Guides and Tutorials
+  items:
+    - title: Multiple Procore Zones
+      url: /tutorial-mpz
+    - title: User Permissions
+      url: /tutorial-user-permissions
+    - title: Filtering and Sorting
+      url: /filtering-on-list-actions
+    - title: Sync Actions
+      url: /using-sync-actions
+    - title: File Attachments and Image Uploads
+      url: /attachments
+    - title: Direct File Uploads
+      url: /tutorial-uploads
+    - title: Daily Logs
+      url: /daily-logs
+    - title: Financial Tools
+      url: /tutorial-financial-tools
+    - title: Budget Line Items
+      url: /tutorial-budget-line-items
+    - title: Change Orders
+      url: /tutorial-change-orders
+    - title: Subcontractor Invoices
+      url: /tutorial-requisitions
+    - title: Workflows
+      url: /tutorial-workflows
+    - title: Drawings
+      url: /tutorial-drawings
+    - title: Direct Drawing Uploads
+      url: /tutorial-direct-drawing-uploads
+    - title: Timesheets and Timecards
+      url: /tutorial-field-prod
+    - title: Timecard Entries
+      url: /tutorial-timecard-entries
+    - title: Incidents
+      url: /tutorial-incidents
+    - title: Observations
+      url: /tutorial-observations
+    - title: Project Stages
+      url: /tutorial-project-stages
+    - title: Configurable Fieldsets
+      url: /tutorial-config-fieldsets
+    - title: Correspondence
+      url: /tutorial-correspondence
+
+- title: Tools
+  items:
+    - title: Postman
+      url: /postman
+    - title: SDKs and Sample Applications
+      url: /sdk
+
+- title: ERP Integration
+  items:
+    - title: Getting Started
+      url: /erp-intro
+    - title: Technical Guide
+      url: /erp-technical-guide
+    - title: Events Dictionary
+      url: /erp-events-dictionary
+    - title: Metadata Details
+      url: /erp-metadata-details
+
+- title: Additional Resources
+  items:
+    - title: Developer Support
+      url: https://developers.procore.com/developer_support
+    - title: Technical Services
+      url: /tech-services
+    - title: Submit Case Study
+      url: /submit-case-study
+    - title: FAQ
+      url: /faq
+
+- title: Internal Docs
+  items:
+    - title: How To Publish Internal API Guides
+      url: /internal/internal-docs-process
+    - title: Writing Swagger Files
+      url: /internal/writing-swagger-files
+    - title: Viewing Your Swagger Docs
+      url: /internal/viewing-swagger-docs
+    - title: Endpoint Documentation Requirements and Styleguide
+      url: /internal/api-endpoint-requirements
+    - title: API Endpoint Deprecation
+      url: /internal/endpoint-deprecation
+    - title: Managing Endpoint Beta Programs
+      url: /internal/endpoint-beta-programs
