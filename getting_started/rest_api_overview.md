@@ -94,5 +94,5 @@ Filters allow you to drill down on the types of changes you are most interested 
 
 ## Further Reading
 
-- [Vapid API Deprecation]({% link overview/vapid_deprecation.md %})
-- [API Lifecycle and Deprecation]({% link getting_started/rest_api_lifecycle.md %})
+- [Vapid API Deprecation]({{ site.baseurl }}{% link overview/vapid_deprecation.md %})
+- [API Lifecycle and Deprecation]({{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})

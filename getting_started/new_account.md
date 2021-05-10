@@ -17,5 +17,5 @@ Here are the steps to properly navigate the Developer Portal and successfully re
 
 CONGRATULATIONS! You have successfully registered a new Developer Account.
 
-NEXT STEP >> [Create a New Application]({% link building_applications/building_apps_intro.md %})
+NEXT STEP >> [Create a New Application]({{ site.baseurl }}{% link building_applications/building_apps_intro.md %})
 

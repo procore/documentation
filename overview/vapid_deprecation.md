@@ -41,8 +41,8 @@ No. The authentication endpoint (ex. /oauth/authorize) remains the same in Rest,
 
 ## Additional Information
 
-- [Rest API Overview]({% link getting_started/rest_api_overview.md %}) - covers the new API versioning architecture and other Rest v1.0 topics.
-- [API Lifecycle]({% link getting_started/rest_api_lifecycle.md %}) - learn about the new API lifecycle and deprecation timelines.
+- [Rest API Overview]({{ site.baseurl }}{% link getting_started/rest_api_overview.md %}) - covers the new API versioning architecture and other Rest v1.0 topics.
+- [API Lifecycle]({{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %}) - learn about the new API lifecycle and deprecation timelines.
 - [Rest API v1.x Reference Documentation](https://developers.procore.com/reference/rest/v1) - new reference docs for the Rest v1.0 endpoints.
 
 ## Support
