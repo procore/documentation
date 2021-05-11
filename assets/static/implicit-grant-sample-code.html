@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- This is a single page application written in javascript/jquery that demonstrates the OAuth 2.0 Implicit Grant flow. The /authorize endpoint
+  is used to retrieve an access token that is appended to the hash fragment of the redirect URL. The access token is then extracted from the hash fragment
+  and used to call the /me endpoint which returns the username for the currently logged in Procore user. Set the value of the YOUR_CLIENT_ID constant
+  to match the client_id for your application. Also, you may need to have the origin domain for your app whitelisted by our Tech Services teeam to allow
+  Cross-Origin Resource Sharing (CORS). -->
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Procore API OAuth 2.0 - Implicit Grant Flow Demo</title>
+
+  <!-- Load the jquery library fron google cdn -->
+  <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+
+  // Constant to hold the value of the Client ID.
+  const YOUR_CLIENT_ID = "...Enter Your Client ID Here...";
+
+    // Function to extract the access token from the redirect URI hash fragment using regular expression.
+    $(function () {
+      var extractToken = function(hash) {
+        var match = hash.match(/access_token=([\w.-]+)/);
+        return !!match && match[1];
+      };
+
+      // Initialize some variables for Client ID and required endpoints.
+      var clientId = YOUR_CLIENT_ID;
+      var AUTHORIZATION_ENDPOINT = "https://api.procore.com/oauth/authorize";
+      var RESOURCE_ENDPOINT = "https://api.procore.com/rest/v1.0/me";
+
+      // Check for the presence of an access token in the hash fragment of the current page URL.
+      // If present, make a call to the /me endpoint. Otherwise, call the /authorize endpoint to get one.
+      var token = extractToken(document.location.hash);
+      if (token) {
+        $('div.authenticated').show();
+        $('span.token').text(token);
+
+        // Make a call to the /me endpoint.
+        $.ajax({
+            type: 'GET',
+            url: RESOURCE_ENDPOINT,
+            dataType: 'json',
+            crossDomain: 'true',
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader('Authorization', "Bearer " + token);
+              xhr.setRequestHeader('Accept',        "application/json");
+            },
+            success: function (response) {
+              var container = $('span.user');
+              if (response) {
+                container.text(response.login);
+              } else {
+                container.text("An error occurred.");
+              }
+            }
+        });
+      } else {
+        $('div.authenticate').show();
+
+        //Make a call to the /authorize endpoint.
+        var authUrl = AUTHORIZATION_ENDPOINT +
+          "?response_type=token" +
+          "&client_id="    + clientId +
+          "&redirect_uri=" + window.location;
+
+        $("a.connect").attr("href", authUrl);
+      }
+    });
+  </script>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Procore API OAuth 2.0 - Implicit Grant Flow Demo</h1>
+
+  <div class="authenticate hidden">
+    <a class="connect" href="">Authorize and Get Access Token</a>
+  </div>
+
+  <div class="authenticated hidden">
+
+    <h2>You are using token:</h2>
+    <p><span class="token">[no token]</span></p>
+
+    <h2>Your Procore username is:</h2>
+    <p><span class="user">[no username]</span></p>
+
+  </div>
+
+</body>
+</html>
