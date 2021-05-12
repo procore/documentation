@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- This is a single page application written in JavaScript/jQuery that demonstrates creating a new Task Item with the Due Date
+    field being set using a date/time picker in a form with input type DATE. Use the ACCESS_TOKEN and PROJECT_ID constants to
+    supply appropriate values as needed. -->
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Date/Time Example Using Task Items Endpoints</title>
+
+  <!-- Load the jQuery library fron google cdn -->
+  <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type="text/javascript" charset="utf-8">
+
+  // Set constants as needed...
+  const ACCESS_TOKEN = "";
+  const PROJECT_ID = "";
+
+
+    $(document).ready(function(){
+        // click on button submit
+        $("#submit").on('click', function(){
+
+            // send ajax
+            $.ajax({
+                url: 'https://api.procore.com/rest/v1.0/task_items?project_id=' + PROJECT_ID, // url where to submit the request
+                type : "POST",
+                dataType : 'json',
+                crossDomain: 'true',
+                beforeSend: function (xhr) {
+                  xhr.setRequestHeader('Authorization', "Bearer " + ACCESS_TOKEN);
+                  xhr.setRequestHeader('Accept', "application/json");
+                },
+                data : $("#form").serialize(),
+                success : function(result) {
+                    console.log(result);
+                    $(".result").append('Task Created Successfully!');
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            })
+        });
+    });
+
+  </script>
+
+</head>
+
+<body>
+
+  <h1>Procore API - Date/Time Examples Using Tasks</h1>
+
+  <div class="tasks">
+
+    <h2>Create a New Task</h2>
+
+    <form id="form" action="" method="post">
+        Title: <input type="text" name="task_item[title]"><br>
+        Number: <input type="text" name="task_item[number]"><br>
+        Description: <input type="text" name="task_item[description]"><br>
+        Due Date: <input type="date" name="task_item[due_date]"><br>
+        Status: <select type="text" name="task_item[status]">
+                  <option value="initiated">initiated</option>
+                  <option value="sin_progress">in_progress</option>
+                  <option value="ready_for_review">ready_for_review</option>
+                  <option value="closed">closed</option>
+                  <option value="void">void</option>
+                </select><br>
+        Private: <input type="checkbox" name="task_item[private]"><br>
+        Assignee: <input type="number" name="task_item[assigned_id]"><br>
+        <input id="submit" type="button" name="submit" value="submit">
+    </form>
+
+  </div>
+
+  <div class="result"></div>
+
+</html>

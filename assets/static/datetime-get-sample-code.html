@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- This is a single page application written in JavaScript/jQuery that demonstrates the handling
+  of ISO 8601 formatted date/time strings. This page Use the ACCESS_TOKEN and PROJECT_ID constants to supply appropriate
+  values as needed. -->
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Date/Time Example Using Task Items Endpoints</title>
+
+  <!-- Load the jQuery library fron google cdn -->
+  <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type="text/javascript" charset="utf-8">
+
+  // Set constants as needed...
+  const ACCESS_TOKEN = "";
+  const PROJECT_ID = "";
+  const TASK_ITEM_ID = "";
+
+  function getTaskItem () {
+  // Retrieves a single Task Item in the specified project based on the value set for the TASK_ITEM_ID constant.
+    $.ajax({
+        type: 'GET',
+        url: 'https://api.procore.com/rest/v1.0/task_items/' + TASK_ITEM_ID + '?project_id=' + PROJECT_ID,
+        dataType: 'json',
+        crossDomain: 'true',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', "Bearer " + ACCESS_TOKEN);
+          xhr.setRequestHeader('Accept', "application/json");
+        },
+        success: function (response) {
+          var container = $('span.task-item');
+          if (response) {
+            container.empty();
+
+            var number = response.number;
+            var title = response.title;
+            var description = response.description;
+            var status = response.status;
+            var duedate = response.due_date;
+            var dateObj = new Date(duedate);  //using the JavaScript Date() method to create a Date object from the due_date response attribute.
+            var strLocaleDate = dateObj.toLocaleDateString();  //using the toLocaleDateString() Date object method to render the ISO 8601 value as a simple date format.
+            var isPrivate = response.private;
+            var createdAt = response.created_at;
+            var createdBy = response.created_by.name;
+            var updatedAt = response.updated_at;
+            var assignee = response.assignee.name;
+            var category = response.task_item_category.name;
+
+            container.append('Task Number: ' + number + '<br />'
+              + 'Title: ' + title + '<br />'
+              + 'Description: ' + description + '<br />'
+              + 'Status: ' + status + '<br />'
+              + 'Due Date: ' + strLocaleDate + '<br />'
+              + 'Private: ' + isPrivate + '<br />'
+              + 'Created At: ' + createdAt + '<br />'
+              + 'Created By: ' + createdBy + '<br />'
+              + 'Updated At: ' + updatedAt + '<br />'
+              + 'Assignee: ' + assignee + '<br />'
+              + 'Category: ' + category + '<br />');
+
+          } else {
+            container.text("An error occurred.");
+          }
+        }
+    });
+
+  };
+
+  </script>
+
+</head>
+
+<body>
+
+  <h1>Procore API - Date/Time Examples Using Task Items</h1>
+
+  <div class="tasks">
+
+    <h2>Show Task Item</h2>
+    <button type="button" onclick="getTaskItem()">Show Existing Task Item</button>
+    <p><span class="task-item"></span></p>
+
+  </div>
+
+</body>
+
+</html>
