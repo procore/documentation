@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- This is a single page application written in javascript/jquery that demonstrates some basic actions and tasks
+  using the Drawings Tool endpoints. Use the ACCESS_TOKEN, PROJECT_ID, and DRAWING_AREA_ID constants to supply appropriate
+  values as needed. -->
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Drawings Tool API Examples</title>
+
+  <!-- Load the jquery library fron google cdn -->
+  <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+
+  // Set constants as needed...
+  const ACCESS_TOKEN = "";
+  const PROJECT_ID = "";
+  const DRAWING_AREA_ID = "";
+
+  function getLatestSet () {
+  // Retrieves the latest drawing sets in the specified project based on the value of the 'updated_at' field.
+    $.ajax({
+        type: 'GET',
+        url: 'https://api.procore.com/rest/v1.0/projects/' + PROJECT_ID + '/drawing_sets',
+        dataType: 'json',
+        crossDomain: 'true',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', "Bearer " + ACCESS_TOKEN);
+          xhr.setRequestHeader('Accept', "application/json");
+        },
+        success: function (response) {
+          var container = $('span.latest_sets');
+          if (response) {
+            container.empty();
+            var latest  = '';
+            for (i = 0; i < response.length; i++) {
+                var id = response[i].id;
+                var name = response[i].name;
+                var lastUpdate = response[i].updated_at;
+                if (lastUpdate > latest) {latest = lastUpdate};
+            };
+            container.append('Latest Drawing Set is: ' + id + '</br> Last updated on: ' + latest);
+          } else {
+            container.text("An error occurred.");
+          }
+        }
+    });
+
+  };
+
+  function getCurrentRevisions () {
+  // Retrieves all drawing revisions in the specified project where 'current' = TRUE.
+    $.ajax({
+        type: 'GET',
+        url: 'https://api.procore.com/rest/v1.0/projects/' + PROJECT_ID + '/drawing_revisions',
+        dataType: 'json',
+        crossDomain: 'true',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', "Bearer " + ACCESS_TOKEN);
+          xhr.setRequestHeader('Accept', "application/json");
+        },
+        success: function (response) {
+          var container = $('span.revisions');
+          if (response) {
+            container.empty();
+            for (i = 0; i < response.length; i++) {
+                var id = response[i].id;
+                var title = response[i].title;
+                var current = response[i].current;
+                container.append('Revision Id: ' + id + '</br>' + 'Drawing Title: ' + title + '</br>' + 'Current?: ' + current + '</br></br>');
+            };
+
+          } else {
+            container.text("An error occurred.");
+          }
+        }
+    });
+
+  };
+
+  function getDrawingUploads () {
+  // Retrieves a list of all drawing uploads in the specified project.
+    $.ajax({
+        type: 'GET',
+        url: 'https://api.procore.com/rest/v1.0/projects/' + PROJECT_ID + '/drawing_uploads',
+        dataType: 'json',
+        crossDomain: 'true',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', "Bearer " + ACCESS_TOKEN);
+          xhr.setRequestHeader('Accept', "application/json");
+        },
+        success: function (response) {
+          var container = $('span.uploads');
+          if (response) {
+            container.empty();
+            for (i = 0; i < response.length; i++) {
+                var id = response[i].id;
+                var creationDate = response[i].created_at;
+                var status = response[i].status;
+                container.append('Upload Id: ' + id + '</br>' + 'Creation Date: ' + creationDate + '</br>' + 'Status: ' + status + '</br></br>');
+            };
+
+          } else {
+            container.text("An error occurred.");
+          }
+        }
+    });
+
+  };
+
+  function getDrawingAreas () {
+  // Retrieves a list of all drawing areas in the specified project.
+    $.ajax({
+        type: 'GET',
+        url: 'https://api.procore.com/rest/v1.0/projects/' + PROJECT_ID + '/drawing_areas',
+        dataType: 'json',
+        crossDomain: 'true',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', "Bearer " + ACCESS_TOKEN);
+          xhr.setRequestHeader('Accept', "application/json");
+        },
+        success: function (response) {
+          var container = $('span.areas');
+          if (response) {
+            container.empty();
+            for (i = 0; i < response.length; i++) {
+                var id = response[i].id;
+                var drawingName = response[i].name;
+                var count = response[i].drawings_count;
+                container.append('Drawing Area Id: ' + id + '</br>' + 'Drawing Name: ' + drawingName + '</br>' + 'Number of Drawings: ' + count + '</br></br>');
+            };
+
+          } else {
+            container.text("An error occurred.");
+          }
+        }
+    });
+
+  };
+
+  function getDrawings () {
+  // Retrieves a list of all drawings in the specified drawing area.
+    $.ajax({
+        type: 'GET',
+        url: 'https://api.procore.com/rest/v1.0/drawing_areas/' + DRAWING_AREA_ID + '/drawings',
+        dataType: 'json',
+        crossDomain: 'true',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', "Bearer " + ACCESS_TOKEN);
+          xhr.setRequestHeader('Accept', "application/json");
+        },
+        success: function (response) {
+          var container = $('span.drawings');
+          if (response) {
+            container.empty();
+            for (i = 0; i < response.length; i++) {
+                var id = response[i].id;
+                var drawingNumber = response[i].number;
+                var drawingTitle = response[i].title;
+                container.append('Drawing Id: ' + id + '</br>' + 'Drawing Number: ' + drawingNumber + '</br>' + 'Drawing Title: ' + drawingTitle + '</br></br>');
+            };
+
+          } else {
+            container.text("An error occurred.");
+          }
+        }
+    });
+
+  };
+
+</script>
+
+</head>
+
+<body>
+
+  <h1>Procore API - Drawing Endpoints Demo</h1>
+
+  <div class="sets">
+
+    <h2>Latest Drawing Sets</h2>
+    <button type="button" onclick="getLatestSet()">Get Latest Drawing Sets</button>
+    <p><span class="latest_sets"></span></p>
+
+  </div>
+
+  <div class="current_revisions">
+
+    <h2>Current Drawing Revisions</h2>
+    <button type="button" onclick="getCurrentRevisions()">Get Current Drawing Revisions</button>
+    <p><span class="revisions"></span></p>
+
+  </div>
+
+  <div class="drawing_uploads">
+
+    <h2>Drawing Uploads</h2>
+    <button type="button" onclick="getDrawingUploads()">Get Drawing Uploads</button>
+    <p><span class="uploads"></span></p>
+
+  </div>
+
+  <div class="drawing_areas">
+
+    <h2>Drawing Areas</h2>
+    <button type="button" onclick="getDrawingAreas()">Get Drawing Areas</button>
+    <p><span class="areas"></span></p>
+
+  </div>
+
+  <div class="drawings">
+
+    <h2>Drawings</h2>
+    <button type="button" onclick="getDrawings()">Get Drawings</button>
+    <p><span class="drawings"></span></p>
+
+  </div>
+
+</body>
+
+</html>
