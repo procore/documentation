@@ -5,6 +5,15 @@ layout: default
 section_title: OAuth 2.0 Authentication
 ---
 
+> IMPORTANT
+>
+> Prior to working through this tutorial you should review the previous topics in this section to ensure your have a solid understanding of how OAuth 2.0 is implemented in the Procore API:
+>
+> - [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %})
+> - [Understanding OAuth 2.0 Roles]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_roles.md %})
+> - [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+> - [Procore API Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %})
+
 ## Introduction
 
 If you are planning on developing a Single Page Application (SPA) with no backend components, or intend to invoke the Procore API via JavaScript, we recommend using the Implicit Grant flow for access token acquisition.
@@ -27,7 +36,7 @@ In the following sections we examine the Oauth 2.0 Implicit Grant flow in the co
 
 The diagram below illustrates the interaction between the various entities comprised by the Implicit Grant flow.
 
-![Implicit activity]({{ site.baseurl }}/assets/guides/implicit-activity-diag.svg)
+![Implicit activity]({{ site.baseurl }}/assets/guides/implicit-grant-type-activity-diagram.png)
 
 Let's summarize the flow as depicted in the diagram:
 

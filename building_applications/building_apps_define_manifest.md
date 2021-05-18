@@ -17,7 +17,7 @@ The Procore platform currently supports two App component types that you define 
 
 _Data connection_ components are used in Apps that read or write data to/from Procore using the available Procore API resources.
 Since this type of App requires authentication with the Procore API, the data connection component is used to define the OAuth 2.0 authorization grant type for the App (i.e., authorization_code or implicit).
-For additional information on OAuth 2.0 authorization grant types, see Choosing an OAuth 2.0 Grant Type.
+For additional information on OAuth 2.0 authorization grant types, see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})  .
 It is important to note that an App can only have one data connection component.
 
 _Embedded_ components are used in Apps that launch in an iframe within the Procore user interface as an embedded experience.
@@ -80,6 +80,8 @@ Below is an example App manifest that helps to describe the various sections of 
 ```
 
 Let’s dive deeper into the example above to understand the various sections that make up the manifest.
+
+**app_manifest** - includes a single `id` field which is automatically generated using App information from the Developer Portal. You do not need to explicitly define this field in your manifest.
 
 **post_installation_instruction** - defines specific instructions that must be carried out by the Procore user tasked with installing and setting up the App for use by their organization.
 This information is displayed to the user at the time of installation, and later via the App Management page in the Procore Web user interface.

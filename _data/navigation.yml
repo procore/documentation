@@ -38,9 +38,9 @@
       url: /oauth-keys
     - title: Choosing an OAuth 2.0 Grant Type
       url: /oauth-choose-grant-type
-    - title: OAuth 2.0 Authorization Code Grant Flow
+    - title: OAuth 2.0 Authorization Code Grant
       url: /oauth-auth-grant-flow
-    - title: OAuth 2.0 Implicit Grant Flow
+    - title: OAuth 2.0 Implicit Grant
       url: /oauth-implicit-flow
     - title: Using the OAuth 2.0 Client Credentials Grant Type
       url: /oauth-client-credentials
@@ -99,6 +99,8 @@
       url: /country-codes
     - title: MPZ Request Headers
       url: /mpz-headers
+    - title: Working with Documents
+      url: /tutorial-documents
 
 - title: Webhooks
   items:
