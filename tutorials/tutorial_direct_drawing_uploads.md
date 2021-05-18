@@ -6,7 +6,7 @@ section_title: Guides and Tutorials
 
 ---
 
-Overview
+## Overview
 
 Direct file uploads can be used to create new drawings in a project without going through the Procore optical character recognition (OCR) process.
 The [Create Drawing](https://developers.procore.com/reference/rest/v1/drawings#create-drawing) and [Create Drawing Upload](https://developers.procore.com/reference/rest/v1/drawings#create-drawing-upload) endpoints described here can be used by integrators to import drawings into projects while bypassing OCR.
