@@ -1,5 +1,5 @@
 ---
-permalink: /oauth-example
+permalink: /oauth-auth-grant-flow
 title: OAuth 2.0 Authorization Code Grant Flow
 layout: default
 section_title: OAuth 2.0 Authentication

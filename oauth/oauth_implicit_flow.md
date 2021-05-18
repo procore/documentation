@@ -1,5 +1,5 @@
 ---
-permalink: /oauth-implicit-example
+permalink: /oauth-implicit-flow
 title: OAuth 2.0 Implicit Grant Flow
 layout: default
 section_title: OAuth 2.0 Authentication

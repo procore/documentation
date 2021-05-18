@@ -39,9 +39,9 @@
     - title: Choosing an OAuth 2.0 Grant Type
       url: /oauth-choose-grant-type
     - title: OAuth 2.0 Authorization Code Grant Flow
-      url: /oauth-example
+      url: /oauth-auth-grant-flow
     - title: OAuth 2.0 Implicit Grant Flow
-      url: /oauth-implicit-example
+      url: /oauth-implicit-flow
     - title: Using the OAuth 2.0 Client Credentials Grant Type
       url: /oauth-client-credentials
     - title: OAuth 2.0 for Installed Applications
@@ -185,6 +185,7 @@
   items:
     - title: Developer Support
       url: https://developers.procore.com/developer_support
+      absolute: true
     - title: Technical Services
       url: /tech-services
     - title: Submit Case Study

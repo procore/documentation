@@ -160,7 +160,9 @@
     <dt{% if page.section_title == section.title %} class="active" {% endif %}>{{ section.title }}</dt>
     {% for item in section.items %}
       <dd{% if page.url == item.url %} class="active" {% endif %}>
-        <a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
+        <a href="{% if item.absolute != true %}{{ site.baseurl }}{% endif %}{{ item.url }}">
+          {{ item.title }}
+        </a>
       </dd>
     {% endfor %}
   </dl>
