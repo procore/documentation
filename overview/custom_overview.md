@@ -20,4 +20,4 @@ The Procore API enables many different integrations, including:
 
 To get started, we recommend starting with our [Developer Training videos](http://learn.procore.com/#procore-connect).
 As a Procore client or prospect, you may decide that a custom integration is desired in order to extend Procore and ensure your business workflows remain intact.
-Procore provides a range of technical services to help you achieve your integration goals. Visit the [Technical Services]({{ site.baseurl }}{% link additional_resources/tech_services.md %}) page for additional information.
+Procore provides a range of technical services to help you achieve your integration goals. Visit the [Technical Services]({{ site.url }}{{ site.baseurl }}{% link additional_resources/tech_services.md %}) page for additional information.

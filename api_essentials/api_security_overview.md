@@ -10,7 +10,7 @@ section_title: API Essentials
 
 Procore employs what many consider the industry standard for API authentication - [OAuth 2.0](https://tools.ietf.org/html/rfc6749).
 The OAuth 2.0 authentication framework provides a secure means of authorizing and authenticating access to user data for third-party applications.
-Developers building integrations with the Procore API implement one of several [OAuth 2.0 authorization grant types]({{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) depending on their particular application use case.
+Developers building integrations with the Procore API implement one of several [OAuth 2.0 authorization grant types]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) depending on their particular application use case.
 The OAuth 2.0 grant types supported by the Procore API rely on the use of tokens which are string values that represent the authorization and authentication of a specific application to access data in Procore on behalf of a Procore user.
 
 ## Understanding OAuth 2.0 Token Behavior
@@ -30,7 +30,7 @@ Disconnecting the app in a specific company will not revoke tokens on behalf of 
 
 Service accounts, which are created from the Procore web application, can only be used to access API data within the company account in which they are created.
 Service accounts do not utilize refresh tokens, but rather use their Client ID and Client Secret to generate a new access token that lasts for two hours each time they are used to make API requests.
-See [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) for additional information.
+See [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) for additional information.
 Service accounts do not act on behalf of an existing Procore user, but rather they utilize a [Directory contact](https://support.procore.com/faq/what-is-a-contact-in-procore-and-which-project-tools-support-the-concept) that is generated automatically upon creation of the service account.
 Service account permissions and access are controlled by the permissions settings for the Directory contact.
 By default, upon initial creation a service account will have no permissions ('None') to view any data within the company it is created in.
@@ -52,10 +52,10 @@ All third-party developers agree to the [Procore Developer Portal Terms of Use](
 
 Here is a list of additional resources to help you learn more about OAuth 2.0 and Procore API Security.
 
-- [Introduction to OAuth 2.0]({{ site.baseurl }}{% link oauth/oauth_introduction.md %}).
+- [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}).
 - [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749)
 - [OAuth 2.0 Simplified](https://aaronparecki.com/oauth-2-simplified/)
-- [Choosing an OAuth 2.0 Grant Type]({{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+- [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
 - [What is a Service Account?](https://support.procore.com/faq/what-is-a-service-account)
 - [Information Security and Privacy](https://support.procore.com/references/information-security-and-privacy)
 

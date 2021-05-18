@@ -9,7 +9,7 @@ section_title: Best Practices
 ## Background ##
 
 
-Procore's network toplogy includes [Multiple Procore Zones (MPZ)]({{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
+Procore's network toplogy includes [Multiple Procore Zones (MPZ)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
 MPZ allows us to distribute our customer load across a larger pool of infrastructure to provide better scalability, durability, and security.
 MPZ allows us to distribute our infrastructure over multiple geographical locations.
 In order for your application to function properly in the context of MPZ, you will need to adhere to specific implementation requirements for your request headers.
@@ -32,4 +32,4 @@ curl -H "Authorization: Bearer <access token>” -H "Procore-Company-Id: xxxxxxx
 ## MPZ and Service Accounts
 
 The `Procore-Company-Id` request header field is _not_ required when you are using Service Accounts with the OAuth 2.0 Client Credentials grant type.
-See [Using Service Accounts with MPZ]({{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}#using-service-accounts-with-mpz) for additional information.
+See [Using Service Accounts with MPZ]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}#using-service-accounts-with-mpz) for additional information.

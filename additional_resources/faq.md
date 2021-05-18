@@ -45,12 +45,12 @@ To ensure that changes you make in your production environment are available in 
 **How long does my access token last?**
 
 Once obtained, your access token will last for two (2) hours.
-See [OAuth 2.0 Access Tokens]({{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}) for additional information.
+See [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}) for additional information.
 
 **How long does my refresh token last?**
 
 Your refresh token will last indefinitely until it is used.
-See [OAuth 2.0 Access Tokens]({{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}) for additional information.
+See [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}) for additional information.
 
 **My access token isn’t working. Why not?**
 
@@ -70,7 +70,7 @@ There are a number of reasons why this might be the case as outlined in the foll
 
 **How can my installed application go through the OAuth flow without any user interaction?**
 
-While our [installed application configuration]({{ site.baseurl }}{% link oauth/oauth_installed_apps.md %}) does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
+While our [installed application configuration]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %}) does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
 Once you manually go through that step by logging in and getting an authorization code, you can then programmatically authenticate from that point forward without user intervention.
 After the initial App Authorization Grant, you can retrieve a pair of tokens: an access_token and refresh_token.
 The access_token is used to authenticate (passed in under the Authorization header as `Bearer <token>`), and it expires after 2 hours.
@@ -81,7 +81,7 @@ In other words, after getting your first pair of tokens, your program would use 
 After that token expires, the next time your program wanted to access our API it would use the refresh_token received with the now-expired access_token to [refresh the access token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token) and get a new pair of tokens.
 Once it makes that call, your old refresh_token would expire since it has now been used and you would have a new access_token and refresh_token.
 Then, your program would use that new access_token until it expires, and the cycle would repeat again.
-Alternately, you can elect to design your application to use a [service account](https://support.procore.com/faq/what-is-a-service-account) and the [OAuth 2.0 Client Credentials Grant Type](({{ site.baseurl }}{% link oauth/oauth_client_credentials.md %})) which requires no end-user interaction.
+Alternately, you can elect to design your application to use a [service account](https://support.procore.com/faq/what-is-a-service-account) and the [OAuth 2.0 Client Credentials Grant Type](({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %})) which requires no end-user interaction.
 
 **Why does my browser take me back to an integration page when I open a new browser tab and type in https://app.procore.com?**
 
@@ -125,14 +125,14 @@ We currently do not provide a 'built-in' API Explorer in our Developer Portal.
 However, one application we highly recommend is [Postman](https://www.getpostman.com/).
 This application allows you to run and test Procore API endpoints.
 This is the tool of choice for our Developer Support team as well as our own in-house developers.
-See our guide to [Exploring the Procore API with Postman]({{ site.baseurl }}{% link tools/postman.md %}) for additional information.
+See our guide to [Exploring the Procore API with Postman]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}) for additional information.
 
 ## Deprecation
 
 **How is deprecation handled for Procore API endpoints, and what is the policy?**
 
 As you browse through our Procore API documentation you may see deprecation warning banners on some of our endpoint reference pages.
-Please see our [API Lifecycle guide]({{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %}) for information on our API deprecation policy.
+Please see our [API Lifecycle guide]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %}) for information on our API deprecation policy.
 
 ## Cross-Origin Resource Sharing (CORS)
 
@@ -145,7 +145,7 @@ In order to take advantage of CORS, you must first register your domain with our
 
 For CORS requests from client-side apps, you will need to have your origin domain whitelisted for your app.
 To do that, please contact <apisupport@procore.com> and provide the domain you wish to have whitelisted.
-If you are having trouble with authentication using your client-side app, please consult our [OAuth 2.0 Implicit Grant Flow]({{ site.baseurl }}{% link oauth/oauth_implicit_flow.md %}) article for more information.
+If you are having trouble with authentication using your client-side app, please consult our [OAuth 2.0 Implicit Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_implicit_flow.md %}) article for more information.
 
 **How many CORS domains can I whitelist?**
 
@@ -156,14 +156,14 @@ While it is certainly possible have more than one domain whitelisted for CORS, p
 **How do I get notified of changes to specific Procore resource objects?**
 
 Our Webhooks feature allows you to establish a system through which you can receive notifications for changes that occur to specific resources.
-Please visit our [Introduction to Webhooks]({{ site.baseurl }}{% link webhooks/webhooks.md %}) and [Using the Webhooks API]({{ site.baseurl }}{% link webhooks/webhooks_api.md %}) guides on the Developer Portal for additional information.
+Please visit our [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}) guides on the Developer Portal for additional information.
 
 ## Procore API Rate Limit
 
 **I am receiving a 429 status code error when making a call to the Procore API, what causes this?**
 
 You have exceeded the Procore API rate limit of 3600 requests per hour.
-See our [Rate Limiting]({{ site.baseurl }}{% link api_essentials/rate_limiting.md %})  guide for additional information and suggestions for resolving your issue.
+See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limiting.md %})  guide for additional information and suggestions for resolving your issue.
 
 ## Multiple Procore Zones (MPZ)
 
@@ -184,11 +184,11 @@ For additional information see [What is App Management?](https://support.procore
 
 **I'm receiving a particular error code. What does it mean?**
 
-Our [RESTful API Concepts]({{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}) guide includes a section that lists standard error codes you may encounter while working with the Procore API.
+Our [RESTful API Concepts]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}) guide includes a section that lists standard error codes you may encounter while working with the Procore API.
 If you need additional assistance with dealing with errors, please contact <apisupport@procore.com>.
 
 ## Production Access
 
 **I'm ready to test my application against data in my production environment. How do I request production access?**
 
-Our guide to [Creating a New Application]({{ site.baseurl }}{% link building_applications/building_apps_intro.md %}) outlines the steps for requesting production credentials (client_id and client_secret) for your application.
+Our guide to [Creating a New Application]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %}) outlines the steps for requesting production credentials (client_id and client_secret) for your application.

@@ -8,10 +8,10 @@ section_title: OAuth 2.0 Authentication
 > IMPORTANT
 >
 > Prior to working through this tutorial you should review the previous topics in this section to ensure your have a solid understanding of how OAuth 2.0 is implemented in the Procore API:
-> - [Introduction to OAuth 2.0]({{ site.baseurl }}{% link oauth/oauth_introduction.md %})
-> - [Understanding OAuth 2.0 Roles]({{ site.baseurl }}{% link oauth/oauth_roles.md %})
-> - [Choosing an OAuth 2.0 Grant Type]({{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
-> - [Procore API Endpoints]({{ site.baseurl }}{% link oauth/oauth_endpoints.md %})
+> - [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %})
+> - [Understanding OAuth 2.0 Roles]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_roles.md %})
+> - [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+> - [Procore API Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %})
 
 ## Overview
 

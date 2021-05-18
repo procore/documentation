@@ -442,7 +442,7 @@ The example also shows the JSON request body.
 
 Use the `notes` attribute to define the text for the response and use the boolean `official` attribute to indicate whether it is an official response.
 File attachments are also supported.
-See [Working with File Attachments and Image Uploads]({{ site.baseurl }}{% link tutorials/attachments.md %}) for information on using file attachments with the Procore API.
+See [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %}) for information on using file attachments with the Procore API.
 
 ### Perform Bulk Operations on Correspondence Items
 
@@ -454,4 +454,4 @@ The request body defines updated field values for one or more items.
 ## Further Reading
 
 - [Procore Support Articles - Correspondence Tool](https://support.procore.com/products/online/user-guide/project-level/correspondence)
-- [Working with Configurable Fieldsets]({{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
+- [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})

@@ -43,5 +43,5 @@ _Note_: The following Procore API endpoints _do not_ require a request header co
 - [List Companies](https://developers.procore.com/reference/rest/v1/companies) - (GET /rest/v1.0/companies)
 
 The exception to this rule is when you are using Service Accounts with the OAuth 2.0 Client Credentials grant type.
-See [Using Service Accounts with MPZ]({{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}#using-service-accounts-with-mpz) for additional information.
+See [Using Service Accounts with MPZ]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}#using-service-accounts-with-mpz) for additional information.
 

@@ -24,10 +24,10 @@ During this stage, partners and their developers are able to learn about and exp
 
 Procore technology partners progress through the following steps during the Self-Service stage:
 
-- [Create a developer account]({{ site.baseurl }}{% link getting_started/new_account.md %})
-- [Register your application]({{ site.baseurl }}{% link building_applications/building_apps_intro.md %})
-- [Work with sandbox environments]({{ site.baseurl }}{% link getting_started/development_environments.md %})
-- [Explore developer training resources]({{ site.baseurl }}{% link overview/training.md %})
+- [Create a developer account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %})
+- [Register your application]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %})
+- [Work with sandbox environments]({{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %})
+- [Explore developer training resources]({{ site.url }}{{ site.baseurl }}{% link overview/training.md %})
 
 ### Publish to the Marketplace
 
@@ -42,9 +42,9 @@ As you work toward publishing your application on the Marketplace, you will step
 
 Review the following topics for additional information:
 
-- [Marketplace Requirements]({{ site.baseurl }}{% link overview/partner_content_reqs.md %})
-- [Technical Requirements]({{ site.baseurl }}{% link overview/partner_tech_reqs.md %})
-- [Sales and Support Requirements]({{ site.baseurl }}{% link overview/partner_support_content_reqs.md %})
+- [Marketplace Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_content_reqs.md %})
+- [Technical Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_tech_reqs.md %})
+- [Sales and Support Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_support_content_reqs.md %})
 
 ### Additional Information
 

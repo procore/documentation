@@ -4,6 +4,7 @@
   <meta name="description" content="Documentation for Procore developers" />
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
+  <base target="_parent">
   <style>
     body {
       font-family: Inter, Noto, Arial, sans-serif;
@@ -160,7 +161,7 @@
     <dt{% if page.section_title == section.title %} class="active" {% endif %}>{{ section.title }}</dt>
     {% for item in section.items %}
       <dd{% if page.url == item.url %} class="active" {% endif %}>
-        <a href="{% if item.absolute != true %}{{ site.baseurl }}{% endif %}{{ item.url }}">
+        <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
           {{ item.title }}
         </a>
       </dd>

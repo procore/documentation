@@ -13,7 +13,7 @@ the Procore API into their projects.
 
 - Follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/)
 - Type `jekyll serve`
-- Open `http://127.0.0.1:4000/dev-docs/introduction` in your browser
+- Open `http://127.0.0.1:4000/documentation/introduction` in your browser
 - As you edit the source code and save, the HTML is regenerated automatically
 
 ## How to fix an error
@@ -44,7 +44,7 @@ the other hand, should use the `link` method provided by Jekyll, which ensures
 that links are valid and work both locally and remotely:
 
 ```
-[Workflow API]({{ site.baseurl }}{% link tutorials/tutorial_workflows.md %})
+[Workflow API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %})
 ````
 
 External images are embedded simply with `![alt text](url)`. Internal images

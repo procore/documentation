@@ -83,4 +83,4 @@ When we log in to Procore, navigate to the Drawings tool in our project and sele
 
 ## Further Reading
 
-Refer to Working with [Direct File Uploads]({{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}) for general information on creating file uploads using the Procore API.
+Refer to Working with [Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}) for general information on creating file uploads using the Procore API.

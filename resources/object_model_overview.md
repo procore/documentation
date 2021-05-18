@@ -11,13 +11,13 @@ This guide will help you understand how all the Procore resource objects fit tog
 
 The objects are grouped into three primary resource categories:
 
-- [General Resources]({{ site.baseurl }}{% link resources/object_model_general.md %})
-- [Company-Level Resources]({{ site.baseurl }}{% link resources/object_model_company.md %})
-- [Project-Level Resources]({{ site.baseurl }}{% link resources/object_model_project.md %})
+- [General Resources]({{ site.url }}{{ site.baseurl }}{% link resources/object_model_general.md %})
+- [Company-Level Resources]({{ site.url }}{{ site.baseurl }}{% link resources/object_model_company.md %})
+- [Project-Level Resources]({{ site.url }}{{ site.baseurl }}{% link resources/object_model_project.md %})
 
 Project-level resources are further broken down into the primary Procore Product Lines:
 
-- [Core]({{ site.baseurl }}{% link resources/object_model_project.md %}#core)
-- [Project Management]({{ site.baseurl }}{% link resources/object_model_project.md %}#project-management)
-- [Quality and Safety]({{ site.baseurl }}{% link resources/object_model_project.md %}#quality-and-safety)
-- [Construction Financials]({{ site.baseurl }}{% link resources/object_model_project.md %}#construction-financials)
+- [Core]({{ site.url }}{{ site.baseurl }}{% link resources/object_model_project.md %}#core)
+- [Project Management]({{ site.url }}{{ site.baseurl }}{% link resources/object_model_project.md %}#project-management)
+- [Quality and Safety]({{ site.url }}{{ site.baseurl }}{% link resources/object_model_project.md %}#quality-and-safety)
+- [Construction Financials]({{ site.url }}{{ site.baseurl }}{% link resources/object_model_project.md %}#construction-financials)

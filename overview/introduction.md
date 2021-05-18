@@ -13,9 +13,9 @@ You can expand the functionality of your Procore account by leveraging existing 
 > Although Procore will continue to support Vapid resources and address defects as needed, all new feature development for the Procore API will be done in Rest.
 > We encourage all developers using the Vapid API resources to migrate to Rest v1.0 as soon as possible to take advantage of the latest API features.
 >
-> - [Vapid Deprecation]({{ site.baseurl }}{% link overview/vapid_deprecation.md %})
-> - [Rest API Overview]({{ site.baseurl }}{% link getting_started/rest_api_overview.md %})
-> - [API Lifecycle]({{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})
+> - [Vapid Deprecation]({{ site.url }}{{ site.baseurl }}{% link overview/vapid_deprecation.md %})
+> - [Rest API Overview]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_overview.md %})
+> - [API Lifecycle]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})
 
 ## Procore API
 
@@ -38,13 +38,13 @@ It is likely that you fall into one of these categories and that your specific i
 _Procore Clients_ are individuals and organizations that have one or more Procore accounts and utilize Procore for their daily project management activities.
 It is not uncommon for clients to rely on a number of other software tools and processes in addition to Procore to manage their projects.
 For example, a large general contracting firm may use a legacy tool for bidding/estimation, while using Procore for the balance of their project management tasks.
-In this scenario, the GC could build (or hire a development team to build) a [Custom Integration]({{ site.baseurl }}{% link overview/custom_overview.md %}) between their legacy systems and Procore using the Procore API, thereby improving efficiency and upgrading the user experience for their employees and collaborators (subcontractors, vendors, etc.).
+In this scenario, the GC could build (or hire a development team to build) a [Custom Integration]({{ site.url }}{{ site.baseurl }}{% link overview/custom_overview.md %}) between their legacy systems and Procore using the Procore API, thereby improving efficiency and upgrading the user experience for their employees and collaborators (subcontractors, vendors, etc.).
 As a general rule, applications and integrations produced by Procore clients are intended for their own internal use and are not normally published to the Procore Marketplace.
 
 ### Procore Technology Partners
 
 _Procore Technology Partners_ leverage the Procore API to provide Procore users with a best-in-class experience, irrespective of what problem they are seeking to solve.
-In addition to making their [Partner Integrations]({{ site.baseurl }}{% link overview/custom_overview.md %}) available on the Procore Marketplace for purchase by Procore clients and users, members in the Procore Partnerships program benefit from exclusive access to the following resources:
+In addition to making their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/custom_overview.md %}) available on the Procore Marketplace for purchase by Procore clients and users, members in the Procore Partnerships program benefit from exclusive access to the following resources:
 
 - Brand presence on the Procore Marketplace
 - Use of the Procore logo
@@ -61,6 +61,6 @@ Since their Custom Integrations are only used internally, they have complete con
 Procore clients also manage the internal training needs for their users.
 
 Conversely, Procore technology partners take a different development path as their applications are intended for use by the Procore user community at-large, and therefore must adhere to more stringent standards when it comes to quality, performance, and security.
-In addition, since technology partners have the opportunity to publish their [Partner Integrations]({{ site.baseurl }}{% link overview/partner_overview.md %}) on the Procore Marketplace, they must submit their applications to Procore for approval.
+In addition, since technology partners have the opportunity to publish their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/partner_overview.md %}) on the Procore Marketplace, they must submit their applications to Procore for approval.
 Finally, technology partners must provide adequate training materials and offer technical support services for their applications.
 

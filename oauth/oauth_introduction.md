@@ -22,15 +22,15 @@ If you are brand new to OAuth 2.0, we recommend you review the official [OAuth 2
 
 ### Explore OAuth 2.0 Documentation for the Procore API
 
-- [Understanding OAuth 2.0 Roles]({{ site.baseurl }}{% link oauth/oauth_roles.md %})
-- [OAuth 2.0 Access Tokens]({{ site.baseurl }}{% link oauth/oauth_access_tokens.md %})
-- [Managing OAuth Credentials and Redirect URIs]({{ site.baseurl }}{% link oauth/oauth_keys.md %})
-- [Choosing an OAuth 2.0 Grant Type]({{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
-- [OAuth 2.0 Authorization Code Grant Flow]({{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %})
-- [OAuth 2.0 Implicit Grant Flow]({{ site.baseurl }}{% link oauth/oauth_implicit_flow.md %})
-- [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.baseurl }}{% link oauth/oauth_client_credentials.md %})
-- [OAuth 2.0 for Installed Applications]({{ site.baseurl }}{% link oauth/oauth_installed_apps.md %})
-- [Procore API Authentication Endpoints]({{ site.baseurl }}{% link oauth/oauth_endpoints.md %})
+- [Understanding OAuth 2.0 Roles]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_roles.md %})
+- [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %})
+- [Managing OAuth Credentials and Redirect URIs]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_keys.md %})
+- [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+- [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %})
+- [OAuth 2.0 Implicit Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_implicit_flow.md %})
+- [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %})
+- [OAuth 2.0 for Installed Applications]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %})
+- [Procore API Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %})
 
 ### Procore OAuth 2.0 Postman Collection with cURL Examples ###
 

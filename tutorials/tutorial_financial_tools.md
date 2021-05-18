@@ -40,7 +40,7 @@ Procore’s clients often work with a systems integrator, however we also work w
 > A direct database connection to Procore is not supported.
 > In order to access content within the Procore database, you are required to use our REST API which uses JSON as the data format.
 > RDBMS schema, database tables, or XML and/or SOAP-style integrations are also not supported.
-> To get started, see our [API introduction]({{ site.baseurl }}{% link overview/introduction.md %}).
+> To get started, see our [API introduction]({{ site.url }}{{ site.baseurl }}{% link overview/introduction.md %}).
 
 ## Integration Development Overview
 
@@ -48,7 +48,7 @@ Developing an integration will require an application to be developed which will
 This application will use Procore’s REST webservices to read and write data with Procore, and will also need to connect to your ERP system in a manner that it allows.
 
 There are many different technical solutions, programming languages, etc which can be used to accomplish this, and since Procore’s REST API is technology agnostic, this choice can be made by your own development resources.
-Many clients choose to implement an on-premise architecture, however please be aware that to leverage the [API Webhooks]({{ site.baseurl }}{% link webhooks/webhooks.md %}), your application will need to allow incoming connections from the public internet.
+Many clients choose to implement an on-premise architecture, however please be aware that to leverage the [API Webhooks]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}), your application will need to allow incoming connections from the public internet.
 
 To evaluate the Procore API with your own technical resources, please start with our [free online training programs](https://developers.procore.com/documentation/training) and our public [API Reference](https://developers.procore.com/reference) documentation.
 
@@ -56,7 +56,7 @@ It is best to start small with the integration development, which is why we reco
 
 ### Need Some Assistance?
 
-To connect with a Solutions Architect from Procore regarding your integration, please visit the [Technical Services]({{ site.baseurl }}{% link additional_resources/tech_services.md %}) page and fill out the available request form.
+To connect with a Solutions Architect from Procore regarding your integration, please visit the [Technical Services]({{ site.url }}{{ site.baseurl }}{% link additional_resources/tech_services.md %}) page and fill out the available request form.
 Procore’s Solutions Architects can provide business process consulting in addition to technical guidance.
 
 For technical questions or issues, please email our API Support team: <apisupport@procore.com>
@@ -84,7 +84,7 @@ It is advised to review the existing data for the existence of `origin_id` prior
 ##### Sync Actions
 
 The `origin_id` field also allows for a unique and powerful Sync operation to be completed, and is useful for syncing creates and updates to Procore.
-For more information, see the [Sync Actions]({{ site.baseurl }}{% link tutorials/using_sync_actions.md %}) guide.
+For more information, see the [Sync Actions]({{ site.url }}{{ site.baseurl }}{% link tutorials/using_sync_actions.md %}) guide.
 
 #### origin_data
 
@@ -205,9 +205,9 @@ This applies to "Payments Issued" on a commitment and "Payments Received" on a p
 ### Workflow
 
 Procore’s workflow tool provides control of the status field on certain objects in Procore.
-See the [Workflow API]({{ site.baseurl }}{% link tutorials/tutorial_workflows.md %}) guide for additional information.
+See the [Workflow API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %}) guide for additional information.
 
 ### Webhooks
 
 The Webhooks feature allows third-party developers and integrators to specify one or more Procore API resources for which they want to be notified when Create, Update, or Delete actions occur.
-Please see the [Webhooks API]({{ site.baseurl }}{% link webhooks/webhooks.md %}) guide for additional information.
+Please see the [Webhooks API]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}) guide for additional information.

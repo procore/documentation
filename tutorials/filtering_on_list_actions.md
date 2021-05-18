@@ -143,7 +143,7 @@ https://api.procore.com/rest/v1.0/projects/123456/accident_logs?start_date=2017-
 
 Note that calling the List Action with no date query parameters only returns records for the current (today's) date.
 
-See [Working with Daily Logs]({{ site.baseurl }}{% link tutorials/daily_logs.md %}) for additional information.
+See [Working with Daily Logs]({{ site.url }}{{ site.baseurl }}{% link tutorials/daily_logs.md %}) for additional information.
 
 ## Sorting on List Actions
 

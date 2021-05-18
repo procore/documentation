@@ -9,10 +9,10 @@ section_title: Getting Started
 
 Prior to making calls to the Procore API you must complete the following tasks:
 
-- [Register for a Developer Account]({{ site.baseurl }}{% link getting_started/new_account.md %}) on the Procore Developer Portal.
-- [Create an Application]({{ site.baseurl }}{% link building_applications/building_apps_intro.md %}) using your Developer Account.
+- [Register for a Developer Account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %}) on the Procore Developer Portal.
+- [Create an Application]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %}) using your Developer Account.
 
-In addition, you will need to familiarize yourself with the [OAuth 2.0 authentication protocol]({{ site.baseurl }}{% link oauth/oauth_introduction.md %}) as access to the Procore API is secured by the authorization and authentication requirements of OAuth 2.0.
+In addition, you will need to familiarize yourself with the [OAuth 2.0 authentication protocol]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) as access to the Procore API is secured by the authorization and authentication requirements of OAuth 2.0.
 Applications you develop for integrating with Procore must implement OAuth 2.0.
 
 > HTTPS PROTOCOL REQUIREMENT
@@ -143,7 +143,7 @@ The examples presented in the following sections are based on Postman v5.3.3. In
 
 ### 1. Configure OAuth 2.0 in Postman
 
-Before you can make a call to the Procore API using Postman, you must [configure OAuth 2.0 authorization]({{ site.baseurl }}{% link tools/postman.md %}#postman-token-gen) using Postman's token management tool.
+Before you can make a call to the Procore API using Postman, you must [configure OAuth 2.0 authorization]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#postman-token-gen) using Postman's token management tool.
 See Generating OAuth 2.0 Tokens in Postman for the steps to accomplish this.
 Note that this example uses a development sandbox environment, but you can just as easily configure OAuth 2.0 and generate access tokens for your production environment.
 
@@ -158,9 +158,9 @@ Let's break down this example call:
 
 - First, we set the HTTP action to GET.
 - We then enter the URL for the List Projects endpoint as `https://api.procore.com/rest/v1.0/projects?company_id=1234`. Note that we've used a fictitous company_id of '1234', so you will want to substitute your own valid `company_id` value.
-- The Authorization Type is set to 'Inherit auth from parent' because we have configured OAuth 2.0 in Postman at the collection level as described in [Generating OAuth 2.0 Tokens]({{ site.baseurl }}{% link tools/postman.md %}#postman-token-gen).
+- The Authorization Type is set to 'Inherit auth from parent' because we have configured OAuth 2.0 in Postman at the collection level as described in [Generating OAuth 2.0 Tokens]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#postman-token-gen).
 
-In addition to the settings described above, set the `Procore-Company-ID` header value as needed to work with [Multiple Procore Zones (MPZ)]({{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
+In addition to the settings described above, set the `Procore-Company-ID` header value as needed to work with [Multiple Procore Zones (MPZ)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
 
 ![example call mpz]({{ site.baseurl }}/assets/guides/example-call-mpz.png)
 

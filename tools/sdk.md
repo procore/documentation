@@ -28,7 +28,7 @@ Please visit the Procore Ruby SDK GitHub site for installation instructions, gui
 ## Procore Ruby on Rails Sample Application
 
 The Procore Ruby on Rails Sample Application demonstrates an implementation of OAuth 2.0 in the context of a Ruby on Rails (RoR) application.
-It authenticates with Procore's API using the [OAuth 2.0 Authorization Code Grant Type]({{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) flow.
+It authenticates with Procore's API using the [OAuth 2.0 Authorization Code Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) flow.
 The application is configured to access either Procore's production environment or Procore's developer sandbox environment.
 In addition, it allows you to make a test call to the [Show User Info](https://developers.procore.com/reference/me) endpoint.
 For more information, visit the link below and refer to the README page in the GitHub repository.
@@ -38,7 +38,7 @@ For more information, visit the link below and refer to the README page in the G
 ## Procore Python Sample Application
 
 The Procore Python Sample Application demonstrates an implementation of OAuth 2.0 in the context of a Python application.
-It authenticates with Procore's API using the [OAuth 2.0 Authorization Code Grant Type]({{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) flow.
+It authenticates with Procore's API using the [OAuth 2.0 Authorization Code Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) flow.
 The application is configured to access either Procore's production environment or Procore's developer sandbox environment.
 In addition, it allows you to make a test call to the [Show User Info](https://developers.procore.com/reference/me) endpoint.
 For more information, visit the link below and refer to the README page in the GitHub repository.

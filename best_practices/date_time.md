@@ -86,7 +86,7 @@ GET https://sandbox.procore.com/rest/v1.0/purchase_order_contracts/?project_id=
 
 It is important to note that the date-time string used with the `created_at` and `updated_at` parameters must adhere to ISO8601 standards.
 In addition, these parameters must be formatted as a range using the ... delimiter.
-See our [Filtering and Sorting Guide]({{ site.baseurl }}{% link tutorials/filtering_on_list_actions.md %}) for additional tips on working with responses from Procore API GET requests.
+See our [Filtering and Sorting Guide]({{ site.url }}{{ site.baseurl }}{% link tutorials/filtering_on_list_actions.md %}) for additional tips on working with responses from Procore API GET requests.
 
 ### Setting Dates/Times with POST and PATCH Requests
 

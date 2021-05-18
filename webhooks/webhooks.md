@@ -74,7 +74,7 @@ An example event object generated from a CREATE event is shown below:
 >
 > Note that event objects are bundled into one or more Webhooks _deliveries_ sent to your web service.
 > The delivery payload contains additional fields and contextual information about the event.
-> For details regarding Webhooks deliveries, please refer to [Using the Webhooks API]({{ site.baseurl }}{% link webhooks/webhooks_api.md %}).
+> For details regarding Webhooks deliveries, please refer to [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}).
 
 ## Setting Up Your Web Server
 

@@ -169,4 +169,4 @@ https://app.procore.com/<COMPANY ID>/company/home/list
 
 Where: `<COMPANY ID>` is the integer value for the ID of the company you are currently logged into.
 
-For addtional information on MPZ, see [Working with Multiple Procore Zones]({{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
+For addtional information on MPZ, see [Working with Multiple Procore Zones]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).

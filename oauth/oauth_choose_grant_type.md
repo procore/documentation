@@ -64,7 +64,7 @@ Here is a diagram illustrating the flow for the Implicit grant type. Let’s wal
 
 If you are developing an application or integration that does not rely on or require access authorization from a specific Procore user, then you will want to implement the Client Credentials grant type.
 This grant type is appropriate for "machine-to-machine" integrations.
-For additional information on implementing the Client Credentials grant flow in your application, see [OAuth 2.0 Using Client Credentials]({{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}).
+For additional information on implementing the Client Credentials grant flow in your application, see [OAuth 2.0 Using Client Credentials]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}).
 
 Here is a diagram illustrating the flow for the Client Credentials grant type. Let’s walk through each step in the flow.
 

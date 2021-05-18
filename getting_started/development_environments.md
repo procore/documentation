@@ -91,7 +91,7 @@ This project includes the following seed data to help get you started.
 Postman is an API test application and framework you can use to send HTTP requests to Procore API endpoints.
 It allows you to quickly send requests to the Procore API and capture results.
 It is a useful tool for getting started with the Procore API and debugging your application.
-For detailed information on using Postman with a Development Sandbox, see [Exploring the Procore API with Postman]({{ site.baseurl }}{% link tools/postman.md %}).
+For detailed information on using Postman with a Development Sandbox, see [Exploring the Procore API with Postman]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}).
 
 ## Additional Considerations for Sandbox Environments
 
