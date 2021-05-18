@@ -177,16 +177,16 @@
     - title: SDKs and Sample Applications
       url: /sdk
 
-# - title: ERP Integration
-#   items:
-#     - title: Getting Started
-#       url: /erp-intro
-#     - title: Technical Guide
-#       url: /erp-technical-guide
-#     - title: Events Dictionary
-#       url: /erp-events-dictionary
-#     - title: Metadata Details
-#       url: /erp-metadata-details
+- title: ERP Integration
+  items:
+    - title: Getting Started
+      url: /erp-intro
+    - title: Technical Guide
+      url: /erp-technical-guide
+    - title: Events Dictionary
+      url: /erp-events-dictionary
+    - title: Metadata Details
+      url: /erp-metadata-details
 
 - title: Additional Resources
   items:
@@ -199,18 +199,3 @@
       url: /submit-case-study
     - title: FAQ
       url: /faq
-
-# - title: Internal Docs
-#   items:
-#     - title: How To Publish Internal API Guides
-#       url: /internal/internal-docs-process
-#     - title: Writing Swagger Files
-#       url: /internal/writing-swagger-files
-#     - title: Viewing Your Swagger Docs
-#       url: /internal/viewing-swagger-docs
-#     - title: Endpoint Documentation Requirements and Styleguide
-#       url: /internal/api-endpoint-requirements
-#     - title: API Endpoint Deprecation
-#       url: /internal/endpoint-deprecation
-#     - title: Managing Endpoint Beta Programs
-#       url: /internal/endpoint-beta-programs
