@@ -29,7 +29,7 @@ Please email <apisupport@procore.com> and we will assist you as soon as we can.
 The [Procore Support Site](https://support.procore.com/) contains comprehensive documentation and instructional content covering all Procore tools and product lines.
 We also recommend visting [learn.procore.com](https://learn.procore.com/) to access video-based content and certification curricula.
 
-** How do I learn about the various user permissions in Procore?**
+**How do I learn about the various user permissions in Procore?**
 
 The [Procore Support Site](https://support.procore.com/) includes a reference page with a comprehensive breakdown of all user actions and the specific user permission(s) (Read-only, Standard, and/or Admin) that are required to perform a given action.
 
