@@ -11,8 +11,10 @@ the Procore API into their projects.
 
 ## How to run the project locally
 
-- Follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/)
-- Type `jekyll serve`
+- Clone this repository on your machine and `cd` into its folder
+- Run `bundle install`. If your machine already has the needed dependencies (up-to-date Ruby, OpenSSL), the command should just work.
+- If you see any error, follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/)
+- Type `bundle exec jekyll serve`
 - Open `http://127.0.0.1:4000/documentation/introduction` in your browser
 - As you edit the source code and save, the HTML is regenerated automatically
 
