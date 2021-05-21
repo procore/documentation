@@ -23,7 +23,7 @@ email: documentation@procore.com
 description: >- # this means to ignore newlines until "baseurl:"
   Documentation for developers.procore.com
 baseurl: "/documentation" # the subpath of your site, e.g. /blog
-url: "https://dev-portal-f2a014bc.group-platform.procorecon.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://developers.procore.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 theme: minima
