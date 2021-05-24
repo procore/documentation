@@ -6,7 +6,7 @@ section_title: Building Applications
 
 ---
 
-After you have finalized the structure and content of your App manifest and you have successfully promoted it to production, the next step is to submit your manifest for technical review by Procore. This step is required only if you intend to publish your App to the [Procore Marketplace](https://marketplace.procore.com/){:target="_blank" rel="noopener"}.
+After you have finalized the structure and content of your App manifest and you have successfully promoted it to production, the next step is to submit your manifest for technical review by Procore. This step is required only if you intend to publish your App to the [Procore Marketplace](https://marketplace.procore.com/).
 
 ## App Manifest Review Process
 

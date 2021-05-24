@@ -22,15 +22,15 @@ In addition, you will need to familiarize yourself with the [OAuth 2.0 authentic
 
 Two popular web development test tools - cURL and Postman - can be used to explore the capabilities of the Procore API without having to fully build out your application. In the following sections we use these tools to illustrate how you can make your first call to the Procore API. If you are unfamiliar with these tools, here are some helpful resources to get you started.
 
-- [cURL Home Page](https://curl.haxx.se/){:target="_blank" rel="noopener"}
-- [cURL GitHub Repository Readme](https://github.com/curl/curl/blob/master/README.md){:target="_blank" rel="noopener"}
-- [Postman Home Page](https://www.getpostman.com/){:target="_blank" rel="noopener"}
-- [Postman Documentation](https://www.getpostman.com/docs/v6/){:target="_blank" rel="noopener"}
+- [cURL Home Page](https://curl.haxx.se/)
+- [cURL GitHub Repository Readme](https://github.com/curl/curl/blob/master/README.md)
+- [Postman Home Page](https://www.getpostman.com/)
+- [Postman Documentation](https://www.getpostman.com/docs/v6/)
 - [Exploring the Procore API with Postman](https://developers.procore.com/documentation/postman)
 
 ### Procore OAuth 2.0 Postman Collection with cURL Examples
 
-We've put together a helpful Postman collection of cURL examples for the Procore OAuth 2.0 Authentication endpoints that you can use while you build, test, and maintain your application. Simply [visit this link](https://documenter.getpostman.com/view/3996804/SW7bzS65){:target="_blank" rel="noopener"} to view the collection and begin exploring the Procore OAuth 2.0 authentication endpoints. Each endpoint includes an explanation of its functionality along with a pre-formatted cURL example command that you can copy and paste as needed.
+We've put together a helpful Postman collection of cURL examples for the Procore OAuth 2.0 Authentication endpoints that you can use while you build, test, and maintain your application. Simply [visit this link](https://documenter.getpostman.com/view/3996804/SW7bzS65) to view the collection and begin exploring the Procore OAuth 2.0 authentication endpoints. Each endpoint includes an explanation of its functionality along with a pre-formatted cURL example command that you can copy and paste as needed.
 
 ### Using cURL to Make Your First Procore API Call
 

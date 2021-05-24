@@ -153,7 +153,7 @@ The Revoke Token endpoint revokes authorization of an access token. The request 
   </tbody>
 </table>
 
-To further understand how the Revoke Token endpoint functions, we recommend becoming familier with how access to Connected Apps is revoked using the Procore Web user interface. See the [Revoke Access to Connected Apps](http://support.procore.com/products/online/user-guide/company-level/portfolio/tutorials/revoke-access-for-connected-apps){:target="_blank" rel="noopener"} article on our Support Site for additional information.
+To further understand how the Revoke Token endpoint functions, we recommend becoming familier with how access to Connected Apps is revoked using the Procore Web user interface. See the [Revoke Access to Connected Apps](http://support.procore.com/products/online/user-guide/company-level/portfolio/tutorials/revoke-access-for-connected-apps) article on our Support Site for additional information.
 
 cURL Example:
 

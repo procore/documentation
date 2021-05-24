@@ -6,7 +6,7 @@ section_title: Building Applications
 
 ---
 
-After you have deployed your App to a production environment and make it available on the [Procore Marketplace](https://marketplace.procore.com/){:target="_blank" rel="noopener"}, you can begin accessing metrics for the App directly from within the Developer Portal. Analyzing your App metrics can help you gauge the level of engagement with your customers over time.
+After you have deployed your App to a production environment and make it available on the [Procore Marketplace](https://marketplace.procore.com/), you can begin accessing metrics for the App directly from within the Developer Portal. Analyzing your App metrics can help you gauge the level of engagement with your customers over time.
 
 ## Viewing App Engagement Over Time
 

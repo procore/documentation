@@ -6,15 +6,15 @@ section_title: Building Applications
 
 ---
 
-To aid you in developing your embedded App, we have published an open-source Javascript library to help simplify the implementation of the required authorization and authentication components of your App. The library is available for download on GitHub at: [procore-iframe-helpers](https://github.com/procore/procore-iframe-helpers){:target="_blank" rel="noopener"}.
+To aid you in developing your embedded App, we have published an open-source Javascript library to help simplify the implementation of the required authorization and authentication components of your App. The library is available for download on GitHub at: [procore-iframe-helpers](https://github.com/procore/procore-iframe-helpers).
 
 ## Building the Library
 
-The Procore Embedded App Helper Library is provided as Typescript source code that you can compile into a Javascript (*.js) library for use in your application. We recommend the yarn package manager for building the library from the Typescript source. If you need to install `yarn` to your computer, visit the [yarn website](https://yarnpkg.com/en/docs/install){:target="_blank" rel="noopener"} and follow the installation instructions they provide for your particular operating system.
+The Procore Embedded App Helper Library is provided as Typescript source code that you can compile into a Javascript (*.js) library for use in your application. We recommend the yarn package manager for building the library from the Typescript source. If you need to install `yarn` to your computer, visit the [yarn website](https://yarnpkg.com/en/docs/install) and follow the installation instructions they provide for your particular operating system.
 
 Once you have `yarn` installed, you can use the following steps to download and build the Procore Embedded App Helper Library:
 
-1. Open your browser and navigate to [procore-iframe-helpers](https://github.com/procore/procore-iframe-helpers){:target="_blank" rel="noopener"}.
+1. Open your browser and navigate to [procore-iframe-helpers](https://github.com/procore/procore-iframe-helpers).
 1. Open your favorite terminal application and run `git clone git@github.com:procore/procore-iframe-helpers.git` from the command line. The master branch of the library source code is cloned to your computer.
 1. From the root of the source code tree, run `yarn install`. This command installs all the dependent packages you need to build the library.
 1. Run `yarn build`. This command creates a new `/dist` subdirectory that contains the compiled Javascript library file - `ProcoreIframeHelpers.js`.

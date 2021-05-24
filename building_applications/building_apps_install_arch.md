@@ -41,17 +41,17 @@ Here is the End-User Flow:
 
 The following Procore Support Site articles cover how Procore company administrators and project users work with the App Management feature.
 
-- [What is App Management?](https://support.procore.com/faq/what-is-app-management){:target="_blank" rel="noopener"}
-- [What are App Configurations and how do I work with them?](https://support.procore.com/faq/what-are-app-configurations){:target="_blank" rel="noopener"}
-- [Install an App from the Marketplace](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-app-from-marketplace){:target="_blank" rel="noopener"}
-- [Install a Custom App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app){:target="_blank" rel="noopener"}
-- [Uninstall an App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/uninstall-app){:target="_blank" rel="noopener"}
-- [Reinstall an App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/reinstall-an-app){:target="_blank" rel="noopener"}
-- [Update an Installed App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/update-installed-app){:target="_blank" rel="noopener"}
-- [Create an App Configuration and Apply it to Projects](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-app-configuration){:target="_blank" rel="noopener"}
-- [View Projects with App Configurations](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-project-configs){:target="_blank" rel="noopener"}
-- [Edit an App Configuration](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-app-configuration){:target="_blank" rel="noopener"}
-- [Delete an App Configuration](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/delete-app-configuration){:target="_blank" rel="noopener"}
-- [Create an App Configuration in a Project](https://support.procore.com/products/online/user-guide/project-level/home/tutorials/configure-app-in-project){:target="_blank" rel="noopener"}
-- [Launch an Embedded App in a Project](https://support.procore.com/products/online/user-guide/project-level/home/tutorials/launch-embedded-app){:target="_blank" rel="noopener"}
-- [View API Request Metrics](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-api-request-metrics){:target="_blank" rel="noopener"}
+- [What is App Management?](https://support.procore.com/faq/what-is-app-management)
+- [What are App Configurations and how do I work with them?](https://support.procore.com/faq/what-are-app-configurations)
+- [Install an App from the Marketplace](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-app-from-marketplace)
+- [Install a Custom App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app)
+- [Uninstall an App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/uninstall-app)
+- [Reinstall an App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/reinstall-an-app)
+- [Update an Installed App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/update-installed-app)
+- [Create an App Configuration and Apply it to Projects](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-app-configuration)
+- [View Projects with App Configurations](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-project-configs)
+- [Edit an App Configuration](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-app-configuration)
+- [Delete an App Configuration](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/delete-app-configuration)
+- [Create an App Configuration in a Project](https://support.procore.com/products/online/user-guide/project-level/home/tutorials/configure-app-in-project)
+- [Launch an Embedded App in a Project](https://support.procore.com/products/online/user-guide/project-level/home/tutorials/launch-embedded-app)
+- [View API Request Metrics](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-api-request-metrics)

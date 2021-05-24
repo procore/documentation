@@ -8,7 +8,7 @@ section_title: Best Practices
 
 ## Background
 
-Timestamps returned by the Procore API are a combined date/time representation following the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html){:target="_blank" rel="noopener"} format in [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time){:target="_blank" rel="noopener"}. The format for a typical Procore API timestamp is:
+Timestamps returned by the Procore API are a combined date/time representation following the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format in [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). The format for a typical Procore API timestamp is:
 
 ```
 YYYY-MM-DDTHH:MM:SSZ

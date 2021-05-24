@@ -8,8 +8,7 @@ section_title: Best Practices
 
 ## Overview
 
-Procore's powerful Documents tool provides robust and sophisticated document management and archiving for mission-critical project documentation.
-The Documents tool resources are accessible through the Procore API via the [Company Folders and Files](https://developers.procore.com/reference/rest/v1/company-folders-and-files) and [Project Folders and Files](https://developers.procore.com/reference/rest/v1/project-folders-and-files) endpoints.
+Procore's powerful Documents tool provides robust and sophisticated document management and archiving for mission-critical project documentation. The Documents tool resources are accessible through the Procore API via the [Company Folders and Files](https://developers.procore.com/reference/rest/v1/company-folders-and-files) and [Project Folders and Files](https://developers.procore.com/reference/rest/v1/project-folders-and-files) endpoints.
 
 ## Before You Begin
 

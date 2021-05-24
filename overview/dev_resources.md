@@ -13,10 +13,10 @@ Our [Procore API Reference](https://developers.procore.com/reference/) provides 
 
 ## Procore Support Site
 
-Our [Procore Support Site](https://support.procore.com/){:target="_blank" rel="noopener"} is the primary source for all customer-facing documentation for Procore products. It includes tutorials, FAQs, instructional videos, reference material, and other valuable resources for learning and working with the various tools within Procore. Here are a couple of popular support pages to get you started:
+Our [Procore Support Site](https://support.procore.com/) is the primary source for all customer-facing documentation for Procore products. It includes tutorials, FAQs, instructional videos, reference material, and other valuable resources for learning and working with the various tools within Procore. Here are a couple of popular support pages to get you started:
 
-- [Learn About Procore](https://support.procore.com/getting-started-with-procore){:target="_blank" rel="noopener"}
-- [Procore User Guide](https://support.procore.com/products/online/user-guide){:target="_blank" rel="noopener"}
+- [Learn About Procore](https://support.procore.com/getting-started-with-procore)
+- [Procore User Guide](https://support.procore.com/products/online/user-guide)
 
 ## Technical Services
 

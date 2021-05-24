@@ -56,7 +56,7 @@ Another important characteristic of REST is the use of resource methods to perfo
 	</tbody>
 </table>
 
-To learn more about HTTP verbs as RESTful methods, see [HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html){:target="_blank" rel="noopener"}.
+To learn more about HTTP verbs as RESTful methods, see [HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html).
 
 ## API Requests and Responses
 

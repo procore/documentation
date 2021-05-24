@@ -14,8 +14,7 @@ To illustrate this requirement, let's examine this Postman example showing an at
 
 ![Incorrect time zone]({{ site.baseurl }}/assets/guides/incorrect-time-zone.png)
 
-We see an error returned indicating the time zone "does not exist".
-In other words, the string value we provided in the request body for `time_zone` did not match any of the supported values. In this case, we would need to provide a value of "US/Pacific" as the time zone identifier in order to have a successfull call.
+We see an error returned indicating the time zone "does not exist". In other words, the string value we provided in the request body for `time_zone` did not match any of the supported values. In this case, we would need to provide a value of "US/Pacific" as the time zone identifier in order to have a successfull call.
 
 ## Supported Time Zones
 

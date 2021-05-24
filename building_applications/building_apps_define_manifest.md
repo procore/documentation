@@ -18,7 +18,7 @@ _Embedded_ components are used in Apps that launch in an iframe within the Proco
 
 ## App Manifest Format and Structure
 
-The manifest format and structure adheres to the [JSON schema](https://json-schema.org/){:target="_blank" rel="noopener"}. Below is an example App manifest that helps to describe the various sections of the manifest.
+The manifest format and structure adheres to the [JSON schema](https://json-schema.org/). Below is an example App manifest that helps to describe the various sections of the manifest.
 
 ```
 {

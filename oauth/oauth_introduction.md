@@ -11,7 +11,7 @@ OAuth 2.0 is a protocol that allows third-party applications to authenticate wit
 
 Because the Procore API supports the OAuth 2.0 protocol, your application does not need to store or transmit user account names or passwords, but instead relies on application credentials in the form of a Client ID and Client Secret that are unique to your application. The OAuth 2.0 protocol uses these credentials as part of an authorization step in which the user chooses to allow (or deny) your application access their data in Procore. Access granted to your application may be revoked at any point by the end user. The result is a more secure API for Procore end users.
 
-If you are brand new to OAuth 2.0, we recommend you review the official [OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749){:target="_blank" rel="noopener"}, as well as [OAuth 2.0 Simplified](http://aaronparecki.com/oauth-2-simplified/){:target="_blank" rel="noopener"} by Aaron Pareki to help you come up to speed with the OAuth 2.0 protocol.
+If you are brand new to OAuth 2.0, we recommend you review the official [OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749), as well as [OAuth 2.0 Simplified](http://aaronparecki.com/oauth-2-simplified/) by Aaron Pareki to help you come up to speed with the OAuth 2.0 protocol.
 
 ### Explore OAuth 2.0 Documentation for the Procore API
 
@@ -27,4 +27,4 @@ If you are brand new to OAuth 2.0, we recommend you review the official [OAuth 2
 
 ### Procore OAuth 2.0 Postman Collection with cURL Examples ###
 
-We've put together a helpful Postman collection of cURL examples for the Procore OAuth 2.0 Authentication endpoints that you can use while you build, test, and maintain your application. Simply [visit this link](https://documenter.getpostman.com/view/3996804/SW7bzS65){:target="_blank" rel="noopener"} to view the collection and begin exploring the Procore OAuth 2.0 authentication endpoints. Each endpoint includes an explanation of its functionality along with a pre-formatted cURL example command that you can copy and paste as needed.
+We've put together a helpful Postman collection of cURL examples for the Procore OAuth 2.0 Authentication endpoints that you can use while you build, test, and maintain your application. Simply [visit this link](https://documenter.getpostman.com/view/3996804/SW7bzS65) to view the collection and begin exploring the Procore OAuth 2.0 authentication endpoints. Each endpoint includes an explanation of its functionality along with a pre-formatted cURL example command that you can copy and paste as needed.
