@@ -30,7 +30,7 @@ Users in the Company Directory include all users given access to any aspect of t
 If a user is added to the Project Directory they will also be added to the Company Directory.
 See [Add a Person to the Project Directory](http://support.procore.com/products/online/user-guide/project-level/directory/tutorials/add-person-to-project-directory) for additional infomation.
 
-API Endpoints: [Project Users](https://developers.procore.com/reference/project-users)
+API Endpoints: [Project Users](https://developers.procore.com/reference/rest/v1/project-users)
 
 ### Project Vendors
 
@@ -38,7 +38,7 @@ The Company level has a directory containing vendors, also known as Directory Co
 Not to be confused with Client Accounts, these are the vendors who are working for the Company.
 See [Add a Company to the Project Directory](http://support.procore.com/products/online/user-guide/project-level/directory/tutorials/add-a-company-to-the-project-directory) for additional infomation.
 
-API Endpoints: [Project Vendors](https://developers.procore.com/reference/project-vendors)
+API Endpoints: [Project Vendors](https://developers.procore.com/reference/rest/v1/project-vendors)
 
 #### Project Vendor Insurances
 
@@ -53,13 +53,13 @@ The responsibilities of an insurance manager include:
 
 See [Add Insurance for a Vendor in the Project Directory](http://support.procore.com/products/online/user-guide/project-level/directory/tutorials/add-project-insurance) for additional infomation.
 
-API Endpoints: [Project Vendor Insurances](https://developers.procore.com/reference/project-vendor-insurances)
+API Endpoints: [Project Vendor Insurances](https://developers.procore.com/reference/rest/v1/project-vendor-insurances)
 
 ### Equipment
 A project’s list of equipment used in maintaining an equipment log in the Project Daily Log tool.
 See [Add Equipment](http://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-equipment) for additional infomation.
 
-API Endpoints: [Equipment](https://developers.procore.com/reference/equipment)
+API Endpoints: [Equipment](https://developers.procore.com/reference/rest/v1/equipment)
 
 ### Locations
 
@@ -67,14 +67,14 @@ In Procore, tiered locations give users the ability to link different Procore ob
 This helps project team members to pinpoint the exact location(s) on a jobsite where a defect was observed, where equipment is to be installed, or where a project change order occurred.
 See [Add Tiered Locations to a Project](http://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-multi-tiered-locations-to-a-project) for additional infomation.
 
-API Endpoints: [Locations](https://developers.procore.com/reference/locations)
+API Endpoints: [Locations](https://developers.procore.com/reference/rest/v1/locations)
 
 ### Project Dates
 
 You can create a list of Project Dates for various project milestones in your company's account.
 See [Add New Project Dates](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-new-project-dates) for additional infomation.
 
-API Endpoints: [Project Dates](https://developers.procore.com/reference/project-dates)
+API Endpoints: [Project Dates](https://developers.procore.com/reference/rest/v1/project-dates)
 
 ## Project Documents
 
@@ -84,7 +84,7 @@ See [Documents](http://support.procore.com/products/online/user-guide/project-le
 - Project Folders - Folders in the Project Documents tool allows you to organize sub-folders or files within folders.
 - Project Files - Files in the Project Files tool include documents and images that are added to the root folder or sub-folders.
 
-API Endpoints: [Project Folders and Files](https://developers.procore.com/reference/project-folders-and-files)
+API Endpoints: [Project Folders and Files](https://developers.procore.com/reference/rest/v1/project-folders-and-files)
 
 ## Project Management
 
@@ -95,20 +95,20 @@ Procore’s Project-level Bidding tool lets you solicit bids from the vendors st
 With the Bidding tool, you can create bid packages for your projects and send email invitations to your vendors.
 See [Bidding](http://support.procore.com/products/online/user-guide/project-level/bidding) for additional infomation.
 
-API Endpoints: [Bids](https://developers.procore.com/reference/bids)
+API Endpoints: [Bids](https://developers.procore.com/reference/rest/v1/bids)
 
 ## Drawings
 Procore's Project-level Drawings tool is designed to manage and archive project drawings and revisions to ensure that team members always have access to the most current drawing set.
 See [Drawings](http://support.procore.com/products/online/user-guide/project-level/drawings) for additional infomation.
 
-API Endpoints: [Drawings](https://developers.procore.com/reference/drawings)
+API Endpoints: [Drawings](https://developers.procore.com/reference/rest/v1/drawings)
 
 ## Email
 Procore's Project-level Email tool is designed to store, track, and manage project emails.
 General contractors using this tool typically restrict access permissions for this tool to its internal employees.
 See [Emails](http://support.procore.com/products/online/user-guide/project-level/emails) for additional infomation.
 
-API Endpoints: [Communications](https://developers.procore.com/reference/communications)
+API Endpoints: [Communications](https://developers.procore.com/reference/rest/v1/communications)
 
 ## Meetings ##
 
@@ -116,19 +116,19 @@ Procore's Project-level Meeting tool is designed to help manage project meetings
 It streamlines the process of creating a meeting agenda and quickly converts your meeting agendas to minutes.
 See [Meetings](http://support.procore.com/products/online/user-guide/project-level/meetings) for additional infomation.
 
-API Endpoints: [Meetings](https://developers.procore.com/reference/meetings)
+API Endpoints: [Meetings](https://developers.procore.com/reference/rest/v1/meetings)
 
 ## Photos
 Procore's Project-level Photos tool is designed to capture, store, and share an unlimited amount of project photos.
 See [Photos](http://support.procore.com/products/online/user-guide/project-level/photos) for additional infomation.
 
-API Endpoints: [Image Categories](https://developers.procore.com/reference/image-categories), [Images](https://developers.procore.com/reference/images)
+API Endpoints: [Image Categories](https://developers.procore.com/reference/rest/v1/image-categories), [Images](https://developers.procore.com/reference/rest/v1/images)
 
 ## Project Schedule
 Procore's Project-level Schedule tool helps you keep your projects on course by giving you a real-time view of the project.
 See [Schedule](http://support.procore.com/products/online/user-guide/project-level/schedule) for additional infomation.
 
-API Endpoints: [Calendar Events](https://developers.procore.com/reference/calendar-events), [Calendar Events](https://developers.procore.com/reference/calendar-events), [Requested Changes](https://developers.procore.com/reference/requested-changes), [Schedule Integration](https://developers.procore.com/reference/schedule-integration), [Schedule Type](https://developers.procore.com/reference/schedule-type), [Tasks](https://developers.procore.com/reference/tasks), [ToDos](https://developers.procore.com/reference/todos)
+API Endpoints: [Calendar Events](https://developers.procore.com/reference/rest/v1/calendar-events), [Calendar Events](https://developers.procore.com/reference/rest/v1/calendar-events), [Requested Changes](https://developers.procore.com/reference/rest/v1/requested-changes), [Schedule Integration](https://developers.procore.com/reference/rest/v1/schedule-integration), [Schedule Type](https://developers.procore.com/reference/rest/v1/schedule-type), [Tasks](https://developers.procore.com/reference/rest/v1/tasks), [ToDos](https://developers.procore.com/reference/rest/v1/todos)
 
 ## RFIs
 
@@ -136,7 +136,7 @@ Procore’s Request for Information (RFIs) tool is designed to keep projects run
 Serving as a project's central storage and management point for information requests and responses, the RFI tool increases your ability to build project-wide accountability by letting you create, capture, and archive critical information exchanges between project leaders and the subcontractors, vendors, and other suppliers.
 See [RFIs](http://support.procore.com/products/online/user-guide/project-level/rfi) for additional infomation.
 
-API Endpoints: [RFIs](https://developers.procore.com/reference/rfis)
+API Endpoints: [RFIs](https://developers.procore.com/reference/rest/v1/rfis)
 
 ## Specifications ##
 
@@ -152,14 +152,14 @@ A submittal is often prepared by a contractor (or sub) who then "submits" it to 
 This ensures that plans and materials comply with design requirements, before items are fabricated and/or delivered and installed on a project site.
 See [Submittals](http://support.procore.com/products/online/user-guide/project-level/submittals) for additional infomation.
 
-API Endpoints: [Submittals](https://developers.procore.com/reference/submittals)
+API Endpoints: [Submittals](https://developers.procore.com/reference/rest/v1/submittals)
 
 ## Timecards
 Procore's Company-level Timecard tool gives you the ability to enter current-week timecard data for employees who have been added as contacts in Procore's Company-level Directory tool.
 A user with 'Admin' permissions can configure the end day-of-week for timecard entry fields, as well as save timecard data in the standard Procore format or a format that is compatible with Sage Timberline.
 See [Timecard](http://support.procore.com/products/online/user-guide/company-level/timecard) for additional infomation.
 
-API Endpoints: [Timecards](https://developers.procore.com/reference/timecards), [Timecard Entries](https://developers.procore.com/reference/timecard-entries)
+API Endpoints: [Timecards](https://developers.procore.com/reference/rest/v1/timecards), [Timecard Entries](https://developers.procore.com/reference/rest/v1/timecard-entries)
 
 
 ## Quality and Safety
@@ -175,7 +175,7 @@ See [Daily Log](http://support.procore.com/products/online/user-guide/project-le
 The Accident Log tracks the party or company involved in any accidents that occurred onsite.
 See [Add Accident Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-accident-log-entries) for additional infomation.
 
-API Endpoints: [Accident Logs](https://developers.procore.com/reference/accident-logs)
+API Endpoints: [Accident Logs](https://developers.procore.com/reference/rest/v1/accident-logs)
 
 ### Call Logs
 
@@ -183,42 +183,42 @@ The Call Log tracks calls that have been made regarding a project and who was in
 This is a good place to track calls that occurred that were not quite lengthy or detailed enough to be considered "meetings", but topics that should be noted and archived.
 See [Add Call Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-call-log-entries) for additional infomation.
 
-API Endpoints: [Call Logs](https://developers.procore.com/reference/call-logs)
+API Endpoints: [Call Logs](https://developers.procore.com/reference/rest/v1/call-logs)
 
 ### Daily Construction Report Logs
 
 The Daily Construction Report Log lets you add tracking information about the total number of workers and total number of hours worked for each vendor/company and trade on a project.
 See [Add Daily Construction Report Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-daily-construction-report-entries) for additional infomation.
 
-API Endpoints: [Daily Construction Report Logs](https://developers.procore.com/reference/daily-construction-report-logs)
+API Endpoints: [Daily Construction Report Logs](https://developers.procore.com/reference/rest/v1/daily-construction-report-logs)
 
 ### Delivery Logs
 
 The Delivery Log tracks when shipments/packages are delivered by whom, tracking numbers associated with the delivery, and the contents of the package.
 See [Add Delivery Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-delivery-log-entries) for additional infomation.
 
-API Endpoints: [Delivery Logs](https://developers.procore.com/reference/delivery-logs)
+API Endpoints: [Delivery Logs](https://developers.procore.com/reference/rest/v1/delivery-logs)
 
 ### Dumpster Logs
 
 The Dumpster Log lets you record when dumpsters are delivered and removed and any comments related to that action.
 See [Add Dumpster Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-dumpster-log-entries) for additional infomation.
 
-API Endpoints: [Dumpster Logs](https://developers.procore.com/reference/dumpster-logs)
+API Endpoints: [Dumpster Logs](https://developers.procore.com/reference/rest/v1/dumpster-logs)
 
 ### Equipment Logs
 
 The Equipment Log tracks the specific time that certain equipment or machines were used on the project, whether they were inspected and at what time, and the cost code related to them.
 See [Add Equipment Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-equipment-log-entries) for additional infomation.
 
-API Endpoints: [Equipment Logs](https://developers.procore.com/reference/equipment-logs)
+API Endpoints: [Equipment Logs](https://developers.procore.com/reference/rest/v1/equipment-logs)
 
 ### Inspection Logs
 
 The Inspections Log tracks inspections made by third-party inspectors that occur throughout the project.
 See [Add Inspection Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-inspection-log-entries) for additional infomation.
 
-API Endpoints: [Inspection Logs](https://developers.procore.com/reference/inspection-logs)
+API Endpoints: [Inspection Logs](https://developers.procore.com/reference/rest/v1/inspection-logs)
 
 ### Manpower Logs
 
@@ -226,7 +226,7 @@ The Manpower Log tracks the people on site who have completed work on the projec
 You are able to collect information on the companies on site, the number of workers, the number of hours they worked, and the cost code associated with their work.
 See [Add Manpower Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-manpower-log-entries) for additional infomation.
 
-API Endpoints: [Manpower Logs](https://developers.procore.com/reference/manpower-logs)
+API Endpoints: [Manpower Logs](https://developers.procore.com/reference/rest/v1/manpower-logs)
 
 ### Notes Logs
 
@@ -235,7 +235,7 @@ This is a good place to log miscellaneous items that do not necessarily fit in a
 You can conveniently tag Notes as issues and run dedicated reports on them.
 See [Add Notes Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-notes-log-entries) for additional infomation.
 
-API Endpoints: [Notes Logs](https://developers.procore.com/reference/notes-logs)
+API Endpoints: [Notes Logs](https://developers.procore.com/reference/rest/v1/notes-logs)
 
 ### Plan Revision Logs
 
@@ -243,7 +243,7 @@ The Plan Revision Log lets you add tracking information about project plans by r
 It also provides you with a place for entering comments.
 See [Add Plan Revision Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-plan-revision-log-entries) for additional infomation.
 
-API Endpoints: [Plan Revision Logs](https://developers.procore.com/reference/plan-revision-logs)
+API Endpoints: [Plan Revision Logs](https://developers.procore.com/reference/rest/v1/plan-revision-logs)
 
 ### Productivity Logs
 
@@ -251,14 +251,14 @@ The Productivity Log tracks how much material arrives on site and how much is in
 Any "Approved" purchase orders with line items will appear here so you can track the installation against the line items in the contract.
 See [Add Productivity Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-productivity-log-entries) for additional infomation.
 
-API Endpoints: [Productivity Logs](https://developers.procore.com/reference/productivity-logs)
+API Endpoints: [Productivity Logs](https://developers.procore.com/reference/rest/v1/productivity-logs)
 
 ### Quantity Logs
 
 The Quantity Log lets you input tracking information about the amount of materials that are used on a given day.
 See [Add Quantity Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-quantity-log-entries) for additional infomation.
 
-API Endpoints: [Quantity Logs](https://developers.procore.com/reference/quantity-logs)
+API Endpoints: [Quantity Logs](https://developers.procore.com/reference/rest/v1/quantity-logs)
 
 ### Safety Violation Logs
 
@@ -266,7 +266,7 @@ The Safety Violation Log tracks any hazardous actions or events that have violat
 You can record a violation/notice with a picture, time, and/or date.
 See [Add Safety Violation Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-safety-violation-log-entries) for additional infomation.
 
-API Endpoints: [Safety Logs](https://developers.procore.com/reference/safety-violation-logs)
+API Endpoints: [Safety Logs](https://developers.procore.com/reference/rest/v1/safety-violation-logs)
 
 ### Timecard Entries
 
@@ -275,14 +275,14 @@ Timecard Entries track the hours each employee has logged, as well as whether or
 Data from this log is rolled up into the Company-level Timecard tab to show all Timecard Logs for all projects within that company.
 See [Add Timecard Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-timecard-entries) for additional infomation.
 
-API Endpoints: [Timecard Entries](https://developers.procore.com/reference/timecard-entries)
+API Endpoints: [Timecard Entries](https://developers.procore.com/reference/rest/v1/timecard-entries)
 
 ### Visitor Logs
 
 The Visitor Log tracks anyone who visits the site (e.g. owner, union representative, salesperson, sales agent, customers, etc.) and a description of their visit.
 See [Add Visitor Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-visitor-log-entries) for additional infomation.
 
-API Endpoints: [Timecard Entries](https://developers.procore.com/reference/timecard-entries)
+API Endpoints: [Timecard Entries](https://developers.procore.com/reference/rest/v1/timecard-entries)
 
 ### Waste Logs
 
@@ -290,7 +290,7 @@ The Waste Log tracks what kind of waste is generated by the site, where the wast
 This is useful in keeping the project in accordance with any waste laws the state or local authorities may have.
 See [Add Waste Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-waste-log-entries) for additional infomation.
 
-API Endpoints: [Waste Logs](https://developers.procore.com/reference/waste-logs)
+API Endpoints: [Waste Logs](https://developers.procore.com/rest/v1/waste-logs)
 
 ### Weather Logs
 
@@ -298,7 +298,7 @@ The Weather Log tracks any delays to the project that may be due to weather cond
 Each day has a daily snapshot and weather report that automatically pulls weather information for the project's location from Weather Underground.
 See [Add Observed Weather Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-observed-weather-log-entries) for additional infomation.
 
-API Endpoints: [Weather Logs](https://developers.procore.com/reference/weather-logs)
+API Endpoints: [Weather Logs](https://developers.procore.com/reference/rest/v1/weather-logs)
 
 ### Work Logs
 
@@ -306,7 +306,7 @@ The Work Log lets you add tracking information for the project resources that ar
 You can designate whether the resource shows up at the job site, the number of workers, hours worked, and the compensation rate.
 See [Add Scheduled Work Log Entries](http://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/add-scheduled-work-log-entries) for additional infomation.
 
-API Endpoints: [Work Logs](https://developers.procore.com/reference/work-logs)
+API Endpoints: [Work Logs](https://developers.procore.com/rest/v1/work-logs)
 
 ## Inspections
 
@@ -315,7 +315,7 @@ With this tool, an 'Admin' user can either create a unique template for each ins
 Templates can be managed in the Inspections (Company Level) tool.
 See [Inspections](http://support.procore.com/products/online/user-guide/project-level/inspections) for additional infomation.
 
-API Endpoints: [Checklists](https://developers.procore.com/reference/checklists)
+API Endpoints: [Checklists](https://developers.procore.com/reference/rest/v1/checklists)
 
 ## Observations
 
@@ -324,14 +324,14 @@ These observations can encompass scopes of work including quality, safety, commi
 However, unlike the Punch List tool, the Observations tool is designed to be used at any phase in the project lifecycle.
 See [Observations](http://support.procore.com/products/online/user-guide/project-level/observations) for additional infomation.
 
-API Endpoints: [Observations](https://developers.procore.com/reference/observations)
+API Endpoints: [Observations](https://developers.procore.com/reference/rest/v1/observations)
 
 ## Punch Lists
 
 Procore's Project-level Punch List tool is designed to maintain a clear list of issues while assigning responsibility of an item to a specific person at a specific Company, selecting a due date for an item, and tracking an item’s current status.
 See [Punch List](http://support.procore.com/products/online/user-guide/project-level/punch-list) for additional infomation.
 
-API Endpoints: [Punch Items](https://developers.procore.com/reference/punch-items), [Punch Item Types](https://developers.procore.com/reference/punch-item-types), [Punch Item Assignments](https://developers.procore.com/reference/reference/punch-item-assignments), [Punch List Assignee Options](https://developers.procore.com/reference/punch-list-assignee-options)
+API Endpoints: [Punch Items](https://developers.procore.com/reference/rest/v1/punch-items), [Punch Item Types](https://developers.procore.com/reference/rest/v1/punch-item-types), [Punch Item Assignments](https://developers.procore.com/reference/rest/v1/punch-item-assignments), [Punch List Assignee Options](https://developers.procore.com/reference/rest/v1/punch-list-assignee-options)
 
 ## Construction Financials
 
@@ -344,14 +344,14 @@ It also eliminates the need for double-entry of contract modifications and chang
 This helps you gain greater control over complicated project factors when evaluating and forecasting your project's completion costs.
 See [Budget](http://support.procore.com/products/online/user-guide/project-level/budget) for additional infomation.
 
-API Endpoints: [Budget Line Items](https://developers.procore.com/reference/budget-line-items), [Budget Modifications](https://developers.procore.com/documentation/reference/budget-modifications)
+API Endpoints: [Budget Line Items](https://developers.procore.com/rest/v1/budget-line-items), [Budget Modifications](https://developers.procore.com/documentation/reference/rest/v1/budget-modifications)
 
 ## Change Events
 
 ​​Procore's Project-level Change Events tool is designed to track potential costs on a project by better coordinating the entire change management process.
 See [Change Events](https://support.procore.com/products/online/user-guide/project-level/change-events) for additional infomation.
 
-API Endpoints: [Change Events](https://developers.procore.com/reference/change-events), [Change Types](https://developers.procore.com/reference/change-types),
+API Endpoints: [Change Events](https://developers.procore.com/reference/rest/v1/change-events), [Change Types](https://developers.procore.com/reference/rest/v1/change-types),
 
 ## Change Orders
 
@@ -359,14 +359,14 @@ Procore's Project-level Change Orders tool streamlines the change management pro
 It also gives impacted clients and contractors real-time access to their specific change orders so they can satisfy their obligations, while protecting your project-sensitive data by keeping Change Order Requests (CORs) and Potential Change Orders (PCOs) private.
 See [Change Orders](http://support.procore.com/products/online/user-guide/project-level/change-orders) for additional infomation.
 
-API Endpoints: [Potential Change Orders](https://developers.procore.com/reference/potential-change-orders), [Change Packages](https://developers.procore.com/reference/change-order-packages), [Change Order Requests](https://developers.procore.com/reference/change-order-requests), [Change Order Reasons](https://developers.procore.com/reference/change-order-change-reasons), [Change Order Statuses](https://developers.procore.com/reference/change-order-statuses)
+API Endpoints: [Potential Change Orders](https://developers.procore.com/reference/rest/v1/potential-change-orders), [Change Packages](https://developers.procore.com/reference/rest/v1/change-order-packages), [Change Order Requests](https://developers.procore.com/reference/rest/v1/change-order-requests), [Change Order Reasons](https://developers.procore.com/reference/rest/v1/change-order-change-reasons), [Change Order Statuses](https://developers.procore.com/reference/rest/v1/change-order-statuses)
 
 ## Prime Contract
 
 Procore's Project-level Prime Contract tool allows you to easily create and manage your contract with your client and keep track of change orders and related items to that contract.
 See [Prime Contract](http://support.procore.com/products/online/user-guide/project-level/prime-contract) for additional infomation.
 
-API Endpoints: [Prime Contracts](https://developers.procore.com/reference/prime-contracts), [Contract Payments](https://developers.procore.com/reference/contract-payments)
+API Endpoints: [Prime Contracts](https://developers.procore.com/rest/v1/prime-contracts), [Contract Payments](https://developers.procore.com/reference/rest/v1/contract-payments)
 
 ## Commitments
 
@@ -375,21 +375,21 @@ It shows all of the subcontracts and purchase orders with contract amounts and a
 Due to the sensitive nature of a project's Commitments data, this tool can only be accessed by individuals who have been granted 'Admin' level permission to the tool.
 See [Commitments](http://support.procore.com/products/online/user-guide/project-level/commitments) for additional infomation.
 
-API Endpoints: [RFQs](https://developers.procore.com/reference/rfqs), [Line Item Types](https://developers.procore.com/reference/line-item-types)
+API Endpoints: [RFQs](https://developers.procore.com/reference/rest/v1/rfqs), [Line Item Types](https://developers.procore.com/rest/v1/line-item-types)
 
 ## Work Order Contracts/Subcontracts
 
 A Work Order typically represents a contractual agreement between a an owner who is financing the construction project and the general contractor who is being paid to manage the construction project.
 See [Create a Subcontract](http://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/create-a-subcontract) for additional infomation.
 
-API Endpoints: [Work Order Contracts](https://developers.procore.com/reference/work-order-contracts)
+API Endpoints: [Work Order Contracts](https://developers.procore.com/reference/rest/v1/work-order-contracts)
 
 ## Purchase Order Contracts
 
 A Purchase Order typically represents a contractual agreement issued by a general contractor to a vendor, indicating types, quantities, and agreed prices for material or services.
 See [Create a Purchase Order](http://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/create-a-purchase-order) for additional infomation.
 
-API Endpoints: [Purchase Order Contracts](https://developers.procore.com/reference/purchase-order-contracts)
+API Endpoints: [Purchase Order Contracts](https://developers.procore.com/reference/rest/v1/purchase-order-contracts)
 
 ## Draw Requests
 
@@ -397,11 +397,11 @@ Draw requests (requisitions) are billings from your commitments for work perform
 The draw requests are formatted in a typical progress billing format with a cover page and a detail line item page.
 See [Information About Requisitions](http://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/information-about-requisitions).
 
-API Endpoints: [Draw Requests](https://developers.procore.com/reference/draw-requests)
+API Endpoints: [Draw Requests](https://developers.procore.com/rest/v1/draw-requests)
 
 ## Direct Costs
 
 Procore's Project-level Direct Costs tool is designed to help you track all direct costs incurred (expenses and invoices) that are not associated with commitments, such as general conditions and self-performed work.
 See [Direct Costs](http://support.procore.com/products/online/user-guide/project-level/direct-costs) for additional infomation.
 
-API Endpoints: [Direct Costs](https://developers.procore.com/reference/direct-costs)
+API Endpoints: [Direct Costs](https://developers.procore.com/rest/v1/direct-costs)

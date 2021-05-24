@@ -29,11 +29,11 @@ The Procore API provides the following endpoints for working with project stages
 
 | Endpoint                                                                                             | Description                                                               |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| [List Project Stages](https://developers.procore.com/reference/project-stages#list-project-stages)   | Return a list of all project stages available in a company account.       |
-| [Create Project Stage](https://developers.procore.com/reference/project-stages#create-project-stage) | Create a new project stage for use by all projects in a company account.  |
-| [Show Project Stage](https://developers.procore.com/reference/project-stages#show-project-stage)     | Show details on a specified project stage.                                |
-| [Update Project Stage](https://developers.procore.com/reference/project-stages#update-project-stage) | Update a specified project stage.                                         |
-| [Delete Project Stage](https://developers.procore.com/reference/project-stages#delete-project-stage) | Delete a specified project stage.                                         |
+| [List Project Stages](https://developers.procore.com/reference/rest/v1/project-stages#list-project-stages)   | Return a list of all project stages available in a company account.       |
+| [Create Project Stage](https://developers.procore.com/reference/rest/v1/project-stages#create-project-stage) | Create a new project stage for use by all projects in a company account.  |
+| [Show Project Stage](https://developers.procore.com/reference/rest/v1/project-stages#show-project-stage)     | Show details on a specified project stage.                                |
+| [Update Project Stage](https://developers.procore.com/reference/rest/v1/project-stages#update-project-stage) | Update a specified project stage.                                         |
+| [Delete Project Stage](https://developers.procore.com/reference/rest/v1/project-stages#delete-project-stage) | Delete a specified project stage.                                         |
 
 ## Creating Custom Project Stages
 
@@ -71,7 +71,7 @@ For this example, we create a new custom project stage called "Grading and Pavin
 Please be aware of some upcoming API changes that may affect how you work with projects and project stages.
 
 - The `is_bidding_stage` field is planned for deprecation and will stop being supported by Procore six months after the deprecation is announced.
-- `project_stage_id` will be a required field on JSON request payloads for the [Create Project](https://developers.procore.com/reference/projects#create-project), [Update Project](https://developers.procore.com/reference/projects#update-project), and [Sync Projects](https://developers.procore.com/reference/projects#sync-projects) endpoints when the target project does not aleady have a value set for project_stage_id.
+- `project_stage_id` will be a required field on JSON request payloads for the [Create Project](https://developers.procore.com/reference/rest/v1/projects#create-project), [Update Project](https://developers.procore.com/reference/rest/v1/projects#update-project), and [Sync Projects](https://developers.procore.com/reference/rest/v1/projects#sync-projects) endpoints when the target project does not aleady have a value set for project_stage_id.
 - The `total_value`, `start_date`, and `completion_date` fields will be required on projects that have a project stage category type mapped to “Course of Construction”, “Post-Construction”, or “Completed”.
 
 A deprecation announcement is being prepared that will provide specifics regarding the timing of these changes.
