@@ -8,16 +8,14 @@ section_title: Best Practices
 
 ## Background
 
-Setting or updating a Project’s time zone using the Procore API requires that specific string values are properly applied for the `time_zone` attribute.
-If the string value provided does not match exactly what the Procore API is expecting, a `422 Unprocessable Entity` error will be returned.
+Setting or updating a Project’s time zone using the Procore API requires that specific string values are properly applied for the `time_zone` attribute. If the string value provided does not match exactly what the Procore API is expecting, a `422 Unprocessable Entity` error will be returned.
 
 To illustrate this requirement, let's examine this Postman example showing an attempt to (incorrectly) update an existing project’s time zone to “US Pacific Time”:
 
 ![Incorrect time zone]({{ site.baseurl }}/assets/guides/incorrect-time-zone.png)
 
 We see an error returned indicating the time zone "does not exist".
-In other words, the string value we provided in the request body for `time_zone` did not match any of the supported values.
-In this case, we would need to provide a value of "US/Pacific" as the time zone identifier in order to have a successfull call.
+In other words, the string value we provided in the request body for `time_zone` did not match any of the supported values. In this case, we would need to provide a value of "US/Pacific" as the time zone identifier in order to have a successfull call.
 
 ## Supported Time Zones
 

@@ -17,11 +17,95 @@ The API lifecycle comprises three distinct phases.
 
 This table provides additional information on how the Rest API product is managed through the lifecycle.
 
-| Phase      | API Resources                             | Support                                                                                                                                                | Documentation                                                            | Change Notification                                                                                                                         |
-| ---------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Active     | API is live in Production                 | - New resource versions released periodically with new features, refinements, fixes, etc.<br>- Technical support available at <apisupport@procore.com> | - Released with new API versions<br>- Reference documentation maintained | - Changelog entries published for updates to resource endpoints<br> - Developer Portal notifications covering new resource version releases |
-| Deprecated | API is live in Production                 | - Fixes deployed as needed<br>- No new development<br>- Technical support available at <apisupport@procore.com>                                        | - Endpoint reference pages marked as 'Deprecated'                        | - Developer Portal notification and announcement prior to deprecation<br> - Changelog entries published only for fixes and related changes  |
-| Sunset     | API is no longer accessible in Production | - Support no longer provided                                                                                                                           | - Reference pages no longer accessible in Production                     | - Developer Portal notification and announcement prior to sunset<br> - Final sunset announcement                                            |
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>API Resources</th>
+        <th>Support</th>
+        <th>Documentation</th>
+        <th>Change Notification</th>
+      </tr>
+    </thead>
+      <tr>
+        <td>Active</td>
+        <td>
+            <ul>
+                <li>API is live in Production.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>New resource versions released periodically with new features, refinements, fixes, etc.</li>
+                <li>Technical support available at <a <a href="mailto:apisupport@procore.com">apisupport@procore.com</a>.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Released with new API versions.</li>
+                <li>Reference documentation maintained.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Changelog entries published for updates to resource endpoints.</li>
+                <li>Developer Portal notifications covering new resource version releases.</li>
+            </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Deprecated</td>
+        <td>
+            <ul>
+                <li>API is live in Production.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Fixes deployed as needed.</li>
+                <li>No new development.</li>
+                <li>Technical support available at <a href="mailto:apisupport@procore.com">apisupport@procore.com</a>.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Endpoint reference pages marked as ‘Deprecated’.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Developer Portal notification and announcement prior to deprecation.</li>
+                <li>Changelog entries published only for fixes and related changes.</li>
+            </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Sunset</td>
+        <td>
+            <ul>
+                <li>API is no longer accessible in Production.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Support no longer provided.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Reference pages no longer accessible in Production.</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Developer Portal notification and announcement prior to sunset.</li>
+                <li>Final sunset announcement.</li>
+            </ul>
+        </td>
+      </tr>  
+  </tbody>
+</table>
 
 ## Support
 

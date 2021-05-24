@@ -8,13 +8,11 @@ section_title: API Essentials
 
 ## Introduction
 
-The majority of Procore API endpoints support pagination as a means of maximizing performance and responsiveness when dealing with large data sets.
-By implementing pagination in your application, you can minimize response times for requests and generally improve the end-user experience.
+The majority of Procore API endpoints support pagination as a means of maximizing performance and responsiveness when dealing with large data sets. By implementing pagination in your application, you can minimize response times for requests and generally improve the end-user experience.
 
 ## The per_page and page Parameters
 
-The Procore API supports pagination through the use of the per_page and page parameters.
-Use the `per_page` parameter to specify how many items you want each page to return. Use the page parameter to specify how link headers are created.
+The Procore API supports pagination through the use of the per_page and page parameters. Use the `per_page` parameter to specify how many items you want each page to return. Use the page parameter to specify how link headers are created.
 
 > MAXIMUM NUMBER OF ITEMS PER PAGE
 >
@@ -23,7 +21,8 @@ Use the `per_page` parameter to specify how many items you want each page to ret
 Below is an example of using the `per_page` and page parameters in a typical API call.
 
 ```
-curl -i -H "Authorization: Bearer <your_authorization_code>" https://api.procore.com/rest/v1.0/punch_items?project_id=14406&per_page=5&page=3
+curl -i -H "Authorization: Bearer <your_authorization_code>" \
+      https://api.procore.com/rest/v1.0/punch_items?project_id=14406&per_page=5&page=3
 ```
 
 Inspecting the headers shows some helpful information you could use in your application:

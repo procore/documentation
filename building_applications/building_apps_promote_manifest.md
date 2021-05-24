@@ -8,8 +8,7 @@ section_title: Building Applications
 
 ## Creating Additional Sandbox Manifest Versions
 
-After you have created the initial sandbox version of your App manifest, you can iterate through your development/test cycle and create subsequent versions as needed to address changes in your App.
-Complete the following steps to create additional manifest versions.
+After you have created the initial sandbox version of your App manifest, you can iterate through your development/test cycle and create subsequent versions as needed to address changes in your App. Complete the following steps to create additional manifest versions.
 
 1. In the 'Manage Manifests' section, click **Create New Version**. The editor displays the content from your last manifest version.
 1. Make changes to the manifest as needed and click **Create**. Your new manifest version is saved and the version number is incremented by one (1).
@@ -17,8 +16,7 @@ Complete the following steps to create additional manifest versions.
 
 ## Promoting a Manifest Version to Production
 
-After you have successfully tested and validated your manifest in the sandbox environment, you can promote it to the production environment and obtain your production OAuth credentials.
-The following diagram shows the manifest versioning model.
+After you have successfully tested and validated your manifest in the sandbox environment, you can promote it to the production environment and obtain your production OAuth credentials. The following diagram shows the manifest versioning model.
 
 ![App manifest diagram]({{ site.baseurl }}/assets/guides/manifest-promotion.png)
 

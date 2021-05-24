@@ -16,10 +16,8 @@ section_title: OAuth 2.0 Authentication
 
 ## Introduction
 
-If you are planning on developing a Single Page Application (SPA) with no backend components, or intend to invoke the Procore API via JavaScript, we recommend using the Implicit Grant flow for access token acquisition.
-SPAs run entirely in the browser after loading the source code from a web page.
-Since the entire source code is available to the browser, SPAs cannot maintain the confidentiality of their Client Secret.
-As a result, the authorization code exchange step is skipped in the Implicit Grant flow and the access token is returned directly from the Grant App Authorization endpoint (/authorize).
+If you are planning on developing a Single Page Application (SPA) with no backend components, or intend to invoke the Procore API via JavaScript, we recommend using the Implicit Grant flow for access token acquisition. SPAs run entirely in the browser after loading the source code from a web page.
+Since the entire source code is available to the browser, SPAs cannot maintain the confidentiality of their Client Secret. As a result, the authorization code exchange step is skipped in the Implicit Grant flow and the access token is returned directly from the Grant App Authorization endpoint (/authorize).
 
 > SECURITY CONSIDERATIONS
 >
@@ -63,4 +61,3 @@ You can [download this sample code]({{ site.baseurl }}/assets/static/implicit-gr
 > When trying to send an API request from a client-side application using the Implicit Grant flow, you may receive an error indicating that "the 'Access-Control-Allow-Origin' header is present on the requested Resource.”
 > For CORS requests from client-side applications, you will need to have your origin domain whitelisted for your App.
 > To do that, please contact <apisupport@procore.com> and provide the domain you wish to have whitelisted.
-

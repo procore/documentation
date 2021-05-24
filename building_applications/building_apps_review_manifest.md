@@ -6,8 +6,7 @@ section_title: Building Applications
 
 ---
 
-After you have finalized the structure and content of your App manifest and you have successfully promoted it to production, the next step is to submit your manifest for technical review by Procore.
-This step is required only if you intend to publish your App to the Procore Marketplace.
+After you have finalized the structure and content of your App manifest and you have successfully promoted it to production, the next step is to submit your manifest for technical review by Procore. This step is required only if you intend to publish your App to the [Procore Marketplace](https://marketplace.procore.com/){:target="_blank" rel="noopener"}.
 
 ## App Manifest Review Process
 
@@ -15,9 +14,7 @@ The following diagram depicts the high-level steps of the App manifest review pr
 
 ![Manifest review process]({{ site.baseurl }}/assets/guides/manifest-review.png)
 
-The manifest review process is iterative, with an initial production manifest version being submitted for review, followed by subsequent manifest revisions and resubmissions as required.
-It is important to note that the promoted manifest you submit for review must properly define components and post-installation instructions suitable for a production deployment.
-Sample code and placeholder definitions will be rejected by our App Validation team.
+The manifest review process is iterative, with an initial production manifest version being submitted for review, followed by subsequent manifest revisions and resubmissions as required. It is important to note that the promoted manifest you submit for review must properly define components and post-installation instructions suitable for a production deployment. Sample code and placeholder definitions will be rejected by our App Validation team.
 
 ### Submit for Initial Review
 
@@ -33,9 +30,7 @@ _Hint_: If, for whatever reason, you need to retract your manifest submission, y
 
 ### Address Comments and Revise Manifest
 
-After we receive your submission, we conduct a technical review of the manifest to validate the functional behavior of the App and verify compliance with Procore’s terms and conditions.
-In the event the manifest submission is rejected, you will receive an email response with comments identifying the problems that must be addressed prior to approval.
-Your next step is to create a new sandbox manifest version and make revisions to address review comments.
+After we receive your submission, we conduct a technical review of the manifest to validate the functional behavior of the App and verify compliance with Procore’s terms and conditions. In the event the manifest submission is rejected, you will receive an email response with comments identifying the problems that must be addressed prior to approval. Your next step is to create a new sandbox manifest version and make revisions to address review comments.
 
 1. Open the email response and click **Update**.
 1. Scroll down to the ‘Manage Manifest’ section.

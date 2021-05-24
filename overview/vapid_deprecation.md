@@ -5,6 +5,8 @@ layout: default
 section_title: Overview
 ---
 
+>IMPORTANT!
+>
 > Procore API resources under the `/vapid` namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the `/rest` namespace with a new architecture that supports versioning and expanded functionality.
 >
 > Although Procore will continue to support Vapid resources and address defects as needed, all new feature development for the Procore API will be done in Rest.
@@ -12,8 +14,7 @@ section_title: Overview
 
 ## Migrating to Rest v1.0
 
-Upgrading an application that currently consumes the Vapid API to use Rest v1.0 is as simple as changing the routes you are requesting.
-Update your integration to use Rest v1.0 resources by changing the format of the API endpoint URLs in your code to use the new namespace (/rest) and version parameter (v1.0) as shown in the example below.
+Upgrading an application that currently consumes the Vapid API to use Rest v1.0 is as simple as changing the routes you are requesting. Update your integration to use Rest v1.0 resources by changing the format of the API endpoint URLs in your code to use the new namespace (/rest) and version parameter (v1.0) as shown in the example below.
 
     https://api.procore.com/vapid/projects
 

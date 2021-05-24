@@ -14,22 +14,45 @@ To make Procore's API as explorable as possible, we have provided the following 
 
 ## Sandbox Environment URL Details
 
-| Environment         | URL                                       | Description                                                                                            |
-| ------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Monthly Sandbox     | https://api-monthly.procore.com           | Domain for API gateway access to the Procore Web Application in the monthly sandbox environment.       |
-|                     | https://login-sandbox-monthly.procore.com | Domain for making API calls to the Procore authentication server in the monthly sandbox environment.   |
-|                     | https://api-sandbox-monthly.procore.com   | Domain for browser access to the Procore Web Application in the monthly sandbox environment.           |
-| Development Sandbox | https://sandbox.procore.com/              | Domain for browser access and API gateway access to a development sandbox environment.                 |
-|                     | https://login-sandbox.procore.com/        | Domain for making API calls to the Procore authentication server in a development sandbox environment. |
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <th>Environment</th>
+        <th>URL</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+      <tr>
+        <td rowspan="3">Monthly Sandbox</td>
+        <td>https://api-monthly.procore.com</td>
+        <td>Domain for API gateway access to the Procore Web Application in the monthly sandbox environment. </td>
+      </tr>
+      <tr>
+        <td>https://login-sandbox-monthly.procore.com</td>
+        <td>Domain for making API calls to the Procore authentication server in the monthly sandbox environment.</td>
+      </tr>
+      <tr>
+        <td>https://api-sandbox-monthly.procore.com</td>
+        <td>Domain for browser access to the Procore Web Application in the monthly sandbox environment.</td>
+      </tr>
+      <tr>
+        <td rowspan="2">Development Sandbox</td>
+        <td>https://sandbox.procore.com/</td>
+        <td>Domain for browser access and API gateway access to a development sandbox environment.</td>
+      </tr>
+      <tr>
+        <td>https://login-sandbox.procore.com/</td>
+        <td>Domain for making API calls to the Procore authentication server in a development sandbox environment.</td>
+      </tr>
+  </tbody>
+</table>
 
 ## Working with a Development Sandbox
 
-When you create a new application in your Developer Portal account, a _Development Sandbox_ is automatically generated that you can use to test your application.
-Development Sandboxes come pre-seeded with company and project level test data that you can expand upon to aid you in your development and test activities.
-A Development Sandbox provides an isolated environment in which you can experiment and validate your application without the risk of affecting production data.
-The sandbox generation process just takes a few minutes to create your sandbox.
-You will receive an email notifying you regarding the availability of your sandbox, as well as the URL to set your password in the sandbox environment.
-Once your sandbox has been successfully generated and your password has been set, you can:
+When you create a new application in your Developer Portal account, a _Development Sandbox_ is automatically generated that you can use to test your application. Development Sandboxes come pre-seeded with company and project level test data that you can expand upon to aid you in your development and test activities.
+
+A Development Sandbox provides an isolated environment in which you can experiment and validate your application without the risk of affecting production data. The sandbox generation process just takes a few minutes to create your sandbox. You will receive an email notifying you regarding the availability of your sandbox, as well as the URL to set your password in the sandbox environment. Once your sandbox has been successfully generated and your password has been set, you can:
 
 - Follow the Concierge account creation process.
 - Retrieve your `client_id` and `client_secret` API keys for your sandbox from the Developer Portal.
@@ -55,15 +78,11 @@ Once your sandbox has been successfully generated and your password has been set
 
 ### Development Sandbox First-Time Access
 
-**Note:** On your first login attempt to your new sandbox Company you will be prompted to set your password for Procore access.
-This does not affect your Developer Portal password.
-When you access your sandbox for the first time, you will have the option to work through the Concierge account creation process.
+**Note:** On your first login attempt to your new sandbox Company you will be prompted to set your password for Procore access This does not affect your Developer Portal password. When you access your sandbox for the first time, you will have the option to work through the Concierge account creation process.
 
 ### Development Sandbox Credentials
 
-It is important to note that as you work in your Development Sandbox you will use authentication credentials that are separate from the Procore production environment.
-Once you have generated your sandbox, a new Client ID and Client Secret will be available to use for your testing.
-Keep in mind that these credentials are only valid for your sandbox and are not recognized in the Procore production environment.
+It is important to note that as you work in your Development Sandbox you will use authentication credentials that are separate from the Procore production environment. Once you have generated your sandbox, a new Client ID and Client Secret will be available to use for your testing. Keep in mind that these credentials are only valid for your sandbox and are not recognized in the Procore production environment.
 
 ### Development Sandbox Company Directory Users
 
@@ -75,8 +94,7 @@ In addition to the user account you use to log into the Developer Portal, a mini
 
 ### Development Sandbox Test Project
 
-Your Development Sandbox comes pre-configured with a test project called _1234 - Sandbox Test Project_.
-This project includes the following seed data to help get you started.
+Your Development Sandbox comes pre-configured with a test project called _1234 - Sandbox Test Project_. This project includes the following seed data to help get you started.
 
 - _Project Directory_ - three project users (Test Architect, Test Subcontractor, and API Support as described above)
 - _Schedule_ - basic high-level schedule with 8 tasks
@@ -88,10 +106,7 @@ This project includes the following seed data to help get you started.
 
 ### Using Postman with Your Development Sandbox
 
-Postman is an API test application and framework you can use to send HTTP requests to Procore API endpoints.
-It allows you to quickly send requests to the Procore API and capture results.
-It is a useful tool for getting started with the Procore API and debugging your application.
-For detailed information on using Postman with a Development Sandbox, see [Exploring the Procore API with Postman]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}).
+Postman is an API test application and framework you can use to send HTTP requests to Procore API endpoints. It allows you to quickly send requests to the Procore API and capture results. It is a useful tool for getting started with the Procore API and debugging your application. For detailed information on using Postman with a Development Sandbox, see [Exploring the Procore API with Postman]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}).
 
 ## Additional Considerations for Sandbox Environments
 
@@ -100,4 +115,3 @@ For detailed information on using Postman with a Development Sandbox, see [Explo
 - After an App is created in your Developer Portal Account, the production credentials for your App will eventually propagate to the monthly sandbox environment.
 - Users created in production will eventually propagate to the monthly sandbox environment.
 - When working in your Development Sandbox environment, do not rely on `authorization_code`, `access_token`, or `refresh_token` from the production environment as those tokens will no longer align.
-

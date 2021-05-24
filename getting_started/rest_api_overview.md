@@ -6,14 +6,11 @@ section_title: Getting Started
 ---
 
 ## Introduction
-Rest is Procore’s new API that replaces the previous API known as Vapid.
-Rest provides a number of advantages over the original Vapid API, including a new versioning architecture, new resources that provide additional coverage, and a new changelog feature.
+Rest is Procore’s new API that replaces the previous API known as Vapid. Rest provides a number of advantages over the original Vapid API, including a new versioning architecture, new resources that provide additional coverage, and a new changelog feature.
 
 ## Rest API Versioning Architecture
 
-The Rest API versioning architecture allows for a flexible approach to version management because resources are versioned independently from one another.
-This lets you choose whether you want to adopt new resource versions (with breaking changes), or stay with the ones you are currently using.
-Use new resource versions as they are released and update your code accordingly, or wait until it makes more sense for your particular development timeline.
+The Rest API versioning architecture allows for a flexible approach to version management because resources are versioned independently from one another. This lets you choose whether you want to adopt new resource versions (with breaking changes), or stay with the ones you are currently using. Use new resource versions as they are released and update your code accordingly, or wait until it makes more sense for your particular development timeline.
 
 ## Version Numbering
 
@@ -22,8 +19,7 @@ Each resource in Rest is associated with a specific Rest version number which co
 - The _API version_ is set across the API. There is a complete set of resources at each supported API version (v1.x, v2.x, etc.).
 - The _resource version_ is specific to each resource, and incremented whenever a breaking change is made to the API.
 
-A breaking change is any change to the API that could potentially cause failures in the applications that consume the API.
-If a change could cause API calls in an application to fail or to return different results than what is expected, we consider it a breaking change.
+A breaking change is any change to the API that could potentially cause failures in the applications that consume the API. If a change could cause API calls in an application to fail or to return different results than what is expected, we consider it a breaking change.
 
 The format for specifying a Rest version number is as follows:
 
@@ -47,9 +43,7 @@ Breaking down this example further we see…
 
 ## Making Rest API Calls
 
-The URL format for accessing Rest API endpoints differs from the previous Vapid API.
-The `/vapid` namespace has been changed to `/rest`, and support for defining specific resource versions has been added.
-The resource version is specified in the URL using the following format.
+The URL format for accessing Rest API endpoints differs from the previous Vapid API. The `/vapid` namespace has been changed to `/rest`, and support for defining specific resource versions has been added. The resource version is specified in the URL using the following format.
 
     /rest/v{api_version}.{resource_version}
 
@@ -57,10 +51,7 @@ _example_: https://api.procore.com/rest/v1.2/projects
 
 ## Rest API Changelog
 
-With the release of Rest API v1.0 comes the introduction of our new changelog feature.
-Use the changelog to stay up to date on changes our development teams make to Rest API resources.
-Changelog entries for individual resource endpoints are viewable in the reference documentation.
-Each endpoint has its own list of changes, and only displays changes relevant to the version of the resource you are currently viewing.
+With the release of Rest API v1.0 comes the introduction of our new changelog feature. Use the changelog to stay up to date on changes our development teams make to Rest API resources. Changelog entries for individual resource endpoints are viewable in the reference documentation. Each endpoint has its own list of changes, and only displays changes relevant to the version of the resource you are currently viewing.
 
 ![rest changelog endpoint]({{ site.baseurl }}/assets/guides/rest-changelog-endpoint.png)
 
@@ -87,8 +78,7 @@ Clicking a changelog entry on the reference page displays a more detailed descri
 ![rest changelog popup]({{ site.baseurl }}/assets/guides/rest-changelog-popup.png)
 
 You can also access changelog information for the Rest API directly from the Developer Portal navigation header.
-All changelog entries are listed chronologically on this page.
-Filters allow you to drill down on the types of changes you are most interested in learning about.
+All changelog entries are listed chronologically on this page. Filters allow you to drill down on the types of changes you are most interested in learning about.
 
 ![changelog page]({{ site.baseurl }}/assets/guides/changelog-page.png)
 

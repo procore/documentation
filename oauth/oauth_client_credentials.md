@@ -7,15 +7,9 @@ section_title: OAuth 2.0 Authentication
 
 ## Introduction
 
-The Client Credentials flow is perhaps the most simple of the OAuth 2.0 flows supported by the Procore API.
-The primary difference with the Client Credentials flow is that it is not associated with a specific Procore user (resource owner).
-In addition, it is not necessary to first obtain an authorization code before retrieving an access token when using the the Client Credentials grant type.
-The Procore API implementation of the Client Credentials flow relies on the use of a [_service account_]().
+The Client Credentials flow is perhaps the most simple of the OAuth 2.0 flows supported by the Procore API. The primary difference with the Client Credentials flow is that it is not associated with a specific Procore user (resource owner). In addition, it is not necessary to first obtain an authorization code before retrieving an access token when using the the Client Credentials grant type. The Procore API implementation of the Client Credentials flow relies on the use of a [_service account_](https://support.procore.com/faq/what-is-a-service-account){:target="_blank" rel="noopener"}.
 
-The Client Credentials grant type provides a specific grant flow in which the resource owner (that is, the user) is not involved.
-When using this grant with Procore, the client application requests an access token using only its own credentials (via an existing service account), and uses the access token on behalf of the client application itself.
-This grant flow is best-suited for API methods that are used by the client application in general, instead of methods that apply to a certain resource owner, for example, API methods for reporting, analytics, administrative tasks, system maintenance, etc.
-This method for using an API is also referred to as _userless access_.
+The Client Credentials grant type provides a specific grant flow in which the resource owner (that is, the user) is not involved. When using this grant with Procore, the client application requests an access token using only its own credentials (via an existing service account), and uses the access token on behalf of the client application itself. This grant flow is best-suited for API methods that are used by the client application in general, instead of methods that apply to a certain resource owner, for example, API methods for reporting, analytics, administrative tasks, system maintenance, etc. This method for using an API is also referred to as _userless access_.
 
 ## Common Use Cases
 
@@ -32,17 +26,11 @@ There are a number of scenarios in which using the Client Credentials grant flow
 
 ## Security Considerations
 
-Depending on how you plan to use the Client Credentials grant flow, the credentials for your application (Client ID and Client Secret) could potentially provide access to a large amount of data.
-The more data a single set of credentials has access to, the greater the risk if the credentials become compromised.
-Therefore, it is imperative that the credentials used to authenticate your application with Procore are kept confidential.
-Ideally, these credentials would also be rotated regularly.
-It is important to note that new service accounts are created without permissions ('None') by default.
-However, you can refine and customize the access levels for your service account as a means for establishing and enforcing proper security policies for your application.
+Depending on how you plan to use the Client Credentials grant flow, the credentials for your application (Client ID and Client Secret) could potentially provide access to a large amount of data. The more data a single set of credentials has access to, the greater the risk if the credentials become compromised. Therefore, it is imperative that the credentials used to authenticate your application with Procore are kept confidential. Ideally, these credentials would also be rotated regularly. It is important to note that new service accounts are created without permissions ('None') by default. However, you can refine and customize the access levels for your service account as a means for establishing and enforcing proper security policies for your application.
 
 ## Service Account Management
 
-As you develop and deploy applications that use the Client Credentials Grant type, you must be mindful of the following aspects of Procore _service accounts_.
-See [What is a Service Account?](https://support.procore.com/faq/what-is-a-service-account)
+As you develop and deploy applications that use the Client Credentials Grant type, you must be mindful of the following aspects of Procore _service accounts_. See [What is a Service Account?](https://support.procore.com/faq/what-is-a-service-account)
 
 - *Service Account Permissions* - Because the default permissions for a service account are set to 'None' at the company level when it is first created, you _must_ explicitly set proper permissions for the service account prior to using it to access the Procore API. Also, bear in mind that although you may be able to successfully generate an OAuth 2.0 access token using a service account with the default ('None') permissions, this token will not work for making calls to the Procore API. Please see [Configure Service Account Permissions](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/configure-service-account-permissions) on the [Procore Support Site](http://support.procore.com/) for more information.
 - *Directory Contact Restriction* - The directory contact associated with a service account must not be added to any other company directory aside from the one it was originally created in. Doing so will render the service account non-functional.
@@ -160,8 +148,7 @@ curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzUxMiJ9xeyJhaWQiOiIw
      -X GET https://api.procore.com/rest/v1.0/companies
 ```
 
-The value to use for the `Procore-Company-Id` header can be retrieved from the URL in the address bar of your browser once you have logged into a company.
-The company ID displays in the URL as a path parameter as shown in the following example.
+The value to use for the `Procore-Company-Id` header can be retrieved from the URL in the address bar of your browser once you have logged into a company. The company ID displays in the URL as a path parameter as shown in the following example.
 
 ```
 https://app.procore.com/<COMPANY ID>/company/home/list

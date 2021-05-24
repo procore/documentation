@@ -12,8 +12,7 @@ Prior to making calls to the Procore API you must complete the following tasks:
 - [Register for a Developer Account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %}) on the Procore Developer Portal.
 - [Create an Application]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %}) using your Developer Account.
 
-In addition, you will need to familiarize yourself with the [OAuth 2.0 authentication protocol]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) as access to the Procore API is secured by the authorization and authentication requirements of OAuth 2.0.
-Applications you develop for integrating with Procore must implement OAuth 2.0.
+In addition, you will need to familiarize yourself with the [OAuth 2.0 authentication protocol]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) as access to the Procore API is secured by the authorization and authentication requirements of OAuth 2.0. Applications you develop for integrating with Procore must implement OAuth 2.0.
 
 > HTTPS PROTOCOL REQUIREMENT
 >
@@ -21,21 +20,17 @@ Applications you develop for integrating with Procore must implement OAuth 2.0.
 
 ## cURL and Postman
 
-Two popular web development test tools - cURL and Postman - can be used to explore the capabilities of the Procore API without having to fully build out your application.
-In the following sections we use these tools to illustrate how you can make your first call to the Procore API.
-If you are unfamiliar with these tools, here are some helpful resources to get you started.
+Two popular web development test tools - cURL and Postman - can be used to explore the capabilities of the Procore API without having to fully build out your application. In the following sections we use these tools to illustrate how you can make your first call to the Procore API. If you are unfamiliar with these tools, here are some helpful resources to get you started.
 
-- [cURL Home Page](https://curl.haxx.se/)
-- [cURL GitHub Repository Readme](https://github.com/curl/curl/blob/master/README.md)
-- [Postman Home Page](https://www.getpostman.com/)
-- [Postman Documentation](https://www.getpostman.com/docs/v6/)
+- [cURL Home Page](https://curl.haxx.se/){:target="_blank" rel="noopener"}
+- [cURL GitHub Repository Readme](https://github.com/curl/curl/blob/master/README.md){:target="_blank" rel="noopener"}
+- [Postman Home Page](https://www.getpostman.com/){:target="_blank" rel="noopener"}
+- [Postman Documentation](https://www.getpostman.com/docs/v6/){:target="_blank" rel="noopener"}
 - [Exploring the Procore API with Postman](https://developers.procore.com/documentation/postman)
 
 ### Procore OAuth 2.0 Postman Collection with cURL Examples
 
-We've put together a helpful Postman collection of cURL examples for the Procore OAuth 2.0 Authentication endpoints that you can use while you build, test, and maintain your application.
-Simply [visit this link](https://documenter.getpostman.com/view/3996804/SW7bzS65) to view the collection and begin exploring the Procore OAuth 2.0 authentication endpoints.
-Each endpoint includes an explanation of its functionality along with a pre-formatted cURL example command that you can copy and paste as needed.
+We've put together a helpful Postman collection of cURL examples for the Procore OAuth 2.0 Authentication endpoints that you can use while you build, test, and maintain your application. Simply [visit this link](https://documenter.getpostman.com/view/3996804/SW7bzS65){:target="_blank" rel="noopener"} to view the collection and begin exploring the Procore OAuth 2.0 authentication endpoints. Each endpoint includes an explanation of its functionality along with a pre-formatted cURL example command that you can copy and paste as needed.
 
 ### Using cURL to Make Your First Procore API Call
 
@@ -43,8 +38,7 @@ In this section, the cURL command line tool is used to retrieve an OAuth 2.0 acc
 
 ### 1. Obtain Authorization from the User
 
-The first step to obtaining an access token is to open your browser and make a call to the ‘Authorize’ endpoint using a REST URL.
-The syntax for this URL is shown here:
+The first step to obtaining an access token is to open your browser and make a call to the ‘Authorize’ endpoint using a REST URL. The syntax for this URL is shown here:
 
     https://login.procore.com/oauth/authorize?response_type=code&client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>
 
@@ -54,8 +48,7 @@ Let’s break this URL into its constituent components, so we can examine it in 
 - Next, we see the endpoint definition itself - `/authorize`.
 - Following that, three distinct query parameters are defined - `response_type`, `client_id`, and `redirect_uri`.
 
-A question mark symbol is used to separate the query parameters from the rest of the URL.
-Let’s have a look at each of these parameters:
+A question mark symbol is used to separate the query parameters from the rest of the URL. Let’s have a look at each of these parameters:
 
 - `response_type` - set to a value of ‘code’, indicates that we want the Procore API `/authorize` endpoint to return an authorization code for us.
 - `client_id` - should match what you retrieve from your application page on the Developer Portal.
@@ -65,15 +58,11 @@ If we build up this URL in the address bar of our browser and send it, the Proco
 
 ![auth code]({{ site.baseurl }}/assets/guides/auth-code.png)
 
-It is important to note that the authorization code you obtain is only valid for ten minutes.
-As such, you must use this code to retrieve an access token within the 10 minute expiration period.
-Otherwise, you will need to call the /authorize endpoint again to obtain a valid authorization code.
+It is important to note that the authorization code you obtain is only valid for ten minutes. As such, you must use this code to retrieve an access token within the 10 minute expiration period. Otherwise, you will need to call the /authorize endpoint again to obtain a valid authorization code.
 
 ### 2. Retrieve an Access Token
 
-Now that we have an authorization code, we can use that to retrieve an access token.
-We’ll use the Procore API /token endpoint for this step.
-Our cURL command for retrieving an access token will pass the following parameters:
+Now that we have an authorization code, we can use that to retrieve an access token. We’ll use the Procore API /token endpoint for this step. Our cURL command for retrieving an access token will pass the following parameters:
 
 - `client_id` - should match what you retrieve from your application page on the Developer Portal.
 - `client_secret` - should match what you retrieve from your application page on the Developer Portal.
@@ -92,10 +81,7 @@ curl -F grant_type=authorization_code \
   -X POST https://api.procore.com/oauth/token
 ```
 
-Examining this command we see that we use -F command flags to specify each of the required parameters as being form field data.
-In addition, we use backslash characters to denote line breaks which makes the example more readable.
-Finally, we use the -X POST flag to tell cURL that we are sending a POST call to the Procore API `/token` endpoint.
-Running this command returns a JSON block similar to the following.
+Examining this command we see that we use -F command flags to specify each of the required parameters as being form field data. In addition, we use backslash characters to denote line breaks which makes the example more readable. Finally, we use the -X POST flag to tell cURL that we are sending a POST call to the Procore API `/token` endpoint. Running this command returns a JSON block similar to the following.
 Let’s take a look at it’s contents.
 
 ```
@@ -110,9 +96,7 @@ Let’s take a look at it’s contents.
 
 ### 3. Making a Call to the Procore API
 
-Now that we have successfully retrieved an access token, we can use it to make our first call to the Procore API.
-For this example, we’ll use the simple /me endpoint to show that we can successfully contact the Procore API server and return information about the currently logged in user.
-Again, we’ll use cURL to demonstrate this.
+Now that we have successfully retrieved an access token, we can use it to make our first call to the Procore API. For this example, we’ll use the simple /me endpoint to show that we can successfully contact the Procore API server and return information about the currently logged in user. Again, we’ll use cURL to demonstrate this.
 
 First, we’ll build up our cURL command using the following syntax, specifying the authorization code as a header parameter:
 
@@ -134,23 +118,17 @@ You have successfully made your first call to the Procore API!
 
 ## Using Postman to Make Your First Procore API Call
 
-Postman is a very popular and capable platform for working with and testing REST APIs.
-While you are in the exploratory stage with the Procore Connect API, we recommend Postman as a platform for familiarizing yourself with the various endpoints exposed through the API.
-Postman is a feature-rich application that can run as a Chrome app or natively in Windows or Mac OSX.
+Postman is a very popular and capable platform for working with and testing REST APIs. While you are in the exploratory stage with the Procore Connect API, we recommend Postman as a platform for familiarizing yourself with the various endpoints exposed through the API. Postman is a feature-rich application that can run as a Chrome app or natively in Windows or Mac OSX.
 
-If you have not done so already, visit the [Postman website](https://www.getpostman.com/), download the appropriate installation package, and install as instructed.
-The examples presented in the following sections are based on Postman v5.3.3. In addition, we recommend
+If you have not done so already, visit the [Postman website](https://www.getpostman.com/), download the appropriate installation package, and install as instructed. The examples presented in the following sections are based on Postman v5.3.3. In addition, we recommend
 
 ### 1. Configure OAuth 2.0 in Postman
 
-Before you can make a call to the Procore API using Postman, you must [configure OAuth 2.0 authorization]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#postman-token-gen) using Postman's token management tool.
-See Generating OAuth 2.0 Tokens in Postman for the steps to accomplish this.
-Note that this example uses a development sandbox environment, but you can just as easily configure OAuth 2.0 and generate access tokens for your production environment.
+Before you can make a call to the Procore API using Postman, you must configure OAuth 2.0 authorization using Postman's token management tool. See [Generating OAuth 2.0 Tokens in Postman]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#generating-oauth-20-tokens-in-postman) for the steps to accomplish this. Note that this example uses a development sandbox environment, but you can just as easily configure OAuth 2.0 and generate access tokens for your production environment.
 
 ### 2. Making a Call to the Procore API
 
-Once you have configured OAuth 2.0 in Postman and are able to successfully generate access tokens using the token management tool, you can use these tokens to authenticate calls to the Procore API.
-The example below illustrates a simple call to the List Projects endpoint using Postman.
+Once you have configured OAuth 2.0 in Postman and are able to successfully generate access tokens using the token management tool, you can use these tokens to authenticate calls to the Procore API. The example below illustrates a simple call to the List Projects endpoint using Postman.
 
 ![example call]({{ site.baseurl }}/assets/guides/example-call.png)
 
@@ -158,7 +136,7 @@ Let's break down this example call:
 
 - First, we set the HTTP action to GET.
 - We then enter the URL for the List Projects endpoint as `https://api.procore.com/rest/v1.0/projects?company_id=1234`. Note that we've used a fictitous company_id of '1234', so you will want to substitute your own valid `company_id` value.
-- The Authorization Type is set to 'Inherit auth from parent' because we have configured OAuth 2.0 in Postman at the collection level as described in [Generating OAuth 2.0 Tokens]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#postman-token-gen).
+- The Authorization Type is set to 'Inherit auth from parent' because we have configured OAuth 2.0 in Postman at the collection level as described in [Generating OAuth 2.0 Tokens]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#generating-oauth-20-tokens-in-postman).
 
 In addition to the settings described above, set the `Procore-Company-ID` header value as needed to work with [Multiple Procore Zones (MPZ)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
 
@@ -195,4 +173,3 @@ Now, simply click Send to retrieve a list of projects in your company. You shoul
 ```
 
 You have successfully made your first call to the Procore API!
-

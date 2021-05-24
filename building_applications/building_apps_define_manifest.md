@@ -6,29 +6,19 @@ section_title: Building Applications
 
 ---
 
-In order to deploy an App on the Procore platform, you must create a manifest for your App on the Developer Portal.
-The manifest defines the various components that make up your App and specifies additional instructions that users can follow after they install it.
-The following sections cover App component types as well as manifest format and structure.
-You will need to understand these concepts in order to create a proper App manifest.
+In order to deploy an App on the Procore platform, you must create a manifest for your App on the Developer Portal. The manifest defines the various components that make up your App and specifies additional instructions that users can follow after they install it. The following sections cover App component types as well as manifest format and structure. You will need to understand these concepts in order to create a proper App manifest.
 
 ## Understanding App Component Types
 
 The Procore platform currently supports two App component types that you define in the App manifest.
 
-_Data connection_ components are used in Apps that read or write data to/from Procore using the available Procore API resources.
-Since this type of App requires authentication with the Procore API, the data connection component is used to define the OAuth 2.0 authorization grant type for the App (i.e., authorization_code or implicit).
-For additional information on OAuth 2.0 authorization grant types, see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})  .
-It is important to note that an App can only have one data connection component.
+_Data connection_ components are used in Apps that read or write data to/from Procore using the available Procore API resources. Since this type of App requires authentication with the Procore API, the data connection component is used to define the OAuth 2.0 authorization grant type for the App (i.e., authorization_code or implicit). For additional information on OAuth 2.0 authorization grant types, see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}). It is important to note that an App can only have one data connection component.
 
-_Embedded_ components are used in Apps that launch in an iframe within the Procore user interface as an embedded experience.
-Embedded components are used to define the various attributes of an embedded experience App including the App name, the iframe source URL, and any custom fields required for the installation and configuration steps.
-Currently, Apps designed for the embedded experience can only contain one embedded component instance.
-If an embedded experience App also requires authentication with the Procore API, then the App manifest also needs to include a data connection component
+_Embedded_ components are used in Apps that launch in an iframe within the Procore user interface as an embedded experience. Embedded components are used to define the various attributes of an embedded experience App including the App name, the iframe source URL, and any custom fields required for the installation and configuration steps. Currently, Apps designed for the embedded experience can only contain one embedded component instance. If an embedded experience App also requires authentication with the Procore API, then the App manifest also needs to include a data connection component
 
 ## App Manifest Format and Structure
 
-The manifest format and structure adheres to the [JSON schema](https://json-schema.org/).
-Below is an example App manifest that helps to describe the various sections of the manifest.
+The manifest format and structure adheres to the [JSON schema](https://json-schema.org/){:target="_blank" rel="noopener"}. Below is an example App manifest that helps to describe the various sections of the manifest.
 
 ```
 {
@@ -83,11 +73,7 @@ Let’s dive deeper into the example above to understand the various sections th
 
 **app_manifest** - includes a single `id` field which is automatically generated using App information from the Developer Portal. You do not need to explicitly define this field in your manifest.
 
-**post_installation_instruction** - defines specific instructions that must be carried out by the Procore user tasked with installing and setting up the App for use by their organization.
-This information is displayed to the user at the time of installation, and later via the App Management page in the Procore Web user interface.
-Use the `notes` attribute to provide a textual description of any post-installation steps required to properly complete the setup of the App.
-Use the `page:url` attribute to specify a link to an external website or downloadable PDF that provides additional information about setting up the App.
-Use the `page:label` attribute to specify the label associated with the URL.
+**post_installation_instruction** - defines specific instructions that must be carried out by the Procore user tasked with installing and setting up the App for use by their organization. This information is displayed to the user at the time of installation, and later via the App Management page in the Procore Web user interface. Use the `notes` attribute to provide a textual description of any post-installation steps required to properly complete the setup of the App. Use the `page:url` attribute to specify a link to an external website or downloadable PDF that provides additional information about setting up the App. Use the `page:label` attribute to specify the label associated with the URL.
 
 **components** - specifies the various components that make up the App.
 Data connection components are defined by the oauth attribute. The details of each `oauth` instance are specified using the following parameters:
@@ -118,10 +104,7 @@ Referring to our example, we see that `customInputField` is included in the `req
 
 ## Creating the Initial Sandbox Manifest Version
 
-App manifests are first created in the context of your development sandbox.
-You can create any number of sandbox manifest versions for development and test purposes.
-After you have successfully validated your manifest in the sandbox environment, you can [promote it to the production environment]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
-The following steps outline the process of creating the initial version of your App manifest.
+App manifests are first created in the context of your development sandbox. You can create any number of sandbox manifest versions for development and test purposes. After you have successfully validated your manifest in the sandbox environment, you can [promote it to the production environment]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}). The following steps outline the process of creating the initial version of your App manifest.
 
 1. Log in to the Developer Portal, go to My Apps, then select the App you want to create a manifest for.
 1. Scroll down to the ‘Manage Manifests’ section, verify that the ‘Sandbox’ tab is selected, then click **Create New Version**. The manifest editor displays a template to help you get started with the required structure and format for your manifest. In addition, there are 'helpers' for creating Data Connection and Embedded component code snippets that you can paste into your manifest. The editor provides built-in validation so that you are notified when the format of your manifest does not conform to the required structure.

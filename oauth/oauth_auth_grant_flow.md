@@ -16,11 +16,7 @@ section_title: OAuth 2.0 Authentication
 
 ## Introduction
 
-If you are developing a web server-based solution, then you will want to implement the Authorization Code grant type.
-Web server applications are written in a server-side language where the source code of the application is not visible to the public.
-This means the application is able to take advantage of the Client Secret when communicating with the authorization server, which provides more robust security.
-The authorization grant type is considered a “redirection-based” flow.
-As such, your application must be capable of interacting with the user’s web browser as well as receiving incoming requests (via redirection) from the Procore authorization server.
+If you are developing a web server-based solution, then you will want to implement the Authorization Code grant type. Web server applications are written in a server-side language where the source code of the application is not visible to the public. This means the application is able to take advantage of the Client Secret when communicating with the authorization server, which provides more robust security. The authorization grant type is considered a “redirection-based” flow. As such, your application must be capable of interacting with the user’s web browser as well as receiving incoming requests (via redirection) from the Procore authorization server.
 
 In the following sections we examine the Oauth 2.0 Authorization Code Grant flow in the context of the Procore API and present a tutorial with an example application.
 
@@ -51,9 +47,7 @@ Let's summarize the flow as depicted in the diagram:
 
 ## Tutorial: Sign-Up and Sign-In Flows for a Sample Application
 
-This tutorial describes how to create sign-up and sign-in flows for use in a sample web application using the OAuth 2.0 Authorization Code grant type.
-By using calls to Procore's OAuth 2.0 endpoints triggered by button-clicks, you can allow Procore users to quickly set up an account and access your application.
-The workflow described here is similar to the social login signup experience with Facebook, Google, or Twitter buttons you may have seen in other web applications.
+This tutorial describes how to create sign-up and sign-in flows for use in a sample web application using the OAuth 2.0 Authorization Code grant type. By using calls to Procore's OAuth 2.0 endpoints triggered by button-clicks, you can allow Procore users to quickly set up an account and access your application. The workflow described here is similar to the social login signup experience with Facebook, Google, or Twitter buttons you may have seen in other web applications.
 
 > PRODUCTION VS. SANDBOX ENVIRONMENTS
 >
@@ -83,22 +77,19 @@ Visiting the landing page will display the linked button:
 
 ![Sign Up Button Here]({{ site.baseurl }}/assets/guides/oauth-sign-up.png)
 
-When a user clicks the button they are forwarded to the [Grant App Authorization](https://developers.procore.com/reference/rest/v1/authentication#grant-app-authorization) API endpoint.
-As part of the hyperlink URI, you are passing your sample application's Client ID and the URI the application is currently running on (Redirect URI).
-At this point, the user is presented with a Procore login screen.
-After the user successfully signs in to Procore and authorizes your application to access their account, they are redirected back to the REDIRECT_URI parameter sent with the request.
+When a user clicks the button they are forwarded to the [Grant App Authorization](https://developers.procore.com/reference/rest/v1/authentication#grant-app-authorization) API endpoint. As part of the hyperlink URI, you are passing your sample application's Client ID and the URI the application is currently running on (Redirect URI). At this point, the user is presented with a Procore login screen. After the user successfully signs in to Procore and authorizes your application to access their account, they are redirected back to the REDIRECT_URI parameter sent with the request.
 
 ### Step 2: Exchange Authorization Code for an Access Token
 
 As mentioned above, after the user signs into Procore they are redirected back to your application.
 Along with the redirect comes a code parameter, which represents an OAuth _Authorization Code_.
-You will exchange this Authorization Code for an _Access Token_.
-An Access Token is what will give you the ability to make requests against the Procore API and get information about the user.
+You will exchange this Authorization Code for an _Access Token_. An Access Token is what will give you the ability to make requests against the Procore API and get information about the user.
 To understand this exchange, take a look at the [Get Access Token](https://developers.procore.com/reference/rest/v1/authentication#get-or-refresh-an-access-token) endpoint reference page.
 
 1. Create a `/callback` function (endpoint) in your application.
 1. In the `/callback` function, add code to parse the response from the call to [Grant App Authorization](https://developers.procore.com/reference/authentication#grant-app-authorization) and store the value of the `code` parameter in a variable.
 1. Add code to the `/callback` function to exchange the Authorization Code for an Access Token by making a POST call to the [Get Access Token](https://developers.procore.com/reference/rest/v1/authentication#get-or-refresh-an-access-token) endpoint with the following payload:
+
 ```
 {
   "grant_type":"authorization_code",
@@ -118,8 +109,7 @@ Where:
 
 ### Step 3: Gather User Information
 
-Now that you have successfully exchanged the Authorization Code for an Access Token, you can use it to query the Procore API for data about the current user.
-The Me endpoint retrieves the current user’s Procore ID and their email address, which is exactly the information you need to create a user account in your system!
+Now that you have successfully exchanged the Authorization Code for an Access Token, you can use it to query the Procore API for data about the current user. The Me endpoint retrieves the current user’s Procore ID and their email address, which is exactly the information you need to create a user account in your system!
 
 1. Add code to your `/callback` function to set the Authorization Header value to be used for calling the Me endpoint. The value of the Authorization Header should be `Authorization: Bearer <ACCESS_TOKEN>` where `<ACCESS_TOKEN>` is the value for the token you obtained in previous section.
 1. Add code to your `/callback` function to call the Me endpoint using syntax desribed in the [Me reference page](https://developers.procore.com/reference/rest/v1/me) and print the response to the user's browser.
@@ -128,8 +118,7 @@ Now when a user clicks the Sign-Up button on the Home page of your sample applic
 
 ### Step 4: Persist the User Data
 
-Now that you have information about who is trying to sign up, you will need to persist that data in a database for later retrieval.
-You can use any data store you wish - SQLite, mySQL, etc.
+Now that you have information about who is trying to sign up, you will need to persist that data in a database for later retrieval. You can use any data store you wish - SQLite, mySQL, etc.
 
 1. Initialize a new local database called `test.db` and create a users table with the following schema:
     ```
@@ -145,9 +134,7 @@ You can use any data store you wish - SQLite, mySQL, etc.
 
 ### Step 5: Redirect to Application Home
 
-Now that you have saved the user to the database, it is time to log them in and proceed to the home page of your application.
-To log the user into your application, you simply set the user_id value in the browser session.
-The rest of your application will know if a user is signed in if the user_id value is present in the session.
+Now that you have saved the user to the database, it is time to log them in and proceed to the home page of your application. To log the user into your application, you simply set the user_id value in the browser session. The rest of your application will know if a user is signed in if the user_id value is present in the session.
 
 1. Add code to the bottom of your `/callback` function to set the session `user_id` value equal to that of the `id` field stored in the database for the current user. As a last step in the `/callback` function, add code to redirect back to a `/home` function that you will add in the next step.
 1. Add the `/home` function to your application and include the following:
@@ -159,9 +146,7 @@ Now when the user is redirected back to the home of your application you would s
 
 ### Step 6: Implement Sign-In Flow
 
-Now that Procore users can sign up for your application, how do they sign in later? Well, thankfully you can reuse most of the work you have done up to this point.
-Building the Sign-in flow only involves making a few modifications to the existing code.
-Some things to keep in mind:
+Now that Procore users can sign up for your application, how do they sign in later? Well, thankfully you can reuse most of the work you have done up to this point. Building the Sign-in flow only involves making a few modifications to the existing code. Some things to keep in mind:
 
 - Sign-in requests will also go through the `/oauth/authorize` endpoint.
 - Sign-in and Sign-up requests both redirect back to the `/callback` endpoint in your application.

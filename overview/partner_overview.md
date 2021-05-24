@@ -7,20 +7,13 @@ section_title: Overview
 
 ## Background
 
-
-The Procore API enables our technology partners to help Procore users enjoy a best in class experience, irrespective of what problem they are seeking to solve.
-When Procore technology partners integrate their solution with Procore, both parties win.
-Our technology partners leverage Procore’s developer resources and technical services engineers to build integrations which solve specific problems for our shared customer base.
-Customers benefiting from both platforms are able to better realize the value of their investment and are more willing to stay with the solutions which offer them greatest value.
-Extend your company's reach by becoming a Procore technology partner and explore the opportunity to offer your application/integration to other members of the Procore user community.
-Join our [Technology Partner Program](https://developers.procore.com/partner-signup) today!
+The Procore API enables our technology partners to help Procore users enjoy a best in class experience, irrespective of what problem they are seeking to solve. When Procore technology partners integrate their solution with Procore, both parties win. Our technology partners leverage Procore’s developer resources and technical services engineers to build integrations which solve specific problems for our shared customer base. Customers benefiting from both platforms are able to better realize the value of their investment and are more willing to stay with the solutions which offer them greatest value. Extend your company's reach by becoming a Procore technology partner and explore the opportunity to offer your application/integration to other members of the Procore user community. Join our [Technology Partner Program](https://developers.procore.com/partner-signup) today!
 
 ## The Procore Technology Partner Journey
 
 ### Get Started through Self-Service
 
-All Procore technology partners begin their journey by leveraging the self-service components available in the Procore Developer Portal.
-During this stage, partners and their developers are able to learn about and explore the capabilities of the Procore API, register an application, experiment with a development sandbox, take advantage of various training resources, and request email support from our Technical Services team.
+All Procore technology partners begin their journey by leveraging the self-service components available in the Procore Developer Portal. During this stage, partners and their developers are able to learn about and explore the capabilities of the Procore API, register an application, experiment with a development sandbox, take advantage of various training resources, and request email support from our Technical Services team.
 
 Procore technology partners progress through the following steps during the Self-Service stage:
 
@@ -31,9 +24,7 @@ Procore technology partners progress through the following steps during the Self
 
 ### Publish to the Marketplace
 
-Once you have successfully navigated the Self-Service stage you can pursue developing an application for publication on our Marketplace.
-Benefits of Marketplace presence include use of the Procore Partner logo, the ability to post on Procore social media blogs, eligibility to participate in Procore webinars, and potential involvement in special marketing campaigns.
-As you work toward publishing your application on the Marketplace, you will step through the following tasks.
+Once you have successfully navigated the Self-Service stage you can pursue developing an application for publication on our [Marketplace](https://marketplace.procore.com/){:target="_blank" rel="noopener"}. Benefits of Marketplace presence include use of the Procore Partner logo, the ability to post on Procore social media blogs, eligibility to participate in Procore webinars, and potential involvement in special marketing campaigns. As you work toward publishing your application on the Marketplace, you will step through the following tasks.
 
 - Complete our Marketplace technical validation process
 - Launch and complete a beta program for your application

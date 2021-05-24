@@ -7,9 +7,7 @@ section_title: OAuth 2.0 Authentication
 
 ## Overview
 
-If your application is an installed application (without a browser) for running cron jobs, scripts etc, it is not possible for the web browser to redirect back to your application.
-In that case, set your redirect URI to `urn:ietf:wg:oauth:2.0:oob` when you create your app.
-This value signals to the Procore Authorization Server that the authorization code should be returned in the url along with the page text prompting the user to copy the code and paste it in the application.
+If your application is an installed application (without a browser) for running cron jobs, scripts etc, it is not possible for the web browser to redirect back to your application. In that case, set your redirect URI to `urn:ietf:wg:oauth:2.0:oob` when you create your app. This value signals to the Procore Authorization Server that the authorization code should be returned in the url along with the page text prompting the user to copy the code and paste it in the application.
 
 > PRODUCTION VS. SANDBOX ENVIRONMENTS
 >
@@ -24,12 +22,28 @@ The flow for installed applications is similar to the OAuth 2.0 Web Server flow 
 
 In order to get the authorization code from Procore, you will need to make a `GET` request to `https://login.procore.com/oauth/authorize` endpoint with the following parameters:
 
-
-| Parameter                |  Description                                                                                                                                                            |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| response_type (required) | Specifies whether the endpoint returns an authorization code. For installed applications, use a value of ‘code’.                                                        |
-| client_id (required)     | The client_id you obtained in the Developer Portal when you created your application.                                                                                   |
-| redirect_uri (required)  | The redirect URI is the URL within your application that will receive OAuth 2.0 credentials. The redirect URI for installed applications is *urn:ietf:wg:oauth:2.0:oob* |
+<table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>response_type (required)</td>
+        <td>Specifies whether the endpoint returns an authorization code. For installed applications, use a value of ‘code’.</td>
+      </tr>
+      <tr>
+        <td>client_id (required)</td>
+        <td>The client_id you obtained in the Developer Portal when you created your application.</td>
+      </tr>
+      <tr>
+        <td>redirect_uri (required)</td>
+        <td>The redirect URI is the URL within your application that will receive OAuth 2.0 credentials. The redirect URI for installed applications is <b>urn:ietf:wg:oauth:2.0:oob</b></td>
+      </tr>
+    </tbody>
+  </table>
 
 A sample `GET` request will look like this:
 
@@ -49,8 +63,7 @@ After successfully logging in, the Procore Authorization Server returns the auth
 
 ![OAuth code]({{ site.baseurl }}/assets/guides/oauth-code.png)
 
-Note that this authorization code is set to expire in 10 minutes.
-Once you were able to grab the authorization code, you need to use the authorization code in your application and exchange them for access tokens.
+Note that this authorization code is set to expire in 10 minutes. Once you were able to grab the authorization code, you need to use the authorization code in your application and exchange them for access tokens.
 
 ## Step 3: Getting the Access Token
 
@@ -100,8 +113,7 @@ If everything goes right and the request is successful, you’ll receive a 200 r
 
 ## Step 4: Using the Access Token and Showing Access Token Information
 
-Once you have retrieved an Access Token as described in the previous step, you can use it to make calls to the Procore API.
-In order successfully make calls to the API you must include the Access Token as part of the request header using the syntax: `Authorization: Bearer <YOUR_ACCESS_TOKEN>`.
+Once you have retrieved an Access Token as described in the previous step, you can use it to make calls to the Procore API. In order successfully make calls to the API you must include the Access Token as part of the request header using the syntax: `Authorization: Bearer <YOUR_ACCESS_TOKEN>`.
 
 Here is a cURL example showing a call to the List Projects endpoint in the Procore API:
 
@@ -109,8 +121,7 @@ Here is a cURL example showing a call to the List Projects endpoint in the Proco
 curl https://api.procore.com/rest/v1.0/projects?company_id=1234 -H "Authorization: Bearer a503fcf9-45c5-4edc-8224-123284a56ea4"
 ```
 
-Though not an integral part of the authentication workflow, there may be times when using the Get Token Info endpoint can be handy for checking the status of an access token or gathering other useful details.
-See [Get Token Info](https://developers.procore.com/reference/rest/v1/authentication#get-token-info) for additional information. Keep in mind that you will need to place the Access Token in the Authorization header of the request as described above.
+Though not an integral part of the authentication workflow, there may be times when using the Get Token Info endpoint can be handy for checking the status of an access token or gathering other useful details. See [Get Token Info](https://developers.procore.com/reference/rest/v1/authentication#get-token-info) for additional information. Keep in mind that you will need to place the Access Token in the Authorization header of the request as described above.
 
 ## Step 5: Refreshing the Access Token using Refresh Token
 
@@ -136,14 +147,6 @@ If everything goes right and the request is successful, you will receive a 200 r
 
 ### How can my installed application go through the OAuth flow without any user interaction?
 
-While our installed application configuration does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
-Once you manually go through that step by logging in and getting an authorization code, you can then programmatically authenticate from that point forward without user intervention.
+While our installed application configuration does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input. Once you manually go through that step by logging in and getting an authorization code, you can then programmatically authenticate from that point forward without user intervention.
 
-After the initial App Authorization Grant, you can retrieve a pair of tokens - an Access Token and a Refresh Token. The Access Token is used to authenticate (passed with the request header as `Authorization: Bearer <YOUR_ACCESS_TOKEN>`), and it expires after 2 hours.
-The Refresh Token, which corresponds to that Access Token, will not expire until it is used to acquire a new pair of tokens.
-Using those two tokens, you can authenticate endlessly without any user input.
-In other words, after getting your first pair of tokens, your program would use the Access Token for up to 2 hours, after which that token would expire.
-After that token expires, the next time your program wanted to access our API it would use the Refresh Token received with the now-expired Access Token to refresh the Access Token and get a new pair of tokens.
-Once it makes that call, your old Refresh Token would expire since it has now been used and you would have a new Access Token and Refresh Token.
-Then, your program would use that new Access Token until it expires, and the cycle would repeat again.
-
+After the initial App Authorization Grant, you can retrieve a pair of tokens - an Access Token and a Refresh Token. The Access Token is used to authenticate (passed with the request header as `Authorization: Bearer <YOUR_ACCESS_TOKEN>`), and it expires after 2 hours. The Refresh Token, which corresponds to that Access Token, will not expire until it is used to acquire a new pair of tokens. Using those two tokens, you can authenticate repeatedly without any user input. In other words, after getting your first pair of tokens, your application would use the Access Token for up to 2 hours, after which that token would expire. The next time your application needed to access the API it would use the Refresh Token received with the now-expired Access Token to get a new pair of fresh tokens. Your application would use that new Access Token until it expires, and so on, as the cycle repeats.

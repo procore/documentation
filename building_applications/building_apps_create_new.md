@@ -6,8 +6,7 @@ section_title: Building Applications
 
 ---
 
-Once you have registered your Developer Account you can create a new App in the Procore Developer Portal.
-The following steps show you how to properly navigate the Developer Portal and successfully create a new App.
+Once you have registered your Developer Account you can create a new App in the Procore Developer Portal. The following steps show you how to properly navigate the Developer Portal and successfully create a new App.
 
 1. Open your browser and navigate to the [Developer Portal](https://developers.procore.com/) landing page.
 1. Click **Sign In** to log in to your Developer Portal account.
@@ -26,10 +25,7 @@ You have the option to upload an image to be used as the publicly-displayed avat
 
 ## Log in to the Development Sandbox and Set Password
 
-As part of the App creation process, we generate a development sandbox for you to use while you build and test your new App.
-You will receive an email notifying you that your development sandbox is ready for use.
-You will need to log in and set a password for your new development sandbox using the following steps.
-(Note: the password link on the notification email expires after 24 hours.)
+As part of the App creation process, we generate a development sandbox for you to use while you build and test your new App. You will receive an email notifying you that your development sandbox is ready for use. You will need to log in and set a password for your new development sandbox using the following steps. (Note: the password link on the notification email expires after 24 hours.)
 
 1. In the body of the notification email, click **Set My Sandbox Password**. You are redirected to the ‘Reset Password’ login page.
 1. Enter a new password for your sandbox account, adhering to the password requirements listed on the page.
