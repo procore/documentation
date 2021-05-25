@@ -45,3 +45,43 @@ _Note_: The following Procore API endpoints _do not_ require a request header co
 The exception to this rule is when you are using Service Accounts with the OAuth 2.0 Client Credentials grant type.
 See [Using Service Accounts with MPZ]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}#using-service-accounts-with-mpz) for additional information.
 
+## Actions Required / Timeline
+
+- To continue serving existing Procore customers, you will need to make the above described changes by June 30, 2019, beyond which your apps and integrations may not work.
+- To onboard new Procore customers, you will need to make these changes by October 31, 2018.
+
+## Frequently Asked Questions
+
+### Do I need to make all these changes to my application immediately?
+
+_Answer_: No.
+Though we plan to complete the infrastructure changes for MPZ by October 31, 2018, non-compliant applications will continue to function as expected for existing Procore Customers until June 30, 2019.
+However, you will not be able to access data from _new_ Procore customers.
+
+### What happens if I never make these changes to my application?
+
+_Answer_: It depends on your particular scenario:
+
+| Developer Persona / Scenario                    | MPZ Impact                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Existing Procore Customer w/ custom integration | Assuming the customer is in zone US01 (the default zone), they will not experience any adverse effects until June 30, 2019 unless they are requested to migrate to a different zone prior to that time.                                                                                                                                                                                                                                    |
+| New Procore Customer w/ custom integration      | New customers would not be able to access their company data without implementing the `Procore-Company-Id` request header field, and adopting the new API gateway domain (api.procore.com) and the new Authentication gateway (login.procore.com).                                                                                                                                                                                         |
+| System Integrator                               | Integrations built by system integrators will continue to work for existing Procore users in zone US01 until June 30, 2019. However, they will not be able to build integrations for new users without implementing the `Procore-Company-Id` request header field, and adopting the new API gateway domain (api.procore.com) and the new Authentication gateway (login.procore.com).                                                       |
+| Procore Technology Partner                      | Marketplace Apps built by Procore Technology Partners will continue to work for their existing Procore users in zone US01 until June 30, 2019. However, their integrations will not support any new Procore users who are placed in a zone other than US01 until the `Procore-Company-Id` request header field is implemented and the new API gateway (api.procore.com) and the new Authentication gateway (login.procore.com) is adopted. |
+
+### Will the MPZ architecture changes impact my sandbox environments?
+
+_Answer_: Yes.
+There are several changes to be aware of with respect to how you will interact with your monthly and development sandbox environments:
+
+- When making API calls to the Procore authentication server, you must use the following base URLs depending on the environment:
+    - _Monthly Sandbox_ - use the `https://login-sandbox-monthly.procore.com/oauth` base URL.
+    - _Development Sandbox_ - use the `https://login-sandbox.procore.com/oauth` base URL.
+- When making API calls to Procore resources, you must use the following base URLs depending on the environment:
+    - _Monthly Sandbox_ - use the `https://api-monthly.procore.com` base URL.
+    - _Development Sandbox_ - use the `https://sandbox.procore.com` base URL.
+- When making API calls to a sandbox environment, you must include the `Procore-Company-Id` request header as described above.
+
+## Need Additional Information?
+
+If you have any questions or need help in determining the impacts of MPZ on your application codebase, please contact our [Technical Services](mailto:apisupport@procore.com) team for assistance.
