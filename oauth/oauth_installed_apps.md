@@ -24,12 +24,28 @@ The flow for installed applications is similar to the OAuth 2.0 Web Server flow 
 
 In order to get the authorization code from Procore, you will need to make a `GET` request to `https://login.procore.com/oauth/authorize` endpoint with the following parameters:
 
-
-| Parameter                |  Description                                                                                                                                                            |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| response_type (required) | Specifies whether the endpoint returns an authorization code. For installed applications, use a value of ‘code’.                                                        |
-| client_id (required)     | The client_id you obtained in the Developer Portal when you created your application.                                                                                   |
-| redirect_uri (required)  | The redirect URI is the URL within your application that will receive OAuth 2.0 credentials. The redirect URI for installed applications is *urn:ietf:wg:oauth:2.0:oob* |
+<table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>response_type (required)</td>
+        <td>Specifies whether the endpoint returns an authorization code. For installed applications, use a value of ‘code’.</td>
+      </tr>
+      <tr>
+        <td>client_id (required)</td>
+        <td>The client_id you obtained in the Developer Portal when you created your application.</td>
+      </tr>
+      <tr>
+        <td>redirect_uri (required)</td>
+        <td>The redirect URI is the URL within your application that will receive OAuth 2.0 credentials. The redirect URI for installed applications is <b>urn:ietf:wg:oauth:2.0:oob</b></td>
+      </tr>
+    </tbody>
+  </table>
 
 A sample `GET` request will look like this:
 

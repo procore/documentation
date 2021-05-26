@@ -14,18 +14,45 @@ To make Procore's API as explorable as possible, we have provided the following 
 
 ## Sandbox Environment URL Details
 
-| Environment         | URL                                       | Description                                                                                            |
-| ------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Monthly Sandbox     | https://api-monthly.procore.com           | Domain for API gateway access to the Procore Web Application in the monthly sandbox environment.       |
-|                     | https://login-sandbox-monthly.procore.com | Domain for making API calls to the Procore authentication server in the monthly sandbox environment.   |
-|                     | https://api-sandbox-monthly.procore.com   | Domain for browser access to the Procore Web Application in the monthly sandbox environment.           |
-| Development Sandbox | https://sandbox.procore.com/              | Domain for browser access and API gateway access to a development sandbox environment.                 |
-|                     | https://login-sandbox.procore.com/        | Domain for making API calls to the Procore authentication server in a development sandbox environment. |
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <th>Environment</th>
+        <th>URL</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+      <tr>
+        <td rowspan="3">Monthly Sandbox</td>
+        <td>https://api-monthly.procore.com</td>
+        <td>Domain for API gateway access to the Procore Web Application in the monthly sandbox environment. </td>
+      </tr>
+      <tr>
+        <td>https://login-sandbox-monthly.procore.com</td>
+        <td>Domain for making API calls to the Procore authentication server in the monthly sandbox environment.</td>
+      </tr>
+      <tr>
+        <td>https://api-sandbox-monthly.procore.com</td>
+        <td>Domain for browser access to the Procore Web Application in the monthly sandbox environment.</td>
+      </tr>
+      <tr>
+        <td rowspan="2">Development Sandbox</td>
+        <td>https://sandbox.procore.com/</td>
+        <td>Domain for browser access and API gateway access to a development sandbox environment.</td>
+      </tr>
+      <tr>
+        <td>https://login-sandbox.procore.com/</td>
+        <td>Domain for making API calls to the Procore authentication server in a development sandbox environment.</td>
+      </tr>
+  </tbody>
+</table>
 
 ## Working with a Development Sandbox
 
 When you create a new application in your Developer Portal account, a _Development Sandbox_ is automatically generated that you can use to test your application.
 Development Sandboxes come pre-seeded with company and project level test data that you can expand upon to aid you in your development and test activities.
+
 A Development Sandbox provides an isolated environment in which you can experiment and validate your application without the risk of affecting production data.
 The sandbox generation process just takes a few minutes to create your sandbox.
 You will receive an email notifying you regarding the availability of your sandbox, as well as the URL to set your password in the sandbox environment.

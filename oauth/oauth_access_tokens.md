@@ -23,10 +23,30 @@ Additionally, this method gives Procore the ability to revoke access if needed.
 
 The following table summarizes the two OAuth 2.0 token types used with the Procore API along with their expiration times and other characteristics.
 
-| Token Type    | Expiration    | Description                                                                                                                                                                          |  Applicable OAuth 2.0 Grant Flows                                                                                                                                                                                                                               |
-| ------------- | --------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Access Token  | Two (2) Hours | A confidential credential used by an application to access the Procore API on behalf of a user.                                                                                      | [Authorization Code Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %})<br>[Implicit Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_implicit_flow.md %})<br>[Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) |
-| Refresh Token | Until Used    | A special kind of token used by an application to obtain a renewed access token. This token lasts indefinitely until it is consumed, at which point a new refresh token is returned. | [Authorization Code Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %})                                                                                                                                                                                 |
+<table>
+  <thead>
+  <tr>
+    <th>Token Type</th>
+    <th>Expiration</th>
+    <th>Description</th>
+    <th>Applicable OAuth 2.0 Grant Flows</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Access Token</td>
+    <td>Two (2) Hours</td>
+    <td>A confidential credential used by an application to access the Procore API on behalf of a user.</td>
+    <td><a href="/documentation/oauth-auth-grant-flow">Authorization Code Grant</a><br /><a href="/documentation/oauth-implicit-flow">Implicit Grant</a><br /><a href="/documentation/oauth-client-credentials">Client Credentials Grant</a></td>
+  </tr>
+  <tr>
+    <td>Refresh Token</td>
+    <td>Until Used</td>
+    <td>A special kind of token used by an application to obtain a renewed access token. This token lasts indefinitely until it is consumed, at which point a new refresh token is returned.</td>
+    <td><a href="/documentation/oauth-auth-grant-flow">Authorization Code Grant</a></td>
+  </tr>
+  </tbody>
+</table>
 
 ### Related Topics
 

@@ -30,14 +30,39 @@ Clients and servers exchange representations of resources by using a standardize
 Another important characteristic of REST is the use of resource methods to perform a desired operation.
 Similar to other RESTful APIs, Procore API supports the following set of standard HTTP verbs as resource methods.
 
-| HTTP Verb | CRUD    | Description                                                                                                                                                                                                             |
-| ----------| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET       | Read    | Retrieve information about existing resources. For example, you can use a GET call to retrieve information about all objects or just a singular object.                                                                 |
-| POST      | Create  | Create new resources or execute custom actions. For example, you would use a POST call to create a new RFI.                                                                                                             |
-| PATCH     | Update  | Partial update of existing resources. For example, if you wanted to change the status of an RFI, you would perform a PATCH call where you could update just the status of the RFI or change other supported parameters. |
-| DELETE    | Delete  | Delete resources. Use the DELETE call to remove an existing resource.       |
+<table>
+	<thead>
+    <tr>
+        <th>HTTP Verb</th>
+        <th>CRUD</th>
+        <th>Description</th>
+    </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>GET</td>
+			<td>Read</td>
+			<td>Retrieve information about existing resources. For example, you can use a GET call to retrieve information about all objects or just a singular object.</td>
+		</tr>
+		<tr>
+			<td>POST</td>
+			<td>Create</td>
+			<td>Create new resources or execute custom actions. For example, you would use a POST call to create a new RFI.</td>
+		</tr>
+		<tr>
+			<td>PATCH</td>
+			<td>Update</td>
+			<td>Partial update of existing resources. For example, if you wanted to change the status of an RFI, you would perform a PATCH call where you could update just the status of the RFI or change other supported parameters.</td>
+		</tr>
+		<tr>
+			<td>DELETE</td>
+			<td>Delete</td>
+			<td>Delete resources. Use the DELETE call to remove an existing resource.</td>
+		</tr>
+	</tbody>
+</table>
 
-To learn more about HTTP verbs as RESTful methods, see... [HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html).
+To learn more about HTTP verbs as RESTful methods, see [HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html).
 
 ## API Requests and Responses
 

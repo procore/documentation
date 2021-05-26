@@ -15,11 +15,28 @@ Procore API rate limits to 3,600 requests per hour.
 The rate limit resets every hour.
 There are three important response headers returned when making a request to the Procore API.
 
-| Header                 | Explanation                                                                     |
-| ---------------------- | --------------------------------------------------------------------------------|
-| X-Rate-Limit-Limit     | The total number of requests per 60 minute window.                              |
-| X-Rate-Limit-Remaining | The number of requests you are allowed to make in the current 60 minute window. |
-| X-Rate-Limit-Reset     | The Unix timestamp for when the next window begins.                             |
+|<table>
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>X-Rate-Limit-Limit</td>
+      <td>The total number of requests per 60 minute window.</td>
+    </tr>
+    <tr>
+      <td>X-Rate-Limit-Remaining</td>
+      <td>The number of requests you are allowed to make in the current 60 minute window.</td>
+    </tr>
+    <tr>
+      <td>X-Rate-Limit-Reset</td>
+      <td>The <a href="https://en.wikipedia.org/wiki/Unix_time" target="_blank" rel="noopener noreferrer">Unix timestamp</a> for when the next window begins.</td>
+    </tr>
+  </tbody>
+</table>
 
 **Example:**
 
