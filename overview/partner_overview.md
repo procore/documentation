@@ -30,7 +30,7 @@ Procore technology partners progress through the following steps during the Self
 
 ### Publish to the Marketplace
 
-Once you have successfully navigated the Self-Service stage you can pursue developing an application for publication on our Marketplace.
+Once you have successfully navigated the Self-Service stage you can pursue developing an application for publication on our [Marketplace](https://marketplace.procore.com/).
 Benefits of Marketplace presence include use of the Procore Partner logo, the ability to post on Procore social media blogs, eligibility to participate in Procore webinars, and potential involvement in special marketing campaigns.
 As you work toward publishing your application on the Marketplace, you will step through the following tasks.
 
