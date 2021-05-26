@@ -100,4 +100,3 @@ For detailed information on using Postman with a Development Sandbox, see [Explo
 - After an App is created in your Developer Portal Account, the production credentials for your App will eventually propagate to the monthly sandbox environment.
 - Users created in production will eventually propagate to the monthly sandbox environment.
 - When working in your Development Sandbox environment, do not rely on `authorization_code`, `access_token`, or `refresh_token` from the production environment as those tokens will no longer align.
-

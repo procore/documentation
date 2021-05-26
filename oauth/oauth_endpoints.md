@@ -70,8 +70,7 @@ curl -F grant_type=authorization_code \
 -X POST https://login.procore.com/oauth/token
 ```
 
-## Get Token Info ([/oauth/token/info](https://developers.procore.com/reference/authentication#get-token-info)) ##
-
+## Get Token Info ([/oauth/token/info](https://developers.procore.com/reference/authentication#get-token-info))
 
 The Get Token Info endpoint returns details on a specified access token.
 The request must contain the access token in the Authorization header in this format:

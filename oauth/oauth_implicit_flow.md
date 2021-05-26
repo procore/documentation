@@ -63,4 +63,3 @@ You can [download this sample code]({{ site.baseurl }}/assets/static/implicit-gr
 > When trying to send an API request from a client-side application using the Implicit Grant flow, you may receive an error indicating that "the 'Access-Control-Allow-Origin' header is present on the requested Resource.”
 > For CORS requests from client-side applications, you will need to have your origin domain whitelisted for your App.
 > To do that, please contact <apisupport@procore.com> and provide the domain you wish to have whitelisted.
-

@@ -5,7 +5,7 @@ layout: default
 section_title: OAuth 2.0 Authentication
 ---
 
-### Background
+## Background
 
 Once you have registered a new application on the Developer Portal you will work with two sets of OAuth credentials - one set for your _development sandbox_ and a separate set for the _production environment_.
 Initially during the development phase, you use the sandbox credentials to make API calls to your sandbox company account.
