@@ -23,7 +23,8 @@ Use the `per_page` parameter to specify how many items you want each page to ret
 Below is an example of using the `per_page` and page parameters in a typical API call.
 
 ```
-curl -i -H "Authorization: Bearer <your_authorization_code>" https://api.procore.com/rest/v1.0/punch_items?project_id=14406&per_page=5&page=3
+curl -i -H "Authorization: Bearer <your_authorization_code>" \
+      https://api.procore.com/rest/v1.0/punch_items?project_id=14406&per_page=5&page=3
 ```
 
 Inspecting the headers shows some helpful information you could use in your application:

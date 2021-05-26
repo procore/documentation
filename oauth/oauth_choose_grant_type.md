@@ -73,5 +73,3 @@ Here is a diagram illustrating the flow for the Client Credentials grant type. L
 1. Client requests an access token from the Procore Authentication Server using the Client ID and Client Secret credentials associated with the service account in Procore.
 1. The Procore Authentication Server returns a JSON response that includes the access token and other supporting data.
 1. Your application can now use the access token to make calls to the Procore API
-
-

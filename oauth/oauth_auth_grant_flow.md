@@ -99,6 +99,7 @@ To understand this exchange, take a look at the [Get Access Token](https://devel
 1. Create a `/callback` function (endpoint) in your application.
 1. In the `/callback` function, add code to parse the response from the call to [Grant App Authorization](https://developers.procore.com/reference/authentication#grant-app-authorization) and store the value of the `code` parameter in a variable.
 1. Add code to the `/callback` function to exchange the Authorization Code for an Access Token by making a POST call to the [Get Access Token](https://developers.procore.com/reference/rest/v1/authentication#get-or-refresh-an-access-token) endpoint with the following payload:
+
 ```
 {
   "grant_type":"authorization_code",

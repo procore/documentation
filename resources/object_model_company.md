@@ -15,7 +15,7 @@ Sometimes, a Project in Procore may be referred to as a Job.
 Projects are managed on the [Porfolio](https://support.procore.com/products/online/user-guide/company-level/portfolio) page at the Company level.
 See Portfolio for additional information.
 
-API Endpoints: [Projects](https://developers.procore.com/reference/projects)
+API Endpoints: [Projects](https://developers.procore.com/reference/rest/v1/projects)
 
 ## Company Directory
 
@@ -34,7 +34,7 @@ The only difference between the two is whether or not you choose to invite a per
 Note that if you add a user to the Project Directory they will also be created in the Company Directory.
 See [Add a Person to the Company Directory](http://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-person-to-the-company-directory) for additional informtion.
 
-API Endpoints: [Users](https://developers.procore.com/reference/company-users)
+API Endpoints: [Users](https://developers.procore.com/reference/rest/v1/company-users)
 
 ### Vendors
 
@@ -43,7 +43,7 @@ Not to be confused with Client Accounts, a Vendor represents a record that is cr
 It contains important address, contact, project, bidding, and insurance information that gives you a snapshot view of that entity, and makes it easier to communicate with the people working for the company.
 See [Add a Company to a Company Directory](http://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-company-to-the-company-directory) for additional information.
 
-API Endpoints: [Company Vendors](https://developers.procore.com/reference/company-vendors)
+API Endpoints: [Company Vendors](https://developers.procore.com/reference/rest/v1/company-vendors)
 
 #### Vendor Insurance
 
@@ -58,7 +58,7 @@ The responsibilities of an Insurance Manager include:
 
 See [Add Insurance for a Vendor in the Company Directory](http://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-insurance-for-a-vendor-in-the-company-directory) for additional information.
 
-API Endpoints: [Company Vendor Insurances](https://developers.procore.com/reference/vendor-insurances)
+API Endpoints: [Company Vendor Insurances](https://developers.procore.com/reference/rest/v1/vendor-insurances)
 
 ## Company Documents
 
@@ -67,7 +67,7 @@ Designed to accelerate business efficiency, this tool minimizes the amount of ti
 Offering virtually unlimited storage space and a variety of markup and revision management features, you can ensure that your staff always has access to the most current document versions available.
 See [Documents](http://support.procore.com/products/online/user-guide/company-level/documents) for additional information.
 
-API Endpoints: [Company Folders and Files](https://developers.procore.com/reference/company-folders-and-files)
+API Endpoints: [Company Folders and Files](https://developers.procore.com/reference/rest/v1/company-folders-and-files)
 
 - Company Folders - Folders in the Company Documents tool allow you to organize sub-folders or files within. See [Create a Folder](http://support.procore.com/products/online/user-guide/project-level/documents/tutorials/create-a-folder) for additional infomation.
 - Company Files - Files include documents and images that are added to the root folder or other folders created in the Documents tool. See [Upload Files into a Folder](http://support.procore.com/products/online/user-guide/project-level/documents/tutorials/upload-files-into-a-folder) for additional infomation.
@@ -78,21 +78,21 @@ The Company-level Admin tool includes a 16 Division Cost Code Structure that ali
 You can add, edit, or delete the codes on this list.
 See [Add and Edit Company Cost Codes](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-and-edit-company-cost-codes) for additional infomation.
 
-API Endpoints: [Cost Codes](https://developers.procore.com/reference/cost-codes)
+API Endpoints: [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes)
 
 ## Project Roles
 
 A _Project Role_ gives you the ability to create custom roles to be assigned to Directory Vendors and Objects to reflect your organization’s unique semantics for role-labeling.
 See [Add Custom Project Roles](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-custom-project-roles) for additional infomation.
 
-API Endpoints: [Project Roles](https://developers.procore.com/reference/project-roles)
+API Endpoints: [Project Roles](https://developers.procore.com/reference/rest/v1/project-roles)
 
 ## Programs
 
 A _Program_ is a group of related construction projects that provide your organization with benefits from managing projects as a group, over managing projects individually.
 See [Add a Custom Program](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-a-custom-program) for additional infomation.
 
-API Endpoints: [Company Programs](https://developers.procore.com/reference/programs)
+API Endpoints: [Company Programs](https://developers.procore.com/reference/rest/v1/programs)
 
 ## Offices
 
@@ -100,7 +100,7 @@ _Offices_ are used by companies with multiple corporate office locations that ca
 Their main use is to substitute the main Client Account’s Company name in the UI, in reports and pdf exports.
 See [Add Office Locations](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-office-locations) for additional infomation.
 
-API Endpoints: [Company Offices](https://developers.procore.com/reference/company-offices)
+API Endpoints: [Company Offices](https://developers.procore.com/reference/rest/v1/company-offices)
 
 ## Project Stages
 
@@ -108,14 +108,14 @@ _Project Stages_ assist with defining a project’s current phase/stage of const
 On top of the default values provided by Procore, you can add extra stages to a company to be later assigned to Projects.
 See [Add a Custom Project Stage](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-a-custom-project-stage) for additional infomation.
 
-API Endpoints: [Project Stages](https://developers.procore.com/reference/project-stages)
+API Endpoints: [Project Stages](https://developers.procore.com/reference/rest/v1/project-stages)
 
 ## Project Types
 
 _Project Types_ allow for more granular level of labeling your projects.
 See [Add a Custom Project Type](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-a-custom-project-type) for additional infomation.
 
-API Endpoints: [Project Types](https://developers.procore.com/reference/project-types)
+API Endpoints: [Project Types](https://developers.procore.com/reference/rest/v1/project-types)
 
 ## Trades
 
@@ -123,4 +123,4 @@ _Trades_ are used to filter out vendors during the bidding phase.
 Trades are created at the company level and assigned to Company or Project Directory Vendors.
 See [Add or Delete Trades](http://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-or-delete-trades) for additional infomation.
 
-API Endpoints: [Trades](https://developers.procore.com/reference/trades)
+API Endpoints: [Trades](https://developers.procore.com/reference/rest/v1/trades)

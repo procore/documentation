@@ -69,7 +69,7 @@ See [Add Custom Observation Types](https://support.procore.com/products/online/u
 
 #### Retrieving Observation Types with the API
 
-You can use the [List Observation Types](https://developers.procore.com/reference/observations#list-observation-types) endpoint to retrieve information on the available observation types in a given company or project.
+You can use the [List Observation Types](https://developers.procore.com/reference/rest/v1/observations#list-observation-types) endpoint to retrieve information on the available observation types in a given company or project.
 Below is a cURL example showing a call to List Observation Types for a project.
 
 ```

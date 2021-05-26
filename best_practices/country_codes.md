@@ -22,9 +22,9 @@ Rather than creating and maintaining your own lookup table of code values, we re
 
 Here are the Procore API endpoints that include `country_code` and `state_code` parameters:
 
-- Company Users [[Create](https://developers.procore.com/reference/company-users#create-company-user), [Sync](https://developers.procore.com/reference/company-users#sync-company-users), [Update](https://developers.procore.com/reference/company-users#update-company-user)]
-- Company Offices [[Create](https://developers.procore.com/reference/company-offices#create-company-office), [Update](https://developers.procore.com/reference/company-offices#update-company-office)]
-- Company Vendors [[Create](https://developers.procore.com/reference/company-vendors#create-company-vendor), [Sync](https://developers.procore.com/reference/company-vendors#sync-company-vendors), [Update](https://developers.procore.com/reference/company-vendors#update-company-vendor)]
-- Projects [[Create](https://developers.procore.com/reference/projects#create-project), [Sync](https://developers.procore.com/reference/projects#sync-projects), [Update](https://developers.procore.com/reference/projects#update-project)]
-- Project Users [[Create](https://developers.procore.com/reference/project-users#create-project-user), [Update](https://developers.procore.com/reference/project-users#update-project-user)]
-- Project Vendors [[Create](https://developers.procore.com/reference/project-vendors#create-project-vendor), [Update](https://developers.procore.com/reference/project-vendors#update-project-vendor)]
+- Company Users [[Create](https://developers.procore.com/reference/rest/v1/company-users#create-company-user), [Sync](https://developers.procore.com/reference/rest/v1/company-users#sync-company-users), [Update](https://developers.procore.com/reference/rest/v1/company-users#update-company-user)]
+- Company Offices [[Create](https://developers.procore.com/reference/rest/v1/company-offices#create-company-office), [Update](https://developers.procore.com/reference/rest/v1/company-offices#update-company-office)]
+- Company Vendors [[Create](https://developers.procore.com/reference/rest/v1/company-vendors#create-company-vendor), [Sync](https://developers.procore.com/reference/rest/v1/company-vendors#sync-company-vendors), [Update](https://developers.procore.com/reference/rest/v1/company-vendors#update-company-vendor)]
+- Projects [[Create](https://developers.procore.com/reference/rest/v1/projects#create-project), [Sync](https://developers.procore.com/reference/rest/v1/projects#sync-projects), [Update](https://developers.procore.com/reference/rest/v1/projects#update-project)]
+- Project Users [[Create](https://developers.procore.com/reference/rest/v1/project-users#create-project-user), [Update](https://developers.procore.com/reference/rest/v1/project-users#update-project-user)]
+- Project Vendors [[Create](https://developers.procore.com/reference/rest/v1/project-vendors#create-project-vendor), [Update](https://developers.procore.com/reference/rest/v1/project-vendors#update-project-vendor)]

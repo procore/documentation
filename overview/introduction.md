@@ -8,6 +8,8 @@ section_title: Overview
 Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
 You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
 
+>IMPORTANT!
+>
 > Procore API resources under the `/vapid` namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the `/rest` namespace with a new architecture that supports versioning and expanded functionality.
 >
 > Although Procore will continue to support Vapid resources and address defects as needed, all new feature development for the Procore API will be done in Rest.
@@ -63,4 +65,3 @@ Procore clients also manage the internal training needs for their users.
 Conversely, Procore technology partners take a different development path as their applications are intended for use by the Procore user community at-large, and therefore must adhere to more stringent standards when it comes to quality, performance, and security.
 In addition, since technology partners have the opportunity to publish their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/partner_overview.md %}) on the Procore Marketplace, they must submit their applications to Procore for approval.
 Finally, technology partners must provide adequate training materials and offer technical support services for their applications.
-
