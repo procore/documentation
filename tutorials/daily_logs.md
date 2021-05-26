@@ -8,7 +8,7 @@ section_title: Guides and Tutorials
 
 Procore's Project level Daily Log tool is designed to provide project team members with a central location for viewing, tracking, and emailing updates about daily project activities.
 This guide provides some helpful hints for working with the Daily Log API endpoints.
-For additional information on Procore's Daily log feature, see the [Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log) article on our Support site.
+For additional information on Procore's Daily Log feature, see the [Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log) articles on the [Procore Support](https://support.procore.com) site.
 
 ## Filtering Logs by Date and Date Ranges
 
@@ -22,7 +22,7 @@ Daily log information retrieved by List action endpoints can be filtered by date
 ## Working with Locations in Daily Logs
 
 A number of daily log endpoints support both single locations as well as multi-tier locations.
-For information on multi-tier locations in Procore, see this helpful [support faq](https://support.procore.com/faq/how-do-i-add-a-multi-tiered-location-to-an-item).
+For information on multi-tier locations in Procore, see this helpful [Support FAQ](https://support.procore.com/faq/how-do-i-add-a-multi-tiered-location-to-an-item).
 Here we use `quantity_log` as an example, but you can replace it with the name of the log you want to work with.
 Currently, locations are supported in the Manpower log, Equipment log, Quantity log, Notes log, and Inspection log.
 
