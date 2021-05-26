@@ -63,4 +63,3 @@ Procore clients also manage the internal training needs for their users.
 Conversely, Procore technology partners take a different development path as their applications are intended for use by the Procore user community at-large, and therefore must adhere to more stringent standards when it comes to quality, performance, and security.
 In addition, since technology partners have the opportunity to publish their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/partner_overview.md %}) on the Procore Marketplace, they must submit their applications to Procore for approval.
 Finally, technology partners must provide adequate training materials and offer technical support services for their applications.
-

@@ -8,12 +8,32 @@ section_title: OAuth 2.0 Authentication
 In order to help you fully understand the OAuth 2.0 protocol, let’s go over the different roles that interact during the course of a complete OAuth 2.0 flow.
 The following table summarizes these roles.
 
-| Role                           |   Description                                                                                                                                                                                                                                                                |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Resource Owner (Procore User)  | An entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.                                                                                                                                         |
-| Resource Server (Procore API)  | The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.                                                                                                                                          |
-| Client (Your Application)      | An application making protected resource requests on behalf of the resource owner and with its authorization. The term client does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop, or other devices). |
-| Authorization Server (Procore) | The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.                                                                                                                                             |
+<table>
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Resource Owner (Procore User)</td>
+        <td>An entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end-user.</td>
+      </tr>
+      <tr>
+        <td>Resource Server (Procore API)</td>
+        <td>The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.</td>
+      </tr>
+      <tr>
+        <td>Client (Your Application)</td>
+        <td>An application making protected resource requests on behalf of the resource owner and with its authorization. The term client does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop, or other devices).</td>
+      </tr>
+      <tr>
+        <td>Authorization Server (Procore)</td>
+        <td>The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.</td>
+      </tr>
+    </tbody>
+</table>
 
 Let's summarize these roles:
 

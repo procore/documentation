@@ -17,7 +17,7 @@ The Procore platform currently supports two App component types that you define 
 
 _Data connection_ components are used in Apps that read or write data to/from Procore using the available Procore API resources.
 Since this type of App requires authentication with the Procore API, the data connection component is used to define the OAuth 2.0 authorization grant type for the App (i.e., authorization_code or implicit).
-For additional information on OAuth 2.0 authorization grant types, see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})  .
+For additional information on OAuth 2.0 authorization grant types, see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 It is important to note that an App can only have one data connection component.
 
 _Embedded_ components are used in Apps that launch in an iframe within the Procore user interface as an embedded experience.

@@ -195,4 +195,3 @@ Now, simply click Send to retrieve a list of projects in your company. You shoul
 ```
 
 You have successfully made your first call to the Procore API!
-

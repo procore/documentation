@@ -7,7 +7,6 @@ section_title: Overview
 
 ## Background
 
-
 The Procore API enables our technology partners to help Procore users enjoy a best in class experience, irrespective of what problem they are seeking to solve.
 When Procore technology partners integrate their solution with Procore, both parties win.
 Our technology partners leverage Procore’s developer resources and technical services engineers to build integrations which solve specific problems for our shared customer base.
