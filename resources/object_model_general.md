@@ -12,7 +12,7 @@ Client Accounts, sometimes referred to as Companies, are the individual accounts
 If you have purchased Procore, you will most likely have access to only one account.
 However, if you are working on projects in more than one Company, you will have access to multiple Client Accounts.
 
-API Endpoints: [Companies](https://developers.procore.com/reference/companies)
+API Endpoints: [Companies](https://developers.procore.com/reference/rest/v1/companies)
 
 ## Authentication
 
@@ -20,4 +20,4 @@ When working with the Procore API your application will access Procore on behalf
 Each user will need to authenticate with Procore to verify their identity and to give your application permission to use and access their data.
 Procore implements the OAuth 2.0 protocol.
 
-API Endpoints: [Authentication](https://developers.procore.com/reference/authentication)
+API Endpoints: [Authentication](https://developers.procore.com/reference/rest/v1/authentication)

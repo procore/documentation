@@ -15,31 +15,31 @@ Configurable fieldset requirements are respected on the following API endpoints:
 
 **Portfolio**
 
-- [Projects](https://developers.procore.com/reference/projects#create-project)
+- [Projects](https://developers.procore.com/reference/rest/v1/projects#create-project)
 
 **Project Management**
 
-- [Incidents](https://developers.procore.com/reference/projects#create-project)
-- [Inspections](https://developers.procore.com/reference/checklists#create-checklist)
-- [Observations](https://developers.procore.com/reference/observations#create-observation-item)
-- [Punch List](https://developers.procore.com/reference/punch-items#create-punch-item)
-- [RFIs](https://developers.procore.com/reference/projects#create-project)
+- [Incidents](https://developers.procore.com/reference/rest/v1/projects#create-project)
+- [Inspections](https://developers.procore.com/reference/rest/v1/checklists#create-checklist)
+- [Observations](https://developers.procore.com/reference/rest/v1/observations#create-observation-item)
+- [Punch List](https://developers.procore.com/reference/rest/v1/punch-items#create-punch-item)
+- [RFIs](https://developers.procore.com/reference/rest/v1/projects#create-project)
 
 **Daily Log**
 
-- [Manpower Log](https://developers.procore.com/reference/daily-logs)
-- [Notes Log](https://developers.procore.com/reference/notes-logs)
-- [Daily Construction Report Log](https://developers.procore.com/reference/daily-construction-report-logs)
+- [Manpower Log](https://developers.procore.com/reference/rest/v1/daily-logs)
+- [Notes Log](https://developers.procore.com/reference/rest/v1/notes-logs)
+- [Daily Construction Report Log](https://developers.procore.com/reference/rest/v1/daily-construction-report-logs)
 
 **Company Directory**
 
-- [Company Users](https://developers.procore.com/reference/company-users#create-company-user)
-- [Company Vendors](https://developers.procore.com/reference/company-vendors)
+- [Company Users](https://developers.procore.com/reference/rest/v1/company-users#create-company-user)
+- [Company Vendors](https://developers.procore.com/reference/rest/v1/company-vendors)
 
 **Project Directory**
 
-- [Project Users](https://developers.procore.com/reference/project-users#create-project-user)
-- [Project Vendors](https://developers.procore.com/reference/project-vendors#create-project-vendor)
+- [Project Users](https://developers.procore.com/reference/rest/v1/project-users#create-project-user)
+- [Project Vendors](https://developers.procore.com/reference/rest/v1/project-vendors#create-project-vendor)
 
 > ADDITIONAL TOOL SUPPORT FOR CONFIGURABLE FIELDSETS
 >
