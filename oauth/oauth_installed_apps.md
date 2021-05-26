@@ -141,9 +141,7 @@ Once you manually go through that step by logging in and getting an authorizatio
 
 After the initial App Authorization Grant, you can retrieve a pair of tokens - an Access Token and a Refresh Token. The Access Token is used to authenticate (passed with the request header as `Authorization: Bearer <YOUR_ACCESS_TOKEN>`), and it expires after 2 hours.
 The Refresh Token, which corresponds to that Access Token, will not expire until it is used to acquire a new pair of tokens.
-Using those two tokens, you can authenticate endlessly without any user input.
-In other words, after getting your first pair of tokens, your program would use the Access Token for up to 2 hours, after which that token would expire.
-After that token expires, the next time your program wanted to access our API it would use the Refresh Token received with the now-expired Access Token to refresh the Access Token and get a new pair of tokens.
-Once it makes that call, your old Refresh Token would expire since it has now been used and you would have a new Access Token and Refresh Token.
-Then, your program would use that new Access Token until it expires, and the cycle would repeat again.
-
+Using those two tokens, you can authenticate repeatedly without any user input.
+In other words, after getting your first pair of tokens, your application would use the Access Token for up to 2 hours, after which that token would expire.
+The next time your application needed to access the API it would use the Refresh Token received with the now-expired Access Token to get a new pair of fresh tokens.
+Your application would use that new Access Token until it expires, and so on, as the cycle repeats.
