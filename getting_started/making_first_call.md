@@ -143,8 +143,8 @@ The examples presented in the following sections are based on Postman v5.3.3. In
 
 ### 1. Configure OAuth 2.0 in Postman
 
-Before you can make a call to the Procore API using Postman, you must [configure OAuth 2.0 authorization]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#postman-token-gen) using Postman's token management tool.
-See Generating OAuth 2.0 Tokens in Postman for the steps to accomplish this.
+Before you can make a call to the Procore API using Postman, you must configure OAuth 2.0 authorization using Postman's token management tool.
+See [Generating OAuth 2.0 Tokens in Postman]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#generating-oauth-20-tokens-in-postman) for the steps to accomplish this.
 Note that this example uses a development sandbox environment, but you can just as easily configure OAuth 2.0 and generate access tokens for your production environment.
 
 ### 2. Making a Call to the Procore API
@@ -158,7 +158,7 @@ Let's break down this example call:
 
 - First, we set the HTTP action to GET.
 - We then enter the URL for the List Projects endpoint as `https://api.procore.com/rest/v1.0/projects?company_id=1234`. Note that we've used a fictitous company_id of '1234', so you will want to substitute your own valid `company_id` value.
-- The Authorization Type is set to 'Inherit auth from parent' because we have configured OAuth 2.0 in Postman at the collection level as described in [Generating OAuth 2.0 Tokens]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#postman-token-gen).
+- The Authorization Type is set to 'Inherit auth from parent' because we have configured OAuth 2.0 in Postman at the collection level as described in [Generating OAuth 2.0 Tokens]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#generating-oauth-20-tokens-in-postman).
 
 In addition to the settings described above, set the `Procore-Company-ID` header value as needed to work with [Multiple Procore Zones (MPZ)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
 
@@ -195,4 +195,3 @@ Now, simply click Send to retrieve a list of projects in your company. You shoul
 ```
 
 You have successfully made your first call to the Procore API!
-

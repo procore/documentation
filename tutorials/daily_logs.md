@@ -8,6 +8,7 @@ section_title: Guides and Tutorials
 
 Procore's Project level Daily Log tool is designed to provide project team members with a central location for viewing, tracking, and emailing updates about daily project activities.
 This guide provides some helpful hints for working with the Daily Log API endpoints.
+
 For additional information on Procore's Daily Log feature, see the [Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log) articles on the [Procore Support](https://support.procore.com) site.
 
 ## Filtering Logs by Date and Date Ranges

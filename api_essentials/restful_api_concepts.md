@@ -64,7 +64,7 @@ The format type, query parameters, and any other required fields are contained w
 }
 ```
 
-###Responses
+### Responses
 
 All API call responses return the requested information in JSON format.
 Responses in XML format are currently not supported.

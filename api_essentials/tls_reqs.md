@@ -24,7 +24,6 @@ Support for TLS 1.0/1.1 will be discontinued at that time.
 The Qualys SSL Labs site provides a tool for checking your server compatibility with TLS 1.2.
 Open your browser and navigate to the [SSL Server Test](https://www.ssllabs.com/ssltest/index.html) page, enter the hostname for your application and click Submit.
 
-
 > NOTE
 >
 > If you are unable to reach the SSL Labs site listed above, check with your IT team to verify that the www.ssllabs.com domain is appropriately whitelisted in your environment.

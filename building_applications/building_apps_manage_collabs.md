@@ -38,7 +38,3 @@ In addition to adding new members to your development team, as an Owner or Admin
 
 - You can transfer ownership of the App to one of the other team members.
 - You can remove a member from your development team.
-
-
-
-

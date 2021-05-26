@@ -18,11 +18,13 @@ the Procore API into their projects.
 - Open `http://127.0.0.1:4000/documentation/introduction` in your browser
 - As you edit the source code and save, the HTML is regenerated automatically
 
-## How to fix an error
+## How to contribute
 
 Did you find a typo? Would you like to rephrase a sentence?
-Please create a Pull Request on GitHub with the suggested change.
-The authors will review it, approve it, and include the fix.
+
+1. Fork the repo
+1. Create a Pull Request on GitHub with the suggested change.
+1. The authors will review it, approve it, and include the fix.
 
 ## How to add a new page
 
