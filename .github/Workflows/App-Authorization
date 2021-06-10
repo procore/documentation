@@ -1,0 +1,87 @@
+Grant App Authorization
+GET /oauth/authorize
+Description
+Creates and returns a temporary authorization code with 10 minute expiration. Note that all parameters listed below are required. This endpoint corresponds to the OAuth 2.0 authorization endpoint described in section 3.1 of the OAuth 2.0 RFC. See the Authentication Guide for additional information and authentication examples.
+
+Query Parameters
+Field Name	Required	Type	Description
+response_type	true	string	Response type. Value should be `code` for server apps, `token` for client apps.
+Allowed Values:code, token
+client_id	true	string	Client ID you were assigned when you registered your application.
+redirect_uri	true	string	The URI that the user will be redirected to after they grant authorization to your application. For browser-based web applications, use a `https://` web address. For "headless" applications use `urn:ietf:wg:oauth:2.0:oob`.
+Responses
+302
+FOUND
+Redirect to the specified `redirect_uri`
+Get Or Refresh An Access Token
+POST /oauth/token
+Description
+Used to acquire a new access token or refresh an existing access token. Certain parameter combinations and values are used depending on which scenario you are handling. See the individual parameter descriptions for additional information. This endpoint corresponds to the token endpoint described in section 3.2 of the OAuth 2.0 RFC. See the Authentication Guide for additional information and authentication examples. JavaScript applications cannot make this request to get the access token or refresh token.
+
+Body Parameters
+Field Name	Required	Type	Description
+grant_type	true	string	Use the value `authorization_code` when getting a new access token. Use `refresh_token` when refreshing an existing access token. Use `client_credentials` when using a Procore Service Account for authentication.
+Allowed Values:authorization_code, refresh_token, client_credentials
+client_id	true	string	Client ID you were assigned when you registered your application.
+client_secret	true	string	Client Secret you were assigned when you registered your application.
+code	true	string	Value of the `authorization_code` retrieved from the `/oauth/authorize` call. Only required when getting a new access code.
+redirect_uri	true	string	The URI that the user will be redirected to after they grant authorization to your application. For browser-based web applications, use a `https://` web address. For "headless" applications use `urn:ietf:wg:oauth:2.0:oob`.
+refresh_token	true	string	The refresh token string. Only required when refreshing an access token.
+Body Example
+{
+  "grant_type": "authorization_code",
+  "client_id": "db0d63cfa7ac3ceed7166081542216ec99e12341300e5e879105e36bd76dbf63",
+  "client_secret": "0b57e8d87e35370307ba5f98ad456bd155cabacea56d49994afe083e2eb04b54",
+  "code": "8957b84a67f6ae55ab79c9767836a0af30b7fb7e4c36b27434993123cce71ec7",
+  "redirect_uri": "http://localhost",
+  "refresh_token": "foobar"
+}
+Responses
+200
+OK
+OK
+HIDE RESPONSE
+{
+  "access_token": "dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781",
+  "token_type": "bearer",
+  "expires_in": 7200,
+  "refresh_token": "76ba4c5c75c96f6087f58a4de10be6c00b29ea1ddc3b2022ee2016d1363e3a7c",
+  "created_at": 1484786897
+}
+Get Token Info
+GET /oauth/token/info
+Description
+Return access token details. See the Authentication Guide for additional information and authentication examples. The request must contain the access token in the Authorization header: Authorization: Bearer <YOUR_ACCESS_TOKEN>
+
+Responses
+200
+OK
+OK
+HIDE RESPONSE
+{
+  "resource_owner_id": 1,
+  "scopes": [
+    "public"
+  ],
+  "expires_in_seconds": 7178,
+  "application": {
+    "uid": 15136
+  },
+  "created_at": 1440460991
+}
+Revoke Token
+POST /oauth/revoke
+Description
+Revoke authorization of an access token. The request must contain the body data as form-data. The authorization server responds with HTTP status code 200 if the token has been revoked successfully or if the client submitted an invalid token. Note that the Revoke Token endpoint revokes both the Access Token and Refresh Token. The client_secret param is only required for confidential applications. Public applications using the implicit OAuth flow do not need to provide this parameter to revoke access tokens.
+
+Body Parameters
+Field Name	Required	Type	Description
+token	true	string	Token
+client_id	true	string	Client ID
+client_secret	true	string	Client Secret
+Body Example
+{
+  "token": "dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781",
+  "client_id": "76ba4c5c75c96f6087f58a4de10be6c00b29ea1ddc3b2022ee2016d1363e3a7c",
+  "client_secret": "83414fdb340392acbd910f6d4f2091da007cb584fd3e872df109c9e7221e2d12"
+}
