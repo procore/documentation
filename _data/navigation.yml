@@ -101,6 +101,8 @@
       url: /mpz-headers
     - title: Working with Documents
       url: /tutorial-documents
+    - title: App Installation Design and API Call Sequencing
+      url: /api-call-sequencing
 
 - title: Webhooks
   items:
