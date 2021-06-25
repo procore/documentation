@@ -172,8 +172,6 @@
 
 - title: Tools
   items:
-    - title: Postman
-      url: /postman
     - title: SDKs and Sample Applications
       url: /sdk
 
