@@ -65,13 +65,3 @@ The Create Project Stage endpoint requires a JSON request body as illustrated by
 Use the `name` field to specify the name for the new custom project stage.
 Map the new custom project stage to a default project stage by setting the `category` field to one of the `category_type` values listed above.
 For this example, we create a new custom project stage called "Grading and Paving" and assign it to the "Course of Construction" default project stage.
-
-## Upcoming API Changes Impacting Project Stages
-
-Please be aware of some upcoming API changes that may affect how you work with projects and project stages.
-
-- The `is_bidding_stage` field is planned for deprecation and will stop being supported by Procore six months after the deprecation is announced.
-- `project_stage_id` will be a required field on JSON request payloads for the [Create Project](https://developers.procore.com/reference/rest/v1/projects#create-project), [Update Project](https://developers.procore.com/reference/rest/v1/projects#update-project), and [Sync Projects](https://developers.procore.com/reference/rest/v1/projects#sync-projects) endpoints when the target project does not aleady have a value set for project_stage_id.
-- The `total_value`, `start_date`, and `completion_date` fields will be required on projects that have a project stage category type mapped to “Course of Construction”, “Post-Construction”, or “Completed”.
-
-A deprecation announcement is being prepared that will provide specifics regarding the timing of these changes.
