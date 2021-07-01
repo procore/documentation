@@ -29,7 +29,6 @@ If you are unfamiliar with these tools, here are some helpful resources to get y
 - [cURL GitHub Repository Readme](https://github.com/curl/curl/blob/master/README.md)
 - [Postman Home Page](https://www.getpostman.com/)
 - [Postman Documentation](https://www.getpostman.com/docs/v6/)
-- [Exploring the Procore API with Postman](https://developers.procore.com/documentation/postman)
 
 ### Procore OAuth 2.0 Postman Collection with cURL Examples
 
@@ -127,70 +126,6 @@ If we execute this cURL command with a valid access token, it returns a JSON blo
   "id": 1234567,
   "login": "joe.builder@acme.com",
   "name": "Joe Builder"
-}
-```
-
-You have successfully made your first call to the Procore API!
-
-## Using Postman to Make Your First Procore API Call
-
-Postman is a very popular and capable platform for working with and testing REST APIs.
-While you are in the exploratory stage with the Procore Connect API, we recommend Postman as a platform for familiarizing yourself with the various endpoints exposed through the API.
-Postman is a feature-rich application that can run as a Chrome app or natively in Windows or Mac OSX.
-
-If you have not done so already, visit the [Postman website](https://www.getpostman.com/), download the appropriate installation package, and install as instructed.
-The examples presented in the following sections are based on Postman v5.3.3. In addition, we recommend
-
-### 1. Configure OAuth 2.0 in Postman
-
-Before you can make a call to the Procore API using Postman, you must configure OAuth 2.0 authorization using Postman's token management tool.
-See [Generating OAuth 2.0 Tokens in Postman]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#generating-oauth-20-tokens-in-postman) for the steps to accomplish this.
-Note that this example uses a development sandbox environment, but you can just as easily configure OAuth 2.0 and generate access tokens for your production environment.
-
-### 2. Making a Call to the Procore API
-
-Once you have configured OAuth 2.0 in Postman and are able to successfully generate access tokens using the token management tool, you can use these tokens to authenticate calls to the Procore API.
-The example below illustrates a simple call to the List Projects endpoint using Postman.
-
-![example call]({{ site.baseurl }}/assets/guides/example-call.png)
-
-Let's break down this example call:
-
-- First, we set the HTTP action to GET.
-- We then enter the URL for the List Projects endpoint as `https://api.procore.com/rest/v1.0/projects?company_id=1234`. Note that we've used a fictitous company_id of '1234', so you will want to substitute your own valid `company_id` value.
-- The Authorization Type is set to 'Inherit auth from parent' because we have configured OAuth 2.0 in Postman at the collection level as described in [Generating OAuth 2.0 Tokens]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}#generating-oauth-20-tokens-in-postman).
-
-In addition to the settings described above, set the `Procore-Company-ID` header value as needed to work with [Multiple Procore Zones (MPZ)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
-
-![example call mpz]({{ site.baseurl }}/assets/guides/example-call-mpz.png)
-
-Now, simply click Send to retrieve a list of projects in your company. You should see a JSON response similar to the following:
-
-```
-{
-  "id": 123456,
-  "name": "Demo Project",
-  "display_name": "Demo Project",
-  "project_number": null,
-  "address": "9999 First Street",
-  "city": "Anytown",
-  "state_code": "CA",
-  "country_code": "US",
-  "zip": "93013",
-  "county": null,
-  "latitude": 34.385045633646,
-  "longitude": -119.490841957738,
-  "stage": "Course of Construction",
-  "phone": "",
-  "created_at": "2016-08-22T20:18:55Z",
-  "updated_at": "2017-12-18T22:49:07Z",
-  "active": true,
-  "origin_id": null,
-  "origin_data": null,
-  "company": {
-      "id": 5678,
-      "name": "My Construction Company"
-  }
 }
 ```
 

@@ -95,8 +95,6 @@
       url: /date-time
     - title: Working with Time Zones
       url: /tutorial-timezones
-    - title: Using Country Codes
-      url: /country-codes
     - title: MPZ Request Headers
       url: /mpz-headers
     - title: Working with Documents
@@ -174,8 +172,6 @@
 
 - title: Tools
   items:
-    - title: Postman
-      url: /postman
     - title: SDKs and Sample Applications
       url: /sdk
 

@@ -125,7 +125,6 @@ We currently do not provide a 'built-in' API Explorer in our Developer Portal.
 However, one application we highly recommend is [Postman](https://www.getpostman.com/).
 This application allows you to run and test Procore API endpoints.
 This is the tool of choice for our Developer Support team as well as our own in-house developers.
-See our guide to [Exploring the Procore API with Postman]({{ site.url }}{{ site.baseurl }}{% link tools/postman.md %}) for additional information.
 
 ## Deprecation
 
