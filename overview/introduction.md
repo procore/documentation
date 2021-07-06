@@ -12,7 +12,8 @@ You can expand the functionality of your Procore account by leveraging existing 
 >
 > Procore API resources under the `/vapid` namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the `/rest` namespace with a new architecture that supports versioning and expanded functionality.
 >
-> Although Procore will continue to support Vapid resources and address defects as needed, all new feature development for the Procore API will be done in Rest.
+> On 02/01/2022 the `/vapid` namespace will be sunset in accordance with our [API lifecycle guidelines](https://developers.procore.com/documentation/rest-api-lifecycle).
+> While we will support and maintain Vapid endpoints during this 1 year period, all new feature development for the Procore API will be done in Rest.
 > We encourage all developers using the Vapid API resources to migrate to Rest v1.0 as soon as possible to take advantage of the latest API features.
 >
 > - [Vapid Deprecation]({{ site.url }}{{ site.baseurl }}{% link overview/vapid_deprecation.md %})
