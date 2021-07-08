@@ -15,7 +15,7 @@ An integration can pull PDF documents from Procore to be signed in an external e
 Signed copies of the document can be returned to Procore’s Documents tool (at a minimum), allowing users to save executed documents within Procore as a project's system of record.
 Permissions around this tool can also add an extra layer of security to keep needed documents confidential. 
 Additional functionality can be added to the integration for completing business processes.
-For example, Procore’s API can be utilized to also update the status of a contract to “Complete,” record the date the document was signed, and mark the contract as executed.
+For example, Procore’s API can be utilized to also update the status of a contract to “Complete”, record the date the document was signed, and mark the contract as executed.
 
 ## Accessing PDF Files
 
@@ -83,7 +83,7 @@ This tool allows for Admin-level users to make folders private. We also recommen
 ## Additional Functionality
 
 Additional functionality can be added to the integration to support contract execution.
-Through Procore’s API, an integration can update the status of a contract to “Complete,” mark the contract as executed and record the executed date.
+Through Procore’s API, an integration can update the status of a contract to “Complete”, mark the contract as executed and record the executed date.
 
 **Note:** Procore allows *Custom Workflows* to be assigned with these tools.
 Custom Workflow in this scenario mostly refers to internal “controls” or “approvals” prior to something being sent out.
@@ -101,10 +101,8 @@ Here are links to the API documentation covering the update actions discussed ab
 ### Change Orders
 
 - [General Change Order Information](https://developers.procore.com/documentation/tutorial-change-orders)
-- [Change Order](https://developers.procore.com/reference/rest/v1/change-order-packages#update-change-order-package)
-(Note: Best practice would be to use the APIs to pull an “Approved Change Order” into the technology partner software through webhooks.)
-- [Commitment Change Order](https://developers.procore.com/reference/rest/v1/change-order-packages)
-(Note: Similar to note for Prime Contract)
+- [Change Order](https://developers.procore.com/reference/rest/v1/change-order-packages#update-change-order-package) (Note: Best practice would be to use the APIs to pull an “Approved Change Order” into the technology partner software through webhooks.)
+- [Commitment Change Order](https://developers.procore.com/reference/rest/v1/change-order-packages) (Note: Similar to note for Prime Contract)
 
 ### Workflow
 
