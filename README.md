@@ -1,22 +1,44 @@
-## What is this project
+## About the Documentation Repository
 
-This repository contains the source code for the "Docs" section of the
+The **Documentation** repository contains the source code for the **Docs** section of the
 [Procore Developers](https://developers.procore.com) website.
 
 The documents in this project are written in Markdown and then rendered as
-HTML pages at https://developers.procore.com/documentation
+HTML pages at https://developers.procore.com/documentation.
 
-The documents are meant to help third-party developers who wish to integrate
+The documents are meant to help third-party developers integrate
 the Procore API into their projects.
+
+## Before You Begin
+
+Verify system requirements for Jekyll installation:
+
+- Check ruby version (ruby -v)
+- Check RubyGems version (gem -v)
+- Check GCC and Make versions (gcc -v, g++ -v, and make -v)
+
+There are many helpful resources on the web for learning markdown. Here are a few to get you started:
+
+- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+- [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+The project source files follow the [Github Flavored Markdown](https://github.github.com/gfm/) specification.
 
 ## How to run the project locally
 
-- Clone this repository on your machine and `cd` into its folder
-- Run `bundle install`. If your machine already has the needed dependencies (up-to-date Ruby, OpenSSL), the command should just work.
-- If you see any error, follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/)
-- Type `bundle exec jekyll serve`
-- Open `http://127.0.0.1:4000/documentation/introduction` in your browser
-- As you edit the source code and save, the HTML is regenerated automatically
+To run the project locally complete the following steps:
+
+1. Clone this repository on your local computer.
+
+![clone repo]({{ site.baseurl }}/assets/guides/clone-repo.png)
+
+2. On your computer, `cd` into the *documentation* folder.
+2. Run `bundle install`.
+If your computer already has the needed dependencies (up-to-date Ruby, OpenSSL), the command should just work.
+3. If you see any error, follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/)
+4. Type `bundle exec jekyll serve`
+5.  Open `http://127.0.0.1:4000/documentation/introduction` in your browser
+6. As you edit the source code and save, the HTML is regenerated automatically
 
 ## How to contribute
 
@@ -66,9 +88,3 @@ which is designed to follow [Procore’s CORE design system](https://core.procor
 If something is off with the style, or if an element doesn't render correctly
 on a certain device, open a Pull Request to update the default layout, and
 indicate, with a reference to the CORE design system rule you are adding.
-
-
-
-
-
-
