@@ -29,16 +29,13 @@ The project source files follow the [Github Flavored Markdown](https://github.gi
 To run the project locally complete the following steps:
 
 1. Clone this repository on your local computer.
-
-![clone repo]({{ site.baseurl }}/assets/guides/clone-repo.png)
-
 2. On your computer, `cd` into the *documentation* folder.
 2. Run `bundle install`.
 If your computer already has the needed dependencies (up-to-date Ruby, OpenSSL), the command should just work.
-3. If you see any error, follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/)
-4. Type `bundle exec jekyll serve`
-5.  Open `http://127.0.0.1:4000/documentation/introduction` in your browser
-6. As you edit the source code and save, the HTML is regenerated automatically
+3. If you see any error, follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/).
+4. Type `bundle exec jekyll serve`.
+5.  Open `http://127.0.0.1:4000/documentation/introduction` in your browser.
+6. As you edit the source code and save, the HTML is regenerated automatically.
 
 ## How to contribute
 
