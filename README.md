@@ -21,11 +21,6 @@ Verify the system requirements for the Jekyll installation:
 
 You will also need an active [Github account](https://github.com/login), a source code text editor ([VSCode](https://code.visualstudio.com/download), [Atom](https://atom.io/), etc.), and basic familiarity with markdown syntax.
 
-- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-- [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-
-The project source files follow the [Github Flavored Markdown](https://github.github.com/gfm/) specification.
-
 ## How to run the project locally
 
 To run the project locally complete the following steps:
