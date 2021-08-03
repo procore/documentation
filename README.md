@@ -45,11 +45,10 @@ To run the project locally complete the following steps:
   If your computer already has the needed dependencies (up-to-date Ruby, OpenSSL), the command should just work. If you see any error, follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/).
   
 3. Test your Local Environment.
-   * Start the Jekyll server running locally by typing the following commnand in your terminal:
-   > `bundle exec jekyll serve`
-
-   * Open your browser and navigate to
-    > `http://127.0.0.1:4000/documentation/introduction`
+  * Start the Jekyll server running locally by typing the following commnand in your terminal:
+  > `bundle exec jekyll serve`
+  * Open your browser and navigate to
+  > `http://127.0.0.1:4000/documentation/introduction`
 
 As you edit the source code and save your changes, the HTML output is regenerated automatically.
 
@@ -71,10 +70,10 @@ Did you find a typo, or some incorrect or missing information? You can update th
 5. Add your changes. Once you have completed your changes and saved your work locally, you can add those changes to your local feature branch. First, stage your changes for commit by issuing the following command:
 > `git add .`
 
-    * You can use the '.' notation as a wildcard to include all changes, or you can specify individual files.
+- Note: You can use the '.' notation as a wildcard to include all changes, or you can specify individual files.
 
 6. Next, commit the changes to your feature branch, using the -m flag with a commit message in quotes as shown in the following example:
->  `git commit -m "adding some new content"``
+>  `git commit -m "adding some new content"`
 
 7. Push your feature branch to the remote repository by issuing a command like the following example:
 > `git push origin DOCS-123_new_tutorial`
