@@ -19,9 +19,22 @@ Verify the system requirements for the Jekyll installation:
   - `g++ -v`
   - `make -v`
 
-
 You will also need an active [Github account](https://github.com/login), a source code text editor ([VSCode](https://code.visualstudio.com/download), [Atom](https://atom.io/), etc.), and basic familiarity with markdown syntax.
 
+## Before You Begin
+
+Verify system requirements for Jekyll installation:
+
+- Check ruby version (ruby -v)
+- Check RubyGems version (gem -v)
+- Check GCC and Make versions (gcc -v, g++ -v, and make -v)
+
+There are many helpful resources on the web for learning markdown. Here are a few to get you started:
+
+- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+- [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+The project source files follow the [Github Flavored Markdown](https://github.github.com/gfm/) specification.
 
 ## How to run the project locally
 
@@ -40,6 +53,7 @@ To run the project locally complete the following steps:
   > `bundle install`
 
   If your computer already has the needed dependencies (up-to-date Ruby, OpenSSL), the command should just work. If you see any error, follow the instructions on [how to install Jekyll](https://jekyllrb.com/docs/installation/).
+  
 3. Test your Local Environment.
    * Start the Jekyll server running locally by typing the following commnand in your terminal:
    > `bundle exec jekyll serve`
@@ -71,7 +85,6 @@ Did you find a typo, or some incorrect or missing information? You can update th
 
 6. Next, commit the changes to your feature branch, using the -m flag with a commit message in quotes as shown in the following example:
 >  `git commit -m "adding some new content"``
-
 
 7. Push your feature branch to the remote repository by issuing a command like the following example:
 > `git push origin DOCS-123_new_tutorial`
