@@ -21,16 +21,6 @@ Verify the system requirements for the Jekyll installation:
 
 You will also need an active [Github account](https://github.com/login), a source code text editor ([VSCode](https://code.visualstudio.com/download), [Atom](https://atom.io/), etc.), and basic familiarity with markdown syntax.
 
-## Before You Begin
-
-Verify system requirements for Jekyll installation:
-
-- Check ruby version (ruby -v)
-- Check RubyGems version (gem -v)
-- Check GCC and Make versions (gcc -v, g++ -v, and make -v)
-
-There are many helpful resources on the web for learning markdown. Here are a few to get you started:
-
 - [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 - [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
