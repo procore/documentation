@@ -11,6 +11,7 @@ section_title: Guides and Tutorials
 Project managers rely on Procore's Budget tool to manage change orders, commitments, and direct costs, as well as leverage built-in forecasting features to track the estimated cost of completion and savings and loss over the course of the project lifecycle.
 In addition, Procore's Timecard tool can be used to track labor hours and manage field productivity.
 For companies using third-party labor tracking systems, the Procore API provides a Timecard Entry resource that can be used to integrate labor hours managed in external systems with budget views in Procore.
+This approach allows for integration with external time tracking solutions without the need to purchase Procore's Field Productivity product.
 
 In preparation for working with timecard entries using the Procore API, we recommend reviewing the related instructional content available on the Procore Support site.
 
