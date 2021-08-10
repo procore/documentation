@@ -1,68 +1,101 @@
 ---
 permalink: /introduction
-title: Welcome!
-layout: default
+title: Procore Developer Documentation
+layout: landing
 section_title: Overview
 ---
-
-Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
-You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
-
->IMPORTANT!
+>**IMPORTANT!**
 >
 > Procore API resources under the `/vapid` namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the `/rest` namespace with a new architecture that supports versioning and expanded functionality.
 >
-> On February 1, 2022 the `/vapid` namespace will be sunset in accordance with our [API lifecycle guidelines](https://developers.procore.com/documentation/rest-api-lifecycle).
-> While we will support and maintain Vapid endpoints during this 1 year period, all new feature development for the Procore API will be done in Rest.
+> On February 1, 2022 the /vapid namespace will be sunset in accordance with our [API lifecycle]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %}).
+>While we will support and maintain Vapid endpoints during this 1 year period, all new feature development for the Procore API will be done in Rest.
 > We encourage all developers using the Vapid API resources to migrate to Rest v1.0 as soon as possible to take advantage of the latest API features.
 >
 > - [Vapid Deprecation]({{ site.url }}{{ site.baseurl }}{% link overview/vapid_deprecation.md %})
 > - [Rest API Overview]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_overview.md %})
 > - [API Lifecycle]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})
-
-## Procore API
-
-If you intend to build your own applications (or hire someone to build them for you), the Procore API allows you to leverage Procore resources within the Procore cloud in a simple, programmatic way using conventional HTTP requests in a RESTful architecture.
-The Procore API endpoints are intuitive and powerful, enabling you to easily make calls to retrieve information or execute actions on the various resources in Procore.
-
-## Procore Marketplace
-
-The Procore Marketplace serves as a clearing house for applications and integrations developed by our technology partners using the Procore API.
-These offerings allow Procore clients to integrate Procore with their existing tools and workflows.
-Integrations currently available in the Marketplace expand project management possibilities for Procore clients in the areas of Analytics, Business Intelligence, Accounting, Estimating, Building Information Modeling (BIM), and others.
-
-## Developer Personas
-
-The two primary developer personas that interact with the Procore API are _Procore Clients_ and _Procore Technology Partners_.
-It is likely that you fall into one of these categories and that your specific integration goals and requirements can be characterized by one of these two Procore developer personas.
-
-### Procore Clients
-
-_Procore Clients_ are individuals and organizations that have one or more Procore accounts and utilize Procore for their daily project management activities.
-It is not uncommon for clients to rely on a number of other software tools and processes in addition to Procore to manage their projects.
-For example, a large general contracting firm may use a legacy tool for bidding/estimation, while using Procore for the balance of their project management tasks.
-In this scenario, the GC could build (or hire a development team to build) a [Custom Integration]({{ site.url }}{{ site.baseurl }}{% link overview/custom_overview.md %}) between their legacy systems and Procore using the Procore API, thereby improving efficiency and upgrading the user experience for their employees and collaborators (subcontractors, vendors, etc.).
-As a general rule, applications and integrations produced by Procore clients are intended for their own internal use and are not normally published to the Procore Marketplace.
-
-### Procore Technology Partners
-
-_Procore Technology Partners_ leverage the Procore API to provide Procore users with a best-in-class experience, irrespective of what problem they are seeking to solve.
-In addition to making their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/custom_overview.md %}) available on the Procore Marketplace for purchase by Procore clients and users, members in the Procore Partnerships program benefit from exclusive access to the following resources:
-
-- Brand presence on the Procore Marketplace
-- Use of the Procore logo
-- Developer training and support
-- Development sandbox
-- Opportunity to contribute to the The Jobsite publication
-- Invitation to exhibit at Procore’s annual _Groundbreak_ conference
-
-## Paths to Success
-
-The two developer personas described in the previous sections take a slightly different path to a successful launch of their applications and integrations.
-Generally speaking, Procore clients manage their own integration development milestones and releases.
-Since their Custom Integrations are only used internally, they have complete control over quality, performance, and reliability requirements.
-Procore clients also manage the internal training needs for their users.
-
-Conversely, Procore technology partners take a different development path as their applications are intended for use by the Procore user community at-large, and therefore must adhere to more stringent standards when it comes to quality, performance, and security.
-In addition, since technology partners have the opportunity to publish their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/partner_overview.md %}) on the Procore Marketplace, they must submit their applications to Procore for approval.
-Finally, technology partners must provide adequate training materials and offer technical support services for their applications.
+<div class="grid-container">
+  <div class="grid-item item1">
+    <h2>Getting Started</h2>
+      <p>Procore’s open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies. You can expand the functionality of your Procore account by leveraging existing integrations available in our App Marketplace, or by developing new applications and customized integrations yourself using the Procore API.</p>
+      <p>The Procore API allows you to leverage Procore resources within the Procore cloud in a simple, programmatic way using conventional HTTP requests in a RESTful architecture. The Procore API endpoints are intuitive and powerful, enabling you to easily make calls to retrieve information or perform actions on the various resources in Procore.</p>
+      <ul>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %}">Register a New Developer Account</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %}">Create an Application</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link getting_started/making_first_call.md %}">Make Your First API Call</a></li>
+      </ul>
+  </div>
+  <div class="grid-item item2">
+    <div class="gridboxheader">
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/guides/.png">
+      <h2 class="gridbox">Build a Custom Integration</h2>
+    </div>
+      <p>Many Procore customers rely on other software tools and processes in addition to Procore to manage their projects. In these cases, custom integrations between legacy systems and Procore can be built using the Procore API, minimizing redundancy and improving operational efficiency.</p>
+      <ul>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link overview/custom_overview.md %}">Learn About Custom Integrations</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %}">Building Your Application</a></li>
+      </ul>
+  </div>
+  <div class="grid-item item3">
+    <h2>Build a Marketplace Application</h2>
+      <p>In the Procore App Marketplace you will find integration solutions developed by our technology partners using the Procore API. These products allow Procore customers to integrate Procore with their existing tools and workflows and expand project management capability in the areas of analytics, business intelligence, accounting, estimating, BIM, and more.</p>
+      <ul>
+        <li><a href="https://developers.procore.com/partner-signup">Become a Procore Technology Partner</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link overview/partner_overview.md %}">Learn About Technology Partner Integrations</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %}">Building Your Application</a></li>
+      </ul>
+  </div>  
+  <div class="grid-item item4">
+    <h3>Core Tools</h3>
+      <ul>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link best_practices/tutorial_documents.md %}">Documents</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_user_permissions.md %}">Permissions</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %}">File Attachments and Image Uploads</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}">Direct File Uploads</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}">Webhooks</a></li>
+      </ul>
+  </div>
+  <div class="grid-item item5">
+    <h3>Project Management</h3>
+      <ul>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_correspondence.md %}">Correspondence</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_drawings.md %}">Drawings</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_direct_drawing_uploads.md %}">Direct Drawing Uploads</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_incidents.md %}">Incidents</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_observations.md %}">Observations</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/daily_logs.md %}">Daily Logs</a></li>
+      </ul>
+  </div>
+  <div class="grid-item item6">
+    <h3>Financial Management</h3>
+      <ul>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_financial_tools.md %}">Integrating with Procore Financial Tools</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_line_items.md %}">Budget Line Items</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_change_orders.md %}">Change Orders</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_requisitions.md %}">Subcontractor Invoices</a></li>
+      </ul>
+  </div>
+  <div class="grid-item item7">
+    <h3>Procore API Essentials</h3>
+      <ul>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limiting.md %}">Rate Limiting</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/pagination.md %}">Pagination</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/api_security_overview.md %}">API Security Overview</a></li>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/tls_reqs.md %}">Transport Layer Security Requirements</a></li>
+      </ul>
+  </div>
+  <div class="grid-item item8">
+    <h3>Featured Topics</h3>
+      <li><a href="{{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_overview.md %}">Rest API Overview</a></li>
+      <li><a href="{{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %}">API Lifecycle</a></li>
+      <li><a href="{{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %}">Sandbox Environments</a></li>
+      <li><a href="{{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}">Introduction to OAuth 2.0</a></li>
+  </div>
+  <div class="grid-item item9">
+    <h3>Additional Resources</h3>
+      <li><a href="{{ site.url }}{{ site.baseurl }}{% link overview/dev_resources.md %}">Developer Resources</a></li>
+      <li><a href="{{ site.url }}{{ site.baseurl }}{% link overview/training.md %}">Developer Training</a></li>
+      <li><a href="https://support.procore.com">Procore Support</a></li>
+  </div>
+</div>

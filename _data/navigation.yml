@@ -1,30 +1,20 @@
 - title: Overview
   items:
-    - title: Welcome!
+    - title: Home
       url: /introduction
-    - title: Vapid API Deprecation
-      url: /vapid-deprecation
-    - title: Build a Custom Integration
-      url: /custom-overview
-    - title: Build a Marketplace Integration
-      url: /partner-overview
-    - title: Developer Training
-      url: /training
-    - title: Developer Resources
-      url: /dev-resources
 
 - title: Getting Started
   items:
     - title: Rest API Overview
       url: /rest-api-overview
-    - title: API Lifecycle
-      url: /rest-api-lifecycle
-    - title: Registering a New Developer Account
+    - title: Register a New Account
       url: /new-account
-    - title: Sandbox Environments
-      url: /development-environments
     - title: Making Your First API Call
       url: /making-first-call
+    - title: Sandbox Environments
+      url: /development-environments
+    - title: API Lifecycle
+      url: /rest-api-lifecycle  
 
 - title: OAuth 2.0 Authentication
   items:
@@ -53,6 +43,10 @@
   items:
     - title: Introduction
       url: /building-apps-intro
+    - title: Custom Integrations
+      url: /custom-overview
+    - title: Marketplace Integrations
+      url:  /partner-overview
     - title: Understanding App Types
       url: /building-apps-app-types
     - title: App Installation Architecture
@@ -162,8 +156,6 @@
       url: /tutorial-config-fieldsets
     - title: Correspondence
       url: /tutorial-correspondence
-    - title: E-Signature Integration
-      url: /tutorial-e-signature-integration  
 
 - title: Other Procore APIs
   items:
