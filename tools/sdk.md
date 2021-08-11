@@ -13,10 +13,14 @@ Software Development Kits and Sample Applications designed to get you up and run
 The Procore JavaScript SDK is a node.js and browser-compatible JavaScript software development kit (SDK) for the Procore API.
 The SDK includes an example for server set up and a node command line tool for generating Procore API endpoint functions and interface definitions in Typescript for an improved developer experience.
 The SDK package should be installed using [Yarn](https://yarnpkg.com/en/).
-In addition, a sample application is provided to help illustrate the techniques for using the Procore JavaScript SDK complete with login routes and a resource viewer.
 
 - [Procore JavaScript SDK](https://github.com/procore/js-sdk)
-- [Sample Application](https://github.com/procore/js-sdk-sample-app)
+
+## Procore JavaScript Sample Application
+
+The Procore JavaScript Sample Application is provided to help illustrate the techniques for using the Procore JavaScript SDK complete with login routes and a resource viewer.
+
+- [Procore JavaScript Sample Application](https://github.com/procore/js-sdk-sample-app)
 
 ## Procore Ruby SDK
 
