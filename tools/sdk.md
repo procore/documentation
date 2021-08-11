@@ -27,7 +27,7 @@ The Procore JavaScript Sample Application is provided to help illustrate the tec
 The Procore Ruby SDK is a publicly available Ruby Gem which serves as wrapper around the Procore API.
 Please visit the Procore Ruby SDK GitHub site for installation instructions, guidelines for usage, and sample code.
 
-[Procore Ruby SDK](https://github.com/procore/ruby-sdk)
+- [Procore Ruby SDK](https://github.com/procore/ruby-sdk)
 
 ## Procore Ruby on Rails Sample Application
 
@@ -37,7 +37,7 @@ The application is configured to access either Procore's production environment 
 In addition, it allows you to make a test call to the [Show User Info](https://developers.procore.com/reference/me) endpoint.
 For more information, visit the link below and refer to the README page in the GitHub repository.
 
-[Procore Ruby on Rails Sample App](https://github.com/procore/Procore-Sample-ROR)
+- [Procore Ruby on Rails Sample App](https://github.com/procore/Procore-Sample-ROR)
 
 ## Procore Python Sample Application
 
@@ -47,4 +47,4 @@ The application is configured to access either Procore's production environment 
 In addition, it allows you to make a test call to the [Show User Info](https://developers.procore.com/reference/me) endpoint.
 For more information, visit the link below and refer to the README page in the GitHub repository.
 
-[Procore Python Sample App](https://github.com/procore/Procore-Sample-Python)
+- [Procore Python Sample App](https://github.com/procore/Procore-Sample-Python)
