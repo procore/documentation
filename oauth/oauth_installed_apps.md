@@ -120,7 +120,19 @@ Here is an example request:
 
 Request Method: `POST`
 
-Request URL: `https://login.procore.com/oauth/token?grant_type=refresh_token&client_id=<YOUR_CLIENT_ID>&client_secret=<YOUR_CLIENT_SECRET>&refresh_token=<refresh_token>`
+Request URL: `https://login.procore.com/oauth/token`
+
+Request Body:
+
+```
+{
+    "grant_type":"refresh_token",
+    "client_id": "<YOUR_CLIENT_ID>",
+    "client_secret":"<YOUR_CLIENT_SECRET>",
+    "redirect_uri": "<REDIRECT_URI>",
+    "refresh_token": "<REFRESH_TOKEN>"
+}
+```
 
 If everything goes right and the request is successful, you will receive a 200 response containing a JSON body like this:
 
@@ -134,7 +146,7 @@ If everything goes right and the request is successful, you will receive a 200 r
 }
 ```
 
-### How can my installed application go through the OAuth flow without any user interaction?
+## How can my installed application go through the OAuth flow without any user interaction?
 
 While our installed application configuration does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
 Once you manually go through that step by logging in and getting an authorization code, you can then programmatically authenticate from that point forward without user intervention.
