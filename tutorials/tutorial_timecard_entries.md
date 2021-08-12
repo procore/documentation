@@ -83,10 +83,11 @@ We include the `line_item_type_id` in the request body.
 
 ![create-timesheet-to-budget-config]({{ site.baseurl }}/assets/guides/create-timesheet-to-budget-config.png)
 
-With the Timesheet to Budget Configuration successfully created, we can now use Timecard Entry Hours as a source column in a budget view.
+With the Timesheet to Budget Configuration successfully created, we can now use Timecard Entry Hours as a source column in a budget view as described in [Add a Budget View for Real-Time Labor Productivity](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-a-budget-view-for-real-time-labor-productivity). When creating a new source column for the budget view, select Timecard Entry Hours in the available dropdown.
+
+![timecard-entry-hours]({{ site.baseurl }}/assets/guides/timecard-entry-hours.png)
 
 See the following Procore Support Site articles to learn more about creating and working with budget views.
 
 - [What are Procore's standard budget views?](https://support.procore.com/faq/what-are-procores-standard-budget-views)
 - [Set Up a New Budget View](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/set-up-a-new-budget-view)
-- [Add a Budget View for Real-Time Labor Productivity](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-a-budget-view-for-real-time-labor-productivity)
