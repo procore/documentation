@@ -104,3 +104,4 @@ The following endpoints may also be used to move uploaded files into Procore dep
 - [Create Company File](https://developers.procore.com/reference/rest/v1/company-folders-and-files#create-company-file)
 - [Create Image](https://developers.procore.com/reference/rest/v1/images#create-image)
 - [Create Drawing Upload](https://developers.procore.com/reference/rest/v1/drawings#create-drawing-upload)
+- [Create Project File](https://developers.procore.com/reference/rest/v1/project-folders-and-files#create-project-file)
