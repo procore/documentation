@@ -26,7 +26,7 @@ Here is a diagram illustrating the flow for the Authorization Code grant type. L
 
 1. When a Procore user accesses your application, it initiates the authorization grant flow and redirects the user’s web browser to the Procore API Grant App Authorization endpoint (/authorize), so the user can authenticate.
 1. The Procore authorization server authenticates the user (via the browser) and displays a consent dialog where the user can choose to allow or deny your application access to their data in Procore.
-1. Once the user allows access, the Procore authorization server redirects the user back to your application with an Authorization Code.
+1. Once the user allows access, the Procore authorization server redirects the user back to your application with an Authorization Code that can only be used once and has a 10 minute expiration.
 1. Your application then sends the Authorization Code to the authentication server and asks to exchange it with an access token. This is accomplished using the /token endpoint. When making this request, your application authenticates with the Procore server using your Client ID and Client Secret.
 1. The Procore authentication server authenticates your application, validates the Authorization Code and responds back with the access token.
 1. Your application can now use the access token to make calls to the Procore API on behalf of the user.
