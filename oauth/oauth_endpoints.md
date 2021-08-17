@@ -22,7 +22,7 @@ The following sections describe these endpoints along with their request paramet
 
 ## Grant App Authorization ([/oauth/authorize](https://developers.procore.com/reference/authentication#grant-app-authorization))
 
-The Grant App Authorization endpoint creates and returns either a temporary authorization code with a 10 minute expiration, or an access token depending on the grant type.
+The Grant App Authorization endpoint creates and returns either a temporary one-use authorization code with a 10 minute expiration, or an access token depending on the grant type.
 This endpoint corresponds to the OAuth 2.0 authorization endpoint described in section 3.1 of the OAuth 2.0 RFC.
 Three required request parameters are used with this endpoint as described in in the following table.
 
