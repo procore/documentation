@@ -33,6 +33,13 @@ You can string together multiple filters on a single List Action call as a logic
 &filters[<ATTRIBUTE_NAME>]=<VALUE_TO_FILTER_ON>&filters[<ATTRIBUTE_NAME>]=<VALUE_TO_FILTER_ON>...
 ```
 
+Some filters return an array of attribute values and can be used with the following syntax:
+
+```
+&filters[<ATTRIBUTE_NAME_A>][]=value_1&filters[ATTRIBUTE_NAME_A>][]=value_2
+
+```
+
 ## Examples
 
 Here are a few examples to get you started using the filtering capabilities in Procore API.
@@ -51,16 +58,18 @@ This time we'll string two filters together to return a list of open Submittals 
 GET https://sandbox.procore.com/rest/v1.0/projects/225096/submittals?filters[status_id]=1&filters[received_from_id]=1477686
 ```
 
-> MULTIPLE FILTERS ON THE SAME FIELD NOT SUPPORTED
->
-> In the current version of the Procore API, you may not use multiple filters on the same field in a single call.
+Here is an example of filtering with an array of attribute values, returning a list of Observations with a status of `initiated` or `ready_for_review`.
+
+```
+GET https://sandbox.procore.com/rest/v1.0/observations/items?project_id=225096&filters[status][]=0&filters[status][]=1
+```
 
 Finally, let's take a look at filtering a response based on a date range.
 Here we use the `created_at` parameter with the List Purchase Order Contracts action to return a list of purchase orders that were created on September 23, 2016 between 16:30 and 17:00 UTC.
 
 ```
 GET https://sandbox.procore.com/rest/v1.0/purchase_order_contracts/
-    ?project_id=225096&filters[created_at]=\"2016-09-23T16:30:00Z...2016-09-23T17:00:00Z\"
+    ?project_id=225096&filters[created_at]="2016-09-23T16:30:00Z...2016-09-23T17:00:00Z"
 ```
 
 It is important to note that the date-time string used with the `created_at` and `updated_at` parameters must adhere to ISO8601 standards.
