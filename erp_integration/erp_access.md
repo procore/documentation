@@ -6,4 +6,4 @@ section_title: ERP Integration
 
 ---
 
-ERP access is only currently available a select number of clients.
+Access to ERP documentation is only available for a select number of Procore partners and clients.
