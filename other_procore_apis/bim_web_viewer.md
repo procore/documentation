@@ -1,17 +1,17 @@
 ---
-permalink: /vdc-web-viewer
-title: "Procore VDC Web Viewer: Integrator Documentation"
+permalink: /bim-web-viewer
+title: "Procore BIM Web Viewer: Integrator Documentation"
 layout: default
 section_title: Other Procore APIs
 ---
 
 ## Getting started
 
-The Procore VDC Web Viewer is a single distributable Javascript file.
+The Procore BIM Web Viewer is a single distributable Javascript file.
 
 Instantiate the viewer with the options argument, and start rendering when ready.
 
-- Add `<script type='text/javascript' src='dist/Procore.Vdc.WebViewer.js'></script>` to your page
+- Add `<script type='text/javascript' src='dist/Procore.Bim.Webviewer.js'></script>` to your page
 - Instantiate a new viewer with options: `const viewer = new ProcoreBim.Webviewer(options);`
 - Start the viewer: `viewer.start();`
 
@@ -1300,7 +1300,7 @@ Promise(boolean)
 }
 ```
 
-The version of the WebViewer which is being used.
+The version of the Webviewer which is being used.
 
 `parentElement [Element` (required)
 
@@ -1405,7 +1405,7 @@ Provided by a Procore service.
   }
 }
 ```
-Initializes the WebViewer with the camera.
+Initializes the Webviewer with the camera.
 
 `swEnable [boolean]`
 

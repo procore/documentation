@@ -169,8 +169,8 @@
 
 - title: Other Procore APIs
   items:
-    - title: VDC Web Viewer API
-      url: /vdc-web-viewer
+    - title: BIM Web Viewer API
+      url: /bim-web-viewer
 
 - title: Tools
   items:
