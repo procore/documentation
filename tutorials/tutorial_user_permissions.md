@@ -8,15 +8,20 @@ section_title: Guides and Tutorials
 
 ## Introduction
 
-Procore uses permissions to manage user access to different Procore tools. User permissions can be managed at the Company level and Project level and consist of four role-based levels, None, Read-only, Standard, and Admin. Each role can be defined in a [permission template](https://support.procore.com/references/construction-management/glossary-of-terms#Permissions_Template), see [What is a permission template?](https://support.procore.com/faq/what-is-a-permissions-template)
+Procore uses permissions to manage user access to different Procore tools.
+User permissions can be managed at the Company level and Project level and consist of four role-based levels, None, Read-only, Standard, and Admin.
+Each role can be defined in a [permission template](https://support.procore.com/references/construction-management/glossary-of-terms#Permissions_Template), see [What is a permission template?](https://support.procore.com/faq/what-is-a-permissions-template).
 
 ## User Permissions
 
-The [User Permissions Reference Page](https://support.procore.com/faq/what-are-the-default-project-permissions-templates-in-procore) shows a comprehensive breakdown of all user actions and the specific user permissions (Read Only, Standard, and/or Admin) required to perform that action. Since certain tools are available at both the Company and Project levels, be sure to select the appropriate hyperlink when navigating the page, see [What are the default project permission templates in Procore?](https://support.procore.com/faq/what-are-the-default-project-permissions-templates-in-procore)
+The [User Permissions Reference Page](https://support.procore.com/faq/what-are-the-default-project-permissions-templates-in-procore) shows a comprehensive breakdown of all user actions and the specific user permissions (Read Only, Standard, and/or Admin) required to perform that action.
+Since certain tools are available at both the Company and Project levels, be sure to select the appropriate hyperlink when navigating the page, see [What are the default project permission templates in Procore?](https://support.procore.com/faq/what-are-the-default-project-permissions-templates-in-procore).
 
 ## User Permission Templates
 
-Each Procore client is provided with several role-based project permissions templates. Use the steps below to walk you through the process of using the Procore API to change a project user’s permission template. In order to update a project user’s permission template through the API, the user must be first removed from the project and then re-added with the new permission template ID.
+Each Procore client is provided with several role-based project permissions templates.
+Use the steps below to walk you through the process of using the Procore API to change a project user’s permission template.
+In order to update a project user’s permission template through the API, the user must be first removed from the project and then re-added with the new permission template ID.
 
 > TUTORIAL PREREQUISITES
 >
