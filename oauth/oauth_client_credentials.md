@@ -41,6 +41,9 @@ However, you can refine and customize the access levels for your service account
 
 ## Service Account Management
 
+
+
+
 As you develop and deploy applications that use the Client Credentials Grant type, you must be mindful of the following aspects of Procore _service accounts_.
 See [What is a Service Account?](https://support.procore.com/faq/what-is-a-service-account)
 
