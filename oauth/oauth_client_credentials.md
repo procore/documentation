@@ -13,22 +13,12 @@ In addition, it is not necessary to first obtain an authorization code before re
 The Procore API implementation of the Client Credentials flow relies on the use of a [_service account_](https://support.procore.com/faq/what-is-a-service-account).
 
 The Client Credentials grant type provides a specific grant flow in which the resource owner (that is, the user) is not involved.
-When using this grant with Procore, the client application requests an access token using only its own credentials (via an existing service account), and uses the access token on behalf of the client application itself.
-This grant flow is best-suited for API methods that are used by the client application in general, instead of methods that apply to a certain resource owner, for example, API methods for reporting, analytics, administrative tasks, system maintenance, etc.
-This method for using an API is also referred to as _userless access_.
+With this grant flow, the client application authenticates using the service account credentials rather than those of a specific user.
+This grant flow is best-suited for Apps and integrations where a specific user’s permission to access their data is not required, such as data connection Apps for financial systems integration, reporting, analytics, administrative tasks, system maintenance, etc.
 
-## Common Use Cases
+## 
 
-There are a number of scenarios in which using the Client Credentials grant flow in the Procore API is the preferred approach.
 
-- "Machine-to-machine" integrations - where a specific user’s permission to access their data is not required (i.e., non-delegated authorization)
-- Report generators, data mining, or other integrations that access company-wide data
-- Backend scripts, system maintenance and administration utilities
-
-> CHOOSING THE CLIENT CREDENTIALS GRANT FLOW
->
-> The Client Credentials grant flow is not intended to replace the Installed Applications flow.
-> It should only be used for integrations and applications that perform actions not tied to, or on behalf of, a specific Procore user.
 
 ## Security Considerations
 
@@ -36,7 +26,7 @@ Depending on how you plan to use the Client Credentials grant flow, the credenti
 The more data a single set of credentials has access to, the greater the risk if the credentials become compromised.
 Therefore, it is imperative that the credentials used to authenticate your application with Procore are kept confidential.
 Ideally, these credentials would also be rotated regularly.
-It is important to note that new service accounts are created without permissions ('None') by default.
+It is important to note that a service account created manually does not have any permissions ('None') by default.
 However, you can refine and customize the access levels for your service account as a means for establishing and enforcing proper security policies for your application.
 
 ## Service Account Management
