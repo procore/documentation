@@ -33,14 +33,9 @@ Three required request parameters are used with this endpoint as described in in
 | redirect_uri  | Specifies the URI that the user will be redirected to after they grant authorization to your application. For web applications applications, use an SSL (`https://`) web address. For "server-less" applications (such as cron jobs, backend scripts, etc.) use a value of `urn:ietf:wg:oauth:2.0:oob`. |
 | state         | An alphanumeric value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter SHOULD be used for preventing cross-site request forgery                                    |
 
-cURL Example:
+### How to Use
 
-```
-curl -F response_type=code \
--F client_id=9b36d8c0db59eff5038aea7a417d64eg347a75b41aac771816d2ef1b3109cc2f \
--F redirect_uri=urn:ietf:wg:oauth:2.0:oob \
--X POST https://login.procore.com/oauth/authorize
-```
+Unlike the other endpoints, the Grant App Authorization endpoint requires user interaction. Please follow the steps outlined in Steps 1 and Steps 2 in [OAuth 2.0 for Installed Applications]({{ site.url }}{{ site.baseurl }}{{ % link oauth/oauth-endpoints}}) 
 
 ## Get Or Refresh an Access Token ([/oauth/token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token))
 
