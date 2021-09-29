@@ -35,7 +35,7 @@ Three required request parameters are used with this endpoint as described in in
 
 ### How to Use
 
-Unlike the other endpoints, the Grant App Authorization endpoint requires user interaction. Please follow the steps outlined in Steps 1 and Steps 2 in [OAuth 2.0 for Installed Applications]({{ site.url }}{{ site.baseurl }}{{ % link oauth/oauth-endpoints}}) 
+Unlike the other endpoints, the Grant App Authorization endpoint requires user interaction. Please follow the steps outlined in Steps 1 and 2 in [OAuth 2.0 for Installed Applications]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %}) 
 
 ## Get Or Refresh an Access Token ([/oauth/token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token))
 
