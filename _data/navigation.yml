@@ -190,6 +190,11 @@
     - title: Metadata Details
       url: /erp-metadata-details
 
+- title: AI Documentation
+  items:
+    - title: AI Developer Docs
+      url: /ai-page
+
 - title: Additional Resources
   items:
     - title: Developer Support

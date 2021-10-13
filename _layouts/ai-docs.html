@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Documentation for Procore developers" />
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <base target="_parent">
+  <style>
+    body {
+      font-family: Inter, Noto, Arial, sans-serif;
+      background-color: #f1f3f3;
+      color: #202020;
+      font-size: 14px;
+      line-height: 20px;
+
+    }
+
+    nav, article {
+      padding: 48px;
+    }
+
+    nav {
+      width: 300px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    nav dd a {
+      color: #202020;
+    }
+
+    nav dt.active, nav dd.active a {
+      color: #006ddf;
+    }
+
+    nav dd.active {
+      border-left-color: #006ddf;
+    }
+
+    nav dl {
+      margin-top: 0;
+    }
+    nav dt {
+      margin-bottom: 8px;
+    }
+    nav dd  {
+      padding-top: 8px; padding-bottom: 8px;
+      border-left: 4px solid #e6e6e6;
+      padding-left: 20px;
+      align-items: center;
+      margin-left: 0px;
+    }
+
+    a {
+    color: #f47e42;
+    text-decoration: none;
+    }
+
+
+    body {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    article {
+      overflow-y: scroll;
+      height: 100%;
+      flex: 1 1 0%;
+    }
+
+    article section {
+      max-width: 1200px;
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px, rgb(0 0 0 / 10%) 0px 1px 3px;
+    }
+
+    article h1 {
+      margin: 0;
+      -webkit-box-align: center;
+      align-items: center;
+      border-bottom: 1px solid rgb(217, 217, 217);
+      display: flex;
+      flex: 1 1 auto;
+      height: 128px;
+      padding: 0px 48px;
+      flex: 0 0 auto;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 32px;
+      margin-right: 16px;
+    }
+
+    article main {
+      flex: 1 1 auto;
+      padding: 48px;
+    }
+
+    article h2 {
+      font-size: 22px;
+      letter-spacing: 0.15px;
+      line-height: 32px;
+      padding: 10px 0px;
+      margin: 0;
+    }
+
+    p {
+      letter-spacing: 0.25px;
+      padding: 10px 0px;
+      margin: 0;
+    }
+
+    p img { max-width: 100%;}
+
+    code, pre {
+      background-color: #f6f8fa;
+    }
+
+    pre {
+      padding: 16px;
+    }
+
+    table {
+      border: 1px solid #d6dadc;
+      border-collapse: collapse;
+      border-radius: 4px;
+      margin-bottom: 10px;
+     }
+
+     tr {
+       border-bottom: 1px solid #d6dadc;
+     }
+
+     td, th {
+       padding: 16px;
+     }
+
+     th {
+       height: 48px;
+     }
+
+     blockquote {
+       margin: 16px 0px;
+           -webkit-box-align: center;
+           align-items: center;
+           border-left: 8px solid #e61920;
+           border-radius: 4px;
+           padding: 4px 16px;
+           box-shadow: #0000001a 0px 1px 3px 0px, #00000033 0px 1px 2px 0px;
+           background-color: #fef6f6;
+     }
+  </style>
+</head>
+
+<body>
+<nav>
+  {% for section in site.data.navigation %}
+  <dl>
+    <dt{% if page.section_title == section.title %} class="active" {% endif %}>{{ section.title }}</dt>
+    {% for item in section.items %}
+      <dd{% if page.url == item.url %} class="active" {% endif %}>
+        <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
+          {{ item.title }}
+        </a>
+      </dd>
+    {% endfor %}
+  </dl>
+  {% endfor %}
+</nav>
+
+<article>
+  <section>
+    <main>
+      {{ content }}
+    </main>
+  </section>
+</article>
+
+</body>
+</html>
