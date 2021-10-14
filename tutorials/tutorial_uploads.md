@@ -61,9 +61,9 @@ Executing a successful call to the Create Uploads endpoint returns a JSON respon
 }
 ```
 
-The example JSON response above includes three properties that we'll use as 'instructions' for performing a direct file upload in the next step.
+The example JSON response above includes three properties, two (`url` and `fields`) that we’ll use as ‘instructions’ for performing a direct file upload in the next step.
 
-- **uuid** - a unique identifier referencing the upload.
+- **uuid** - a unique identifier referencing the upload. (not used when uploading file data but used to reference the file after uploading)
 - **url** - the uniform resource locator (URL) used to POST the file upload. In this example, the URL points to Procore's AWS S3 storage area but this may change in the future.
 - **fields** - required attributes that must be included with the file upload in Step 2.
 
