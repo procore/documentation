@@ -11,10 +11,12 @@ The library is available for download on GitHub at: [procore-iframe-helpers](htt
 
 ## Install Using NPM
 
-The Procore Embedded App Helper Library is provided as Typescript source code that you can compile into a Javascript (*.js) library for use in your application.
-We recommend the NPM package for building the library from the Typescript source.
-If you need to install `NPM` to your computer, visit the [NPM website](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and follow the installation instructions they provide for your particular operating system. To install on your computer, copy and run the command line on NPM at: [procore-iframe-helpers](npm i @procore/procore-iframe-helpers) in your project.
+The Procore Embedded App Helper Library is provided as an NPM package.
+To install the package on your computer, run the following command in your project from the command line.
 
+`npm i @procore/procore-iframe-helpers`
+
+If you need to install `npm` to your computer, visit the [NPM website](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and follow the installation instructions they provide for your particular operating system.
 
 ## Using the Library
 
