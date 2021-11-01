@@ -1,8 +1,8 @@
 ---
-permalink: /erp-access-required
-title: ERP Documentation
+permalink: /ai-access-required
+title: AI Documentation
 layout: default
-section_title: ERP Integration
+section_title: AI Documentation
 
 ---
 

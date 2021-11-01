@@ -1,0 +1,5 @@
+{% if page.javascript %}
+  {% for js in page.javascript %}
+    <script src="{{ site.baseurl }}/{{ js }}"></script>
+  {% endfor %}
+{% endif %}
