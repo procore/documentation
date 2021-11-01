@@ -1,6 +1,6 @@
 ---
 permalink: /introduction
-title: Welcome!
+title: Procore Developer Documentation
 layout: default
 section_title: Overview
 ---
@@ -8,7 +8,17 @@ section_title: Overview
 Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
 You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
 
->IMPORTANT!
+>**Service Account Planned Deprecation**
+>
+> Service Accounts will be deprecated on January 31, 2022.
+> Creation of new service accounts will no longer be allowed after July 31, 2022
+> All service accounts will be sunset on January 31, 2023.
+> As a result of this deprecation, all data connection integrations that currently use standard service accounts must migrate to using Developer Managed Service Accounts before the January 31, 2023 sunset date.
+> See the following article for information on Developer Managed Service Accounts and steps for migrating your projects from standard service accounts.
+>
+> - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link best_practices/developer_managed_service_accounts.md %})
+
+>**VAPID Deprecation**
 >
 > Procore API resources under the `/vapid` namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the `/rest` namespace with a new architecture that supports versioning and expanded functionality.
 >

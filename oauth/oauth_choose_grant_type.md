@@ -60,11 +60,11 @@ Here is a diagram illustrating the flow for the Implicit grant type. Let’s wal
 1. Once the user allows access, the Procore authentication server redirects the user back to your application with an access token in the hash fragment of the URI. Your application can now extract the token from the hash fragment. In a Single Page Application (SPA) this would be done using JavaScript and in a Mobile Application this is typically handled by interacting with a Web View.
 1. Your application can now use the access token to make calls to the Procore API on behalf of the user.
 
-## Client Credentials Grant (Machine-to-machine, userless access)
+## Client Credentials Grant (Data Connection Applications, userless access)
 
-If you are developing an application or integration that does not rely on or require access authorization from a specific Procore user, then you will want to implement the Client Credentials grant type.
-This grant type is appropriate for "machine-to-machine" integrations.
-For additional information on implementing the Client Credentials grant flow in your application, see [OAuth 2.0 Using Client Credentials]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}).
+If you are developing an application or integration that does not rely on or require access authorization from a specific Procore user, then you will want to implement the Client Credentials grant type using a Developer Managed Service Account.
+The Client Credentials grant type is often used for data connection integrations between systems.
+See [OAuth 2.0 Using Client Credentials]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) and [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link best_practices/developer_managed_service_accounts.md %}) for additional information.
 
 Here is a diagram illustrating the flow for the Client Credentials grant type. Let’s walk through each step in the flow.
 

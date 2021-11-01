@@ -26,9 +26,19 @@ After the user has authenticated with Procore and performed app authorization, t
 A company in Procore can prevent a specific app from accessing data in their account by disconnecting that app using the [App Management](https://support.procore.com/faq/what-is-app-management) screen.
 Disconnecting the app in a specific company will not revoke tokens on behalf of the user or prevent the app from accessing a user’s data in other companies in which they exist.
 
-## Service Accounts
+## Service Accounts (Legacy)
 
-Service accounts, which are created from the Procore web application, can only be used to access API data within the company account in which they are created.
+>**Service Account Planned Deprecation**
+>
+> Service Accounts will be deprecated on January 31, 2022.
+> Creation of new service accounts will no longer be allowed after July 31, 2022
+> All service accounts will be sunset on January 31, 2023.
+> As a result of this deprecation, all data connection integrations that currently use standard service accounts must migrate to using Developer Managed Service Accounts before the January 31, 2023 sunset date.
+> See the following article for information on Developer Managed Service Accounts and steps for migrating your projects from standard service accounts.
+>
+> - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link best_practices/developer_managed_service_accounts.md %})
+
+Service accounts, which are created and managed by company administrators using the Procore web application, can only be used to access API data within the company account in which they are created.
 Service accounts do not utilize refresh tokens, but rather use their Client ID and Client Secret to generate a new access token that lasts for two hours each time they are used to make API requests.
 See [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) for additional information.
 Service accounts do not act on behalf of an existing Procore user, but rather they utilize a [Directory contact](https://support.procore.com/faq/what-is-a-contact-in-procore-and-which-project-tools-support-the-concept) that is generated automatically upon creation of the service account.
