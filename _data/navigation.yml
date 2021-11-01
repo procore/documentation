@@ -1,6 +1,6 @@
 - title: Overview
   items:
-    - title: Welcome!
+    - title: Introduction
       url: /introduction
     - title: Vapid API Deprecation
       url: /vapid-deprecation
