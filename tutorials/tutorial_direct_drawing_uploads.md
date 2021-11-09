@@ -74,6 +74,30 @@ For simplicity, we’ll use just one file in our example.
 
 The HTTP status code 201 indicates that the drawing upload has been successfully created.
 
+### Working with `drawing_id`
+
+#### Automatic Drawing Review
+
+When a Drawing Revision is created using the Create Drawing Upload endpoint with a defined `drawing_id` in the object of the `drawing_log_imports` array, it will automatically be assigned to the given Drawing without a manual review. If there are issues encountered, a review will be required in the web app for the Drawing Upload.
+
+> **SINGLE DRAWING PDF**
+>
+> In order to assign a Drawing Revision to a `drawing_id`, please use a single page drawing pdf. If you have more than one Drawing in a pdf, please split up each page into separate pdf files for each Drawing and map it to a corresponding `drawing_id`.
+
+**Note**: When assigning a `drawing_id`, the fields for `default_revision` and `drawing_date` are required in each `drawing_log_imports` object. If the revision number already exists for the Drawing, one of the following must be unique: Drawing Set, Drawing Date or Received Date.
+
+#### Multi-Sheet Drawings
+
+When assigning a multi-sheet drawing pdf to a `drawing_id`, we will append "`(Sheet X of Y)`" to the drawing number for all the sheets in the Drawing. You do not need to split up the pdf pages for a multi-sheet drawing if they all refer to the same drawing number.
+
+For example, a three sheet Drawing for `A100` would form the following drawing numbers:
+
+```
+A100 (Sheet 1 of 3)
+A100 (Sheet 2 of 3)
+A100 (Sheet 3 of 3)
+```
+
 ## Verify Upload is Ready for Review in Procore
 
 The final step in our example workflow is to use the Procore web application to verify that the new drawing upload is visible and ‘ready for review’.
