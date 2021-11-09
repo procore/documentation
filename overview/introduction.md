@@ -47,7 +47,7 @@ As a general rule, applications and integrations produced by Procore clients are
 ### Procore Technology Partners
 
 _Procore Technology Partners_ leverage the Procore API to provide Procore users with a best-in-class experience, irrespective of what problem they are seeking to solve.
-In addition to making their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/custom_overview.md %}) available on the Procore Marketplace for purchase by Procore clients and users, members in the Procore Partnerships program benefit from exclusive access to the following resources:
+In addition to making their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/partner_overview.md %}) available on the Procore Marketplace for purchase by Procore clients and users, members in the Procore Partnerships program benefit from exclusive access to the following resources:
 
 - Brand presence on the Procore Marketplace
 - Use of the Procore logo
