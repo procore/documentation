@@ -164,8 +164,6 @@
       url: /tutorial-config-fieldsets
     - title: Correspondence
       url: /tutorial-correspondence
-    - title: E-Signature Integration
-      url: /tutorial-e-signature-integration  
 
 - title: Other Procore APIs
   items:
