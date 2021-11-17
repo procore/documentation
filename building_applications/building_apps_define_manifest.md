@@ -104,7 +104,7 @@ Data connection components are defined by the `oauth` attribute. The details of 
     These Apps, such as single-page javascript browser applications, do not utilize or require a client secret.
     See [OAuth 2.0 Implicit Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_implicit_flow.md %}) for additional information.
     - Use `client credentials` if your App uses a Developer Managed Service Account to specify required tool permissions and permitted projects.
-    See [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) and [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link best_practices/developer_managed_service_accounts.md %}) for additional information.
+    See [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) and [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %}) for additional information.
 
 Embedded components are defined by the iframe attribute. The details of an `iframe` instance are specified using the following parameters:
 
