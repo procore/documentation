@@ -64,7 +64,7 @@ Here is a diagram illustrating the flow for the Implicit grant type. Let’s wal
 
 If you are developing an application or integration that does not rely on or require access authorization from a specific Procore user, then you will want to implement the Client Credentials grant type using a Developer Managed Service Account.
 The Client Credentials grant type is often used for data connection integrations between systems.
-See [OAuth 2.0 Using Client Credentials]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) and [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link best_practices/developer_managed_service_accounts.md %}) for additional information.
+See [OAuth 2.0 Using Client Credentials]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) and [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %}) for additional information.
 
 Here is a diagram illustrating the flow for the Client Credentials grant type. Let’s walk through each step in the flow.
 

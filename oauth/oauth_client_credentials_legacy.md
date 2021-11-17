@@ -1,5 +1,5 @@
 ---
-permalink: /oauth-client-credentials
+permalink: /oauth-client-credentials-legacy
 title: Using the OAuth 2.0 Client Credentials Grant Type (Standard Legacy)
 layout: default
 section_title: OAuth 2.0 Authentication

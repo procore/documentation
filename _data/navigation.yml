@@ -73,6 +73,10 @@
       url: /building-apps-metrics
     - title: Embedded App Helper Library
       url: /building-apps-helper-library
+    - title: Developer Managed Service Accounts
+      url: /developer-managed-service-accounts  
+
+
 
 - title: API Essentials
   items:

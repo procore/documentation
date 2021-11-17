@@ -11,7 +11,7 @@ The Client Credentials flow is perhaps the most simple of the OAuth 2.0 flows su
 The primary difference with the Client Credentials flow is that it is not associated with a specific Procore user (resource owner).
 In addition, it is not necessary to first obtain an authorization code before retrieving an access token when using the the Client Credentials grant type.
 
-The Procore API implementation of the Client Credentials flow relies on the use of a [_Developer Managed Service Account (DMSA)_]({{ site.url }}{{ site.baseurl }}{% link best_practices/developer_managed_service_accounts.md %}).
+The Procore API implementation of the Client Credentials flow relies on the use of a [_Developer Managed Service Account (DMSA)_]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %}).
 The client application requests an access token using its own credentials through a DMSA, which determines the tools and projects the application can access.
 
 ## Common Use Cases
