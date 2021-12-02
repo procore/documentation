@@ -451,6 +451,10 @@ The request body defines updated field values for one or more items.
 
 ![Bulk Update Correspondence Items]({{ site.baseurl }}/assets/guides/batch-update-corres-items.png)
 
+## Webhooks
+
+The Correspondence tool supports webhooks as described in [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}). Procore customers can configure Correspondence webhooks using the Project Admin tool as outlined in [Configure Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks).
+
 ## Further Reading
 
 - [Procore Support Articles - Correspondence Tool](https://support.procore.com/products/online/user-guide/project-level/correspondence)
