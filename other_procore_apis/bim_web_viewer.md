@@ -36,13 +36,13 @@ ProcoreBim contains a mix of both static and non static methods and are generall
 
 ### Webviewer Namespaces
 
-| Namespace | Description                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------- |
-| camera    | Webviewer camera retrieval and manipulation [Camera Namespace](#camera-namespace)                              |
-| dom       | Helper methods to create extendable panels [Dom Namespace](#dom-namespace)                                     |
-| events    | Event management system similar to Javascript Event API [Events Namespace](#events-namespace)                  |
-| model     | Webviewer model data retrieval and manipulation [Model Namespace](#model-namespace)                            |
-| none      | Methods not grouped into a namespace
+| Namespace | Description                                                                                   |
+| --------- | --------------------------------------------------------------------------------------------- |
+| camera    | Webviewer camera retrieval and manipulation [Camera Namespace](#camera-namespace)             |
+| dom       | Helper methods to create extendable panels [Dom Namespace](#dom-namespace)                    |
+| events    | Event management system similar to Javascript Event API [Events Namespace](#events-namespace) |
+| model     | Webviewer model data retrieval and manipulation [Model Namespace](#model-namespace)           |
+| none      | Methods not grouped into a namespace                                                          |
 
 When you create a new instance of Webviewer, an object is returned that allows you to act on the model and camera data.
 Acting on these methods is done through dot notation.
@@ -119,7 +119,6 @@ undefined
 
 None
 
-
 ---
 
 Terminating the Webviewer
@@ -135,7 +134,6 @@ Stops rendering, frees memory, and removes webviewer from parent element.
 #### Parameters
 
 None
-
 
 ##### Returns
 
@@ -495,41 +493,43 @@ Dom
 
 Supported events are:
 
-| Event                 | Description                                                                                  |
-| --------------------- | -------------------------------------------------------------------------------------------- |
-| `appResize`           | The window has resized.                                                                      |
-| `appStart`            | The first event that occurs, after .start() is called.                                       |
-| `cameraUpdated`       | The camera rotation or position has changed.                                                 |
-| `serviceWorkerReady`  | Service worker has been installed and is listening for events.                               |
-| `doubleClick`         | A double click has occurred anywhere on the canvas. Value: `Event`                           |
-| `downloadComplete`    | File retrieval has completed.                                                                |
-| `downloadProgress`    | File retrieval progress tick.                                                                |
-| `downloadStart`       | File retrieval has started.                                                                  |
-| `selectTool`          | Fires whenever a tool has been enabled.                                                      |
-| `navigationChanged`   | The navigation mode for the model has changed.                                               |
-| `objectDoubleClick`   | A double click has occurred on an object. Value: `objectId`                                  |
-| `objectRightClick`    | A right click has occurred on an object. Value: `objectId`                                   |
-| `objectSingleClick`   | A single click has occurred on an object. Value: `objectId`                                  |
-| `objectHide`          | An object was hidden. Value: `objectId`                                                      |
-| `hideUpdated`         | Hidden set of objects has changed.                                                           |
-| `objectSelect`        | An object was selected. Value: `objectId`                                                    |
-| `optionsChanged`      | Configuration options for the viewer have been modified. Value: `options`                    |
-| `canvasReady`         | Loading canvas is ready. Value: `<canvas>`                                                   |
-| `renderReady`         | Rendering canvas has loaded and is prepared to animate. Value: `renderReady`                 |
-| `rightClick`          | A right click has occurred anywhere on the canvas. Value: `Event`                            |
-| `singleClick`         | A single click has occurred anywhere on the canvas. Value: `Event`                           |
-| `messages`            | Internal Warnings and Errors are published to this event.                                    |
-| `sectionBoxSet`       | Section Box has been applied.                                                                |
-| `sectionBoxRemoved`   | Section Box has been removed.                                                                |
-| `sectionPlaneAdded`   | Section Plane has been applied.                                                              |
-| `sectionPlaneRemoved` | Section Plane has been removed.                                                              |
-| `sectionsCleared`     | All section boxes and planes have been removed.                                              |
-| `drawingMiniClick`    | The 2D Navigation mini map was clicked.                                                      |
-| `drawingNavigated`    | After camera has been updated through 2D Navigation                                          |
-| `measured`            | Fired after completion of shortest distance calculation                                      |
-| `objectMeasure`       | An object was selected for measurement. Value: `objectId`                                    |
-| `bcfCameraSet`        | Fired after the BCF Camera has been set.                                                     |
-| `intersectPointClick` | Fires after mouse click with point of intersection on the closest object of last mouse click |
+| Event                  | Description                                                                                  |
+| ---------------------- | -------------------------------------------------------------------------------------------- |
+| `appResize`            | The window has resized.                                                                      |
+| `appStart`             | The first event that occurs, after .start() is called.                                       |
+| `cameraUpdated`        | The camera rotation or position has changed.                                                 |
+| `serviceWorkerReady`   | Service worker has been installed and is listening for events.                               |
+| `doubleClick`          | A double click has occurred anywhere on the canvas. Value: `Event`                           |
+| `downloadComplete`     | File retrieval has completed.                                                                |
+| `downloadProgress`     | File retrieval progress tick.                                                                |
+| `downloadStart`        | File retrieval has started.                                                                  |
+| `selectTool`           | Fires whenever a tool has been enabled.                                                      |
+| `navigationChanged`    | The navigation mode for the model has changed.                                               |
+| `objectDoubleClick`    | A double click has occurred on an object. Value: `objectId`                                  |
+| `objectRightClick`     | A right click has occurred on an object. Value: `objectId`                                   |
+| `objectSingleClick`    | A single click has occurred on an object. Value: `objectId`                                  |
+| `objectHide`           | An object was hidden. Value: `objectId`                                                      |
+| `hideUpdated`          | Hidden set of objects has changed.                                                           |
+| `objectSelect`         | An object was selected. Value: `objectId`                                                    |
+| `optionsChanged`       | Configuration options for the viewer have been modified. Value: `options`                    |
+| `canvasReady`          | Loading canvas is ready. Value: `<canvas>`                                                   |
+| `renderReady`          | Rendering canvas has loaded and is prepared to animate. Value: `renderReady`                 |
+| `rightClick`           | A right click has occurred anywhere on the canvas. Value: `Event`                            |
+| `singleClick`          | A single click has occurred anywhere on the canvas. Value: `Event`                           |
+| `messages`             | Internal Warnings and Errors are published to this event.                                    |
+| `sectionBoxSet`        | Section Box has been applied.                                                                |
+| `sectionBoxRemoved`    | Section Box has been removed.                                                                |
+| `sectionPlaneAdded`    | Section Plane has been applied.                                                              |
+| `sectionPlaneRemoved`  | Section Plane has been removed.                                                              |
+| `sectionsCleared`      | All section boxes and planes have been removed.                                              |
+| `drawingMiniClick`     | The 2D Navigation mini map was clicked.                                                      |
+| `drawingNavigated`     | After camera has been updated through 2D Navigation                                          |
+| `measured`             | Fired after completion of shortest distance calculation                                      |
+| `objectMeasure`        | An object was selected for measurement. Value: `objectId`                                    |
+| `bcfCameraSet`         | Fired after the BCF Camera has been set.                                                     |
+| `intersectPointClick`  | Fires after mouse click with point of intersection on the closest object of last mouse click |
+| `isolateCompleted`     | Fired after `Isolate` and after all the objects except the active object are hidden          |
+| `hideSimilarCompleted` | Fired after `Hide Similar` and after all the objects except the active object are hidden     |
 
 ---
 
@@ -916,7 +916,6 @@ None
 
 See [sectionPlane](#section-plane-object) and [sectionBox](#section-box-object)
 
-
 ##### Namespace
 
 Model
@@ -1020,9 +1019,9 @@ Removes a single section plane.
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                                      |
-| ---------- | -------- | ------ | ------------------------------------------------ |
-| uuid       | true     | string | Remove a specific section plane with uuid.       |
+| Field Name | Required | Type   | Description                                |
+| ---------- | -------- | ------ | ------------------------------------------ |
+| uuid       | true     | string | Remove a specific section plane with uuid. |
 
 ##### Returns
 
@@ -1067,6 +1066,7 @@ Model
 ```
 setOptions(options);
 ```
+
 #### Description
 
 Sets Webviewer configuration options.
@@ -1247,7 +1247,8 @@ ProcoreBim.Cache.hasModel({
   console.log(isCached);
 });
 ```
-##### Returns #####
+
+##### Returns
 
 ```
 Promise(Boolean)
@@ -1405,6 +1406,7 @@ Provided by a Procore service.
   }
 }
 ```
+
 Initializes the Webviewer with the camera.
 
 `swEnable [boolean]`
@@ -1634,9 +1636,10 @@ Otherwise, `rotation` will be undefined.
 | MEASUREMENT_SD   | Shortest Distance tool                                      |
 | SETTINGS         | Settings Window to change unit display                      |
 | CONTEXTMENU      | Right click context menu                                    |
+| VIEW_PROPERTIES  | View properties of an object                                |
 
 `MEASUREMENT_SD`
 
 | Option      | Type    | Description                                                                                                                                         |
-| ------------| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | center_lock | Boolean | Enables or disables the measurement navigation mode. Set to false if you don't want the navigation to change in anyway after a measurement is made. |
