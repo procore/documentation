@@ -8,17 +8,15 @@ section_title: Overview
 Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
 You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
 
-<!--
->**Service Account Planned Deprecation**
+>**Deprecation of Traditional Service Accounts**
 >
-> Service Accounts will be deprecated on January 31, 2022.
+> Service Accounts will be deprecated on December 9, 2021.
 > Creation of new service accounts will no longer be allowed after July 31, 2022
 > All service accounts will be sunset on January 31, 2023.
-> As a result of this deprecation, all data connection integrations that currently use standard service accounts must migrate to using Developer Managed Service Accounts before the January 31, 2023 sunset date.
-> See the following article for information on Developer Managed Service Accounts and steps for migrating your projects from standard service accounts.
->
+> As a result of this deprecation, developers of data connection applications that currently use traditional service accounts must migrate the app to use Developer Managed Service Accounts (DMSAs), and customers must install these migrated apps before the January 31, 2023 sunset date.
+> See the following articles for information on Developer Managed Service Accounts and steps for migrating your projects from traditional service accounts.
+> - [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %})
 > - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %})
--->
 
 >**VAPID Deprecation**
 >
