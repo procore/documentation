@@ -11,7 +11,7 @@ You can expand the functionality of your Procore account by leveraging existing 
 >**Deprecation of Traditional Service Accounts**
 >
 > Service Accounts will be deprecated on December 9, 2021.
-> Creation of new service accounts will no longer be allowed after July 31, 2022
+> Creation of new service accounts will no longer be allowed after July 31, 2022.
 > All service accounts will be sunset on January 31, 2023.
 > As a result of this deprecation, developers of data connection applications that currently use traditional service accounts must migrate the app to use Developer Managed Service Accounts (DMSAs), and customers must install these migrated apps before the January 31, 2023 sunset date.
 > See the following articles for information on Developer Managed Service Accounts and steps for migrating your projects from traditional service accounts.
