@@ -28,15 +28,15 @@ Disconnecting the app in a specific company will not revoke tokens on behalf of 
 
 ## Service Accounts
 
-<!-- >**Service Account Deprecation**
+>**Deprecation of Traditional Service Accounts**
 >
-> Service Accounts will be deprecated on January 31, 2022.
+> Service Accounts will be deprecated on December 9, 2021.
 > Creation of new service accounts will no longer be allowed after July 31, 2022
 > All service accounts will be sunset on January 31, 2023.
-> As a result of this deprecation, all data connection integrations that currently use standard service accounts must migrate to using Developer Managed Service Accounts before the January 31, 2023 sunset date.
-> See the following article for information on Developer Managed Service Accounts and steps for migrating your projects from standard service accounts.
->
-> - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %}) -->
+> As a result of this deprecation, all data connection integrations that currently use traditional service accounts must migrate to using Developer Managed Service Accounts before the January 31, 2023 sunset date.
+> See the following articles for information on Developer Managed Service Accounts and steps for migrating your projects from traditional service accounts.
+> - [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %})
+> - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %})
 
 Service accounts, which are created and managed by company administrators using the Procore web application, can only be used to access API data within the company account in which they are created.
 Service accounts do not utilize refresh tokens, but rather use their Client ID and Client Secret to generate a new access token that lasts for two hours each time they are used to make API requests.
