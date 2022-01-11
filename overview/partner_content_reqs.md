@@ -51,9 +51,9 @@ _Note_: Procore retains the right to re-assign your app to a different category 
 
 ### Regions Tab
 
-**Supported Regions and Countries** - Select the geographic regions and countries where your App is supported.
+**Available Regions and Countries** - Select the geographic regions and countries where your App is available.
 Your Marketplace tile displays these settings so potential customers can determine whether your App can be used effectively in the regions and countries where their projects are located.
-As you define the supported regions and countries for your App, consider aspects such as language, currency, time zones, regulatory requirements, cultural norms, or other constraints that may exist within specific regions/countries.
+As you define the available regions and countries for your App, consider aspects such as language, currency, time zones, regulatory requirements, cultural norms, or other constraints that may exist within specific regions/countries.
 
 ### Support Tab
 
