@@ -76,9 +76,9 @@
     - title: Embedded App Helper Library
       url: /building-apps-helper-library
     - title: Developer Managed Service Accounts
-      url: /developer-managed-service-accounts  
-
-
+      url: /developer-managed-service-accounts
+    - title: Building Embedded Side Panel Applications
+      url: /building-side-panel-applications
 
 - title: API Essentials
   items:
