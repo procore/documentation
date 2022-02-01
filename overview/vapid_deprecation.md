@@ -5,13 +5,13 @@ layout: default
 section_title: Overview
 ---
 
->IMPORTANT!
+>**Vapid Sunset in Progress as of Feb 1, 2022**
 >
-> Procore API resources under the `/vapid` namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the `/rest` namespace with a new architecture that supports versioning and expanded functionality.
->
-> On February 1, 2022 the `/vapid` namespace will be sunset in accordance with our [API lifecycle guidelines](https://developers.procore.com/documentation/rest-api-lifecycle).
-> While we will support and maintain Vapid endpoints during this 1 year period, all new feature development for the Procore API will be done in Rest.
-> We encourage all developers using the Vapid API resources to migrate to Rest v1.0 as soon as possible to take advantage of the latest API features.
+> Procore API resources under the /vapid namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the /rest namespace with a new architecture that supports versioning and expanded functionality.
+> As of Feb 1, 2022 we have started to sunset the Vapid API.
+> Please ensure you have fully migrated over to Rest v1.0.
+> You may not see immediate impact, but we expect this to be completed by end of February 2022.
+> If you have any concerns please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
 ## Migrating to Rest v1.0
 

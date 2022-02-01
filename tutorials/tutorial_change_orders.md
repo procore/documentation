@@ -24,6 +24,6 @@ As a result, you will need to use endpoints for both of these resources in order
 
 To help illustrate this relationship, work through the following steps.
 
-1. Use the Create Change Order Package endpoint ([POST /vapid/change_order_packages](https://developers.procore.com/reference/rest/v1/change-order-packages#create-change-order-package)) to create a new Change Order Package.
-1. Make a call to the List Change Order Packages endpoint ([GET /vapid/change_order_packages](https://developers.procore.com/reference/rest/v1/change-order-packages#list-change-order-packages)) and examine the response to verify that the Change Order Package created in the previous step exists.
-1. Make a call to the List Potential Change Orders endpoint ([GET /vapid/potential_change_orders](https://developers.procore.com/reference/rest/v1/potential-change-orders#list-potential-change-orders)) to verify that indeed an associated Potential Change Order has also been created.
+1. Use the Create Change Order Package endpoint ([POST /rest/v1.0/change_order_packages](https://developers.procore.com/reference/rest/v1/change-order-packages#create-change-order-package)) to create a new Change Order Package.
+1. Make a call to the List Change Order Packages endpoint ([GET /rest/v1.0/change_order_packages](https://developers.procore.com/reference/rest/v1/change-order-packages#list-change-order-packages)) and examine the response to verify that the Change Order Package created in the previous step exists.
+1. Make a call to the List Potential Change Orders endpoint ([GET /rest/v1.0/potential_change_orders](https://developers.procore.com/reference/rest/v1/potential-change-orders#list-potential-change-orders)) to verify that indeed an associated Potential Change Order has also been created.
