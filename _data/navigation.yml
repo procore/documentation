@@ -1,9 +1,7 @@
 - title: Overview
   items:
     - title: Introduction
-      url: /introduction    
-    - title: Vapid API Deprecation
-      url: /vapid-deprecation
+      url: /introduction
     - title: Service Account Deprecation
       url: /service-account-deprecation
     - title: Build a Custom Integration

@@ -8,6 +8,14 @@ section_title: Overview
 Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
 You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
 
+>**Vapid Sunset in Progress as of Feb 1, 2022**
+>
+> Procore API resources under the /vapid namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the /rest namespace with a new architecture that supports versioning and expanded functionality.
+> As of Feb 1, 2022 we have started to sunset the Vapid API.
+> Please ensure you have fully migrated over to Rest v1.0.
+> You may not see immediate impact, but we expect this to be completed by end of February 2022.
+> If you have any concerns please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Deprecation of Traditional Service Accounts**
 >
 > Service Accounts will be deprecated on December 9, 2021.
@@ -17,18 +25,6 @@ You can expand the functionality of your Procore account by leveraging existing 
 > See the following articles for information on Developer Managed Service Accounts and steps for migrating your projects from traditional service accounts.
 > - [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %})
 > - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %})
-
->**VAPID Deprecation**
->
-> Procore API resources under the `/vapid` namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the `/rest` namespace with a new architecture that supports versioning and expanded functionality.
->
-> On February 1, 2022 the `/vapid` namespace will be sunset in accordance with our [API lifecycle guidelines](https://developers.procore.com/documentation/rest-api-lifecycle).
-> While we will support and maintain Vapid endpoints during this 1 year period, all new feature development for the Procore API will be done in Rest.
-> We encourage all developers using the Vapid API resources to migrate to Rest v1.0 as soon as possible to take advantage of the latest API features.
->
-> - [Vapid Deprecation]({{ site.url }}{{ site.baseurl }}{% link overview/vapid_deprecation.md %})
-> - [Rest API Overview]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_overview.md %})
-> - [API Lifecycle]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})
 
 ## Procore API
 
