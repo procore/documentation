@@ -13,14 +13,14 @@ By implementing pagination in your application, you can minimize response times 
 
 ## The per_page and page Parameters
 
-The Procore API supports pagination through the use of the per_page and page parameters.
-Use the `per_page` parameter to specify how many items you want each page to return. Use the page parameter to specify how link headers are created.
+The Procore API supports pagination through the use of the `per_page` and `page` parameters.
+Use the `per_page` parameter to specify how many items you want each page to return. Use the `page` parameter to specify how link headers are created.
 
 > MAXIMUM NUMBER OF ITEMS PER PAGE
 >
-> The highest value you can specify for the per_page parameter on paginated endpoints is 10,000.
+> The highest value you can specify for the `per_page` parameter on paginated endpoints is 10,000.
 
-Below is an example of using the `per_page` and page parameters in a typical API call.
+Below is an example of using the `per_page` and `page` parameters in a typical API call.
 
 ```
 curl -i -H "Authorization: Bearer <your_authorization_code>" \
@@ -64,7 +64,7 @@ Examining the output above we see:
     - `Link: <https://api.procore.com/rest/v1.0/punch_items?page=30 per_page=5>;rel="last"`,
     - `Link: <https://api.procore.com/rest/v1.0/punch_items?page=4 per_page=5>;rel="next`"
 
-Notes on page parameter:
+Notes on `page` parameter:
 
 If `page` is set to 1, then the header will only include the next and last link.
 
@@ -76,7 +76,5 @@ If `page` is set to 3 (as in the example), then the header will include the firs
 >
 > There are a number of Procore API endpoints that currently do not support pagination:
 > - [List Timecard Time Types](https://developers.procore.com/reference/rest/v1/timecards#list-timecard-time-types)
-> - [List Checklists](https://developers.procore.com/reference/rest/v1/checklists#list-checklists)
 > - [List Company Files and Folders](https://developers.procore.com/reference/rest/v1/company-folders-and-files#list-company-folders-and-files)
 > - [List Project Files and Folders](https://developers.procore.com/reference/rest/v1/project-folders-and-files#list-project-folders-and-files)
-> - [List Most Recent Images](https://developers.procore.com/reference/rest/v1/images#list-most-recent-images)
