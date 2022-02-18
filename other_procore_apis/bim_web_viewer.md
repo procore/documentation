@@ -5,7 +5,44 @@ layout: default
 section_title: Other Procore APIs
 ---
 
+<!-- markdownlint-disable no-inline-html -->
+<style>
+  .header-link-container {
+    padding: 10px 0;
+    position: relative;
+    margin-top: -52px;
+    height: 32px;
+  }
+  .header-link-container:hover > .header-link {
+    visibility: visible;
+  }
+  .header-link {
+    font-size: 12px;
+    padding: 5px;
+    visibility: hidden;
+    position: absolute;
+  }
+  .header-link:hover {
+    visibility: visible;
+  }
+
+  h2 + .header-link-container > .header-link {
+    transform: translate(-26px, 2px);
+  }
+  h3 + .header-link-container > .header-link {
+    transform: translate(-26px, 0px);
+  }
+  h4 + .header-link-container > .header-link {
+    transform: translate(-26px, -2px);
+  }
+</style>
+
 ## Getting started
+
+<p class="header-link-container">
+  <a class="header-link" href="#getting-started">&#x1f517;</a>
+</p>
+
 
 The Procore BIM Web Viewer is a single distributable Javascript file.
 
@@ -19,15 +56,27 @@ See the [Options](#options) section for more detail on the options object.
 
 ## Other Considerations
 
+<p class="header-link-container">
+  <a class="header-link" href="#other-considerations">&#x1f517;</a>
+</p>
+
 The viewer does not render a background or color.
 You may set your own background color with CSS on any parent element that contains the viewer for that background color to be displayed.
 
 ## API Introduction
 
+<p class="header-link-container">
+  <a class="header-link" href="#api-introduction">&#x1f517;</a>
+</p>
+
 When the Webviewer SDK is loaded and parsed on your page, a new global object is added to your window with the key ProcoreBim.
 ProcoreBim contains a mix of both static and non static methods and are generally grouped into namespaces to indicate primary functionality.
 
 ### ProcoreBim Namespaces
+
+<p class="header-link-container">
+  <a class="header-link" href="#procorebim-namespaces">&#x1f517;</a>
+</p>
 
 | Namespace | Description                                                                                                    |
 | --------- | -------------------------------------------------------------------------------------------------------------- |
@@ -35,6 +84,10 @@ ProcoreBim contains a mix of both static and non static methods and are generall
 | Webviewer | Model viewer to be instanced and allows for data and camera access [Webviewer Namespace](#webviewer-namespace) |
 
 ### Webviewer Namespaces
+
+<p class="header-link-container">
+  <a class="header-link" href="#webviewer-namespaces">&#x1f517;</a>
+</p>
 
 | Namespace | Description                                                                                   |
 | --------- | --------------------------------------------------------------------------------------------- |
@@ -94,7 +147,15 @@ ProcoreBim.Cache.hasModel({
 
 ## General API
 
+<p class="header-link-container">
+  <a class="header-link" href="#general-api">&#x1f517;</a>
+</p>
+
 ### Starting the Webviewer
+
+<p class="header-link-container">
+  <a class="header-link" href="#starting-the-webviewer">&#x1f517;</a>
+</p>
 
 ```
 start();
@@ -147,7 +208,15 @@ None
 
 ## Camera Namespace
 
+<p class="header-link-container">
+  <a class="header-link" href="#camera-namespace">&#x1f517;</a>
+</p>
+
 ### Get Camera Position
+
+<p class="header-link-container">
+  <a class="header-link" href="#get-camera-position">&#x1f517;</a>
+</p>
 
 ```
 getPosition();
@@ -174,6 +243,10 @@ Camera
 ---
 
 ### Set Camera Position
+
+<p class="header-link-container">
+  <a class="header-link" href="#set-camera-position">&#x1f517;</a>
+</p>
 
 ```
 setPosition(x, y, z);
@@ -208,6 +281,10 @@ Camera
 
 ### Get Camera Direction
 
+<p class="header-link-container">
+  <a class="header-link" href="#get-camera-direction">&#x1f517;</a>
+</p>
+
 ```
 getCameraDirection();
 ```
@@ -233,6 +310,10 @@ Camera
 ---
 
 ### Set Camera Look At
+
+<p class="header-link-container">
+  <a class="header-link" href="#set-camera-look-at">&#x1f517;</a>
+</p>
 
 ```
 setLookAt(x, y, z);
@@ -267,6 +348,10 @@ Camera
 
 ### Get Screen Position
 
+<p class="header-link-container">
+  <a class="header-link" href="#get-screen-position">&#x1f517;</a>
+</p>
+
 ```
 getScreenPosition(x, y, z);
 ```
@@ -297,6 +382,10 @@ Camera
 
 ### Get Snapshot
 
+<p class="header-link-container">
+  <a class="header-link" href="#get-snapshot">&#x1f517;</a>
+</p>
+
 ```
 getSnapshot(color);
 ```
@@ -323,7 +412,11 @@ Camera
 
 ---
 
-## Set Camera From BCF Camera
+### Set Camera From BCF Camera
+
+<p class="header-link-container">
+  <a class="header-link" href="#set-camera-from-bcf-camera">&#x1f517;</a>
+</p>
 
 ```
 setBcfCamera(bcfCamera);
@@ -354,6 +447,10 @@ Camera
 
 ### Get BCF Camera From Camera
 
+<p class="header-link-container">
+  <a class="header-link" href="#get-bcf-camera-from-camera">&#x1f517;</a>
+</p>
+
 ```
 getBcfCamera();
 ```
@@ -379,7 +476,11 @@ Camera
 
 ---
 
-## Navigation to the home viewpoint
+### Navigation to the home viewpoint
+
+<p class="header-link-container">
+  <a class="header-link" href="#navigation-to-the-home-viewpoint">&#x1f517;</a>
+</p>
 
 ```
 navToHomeView();
@@ -405,7 +506,11 @@ Camera
 
 ---
 
-## Set Euler Angles
+### Set Euler Angles
+
+<p class="header-link-container">
+  <a class="header-link" href="#set-euler-angles">&#x1f517;</a>
+</p>
 
 ```
 setEulerAngles(x, y, z);
@@ -435,7 +540,15 @@ Camera
 
 ## DOM Namespace
 
+<p class="header-link-container">
+  <a class="header-link" href="#dom-namespace">&#x1f517;</a>
+</p>
+
 ### Add Panel
+
+<p class="header-link-container">
+  <a class="header-link" href="#add-panel">&#x1f517;</a>
+</p>
 
 ```
 addPanel(domElement);
@@ -465,6 +578,10 @@ Dom
 
 ### Remove Panel
 
+<p class="header-link-container">
+  <a class="header-link" href="#remove-panel">&#x1f517;</a>
+</p>
+
 ```
 removePanel(domElement);
 ```
@@ -490,6 +607,10 @@ boolean
 Dom
 
 ## Events Namespace
+
+<p class="header-link-container">
+  <a class="header-link" href="#events-namespace">&#x1f517;</a>
+</p>
 
 Supported events are:
 
@@ -535,6 +656,10 @@ Supported events are:
 
 ### Add Event
 
+<p class="header-link-container">
+  <a class="header-link" href="#add-event">&#x1f517;</a>
+</p>
+
 ```
 addEventListener(eventName, callback);
 ```
@@ -563,6 +688,10 @@ Events
 ---
 
 ### Remove Event
+
+<p class="header-link-container">
+  <a class="header-link" href="#remove-event">&#x1f517;</a>
+</p>
 
 ```
 removeEventListener(eventName, callback);
@@ -593,6 +722,10 @@ Events
 
 ### Dispatch Event
 
+<p class="header-link-container">
+  <a class="header-link" href="#dispatch-event">&#x1f517;</a>
+</p>
+
 ```
 dispatchEvent(eventName, callback);
 ```
@@ -620,7 +753,15 @@ Events
 
 ## Model Namespace
 
+<p class="header-link-container">
+  <a class="header-link" href="#model-namespace">&#x1f517;</a>
+</p>
+
 ### Get Object from object id
+
+<p class="header-link-container">
+  <a class="header-link" href="#get-object-from-object-id">&#x1f517;</a>
+</p>
 
 ```
 getObject(objectId);
@@ -648,6 +789,10 @@ Model
 
 ### Get Hidden ID's
 
+<p class="header-link-container">
+  <a class="header-link" href="#get-hidden-ids">&#x1f517;</a>
+</p>
+
 ```
 getHiddenGeoIds();
 ```
@@ -673,6 +818,10 @@ Model
 ---
 
 ### Add Hidden ID's
+
+<p class="header-link-container">
+  <a class="header-link" href="#add-hidden-ids">&#x1f517;</a>
+</p>
 
 ```
 addHiddenGeoIds(objectIds);
@@ -702,6 +851,10 @@ Model
 ---
 
 ### Has Hidden ID's
+
+<p class="header-link-container">
+  <a class="header-link" href="#has-hidden-ids">&#x1f517;</a>
+</p>
 
 ```
 hasHiddenGeoIds(objectIds);
@@ -733,6 +886,10 @@ Model
 
 ### Clear Hidden ID's
 
+<p class="header-link-container">
+  <a class="header-link" href="#clear-hidden-ids">&#x1f517;</a>
+</p>
+
 ```
 clearHiddenIds();
 ```
@@ -757,7 +914,11 @@ Model
 
 ---
 
-Get Selected ID's
+### Get Selected ID's
+
+<p class="header-link-container">
+  <a class="header-link" href="#get-selected-ids">&#x1f517;</a>
+</p>
 
 ```
 getSelectedGeoIds();
@@ -784,6 +945,10 @@ Model
 ---
 
 ### Add Selected ID's
+
+<p class="header-link-container">
+  <a class="header-link" href="#add-selected-ids">&#x1f517;</a>
+</p>
 
 ```
 addSelectedIds(objectIds);
@@ -813,6 +978,10 @@ Model
 ---
 
 ### Has Selected ID's
+
+<p class="header-link-container">
+  <a class="header-link" href="#has-selected-ids">&#x1f517;</a>
+</p>
 
 ```
 hasSelectedIds(objectIds);
@@ -844,6 +1013,10 @@ Model
 
 ### Clear Selected ID's
 
+<p class="header-link-container">
+  <a class="header-link" href="#clear-selected-ids">&#x1f517;</a>
+</p>
+
 ```
 clearSelectedIds();
 ```
@@ -869,6 +1042,10 @@ Model
 ---
 
 ### Set Object Color
+
+<p class="header-link-container">
+  <a class="header-link" href="#set-object-color">&#x1f517;</a>
+</p>
 
 ```
 setObjectColor(objectId, hexColor, opacity);
@@ -900,6 +1077,10 @@ Model
 
 ### Get Sections
 
+<p class="header-link-container">
+  <a class="header-link" href="#get-sections">&#x1f517;</a>
+</p>
+
 ```
 getSections();
 ```
@@ -923,6 +1104,10 @@ Model
 ---
 
 ### Set Section Box
+
+<p class="header-link-container">
+  <a class="header-link" href="#set-section-box">&#x1f517;</a>
+</p>
 
 ```
 setSectionBox(minXYZ, maxXYZ, rotation);
@@ -954,6 +1139,10 @@ Model
 
 ### Remove Section Box
 
+<p class="header-link-container">
+  <a class="header-link" href="#remove-section-box">&#x1f517;</a>
+</p>
+
 ```
 removeSectionBox();
 ```
@@ -979,6 +1168,10 @@ Model
 ---
 
 ### Add Section Plane
+
+<p class="header-link-container">
+  <a class="header-link" href="#add-section-plane">&#x1f517;</a>
+</p>
 
 ```
 addSectionPlane(distance, normal);
@@ -1009,6 +1202,10 @@ Model
 
 ### Remove Section Plane
 
+<p class="header-link-container">
+  <a class="header-link" href="#remove-section-plane">&#x1f517;</a>
+</p>
+
 ```
 removeSectionPlane(uuid);
 ```
@@ -1035,7 +1232,11 @@ Model
 
 ---
 
-### Remove Section Box
+### Clear Sections
+
+<p class="header-link-container">
+  <a class="header-link" href="#clear-sections">&#x1f517;</a>
+</p>
 
 ```
 clearSection();
@@ -1062,6 +1263,10 @@ Model
 ---
 
 ### Set Webviewer Configuration options
+
+<p class="header-link-container">
+  <a class="header-link" href="#set-webviewer-configuration-options">&#x1f517;</a>
+</p>
 
 ```
 setOptions(options);
@@ -1092,6 +1297,10 @@ Model
 ---
 
 ### Get relative planmap space position based on model space position
+
+<p class="header-link-container">
+  <a class="header-link" href="#get-relative-planmap-space-position-based-on-model-space-position">&#x1f517;</a>
+</p>
 
 ```
 MapToModelSpace(
@@ -1144,6 +1353,10 @@ Model
 
 ### Get relative model space position based on planmap space position
 
+<p class="header-link-container">
+  <a class="header-link" href="#get-relative-model-space-position-based-on-planmap-space-position">&#x1f517;</a>
+</p>
+
 ```
 ModelToMapSpace(
   point,
@@ -1195,6 +1408,10 @@ Model
 
 ### Get Global Offset
 
+<p class="header-link-container">
+  <a class="header-link" href="#get-global-offset">&#x1f517;</a>
+</p>
+
 ```
 getGlobalOffset();
 ```
@@ -1219,7 +1436,15 @@ Model
 
 ## Cache Namespace
 
+<p class="header-link-container">
+  <a class="header-link" href="#cache-namespace">&#x1f517;</a>
+</p>
+
 ### Is the model cached
+
+<p class="header-link-container">
+  <a class="header-link" href="#is-the-model-cached">&#x1f517;</a>
+</p>
 
 ```
 hasModel(urlsObject);
@@ -1258,6 +1483,10 @@ Promise(Boolean)
 
 ### Remove Model
 
+<p class="header-link-container">
+  <a class="header-link" href="#remove-model">&#x1f517;</a>
+</p>
+
 ```
 removeModel(urlsObject);
 ```
@@ -1292,6 +1521,10 @@ Promise(boolean)
 ```
 
 ## Options
+
+<p class="header-link-container">
+  <a class="header-link" href="#options">&#x1f517;</a>
+</p>
 
 `version [number]` (required)
 
@@ -1525,7 +1758,15 @@ See [Tools](#tools) for further information.
 
 ## Objects
 
+<p class="header-link-container">
+  <a class="header-link" href="#objects">&#x1f517;</a>
+</p>
+
 ### Perspective Camera Object
+
+<p class="header-link-container">
+  <a class="header-link" href="#perspective-camera-object">&#x1f517;</a>
+</p>
 
 ```
 {
@@ -1541,6 +1782,10 @@ See [Tools](#tools) for further information.
 
 ### Orthogonal Camera Object
 
+<p class="header-link-container">
+  <a class="header-link" href="#orthogonal-camera-object">&#x1f517;</a>
+</p>
+
 ```
 {
   orthogonal_camera: {
@@ -1555,6 +1800,10 @@ See [Tools](#tools) for further information.
 ```
 
 ### Model Object
+
+<p class="header-link-container">
+  <a class="header-link" href="#model-object">&#x1f517;</a>
+</p>
 
 ```
 {
@@ -1575,6 +1824,10 @@ See [Tools](#tools) for further information.
 
 ### Section Plane Object
 
+<p class="header-link-container">
+  <a class="header-link" href="#section-plane-object">&#x1f517;</a>
+</p>
+
 The key `plane` is an array of planes added.
 
 ```
@@ -1593,6 +1846,10 @@ The key `plane` is an array of planes added.
 
 ### Section Box Object
 
+<p class="header-link-container">
+  <a class="header-link" href="#section-box-object">&#x1f517;</a>
+</p>
+
 If `rotation` is applied, `rotation` will be represented as Euler angle of type Number.
 Otherwise, `rotation` will be undefined.
 
@@ -1610,6 +1867,10 @@ Otherwise, `rotation` will be undefined.
 
 ### Urls Object
 
+<p class="header-link-container">
+  <a class="header-link" href="#urls-object">&#x1f517;</a>
+</p>
+
 ```
 {
   meshUrl: String,
@@ -1621,7 +1882,15 @@ Otherwise, `rotation` will be undefined.
 
 ### Constants
 
+<p class="header-link-container">
+  <a class="header-link" href="#constants">&#x1f517;</a>
+</p>
+
 ### Tools
+
+<p class="header-link-container">
+  <a class="header-link" href="#tools">&#x1f517;</a>
+</p>
 
 `ProcoreBim.Webviewer.tools.{tool_type}`
 
@@ -1643,3 +1912,5 @@ Otherwise, `rotation` will be undefined.
 | Option      | Type    | Description                                                                                                                                         |
 | ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | center_lock | Boolean | Enables or disables the measurement navigation mode. Set to false if you don't want the navigation to change in anyway after a measurement is made. |
+
+<!-- markdownlint-enable no-inline-html -->
