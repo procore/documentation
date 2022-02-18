@@ -14,19 +14,19 @@ section_title: Other Procore APIs
     height: 32px;
   }
   .header-link-container:hover > .header-link {
-    visibility: visible;
+    opacity: 1;
   }
   .header-link {
     font-size: 12px;
     padding: 5px;
-    visibility: hidden;
+    opacity: 0;
     position: absolute;
   }
   .header-link::before {
     content: '\1f517'; /*link character*/
   }
   .header-link:hover {
-    visibility: visible;
+    opacity: 1;
   }
 
   h2 + .header-link-container > .header-link {
