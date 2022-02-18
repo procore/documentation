@@ -22,6 +22,9 @@ section_title: Other Procore APIs
     visibility: hidden;
     position: absolute;
   }
+  .header-link::before {
+    content: '\1f517'; /*link character*/
+  }
   .header-link:hover {
     visibility: visible;
   }
@@ -40,9 +43,8 @@ section_title: Other Procore APIs
 ## Getting started
 
 <p class="header-link-container">
-  <a class="header-link" href="#getting-started">&#x1f517;</a>
+  <a class="header-link" href="#getting-started"></a>
 </p>
-
 
 The Procore BIM Web Viewer is a single distributable Javascript file.
 
@@ -57,7 +59,7 @@ See the [Options](#options) section for more detail on the options object.
 ## Other Considerations
 
 <p class="header-link-container">
-  <a class="header-link" href="#other-considerations">&#x1f517;</a>
+  <a class="header-link" href="#other-considerations"></a>
 </p>
 
 The viewer does not render a background or color.
@@ -66,7 +68,7 @@ You may set your own background color with CSS on any parent element that contai
 ## API Introduction
 
 <p class="header-link-container">
-  <a class="header-link" href="#api-introduction">&#x1f517;</a>
+  <a class="header-link" href="#api-introduction"></a>
 </p>
 
 When the Webviewer SDK is loaded and parsed on your page, a new global object is added to your window with the key ProcoreBim.
@@ -75,7 +77,7 @@ ProcoreBim contains a mix of both static and non static methods and are generall
 ### ProcoreBim Namespaces
 
 <p class="header-link-container">
-  <a class="header-link" href="#procorebim-namespaces">&#x1f517;</a>
+  <a class="header-link" href="#procorebim-namespaces"></a>
 </p>
 
 | Namespace | Description                                                                                                    |
@@ -86,7 +88,7 @@ ProcoreBim contains a mix of both static and non static methods and are generall
 ### Webviewer Namespaces
 
 <p class="header-link-container">
-  <a class="header-link" href="#webviewer-namespaces">&#x1f517;</a>
+  <a class="header-link" href="#webviewer-namespaces"></a>
 </p>
 
 | Namespace | Description                                                                                   |
@@ -148,13 +150,13 @@ ProcoreBim.Cache.hasModel({
 ## General API
 
 <p class="header-link-container">
-  <a class="header-link" href="#general-api">&#x1f517;</a>
+  <a class="header-link" href="#general-api"></a>
 </p>
 
 ### Starting the Webviewer
 
 <p class="header-link-container">
-  <a class="header-link" href="#starting-the-webviewer">&#x1f517;</a>
+  <a class="header-link" href="#starting-the-webviewer"></a>
 </p>
 
 ```
@@ -209,13 +211,13 @@ None
 ## Camera Namespace
 
 <p class="header-link-container">
-  <a class="header-link" href="#camera-namespace">&#x1f517;</a>
+  <a class="header-link" href="#camera-namespace"></a>
 </p>
 
 ### Get Camera Position
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-camera-position">&#x1f517;</a>
+  <a class="header-link" href="#get-camera-position"></a>
 </p>
 
 ```
@@ -245,7 +247,7 @@ Camera
 ### Set Camera Position
 
 <p class="header-link-container">
-  <a class="header-link" href="#set-camera-position">&#x1f517;</a>
+  <a class="header-link" href="#set-camera-position"></a>
 </p>
 
 ```
@@ -282,7 +284,7 @@ Camera
 ### Get Camera Direction
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-camera-direction">&#x1f517;</a>
+  <a class="header-link" href="#get-camera-direction"></a>
 </p>
 
 ```
@@ -312,7 +314,7 @@ Camera
 ### Set Camera Look At
 
 <p class="header-link-container">
-  <a class="header-link" href="#set-camera-look-at">&#x1f517;</a>
+  <a class="header-link" href="#set-camera-look-at"></a>
 </p>
 
 ```
@@ -349,7 +351,7 @@ Camera
 ### Get Screen Position
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-screen-position">&#x1f517;</a>
+  <a class="header-link" href="#get-screen-position"></a>
 </p>
 
 ```
@@ -383,7 +385,7 @@ Camera
 ### Get Snapshot
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-snapshot">&#x1f517;</a>
+  <a class="header-link" href="#get-snapshot"></a>
 </p>
 
 ```
@@ -415,7 +417,7 @@ Camera
 ### Set Camera From BCF Camera
 
 <p class="header-link-container">
-  <a class="header-link" href="#set-camera-from-bcf-camera">&#x1f517;</a>
+  <a class="header-link" href="#set-camera-from-bcf-camera"></a>
 </p>
 
 ```
@@ -448,7 +450,7 @@ Camera
 ### Get BCF Camera From Camera
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-bcf-camera-from-camera">&#x1f517;</a>
+  <a class="header-link" href="#get-bcf-camera-from-camera"></a>
 </p>
 
 ```
@@ -479,7 +481,7 @@ Camera
 ### Navigation to the home viewpoint
 
 <p class="header-link-container">
-  <a class="header-link" href="#navigation-to-the-home-viewpoint">&#x1f517;</a>
+  <a class="header-link" href="#navigation-to-the-home-viewpoint"></a>
 </p>
 
 ```
@@ -509,7 +511,7 @@ Camera
 ### Set Euler Angles
 
 <p class="header-link-container">
-  <a class="header-link" href="#set-euler-angles">&#x1f517;</a>
+  <a class="header-link" href="#set-euler-angles"></a>
 </p>
 
 ```
@@ -541,13 +543,13 @@ Camera
 ## DOM Namespace
 
 <p class="header-link-container">
-  <a class="header-link" href="#dom-namespace">&#x1f517;</a>
+  <a class="header-link" href="#dom-namespace"></a>
 </p>
 
 ### Add Panel
 
 <p class="header-link-container">
-  <a class="header-link" href="#add-panel">&#x1f517;</a>
+  <a class="header-link" href="#add-panel"></a>
 </p>
 
 ```
@@ -579,7 +581,7 @@ Dom
 ### Remove Panel
 
 <p class="header-link-container">
-  <a class="header-link" href="#remove-panel">&#x1f517;</a>
+  <a class="header-link" href="#remove-panel"></a>
 </p>
 
 ```
@@ -609,7 +611,7 @@ Dom
 ## Events Namespace
 
 <p class="header-link-container">
-  <a class="header-link" href="#events-namespace">&#x1f517;</a>
+  <a class="header-link" href="#events-namespace"></a>
 </p>
 
 Supported events are:
@@ -657,7 +659,7 @@ Supported events are:
 ### Add Event
 
 <p class="header-link-container">
-  <a class="header-link" href="#add-event">&#x1f517;</a>
+  <a class="header-link" href="#add-event"></a>
 </p>
 
 ```
@@ -690,7 +692,7 @@ Events
 ### Remove Event
 
 <p class="header-link-container">
-  <a class="header-link" href="#remove-event">&#x1f517;</a>
+  <a class="header-link" href="#remove-event"></a>
 </p>
 
 ```
@@ -723,7 +725,7 @@ Events
 ### Dispatch Event
 
 <p class="header-link-container">
-  <a class="header-link" href="#dispatch-event">&#x1f517;</a>
+  <a class="header-link" href="#dispatch-event"></a>
 </p>
 
 ```
@@ -754,13 +756,13 @@ Events
 ## Model Namespace
 
 <p class="header-link-container">
-  <a class="header-link" href="#model-namespace">&#x1f517;</a>
+  <a class="header-link" href="#model-namespace"></a>
 </p>
 
 ### Get Object from object id
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-object-from-object-id">&#x1f517;</a>
+  <a class="header-link" href="#get-object-from-object-id"></a>
 </p>
 
 ```
@@ -790,7 +792,7 @@ Model
 ### Get Hidden ID's
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-hidden-ids">&#x1f517;</a>
+  <a class="header-link" href="#get-hidden-ids"></a>
 </p>
 
 ```
@@ -820,7 +822,7 @@ Model
 ### Add Hidden ID's
 
 <p class="header-link-container">
-  <a class="header-link" href="#add-hidden-ids">&#x1f517;</a>
+  <a class="header-link" href="#add-hidden-ids"></a>
 </p>
 
 ```
@@ -853,7 +855,7 @@ Model
 ### Has Hidden ID's
 
 <p class="header-link-container">
-  <a class="header-link" href="#has-hidden-ids">&#x1f517;</a>
+  <a class="header-link" href="#has-hidden-ids"></a>
 </p>
 
 ```
@@ -887,7 +889,7 @@ Model
 ### Clear Hidden ID's
 
 <p class="header-link-container">
-  <a class="header-link" href="#clear-hidden-ids">&#x1f517;</a>
+  <a class="header-link" href="#clear-hidden-ids"></a>
 </p>
 
 ```
@@ -917,7 +919,7 @@ Model
 ### Get Selected ID's
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-selected-ids">&#x1f517;</a>
+  <a class="header-link" href="#get-selected-ids"></a>
 </p>
 
 ```
@@ -947,7 +949,7 @@ Model
 ### Add Selected ID's
 
 <p class="header-link-container">
-  <a class="header-link" href="#add-selected-ids">&#x1f517;</a>
+  <a class="header-link" href="#add-selected-ids"></a>
 </p>
 
 ```
@@ -980,7 +982,7 @@ Model
 ### Has Selected ID's
 
 <p class="header-link-container">
-  <a class="header-link" href="#has-selected-ids">&#x1f517;</a>
+  <a class="header-link" href="#has-selected-ids"></a>
 </p>
 
 ```
@@ -1014,7 +1016,7 @@ Model
 ### Clear Selected ID's
 
 <p class="header-link-container">
-  <a class="header-link" href="#clear-selected-ids">&#x1f517;</a>
+  <a class="header-link" href="#clear-selected-ids"></a>
 </p>
 
 ```
@@ -1044,7 +1046,7 @@ Model
 ### Set Object Color
 
 <p class="header-link-container">
-  <a class="header-link" href="#set-object-color">&#x1f517;</a>
+  <a class="header-link" href="#set-object-color"></a>
 </p>
 
 ```
@@ -1078,7 +1080,7 @@ Model
 ### Get Sections
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-sections">&#x1f517;</a>
+  <a class="header-link" href="#get-sections"></a>
 </p>
 
 ```
@@ -1106,7 +1108,7 @@ Model
 ### Set Section Box
 
 <p class="header-link-container">
-  <a class="header-link" href="#set-section-box">&#x1f517;</a>
+  <a class="header-link" href="#set-section-box"></a>
 </p>
 
 ```
@@ -1140,7 +1142,7 @@ Model
 ### Remove Section Box
 
 <p class="header-link-container">
-  <a class="header-link" href="#remove-section-box">&#x1f517;</a>
+  <a class="header-link" href="#remove-section-box"></a>
 </p>
 
 ```
@@ -1170,7 +1172,7 @@ Model
 ### Add Section Plane
 
 <p class="header-link-container">
-  <a class="header-link" href="#add-section-plane">&#x1f517;</a>
+  <a class="header-link" href="#add-section-plane"></a>
 </p>
 
 ```
@@ -1203,7 +1205,7 @@ Model
 ### Remove Section Plane
 
 <p class="header-link-container">
-  <a class="header-link" href="#remove-section-plane">&#x1f517;</a>
+  <a class="header-link" href="#remove-section-plane"></a>
 </p>
 
 ```
@@ -1235,7 +1237,7 @@ Model
 ### Clear Sections
 
 <p class="header-link-container">
-  <a class="header-link" href="#clear-sections">&#x1f517;</a>
+  <a class="header-link" href="#clear-sections"></a>
 </p>
 
 ```
@@ -1265,7 +1267,7 @@ Model
 ### Set Webviewer Configuration options
 
 <p class="header-link-container">
-  <a class="header-link" href="#set-webviewer-configuration-options">&#x1f517;</a>
+  <a class="header-link" href="#set-webviewer-configuration-options"></a>
 </p>
 
 ```
@@ -1299,7 +1301,7 @@ Model
 ### Get relative planmap space position based on model space position
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-relative-planmap-space-position-based-on-model-space-position">&#x1f517;</a>
+  <a class="header-link" href="#get-relative-planmap-space-position-based-on-model-space-position"></a>
 </p>
 
 ```
@@ -1354,7 +1356,7 @@ Model
 ### Get relative model space position based on planmap space position
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-relative-model-space-position-based-on-planmap-space-position">&#x1f517;</a>
+  <a class="header-link" href="#get-relative-model-space-position-based-on-planmap-space-position"></a>
 </p>
 
 ```
@@ -1409,7 +1411,7 @@ Model
 ### Get Global Offset
 
 <p class="header-link-container">
-  <a class="header-link" href="#get-global-offset">&#x1f517;</a>
+  <a class="header-link" href="#get-global-offset"></a>
 </p>
 
 ```
@@ -1437,13 +1439,13 @@ Model
 ## Cache Namespace
 
 <p class="header-link-container">
-  <a class="header-link" href="#cache-namespace">&#x1f517;</a>
+  <a class="header-link" href="#cache-namespace"></a>
 </p>
 
 ### Is the model cached
 
 <p class="header-link-container">
-  <a class="header-link" href="#is-the-model-cached">&#x1f517;</a>
+  <a class="header-link" href="#is-the-model-cached"></a>
 </p>
 
 ```
@@ -1484,7 +1486,7 @@ Promise(Boolean)
 ### Remove Model
 
 <p class="header-link-container">
-  <a class="header-link" href="#remove-model">&#x1f517;</a>
+  <a class="header-link" href="#remove-model"></a>
 </p>
 
 ```
@@ -1523,7 +1525,7 @@ Promise(boolean)
 ## Options
 
 <p class="header-link-container">
-  <a class="header-link" href="#options">&#x1f517;</a>
+  <a class="header-link" href="#options"></a>
 </p>
 
 `version [number]` (required)
@@ -1759,13 +1761,13 @@ See [Tools](#tools) for further information.
 ## Objects
 
 <p class="header-link-container">
-  <a class="header-link" href="#objects">&#x1f517;</a>
+  <a class="header-link" href="#objects"></a>
 </p>
 
 ### Perspective Camera Object
 
 <p class="header-link-container">
-  <a class="header-link" href="#perspective-camera-object">&#x1f517;</a>
+  <a class="header-link" href="#perspective-camera-object"></a>
 </p>
 
 ```
@@ -1783,7 +1785,7 @@ See [Tools](#tools) for further information.
 ### Orthogonal Camera Object
 
 <p class="header-link-container">
-  <a class="header-link" href="#orthogonal-camera-object">&#x1f517;</a>
+  <a class="header-link" href="#orthogonal-camera-object"></a>
 </p>
 
 ```
@@ -1802,7 +1804,7 @@ See [Tools](#tools) for further information.
 ### Model Object
 
 <p class="header-link-container">
-  <a class="header-link" href="#model-object">&#x1f517;</a>
+  <a class="header-link" href="#model-object"></a>
 </p>
 
 ```
@@ -1825,7 +1827,7 @@ See [Tools](#tools) for further information.
 ### Section Plane Object
 
 <p class="header-link-container">
-  <a class="header-link" href="#section-plane-object">&#x1f517;</a>
+  <a class="header-link" href="#section-plane-object"></a>
 </p>
 
 The key `plane` is an array of planes added.
@@ -1847,7 +1849,7 @@ The key `plane` is an array of planes added.
 ### Section Box Object
 
 <p class="header-link-container">
-  <a class="header-link" href="#section-box-object">&#x1f517;</a>
+  <a class="header-link" href="#section-box-object"></a>
 </p>
 
 If `rotation` is applied, `rotation` will be represented as Euler angle of type Number.
@@ -1868,7 +1870,7 @@ Otherwise, `rotation` will be undefined.
 ### Urls Object
 
 <p class="header-link-container">
-  <a class="header-link" href="#urls-object">&#x1f517;</a>
+  <a class="header-link" href="#urls-object"></a>
 </p>
 
 ```
@@ -1883,13 +1885,13 @@ Otherwise, `rotation` will be undefined.
 ### Constants
 
 <p class="header-link-container">
-  <a class="header-link" href="#constants">&#x1f517;</a>
+  <a class="header-link" href="#constants"></a>
 </p>
 
 ### Tools
 
 <p class="header-link-container">
-  <a class="header-link" href="#tools">&#x1f517;</a>
+  <a class="header-link" href="#tools"></a>
 </p>
 
 `ProcoreBim.Webviewer.tools.{tool_type}`
