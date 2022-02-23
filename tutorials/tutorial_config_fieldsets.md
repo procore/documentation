@@ -106,3 +106,16 @@ We'll change the value for the custom field to 4.0.
 
 Note that we use the syntax `custom_field_{custom field id}` to define the new value in the request body.
 The response body shows that we have successfully updated the value for our custom field to 4.0.
+
+### Multi Select LOV Update Example
+
+When updating a multi select custom field for a record, make sure that the value is an array. Even if the value is a single item, it should still be an array.
+
+```
+{
+    "company_id": 123,
+    "project": {
+        "custom_field_456": [789]
+    }
+}
+```
