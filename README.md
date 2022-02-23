@@ -108,14 +108,33 @@ The project source files follow the [Github Flavored Markdown](https://github.gi
 * To add an internal link, use the `link` method provided by Jekyll, which ensures
 that links are valid and work both locally and remotely:
 
-```
+```md
 [Workflow API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %})
 ````
 
 * To embed an external image, use the following syntax: `![alt text](url)`.
 * To embed an internal image, first save the image to the `assets/guides` folder and then embed them using a syntax like the following:
-```
+
+```md
 ![Install Architecture]({{ site.baseurl }}/assets/guides/iframe-install-arch.png)
+```
+
+### How to Add a Heading Link to a Heading
+
+Under the heading you'd like to link to you can add a snippet of inline html with an href that links to the heading. The heading ids are auto-generated as the `kebab-case` version of the heading content
+
+```md
+### Get Camera Position
+
+<p class="header-link-container"><a class="header-link" href="#get-camera-position"></a></p>
+```
+
+You could also use a [custom heading id](https://www.markdownguide.org/extended-syntax#heading-ids) if the id generation is giving you trouble:
+
+```md
+### Get Camera Position {#my-custom-id}
+
+<p class="header-link-container"><a class="header-link" href="#my-custom-id"></a></p>
 ```
 
 ## How to change the layout and CSS
