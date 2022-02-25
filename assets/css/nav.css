@@ -85,6 +85,16 @@ nav dd {
   transform: rotate(-45deg);
 }
 
+article.no-padding {
+  padding: 0;
+}
+
+section.full-width {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
 @media only screen and (max-width: 1100px) {
   .hamburger {
     display: flex;

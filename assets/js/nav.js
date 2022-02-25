@@ -1,9 +1,14 @@
 (function () {
   "use strict";
   document.addEventListener("DOMContentLoaded", function () {
-    var hamburgerEL = document.getElementsByClassName("hamburger")[0];
-    var navEl = document.getElementsByTagName("nav")[0];
+    const hamburgerEL = document.getElementsByClassName("hamburger")[0];
+    const navEl = document.getElementsByTagName("nav")[0];
+    const params = new URLSearchParams(window.location.search);
+    const shouldHideNav = params.get("hideNav");
     addNavEventListeners();
+    if (shouldHideNav) {
+      hideNav();
+    }
 
     function addNavEventListeners() {
       hamburgerEL.addEventListener("click", toggleMobileNav);
@@ -17,6 +22,15 @@
         hamburgerEL.classList.add("open");
         navEl.classList.add("open");
       }
+    }
+
+    function hideNav() {
+      navEl.remove();
+      hamburgerEL.remove();
+      const articleEl = document.getElementsByTagName("article")[0];
+      const sectionEl = document.getElementsByTagName("section")[0];
+      articleEl.classList.add("no-padding");
+      sectionEl.classList.add("full-width");
     }
   });
 })();
