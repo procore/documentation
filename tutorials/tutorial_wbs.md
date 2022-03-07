@@ -263,7 +263,7 @@ See [Arrange the Company Budget Code Structure ](https://support.procore.com/pro
 Once we have created and arranged our Company WBS budget code pattern we can define it for the project level.
 We can use any or all of the segments defined at the company level to build the project level WBS budget code pattern
 The segments you include in the project-level pattern must be a subset of the segments defined at the company level.
-Let’s call [List Project WBS Patterns]() to see the default configuration. It requires the `project_id` path parameter.
+Let’s call [List Project WBS Patterns](https://developers.procore.com/reference/rest/v1/patterns?version=1.0#list-project-wbs-patterns) to see the default configuration. It requires the `project_id` path parameter.
 
 `GET /rest/v1.0/projects/{project_id}/work_breakdown_structure/patterns`
 
