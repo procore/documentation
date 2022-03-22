@@ -12,6 +12,7 @@ The Procore API supports the capability to post and store files directly in a we
 Using the Procore API to directly upload content to a storage service helps to streamline uploads and reduces upload latency.
 Uploading a file using the Procore API is generally a two-step process.
 The first step to storing files directly from your application to your file storage service is to create an upload at the company or project level using the [Create Upload (Company)](https://developers.procore.com/reference/rest/v1/company-uploads) or [Create Upload (Project)](https://developers.procore.com/reference/rest/v1/project-uploads) endpoints respectively.
+File uploads can be either segmented or non-sgemented.
 The JSON block returned by these endpoints contains attributes that form the 'instructions' for uploading and storing files.
 The second step is to use these attributes to form a POST request to the file storage service.
 Once a file has been uploaded to a storage service you can use the Procore API to move the file into Procore and associate it with a resource.
@@ -27,7 +28,169 @@ The Procore API provides the following endpoints for creating Uploads at the com
 | [Create Upload (Company Level)](https://developers.procore.com/reference/rest/v1/company-uploads#create-upload) | POST /rest/v1.0/companies/{company_id}/uploads | Creates a new Upload in the specified Company. |
 | [Create Upload (Project Level)](https://developers.procore.com/reference/rest/v1/project-uploads#create-upload) | POST /rest/v1.0/projects/{project_id}/uploads  | Creates a new Upload in the specified Project. |
 
-## Example Workflow
+
+## Segmented Direct File Uploads
+
+The Create Upload endpoints support segmented file uploads.
+Here are the steps for performing a segmented upload.
+
+### Step 1 - Prepare the File Segment(s)
+
+The first step in performing a segmented file upload is to determine the number of file segments that will be uploaded.
+Each file segment has a minimum size of 5MB and a maximum size of 5GB, except for the last segment of the upload.
+Note that each file segment can have a different size as long as it is 5MB or greater.
+A SHA-256 hash must be calculated for each file segment so Procore can calculate the signature for each upload.
+In addition, an MD5 checksum can optionally be computed for each file segment so that the storage provider can verify the data integrity of each uploaded segment.
+
+### Step 2 - Create a Segmented Upload
+
+To help illustrate the workflow for this example we use the Create Upload endpoint to create a new segmented upload at the company level.
+A sample POST request to the [Create Upload](https://developers.procore.com/reference/rest/v1/company-uploads) endpoint would take the following format:
+
+- Request Method: `POST`
+- Request URL: `https://api.procore.com/rest/v1.0/companies/{company_id}/uploads`
+- Request Body: An array of file segment information with each segment containing `size` (in bytes), `sha256` (sha-256 hash), `md5` (optional md5 checksum).
+
+**Example Request Body**
+
+```
+{
+    "segments": [
+        {
+        "size": 128341,
+        "sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
+        "md5": "514461e89149642ca1ca94aa363289ff"
+        }
+    ]
+}
+```
+
+**Response Body**
+
+The response will include the `UUID` for the file, and the specific information required to upload each file segment to the third-party storage service.
+
+**UUID** - the unique identifier for the binary file
+
+**Segments** - array of file segment information containing:
+* **MD5** - the MD5 checksum for the file segment
+* **SHA256** - the SHA-256 hash of the file segment
+* **Size** - the file segment size in bytes
+* **URL** - the upload host url of the third party storage service
+* **Headers** - the required request headers to upload the segment
+
+**Status** - the current status of the direct file upload
+
+Example:
+
+```
+{
+    "uuid": "01FPTX6G2X9MWKSNG8V232VZZZ",
+    "segments": [
+        {
+            "md5": "514461e89149642ca1ca94aa363289ff",
+            "sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
+            "size": 128341,
+            "url": "https://s3.amazonaws.com/pro-core.com/companies/xyz/...",
+            "headers": {
+                "x-amz-content-sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
+                "content-length": "128341",
+                "content-md5": "UURh6JFJZCyhypSqNjKJ/w=="
+            }
+        }
+    ],
+    "status": "ready"
+}
+```
+
+### Step 3 - Upload File Segment(s) to Storage Service
+
+After successfully creating a new upload, the next step is to upload all the file segments to the third-party storage provider.
+The response from Create Upload in the previous step includes the required URL and header values for each segment that must be sent to the storage provider with each upload request.
+An eTag is returned in the response for each segment upload. We'll need to keep each eTag value for the next step.
+
+**Request**
+
+- Request Method: `PUT`
+- URL: Segment url value from the create upload response
+- AUTH: None
+- Request Headers: Segment header values from the create upload response
+- Request Body: File binary
+
+**Response**
+
+Success will be an HTTP: 200 with no content or body.
+Response headers will contain the eTag.
+
+### Step 4 - Complete the Upload
+
+Now that all the file segments have been uploaded to the storage provider, we need to notify Procore that we are done uploading the file.
+We use both the file’s `UUID` and the collection of file segment `eTags` to do this.
+
+**Request**
+
+- Request Method: `PATCH`
+- URL: `/rest/v1.0/companies/{company_id}/uploads/{uuid}`
+- AUTH: Procore Bearer Token
+- Request Body: Array of file segment eTags values
+
+ **Note**: the order of the eTags must be in the same order as the segments returned in the Create Upload request in Step 1.
+
+ **Example Request Body**
+
+ ```
+ {
+   "segments": [
+       {
+           "etag": "514461e89149642ca1ca94aa363289ff"
+       }
+   ]
+}
+```
+
+**Response**
+
+**UUID** - the unique identifier for the binary file
+**Segments** - array of file segment information containing:
+- **MD5** - the MD5 checksum of the file segment
+- **SHA256** - the SHA-256 hash of the file segment
+- **Size** - the segment file size in bytes
+- **URL** - the upload host url of the third-party storage service
+- **Headers** - the required request headers to upload the segment
+
+**Status** - `complete` status should be returned
+
+**Example Response Body**
+
+```
+{
+   "uuid": "01FPV38R37BSKCE2YV1SMXH84J",
+   "segments": [
+       {
+           "etag": "514461e89149642ca1ca94aa363289ff",
+           "md5": "514461e89149642ca1ca94aa363289ff",
+           "sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
+           "size": 128341,
+           "url": "https://s3.amazonaws.com/pro-core.com/companies/xyz/...",
+           "headers": {
+               "x-amz-content-sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
+               "content-length": "128341",
+               "content-md5": "UURh6JFJZCyhypSqNjKJ/w=="
+           }
+       }
+   ],
+   "status": "complete"
+}
+```
+
+### Step 5 - Associate File to a Procore Resource
+
+Now that the binary file has been successfully uploaded to the storage provider, it needs to be associated with a Procore resource.
+This is done by using the relevant Procore endpoint to create an item, but instead of adding the binary file to the request we use the file’s UUID retrieved from the previous step.
+Here is an example of adding a project file to the Documents tool using the UUID:
+
+![Associate File to Resource]({{ site.baseurl }}/assets/guides/associate-file-resource.png)
+
+## Non-Segmented Direct Uploads
 
 ### Step 1: Create an Upload
 
