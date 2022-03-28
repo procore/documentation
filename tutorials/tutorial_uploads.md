@@ -14,7 +14,7 @@ Uploading a file using the Procore API is generally a two-step process.
 The first step to storing files directly from your application to your file storage service is to create an upload at the company or project level using the [Create Upload (Company)](https://developers.procore.com/reference/rest/v1/company-uploads) or [Create Upload (Project)](https://developers.procore.com/reference/rest/v1/project-uploads) endpoints respectively.
 File uploads can be either segmented or non-sgemented.
 The JSON block returned by these endpoints contains attributes that form the 'instructions' for uploading and storing files.
-The second step is to use these attributes to form a POST request to the file storage service.
+Subsequent steps use these attributes to form a POST request to the file storage service.
 Once a file has been uploaded to a storage service you can use the Procore API to move the file into Procore and associate it with a resource.
 See [Moving an Uploaded File into Procore](#moving-an-uploaded-file-into-procore) for additional information.
 
@@ -22,12 +22,10 @@ See [Moving an Uploaded File into Procore](#moving-an-uploaded-file-into-procore
 
 The Procore API provides the following endpoints for creating Uploads at the company and project levels.
 
-
 | Action                                                                                                          | Endpoint URI                                   | Description                                    |
 | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | [Create Upload (Company Level)](https://developers.procore.com/reference/rest/v1/company-uploads#create-upload) | POST /rest/v1.0/companies/{company_id}/uploads | Creates a new Upload in the specified Company. |
 | [Create Upload (Project Level)](https://developers.procore.com/reference/rest/v1/project-uploads#create-upload) | POST /rest/v1.0/projects/{project_id}/uploads  | Creates a new Upload in the specified Project. |
-
 
 ## Segmented Direct File Uploads
 
@@ -37,10 +35,26 @@ Here are the steps for performing a segmented upload.
 ### Step 1 - Prepare the File Segment(s)
 
 The first step in performing a segmented file upload is to determine the number of file segments that will be uploaded.
-Each file segment has a minimum size of 5MB and a maximum size of 5GB, except for the last segment of the upload.
-Note that each file segment can have a different size as long as it is 5MB or greater.
-A SHA-256 hash must be calculated for each file segment so Procore can calculate the signature for each upload.
-In addition, an MD5 checksum can optionally be computed for each file segment so that the storage provider can verify the data integrity of each uploaded segment.
+Each file segment has a minimum size of 5MB and a maximum size of 5GB, except for the last segment in a multi-segment upload.
+A SHA-256 hash must be provided with each file segment so Procore can calculate the signature for each upload.
+In addition, an MD5 checksum can optionally be computed and provided with each file segment so that the storage provider can verify the data integrity of each uploaded segment.
+
+Here is a basic example of preparing the segments for an 8.8MB video file.
+
+First, we use the `split` command to divide the original source file into multiple segments.
+
+`split -b 6000000 test-video-file.mp4 file-segment`
+
+where `-b 60000000` specifies the number of bytes for the minimum segment size (at least 5MB as required), `test-video-file.mp4` is the name of the file to split, and `file-segment` is the prefix that will be used for naming the segments.
+Running this command results in two file segments being created.
+
+`6000000 Mar 25 14:57 file-segmentaa`
+
+`2829449 Mar 25 14:57 file-segmentab`
+
+The first file segment has the `6000000` minimum byte size we specified in the command (approx. 6MB), while the second (last) segment is `2829449` bytes (approx. 2.8MB).
+Although file upload segments must be a minimum of 5MB, the last segment in the series can be smaller as it holds the remainder of the bytes after the original file has been divided equally by the specified segment size.
+The segments are named using the prefix we specified in the command - `file-segmentaa` and `file-segmentab`.
 
 ### Step 2 - Create a Segmented Upload
 
@@ -51,15 +65,23 @@ A sample POST request to the [Create Upload](https://developers.procore.com/refe
 - Request URL: `https://api.procore.com/rest/v1.0/companies/{company_id}/uploads`
 - Request Body: An array of file segment information with each segment containing `size` (in bytes), `sha256` (sha-256 hash), `md5` (optional md5 checksum).
 
+Note: There are a variety of command line tools available for checking the `sha256` hash and `md5` checksum values for files.
+Use the tools appropriate for your operating system.
+
 **Example Request Body**
 
 ```
 {
     "segments": [
         {
-        "size": 128341,
-        "sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
-        "md5": "514461e89149642ca1ca94aa363289ff"
+        "size": 6000000,
+        "sha256": "b2a6304fdd19da95f8750573f5fd33e0ad71c3a41b1b6daaf4621fd9af913952",
+        "md5": "65fa016357a18272ce086ff4694ba61a"
+        },
+        {
+        "size": 2829449,
+        "sha256": "9b9ffee440b0936c280d49f42ceb554eb3bf404b0604e95da1783bc3d64d58e7",
+        "md5": "08758729c38f3081b9d0bbe6b0de41fa"
         }
     ]
 }
@@ -84,17 +106,28 @@ Example:
 
 ```
 {
-    "uuid": "01FPTX6G2X9MWKSNG8V232VZZZ",
+    "uuid": "01FZ8QATJYD0K7BZG2PP5GB4KN",
     "segments": [
         {
-            "md5": "514461e89149642ca1ca94aa363289ff",
-            "sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
-            "size": 128341,
+            "md5": "65fa016357a18272ce086ff4694ba61a",
+            "sha256": "b2a6304fdd19da95f8750573f5fd33e0ad71c3a41b1b6daaf4621fd9af913952",
+            "size": 6000000,
             "url": "https://s3.amazonaws.com/pro-core.com/companies/xyz/...",
             "headers": {
-                "x-amz-content-sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
-                "content-length": "128341",
-                "content-md5": "UURh6JFJZCyhypSqNjKJ/w=="
+                "x-amz-content-sha256": "b2a6304fdd19da95f8750573f5fd33e0ad71c3a41b1b6daaf4621fd9af913952",
+                "content-length": "6000000",
+                "content-md5": "ZfoBY1ehgnLOCG/0aUumGg=="
+            }
+        },
+        {
+            "md5": "08758729c38f3081b9d0bbe6b0de41fa",
+            "sha256": "9b9ffee440b0936c280d49f42ceb554eb3bf404b0604e95da1783bc3d64d58e7",
+            "size": 2829449,
+            "url": "https://s3.amazonaws.com/pro-core.com/companies/xyz/...",
+            "headers": {
+                "x-amz-content-sha256": "9b9ffee440b0936c280d49f42ceb554eb3bf404b0604e95da1783bc3d64d58e7",
+                "content-length": "2829449",
+                "content-md5": "CHWHKcOPMIG50LvmsN5B+g=="
             }
         }
     ],
@@ -111,10 +144,10 @@ An eTag is returned in the response for each segment upload. We'll need to keep 
 **Request**
 
 - Request Method: `PUT`
-- URL: Segment url value from the create upload response
+- Request URL: Segment `url` value from the create upload response
 - AUTH: None
-- Request Headers: Segment header values from the create upload response
-- Request Body: File binary
+- Request Headers: Segment `header` values (`x-amz-content-sha256`, `content-length`, and `content-md5`) from the create upload response
+- Request Body: File segment as binary data - include `Content-Type:application/octet-stream` in the request header so that the storage service treats the file as arbitrary binary data.
 
 **Response**
 
@@ -129,21 +162,24 @@ We use both the file’s `UUID` and the collection of file segment `eTags` to do
 **Request**
 
 - Request Method: `PATCH`
-- URL: `/rest/v1.0/companies/{company_id}/uploads/{uuid}`
+- Request URL: `/rest/v1.0/companies/{company_id}/uploads/{uuid}`
 - AUTH: Procore Bearer Token
-- Request Body: Array of file segment eTags values
-
- **Note**: the order of the eTags must be in the same order as the segments returned in the Create Upload request in Step 1.
+- Request Body: Array of file segment eTags values retrieved from the response headers in the previous step.
+ 
+ **Note**: the order of the eTags in the request body must be in the same order as the segments returned in the Create Upload request in Step 1.
 
  **Example Request Body**
 
  ```
  {
-   "segments": [
-       {
-           "etag": "514461e89149642ca1ca94aa363289ff"
-       }
-   ]
+    "segments": [
+        {
+        "etag": "65fa016357a18272ce086ff4694ba61a"
+        },
+        {
+        "etag": "08758729c38f3081b9d0bbe6b0de41fa"
+        }
+    ]
 }
 ```
 
@@ -163,22 +199,34 @@ We use both the file’s `UUID` and the collection of file segment `eTags` to do
 
 ```
 {
-   "uuid": "01FPV38R37BSKCE2YV1SMXH84J",
-   "segments": [
-       {
-           "etag": "514461e89149642ca1ca94aa363289ff",
-           "md5": "514461e89149642ca1ca94aa363289ff",
-           "sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
-           "size": 128341,
-           "url": "https://s3.amazonaws.com/pro-core.com/companies/xyz/...",
-           "headers": {
-               "x-amz-content-sha256": "1ba7385b7a1bb841178734fa8fb5924d3082364c6d693cc5be3026a468a56220",
-               "content-length": "128341",
-               "content-md5": "UURh6JFJZCyhypSqNjKJ/w=="
-           }
-       }
-   ],
-   "status": "complete"
+    "uuid": "01FZ8QATJYD0K7BZG2PP5GB4KN",
+    "segments": [
+        {
+            "etag": "65fa016357a18272ce086ff4694ba61a",
+            "md5": "65fa016357a18272ce086ff4694ba61a",
+            "sha256": "b2a6304fdd19da95f8750573f5fd33e0ad71c3a41b1b6daaf4621fd9af913952",
+            "size": 6000000,
+            "url": "https://s3.amazonaws.com/pro-core.com/companies/xyz...",
+            "headers": {
+                "x-amz-content-sha256": "b2a6304fdd19da95f8750573f5fd33e0ad71c3a41b1b6daaf4621fd9af913952",
+                "content-length": "6000000",
+                "content-md5": "ZfoBY1ehgnLOCG/0aUumGg=="
+            }
+        },
+        {
+            "etag": "08758729c38f3081b9d0bbe6b0de41fa",
+            "md5": "08758729c38f3081b9d0bbe6b0de41fa",
+            "sha256": "9b9ffee440b0936c280d49f42ceb554eb3bf404b0604e95da1783bc3d64d58e7",
+            "size": 2829449,
+            "url": "https://s3.amazonaws.com/pro-core.com/companies/xyz/...",
+            "headers": {
+                "x-amz-content-sha256": "9b9ffee440b0936c280d49f42ceb554eb3bf404b0604e95da1783bc3d64d58e7",
+                "content-length": "2829449",
+                "content-md5": "CHWHKcOPMIG50LvmsN5B+g=="
+            }
+        }
+    ],
+    "status": "complete"
 }
 ```
 
@@ -186,11 +234,14 @@ We use both the file’s `UUID` and the collection of file segment `eTags` to do
 
 Now that the binary file has been successfully uploaded to the storage provider, it needs to be associated with a Procore resource.
 This is done by using the relevant Procore endpoint to create an item, but instead of adding the binary file to the request we use the file’s UUID retrieved from the previous step.
-Here is an example of adding a project file to the Documents tool using the UUID:
+Here is an example of adding a company file to the Documents tool using the UUID.
+Including the optional `name` field is helpful as this allows you to specify the exact file name that will appear in the Documents tool.
 
-![Associate File to Resource]({{ site.baseurl }}/assets/guides/associate-file-resource.png)
+![Associate File to Resource]({{ site.baseurl }}/assets/guides/file-associate-resource.png)
 
 ## Non-Segmented Direct Uploads
+
+For smaller file uploads you can perform a non-segmented direct upload using the steps outlined below.
 
 ### Step 1: Create an Upload
 
