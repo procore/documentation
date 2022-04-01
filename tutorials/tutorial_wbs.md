@@ -79,8 +79,9 @@ With the release of [Work Breakdown Structure](https://developers.procore.com/do
 - [Delete Standard Cost Code](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#delete-standard-cost-code) (replaced by [Delete Company Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#delete-company-segment-item))
 - [Delete Sub Job](https://developers.procore.com/reference/rest/v1/sub-jobs?version=1.0#delete-sub-job) (replaced by [Delete Project Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#delete-project-segment-item))
 
-These endpoints will continue to function as they do currently until a sunset date to be announced in the future.
-See API Lifecycle for additional information.
+These endpoints will continue to function as they do currently until a sunset date is determined.
+At this time we plan to support these deprecated endpoints for the foreseeable future, but we encourage developers to start migrating to the new endpoints.
+See [API Lifecycle](https://developers.procore.com/documentation/rest-api-lifecycle) for additional information.
 If your existing integration uses any of these deprecated endpoints, or Cost Code, Cost Type and Sub Job endpoints in general, we encourage you to adopt the new [Work Breakdown Structure endpoints](https://developers.procore.com/reference/rest/v1/codes?version=1.0) and update your integration as needed.
 If you have any concerns please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
