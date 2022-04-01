@@ -488,7 +488,7 @@ We will provide the ability to create and edit the Company and Project patterns 
 
 ## WBS and Origin IDs
 
-- Many custom integrations use the `origin_id` field in Procore to store an external unique identifier for Cost Codes, Cost Types, and Sub Jobs. Learn more about External IDs and Data here.
+- Many custom integrations use the `origin_id` field in Procore to store an external unique identifier for Cost Codes, Cost Types, and Sub Jobs. Learn more about External IDs and Data [here](https://developers.procore.com/documentation/tutorial-financial-tools).
 - Cost Codes, Cost Types, and Sub Jobs endpoints will continue to support the `origin_id` attribute and the functionality will not change, through Q1 2023.
 The `origin_id` is not currently available on Custom Segments or WBS Codes. This functionality may be added to some portions of WBS in the future.
 
