@@ -381,9 +381,31 @@ Request body:
 
 A 204 response code indicates the segment was successfully added to the project level WBS pattern.
 
-Next, we can use the [Create Project Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#create-project-segment-item) endpoint to add items to the segments in the project-level WBS pattern.
-Finally, we can choose to rearrange the segment order for the project-level WBS pattern using the [Update Project Pattern's Segment Order](https://developers.procore.com/reference/rest/v1/patterns?version=1.0#update-project-patterns-segment-order) endpoint.
-For now, we’ll leave the segment order in place defined as `Phase . Cost Code . Cost Type`.
+Optionally, we can define the segment order for the project-level WBS pattern using the [Update Project Pattern's Segment Order](https://developers.procore.com/reference/rest/v1/patterns?version=1.0#update-project-patterns-segment-order) endpoint.
+For now, we’ll leave the segment order in place as `Phase . Cost Code . Cost Type`.
+
+### Managing Segment Items
+
+With the company-level and project-level WBS patterns defined, we can use a variety of WBS API endpoints to manage segment items.
+
+**Company Segment Items**
+
+- [List Company Segment Items](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#list-company-segment-items)
+- [Create Company Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#create-company-segment-item)
+- [Show Company Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#show-company-segment-item)
+- [Update Company Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#update-company-segment-item)
+- [Update All Company Segment Items](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#update-all-company-segment-items)
+- [Delete Company Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#delete-company-segment-item)
+- [Bulk Delete Company Segment Items](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#bulk-delete-company-segment-items)
+
+**Project Segment Items**
+
+- [List Project Segment Items](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#list-project-segment-items)
+- [Create Project Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#create-project-segment-item)
+- [Update Project Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#update-project-segment-item)
+- [Delete Project Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#delete-project-segment-item)
+- [Update All Project Segment Items](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#update-all-project-segment-items)
+- [Bulk Delete Project Segment Items](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#bulk-delete-project-segment-items)
 
 ### Working with WBS Codes
 
