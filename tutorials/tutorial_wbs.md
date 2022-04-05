@@ -266,7 +266,6 @@ A successful response body looks similar to the following.
 
 See [Add Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-segment-items) and [What are segments and segment items?](https://support.procore.com/faq/what-are-segments-and-segment-items) For additional information.
 
-
 ### Define the Company WBS Budget Code Structure
 
 Our next step is to configure the company's default and custom segments to define the WBS budget code structure, or _pattern_.
@@ -462,6 +461,8 @@ Once you have created a complete set of WBS codes for your organization, you can
 ## WBS Comparison with Legacy Financial Resources
 
 Existing integrations that rely on the current set of legacy financial line item resources will eventually need to be updated to adopt the WBS resources.
+The following sections cover the differences between the legacy resources and WBS.
+View the [WBS Primer for Partners and Integrators]({{ site.baseurl }}/assets/static/WBS_Primer_V1_03.31.2022.pdf) for detailed information.
 
 ### Cost Codes and Cost Types
 
