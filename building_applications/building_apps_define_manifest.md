@@ -56,8 +56,7 @@ Below is an example App manifest that helps to describe the various sections of 
           "name": "My Sample App",
           "uuid": "10e58965-49d2-4a3b-a5b1-aeeef0hn67des",
           "required": true,
-          "iframe_src": "https://{{subdomain}}.domain.com/{{my_path}}?procoreCompanyId={{procore.company.id}}
-          &procoreProjectId={{procore.project.id}}&myCustomField={{myCustomField}}",
+          "iframe_src": "https://{{subdomain}}.domain.com/{{my_path}}?procoreCompanyId={{procore.company.id}}&procoreProjectId={{procore.project.id}}&myCustomField={{myCustomField}}",
           "description": "A sample app used for demonstration.",
           "configuration": {
             "schema": {
