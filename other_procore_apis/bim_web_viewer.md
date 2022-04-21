@@ -1760,14 +1760,15 @@ Otherwise, `rotation` will be undefined.
 | Tool             | Description                                                 |
 | ---------------- | ----------------------------------------------------------- |
 | BOTTOMTOOL       | Adds the bottom toolbar that will house other enabled tools |
-| FLOORPLAN        | Adds 2D Navigation minimap and modal                        |
-| MODELVIEWS       | Views Window                                                |
 | COACHMARKS       | All coachmarks                                              |
-| COACHMARKSHIDDEN | Hidden Objects coachmark label                              |
 | COACHMARKSECTION | Section Applied coachmark label                             |
-| MEASUREMENT_SD   | Shortest Distance tool                                      |
-| SETTINGS         | Settings Window to change unit display                      |
+| COACHMARKSHIDDEN | Hidden Objects coachmark label                              |
 | CONTEXTMENU      | Right click context menu                                    |
+| FLOORPLAN        | Adds 2D Navigation minimap and modal                        |
+| LOADING          | Adds loading screens for viewer initialization              |
+| MEASUREMENT_SD   | Shortest Distance tool                                      |
+| MODELVIEWS       | Views Window                                                |
+| SETTINGS         | Settings Window to change unit display                      |
 | VIEW_PROPERTIES  | View properties of an object                                |
 
 `MEASUREMENT_SD`
