@@ -143,9 +143,9 @@ In general, codes in the **2xx range indicate success**, codes in the **4xx indi
 - **403 Forbidden** - The application is attempting to perform an action it does not have privileges to access. Verify your API key belongs to an enabled user with the required permissions.
 - **404 Not Found** - The resource was not found with the given identifier. Either the URL given is not a valid API, or the ID of the object specified in the request is invalid.
 - **406 Not Acceptable** - The request contains references to non-existent fields.
-- **409 Conflict** - The request attempts to create a duplicate. For employees, duplicate emails are not allowed. For lists, duplicate values are not allowed.
+- **409 Conflict** - The request attempts to create a duplicate and conflicts with the current state of the server.
 - **422 Unprocessable Entity** - The structure, syntax, etc of the API call was correct, but due to business logic the server is unable to process the request.
-- **429 Limit Exceeded** - The account has reached its employee limit. No additional employees could be added.
+- **429 Limit Exceeded** - Too many requests in a given amount of time (see [Rate Limiting](https://developers.procore.com/documentation/rate-limiting)).
 
 **Server error status codes (5xx)**
 
