@@ -26,6 +26,85 @@ Once the App is installed, the company administrator can add or remove permitted
 
 Developers utilize DMSAs to provide a more convenient and secure alternative to traditional service accounts that must be created, configured, and managed manually by a company administrator.
 
+## How does a DMSA differ from a traditional service account?
+
+Here are some of the primary differences between DMSAs and traditional service accounts.
+
+<table>
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+            <td style="text-align:center"><strong>Developer Managed Service Account</strong></td>
+            <td style="text-align:center"><strong>Traditional Service Account</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Account Creation</strong></td>
+            <td>
+            <ul>
+                <li>A directory user associated with the DMSA is automatically created in the Company and/or Project Directory tool.</li>
+            </ul>
+            </td>
+            <td>
+            <ul>
+                <li>A traditional service account must be created and managed manually by a company administrator.</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Authorization</strong></td>
+            <td>
+            <ul>
+                <li>A single set of credentials (client_id, client_secret) is used to access all companies where the application is installed.</li>
+            </ul>
+            </td>
+            <td>
+            <ul>
+                <li>Each service account created in a company by an administrator has a unique set of credentials, requiring manual coordination with the developer for successful integration.</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Permissions</strong></td>
+            <td>
+            <ul>
+                <li>Required permissions are defined by the developer in the application manifest and automatically applied during installation.</li>
+            </ul>
+            </td>
+            <td>
+            <ul>
+                <li>Permissions for each service account must be configured manually by a company administrator.</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Project Configuration</strong></td>
+            <td>
+            <ul>
+                <li>During installation, you can select which projects the DMSA application is allowed to run in. Once the application is installed, you can add or remove permitted projects as needed.</li>
+            </ul>
+            </td>
+            <td>
+            <ul>
+                <li>Project access and must be configured and managed manually by the company administrator.</li>
+            </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>App Management</strong></td>
+            <td>
+            <ul>
+                <li>DMSA-enabled applications are easily installed from the App Marketplace or as a custom install. Company Admin tool (App Management) used for uninstall/reinstall.</li>
+            </ul>
+            </td>
+            <td>
+            <ul>
+                <li>All aspects of traditional service account installation and management must be handled manually by a company administrator.</li>
+            </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 ## Building a Data Connection App with DMSA
 
 The following sections provide step-by-step instructions for creating a new data connection App that utilizes a DMSA.
@@ -97,3 +176,24 @@ During the installation process, the company administrator is given the opportun
 The App will only have access to the data in these permitted projects.
 After the App is installed, company administrators can use the App Management feature in Procore to add/remove permitted projects as needed.
 See [What is App Management?](https://support.procore.com/faq/what-is-app-management), [Add a Permitted Project to a Data Connection App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-permitted-project), and [Remove a Permitted Project from a Data Connection App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/remove-permitted-project).
+
+## Common Questions About DMSAs
+
+### What do I need to change on the backend for my integration to work?
+
+The backend for your integration needs to change in the following ways.
+- A new OAuth component must be defined in the application manifest with a grant type of `client_credentials`.
+- Required tool permissions for the application must be specified using the Permissions Builder.
+- Calls to the Procore API must use the DMSA `client_id` and `client_secret` for authorization and authentication.
+- Must include the `Procore-Company-Id` request header when making calls to the `/rest/v1.0/me` or `/rest/v1.0/companies` endpoints.
+See [Using Developer Managed Service Accounts with MPZ]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials#using-developer-managed-service-accounts-with-mpz) for additional information.
+
+### How do we see which companies have the App installed?
+
+Installation metrics are captured and available for viewing and downloading from your application page on the Procore developer portal. See [Working with App Metrics]({{ site.url }}{{ site.baseurl }}/building-apps-metrics) for additional information.
+
+### How do I make sure users don’t access the wrong company’s data?
+
+The same DMSA credentials created for your data connection application can also be used with the [Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials).
+In this case, the access token you receive is for a specific logged in user, rather than for the DMSA 'bot' user.
+Before showing a user any specific company data or allowing them to trigger actions using your DMSA app, first have them sign in using the authorization code grant flow and check that they are a user on the correct company using the [List Companies](https://developers.procore.com/reference/rest/v1/companies?version=1.0) endpoint.

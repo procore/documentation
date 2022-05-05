@@ -29,7 +29,7 @@ curl -H "Authorization: Bearer <access token>” -H "Procore-Company-Id: xxxxxxx
      -X GET https://api.procore.com/rest/v1.0/projects?company_id=xxxxxxxxx
 ```
 
-## MPZ and Service Accounts
+## MPZ and Developer Managed Service Accounts
 
-The `Procore-Company-Id` request header field is _not_ required when you are using Service Accounts with the OAuth 2.0 Client Credentials grant type.
-See [Using Service Accounts with MPZ]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}#using-service-accounts-with-mpz) for additional information.
+The `Procore-Company-Id` request header field is required when you are using Developer Managed Service Accounts with the OAuth 2.0 Client Credentials grant type.
+See [Using Developer Service Accounts with MPZ]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials#using-developer-managed-service-accounts-with-mpz) for additional information.
