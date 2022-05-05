@@ -27,7 +27,7 @@ If you need to install `npm` to your computer, visit the [NPM website](https://d
 
 The Procore Iframe Helper library provides functions that help simplify your implementation of OAuth 2.0 within your embedded App. We recommend reviewing [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) and related Developer Portal articles before incorporating the library into your application. Here are the high-level steps for implementing authorization and authentication via OAuth 2.0 with the Procore Iframe Helper library:
 
-- On the landing page for your application, initialize the library using `const context = procoreIframeHelpers.initialize();`. This sets the proper context for subsequent calls to the library functions.
+- On the landing page for your application, initialize the library using `const context = ProcoreIframeHelpers.initialize();`. This sets the proper context for subsequent calls to the library functions.
 - Place a button or other clickable control on the page, which when clicked, runs the `context.authentication.authenticate()` function. This displays the Procore login panel through which your end user authorizes your application to connect to their Procore account. Upon successful authentication of the end user's credentials, `context.authentication.notifySuccess({})` is called from your main page causing the login panel to close and your embedded App to launch within the Procore web user interface.
 
 The following diagram illustrates the general flow of the authorization and authentication process using the Procore Iframe Helper library:
@@ -41,11 +41,11 @@ Here are some sample code pages to help you get started.
 ```html
 <html>
 <head>
-  <script type="text/javascript" src="/libraries/ProcoreIframeHelpers.js"></script>
+  <script type="text/javascript" src="/libraries/index.js"></script>
   <script>
     $(document).ready(function() {
 
-      const context = procoreIframeHelpers.initialize();
+      const context = ProcoreIframeHelpers.initialize();
 
       $('#submit1').on('click', function() {
 
@@ -91,9 +91,9 @@ Here are some sample code pages to help you get started.
 ```html
 <html>
 <head>
-  <script type="text/javascript" src="/libraries/ProcoreIframeHelpers.js"></script>
+  <script type="text/javascript" src="/libraries/index.js"></script>
   <script>
-    const context = procoreIframeHelpers.initialize();
+    const context = ProcoreIframeHelpers.initialize();
 
     // Call notifySuccess to close the login panel. An optional payload to be passed to your
     // onSuccess handler can be included with the notifySuccess method...
