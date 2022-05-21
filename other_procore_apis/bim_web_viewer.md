@@ -1425,17 +1425,33 @@ Promise(boolean)
 
 <p class="heading-link-container"><a class="heading-link" href="#options"></a></p>
 
-`version [number]` (required)
+`accessToken [string]`
 
-```
+```js
 {
-  version: 1;
+  accessToken: '1234567890abdefghijkl',
 }
 ```
 
-The version of the Webviewer which is being used.
+OAuth access token used to authenticate requests to the Procore API made by the Web Viewer SDK on your behalf (e.g. fetching an object's properties). Specifically it adds an `Authorization` header with the provided token to each request. See [Making Your First API Call](/documentation/making-first-call) for details on retrieving an access token.
 
-`parentElement [Element` (required)
+Note also that this setup implies an Implicit Grant flow in that your access token will be present on the browser rather than only present on a server, which may be a security concern. See [OAuth 2.0 Implicit Grant](/documentation/oauth-implicit-flow) for details on Implicit Grant flow.
+
+If this is not provided as an option, you will need to intercept the SDK's requests and attach the `Authorization` header yourself in order for them to succeed.
+
+Additionally, the access token may expire in a matter of ...minutes? Hmm we need to suggest a way to handle that.
+
+`baseUrl [string]`
+
+```js
+{
+  baseUrl: 'https://api.procore.com',
+}
+```
+
+
+
+`parentElement [Element]` (required)
 
 ```
 {
@@ -1540,37 +1556,6 @@ Provided by a Procore service.
 ```
 
 Initializes the Webviewer with the camera.
-
-`swEnable [boolean]`
-
-```
-{
-  swUrl: true;
-}
-```
-
-Enables Service Worker for internal caching.
-
-`swUrl [string]`
-
-```
-{
-  swUrl: 'https://foo/service_worker.js';
-}
-```
-
-Sets the Service Worker URL.
-If not set, defaults to `/sw.js`
-
-`swScope [string]`
-
-```
-{
-  swUrl: '/app/';
-}
-```
-
-Sets the scope of the service worker
 
 `min_boundary [Object]`
 
