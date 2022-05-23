@@ -1449,7 +1449,11 @@ Additionally, the access token may expire in a matter of ...minutes? Hmm we need
 }
 ```
 
+The `baseUrl` is a mechanism for determining which version of the Procore API you will hit.
 
+For example, while developing a third-party Procore App, you may want to utilize one of the [Sandbox Environments](https://developers.procore.com/documentation/development-environments). To use the Development Sandbox, you could pass `baseUrl: 'https://sandbox.procore.com/'` and any requests made by the SDK will be made to that origin.
+
+Another example is if you want to avoid using the Implicit Grant flow you might set up a server at say `https://auth-proxy.myapp.com` and pass that in as the `baseUrl`. All SDK requests will then be made to your server which could add the `Authorization` header and make the actual request to the Procore API.
 
 `parentElement [Element]` (required)
 
