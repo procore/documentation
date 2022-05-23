@@ -60,14 +60,14 @@ When you create a new instance of Webviewer, an object is returned that allows y
 Acting on these methods is done through dot notation.
 Some methods belong to a sub namespace, and some methods do not.
 
-```
+```js
 const viewer = new ProcoreBim.Webviewer(options);
 viewer.start();
 ```
 
 Here, there Webviewer has been isntanced and we have invoked start which does not belong to a namespace to start initializing the model viewer.
 
-```
+```js
 viewer.camera.setPosition(1, 10, -1);
 ```
 
@@ -75,13 +75,13 @@ Here we invoke `setPosition` method from the camera namespace to set the camera 
 
 The `Cache` namespace contains static methods and has the following pattern:
 
-```
+```js
 ProcoreBim.Cache.{method_name}
 ```
 
 #### Complete Example
 
-```
+```js
 const viewer = new ProcoreBim.Webviewer(options);
 
 //Starts the viewer, must be called.
@@ -112,7 +112,7 @@ ProcoreBim.Cache.hasModel({
 
 <p class="heading-link-container"><a class="heading-link" href="#starting-the-webviewer"></a></p>
 
-```
+```js
 start();
 ```
 
@@ -127,7 +127,7 @@ None
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -139,7 +139,7 @@ None
 
 Terminating the Webviewer
 
-```
+```js
 terminate();
 ```
 
@@ -153,7 +153,7 @@ None
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -169,7 +169,7 @@ None
 
 <p class="heading-link-container"><a class="heading-link" href="#get-camera-position"></a></p>
 
-```
+```js
 getPosition();
 ```
 
@@ -183,7 +183,7 @@ None
 
 ##### Returns
 
-```
+```js
 {x: Number, y: Number, z: Number}
 ```
 
@@ -197,7 +197,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-position"></a></p>
 
-```
+```js
 setPosition(x, y, z);
 ```
 
@@ -215,7 +215,7 @@ Sets the camera position.
 
 #### Returns
 
-```
+```js
 {
   direction: {x: Number, y: Number, z: Number},
   position: {x: Number, y: Number, z: Number}
@@ -232,7 +232,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#get-camera-direction"></a></p>
 
-```
+```js
 getCameraDirection();
 ```
 
@@ -246,7 +246,7 @@ None
 
 ##### Returns
 
-```
+```js
 {x: Number, y: Number, z: Number}
 ```
 
@@ -260,7 +260,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-look-at"></a></p>
 
-```
+```js
 setLookAt(x, y, z);
 ```
 
@@ -278,7 +278,7 @@ Sets the camera target.
 
 #### Returns
 
-```
+```js
 {
   direction: {x: Number, y: Number, z: Number},
   position: {x: Number, y: Number, z: Number}
@@ -295,7 +295,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#get-screen-position"></a></p>
 
-```
+```js
 getScreenPosition(x, y, z);
 ```
 
@@ -313,7 +313,7 @@ Take position in world space and convert it to screen space
 
 ##### Returns
 
-```
+```js
 {x: Number, y: Number, z: Number}
 ```
 
@@ -327,7 +327,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#get-snapshot"></a></p>
 
-```
+```js
 getSnapshot(color);
 ```
 
@@ -343,7 +343,7 @@ Force download the current render view into a png.
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -357,7 +357,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-from-bcf-camera"></a></p>
 
-```
+```js
 setBcfCamera(bcfCamera);
 ```
 
@@ -374,7 +374,7 @@ See [Orthogonal Camera](#orthogonal-camera-object) or [Perspective Camera](#pers
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -388,7 +388,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#get-bcf-camera-from-camera"></a></p>
 
-```
+```js
 getBcfCamera();
 ```
 
@@ -403,7 +403,7 @@ None
 
 ##### Returns
 
-```
+```js
 {Object}
 ```
 
@@ -417,7 +417,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#navigation-to-the-home-viewpoint"></a></p>
 
-```
+```js
 navToHomeView();
 ```
 
@@ -431,7 +431,7 @@ None
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -475,7 +475,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#set-euler-angles"></a></p>
 
-```
+```js
 setEulerAngles(x, y, z);
 ```
 
@@ -493,7 +493,7 @@ Sets the camera with euler angles, yaw, pitch and roll
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -509,7 +509,7 @@ Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#add-panel"></a></p>
 
-```
+```js
 addPanel(domElement);
 ```
 
@@ -525,7 +525,7 @@ Adds a container div to the Webviewer canvas and appends `Element` to it.
 
 ##### Returns
 
-```
+```js
 boolean
 ```
 
@@ -539,7 +539,7 @@ Dom
 
 <p class="heading-link-container"><a class="heading-link" href="#remove-panel"></a></p>
 
-```
+```js
 removePanel(domElement);
 ```
 
@@ -555,7 +555,7 @@ Removes the container div from the viewer which contains the argument `Element`.
 
 ##### Returns
 
-```
+```js
 boolean
 ```
 
@@ -613,7 +613,7 @@ Supported events are:
 
 <p class="heading-link-container"><a class="heading-link" href="#add-event"></a></p>
 
-```
+```js
 addEventListener(eventName, callback);
 ```
 
@@ -630,7 +630,7 @@ Executes a callback when an internal viewer event occurs.
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -644,7 +644,7 @@ Events
 
 <p class="heading-link-container"><a class="heading-link" href="#remove-event"></a></p>
 
-```
+```js
 removeEventListener(eventName, callback);
 ```
 
@@ -661,7 +661,7 @@ Removes a callback from an internal viewer event, if it is identical to a callba
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -675,7 +675,7 @@ Events
 
 <p class="heading-link-container"><a class="heading-link" href="#dispatch-event"></a></p>
 
-```
+```js
 dispatchEvent(eventName, callback);
 ```
 
@@ -692,7 +692,7 @@ Manually dispatches an event
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -708,7 +708,7 @@ Events
 
 <p class="heading-link-container"><a class="heading-link" href="#get-object-from-object-id"></a></p>
 
-```
+```js
 getObject(objectId);
 ```
 
@@ -736,7 +736,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#get-hidden-ids"></a></p>
 
-```
+```js
 getHiddenGeoIds();
 ```
 
@@ -750,7 +750,7 @@ None
 
 ##### Returns
 
-```
+```js
 Array[Number]
 ```
 
@@ -764,7 +764,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#add-hidden-ids"></a></p>
 
-```
+```js
 addHiddenGeoIds(objectIds);
 ```
 
@@ -781,7 +781,7 @@ Does not clear previous hiding(s).
 
 ##### Returns
 
-```
+```js
 Set(Number)
 ```
 
@@ -795,7 +795,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#has-hidden-ids"></a></p>
 
-```
+```js
 hasHiddenGeoIds(objectIds);
 ```
 
@@ -813,7 +813,7 @@ Otherwise `false` is returned if at least one Object is not hidden.
 
 ##### Returns
 
-```
+```js
 boolean
 ```
 
@@ -827,7 +827,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#clear-hidden-ids"></a></p>
 
-```
+```js
 clearHiddenIds();
 ```
 
@@ -841,7 +841,7 @@ None
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -855,7 +855,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#get-selected-ids"></a></p>
 
-```
+```js
 getSelectedGeoIds();
 ```
 
@@ -869,7 +869,7 @@ None
 
 ##### Returns
 
-```
+```js
 Array[Number]
 ```
 
@@ -883,7 +883,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#add-selected-ids"></a></p>
 
-```
+```js
 addSelectedIds(objectIds);
 ```
 
@@ -900,7 +900,7 @@ Does not clear previous selection(s).
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -914,7 +914,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#has-selected-ids"></a></p>
 
-```
+```js
 hasSelectedIds(objectIds);
 ```
 
@@ -932,7 +932,7 @@ Otherwise `false` is returned if at least one Object is not selected.
 
 ##### Returns
 
-```
+```js
 boolean
 ```
 
@@ -946,7 +946,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#clear-selected-ids"></a></p>
 
-```
+```js
 clearSelectedIds();
 ```
 
@@ -960,7 +960,7 @@ None
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -974,7 +974,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#set-object-color"></a></p>
 
-```
+```js
 setObjectColor(objectId, hexColor, opacity);
 ```
 
@@ -992,7 +992,7 @@ Overrides the color of an object.
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -1006,7 +1006,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#get-sections"></a></p>
 
-```
+```js
 getSections();
 ```
 
@@ -1032,7 +1032,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#set-section-box"></a></p>
 
-```
+```js
 setSectionBox(minXYZ, maxXYZ, rotation);
 ```
 
@@ -1050,7 +1050,7 @@ Sets section box given an XYZ max and min and rotation(optional);
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -1064,7 +1064,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#remove-section-box"></a></p>
 
-```
+```js
 removeSectionBox();
 ```
 
@@ -1078,7 +1078,7 @@ None
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -1092,7 +1092,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#add-section-plane"></a></p>
 
-```
+```js
 addSectionPlane(distance, normal);
 ```
 
@@ -1109,7 +1109,7 @@ Adds a single section plane.
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -1123,7 +1123,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#remove-section-plane"></a></p>
 
-```
+```js
 removeSectionPlane(uuid);
 ```
 
@@ -1139,7 +1139,7 @@ Removes a single section plane.
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -1153,7 +1153,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#clear-sections"></a></p>
 
-```
+```js
 clearSection();
 ```
 
@@ -1167,7 +1167,7 @@ None
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -1181,7 +1181,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#set-webviewer-configuration-options"></a></p>
 
-```
+```js
 setOptions(options);
 ```
 
@@ -1199,7 +1199,7 @@ Currently can only set `selection`.
 
 ##### Returns
 
-```
+```js
 undefined
 ```
 
@@ -1213,7 +1213,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#get-relative-planmap-space-position-based-on-model-space-position"></a></p>
 
-```
+```js
 MapToModelSpace(
   point,
   modelA,
@@ -1247,7 +1247,7 @@ Retrieve the model space point {x, y} relative to the planmap space point Note: 
 
 ##### Returns
 
-```
+```js
 {
   x: Number,
   y: Number,
@@ -1266,7 +1266,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#get-relative-model-space-position-based-on-planmap-space-position"></a></p>
 
-```
+```js
 ModelToMapSpace(
   point,
   modelA,
@@ -1300,7 +1300,7 @@ Retrieve the planmap space point {x, y} relative to the model space point Note: 
 
 ##### Returns
 
-```
+```js
 {
   x: Number,
   y: Number,
@@ -1319,7 +1319,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#get-global-offset"></a></p>
 
-```
+```js
 getGlobalOffset();
 ```
 
@@ -1333,7 +1333,7 @@ None
 
 ##### Returns
 
-```
+```js
 {offsetX: Number, offsetY: Number, offsetZ: Number}
 ```
 
@@ -1349,7 +1349,7 @@ Model
 
 <p class="heading-link-container"><a class="heading-link" href="#is-the-model-cached"></a></p>
 
-```
+```js
 hasModel(urlsObject);
 ```
 
@@ -1365,7 +1365,7 @@ Checks if the internal caching system contains model data for an array of urls.
 
 #### Example
 
-```
+```js
 ProcoreBim.Cache.hasModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
@@ -1378,7 +1378,7 @@ ProcoreBim.Cache.hasModel({
 
 ##### Returns
 
-```
+```js
 Promise(Boolean)
 ```
 
@@ -1388,7 +1388,7 @@ Promise(Boolean)
 
 <p class="heading-link-container"><a class="heading-link" href="#remove-model"></a></p>
 
-```
+```js
 removeModel(urlsObject);
 ```
 
@@ -1404,7 +1404,7 @@ Remove model data for an array of urls.
 
 #### Example
 
-```
+```js
 ProcoreBim.Cache.removeModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
@@ -1417,7 +1417,7 @@ ProcoreBim.Cache.removeModel({
 
 ##### Returns
 
-```
+```js
 Promise(boolean)
 ```
 
@@ -1457,7 +1457,7 @@ Another example is if you want to avoid using the Implicit Grant flow you might 
 
 `parentElement [Element]` (required)
 
-```
+```js
 {
   parentElement: document.getElementById('myViewer');
 }
@@ -1467,7 +1467,7 @@ DOM node to attach viewer to.
 
 `modelId [string]` (required)
 
-```
+```js
 {
   modelId: '999-888-myModel';
 }
@@ -1478,7 +1478,7 @@ Must be unique to avoid cache collisions.
 
 `modelRevisionId [string]` (required)
 
-```
+```js
 {
   modelRevisionId: '999-888-myModel';
 }
@@ -1489,7 +1489,7 @@ Must be unique to avoid cache collisions.
 
 `meshUrl [string]` (required)
 
-```
+```js
 {
   meshUrl: 'https://foo.com/geometry/mesh';
 }
@@ -1500,7 +1500,7 @@ Provided by a Procore service.
 
 `meshnodeUrl [string]` (required)
 
-```
+```js
 {
   meshnodeUrl: 'https://foo.com/geometry/meshnode';
 }
@@ -1511,7 +1511,7 @@ Provided by a Procore service.
 
 `nodeUrl [string]` (required)
 
-```
+```js
 {
   nodeUrl: 'https://foo.com/geometry/node';
 }
@@ -1522,7 +1522,7 @@ Provided by a Procore service.
 
 `cellUrl [string]` (required)
 
-```
+```js
 {
   cellUrl: 'https://foo.com/geometry/mesh';
 }
@@ -1533,7 +1533,7 @@ Provided by a Procore service.
 
 `bcfCamera [Object]`
 
-```
+```js
 {
   bcfCamera: {
     perspective_camera: {
@@ -1563,7 +1563,7 @@ Initializes the Webviewer with the camera.
 
 `min_boundary [Object]`
 
-```
+```js
 {
   min_boundary: {
       z:"-14.1686084710",
@@ -1579,7 +1579,7 @@ If `max_boundary` is also defined, both `min_boundary` and `max_boundary` are us
 
 `max_boundary [Object]`
 
-```
+```js
 {
   max_boundary: {
       z:"11.8769418043",
@@ -1594,7 +1594,7 @@ If `min_boundary` is also defined, both `max_boundary` and `min_boundary` are us
 
 `rotation [Object]`
 
-```
+```js
 {
   rotation: {
       z:"11.8769418043",
@@ -1608,7 +1608,7 @@ If `min_boundary` and `max_boundary` are defined, then you can also set the rota
 
 `multiselect [boolean]`
 
-```
+```js
 {
   multiselect: false;
 }
@@ -1618,7 +1618,7 @@ Sets the object selection mode.
 
 `tools [Array]`
 
-```
+```js
 [
   ProcoreBim.Webviewer.tools.BOTTOMTOOL,
   ProcoreBim.Webviewer.tools.COACHMARKS,
@@ -1635,7 +1635,7 @@ Other keys in this object are options you want to set.
 
 For example:
 
-```
+```js
 [
   ProcoreBim.Webviewer.tools.BOTTOMTOOL,
   { type: ProcoreBim.Webviewer.tools.MEASUREMENT_SD, center_lock: true },
@@ -1652,7 +1652,7 @@ See [Tools](#tools) for further information.
 
 <p class="heading-link-container"><a class="heading-link" href="#perspective-camera-object"></a></p>
 
-```
+```js
 {
   perspective_camera: {
     camera_view_point:  {x: Number, y: Number, z: Number},
@@ -1668,7 +1668,7 @@ See [Tools](#tools) for further information.
 
 <p class="heading-link-container"><a class="heading-link" href="#orthogonal-camera-object"></a></p>
 
-```
+```js
 {
   orthogonal_camera: {
     camera_view_point: {x: Number, y: Number, z: Number},
@@ -1687,7 +1687,7 @@ See [Tools](#tools) for further information.
   <a class="heading-link" href="#model-object"></a>
 </p>
 
-```
+```js
 {
   bbox: Float32Array(6),
   matrix: Float32Array(12),
@@ -1712,7 +1712,7 @@ See [Tools](#tools) for further information.
 
 The key `plane` is an array of planes added.
 
-```
+```js
 {
   type: "plane",
   plane:
@@ -1735,7 +1735,7 @@ The key `plane` is an array of planes added.
 If `rotation` is applied, `rotation` will be represented as Euler angle of type Number.
 Otherwise, `rotation` will be undefined.
 
-```
+```js
 {
   type: "box",
   box:
@@ -1753,7 +1753,7 @@ Otherwise, `rotation` will be undefined.
   <a class="heading-link" href="#urls-object"></a>
 </p>
 
-```
+```js
 {
   meshUrl: String,
   meshnodeUrl: String,
