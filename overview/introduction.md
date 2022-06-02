@@ -8,6 +8,21 @@ section_title: Overview
 Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
 You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
 
+>**Bearer Token to be Required for File Access Authorization**
+>
+>Starting June 1, 2023 an authorization bearer token will be required in the request header for accessing any Procore file or document URL.
+>Today, an authorization token is not required to access a file directly from storage.procore.com, but it will be a requirement in the future in order to strengthen file access security.
+>This change will not only affect files in the Documents tool but will affect any tool where access to file storage is supported (i.e., images, attachments, etc).
+>
+>For example:
+>```
+>curl -X GET https://storage.procore.com/v4/d/us-east-1/pro-core.com/companies/xxxx/xxxxxx?sig=xxxxxxx \
+   -H "Authorization: Bearer <access token>”
+>```
+>
+>If your integration requires direct access to files in storage.procore.com, we encourage you to begin planning for this change now.
+>If you have questions regarding this new requirement, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Work Breakdown Structure Release and Deprecation of Financial Line Item Endpoints**
 >
 > With the release of [Work Breakdown Structure](https://developers.procore.com/documentation/tutorial-wbs), the following financial line item endpoints that utilize `cost_code`, `cost_type` and `sub_job` attributes will be deprecated on March 31, 2022.
