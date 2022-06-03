@@ -190,7 +190,8 @@ See [Using Developer Managed Service Accounts with MPZ]({{ site.url }}{{ site.ba
 
 ### How do we see which companies have the App installed?
 
-Installation metrics are captured and available for viewing and downloading from your application page on the Procore developer portal. See [Working with App Metrics]({{ site.url }}{{ site.baseurl }}/building-apps-metrics) for additional information. In addition, the following steps can be used to retrieve the list of company accounts in which your DMSA application has been installed.
+Installation metrics are captured and available for viewing and downloading from your application page on the Procore developer portal. See [Working with App Metrics]({{ site.url }}{{ site.baseurl }}/building-apps-metrics) for additional information.
+In addition, the following steps can be used to retrieve the list of company accounts in which your DMSA application has been installed.
 
 1. Use the DMSA production client ID and client secret to obtain an API access token.
 2. Call the [List Companies](https://developers.procore.com/reference/rest/v1/companies?version=1.0) endpoint using that API access token to retrieve the company accounts in which the DMSA application is installed.
