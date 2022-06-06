@@ -471,6 +471,36 @@ Camera
 
 ---
 
+### Zoom to Extents of a Bounding Box
+
+<p class="heading-link-container"><a class="heading-link" href="#zoom-to-extents-of-a-bounding-box"></a></p>
+
+```js
+zoomExtents(bbox);
+```
+
+#### Description
+
+Moves camera such that the specified axis-aligned bounding box is in view.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| bbox | true | BoundingBox | `{ min: { x: Number, y: Number, z: Number }, max: { x: Number, y: Number, z: Number } }` |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Camera
+
+---
+
 ### Set Euler Angles
 
 <p class="heading-link-container"><a class="heading-link" href="#set-euler-angles"></a></p>
