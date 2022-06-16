@@ -8,6 +8,12 @@ section_title: Overview
 Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
 You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
 
+>**Procore-Company-Id Request Header Requirement**
+>
+>As described in [Request Header Requirements for Multiple Procore Zones]({{ site.url }}{{ site.baseurl }}{% link best_practices/mpz_headers.md %}), the `Procore-Company-Id` request header is required to successfully make calls to the Procore API (api.procore.com), regardless of zone.
+>If you have yet to incorporate the `Procore-Company-Id` request header into your integration designs, we encourage you to do so as soon as possible.
+>If you have questions regarding this requirement, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Bearer Token to be Required for File Access Authorization**
 >
 >Starting June 1, 2023 an authorization bearer token will be required in the request header for accessing any Procore file or document URL.
@@ -35,14 +41,6 @@ You can expand the functionality of your Procore account by leveraging existing 
 > At this time we plan to support these deprecated endpoints for the foreseeable future, but we encourage developers to start migrating to the new endpoints.
 > See [API Lifecycle](https://developers.procore.com/documentation/rest-api-lifecycle) for additional information.
 > If your existing integration uses any of these deprecated endpoints, or Cost Code, Cost Type and Sub Job endpoints in general, we encourage you to adopt the new [Work Breakdown Structure endpoints](https://developers.procore.com/reference/rest/v1/codes?version=1.0) and update your integration as needed.
-> If you have any concerns please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
-
->**Vapid Sunset in Progress as of Feb 1, 2022**
->
-> Procore API resources under the /vapid namespace were deprecated on February 1, 2021, and replaced by the new Rest v1.0 resources under the /rest namespace with a new architecture that supports versioning and expanded functionality.
-> As of Feb 1, 2022 we have started to sunset the Vapid API.
-> Please ensure you have fully migrated over to Rest v1.0.
-> You may not see immediate impact, but we expect this to be completed by end of February 2022.
 > If you have any concerns please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
 >**Deprecation of Traditional Service Accounts**
