@@ -19,7 +19,6 @@ In order for your application to function properly in the context of MPZ, you wi
 Each call your application makes to the Procore API must contain a request header that includes the `Procore-Company-Id` field.
 This request header field specifies the id of the company into which you are making the call.
 It is important to note that even though an endpoint might require the `company_id` as a path or query parameter, MPZ still requires you to include the `Procore-Company-Id` field in the request header.
-There are two endpoints that do _not_ require the `Procore-Company-Id field` ([Show User Info](https://developers.procore.com/reference/rest/v1/me) and [List Companies](https://developers.procore.com/reference/rest/v1/companies)), however it is best practice to always include it.
 
 Below is a cURL example showing a call to the [List Projects](https://developers.procore.com/reference/rest/v1/projects) endpoint.
 In this example, we use the -H flag to specify the `Procore-Company-Id` request header field.
