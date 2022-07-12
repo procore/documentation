@@ -3,6 +3,10 @@ article {
   padding: 48px;
 }
 
+.trigger:hover {
+  cursor: pointer;
+}
+
 nav {
   width: 300px;
   height: 100%;
@@ -26,6 +30,7 @@ nav dl {
 }
 nav dt {
   margin-bottom: 8px;
+  font-weight: bold;
 }
 nav dd {
   padding-top: 8px;

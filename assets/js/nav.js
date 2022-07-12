@@ -6,6 +6,9 @@
     const params = new URLSearchParams(window.location.search);
     const shouldHideNav = params.get("hideNav");
     addNavEventListeners();
+    console.log('hello');
+    
+
     if (shouldHideNav) {
       hideNav();
     }
@@ -33,4 +36,9 @@
       sectionEl.classList.add("full-width");
     }
   });
+  $('.collapsible').find('.trigger').on('click',function(){
+    $(this).closest('.collapsible').find('.col_content').slideToggle('350');
+
+});
+
 })();
