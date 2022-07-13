@@ -36,8 +36,10 @@
       sectionEl.classList.add("full-width");
     }
   });
+  $('.col_content:not(:has("dd.active"))').hide();
   $('.collapsible').find('.trigger').on('click',function(){
     $(this).closest('.collapsible').find('.col_content').slideToggle('350');
+  
 
 });
 
