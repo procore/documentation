@@ -19,7 +19,7 @@
     <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger">{{ section.title }}</dt>
     <dl class="col_content">    
       {% for item in section.items %}
-      <dd{% if page.url == item.url %} class="active" {% endif %}>
+      <dd{% if item.url == page.url or page.url == '/' and item.url contains '/introduction' %} class="active"{% endif %}>
         <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
           {{ item.title }}
         </a>
