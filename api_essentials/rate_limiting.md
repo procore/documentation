@@ -43,7 +43,7 @@ Some application features that you may want to provide are simply impossible in 
 - If you do not need all of the fields in the show response, fetch the entire collection of objects through the index action in one API event.
 - Cache results whenever possible. This is especially true when you are displaying data to the public (i.e. everyone sees the same output).
 - Use logging to see how many requests you are making.
-- If you are using a DMSA to make API requests, ensure that your calls include either the `PROCORE_COMPANY_ID` header, or has the `:company_id` parameter decipherable from the API request URL's path or query string parameters to ensure that calls from each company DMSA has its own limit of 3600 requests per hour.
+- If you are using a DMSA to make API requests, ensure that your calls include either the `PROCORE_COMPANY_ID` header, or the `:company_id` parameter decipherable from the API request URL's path or query string parameters to ensure that each company DMSA has its own rate limit of 3600 requests per hour.
 
 ## Handling 429 Errors
 
