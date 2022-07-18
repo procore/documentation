@@ -2,6 +2,8 @@
   items:
     - title: Introduction
       url: /introduction
+    - title: Announcements
+      url: /announcements
     - title: Service Account Deprecation
       url: /service-account-deprecation
     - title: Build a Custom Integration
