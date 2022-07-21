@@ -764,7 +764,7 @@ When the budget has been successfully exported to the ERP system, the integrator
 There are no required actions. Optionally, the ERP integration might perform some kind of caching with the newly synced budget information.
 
 
-### Requisitions
+### Invoices (Requisitions)
 
 - **create_requisitions** - This event occurs when a user exports a batch of requisitions from the ERP Integration tool.
 ```
@@ -1356,7 +1356,7 @@ The ERP Integration is expected to check the state of the commitment change orde
 The integrator can use the Procore API to stage any new prime contracts or prime contract items, using the [ERP Staged Records Sync](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) endpoint. The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 
-## Prime Contract Change Orders
+### Prime Contract Change Orders
 
 - **create_prime_contract_change_order** - This event occurs when the accounting approver approves the export of a Prime Contract Change Order.
 ```
