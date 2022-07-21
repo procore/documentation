@@ -8,942 +8,690 @@ section_title: ERP Integration
 
 ## Context
 
-ERP is an events-driven Platform meaning that you as an integrator will receive events for every action that involves the ERP accounting system or if ERP data mutates in Procore through various actions such as:
+The ERP Platform is events-driven. This means that, as an integrator, you will receive events for every action that requires communication with the ERP accounting system. You will also receive events if ERP data is mutated by user actions in Procore. Below are just a few examples of the sort of actions that may produce events.
 
-- Approval of a staged record (i.e., create_job_in_procore)
-- Unlinking/resetting of a synced record (i.e., unlink_vendor)
-- Exporting various records
-- Importing staged records
-- etc...
+- Approving a staged record (e.g. **create_job_in_procore**)
+- Unlinking a synced record (e.g. **unlink_vendor**)
+- Exporting an unsynced record (e.g. **create_commitment**)
+- Staging records from the ERP System (e.g. **sync_sub_jobs**)
 
 The event notification payload can be found [here]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}).
-The property to be aware of mainly is **resource_id** which is the ERP Request ID.
-
-As a system integrator, you are responsible to get the events payload from the [ERP Request resource](https://developers.procore.com/reference/rest/v1/erp-requests#show-erp-request) using the **resource_id** provided above.
+The main property to be aware of is **resource_id**, which is the ERP Request ID. As a system integrator, you are responsible for fetching event payloads from the [ERP Requests Show](https://developers.procore.com/reference/rest/v1/erp-requests#show-erp-request) endpoint using the **resource_id** provided above.
 
 ## Supported Events
 
 ### Standard Cost Codes
 
 - **create_standard_cost_codes** - This event occurs when a customer presses the button to export standard cost codes on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool.
-    ```
-    {
-      "request_name": "create_standard_cost_codes",
-      "request_data": [{
-        "id": 2,
-        "standard_cost_code_list_id": 1,
-        "origin_id": null,
-        "parent_id": 1,
-        "code": "100",
-        "full_code": "01-100",
-        "name": "Pvmt Repair/Sealing",
-        "origin_data": null,
-        "parent_origin_id": "scc_parent_origin_id",
-        "long_name_helper": [["01", "100"], ["Parent Code", "Child Code"]],
-        "erp_custom_fields": {
-          "income_account_origin_id": "income_account_origin_id",
-          "expense_account_origin_id": "expense_account_origin_id"
-        },
-        "request_detail_id": 1
+```
+  {
+    "request_name": "create_standard_cost_codes",
+    "request_data": [{
+      "id": 2,
+      "standard_cost_code_list_id": 1,
+      "origin_id": null,
+      "parent_id": 1,
+      "code": "100",
+      "full_code": "01-100",
+      "name": "Pvmt Repair/Sealing",
+      "origin_data": null,
+      "parent_origin_id": "scc_parent_origin_id",
+      "long_name_helper": [["01", "100"], ["Parent Code", "Child Code"]],
+      "erp_custom_fields": {
+        "income_account_origin_id": "income_account_origin_id",
+        "expense_account_origin_id": "expense_account_origin_id"
+      },
+      "request_detail_id": 1
+    }]
+  }
+```
+**Required Actions:**
+To close out this event, integrators need to send the third-party **origin_id** for each standard cost code to Procore, so that Procore knows the entity is synced. You can do this for a batch of standard cost codes using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. Integrators also need to close out the **request_detail_id** associated with each exported standard cost code. These can be updated one-by-one or in bulk using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
+- **delete_standard_cost_codes (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard cost codes. This sends a request to the microservice with the data necessary for the integrator to delete standard cost codes through the Procore API.
+```
+  {
+    "request_name": "delete_standard_cost_codes",
+    "request_data": {
+      "standard_cost_code_list_id": 2,
+      "standard_cost_code_data_array": [{
+        "id": 1,
+        "sortable_code": "01-100",
+        "origin_id": "scc_origin_id"
       }]
     }
-    ```
-    **Required Actions:**
-    To close out this event, integrators need to send the third-party origin_id for each standard cost code to Procore, so that Procore knows the entity is synced.
-    You can do this for a batch of standard cost codes using the sync endpoint shown below:
-    ```
-    PATCH /rest/v1.0/companies/{company_id}/external_data/sync
-    Body:
-    [
-      {
-        "item_type": 'standard_cost_code',
-        "item_id": {standard_cost_code_id},
-        "origin_id": {erp_origin_id}
-      }
-    ]
-    ```
-    **Note**: Integrators also need to close out the request_detail_id associated with each exported standard cost code.
-    These can be updated one-by-one using the update endpoint or in bulk using the batch_update endpoint, both show below:
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
+  }
+```
+**Required Actions:**
+If supported, the integrator is expected to check if the standard cost codes are in deleted states.
+If they are, requests to delete each standard cost code should be sent via the [Standard Cost Codes Delete](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#delete-standard-cost-code_deprecated) endpoint. If they aren't, nothing should be done.
 
-    -OR-
+- **sync_standard_cost_codes** - This event occurs when a user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool.
+```
+  {
+    "request_name": "sync_standard_cost_codes",
+    "request_data": {
+     "standard_cost_code_list_id": 123,
+     "request_detail_id": 1
+    }
+  }
+```
+**Required Actions:**
+To close out this event, the integrator should send standard cost codes from the ERP system to Procore using the [Standard Cost Codes Sync](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-standard-cost-codes) endpoint. Note that you are hitting a Procore endpoint rather than the ERP Staged Records endpoint because the ERP Platform does not support staging standard cost codes and cost types. Integrators also need to close out the **request_detail_id** associated with the sync request using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
-    PATCH /rest/v1.0/companies/:company_id/erp_request_details/sync
-    Body:
-    [
-      {
-        "id": 1,
-        "status": "success",
-        "messages": []
-      },
-      {
-        "id": 2,
-        "status": "failed",
-        "messages": ["SCC 2 failed to export!"]
-      }
-    ]
-    ```
-- **delete_standard_cost_codes (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard cost codes.
-    This sends a request to the microservice with the data necessary for the integrator to delete standard cost codes through the Procore API.
-    ```
-    {
-      "request_name": "delete_standard_cost_codes",
-      "request_data": {
-        "standard_cost_code_list_id": 2,
-        "standard_cost_code_data_array": [{
-          "id": 1,
-          "sortable_code": "01-100",
-          "origin_id": "scc_origin_id"
-        }]
-      }
-    }
-    ```
-    **Required Actions:**
-    If supported, the integrator is expected to check if the standard cost codes are in deleted states.
-    If they are, requests to delete each standard cost code should be sent via the delete endpoint shown below.
-    If they aren't, nothing should be done.
-    ```
-    Path: DELETE /rest/v1.0/standard_cost_codes/:id
-    ```
-- **sync_standard_cost_codes** - This event occurs when a user presses the button to sync standard cost codes and cost types on the Std.
-    Cost Codes & Cost Types tab in Procore's ERP Integration tool.
-    Note that you are hitting the Procore endpoint (versus ERP endpoint) because ERP Platform does not support staging Standard Cost Codes and Cost Types.
-    ```
-    {
-      "request_name": "sync_standard_cost_codes",
-      "request_data": {
-       "standard_cost_code_list_id": 123,
-       "request_detail_id": 1
-      }
-    }
-    ```
-    **Required Actions:**
-    To close out this event, the integrator should send standard cost codes from the ERP system to Procore using the sync endpoint shown below:
-    ```
-    PATCH /rest/v1.0/standard_cost_codes/sync
-    Body:
-    [
-      {
-        "standard_cost_code_list_id": 1,
-        "origin_id": "scc_origin_id",
-        "parent_origin_id": null,
-        "name": "Code",
-        "code": "01"
-      }
-    ]
-    ```
-    Integrators also need to close out the request_detail_id associated with the sync request, using the update endpoint shown below:
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
 - **unlink_standard_cost_codes (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to unlink standard cost codes.
-    ```
-    {
-      "request_name": "unlink_standard_cost_codes",
-      "request_data": {
-        "standard_cost_codes": [{
-          "id": 1,
-          "sortable_code": "01-100",
-          "origin_id": "scc_origin_id"
-        }]
-      }
+```
+  {
+    "request_name": "unlink_standard_cost_codes",
+    "request_data": {
+      "standard_cost_codes": [{
+        "id": 1,
+        "sortable_code": "01-100",
+        "origin_id": "scc_origin_id"
+      }]
     }
-    ```
-    **Required Actions:**
-    There are no required actions for this event.
-    If any standard cost code data has been cached in the microservice, the integrator can use the information provided to clean up their local cache.
+  }
+```
+**Required Actions:**
+There are no required actions for this event. If any standard cost code data has been cached in the microservice, the integrator can use the information provided to clean up their local cache.
+
 
 ### Standard Categories (Cost Types/Line Item Types) ###
 
-- **delete_standard_categories (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard categories.
-    This sends a request to the microservice with the data necessary for the integrator to delete standard categories through the Procore API.
-    ```
-    {
-      "request_name": "delete_standard_categories",
-      "request_data": {
-        "standard_category_data_array": [{
-          "procore_id": 1,
-          "code": "O",
-          "origin_id": "standard_category_origin_id"
-        }]
-      }
+- **delete_standard_categories (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard categories. This sends a request to the microservice with the data necessary for the integrator to delete standard categories through the Procore API.
+```
+  {
+    "request_name": "delete_standard_categories",
+    "request_data": {
+      "standard_category_data_array": [{
+        "procore_id": 1,
+        "code": "O",
+        "origin_id": "standard_category_origin_id"
+      }]
     }
-    ```
-    **Required Actions:**
-    If supported, the ERP Intergration is expected to check if the standard categories are in deleted states.
-    If they are, requests to delete each standard category should be sent using the delete endpoint shown below.
-    If they aren't, nothing should be done. `DELETE /rest/v1.0/line_item_types/:id`
-- **sync_standard_categories** - This event occurs when a user presses the button to sync standard cost codes and cost types on the Std.
-    Cost Codes & Cost Types tab in Procore's ERP Integration tool.
-    ```
-    {
-      "request_name": "sync_standard_categories",
-      "request_data": {}
-    }
-    ```
-    **Required Actions:**
-    To close out this event, the integrator should send any standard categories retrieved from the ERP system back to Procore via the sync endpoint shown below.
-    Note that there is no request_detail_id associated with this sync request, unlike standard cost codes and other syncable entities.
-    ```
-    PATCH /rest/v1.0/line_item_types/sync
-    Body:
-    [
-      {
-        "base_type": "labor",
-        "name": "Labor",
-        "csv_import_code": "L",
-        "origin_id": "lit_origin_id",
-        "origin_data": null
-      }
-    ]
-    ```
+  }
+```
+**Required Actions:**
+There are no required actions for this event.
+
+- **sync_standard_categories** - This event occurs when a user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool.
+```
+  {
+    "request_name": "sync_standard_categories",
+    "request_data": {}
+  }
+```
+**Required Actions:**
+To close out this event, the integrator should send any standard categories retrieved from the ERP system back to Procore via the [Line Item Types Sync](https://developers.procore.com/reference/rest/v1/line-item-types-cost-types?version=1.0#sync-line-item-types) endpoint. Note that there is no **request_detail_id** associated with this sync request, unlike standard cost codes and other syncable entities.
+
 
 ### Vendors
 
 - **create_vendor** - This event occurs when a user exports a vendor from Procore to the ERP System.
-    ```
-    {
-      "request_name": "create_vendor",
-      "request_data": {
-        "vendor": {
-          "id": 35,
-          "name": "Test Vendor",
-          "abbreviated_name": null,
-          "address": "",
-          "authorized_bidder": true,
-          "business_phone": "",
-          "city": "",
-          "company": "Test Vendor",
-          "country_code": "US",
-          "created_at": "2020-07-10T19:41:59Z",
-          "email_address": null,
-          "fax_number": "",
-          "is_active": true,
-          "labor_union": null,
-          "license_number": null,
-          "logo": null,
-          "mobile_phone": null,
-          "non_union_prevailing_wage": false,
-          "notes": null,
-          "origin_code": "origin_code",
-          "origin_data": null,
-          "origin_id": null,
-          "prequalified": false,
-          "state_code": "",
-          "synced_to_erp": false,
-          "trade_name": "",
-          "union_member": false,
-          "updated_at": "2020-07-10T19:42:17Z",
-          "website": null,
-          "zip": "",
-          "erp_custom_fields": {
-            "vendor_type_origin_id": "vendor_type_origin_id"
-          },
-          "business_register": null,
-          "primary_contact": null,
-          "attachments": [],
-          "vendor_group": null
+```
+  {
+    "request_name": "create_vendor",
+    "request_data": {
+      "vendor": {
+        "id": 35,
+        "name": "Test Vendor",
+        "abbreviated_name": null,
+        "address": "",
+        "authorized_bidder": true,
+        "business_phone": "",
+        "city": "",
+        "company": "Test Vendor",
+        "country_code": "US",
+        "created_at": "2020-07-10T19:41:59Z",
+        "email_address": null,
+        "fax_number": "",
+        "is_active": true,
+        "labor_union": null,
+        "license_number": null,
+        "logo": null,
+        "mobile_phone": null,
+        "non_union_prevailing_wage": false,
+        "notes": null,
+        "origin_code": "origin_code",
+        "origin_data": null,
+        "origin_id": null,
+        "prequalified": false,
+        "state_code": "",
+        "synced_to_erp": false,
+        "trade_name": "",
+        "union_member": false,
+        "updated_at": "2020-07-10T19:42:17Z",
+        "website": null,
+        "zip": "",
+        "erp_custom_fields": {
+          "vendor_type_origin_id": "vendor_type_origin_id"
         },
-        "request_detail_id": 1,
-        "company_id": 7
-        }
-      }
-    }
-    ```
-    **Required Actions:**
-    To mark the vendor as exported, the integrator must send a third-party origin_id associated with the vendor back to Procore, so that Procore knows the vendor is synced.
-    This can be done via the update endpoint shown below:
-    ```
-    PATCH /rest/v1.0/companies/{company_id}/external_data/sync
-    Body:
-    [
-      {
-        "item_type": 'vendor',
-        "item_id": {vendor_id},
-        "origin_id": {erp_origin_id}
-      }
-    ]
-    ```
-    Integrators also need to close out the request_detail_id associated with the sync request, using the update endpoint shown below:
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-       "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
-- **create_vendor_in_procore** - This event occurs when a user presses the Add to Procore button for a vendor in the ERP Integration Tool.
-    ```
-    {
-      "request_name": "create_vendor_in_procore",
-      "request_data": {
-        "vendor": {
-          "id": 32,
-          "origin_id": "vendor_origin_id"
-        },
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the integration can send any of the vendor's insurances to Procore via the sync endpoint listed below.
-    `PATCH /rest/v1.0/insurances/sync`
-- **link_all_vendors** - This event occurs when a user links multiple ERP vendors to Procore vendors in the ERP Tab.
-    ```
-    {
-      "request_name": "link_all_vendors",
-      "request_data": {
-        "vendors": [
-          {
-            "id": procore_vendor_id,
-            "origin_id": "origin_id1"
-          },
-          {
-            "id": procore_vendor_id,
-            "origin_id": "origin_id2"
-          }
-        ],
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the integration can send any of the vendors' insurances to Procore via the sync endpoint listed below.
-    `PATCH /rest/v1.0/insurances/sync`
-- **link_vendor** - This event occurs when a user links a vendor to a Procore vendor in the ERP Integration Tool.
-    ```
-    {
-      "request_name": "link_vendor",
-      "request_data": {
-        "vendor": {
-          "id": 32,
-          "origin_id": "vendor_origin_id"
-        },
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the integration can send any of the vendor insurances to Procore via the sync endpoint listed below.
-    `PATCH /rest/v1.0/insurances/sync`
-- **merge_vendors** - This event occurs when a user merges vendors using the Vendor Merge Tool.
-    The **master_vendor** contains the resulting vendor and its **:id/:origin_id**.
-    The **source_vendors** contains an array of all vendors that were merged into the master vendor.
-    The a source vendor's **origin_id** can be the same as the master vendor's **origin_id**.
-    This occurs when an ERP vendor is merge into another ERP vendor and the source vendor was selected as the ERP vendor on Step 2 of the Vendor Merge Tool.
-    The source_vendors array can be empty.
-    This occurs when a non-ERP vendor is merged into an ERP vendor.
-    ```
-    {
-      "request_name": "merge_vendors",
-      "request_data": {
-        "master_vendor": {
-          "id": 1,
-          "origin_id": "ABC"
-        },
-        "source_vendors": [
-          {
-            "id": 2,
-            "origin_id": "DEF"
-          }, ...
-        ]
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the ERP Integration can perform cleanup related to the vendors that were merged and no longer exist in Procore.
-- **sync_vendors** - This event occurs when a user presses the Refresh Vendors List button in the ERP Tab in Procore.
-    ```
-    {
-      "request_name": "sync_vendors",
-      "request_data": {
-        "request_detail_id": 100,
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    The integrator is responsible for staging any new vendors and updating any vendors in Procore that have already been synced.
-    These actions can be done using the sync endpoints listed below, respectively.
-    `PATCH /rest/v1.0/erp_vendors/sync`
-    `PATCH /rest/v1.0/vendors/sync`
-- **unlink_vendor** - This event occurs when a user unlinks a vendor in the ERP Integration tool.
-    ```
-    {
-      "request_name": "unlink_vendor",
-      "request_data": {
-        "vendor": {
-          "id": 32,
-          "origin_id": "vendor_origin_id"
-        },
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the ERP Integration can perform cleanup related to the vendor that was unlinked (i.e. unsynced) in Procore.
-
-### Jobs (Projects) ###
-
-- **create_job_in_procore** - This event occurs when a user presses the Add to Procore button for a project in the ERP Integration Tool.
-    ```
-    {
-      "request_name": "create_job_in_procore",
-      "request_data": {
-        "project": {
-          "id": 8,
-          "name": "AN-TSE - Ant Eaters Emporium",
-          "origin_id": "a22abb3a-e4ac-4ce7-b6dd-ab5801126eab",
-          "origin_data": null,
-          "origin_code": "AN-TSE"
-        },
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the ERP Integration can perform the following actions to sync data related to the new project.
-    1. Sync the project's cost codes: `PATCH /rest/v1.0/cost_codes/sync`
-    1. Sync the project's line item type assignments: `PATCH /rest/v1.0/cost_code_line_item_types/sync`
-    1. Sync the project's ERP job costs: `PATCH /rest/v1.0/erp_job_costs/sync`
-- **create_or_update_job (Export & Re-export)** - This event occurs when a project is exported from Procore to the ERP System.
-    A project can be updated in Procore and then sent to ERP as well.
-    The event payload contains all the exported attributes.
-    ```
-    {
-      "request_name": "create_or_update_job"
-      "request_data": {
-        "job": {
-          "id": 7,
-          "name": "Test Project",
-          "origin_id": null,
-          "origin_data": null,
-          "origin_code": "JOB-EXP",
-          "erp_custom_fields": {},
-          "address": "",
-          "city": "",
-          "state_code": "",
-          "zip": "",
-          "latitude": null,
-          "longitude": null,
-          "synced": false,
-          "active": true
-        },
-        "all_cost_codes": [
-          {
-            "id": 1,
-            "name": "GENERAL CONDITIONS",
-            "full_code": "1",
-            "origin_id": null,
-            "origin_data": null,
-            "biller": "Test Project",
-            "biller_id": 7,
-            "biller_type": "Project",
-            "budgeted": false,
-            "code": "1",
-            "created_at": "2020-07-10T19:36:01Z",
-            "deleted_at": null,
-            "line_item_types": [],
-            "parent": {
-              "id": null
-            },
-            "position": null,
-            "sortable_code": "1",
-            "updated_at": "2020-07-10T19:36:01Z",
-            "long_name_helper": [
-              ["1"],
-              ["GENERAL CONDITIONS"]
-            ],
-            "standard_cost_code_origin_id": "standard_cost_code_origin_id"
-          },
-          {
-            "id": 2,
-            "name": "Test SCC",
-            "full_code": "1-001",
-            "origin_id": null,
-            "origin_data": null,
-            "biller": "Test Project",
-            "biller_id": 7,
-            "biller_type": "Project",
-            "budgeted": false,
-            "code": "001",
-            "created_at": "2020-07-10T19:36:01Z",
-            "deleted_at": null,
-            "line_item_types": [
-              {
-                "id": 9,
-                "name": "Other",
-                "code": "O",
-                "base_type": null,
-                "origin_id": "line_item_type_origin_id"
-              }
-            ],
-            "parent": {
-              "id": 1
-            },
-            "position": null,
-            "sortable_code": "1-001",
-            "updated_at": "2020-07-10T19:36:01Z",
-            "long_name_helper": [
-              ["1","001"],
-              ["GENERAL CONDITIONS","Test SCC"]
-            ],
-            "standard_cost_code_origin_id": "standard_cost_code_origin_id"
-          }
-        ]
+        "business_register": null,
+        "primary_contact": null,
+        "attachments": [],
+        "vendor_group": null
       },
-      "request_detail_id": 2,
+      "request_detail_id": 1,
+      "company_id": 7
+      }
+    }
+  }
+```
+**Required Actions:**
+To mark the vendor as exported, the integrator must send a third-party **origin_id** associated with the vendor back to Procore, so that Procore knows the vendor is synced. This can be done via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. Integrators also need to close out the **request_detail_id** associated with the create request, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
+- **create_vendor_in_procore** - This event occurs when a user presses the Add to Procore button for a vendor in the ERP Integration Tool.
+```
+  {
+    "request_name": "create_vendor_in_procore",
+    "request_data": {
+      "vendor": {
+        "id": 32,
+        "origin_id": "vendor_origin_id"
+      },
       "company_id": 7
     }
-    ```
-    **Required Actions:**
-    When the project has successfully exported to the ERP System, the integrator must pass back its third-party **origin_id** to Procore to mark the project as synced, via the external data sync endpoint shown below for both the project & cost codes.
-    ```
-    PATCH /rest/v1.0/companies/{company_id}/external_data/sync
-    Body:
-    [
-      {
-        "item_type": 'project',
-        "item_id": {project_id},
-        "origin_id": {erp_origin_id}
-      },
-      {
-        "item_type": 'cost_code',
-        "item_id": {cost_code_id},
-        "origin_id": {erp_origin_id}
-      }
-    ]
-    ```
-    For the cost code's cost type assignments, there is a separate endpoint that will be needed to set the synced flag to true:
-    ```
-    PATCH /rest/v1.0/cost_code_line_item_types/sync
-    Body:
-    [
-      {
-        cost_code_id: 1,
-        line_item_type_id: 2,
-        synced: true
-      }
-    ]
-    ```
-    Whether the job is being updated or exported for the first time, the integration must close out the request detail once the project has been exported to the ERP System.
-    Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
-- **reset_job (Super User)** - This event occurs when an ERP support representative uses Super User access to reset a project at the request of a user.
-    This will return the project and any related records (e.g.
-    cost codes, sub jobs, prime contracts, commitment, change orders, etc.) to an unsynced state.
-    ```
-    {
-      "request_name": 'reset_job',
-      "request_data": {
-        "project": {
-          "id": 2,
-          "name": "Big Skyscraper",
-          "origin_data": nil,
-          "origin_id": "project_origin_id"
-        }
-      }
-    }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    If neccessary, the ERP Integration can clean up any related cached data for the job.
-- **sync_jobs** - This event occurs when a user presses Refresh Job List button in the ERP Tab in Procore.
-    ```
-    {
-      "request_name": "sync_jobs",
-      "request_data": {
-        "request_detail_id": 123,
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    The integrator can use the Procore API to stage any new projects and update any projects that have already been synced, using the sync endpoints shown below.
-    `PATCH /rest/v1.0/erp_projects/sync`
-    `PATCH /rest/v1.0/projects/sync`
-    The event payload also contains a request_detail_id which the integrator must close out.
-    Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
-- **sync_single_job** - This event is sent out periodically and notifies the integrator to send any updates related to a specific job to Procore.
-    ```
-    {
-      "request_name": "sync_single_job",
-      "request_data": {
-        "id": "project_origin_id",
-        "additional_job_data": {
-          "job_name": "Test Project",
-          "procore_project_id": 7,
-          "project_id": 893,
-          "start_date": null,
-          "job_cost_transactions_sync_enabled": false
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the integration can send any of the vendor's insurances to Procore via the [Company Vendor Insurances Sync](https://developers.procore.com/reference/rest/v1/company-vendor-insurances) endpoint.
+
+- **link_all_vendors** - This event occurs when a user links multiple ERP vendors to Procore vendors in the ERP Tab.
+```
+  {
+    "request_name": "link_all_vendors",
+    "request_data": {
+      "vendors": [
+        {
+          "id": procore_vendor_id,
+          "origin_id": "origin_id1"
         },
-        "company_id": 7
+        {
+          "id": procore_vendor_id,
+          "origin_id": "origin_id2"
+        }
+      ],
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the integration can send any of the vendors' insurances to Procore via the [Company Vendor Insurances Sync](https://developers.procore.com/reference/rest/v1/company-vendor-insurances) endpoint.
+
+- **link_vendor** - This event occurs when a user links a vendor to a Procore vendor in the ERP Integration Tool.
+```
+  {
+    "request_name": "link_vendor",
+    "request_data": {
+      "vendor": {
+        "id": 32,
+        "origin_id": "vendor_origin_id"
+      },
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the integration can send any of the vendor's insurances to Procore via the [Company Vendor Insurances Sync](https://developers.procore.com/reference/rest/v1/company-vendor-insurances) endpoint.
+
+- **merge_vendors** - This event occurs when a user merges vendors using the Vendor Merge Tool. The **master_vendor** contains the resulting vendor and its Procore/third-party identifiers. The **source_vendors** contains an array of all vendors that were merged into the master vendor. A source vendor's **origin_id** can be the same as the master vendor's **origin_id**, when a staged vendor is merged into another staged vendor and the source vendor was selected as the staged vendor on Step 2 of the Vendor Merge Tool. The **source_vendors** array can also be empty, when a non-ERP vendor is merged into an ERP vendor.
+```
+  {
+    "request_name": "merge_vendors",
+    "request_data": {
+      "master_vendor": {
+        "id": 1,
+        "origin_id": "ABC"
+      },
+      "source_vendors": [
+        {
+          "id": 2,
+          "origin_id": "DEF"
+        }, ...
+      ]
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the ERP Integration can perform cleanup related to the vendors that were merged and no longer exist in Procore.
+
+- **sync_vendors** - This event occurs when a user presses the Refresh Vendors List button in the ERP Tab in Procore.
+```
+  {
+    "request_name": "sync_vendors",
+    "request_data": {
+      "request_detail_id": 100,
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+The integrator is responsible for staging any new vendors and updating any vendors in Procore that have already been synced. These actions can be performed using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Company Vendors](https://developers.procore.com/reference/rest/v1/company-vendors?version=1.0#sync-company-vendors).
+
+- **unlink_vendor** - This event occurs when a user unlinks a vendor in the ERP Integration tool.
+```
+  {
+    "request_name": "unlink_vendor",
+    "request_data": {
+      "vendor": {
+        "id": 32,
+        "origin_id": "vendor_origin_id"
+      },
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the ERP Integration can perform cleanup related to the vendor that was unlinked (i.e. unsynced) in Procore.
+
+
+### Projects (Jobs) ###
+
+- **create_job_in_procore** - This event occurs when a user presses the Add to Procore button for a project in the ERP Integration Tool.
+```
+  {
+    "request_name": "create_job_in_procore",
+    "request_data": {
+      "project": {
+        "id": 8,
+        "name": "AN-TSE - Ant Eaters Emporium",
+        "origin_id": "a22abb3a-e4ac-4ce7-b6dd-ab5801126eab",
+        "origin_data": null,
+        "origin_code": "AN-TSE"
+      },
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the ERP Integration can sync data related to the new project via the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
+
+- **create_or_update_job (Export & Re-export)** - This event occurs when a project is exported from Procore to the ERP System. A project can be updated in Procore and then sent to ERP as well. The event payload contains all the exported attributes.
+```
+  {
+    "request_name": "create_or_update_job"
+    "request_data": {
+      "job": {
+        "id": 7,
+        "name": "Test Project",
+        "origin_id": null,
+        "origin_data": null,
+        "origin_code": "JOB-EXP",
+        "erp_custom_fields": {},
+        "address": "",
+        "city": "",
+        "state_code": "",
+        "zip": "",
+        "latitude": null,
+        "longitude": null,
+        "synced": false,
+        "active": true
+      },
+      "all_cost_codes": [
+        {
+          "id": 1,
+          "name": "GENERAL CONDITIONS",
+          "full_code": "1",
+          "origin_id": null,
+          "origin_data": null,
+          "biller": "Test Project",
+          "biller_id": 7,
+          "biller_type": "Project",
+          "budgeted": false,
+          "code": "1",
+          "created_at": "2020-07-10T19:36:01Z",
+          "deleted_at": null,
+          "line_item_types": [],
+          "parent": {
+            "id": null
+          },
+          "position": null,
+          "sortable_code": "1",
+          "updated_at": "2020-07-10T19:36:01Z",
+          "long_name_helper": [
+            ["1"],
+            ["GENERAL CONDITIONS"]
+          ],
+          "standard_cost_code_origin_id": "standard_cost_code_origin_id"
+        },
+        {
+          "id": 2,
+          "name": "Test SCC",
+          "full_code": "1-001",
+          "origin_id": null,
+          "origin_data": null,
+          "biller": "Test Project",
+          "biller_id": 7,
+          "biller_type": "Project",
+          "budgeted": false,
+          "code": "001",
+          "created_at": "2020-07-10T19:36:01Z",
+          "deleted_at": null,
+          "line_item_types": [
+            {
+              "id": 9,
+              "name": "Other",
+              "code": "O",
+              "base_type": null,
+              "origin_id": "line_item_type_origin_id"
+            }
+          ],
+          "parent": {
+            "id": 1
+          },
+          "position": null,
+          "sortable_code": "1-001",
+          "updated_at": "2020-07-10T19:36:01Z",
+          "long_name_helper": [
+            ["1","001"],
+            ["GENERAL CONDITIONS","Test SCC"]
+          ],
+          "standard_cost_code_origin_id": "standard_cost_code_origin_id"
+        }
+      ]
+    },
+    "request_detail_id": 2,
+    "company_id": 7
+  }
+```
+**Required Actions:**
+When the project has successfully exported to the ERP System, the integrator must pass back its third-party **origin_id** to Procore to mark the project as synced, via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint, for both the project and cost codes. For the cost codes' line item type assignments, there is a separate [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments) endpoint that will be needed to set the synced flag to true. Whether the job is being updated or exported for the first time, the integration must close out the request detail once the project has been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
+
+- **reset_job (Super User)** - This event occurs when an ERP support representative uses Super User access to reset a project at the request of a user. This will return the project and any related records (e.g. cost codes, sub jobs, prime contracts, commitments, change orders, etc.) to an unsynced state.
+```
+  {
+    "request_name": 'reset_job',
+    "request_data": {
+      "project": {
+        "id": 2,
+        "name": "Big Skyscraper",
+        "origin_data": nil,
+        "origin_id": "project_origin_id"
       }
     }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the ERP Integration can perform the following actions related to the project.
-    1. Update the project: `PATCH /rest/v1.0/projects/:id`
-    1. Sync the project's cost codes: `PATCH /rest/v1.0/cost_codes/sync`
-    1. Sync the project's line item type assignments: `PATCH /rest/v1.0/cost_code_line_item_types/sync`
-    1. Sync the project's job costs: `PATCH /rest/v1.0/erp_job_costs/sync`
+  }
+```
+**Required Actions:**
+There are no required actions. If neccessary, the ERP Integration can clean up any related cached data for the job.
+
+- **sync_jobs** - This event occurs when a user presses Refresh Job List button in the ERP Tab in Procore.
+```
+  {
+    "request_name": "sync_jobs",
+    "request_data": {
+      "request_detail_id": 123,
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+The integrator can use the Procore API to stage any new projects and update any projects that have already been synced, using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Projects](https://developers.procore.com/reference/rest/v1/projects?version=1.0#sync-projects). The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
+
+- **sync_single_job** - This event is sent out periodically and notifies the integrator to send any updates related to a specific job to Procore.
+```
+  {
+    "request_name": "sync_single_job",
+    "request_data": {
+      "id": "project_origin_id",
+      "additional_job_data": {
+        "job_name": "Test Project",
+        "procore_project_id": 7,
+        "project_id": 893,
+        "start_date": null,
+        "job_cost_transactions_sync_enabled": false
+      },
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the ERP Integration can update the project or its related financial data using the [Projects Update](https://developers.procore.com/reference/rest/v1/projects?version=1.0#update-project) endpoint or the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
+
 
 ### Sub Jobs ###
 
-- **create_sub_job** - This event occurs when a sub job is exported from Procore to the ERP System.
-    The event payload contains all the exported attributes.
-    ```
-    {
-      "request_name": "create_sub_job",
-      "request_data": {
-        "sub_job": {
-          "id": 1,
-          "code": "SJ-XYZ",
-          "created_at": "2020-07-10T20:08:09Z",
-          "name": "Test Subjob",
+- **create_sub_job** - This event occurs when a sub job is exported from Procore to the ERP System. The event payload contains all the exported attributes.
+```
+  {
+    "request_name": "create_sub_job",
+    "request_data": {
+      "sub_job": {
+        "id": 1,
+        "code": "SJ-XYZ",
+        "created_at": "2020-07-10T20:08:09Z",
+        "name": "Test Subjob",
+        "origin_data": null,
+        "origin_id": null,
+        "updated_at": "2020-07-10T20:08:42Z",
+        "synced": false,
+        "project": {
+          "id": 7,
+          "name": "Test Project",
+          "origin_id": "parent_project_origin_id",
           "origin_data": null,
-          "origin_id": null,
-          "updated_at": "2020-07-10T20:08:42Z",
-          "synced": false,
-          "project": {
-            "id": 7,
-            "name": "Test Project",
-            "origin_id": "parent_project_origin_id",
-            "origin_data": null,
-            "origin_code": "JO-EXP"
-          },
+          "origin_code": "JO-EXP"
         },
-        "all_cost_codes": [
-          {
-            "id": 32,
-            "name": "GENERAL CONDITIONS",
-            "full_code": "1",
-            "origin_id": null,
-            "origin_data": null,
-            "biller": "Test Subjob",
-            "biller_id": 1,
-            "biller_type": "SubJob",
-            "budgeted": false,
-            "code": "1",
-            "created_at": "2020-07-10T20:08:21Z",
-            "deleted_at": null,
-            "line_item_types": [],
-            "parent": {
-              "id": null
-            },
-            "position": null,
-            "sortable_code": "1",
-            "updated_at": "2020-07-10T20:08:21Z",
-            "long_name_helper": [
-              ["1"],
-              ["GENERAL CONDITIONS"]
-            ],
-            "standard_cost_code_origin_id": "standard_cost_code_origin_id"
-          },
-          {
-            "id": 33,
-            "name": "Summary of Work",
-            "full_code": "1-010",
-            "origin_id": null,
-            "origin_data": null,
-            "biller": "Test Subjob",
-            "biller_id": 1,
-            "biller_type": "SubJob",
-            "budgeted": false,
-            "code": "010",
-            "created_at": "2020-07-10T20:08:21Z",
-            "deleted_at": null,
-            "line_item_types": [
-              {
-                "id": 8,
-                "name": "Equipment",
-                "code": "E",
-                "base_type": null,
-                "origin_id": "line-item-type-origin-id"
-              }
-            ],
-            "parent": {
-              "id": 32
-            },
-            "position": null,
-            "sortable_code": "1-010",
-            "updated_at": "2020-07-10T20:08:21Z",
-            "long_name_helper": [
-              ["1","010"],
-              ["GENERAL CONDITIONS","Summary of Work"]
-            ],
-            "standard_cost_code_origin_id": "standard_cost_code_origin_id"
-          }
-        ],
-        "request_detail_id": 3,
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    When the sub job has successfully exported to the ERP System, the integrator must pass back its third-party origin_id to Procore to mark the Sub Job as synced, using the external data sync endpoint shown below.
-    ```
-    PATCH /rest/v1.0/companies/{company_id}/external_data/sync
-    Body:
-    [
-      {
-        "item_type": 'sub_job',
-        "item_id": {sub_job_id},
-        "origin_id": {erp_origin_id}
       },
-      {
-        "item_type": 'cost_code',
-        "item_id": {cost_code_id},
-        "origin_id": {erp_origin_id}
-      }
-    ]
-    ```
-    For the cost code's cost type assignments, there is a separate endpoint that will be needed to set the synced flag to true:
-    ```
-    PATCH /rest/v1.0/cost_code_line_item_types/sync
-    Body:
-    [
-      {
-        cost_code_id: 1,
-        line_item_type_id: 2,
-        synced: true
-      }
-    ]
-    ```
-    The integration must close out the request detail once the sub job has been exported to the ERP System.
-    Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
-- **create_sub_job_in_procore** - This event occurs when a user presses the Add to Procore button for a Sub Job in the ERP Integration Tool.
-    ```
-    {
-      "request_name": "create_sub_job_in_procore"
-      "request_data": {
-        "sub_job": {
-          "id": 2,
-          "code": "SJ01",
-          "created_at": "2020-07-10T20:23:27Z",
-          "name": "Sub Job 1",
+      "all_cost_codes": [
+        {
+          "id": 32,
+          "name": "GENERAL CONDITIONS",
+          "full_code": "1",
+          "origin_id": null,
           "origin_data": null,
+          "biller": "Test Subjob",
+          "biller_id": 1,
+          "biller_type": "SubJob",
+          "budgeted": false,
+          "code": "1",
+          "created_at": "2020-07-10T20:08:21Z",
+          "deleted_at": null,
+          "line_item_types": [],
+          "parent": {
+            "id": null
+          },
+          "position": null,
+          "sortable_code": "1",
+          "updated_at": "2020-07-10T20:08:21Z",
+          "long_name_helper": [
+            ["1"],
+            ["GENERAL CONDITIONS"]
+          ],
+          "standard_cost_code_origin_id": "standard_cost_code_origin_id"
+        },
+        {
+          "id": 33,
+          "name": "Summary of Work",
+          "full_code": "1-010",
+          "origin_id": null,
+          "origin_data": null,
+          "biller": "Test Subjob",
+          "biller_id": 1,
+          "biller_type": "SubJob",
+          "budgeted": false,
+          "code": "010",
+          "created_at": "2020-07-10T20:08:21Z",
+          "deleted_at": null,
+          "line_item_types": [
+            {
+              "id": 8,
+              "name": "Equipment",
+              "code": "E",
+              "base_type": null,
+              "origin_id": "line-item-type-origin-id"
+            }
+          ],
+          "parent": {
+            "id": 32
+          },
+          "position": null,
+          "sortable_code": "1-010",
+          "updated_at": "2020-07-10T20:08:21Z",
+          "long_name_helper": [
+            ["1","010"],
+            ["GENERAL CONDITIONS","Summary of Work"]
+          ],
+          "standard_cost_code_origin_id": "standard_cost_code_origin_id"
+        }
+      ],
+      "request_detail_id": 3,
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+When the sub job has successfully exported to the ERP System, the integrator must pass back its third-party **origin_id** to Procore to mark the sub job as synced, via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint, for both the project and cost codes. For the cost codes' line item type assignments, there is a separate [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments) endpoint that will be needed to set the synced flag to true. The integration must close out the request detail once the sub job has been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
+
+- **create_sub_job_in_procore** - This event occurs when a user presses the Add to Procore button for a Sub Job in the ERP Integration Tool.
+```
+  {
+    "request_name": "create_sub_job_in_procore"
+    "request_data": {
+      "sub_job": {
+        "id": 2,
+        "code": "SJ01",
+        "created_at": "2020-07-10T20:23:27Z",
+        "name": "Sub Job 1",
+        "origin_data": null,
+        "origin_id": "sub_job_origin_id",
+        "updated_at": "2020-07-10T20:23:27Z",
+        "synced": true,
+        "project": {
+          "id": 8,
+          "name": "Parent of Sub Job",
+          "origin_id": "sub_jobs_project_origin_id",
+          "origin_data": null,
+          "origin_code": "AN-TSE"
+        }
+      },
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the ERP Integration can sync data related to the new sub job via the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
+
+- **reset_sub_job (Super User)** - This event occurs when an ERP support representative uses Super User access to reset a sub job at the request of the customer. This will return the sub job to an unsynced state.
+```
+  {
+    "request_name": 'reset_sub_job',
+    "request_data": {
+      "sub_job": {
+        {
+          "id": 1,
+          "code": "5",
+          "created_at": "",
+          "name": "Floor 5",
+          "origin_data": nil,
           "origin_id": "sub_job_origin_id",
-          "updated_at": "2020-07-10T20:23:27Z",
+          "updated_at": "",
           "synced": true,
           "project": {
-            "id": 8,
-            "name": "Parent of Sub Job",
-            "origin_id": "sub_jobs_project_origin_id",
-            "origin_data": null,
-            "origin_code": "AN-TSE"
-          }
-        },
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the integrator can perform the following actions to sync data associated with the sub job.
-    1. Sync the sub job's cost codes: `PATCH /rest/v1.0/cost_codes/sync`
-    1. Sync the sub job's line item type assignments: `PATCH /rest/v1.0/cost_code_line_item_types/sync`
-    1. Sync the sub job's ERP job costs: `PATCH /rest/v1.0/erp_job_costs/sync`
-- **reset_sub_job (Super User)** - This event occurs when an ERP support representative uses Super User access to reset a sub job at the request of the customer.
-    This will return the sub job to an unsynced state.
-    ```
-    {
-      "request_name": 'reset_sub_job',
-      "request_data": {
-        "sub_job": {
-          {
-            "id": 1,
-            "code": "5",
-            "created_at": "",
-            "name": "Floor 5",
+            "id": 2,
+            "name": "Big Skyscraper",
             "origin_data": nil,
-            "origin_id": "sub_job_origin_id",
-            "updated_at": "",
-            "synced": true,
-            "project": {
-              "id": 2,
-              "name": "Big Skyscraper",
-              "origin_data": nil,
-              "origin_id": "project_origin_id"
-            }
+            "origin_id": "project_origin_id"
           }
         }
       }
     }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    If neccessary, the integrator can clean up any related cached data for the sub job.
+  }
+```
+**Required Actions:**
+There are no required actions. If neccessary, the integrator can clean up any related cached data for the sub job.
+
 - **sync_sub_job** - This event is sent periodically and notifies the integrator to send any updates related to a specific sub job to Procore.
-    ```
-    {
-      "request_name": "sync_sub_job",
-      "request_data": {
-        "id": "sub_job_origin_id",
-        "additional_job_data": {
-          "job_name": "Test Subjob",
-          "parent_origin_id":"sub_jobs_project_origin_id",
-          "procore_project_id":7,
-          "procore_sub_job_id":1,
-          "project_id":99,
-          "start_date":null
-        },
-        "company_id": 7
-      }
+```
+  {
+    "request_name": "sync_sub_job",
+    "request_data": {
+      "id": "sub_job_origin_id",
+      "additional_job_data": {
+        "job_name": "Test Subjob",
+        "parent_origin_id":"sub_jobs_project_origin_id",
+        "procore_project_id":7,
+        "procore_sub_job_id":1,
+        "project_id":99,
+        "start_date":null
+      },
+      "company_id": 7
     }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the integrator can perform the following actions to sync data associated with the sub job.
-    1. Update the sub job: `PATCH /rest/v1.0/sub_jobs/:id`
-    1. Sync the sub job's cost codes: `PATCH /rest/v1.0/cost_codes/sync`
-    1. Sync the sub job's line item type assignments: `PATCH /rest/v1.0/cost_code_line_item_types/sync`
-    1. Sync the sub job's job costs: `PATCH /rest/v1.0/erp_job_costs/sync`
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the ERP Integration can update the sub job or its related financial data using the [Sub Jobs Update](https://developers.procore.com/reference/rest/v1/sub-jobs?version=1.0#update-sub-job) endpoint or the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
+
 - **sync_sub_jobs** - This event occurs when a user presses the Refresh Sub Jobs button in the ERP Tab in Procore.
-    ```
-    {
-      "request_name": "sync_sub_jobs",
-      "request_data": {
-        "request_detail_id": 3,
-        "company_id": 7
-      }
+```
+  {
+    "request_name": "sync_sub_jobs",
+    "request_data": {
+      "request_detail_id": 3,
+      "company_id": 7
     }
-    ```
-    **Required Actions:**
-    The integrator can use the endpoints shown below to stage any new sub jobs or update any synced ones.
-    `/rest/v1.0/erp_sub_jobs/sync`
-    `/rest/v1.0/sub_jobs/sync`
-    Integrators also need to close out the request_detail_id associated with the sync request, using the update endpoint shown below:
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
+  }
+```
+**Required Actions:**
+The integrator can use the Procore API to stage any new sub jobs and update any sub jobs that have already been synced, using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Sub Jobs](https://developers.procore.com/reference/rest/v1/sub-jobs?version=1.0#sync-sub-jobs). The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
 ### Project/Sub Job Cost Codes
 
 - **delete_cost_codes** - This event occurs when a user attempts to delete synced project cost codes.
-    ```
-    {
-      "request_name": "delete_cost_codes",
-      "request_data": {
-        "project": {
-          "id": 1,
-          "origin_id": "project_origin_id"
-        },
-        "sub_job": {
-          "id": 2,
-          "origin_id": "sub_job_origin_id"
-        },
-        "cost_codes": [
-          {
-            "id": 3,
-            "request_detail_id": 4,
-            "origin_id": "cost_code_origin_id",
-            "sortable_code": "1-01"
-          }
-        ]
-      }
+```
+  {
+    "request_name": "delete_cost_codes",
+    "request_data": {
+      "project": {
+        "id": 1,
+        "origin_id": "project_origin_id"
+      },
+      "sub_job": {
+        "id": 2,
+        "origin_id": "sub_job_origin_id"
+      },
+      "cost_codes": [
+        {
+          "id": 3,
+          "request_detail_id": 4,
+          "origin_id": "cost_code_origin_id",
+          "sortable_code": "1-01"
+        }
+      ]
     }
-    ```
-    **Required Actions:**
-    The ERP Integration is expected to check the state of the cost codes.
-    If the cost codes are in a deleted state (e.g. deleted, archived, etc.), they should be deleted via the delete endpoint listed below, and then the request details should be closed out as successful.
-    If the cost codes aren't in a deleted state, the request details should be closed with a descriptive error message (e.g. "The cost code still exists in the ERP system and must be deleted first.").
-    `DELETE /rest/v1.0/cost_codes/:id`
-    `PUT /rest/v1.0/companies/:company_id/erp_request_details/:id`
+  }
+```
+**Required Actions:**
+The event payload contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
+
 - **delete_cost_type_assignments** - This event occurs when a user attempts to delete synced project line item type assignments.
-    ```
-    {
-      "request_name": "delete_cost_type_assignments"
-      "request_data": {
-        "project": {
-          "id": 1,
-          "origin_id": "project_origin_id"
-        },
-        "sub_job": {
-          "id": 2,
-          "origin_id": "sub_job_origin_id"
-        },
-        "cost_type_assignments": [
-          {
-            "id": 3,
-            "request_detail_id": 4,
-            "cost_code_origin_id": "cost_code_origin_id",
-            "line_item_type_origin_id": "line_item_type_origin_id",
-            "job_cost_id": 5
-          }
-        ]
-      }
+```
+  {
+    "request_name": "delete_cost_type_assignments"
+    "request_data": {
+      "project": {
+        "id": 1,
+        "origin_id": "project_origin_id"
+      },
+      "sub_job": {
+        "id": 2,
+        "origin_id": "sub_job_origin_id"
+      },
+      "cost_type_assignments": [
+        {
+          "id": 3,
+          "request_detail_id": 4,
+          "cost_code_origin_id": "cost_code_origin_id",
+          "line_item_type_origin_id": "line_item_type_origin_id",
+          "job_cost_id": 5
+        }
+      ]
     }
-    ```
-    **Required Actions:**
-    The ERP Integration is expected to check the state of the assignments.
-    If the assignments are in a deleted state (e.g. deleted, archived, etc.), they and any related job costs should be deleted via the delete endpoints listed below, and then the request details should be closed out as successful.
-    If the assignments aren't in a deleted state, the request details should be closed with a descriptive error message (e.g. "The assignment still exists in the ERP system and must be deleted first.").
-    - `DELETE /rest/v1.0/cost_codes_line_item_types/:id`
-    - `DELETE /rest/v1.0/erp_job_costs/:id`
-    - `PUT /rest/v1.0/companies/:company_id/erp_request_details/:id`
+  }
+```
+**Required Actions:**
+The ERP Integration is expected to check the state of the assignments. If the assignments are in a deleted state (e.g. deleted, archived, etc.), they and any related job costs should be deleted via the delete endpoints for [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#delete-a-cost-code-line-item-type-assignment) and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#delete-erp-job-cost). The request details in the event payoad should then be closed out, optionally with error messages if any assignments failed to delete, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
 
 ### Budget
 
