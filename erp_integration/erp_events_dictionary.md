@@ -695,827 +695,650 @@ The ERP Integration is expected to check the state of the assignments. If the as
 
 ### Budget
 
-- **create_budget** - This event occurs when a user attempts to export a budget from Procore
-    ```
-    {
-      "request_name": "create_budget",
-      "request_data": {
-        "job_id": "project_origin_id",
-        "budget" {
+- **create_budget** - This event occurs when a user attempts to export a budget from Procore.
+```
+  {
+    "request_name": "create_budget",
+    "request_data": {
+      "job_id": "project_origin_id",
+      "budget" {
+        "id": 1,
+        "origin_id": null,
+        "origin_data": null,
+        "synced": false,
+        "custom_fields": {},
+        "project_id": 123
+      },
+      "job_costs": [
+        {
+          "id": 456,
+          "cost_code_origin_id": "cc_origin_id",
+          "line_item_type_origin_id": "cost_type_origin_id",
+          "budget_line_item_id": 567
+          "new_amount": 44.45
+          "job_origin_id": "project_origin_id"
+          "sub_job_origin_id": null
+        }
+      ],
+      "transactions": [
+        {
           "id": 1,
           "origin_id": null,
-          "origin_data": null,
+          "code": null,
+          "value": 33.33,
           "synced": false,
-          "custom_fields": {},
-          "project_id": 123
-        },
-        "job_costs": [
-          {
-            "id": 456,
-            "cost_code_origin_id": "cc_origin_id",
-            "line_item_type_origin_id": "cost_type_origin_id",
-            "budget_line_item_id": 567
-            "new_amount": 44.45
-            "job_origin_id": "project_origin_id"
-            "sub_job_origin_id": null
-          }
-        ],
-        "transactions": [
-          {
-            "id": 1,
-            "origin_id": null,
-            "code": null,
-            "value": 33.33,
-            "synced": false,
-            "type": "Erp::OriginalEstimateTransaction",
-            "procore_transaction_id": null,
-            "procore_transaction_type": null,
-            "job_cost_id": 456,
-            "created_at": "2021-03-02T22:26:28Z",
-            "notes": null
-          }
-        ]
-      }
-    }
-    ```
-    **Required Actions:**
-    The ERP Integration pushes the budget to the respective ERP system and then sends back `origin_id` values back to Procore
-    Sync up the Budget record with the external system's ID using the external data endpoint below
-    ```
-    PATCH /rest/v1.0/companies/{company_id}/external_data
-    PAYLOAD
-    {
-      updates: [
-        {
-          item_type: "budget",
-          item_id: {procore_budget_id},
-          origin_id: {erp_budget_uuid}
+          "type": "Erp::OriginalEstimateTransaction",
+          "procore_transaction_id": null,
+          "procore_transaction_type": null,
+          "job_cost_id": 456,
+          "created_at": "2021-03-02T22:26:28Z",
+          "notes": null
         }
       ]
     }
-   ```
-   Afterwards, sync back the transactions by hitting a specific ERP Transactions endpoint
-    ```
-    PATCH /rest/v1.0/erp_transactions/sync
-    PAYLOAD
-    {
-      project_id: 123,
-      updates: [
-        {
-          id: 1,
-          origin_id: {erp_transaction_uuid},
-          synced: true
-        }
-      ]
-    }
-    ```
-    Lastly, close out the Request Detail record `PUT /rest/v1.0/companies/:company_id/erp_request_details/:id`
-- **update_budget** - Same as `create_budget` above except the budget record will contain an origin_id value that will help with finding the existing budget in the ERP system and pushing new transaction records only.
-    Transactions will only contain records that are unsynced.
+  }
+```
+**Required Actions:**
+When the budget has been successfully exported to the ERP system, the integrator must send back its third-party **origin_id** value back to Procore to mark the budget as synced, via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. Afterwards, mark the transactions as synced by hitting a specific [ERP Transactions Sync](https://developers.procore.com/reference/rest/v1/erp-transactions?version=1.0#sync-erp-transactions) endpoint. Lastly, close out the request detail record using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints.
+
+- **update_budget** - Same as `create_budget` above, except the budget record will contain an **origin_id** value that will help with finding the existing budget in the ERP system and pushing new transaction records only. The **transactions** array will only contain records that are unsynced.
+
 - **create_budget_in_procore** - This event occurs when a user presses the Add to Procore button for a budget in the ERP Integration Tool.
-    ```
-    {
-      "request_name": "create_budget_in_procore",
-      "request_data": {
-        "project_origin_id": "project_origin_id",
-        "budget" {
-          "id": 1,
-          "origin_id": null,
-          "origin_data": null,
-          "synced": false,
-          "custom_fields": {},
-          "project_id": 123
-        }
+```
+  {
+    "request_name": "create_budget_in_procore",
+    "request_data": {
+      "project_origin_id": "project_origin_id",
+      "budget" {
+        "id": 1,
+        "origin_id": null,
+        "origin_data": null,
+        "synced": false,
+        "custom_fields": {},
+        "project_id": 123
       }
     }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the ERP integration might perform some kind of caching with the newly synced budget information.
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the ERP integration might perform some kind of caching with the newly synced budget information.
+
 
 ### Requisitions
 
 - **create_requisitions** - This event occurs when a user exports a batch of requisitions from the ERP Integration tool.
-    ```
-    {
-      "request_name": "create_requisitions",
-      "request_data": {
-        "requisitions": [{
-          "procore_requisition_id": 1,
-          "accounting_method": "unit",
-          "billing_date": "2021-03-31",
-          "code": "9348",
-          "contract_id": 1,
-          "contract_origin_id": "contract_origin_id",
-          "created_at": "2021-03-02T22:26:28Z",
-          "custom_fields": null,
-          "erp_custom_fields": null,
-          "formatted_payment_due": "$1,087.80",
-          "invoice_number": "9348",
-          "job_origin_id": "job_origin_id",
-          "line_items": [
-            {
-              "procore_requisition_item_id": 1,
-              "accounting_method": "amount",
-              "amount": "500.0",
-              "change_order_line_item_origin_id": null,
-              "commitment_item_origin_id": "commitment_item_origin_id",
-              "cost_code_id": 6,
-              "cost_code_origin_id": "cost_code_origin_id",
-              "description": "Forms equipment",
-              "formatted_amount": "$500.00",
-              "formatted_unit_cost": "$1,000.00",
-              "line_item_description": "Forms equipment",
-              "line_item_type_origin_id": "line_item_type_origin_id",
-              "qty": "0.0",
-              "released_work_completed_this_period": "0.0",
-              "requisition_item_type": "Billings::ContractItem",
-              "retainage_materials_presently_stored": "0.0",
-              "retainage_materials_previously_stored": "0.0",
-              "retainage_this_period": "10.0",
-              "retainage_work_completed_this_period": "10.0",
-              "scheduled_total_amount": "1000.0",
-              "tax_code_origin_id": null,
-              "unit_cost": "1000.0",
-              "uom": "ls"
-            },
-            {
-              "procore_requisition_item_id": 2,
-              "accounting_method": "amount",
-              "amount": "500.0",
-              "change_order_line_item_origin_id": null,
-              "commitment_item_origin_id": "commitment_item_origin_id",
-              "cost_code_id": 7,
-              "cost_code_origin_id": "cost_code_origin_id",
-              "description": "Steel",
-              "formatted_amount": "$500.00",
-              "formatted_unit_cost": "$0.00",
-              "line_item_description": "Steel",
-              "line_item_type_origin_id": "line_item_type_origin_id",
-              "qty": "0.0",
-              "released_work_completed_this_period": "0.0",
-              "requisition_item_type": "Billings::ContractItem",
-              "retainage_materials_presently_stored": "0.0",
-              "retainage_materials_previously_stored": "0.0",
-              "retainage_this_period": "10.0",
-              "retainage_work_completed_this_period": "10.0",
-              "scheduled_total_amount": "1000.0",
-              "tax_code_origin_id": null,
-              "unit_cost":"0.0",
-              "uom": null
-            }
-          ]
-        }]
-      }
+```
+  {
+    "request_name": "create_requisitions",
+    "request_data": {
+      "requisitions": [{
+        "procore_requisition_id": 1,
+        "accounting_method": "unit",
+        "billing_date": "2021-03-31",
+        "code": "9348",
+        "contract_id": 1,
+        "contract_origin_id": "contract_origin_id",
+        "created_at": "2021-03-02T22:26:28Z",
+        "custom_fields": null,
+        "erp_custom_fields": null,
+        "formatted_payment_due": "$1,087.80",
+        "invoice_number": "9348",
+        "job_origin_id": "job_origin_id",
+        "line_items": [
+          {
+            "procore_requisition_item_id": 1,
+            "accounting_method": "amount",
+            "amount": "500.0",
+            "change_order_line_item_origin_id": null,
+            "commitment_item_origin_id": "commitment_item_origin_id",
+            "cost_code_id": 6,
+            "cost_code_origin_id": "cost_code_origin_id",
+            "description": "Forms equipment",
+            "formatted_amount": "$500.00",
+            "formatted_unit_cost": "$1,000.00",
+            "line_item_description": "Forms equipment",
+            "line_item_type_origin_id": "line_item_type_origin_id",
+            "qty": "0.0",
+            "released_work_completed_this_period": "0.0",
+            "requisition_item_type": "Billings::ContractItem",
+            "retainage_materials_presently_stored": "0.0",
+            "retainage_materials_previously_stored": "0.0",
+            "retainage_this_period": "10.0",
+            "retainage_work_completed_this_period": "10.0",
+            "scheduled_total_amount": "1000.0",
+            "tax_code_origin_id": null,
+            "unit_cost": "1000.0",
+            "uom": "ls"
+          },
+          {
+            "procore_requisition_item_id": 2,
+            "accounting_method": "amount",
+            "amount": "500.0",
+            "change_order_line_item_origin_id": null,
+            "commitment_item_origin_id": "commitment_item_origin_id",
+            "cost_code_id": 7,
+            "cost_code_origin_id": "cost_code_origin_id",
+            "description": "Steel",
+            "formatted_amount": "$500.00",
+            "formatted_unit_cost": "$0.00",
+            "line_item_description": "Steel",
+            "line_item_type_origin_id": "line_item_type_origin_id",
+            "qty": "0.0",
+            "released_work_completed_this_period": "0.0",
+            "requisition_item_type": "Billings::ContractItem",
+            "retainage_materials_presently_stored": "0.0",
+            "retainage_materials_previously_stored": "0.0",
+            "retainage_this_period": "10.0",
+            "retainage_work_completed_this_period": "10.0",
+            "scheduled_total_amount": "1000.0",
+            "tax_code_origin_id": null,
+            "unit_cost":"0.0",
+            "uom": null
+          }
+        ]
+      }]
     }
-    ```
-    **Required Actions:**
-    To mark an exported requisition as synced, send its origin_id from the ERP system to Procore via the Procore API.
-    You can do this for a batch of requisitions using the external data endpoint sync endpoint shown below:
-    ```
-    PATCH /rest/v1.0/companies/{company_id}/external_data/sync
-    Body:
-    [
-      {
-        "item_type": 'requisition',
-        "item_id": {requisition_id},
-        "origin_id": {erp_origin_id}
-      }
-    ]
-    ```
-- **reset_requisition (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to reset a synced requisition.
-    This resets the status of the requisition in Procore and sends an event to the microservice indicating that the requisition has been unsynced.
-    ```
-    {
-      "request_name": "reset_requisition",
-      "request_data": {
-        "requisition_id": 1,
-        "project_id": 1,
-        "requisition_origin_id": "requisition_origin_id",
-        "reset_override": false
-      }
+  }
+```
+**Required Actions:**
+To mark an exported requisition as synced, send its **origin_id** from the ERP system to Procore via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint.
+
+- **reset_requisition (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to reset a synced requisition. This resets the status of the requisition in Procore and sends an event to the microservice indicating that the requisition has been unsynced.
+```
+  {
+    "request_name": "reset_requisition",
+    "request_data": {
+      "requisition_id": 1,
+      "project_id": 1,
+      "requisition_origin_id": "requisition_origin_id",
+      "reset_override": false
     }
-    ```
-    **Required Actions:**
-    There are no required actions in response to this event, but integrators can use the data provided by this event to clear any cached data associated with the requisition or its items in the microservice.
+  }
+```
+**Required Actions:**
+There are no required actions in response to this event, but integrators can use the data provided by this event to clear any cached data associated with the requisition or its items in the microservice.
+
 
 ### Commitments
 
 - **create_commitment** - This event occurs when a user exports a commitment from the ERP Tab in Procore.
-    ```
-    {
-      "request_name": "create_commitment",
-      "request_data": {
-        "job_id": "800003DD-1600977189",
-        "request_detail_id": 137,
-        "commitment": {
-          "id": 41,
-          "accounting_method": "amount",
-          "actual_completion_date": null,
-          "approval_letter_date": null,
-          "approved_change_orders": "0.0",
-          "assignee_id": null,
-          "bill_to_address": null,
-          "contract_date": null,
-          "contract_estimated_completion_date": null,
-          "contract_start_date": null,
-          "created_at": "2020-10-19T12:17:31-07:00",
-          "deleted_at": null,
-          "delivery_date": null,
-          "description": "",
-          "draft_change_orders_amount": "0.0",
-          "due_date": null,
-          "erp_custom_fields": null,
-          "exclusions": "",
-          "executed": false,
-          "execution_date": null,
-          "expected_date": null,
-          "grand_total": "250.0",
-          "inclusions": "",
-          "issued_on_date": null,
-          "letter_of_intent_date": null,
-          "number": "SC-001",
-          "origin_code": null,
+```
+  {
+    "request_name": "create_commitment",
+    "request_data": {
+      "job_id": "800003DD-1600977189",
+      "request_detail_id": 137,
+      "commitment": {
+        "id": 41,
+        "accounting_method": "amount",
+        "actual_completion_date": null,
+        "approval_letter_date": null,
+        "approved_change_orders": "0.0",
+        "assignee_id": null,
+        "bill_to_address": null,
+        "contract_date": null,
+        "contract_estimated_completion_date": null,
+        "contract_start_date": null,
+        "created_at": "2020-10-19T12:17:31-07:00",
+        "deleted_at": null,
+        "delivery_date": null,
+        "description": "",
+        "draft_change_orders_amount": "0.0",
+        "due_date": null,
+        "erp_custom_fields": null,
+        "exclusions": "",
+        "executed": false,
+        "execution_date": null,
+        "expected_date": null,
+        "grand_total": "250.0",
+        "inclusions": "",
+        "issued_on_date": null,
+        "letter_of_intent_date": null,
+        "number": "SC-001",
+        "origin_code": null,
+        "origin_data": null,
+        "origin_id": null,
+        "payment_terms": null,
+        "pending_change_orders": "0.0",
+        "pending_revised_contract": "250.0",
+        "percentage_paid": "0.0",
+        "private": true,
+        "project": {
+          "id": 86,
+          "name": "Project A",
+          "origin_data": "{\"edit_sequence\":\"1600977189\"}",
+          "origin_id": "800003DD-1600977189"
+        },
+        "remaining_balance_outstanding": "250.0",
+        "requisitions_are_enabled": null,
+        "retainage_percent": null,
+        "returned_date": null,
+        "revised_contract": "250.0",
+        "ship_to_address": null,
+        "ship_via": null,
+        "show_line_items_to_non_admins": false,
+        "signed_contract_received_date": null,
+        "status": "Approved",
+        "title": "WOC 1 (QB)",
+        "total_draw_requests_amount": "0.0",
+        "total_payments": "0.0",
+        "total_requisitions_amount": "0.0",
+        "updated_at": "2020-10-19T19:17:59Z",
+        "vendor": {
+          "id": 47,
+          "company": "90 Minute Courier",
+          "origin_data": "{\"edit_sequence\":\"1427805909\"}",
+          "origin_id": "800000CD-1389650341"
+        },
+        "code": "10543",
+        "type": "WorkOrderContract"
+      },
+      "commitment_items": [
+        {
+          "id": 177,
+          "amount": "250.0",
+          "company": {
+            "id": 9,
+            "name": "Quickbooks"
+          },
+          "cost_code": {
+            "id": 1472,
+            "name": "Purpose",
+            "full_code": "01-000",
+            "origin_id": "800003DD-1600977189|800005FA-1477351439",
+            "origin_data": null,
+            "standard_cost_code_id": 371,
+            "biller": "Project A",
+            "biller_id": 86,
+            "biller_type": "Project",
+            "biller_origin_id": "800003DD-1600977189",
+            "budgeted": true,
+            "code": "000",
+            "parent": {
+              "id": 1471
+            },
+            "sortable_code": "01-000",
+            "created_at": "2020-09-24T19:56:45Z",
+            "deleted_at": null,
+            "line_item_types": [
+              {
+                "id": 47,
+                "name": "Other",
+                "code": "O",
+                "base_type": null,
+                "origin_id": "std_cat_9_origin_id"
+              }
+            ],
+            "position": null,
+            "updated_at": "2020-09-24T19:59:35Z"
+          },
+          "created_at": "2020-10-19T19:17:53Z",
+          "description": "Line Item 1",
+          "extended_amount": "250.0",
+          "extended_type": "manual",
+          "holder": {
+            "id": 41,
+            "holder_type": "WorkOrderContract"
+          },
+          "line_item_type": {
+            "id": 47,
+            "base_type": null,
+            "code": "O",
+            "name": "Other",
+            "origin_data": null,
+            "origin_id": "std_cat_9_origin_id"
+          },
           "origin_data": null,
           "origin_id": null,
-          "payment_terms": null,
-          "pending_change_orders": "0.0",
-          "pending_revised_contract": "250.0",
-          "percentage_paid": "0.0",
-          "private": true,
+          "position": 1,
           "project": {
             "id": 86,
             "name": "Project A",
             "origin_data": "{\"edit_sequence\":\"1600977189\"}",
             "origin_id": "800003DD-1600977189"
           },
-          "remaining_balance_outstanding": "250.0",
-          "requisitions_are_enabled": null,
-          "retainage_percent": null,
-          "returned_date": null,
-          "revised_contract": "250.0",
-          "ship_to_address": null,
-          "ship_via": null,
-          "show_line_items_to_non_admins": false,
-          "signed_contract_received_date": null,
-          "status": "Approved",
-          "title": "WOC 1 (QB)",
-          "total_draw_requests_amount": "0.0",
-          "total_payments": "0.0",
-          "total_requisitions_amount": "0.0",
-          "updated_at": "2020-10-19T19:17:59Z",
-          "vendor": {
-            "id": 47,
-            "company": "90 Minute Courier",
-            "origin_data": "{\"edit_sequence\":\"1427805909\"}",
-            "origin_id": "800000CD-1389650341"
-          },
-          "code": "10543",
-          "type": "WorkOrderContract"
-        },
-        "commitment_items": [
-          {
-            "id": 177,
-            "amount": "250.0",
-            "company": {
-              "id": 9,
-              "name": "Quickbooks"
-            },
-            "cost_code": {
-              "id": 1472,
-              "name": "Purpose",
-              "full_code": "01-000",
-              "origin_id": "800003DD-1600977189|800005FA-1477351439",
-              "origin_data": null,
-              "standard_cost_code_id": 371,
-              "biller": "Project A",
-              "biller_id": 86,
-              "biller_type": "Project",
-              "biller_origin_id": "800003DD-1600977189",
-              "budgeted": true,
-              "code": "000",
-              "parent": {
-                "id": 1471
-              },
-              "sortable_code": "01-000",
-              "created_at": "2020-09-24T19:56:45Z",
-              "deleted_at": null,
-              "line_item_types": [
-                {
-                  "id": 47,
-                  "name": "Other",
-                  "code": "O",
-                  "base_type": null,
-                  "origin_id": "std_cat_9_origin_id"
-                }
-              ],
-              "position": null,
-              "updated_at": "2020-09-24T19:59:35Z"
-            },
-            "created_at": "2020-10-19T19:17:53Z",
-            "description": "Line Item 1",
-            "extended_amount": "250.0",
-            "extended_type": "manual",
-            "holder": {
-              "id": 41,
-              "holder_type": "WorkOrderContract"
-            },
-            "line_item_type": {
-              "id": 47,
-              "base_type": null,
-              "code": "O",
-              "name": "Other",
-              "origin_data": null,
-              "origin_id": "std_cat_9_origin_id"
-            },
-            "origin_data": null,
-            "origin_id": null,
-            "position": 1,
-            "project": {
-              "id": 86,
-              "name": "Project A",
-              "origin_data": "{\"edit_sequence\":\"1600977189\"}",
-              "origin_id": "800003DD-1600977189"
-            },
-            "quantity": "0.0",
-            "tax_amount": "0.0",
-            "tax_code": null,
-            "tax_code_id": null,
-            "total_amount": "250.0",
-            "unit_cost": "0.0",
-            "uom": null,
-            "updated_at": "2020-10-19T19:17:54Z"
-          }
-        ],
-        "additional_data": {
-          "accounting_date": null
-        },
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    To mark an exported commitment as synced, the integrator must send third-party origin_id information back to Procore for the commitment and its items, using the sync endpoint shown below.
-    ```
-    PATCH /rest/v1.0/companies/:company_id/external_data/sync
-    Body:
-    [
-      {
-        "item_id": 1,
-        "item_type": "work_order_contract",
-        "origin_id": "commitment_origin_id"
-      },
-      {
-        "item_id": 1,
-        "item_type": "line_item",
-        "origin_id": "line_item_origin_id_1"
-      },
-      {
-        "item_id": 2,
-        "item_type": "line_item",
-        "origin_id": "line_item_origin_id_2"
-      }
-    ]
-    ```
-    The integrator must also close out the request detail once the commitment and commitment line items have been exported to the ERP System.
-    Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
-- **create_commitment_in_procore** - This event occurs when a user presses the Add to Procore button for a commitment in the ERP Integration Tool.
-    ```
-    {
-      "request_name": "create_commitment_in_procore",
-      "request_data": {
-        "project_origin_id": "project_origin_id",
-        "commitment": {
-          "approval_letter_date": "10/25/20",
-          "contract_date": "10/26/20",
-          "title": "Contract 1",
-          "description": "Sample contract"
-          ...
+          "quantity": "0.0",
+          "tax_amount": "0.0",
+          "tax_code": null,
+          "tax_code_id": null,
+          "total_amount": "250.0",
+          "unit_cost": "0.0",
+          "uom": null,
+          "updated_at": "2020-10-19T19:17:54Z"
         }
+      ],
+      "additional_data": {
+        "accounting_date": null
+      },
+      "company_id": 7
+    }
+  }
+```
+**Required Actions:**
+To mark an exported commitment as synced, the integrator must send third-party **origin_id** information back to Procore for the commitment and its items, using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The integrator must also close out the request detail once the commitment and commitment line items have been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
+
+- **create_commitment_in_procore** - This event occurs when a user presses the Add to Procore button for a commitment in the ERP Integration Tool.
+```
+  {
+    "request_name": "create_commitment_in_procore",
+    "request_data": {
+      "project_origin_id": "project_origin_id",
+      "commitment": {
+        "approval_letter_date": "10/25/20",
+        "contract_date": "10/26/20",
+        "title": "Contract 1",
+        "description": "Sample contract"
+        ...
       }
     }
-    ```
-    **Required Actions:**
-    There are no required actions.
-    Optionally, the ERP integration might perform some kind of caching with the newly synced commitment information.
+  }
+```
+**Required Actions:**
+There are no required actions. Optionally, the ERP integration might perform some kind of caching with the newly synced commitment information.
+
 - **sync_commitments** - This event occurs when a user presses the Refresh Commitments button in the ERP Tab in Procore.
-    ```
-    {
-      "request_name": "sync_commitments",
-      "request_data": {
-        "request_detail_id": 3,
-        "company_id": 7
-      }
+```
+  {
+    "request_name": "sync_commitments",
+    "request_data": {
+      "request_detail_id": 3,
+      "company_id": 7
     }
-    ```
-    **Required Actions:**
-    The integrator can stage commitments and commitment line items using the endpoints provided below.
-    ```
-    PATCH /rest/v1.0/erp_work_order_contracts/sync
-    PATCH /rest/v1.0/erp_purchase_order_contracts/sync
-    PATCH /rest/v1.0/erp_work_order_contract_line_items/sync
-    PATCH /rest/v1.0/erp_purchase_order_contract_line_items/sync
-    ```
-    Integrators also need to close out the request_detail_id associated with the sync request, using the update endpoint shown below:
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
+  }
+```
+**Required Actions:**
+The integrator can stage commitments and commitment line items using the [ERP Staged Records Sync](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) endpoint. Integrators also need to close out the **request_detail_id** associated with the sync request, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints.
+
 - **unlink_commitment** - This event occurs when a user attempts to unlink a commitment in the ERP Integration tool.
-    ```
-    {
-      "request_name": "unlink_commitment",
-      "request_data": {
-        "job_origin_id": "job_origin_id",
-        "erp_commitment_id": 1,
-        "request_detail_id": 2,
-        "project_id": 3,
-        "procore_commitment_id": 4,
-        "commitment_type": "contract_type",
-        "commitment_origin_id": "commitment_origin_id"
-      }
+```
+  {
+    "request_name": "unlink_commitment",
+    "request_data": {
+      "job_origin_id": "job_origin_id",
+      "erp_commitment_id": 1,
+      "request_detail_id": 2,
+      "project_id": 3,
+      "procore_commitment_id": 4,
+      "commitment_type": "contract_type",
+      "commitment_origin_id": "commitment_origin_id"
     }
-    ```
-    **Required Actions:**
-    The ERP Integration is expected to check the state of the commitment.
-    If the commitment is in a deleted state (e.g. deleted, archived, etc.), it should be unsynced via the external data endpoint listed below, and then the request detail should be closed out as successful.
-    If the commitment isn't in a deleted state, the request detail should be closed with a descriptive error message (e.g. "The commitment still exists in the ERP system and must be deleted first.")
-    ```
-    PATCH /rest/v1.0/companies/{company_id}/external_data
-    Body:
-    [
-      {
-        "item_type": 'work_order_contract', # or purchase_order_contract
-        "item_id": {procore_commitment_id},
-        "origin_id": null
-      },
-      {
-        "item_type": 'line_item',
-        "item_id": {line_item_id_1},
-        "origin_id": null
-      },
-      {
-        "item_type": 'line_item',
-        "item_id": {line_item_id_2},
-        "origin_id": null
-      }
-    ]
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    ```
+  }
+```
+**Required Actions:**
+The ERP Integration is expected to check the state of the commitment. If the commitment is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the commitment failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
 
 ### Commitment Change Order
 
 - **create_commitment_change_order** - This event occurs when a user exports a commitment change order from the ERP Tab in Procore.
-    ```
-    {
-      "request_name": "create_commitment_change_order",
-      "request_data": {
-        "job_origin_id": "project_origin_id",
-        "request_detail_id": 1,
-        "commitment": {
-          "id": 2,
-          "accounting_method": "amount",
-          "actual_completion_date": null,
-          "approval_letter_date": null,
-          "approved_change_orders": "0.0",
-          "assignee_id": null,
-          "bill_to_address": null,
-          "contract_date": null,
-          "contract_estimated_completion_date": null,
-          "contract_start_date": null,
-          "created_at": "2020-10-19T12:17:31-07:00",
-          "deleted_at": null,
-          "delivery_date": null,
-          "description": "",
-          "draft_change_orders_amount": "0.0",
-          "due_date": null,
-          "erp_custom_fields": null,
-          "exclusions": "",
-          "executed": false,
-          "execution_date": null,
-          "expected_date": null,
-          "grand_total": "250.0",
-          "inclusions": "",
-          "issued_on_date": null,
-          "letter_of_intent_date": null,
-          "number": "SC-001",
-          "origin_code": null,
+  ```
+  {
+    "request_name": "create_commitment_change_order",
+    "request_data": {
+      "job_origin_id": "project_origin_id",
+      "request_detail_id": 1,
+      "commitment": {
+        "id": 2,
+        "accounting_method": "amount",
+        "actual_completion_date": null,
+        "approval_letter_date": null,
+        "approved_change_orders": "0.0",
+        "assignee_id": null,
+        "bill_to_address": null,
+        "contract_date": null,
+        "contract_estimated_completion_date": null,
+        "contract_start_date": null,
+        "created_at": "2020-10-19T12:17:31-07:00",
+        "deleted_at": null,
+        "delivery_date": null,
+        "description": "",
+        "draft_change_orders_amount": "0.0",
+        "due_date": null,
+        "erp_custom_fields": null,
+        "exclusions": "",
+        "executed": false,
+        "execution_date": null,
+        "expected_date": null,
+        "grand_total": "250.0",
+        "inclusions": "",
+        "issued_on_date": null,
+        "letter_of_intent_date": null,
+        "number": "SC-001",
+        "origin_code": null,
+        "origin_data": null,
+        "origin_id": null,
+        "payment_terms": null,
+        "pending_change_orders": "0.0",
+        "pending_revised_contract": "250.0",
+        "percentage_paid": "0.0",
+        "private": true,
+        "project": {
+          "id": 86,
+          "name": "Project A",
+          "origin_data": "{\"edit_sequence\":\"1600977189\"}",
+          "origin_id": "800003DD-1600977189"
+        },
+        "remaining_balance_outstanding": "250.0",
+        "requisitions_are_enabled": null,
+        "retainage_percent": null,
+        "returned_date": null,
+        "revised_contract": "250.0",
+        "ship_to_address": null,
+        "ship_via": null,
+        "show_line_items_to_non_admins": false,
+        "signed_contract_received_date": null,
+        "status": "Approved",
+        "title": "WOC 1 (QB)",
+        "total_draw_requests_amount": "0.0",
+        "total_payments": "0.0",
+        "total_requisitions_amount": "0.0",
+        "updated_at": "2020-10-19T19:17:59Z",
+        "vendor": {
+          "id": 47,
+          "company": "90 Minute Courier",
+          "origin_data": "{\"edit_sequence\":\"1427805909\"}",
+          "origin_id": "800000CD-1389650341"
+        },
+        "code": "10543",
+        "type": "WorkOrderContract"
+      },
+      "commitment_items": [
+        {
+          "id": 177,
+          "amount": "0.0",
+          "company": {
+            "id": 9,
+            "name": "Quickbooks"
+          },
+          "cost_code": {
+            "id": 1472,
+            "name": "Purpose",
+            "full_code": "01-000",
+            "origin_id": "800003DD-1600977189|800005FA-1477351439",
+            "origin_data": null,
+            "standard_cost_code_id": 371,
+            "biller": "Project A",
+            "biller_id": 86,
+            "biller_type": "Project",
+            "biller_origin_id": "800003DD-1600977189",
+            "budgeted": true,
+            "code": "000",
+            "parent": {
+              "id": 1471
+            },
+            "sortable_code": "01-000",
+            "created_at": "2020-09-24T19:56:45Z",
+            "deleted_at": null,
+            "line_item_types": [
+              {
+                "id": 47,
+                "name": "Other",
+                "code": "O",
+                "base_type": null,
+                "origin_id": "std_cat_9_origin_id"
+              }
+            ],
+            "position": null,
+            "updated_at": "2020-09-24T19:59:35Z"
+          },
+          "created_at": "2020-10-19T19:17:53Z",
+          "description": "Zero dollar commitment line item",
+          "extended_amount": "0.0",
+          "extended_type": "manual",
+          "holder": {
+            "id": 41,
+            "holder_type": "WorkOrderContract"
+          },
+          "line_item_type": {
+            "id": 47,
+            "base_type": null,
+            "code": "O",
+            "name": "Other",
+            "origin_data": null,
+            "origin_id": "std_cat_9_origin_id"
+          },
           "origin_data": null,
           "origin_id": null,
-          "payment_terms": null,
-          "pending_change_orders": "0.0",
-          "pending_revised_contract": "250.0",
-          "percentage_paid": "0.0",
-          "private": true,
+          "position": 2,
           "project": {
             "id": 86,
             "name": "Project A",
             "origin_data": "{\"edit_sequence\":\"1600977189\"}",
             "origin_id": "800003DD-1600977189"
           },
-          "remaining_balance_outstanding": "250.0",
-          "requisitions_are_enabled": null,
-          "retainage_percent": null,
-          "returned_date": null,
-          "revised_contract": "250.0",
-          "ship_to_address": null,
-          "ship_via": null,
-          "show_line_items_to_non_admins": false,
-          "signed_contract_received_date": null,
-          "status": "Approved",
-          "title": "WOC 1 (QB)",
-          "total_draw_requests_amount": "0.0",
-          "total_payments": "0.0",
-          "total_requisitions_amount": "0.0",
-          "updated_at": "2020-10-19T19:17:59Z",
-          "vendor": {
-            "id": 47,
-            "company": "90 Minute Courier",
-            "origin_data": "{\"edit_sequence\":\"1427805909\"}",
-            "origin_id": "800000CD-1389650341"
+          "quantity": "0.0",
+          "tax_amount": "0.0",
+          "tax_code": null,
+          "tax_code_id": null,
+          "total_amount": "0.0",
+          "unit_cost": "0.0",
+          "uom": null,
+          "updated_at": "2020-10-19T19:17:54Z"
+        }
+      ],
+      "change_order": {
+        "id": 3,
+        "contract_id": 1,
+        "number": 45,
+        "status": "Approved",
+        "title": "Change order 1",
+        "created_at": "2020-10-19T19:17:54Z"
+        "deleted_at": null,
+        "origin_code": "cco-1",
+        "origin_data": null
+        "origin_id": null
+        "updated_at": "2020-10-19T19:17:54Z",
+        "due_date": "2020-10-19T19:17:54Z",
+        "invoiced_date": "2020-10-19T19:17:54Z",
+        "paid_date": "2020-10-19T19:17:54Z",
+        "reviewed_at": "2020-10-19T19:17:54Z",
+        "description": "This is a description",
+        "erp_custom_fields": {}
+      },
+      "change_order_items": [
+        {
+          "id": 188,
+          "amount": "233.0",
+          "commitment_line_item_id": 177,
+          "company": {
+            "id": 9,
+            "name": "Quickbooks"
           },
-          "code": "10543",
-          "type": "WorkOrderContract"
-        },
-        "commitment_items": [
-          {
-            "id": 177,
-            "amount": "0.0",
-            "company": {
-              "id": 9,
-              "name": "Quickbooks"
-            },
-            "cost_code": {
-              "id": 1472,
-              "name": "Purpose",
-              "full_code": "01-000",
-              "origin_id": "800003DD-1600977189|800005FA-1477351439",
-              "origin_data": null,
-              "standard_cost_code_id": 371,
-              "biller": "Project A",
-              "biller_id": 86,
-              "biller_type": "Project",
-              "biller_origin_id": "800003DD-1600977189",
-              "budgeted": true,
-              "code": "000",
-              "parent": {
-                "id": 1471
-              },
-              "sortable_code": "01-000",
-              "created_at": "2020-09-24T19:56:45Z",
-              "deleted_at": null,
-              "line_item_types": [
-                {
-                  "id": 47,
-                  "name": "Other",
-                  "code": "O",
-                  "base_type": null,
-                  "origin_id": "std_cat_9_origin_id"
-                }
-              ],
-              "position": null,
-              "updated_at": "2020-09-24T19:59:35Z"
-            },
-            "created_at": "2020-10-19T19:17:53Z",
-            "description": "Zero dollar commitment line item",
-            "extended_amount": "0.0",
-            "extended_type": "manual",
-            "holder": {
-              "id": 41,
-              "holder_type": "WorkOrderContract"
-            },
-            "line_item_type": {
-              "id": 47,
-              "base_type": null,
-              "code": "O",
-              "name": "Other",
-              "origin_data": null,
-              "origin_id": "std_cat_9_origin_id"
-            },
+          "cost_code": {
+            "id": 1472,
+            "name": "Purpose",
+            "full_code": "01-000",
+            "origin_id": "800003DD-1600977189|800005FA-1477351439",
             "origin_data": null,
-            "origin_id": null,
-            "position": 2,
-            "project": {
-              "id": 86,
-              "name": "Project A",
-              "origin_data": "{\"edit_sequence\":\"1600977189\"}",
-              "origin_id": "800003DD-1600977189"
+            "standard_cost_code_id": 371,
+            "biller": "Project A",
+            "biller_id": 86,
+            "biller_type": "Project",
+            "biller_origin_id": "800003DD-1600977189",
+            "budgeted": true,
+            "code": "000",
+            "parent": {
+              "id": 1471
             },
-            "quantity": "0.0",
-            "tax_amount": "0.0",
-            "tax_code": null,
-            "tax_code_id": null,
-            "total_amount": "0.0",
-            "unit_cost": "0.0",
-            "uom": null,
-            "updated_at": "2020-10-19T19:17:54Z"
-          }
-        ],
-        "change_order": {
-          "id": 3,
-          "contract_id": 1,
-          "number": 45,
-          "status": "Approved",
-          "title": "Change order 1",
-          "created_at": "2020-10-19T19:17:54Z"
-          "deleted_at": null,
-          "origin_code": "cco-1",
-          "origin_data": null
-          "origin_id": null
-          "updated_at": "2020-10-19T19:17:54Z",
-          "due_date": "2020-10-19T19:17:54Z",
-          "invoiced_date": "2020-10-19T19:17:54Z",
-          "paid_date": "2020-10-19T19:17:54Z",
-          "reviewed_at": "2020-10-19T19:17:54Z",
-          "description": "This is a description",
-          "erp_custom_fields": {}
-        },
-        "change_order_items": [
-          {
-            "id": 188,
-            "amount": "233.0",
-            "commitment_line_item_id": 177,
-            "company": {
-              "id": 9,
-              "name": "Quickbooks"
-            },
-            "cost_code": {
-              "id": 1472,
-              "name": "Purpose",
-              "full_code": "01-000",
-              "origin_id": "800003DD-1600977189|800005FA-1477351439",
-              "origin_data": null,
-              "standard_cost_code_id": 371,
-              "biller": "Project A",
-              "biller_id": 86,
-              "biller_type": "Project",
-              "biller_origin_id": "800003DD-1600977189",
-              "budgeted": true,
-              "code": "000",
-              "parent": {
-                "id": 1471
-              },
-              "sortable_code": "01-000",
-              "created_at": "2020-09-24T19:56:45Z",
-              "deleted_at": null,
-              "line_item_types": [
-                {
-                  "id": 47,
-                  "name": "Other",
-                  "code": "O",
-                  "base_type": null,
-                  "origin_id": "std_cat_9_origin_id"
-                }
-              ],
-              "position": null,
-              "updated_at": "2020-09-24T19:59:35Z"
-            },
-            "created_at": "2020-10-19T19:17:53Z",
-            "description": "Line Item 1",
-            "extended_amount": "250.0",
-            "extended_type": "manual",
-            "holder": {
-              "id": 41,
-              "holder_type": "WorkOrderContract"
-            },
-            "line_item_type": {
-              "id": 47,
-              "base_type": null,
-              "code": "O",
-              "name": "Other",
-              "origin_data": null,
-              "origin_id": "std_cat_9_origin_id"
-            },
+            "sortable_code": "01-000",
+            "created_at": "2020-09-24T19:56:45Z",
+            "deleted_at": null,
+            "line_item_types": [
+              {
+                "id": 47,
+                "name": "Other",
+                "code": "O",
+                "base_type": null,
+                "origin_id": "std_cat_9_origin_id"
+              }
+            ],
+            "position": null,
+            "updated_at": "2020-09-24T19:59:35Z"
+          },
+          "created_at": "2020-10-19T19:17:53Z",
+          "description": "Line Item 1",
+          "extended_amount": "250.0",
+          "extended_type": "manual",
+          "holder": {
+            "id": 41,
+            "holder_type": "WorkOrderContract"
+          },
+          "line_item_type": {
+            "id": 47,
+            "base_type": null,
+            "code": "O",
+            "name": "Other",
             "origin_data": null,
-            "origin_id": null,
-            "position": 1,
-            "project": {
-              "id": 86,
-              "name": "Project A",
-              "origin_data": "{\"edit_sequence\":\"1600977189\"}",
-              "origin_id": "800003DD-1600977189"
-            },
-            "quantity": "0.0",
-            "tax_amount": "0.0",
-            "tax_code": null,
-            "tax_code_id": null,
-            "total_amount": "250.0",
-            "unit_cost": "0.0",
-            "uom": null,
-            "updated_at": "2020-10-19T19:17:54Z"
-          }
-        ],
-        "additional_data": {
-          "accounting_date": null
-        },
-        "company_id": 7
-      }
-    }
-    ```
-    **Required Actions:**
-    To mark an exported commitment change order as synced, the integrator must send third-party origin_id information back to Procore for the commitment change order and its items, using the external data sync endpoint shown below.
-    ```
-    PATCH /rest/v1.0/companies/:company_id/external_data/sync
-    Body:
-    [
-      {
-        "item_id": {change_order_id},
-        "item_type": "change_order",
-        "origin_id": "{erp_cco_origin_id}"
+            "origin_id": "std_cat_9_origin_id"
+          },
+          "origin_data": null,
+          "origin_id": null,
+          "position": 1,
+          "project": {
+            "id": 86,
+            "name": "Project A",
+            "origin_data": "{\"edit_sequence\":\"1600977189\"}",
+            "origin_id": "800003DD-1600977189"
+          },
+          "quantity": "0.0",
+          "tax_amount": "0.0",
+          "tax_code": null,
+          "tax_code_id": null,
+          "total_amount": "250.0",
+          "unit_cost": "0.0",
+          "uom": null,
+          "updated_at": "2020-10-19T19:17:54Z"
+        }
+      ],
+      "additional_data": {
+        "accounting_date": null
       },
-      {
-        "item_id": {line_item_id},
-        "item_type": "line_item",
-        "origin_id": "line_item_origin_id_1"
-      },
-      {
-        "item_id": {line_item_id},
-        "item_type": "line_item",
-        "origin_id": "line_item_origin_id_2"
-      }
-    ]
-    ```
-    The integrator must also close out the request detail once the commitment and commitment line items have been exported to the ERP System.
-    Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
+      "company_id": 7
     }
-    ```
+  }
+```
+**Required Actions:**
+To mark an exported commitment change order as synced, the integrator must send third-party **origin_id** information back to Procore for the commitment change order and its items, using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The integrator must also close out the request detail once the commitment change order and its items have been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
+
 - **unlink_commitment_change_order** - This event occurs when a user attempts to unlink a commitment change order in the ERP Integration tool.
-    ```
-    {
-      "request_name": "unlink_commitment_change_order",
-      "request_data": {
-        "job_origin_id": "job_origin_id",
-        "erp_commitment_id": 1,
-        "erp_commitment_change_order_id": 2,
-        "request_detail_id": 3,
-        "commitment_origin_id": "commitment_origin_id",
-        "commitment_type": "contract_type",
-        "commitment_change_order_origin_id": "commitment_change_order_origin_id",
-        "procore_commitment_change_order_id": 4,
-        "project_id": 6
-      }
+```
+  {
+    "request_name": "unlink_commitment_change_order",
+    "request_data": {
+      "job_origin_id": "job_origin_id",
+      "erp_commitment_id": 1,
+      "erp_commitment_change_order_id": 2,
+      "request_detail_id": 3,
+      "commitment_origin_id": "commitment_origin_id",
+      "commitment_type": "contract_type",
+      "commitment_change_order_origin_id": "commitment_change_order_origin_id",
+      "procore_commitment_change_order_id": 4,
+      "project_id": 6
     }
-    ```
-    **Required Actions:**
-    The ERP Integration is expected to check the state of the commitment change order.
-    If the commitment change order is in a deleted state (e.g. deleted, archived, etc.), it should be unsynced via the external data endpoint shown below, and then the request detail should be closed out as successful.
-    If the commitment change order isn't in a deleted state, the request detail should be closed with a descriptive error message (e.g. "The commitment change order still exists in the ERP system and must be deleted first.").
-    ```
-    PATCH /rest/v1.0/companies/{company_id}/external_data
-    Body:
-    [
-      {
-        "item_type": 'change_order',
-        "item_id": {procore_commitment_id},
-        "origin_id": null
-      },
-      {
-        "item_type": 'line_item',
-        "item_id": {line_item_id_1},
-        "origin_id": null
-      },
-      {
-        "item_type": 'line_item',
-        "item_id": {line_item_id_2},
-        "origin_id": null
-      }
-    ]
-    ```
-    Integrators also need to close out the request_detail_id associated with the sync request, using the update endpoint shown below:
-    ```
-    PUT /rest/v1.0/companies/:company_id/erp_request_details/:id
-    Body:
-    {
-      "request_detail": {
-        "status": "success",
-        "messages": []
-      }
-    }
-    ```
+  }
+```
+**Required Actions:**
+The ERP Integration is expected to check the state of the commitment change order. If the commitment change order is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the commitment change order failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 - **sync_prime_contracts** - This event occurs when a user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import.
     ```
     {
