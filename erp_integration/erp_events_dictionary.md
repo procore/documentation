@@ -1341,7 +1341,7 @@ To mark an exported commitment change order as synced, the integrator must send 
 The ERP Integration is expected to check the state of the commitment change order. If the commitment change order is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the commitment change order failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 
-## Prime Contracts
+### Prime Contracts
 
 - **sync_prime_contracts** - This event occurs when a user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import.
 ```
@@ -1354,6 +1354,9 @@ The ERP Integration is expected to check the state of the commitment change orde
 ```
 **Required Actions:**
 The integrator can use the Procore API to stage any new prime contracts or prime contract items, using the [ERP Staged Records Sync](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) endpoint. The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
+
+## Prime Contract Change Orders
 
 - **create_prime_contract_change_order** - This event occurs when the accounting approver approves the export of a Prime Contract Change Order.
 ```
