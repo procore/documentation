@@ -110,7 +110,14 @@ There are no required actions for this event. If any standard cost code data has
 
 ## Standard Categories (Cost Types/Line Item Types)
 
-- **delete_standard_categories (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard categories. This sends a request to the microservice with the data necessary for the integrator to delete standard categories through the Procore API.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**delete_standard_categories**](#delete_standard_categories) | Yes | No | Occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard categories. |
+| [**sync_standard_categories**](#sync_standard_categories) | No | Yes | Occurs when a user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
+
+<br>
+
+### delete_standard_categories
+**Event Payload:**
 ```
   {
     "request_name": "delete_standard_categories",
@@ -124,9 +131,10 @@ There are no required actions for this event. If any standard cost code data has
   }
 ```
 **Required Actions:**
-There are no required actions for this event.
+There are no required actions for this event. If any standard category data has been cached in the microservice, the integrator can use the information provided to clean up their local cache.
 
-- **sync_standard_categories** - This event occurs when a user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool.
+### sync_standard_categories
+**Event Payload:**
 ```
   {
     "request_name": "sync_standard_categories",
@@ -136,10 +144,23 @@ There are no required actions for this event.
 **Required Actions:**
 To close out this event, the integrator should send any standard categories retrieved from the ERP system back to Procore via the [Line Item Types Sync](https://developers.procore.com/reference/rest/v1/line-item-types-cost-types?version=1.0#sync-line-item-types) endpoint. Note that there is no **request_detail_id** associated with this sync request, unlike standard cost codes and other syncable entities.
 
+---
 
 ## Vendors
 
-- **create_vendor** - This event occurs when a user exports a vendor from Procore to the ERP System.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_vendor**](#create_vendor) | No | Yes | Occurs when a user exports a vendor from Procore to the ERP System. |
+| [**create_vendor_in_procore**](#create_vendor_in_procore) | No | No | Occurs when a user imports a staged vendor in the ERP Integration Tool. |
+| [**link_all_vendors**](#link_all_vendors) | No | No | Occurs when a user links multiple ERP vendors to Procore vendors in the ERP Tab. |
+| [**link_vendor**](#link_vendor) | No | No | Occurs when a user links a vendor to a Procore vendor in the ERP Integration Tool. |
+| [**merge_vendors**](#merge_vendors) | No | No | Occurs when a user merges vendors using the Vendor Merge Tool. |
+| [**sync_vendors**](#sync_vendors) | No | Yes | Occurs when a user presses the Refresh Vendors List button in the ERP Tab in Procore. |
+| [**unlink_vendor**](#unlink_vendor) | No | No | Occurs when a user unlinks a vendor in the ERP Integration tool. |
+
+<br>
+
+### create_vendor
+**Event Payload:**
 ```
   {
     "request_name": "create_vendor",
@@ -192,7 +213,8 @@ To close out this event, the integrator should send any standard categories retr
 **Required Actions:**
 To mark the vendor as exported, the integrator must send a third-party **origin_id** associated with the vendor back to Procore, so that Procore knows the vendor is synced. This can be done via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. Integrators also need to close out the **request_detail_id** associated with the create request, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
-- **create_vendor_in_procore** - This event occurs when a user presses the Add to Procore button for a vendor in the ERP Integration Tool.
+### create_vendor_in_procore
+**Event Payload:**
 ```
   {
     "request_name": "create_vendor_in_procore",
@@ -208,7 +230,8 @@ To mark the vendor as exported, the integrator must send a third-party **origin_
 **Required Actions:**
 There are no required actions. Optionally, the integration can send any of the vendor's insurances to Procore via the [Company Vendor Insurances Sync](https://developers.procore.com/reference/rest/v1/company-vendor-insurances) endpoint.
 
-- **link_all_vendors** - This event occurs when a user links multiple ERP vendors to Procore vendors in the ERP Tab.
+### link_all_vendors
+**Event Payload:**
 ```
   {
     "request_name": "link_all_vendors",
@@ -230,7 +253,8 @@ There are no required actions. Optionally, the integration can send any of the v
 **Required Actions:**
 There are no required actions. Optionally, the integration can send any of the vendors' insurances to Procore via the [Company Vendor Insurances Sync](https://developers.procore.com/reference/rest/v1/company-vendor-insurances) endpoint.
 
-- **link_vendor** - This event occurs when a user links a vendor to a Procore vendor in the ERP Integration Tool.
+### link_vendor
+**Event Payload:**
 ```
   {
     "request_name": "link_vendor",
@@ -246,7 +270,8 @@ There are no required actions. Optionally, the integration can send any of the v
 **Required Actions:**
 There are no required actions. Optionally, the integration can send any of the vendor's insurances to Procore via the [Company Vendor Insurances Sync](https://developers.procore.com/reference/rest/v1/company-vendor-insurances) endpoint.
 
-- **merge_vendors** - This event occurs when a user merges vendors using the Vendor Merge Tool. The **master_vendor** contains the resulting vendor and its Procore/third-party identifiers. The **source_vendors** contains an array of all vendors that were merged into the master vendor. A source vendor's **origin_id** can be the same as the master vendor's **origin_id**, when a staged vendor is merged into another staged vendor and the source vendor was selected as the staged vendor on Step 2 of the Vendor Merge Tool. The **source_vendors** array can also be empty, when a non-ERP vendor is merged into an ERP vendor.
+### merge_vendors
+**Event Payload:**
 ```
   {
     "request_name": "merge_vendors",
@@ -265,10 +290,14 @@ There are no required actions. Optionally, the integration can send any of the v
     }
   }
 ```
+**Additional Info:**
+The **master_vendor** contains the resulting vendor and its Procore/third-party identifiers. The **source_vendors** contains an array of all vendors that were merged into the master vendor. A source vendor's **origin_id** can be the same as the master vendor's **origin_id**, when a staged vendor is merged into another staged vendor and the source vendor was selected as the staged vendor on Step 2 of the Vendor Merge Tool. The **source_vendors** array can also be empty, when a non-ERP vendor is merged into an ERP vendor.  
+
 **Required Actions:**
 There are no required actions. Optionally, the ERP Integration can perform cleanup related to the vendors that were merged and no longer exist in Procore.
 
-- **sync_vendors** - This event occurs when a user presses the Refresh Vendors List button in the ERP Tab in Procore.
+### sync_vendors
+**Event Payload:**
 ```
   {
     "request_name": "sync_vendors",
@@ -281,7 +310,8 @@ There are no required actions. Optionally, the ERP Integration can perform clean
 **Required Actions:**
 The integrator is responsible for staging any new vendors and updating any vendors in Procore that have already been synced. These actions can be performed using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Company Vendors](https://developers.procore.com/reference/rest/v1/company-vendors?version=1.0#sync-company-vendors).
 
-- **unlink_vendor** - This event occurs when a user unlinks a vendor in the ERP Integration tool.
+### unlink_vendor
+**Event Payload:**
 ```
   {
     "request_name": "unlink_vendor",
@@ -297,10 +327,22 @@ The integrator is responsible for staging any new vendors and updating any vendo
 **Required Actions:**
 There are no required actions. Optionally, the ERP Integration can perform cleanup related to the vendor that was unlinked (i.e. unsynced) in Procore.
 
+---
 
-## Projects (Jobs)
+## Projects
 
-- **create_job_in_procore** - This event occurs when a user presses the Add to Procore button for a project in the ERP Integration Tool.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_job_in_procore**](#create_job_in_procore) | No | No | Occurs when a user presses the Add to Procore button for a project in the ERP Integration Tool. |
+| [**create_or_update_job**](#create_or_update_job) | No | Yes | Occurs when a project is exported from Procore to the ERP System. |
+| [**reset_job**](#reset_job) | Yes | No | Occurs when an ERP support representative uses Super User access to reset a project at the request of a user. |
+| [**sync_jobs**](#sync_jobs) | No | Yes | Occurs when a user presses Refresh Job List button in the ERP Tab in Procore. |
+| [**sync_single_job**](#sync_single_job) | No | No | Sent out periodically and notifies the integrator to send any updates related to a specific job to Procore. |
+
+
+<br>
+
+### create_job_in_procore
+**Event Payload:**
 ```
   {
     "request_name": "create_job_in_procore",
@@ -319,7 +361,8 @@ There are no required actions. Optionally, the ERP Integration can perform clean
 **Required Actions:**
 There are no required actions. Optionally, the ERP Integration can sync data related to the new project via the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
 
-- **create_or_update_job (Export & Re-export)** - This event occurs when a project is exported from Procore to the ERP System. A project can be updated in Procore and then sent to ERP as well. The event payload contains all the exported attributes.
+### create_or_update_job
+**Event Payload:**
 ```
   {
     "request_name": "create_or_update_job"
@@ -410,7 +453,8 @@ There are no required actions. Optionally, the ERP Integration can sync data rel
 **Required Actions:**
 When the project has successfully exported to the ERP System, the integrator must pass back its third-party **origin_id** to Procore to mark the project as synced, via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint, for both the project and cost codes. For the cost codes' line item type assignments, there is a separate [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments) endpoint that will be needed to set the synced flag to true. Whether the job is being updated or exported for the first time, the integration must close out the request detail once the project has been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
-- **reset_job (Super User)** - This event occurs when an ERP support representative uses Super User access to reset a project at the request of a user. This will return the project and any related records (e.g. cost codes, sub jobs, prime contracts, commitments, change orders, etc.) to an unsynced state.
+### reset_job
+**Event Payload:**
 ```
   {
     "request_name": 'reset_job',
@@ -424,10 +468,14 @@ When the project has successfully exported to the ERP System, the integrator mus
     }
   }
 ```
+**Additional Info:**
+This will return the project and any related records (e.g. cost codes, sub jobs, prime contracts, commitments, change orders, etc.) to an unsynced state.  
+
 **Required Actions:**
 There are no required actions. If neccessary, the ERP Integration can clean up any related cached data for the job.
 
-- **sync_jobs** - This event occurs when a user presses Refresh Job List button in the ERP Tab in Procore.
+### sync_jobs
+**Event Payload:**
 ```
   {
     "request_name": "sync_jobs",
@@ -440,7 +488,8 @@ There are no required actions. If neccessary, the ERP Integration can clean up a
 **Required Actions:**
 The integrator can use the Procore API to stage any new projects and update any projects that have already been synced, using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Projects](https://developers.procore.com/reference/rest/v1/projects?version=1.0#sync-projects). The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
-- **sync_single_job** - This event is sent out periodically and notifies the integrator to send any updates related to a specific job to Procore.
+### sync_single_job
+**Event Payload:**
 ```
   {
     "request_name": "sync_single_job",
@@ -460,6 +509,7 @@ The integrator can use the Procore API to stage any new projects and update any 
 **Required Actions:**
 There are no required actions. Optionally, the ERP Integration can update the project or its related financial data using the [Projects Update](https://developers.procore.com/reference/rest/v1/projects?version=1.0#update-project) endpoint or the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
 
+---
 
 ## Sub Jobs
 
