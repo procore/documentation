@@ -975,7 +975,16 @@ There are no required actions in response to this event, but integrators can use
 
 ## Commitments
 
-- **create_commitment** - This event occurs when a user exports a commitment from the ERP Tab in Procore.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_commitment**](#create_commitment) | No | Yes | Occurs when a user exports a commitment from the ERP Tab in Procore. |
+| [**create_commitment_in_procore**](#create_commitment_in_procore) | No | No | Occurs when a user presses the Add to Procore button for a commitment in the ERP Integration Tool. |
+| [**sync_commitments**](#sync_commitments) | No | Yes | Occurs when a user presses the Refresh Commitments button in the ERP Tab in Procore. |
+| [**unlink_commitment**](#unlink_commitment) | No | Yes | Occurs when a user attempts to unlink a commitment in the ERP Integration tool. |
+
+<br>
+
+### create_commitment
+**Event Payload:**
 ```
   {
     "request_name": "create_commitment",
@@ -1131,7 +1140,8 @@ There are no required actions in response to this event, but integrators can use
 **Required Actions:**
 To mark an exported commitment as synced, the integrator must send third-party **origin_id** information back to Procore for the commitment and its items, using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The integrator must also close out the request detail once the commitment and commitment line items have been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
-- **create_commitment_in_procore** - This event occurs when a user presses the Add to Procore button for a commitment in the ERP Integration Tool.
+### create_commitment_in_procore
+**Event Payload:**
 ```
   {
     "request_name": "create_commitment_in_procore",
@@ -1150,7 +1160,8 @@ To mark an exported commitment as synced, the integrator must send third-party *
 **Required Actions:**
 There are no required actions. Optionally, the ERP integration might perform some kind of caching with the newly synced commitment information.
 
-- **sync_commitments** - This event occurs when a user presses the Refresh Commitments button in the ERP Tab in Procore.
+### sync_commitments
+**Event Payload:**
 ```
   {
     "request_name": "sync_commitments",
@@ -1163,7 +1174,8 @@ There are no required actions. Optionally, the ERP integration might perform som
 **Required Actions:**
 The integrator can stage commitments and commitment line items using the [ERP Staged Records Sync](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) endpoint. Integrators also need to close out the **request_detail_id** associated with the sync request, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints.
 
-- **unlink_commitment** - This event occurs when a user attempts to unlink a commitment in the ERP Integration tool.
+### unlink_commitment
+**Event Payload:**
 ```
   {
     "request_name": "unlink_commitment",
@@ -1181,10 +1193,18 @@ The integrator can stage commitments and commitment line items using the [ERP St
 **Required Actions:**
 The ERP Integration is expected to check the state of the commitment. If the commitment is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the commitment failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
+---
 
 ## Commitment Change Order
 
-- **create_commitment_change_order** - This event occurs when a user exports a commitment change order from the ERP Tab in Procore.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_commitment_change_order**](#create_commitment_change_order) | No | Yes | Occurs when a user exports a commitment change order from the ERP Tab in Procore. |
+| [**unlink_commitment_change_order**](#unlink_commitment_change_order) | No | Yes | Occurs when a user attempts to unlink a commitment change order in the ERP Integration tool. |
+
+<br>
+
+### create_commitment_change_order
+**Event Payload:**
 ```
   {
     "request_name": "create_commitment_change_order",
@@ -1434,7 +1454,8 @@ The ERP Integration is expected to check the state of the commitment. If the com
 **Required Actions:**
 To mark an exported commitment change order as synced, the integrator must send third-party **origin_id** information back to Procore for the commitment change order and its items, using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The integrator must also close out the request detail once the commitment change order and its items have been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
-- **unlink_commitment_change_order** - This event occurs when a user attempts to unlink a commitment change order in the ERP Integration tool.
+### unlink_commitment_change_order
+**Event Payload:**
 ```
   {
     "request_name": "unlink_commitment_change_order",
@@ -1454,10 +1475,17 @@ To mark an exported commitment change order as synced, the integrator must send 
 **Required Actions:**
 The ERP Integration is expected to check the state of the commitment change order. If the commitment change order is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the commitment change order failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
+---
 
 ## Prime Contracts
 
-- **sync_prime_contracts** - This event occurs when a user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**sync_prime_contracts**](#sync_prime_contracts) | No | Yes | Occurs when a user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import. |
+
+<br>
+
+### sync_prime_contracts
+**Event Payload:**
 ```
   {
     "request_name": "sync_prime_contracts",
@@ -1469,10 +1497,18 @@ The ERP Integration is expected to check the state of the commitment change orde
 **Required Actions:**
 The integrator can use the Procore API to stage any new prime contracts or prime contract items, using the [ERP Staged Records Sync](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) endpoint. The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
+---
 
 ## Prime Contract Change Orders
 
-- **create_prime_contract_change_order** - This event occurs when the accounting approver approves the export of a Prime Contract Change Order.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_prime_contract_change_order**](#create_prime_contract_change_order) | No | Yes | Occurs when the accounting approver approves the export of a prime contract change order. |
+| [**reset_prime_contract_change_order**](#reset_prime_contract_change_order) | Yes | Yes | Occurs when an ERP support member resets a prime contract change order at the request of the user. |
+
+<br>
+
+### create_prime_contract_change_order
+**Event Payload:**
 ```
   {
     "request_name": "sync_prime_contracts",
@@ -1703,7 +1739,8 @@ The integrator can use the Procore API to stage any new prime contracts or prime
 **Required Actions**:
 After the prime contract change order and its items have been exported to the ERP system, the integrator must send third-party **origin_id** information back to Procore for the prime contract change order and its items, using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
-- **reset_prime_contract_change_order (Super Only)** - This event occurs when an ERP support member resets a prime contract change order at the request of the user.
+### reset_prime_contract_change_order
+**Event Payload:**
 ```
   {
     "prime_contract_id": 76,
