@@ -513,7 +513,17 @@ There are no required actions. Optionally, the ERP Integration can update the pr
 
 ## Sub Jobs
 
-- **create_sub_job** - This event occurs when a sub job is exported from Procore to the ERP System. The event payload contains all the exported attributes.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_sub_job**](#create_sub_job) | No | Yes | Occurs when a sub job is exported from Procore to the ERP System. The event payload contains all the exported attributes. |
+| [**create_sub_job_in_procore**](#create_sub_job_in_procore) | No | No | Occurs when a user presses the Add to Procore button for a Sub Job in the ERP Integration Tool. |
+| [**reset_sub_job**](#reset_sub_job) | Yes | No | Occurs when an ERP support representative uses Super User access to reset a sub job at the request of the customer. |
+| [**sync_sub_job**](#sync_sub_job) | No | No | Sent periodically and notifies the integrator to send any updates related to a specific sub job to Procore. |
+| [**sync_sub_jobs**](#sync_sub_jobs) | No | Yes | Occurs when a user presses the Refresh Sub Jobs button in the ERP Tab in Procore. |
+
+<br>
+
+### create_sub_job
+**Event Payload:**
 ```
   {
     "request_name": "create_sub_job",
@@ -605,7 +615,8 @@ There are no required actions. Optionally, the ERP Integration can update the pr
 **Required Actions:**
 When the sub job has successfully exported to the ERP System, the integrator must pass back its third-party **origin_id** to Procore to mark the sub job as synced, via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint, for both the project and cost codes. For the cost codes' line item type assignments, there is a separate [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments) endpoint that will be needed to set the synced flag to true. The integration must close out the request detail once the sub job has been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
-- **create_sub_job_in_procore** - This event occurs when a user presses the Add to Procore button for a Sub Job in the ERP Integration Tool.
+### create_sub_job_in_procore
+**Event Payload:**
 ```
   {
     "request_name": "create_sub_job_in_procore"
@@ -634,7 +645,8 @@ When the sub job has successfully exported to the ERP System, the integrator mus
 **Required Actions:**
 There are no required actions. Optionally, the ERP Integration can sync data related to the new sub job via the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
 
-- **reset_sub_job (Super User)** - This event occurs when an ERP support representative uses Super User access to reset a sub job at the request of the customer. This will return the sub job to an unsynced state.
+### reset_sub_job
+**Event Payload:**
 ```
   {
     "request_name": 'reset_sub_job',
@@ -660,10 +672,14 @@ There are no required actions. Optionally, the ERP Integration can sync data rel
     }
   }
 ```
+**Additional Info:**
+This will return the sub job to an unsynced state.  
+
 **Required Actions:**
 There are no required actions. If neccessary, the integrator can clean up any related cached data for the sub job.
 
-- **sync_sub_job** - This event is sent periodically and notifies the integrator to send any updates related to a specific sub job to Procore.
+### sync_sub_job
+**Event Payload:**
 ```
   {
     "request_name": "sync_sub_job",
@@ -684,7 +700,8 @@ There are no required actions. If neccessary, the integrator can clean up any re
 **Required Actions:**
 There are no required actions. Optionally, the ERP Integration can update the sub job or its related financial data using the [Sub Jobs Update](https://developers.procore.com/reference/rest/v1/sub-jobs?version=1.0#update-sub-job) endpoint or the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
 
-- **sync_sub_jobs** - This event occurs when a user presses the Refresh Sub Jobs button in the ERP Tab in Procore.
+### sync_sub_jobs
+**Event Payload:**
 ```
   {
     "request_name": "sync_sub_jobs",
@@ -697,9 +714,18 @@ There are no required actions. Optionally, the ERP Integration can update the su
 **Required Actions:**
 The integrator can use the Procore API to stage any new sub jobs and update any sub jobs that have already been synced, using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Sub Jobs](https://developers.procore.com/reference/rest/v1/sub-jobs?version=1.0#sync-sub-jobs). The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
-## Project/Sub Job Cost Codes
+---
 
-- **delete_cost_codes** - This event occurs when a user attempts to delete synced project cost codes.
+## Cost Codes and Line Item Type Assignments
+
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**delete_cost_codes**](#delete_cost_codes) | No | Yes | Occurs when a user attempts to delete synced project cost codes. |
+| [**delete_cost_type_assignments**](#delete_cost_type_assignments) | No | Yes | Occurs when a user attempts to delete synced project line item type assignments. |
+
+<br>
+
+### delete_cost_codes
+**Event Payload:**
 ```
   {
     "request_name": "delete_cost_codes",
@@ -726,7 +752,8 @@ The integrator can use the Procore API to stage any new sub jobs and update any 
 **Required Actions:**
 The event payload contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
-- **delete_cost_type_assignments** - This event occurs when a user attempts to delete synced project line item type assignments.
+### delete_cost_type_assignments
+**Event Payload:**
 ```
   {
     "request_name": "delete_cost_type_assignments"
@@ -754,10 +781,19 @@ The event payload contains a **request_detail_id** which the integrator must clo
 **Required Actions:**
 The ERP Integration is expected to check the state of the assignments. If the assignments are in a deleted state (e.g. deleted, archived, etc.), they and any related job costs should be deleted via the delete endpoints for [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#delete-a-cost-code-line-item-type-assignment) and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#delete-erp-job-cost). The request details in the event payoad should then be closed out, optionally with error messages if any assignments failed to delete, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
+---
 
-## Budget
+## Budgets
 
-- **create_budget** - This event occurs when a user attempts to export a budget from Procore.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_budget**](#create_budget) | No | Yes | Occurs when a user attempts to export a budget from Procore. |
+| [**update_budget**](#update_budget) | No | Yes | Occurs when a user attempts to re-export a budget from Procore. |
+| [**create_budget_in_procore**](#create_budget_in_procore) | No | No | Occurs when a user imports a budget in the ERP Integration Tool. |
+
+<br>
+
+### create_budget
+**Event Payload:**
 ```
   {
     "request_name": "create_budget",
@@ -803,9 +839,12 @@ The ERP Integration is expected to check the state of the assignments. If the as
 **Required Actions:**
 When the budget has been successfully exported to the ERP system, the integrator must send back its third-party **origin_id** value back to Procore to mark the budget as synced, via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. Afterwards, mark the transactions as synced by hitting a specific [ERP Transactions Sync](https://developers.procore.com/reference/rest/v1/erp-transactions?version=1.0#sync-erp-transactions) endpoint. Lastly, close out the request detail record using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints.
 
-- **update_budget** - Same as **create_budget** above, except the budget record will contain an **origin_id** value that will help with finding the existing budget in the ERP system and pushing new transaction records only. The **transactions** array will only contain records that are unsynced.
+### update_budget
+**Additional Info:**
+Same as **create_budget** above, except the budget record will contain an **origin_id** value that will help with finding the existing budget in the ERP system and pushing new transaction records only. The **transactions** array will only contain records that are unsynced.
 
-- **create_budget_in_procore** - This event occurs when a user presses the Add to Procore button for a budget in the ERP Integration Tool.
+### create_budget_in_procore
+**Event Payload:**
 ```
   {
     "request_name": "create_budget_in_procore",
@@ -825,10 +864,18 @@ When the budget has been successfully exported to the ERP system, the integrator
 **Required Actions:**
 There are no required actions. Optionally, the ERP integration might perform some kind of caching with the newly synced budget information.
 
+---
 
-## Invoices (Requisitions)
+## Requisitions
 
-- **create_requisitions** - This event occurs when a user exports a batch of requisitions from the ERP Integration tool.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_requisitions**](#create_requisitions) | No | Yes | Occurs when a user exports a batch of requisitions from the ERP Integration tool. |
+| [**reset_requisition**](#reset_requisition) | Yes | No | This event occurs when an ERP support representative, at the request of the customer, uses Super User access to reset a synced requisition. |
+
+<br>
+
+### create_requisitions
+**Event Payload:**
 ```
   {
     "request_name": "create_requisitions",
@@ -905,7 +952,8 @@ There are no required actions. Optionally, the ERP integration might perform som
 **Required Actions:**
 To mark an exported requisition as synced, send its **origin_id** from the ERP system to Procore via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint.
 
-- **reset_requisition (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to reset a synced requisition. This resets the status of the requisition in Procore and sends an event to the microservice indicating that the requisition has been unsynced.
+### reset_requisition
+**Event Payload:**
 ```
   {
     "request_name": "reset_requisition",
@@ -917,9 +965,13 @@ To mark an exported requisition as synced, send its **origin_id** from the ERP s
     }
   }
 ```
+**Additional Info:**
+This resets the status of the requisition in Procore and sends an event to the microservice indicating that the requisition has been unsynced.  
+
 **Required Actions:**
 There are no required actions in response to this event, but integrators can use the data provided by this event to clear any cached data associated with the requisition or its items in the microservice.
 
+---
 
 ## Commitments
 
