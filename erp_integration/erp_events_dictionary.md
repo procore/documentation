@@ -8,7 +8,7 @@ section_title: ERP Integration
 
 ## Context
 
-The ERP Platform is events-driven. This means that, as an integrator, you will receive events for every action that requires communication with the ERP accounting system. You will also receive events if ERP data is mutated by user actions in Procore. Below are just a few examples of the sort of actions that may produce events.
+The ERP Platform is events-driven. This means that, as an integrator, you will receive events for every action that requires communication with the ERP accounting system. You will also receive events when ERP data is mutated by user actions in Procore. Below are a few examples of the sort of actions that may produce events.
 
 - Approving a staged record (e.g. **create_job_in_procore**)
 - Unlinking a synced record (e.g. **unlink_vendor**)
@@ -18,11 +18,20 @@ The ERP Platform is events-driven. This means that, as an integrator, you will r
 The event notification payload can be found [here]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}).
 The main property to be aware of is **resource_id**, which is the ERP Request ID. As a system integrator, you are responsible for fetching event payloads from the [ERP Requests Show](https://developers.procore.com/reference/rest/v1/erp-requests#show-erp-request) endpoint using the **resource_id** provided above.
 
-## Supported Events
+---
 
-### Standard Cost Codes
+## Standard Cost Codes
 
-- **create_standard_cost_codes** - This event occurs when a customer presses the button to export standard cost codes on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool.
+| **Name** | **Super User** | **Action Required** | **Description** |
+| [**create_standard_cost_codes**](#create_standard_cost_codes) | No | Yes | Occurs when a user exports a list of standard cost codes from the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
+| [**delete_standard_cost_codes**](#delete_standard_cost_codes) | Yes | No | Occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard cost codes. |
+| [**sync_standard_cost_codes**](#sync_standard_cost_codes) | No | Yes | Occurs when a user initiates a sync of standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
+| [**unlink_standard_cost_codes**](#unlink_standard_cost_codes) | Yes | No | Occurs when an ERP support representative, at the request of the customer, uses Super User access to unlink standard cost codes. |
+
+<br>
+
+### create_standard_cost_codes  
+**Event Payload:**
 ```
   {
     "request_name": "create_standard_cost_codes",
@@ -48,7 +57,8 @@ The main property to be aware of is **resource_id**, which is the ERP Request ID
 **Required Actions:**
 To close out this event, integrators need to send the third-party **origin_id** for each standard cost code to Procore, so that Procore knows the entity is synced. You can do this for a batch of standard cost codes using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. Integrators also need to close out the **request_detail_id** associated with each exported standard cost code. These can be updated one-by-one or in bulk using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
-- **delete_standard_cost_codes (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard cost codes. This sends a request to the microservice with the data necessary for the integrator to delete standard cost codes through the Procore API.
+### delete_standard_cost_codes
+**Event Payload:**
 ```
   {
     "request_name": "delete_standard_cost_codes",
@@ -63,10 +73,10 @@ To close out this event, integrators need to send the third-party **origin_id** 
   }
 ```
 **Required Actions:**
-If supported, the integrator is expected to check if the standard cost codes are in deleted states.
-If they are, requests to delete each standard cost code should be sent via the [Standard Cost Codes Delete](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#delete-standard-cost-code_deprecated) endpoint. If they aren't, nothing should be done.
+There are no required actions for this event. If any standard cost code data has been cached in the microservice, the integrator can use the information provided to clean up their local cache.
 
-- **sync_standard_cost_codes** - This event occurs when a user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool.
+### sync_standard_cost_codes
+**Event Payload:**
 ```
   {
     "request_name": "sync_standard_cost_codes",
@@ -79,7 +89,8 @@ If they are, requests to delete each standard cost code should be sent via the [
 **Required Actions:**
 To close out this event, the integrator should send standard cost codes from the ERP system to Procore using the [Standard Cost Codes Sync](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-standard-cost-codes) endpoint. Note that you are hitting a Procore endpoint rather than the ERP Staged Records endpoint because the ERP Platform does not support staging standard cost codes and cost types. Integrators also need to close out the **request_detail_id** associated with the sync request using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
-- **unlink_standard_cost_codes (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to unlink standard cost codes.
+### unlink_standard_cost_codes
+**Event Payload:**
 ```
   {
     "request_name": "unlink_standard_cost_codes",
@@ -95,8 +106,9 @@ To close out this event, the integrator should send standard cost codes from the
 **Required Actions:**
 There are no required actions for this event. If any standard cost code data has been cached in the microservice, the integrator can use the information provided to clean up their local cache.
 
+---
 
-### Standard Categories (Cost Types/Line Item Types) ###
+## Standard Categories (Cost Types/Line Item Types)
 
 - **delete_standard_categories (Super User)** - This event occurs when an ERP support representative, at the request of the customer, uses Super User access to delete standard categories. This sends a request to the microservice with the data necessary for the integrator to delete standard categories through the Procore API.
 ```
@@ -125,7 +137,7 @@ There are no required actions for this event.
 To close out this event, the integrator should send any standard categories retrieved from the ERP system back to Procore via the [Line Item Types Sync](https://developers.procore.com/reference/rest/v1/line-item-types-cost-types?version=1.0#sync-line-item-types) endpoint. Note that there is no **request_detail_id** associated with this sync request, unlike standard cost codes and other syncable entities.
 
 
-### Vendors
+## Vendors
 
 - **create_vendor** - This event occurs when a user exports a vendor from Procore to the ERP System.
 ```
@@ -286,7 +298,7 @@ The integrator is responsible for staging any new vendors and updating any vendo
 There are no required actions. Optionally, the ERP Integration can perform cleanup related to the vendor that was unlinked (i.e. unsynced) in Procore.
 
 
-### Projects (Jobs) ###
+## Projects (Jobs)
 
 - **create_job_in_procore** - This event occurs when a user presses the Add to Procore button for a project in the ERP Integration Tool.
 ```
@@ -449,7 +461,7 @@ The integrator can use the Procore API to stage any new projects and update any 
 There are no required actions. Optionally, the ERP Integration can update the project or its related financial data using the [Projects Update](https://developers.procore.com/reference/rest/v1/projects?version=1.0#update-project) endpoint or the sync endpoints for [Cost Codes](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#sync-cost-codes), [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#sync-cost-code-line-item-type-assignments), and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#sync-erp-job-costs).
 
 
-### Sub Jobs ###
+## Sub Jobs
 
 - **create_sub_job** - This event occurs when a sub job is exported from Procore to the ERP System. The event payload contains all the exported attributes.
 ```
@@ -635,7 +647,7 @@ There are no required actions. Optionally, the ERP Integration can update the su
 **Required Actions:**
 The integrator can use the Procore API to stage any new sub jobs and update any sub jobs that have already been synced, using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Sub Jobs](https://developers.procore.com/reference/rest/v1/sub-jobs?version=1.0#sync-sub-jobs). The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
-### Project/Sub Job Cost Codes
+## Project/Sub Job Cost Codes
 
 - **delete_cost_codes** - This event occurs when a user attempts to delete synced project cost codes.
 ```
@@ -693,7 +705,7 @@ The event payload contains a **request_detail_id** which the integrator must clo
 The ERP Integration is expected to check the state of the assignments. If the assignments are in a deleted state (e.g. deleted, archived, etc.), they and any related job costs should be deleted via the delete endpoints for [Line Item Type Assignments](https://developers.procore.com/reference/rest/v1/cost-code-line-item-types?version=1.0#delete-a-cost-code-line-item-type-assignment) and [ERP Job Costs](https://developers.procore.com/reference/rest/v1/erp-job-costs?version=1.0#delete-erp-job-cost). The request details in the event payoad should then be closed out, optionally with error messages if any assignments failed to delete, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 
-### Budget
+## Budget
 
 - **create_budget** - This event occurs when a user attempts to export a budget from Procore.
 ```
@@ -741,7 +753,7 @@ The ERP Integration is expected to check the state of the assignments. If the as
 **Required Actions:**
 When the budget has been successfully exported to the ERP system, the integrator must send back its third-party **origin_id** value back to Procore to mark the budget as synced, via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. Afterwards, mark the transactions as synced by hitting a specific [ERP Transactions Sync](https://developers.procore.com/reference/rest/v1/erp-transactions?version=1.0#sync-erp-transactions) endpoint. Lastly, close out the request detail record using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints.
 
-- **update_budget** - Same as `create_budget` above, except the budget record will contain an **origin_id** value that will help with finding the existing budget in the ERP system and pushing new transaction records only. The **transactions** array will only contain records that are unsynced.
+- **update_budget** - Same as **create_budget** above, except the budget record will contain an **origin_id** value that will help with finding the existing budget in the ERP system and pushing new transaction records only. The **transactions** array will only contain records that are unsynced.
 
 - **create_budget_in_procore** - This event occurs when a user presses the Add to Procore button for a budget in the ERP Integration Tool.
 ```
@@ -764,7 +776,7 @@ When the budget has been successfully exported to the ERP system, the integrator
 There are no required actions. Optionally, the ERP integration might perform some kind of caching with the newly synced budget information.
 
 
-### Invoices (Requisitions)
+## Invoices (Requisitions)
 
 - **create_requisitions** - This event occurs when a user exports a batch of requisitions from the ERP Integration tool.
 ```
@@ -859,7 +871,7 @@ To mark an exported requisition as synced, send its **origin_id** from the ERP s
 There are no required actions in response to this event, but integrators can use the data provided by this event to clear any cached data associated with the requisition or its items in the microservice.
 
 
-### Commitments
+## Commitments
 
 - **create_commitment** - This event occurs when a user exports a commitment from the ERP Tab in Procore.
 ```
@@ -1068,10 +1080,10 @@ The integrator can stage commitments and commitment line items using the [ERP St
 The ERP Integration is expected to check the state of the commitment. If the commitment is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the commitment failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 
-### Commitment Change Order
+## Commitment Change Order
 
 - **create_commitment_change_order** - This event occurs when a user exports a commitment change order from the ERP Tab in Procore.
-  ```
+```
   {
     "request_name": "create_commitment_change_order",
     "request_data": {
@@ -1341,7 +1353,7 @@ To mark an exported commitment change order as synced, the integrator must send 
 The ERP Integration is expected to check the state of the commitment change order. If the commitment change order is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the commitment change order failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 
-### Prime Contracts
+## Prime Contracts
 
 - **sync_prime_contracts** - This event occurs when a user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import.
 ```
@@ -1356,7 +1368,7 @@ The ERP Integration is expected to check the state of the commitment change orde
 The integrator can use the Procore API to stage any new prime contracts or prime contract items, using the [ERP Staged Records Sync](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) endpoint. The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 
-### Prime Contract Change Orders
+## Prime Contract Change Orders
 
 - **create_prime_contract_change_order** - This event occurs when the accounting approver approves the export of a Prime Contract Change Order.
 ```
