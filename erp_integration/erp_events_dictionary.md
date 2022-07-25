@@ -308,7 +308,7 @@ There are no required actions. Optionally, the ERP Integration can perform clean
 }
 ```
 **Required Actions:**
-The integrator is responsible for staging any new vendors and updating any vendors in Procore that have already been synced. These actions can be performed using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Company Vendors](https://developers.procore.com/reference/rest/v1/company-vendors?version=1.0#sync-company-vendors).
+The integrator is responsible for staging any new vendors and updating any vendors in Procore that have already been synced. These actions can be performed using the sync endpoints for [ERP Staged Records](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) and [Company Vendors](https://developers.procore.com/reference/rest/v1/company-vendors?version=1.0#sync-company-vendors). Integrators also need to close out the **request_detail_id** associated with the sync request, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 ### unlink_vendor
 **Event Payload:**
@@ -718,10 +718,33 @@ The integrator can use the Procore API to stage any new sub jobs and update any 
 ## Cost Codes and Line Item Type Assignments
 
 | **Name** | **Super User** | **Action Required** | **Occurs When** |
+| [**delete_cost_code**](#delete_cost_code) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to delete synced project cost codes. |
 | [**delete_cost_codes**](#delete_cost_codes) | No | Yes | A user attempts to delete synced project cost codes. |
 | [**delete_cost_type_assignments**](#delete_cost_type_assignments) | No | Yes | A user attempts to delete synced project line item type assignments. |
 
 <br>
+
+### delete_cost_code
+**Event Payload:**
+```
+{
+  "request_name": "delete_cost_code",
+  "request_data": {
+    "project_cost_code_data_array": [
+      {
+        "id": 1,
+        "origin_id": "cost_code_origin_id",
+        "sortable_code": "1-01"
+      }
+    ],
+    "project_origin_id": "project_origin_id",
+    "procore_project_id": 2,
+    "procore_sub_job_id": 3
+  }
+}
+```
+**Required Actions:**
+There are no required actions. If any cost code data has been cached in the microservice, the integrator can use the information provided to clean up their local cache.
 
 ### delete_cost_codes
 **Event Payload:**
@@ -969,6 +992,44 @@ This resets the status of the requisition in Procore and sends an event to the m
 
 **Required Actions:**
 There are no required actions in response to this event, but integrators can use the data provided by this event to clear any cached data associated with the requisition or its items in the microservice.
+
+---
+
+## Payments
+
+| **Name** | **Super User** | **Action Required** | **Occurs When** |
+| [**reset_payment**](#reset_payment) | Yes | Yes | An ERP support member resets a payment at the request of the user. |
+| [**sync_contract_payments**](#reset_payment) | No | Yes | A user initiates a sync of invoice payments on the Subcontractor Invoices tab in Procore's ERP Integration tool. |
+
+<br>
+
+### reset_payment
+**Event Payload:**
+```
+{
+  request_name: "reset_payment",
+  request_data: {
+    payment_id: 1,
+    payment_type: "credit_card",
+    reset_override: false
+  }
+}
+```
+**Required Actions:**
+The ERP Integration is expected to check the state of the payment. If the payment is in a deleted state (e.g. deleted, archived, etc.), it should be unlinked in Procore via the [Invoice Payments Unlink](https://developers.procore.com/reference/rest/v1/invoice-payments?version=1.0#unlinks-an-invoice-payment-from-erp) endpoint.
+
+### sync_contract_payments
+**Event Payload:**
+```
+{
+  request_name: "sync_contract_payments",
+  request_data: {
+    request_detail_id: 1
+  }
+}
+```
+**Required Actions:**
+The integrator is responsible for pulling invoice payments from the ERP system and either creating or updating them in Procore. These actions can be performed using the [Invoice Payments Sync](https://developers.procore.com/reference/rest/v1/invoice-payments?version=1.0#updates-creates-invoice-payments-in-bulk) endpoint. Integrators also need to close out the **request_detail_id** associated with the sync request, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 ---
 
