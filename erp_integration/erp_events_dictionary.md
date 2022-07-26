@@ -1255,10 +1255,11 @@ The ERP Integration is expected to check the state of the commitment. If the com
 
 ---
 
-## Commitment Change Order
+## Commitment Change Orders
 
 | **Name** | **Super User** | **Action Required** | **Occurs When** |
 | [**create_commitment_change_order**](#create_commitment_change_order) | No | Yes | A user exports a commitment change order from the ERP Tab in Procore. |
+| [**sync_commitment_change_orders**](#sync_commitment_change_orders) | No | Yes | A user initiates a sync of commitment change orders in Procore's ERP Integration tool. |
 | [**unlink_commitment_change_order**](#unlink_commitment_change_order) | No | Yes | A user attempts to unlink a commitment change order in the ERP Integration tool. |
 
 <br>
@@ -1514,6 +1515,19 @@ The ERP Integration is expected to check the state of the commitment. If the com
 **Required Actions:**
 To mark an exported commitment change order as synced, the integrator must send third-party **origin_id** information back to Procore for the commitment change order and its items, using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The integrator must also close out the request detail once the commitment change order and its items have been exported to the ERP System, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
 
+### sync_commitment_change_orders
+**Event Payload:**
+```
+{
+  "request_name": "sync_commitment_change_orders",
+  "request_data": {
+    "request_detail_id": 1
+  }
+}
+```
+**Required Actions:**
+The integrator is responsible for pulling commitment change orders from the ERP system and staging them in Procore, using the [ERP Staged Records Sync](https://developers.procore.com/reference/rest/v1/erp-staged-record?version=1.0#sync-staged-record) endpoint. Integrators also need to close out the **request_detail_id** associated with the sync request, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
 ### unlink_commitment_change_order
 **Event Payload:**
 ```
@@ -1564,6 +1578,7 @@ The integrator can use the Procore API to stage any new prime contracts or prime
 | **Name** | **Super User** | **Action Required** | **Occurs When** |
 | [**create_prime_contract_change_order**](#create_prime_contract_change_order) | No | Yes | An accounting approver approves the export of a prime contract change order. |
 | [**reset_prime_contract_change_order**](#reset_prime_contract_change_order) | Yes | Yes | An ERP support member resets a prime contract change order at the request of the user. |
+| [**unlink_prime_contract_change_order**](#unlink_prime_contract_change_order) | No | Yes | A user attempts to unlink a prime contract change order in the ERP Integration tool. |
 
 <br>
 
@@ -1875,4 +1890,81 @@ After the prime contract change order and its items have been exported to the ER
 }
 ```
 **Required Actions:**
+The ERP Integration is expected to check the state of the prime contract change order. If the prime contract change order is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint.
+
+### unlink_prime_contract_change_order
+**Event Payload:**
+```
+{
+  "prime_contract": {
+    "id": 1,
+    "number": "327 - MYPC",
+    "origin_data": null,
+    "origin_id": "MYPC",
+    "procore_prime_contract_id": 1,
+    "project_id": 2,
+    "title": "327 My Prime Contract"
+  },
+  "prime_contract_change_order": {
+    "prime_contract_origin_id": "MYPC",
+    "created_at": "2021-07-01T08:44:32-13:00",
+    "description": "Change Description",
+    "id": 3,
+    "job_origin_id": "project_origin_id",
+    "number": 327 - MYPC - CO1,
+    "origin_id": "MYPCCO1",
+    "title": "My Change Order",
+    "origin_code": "MYPCCO1",
+    "custom_fields": {},
+    "erp_custom_fields": {}
+  },
+  "prime_contract_change_order_line_items": [
+    {
+      "cost_code_origin_id": "cost_code_origin_id",
+      "cost_code_origin_data": null,
+      "description": "Concrete Finishing",
+      "estimate_amount": 123.45,
+      "prime_contract_change_order_origin_id": "MYPCCO1",
+      "origin_id": "MYPCCO1LI1",
+      "prime_contract_item_id": 4,
+      "prime_contract_item_origin_data": null,
+      "prime_contract_item_origin_id": "prime_contract_item_origin_id",
+      "prime_contract_item_position": 1,
+      "id": 5,
+      "procore_prime_contract_item_id": 4,
+      "revenue_amount": 543.21,
+      "line_item_type_origin_id": "line_item_type_origin_id",
+      "line_item_type_origin_data": null,
+      "position": 2,
+      "potential_change_order_id": 6,
+      "job_origin_id": "project_origin_id",
+      "markup_line_items": []
+    }
+  ],
+  "request_detail_id": 12345
+}
+```
+**Required Actions:**
 The ERP Integration is expected to check the state of the prime contract change order. If the prime contract change order is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the prime contract change order failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
+---
+
+## ERP Metadata
+
+| **Name** | **Super User** | **Action Required** | **Occurs When** |
+| [**sync_metadata**](#sync_metadata) | No | Yes | A user performs an action requiring ERP metadata but the integration's metadata is not stored in Procore. |
+
+<br>
+
+### sync_metadata
+**Event Payload:**
+```
+{
+  "request_name": "sync_metadata",
+  "request_data": {
+    "company_id": 1
+  }
+}
+```
+**Required Actions:**
+The ERP Integration is expected to sync its ERP metadata with Procore via the [ERP Metadata Configurations Update](https://developers.procore.com/reference/rest/v1/erp-connections?version=1.0#update-erp-metadata-configuration) endpoint.
