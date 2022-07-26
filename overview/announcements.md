@@ -1,9 +1,11 @@
 ---
 permalink: /announcements
-title: Announcements
+title: Procore Developer Documentation
 layout: default
 section_title: Overview
 ---
+## Announcements
+
 >**Procore-Company-Id Request Header Requirement** (06/16/2022)
 >
 >As described in [Request Header Requirements for Multiple Procore Zones]({{ site.url }}{{ site.baseurl }}{% link best_practices/mpz_headers.md %}), the `Procore-Company-Id` request header is required to successfully make calls to the Procore API (api.procore.com), regardless of zone.
