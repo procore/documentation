@@ -6,13 +6,13 @@ section_title: Overview
 ---
 ## Announcements
 
->**Procore-Company-Id Request Header Requirement**
+>**Procore-Company-Id Request Header Requirement** (06/16/2022)
 >
 >As described in [Request Header Requirements for Multiple Procore Zones]({{ site.url }}{{ site.baseurl }}{% link best_practices/mpz_headers.md %}), the `Procore-Company-Id` request header is required to successfully make calls to the Procore API (api.procore.com), regardless of zone.
 >If you have yet to incorporate the `Procore-Company-Id` request header into your integration designs, we encourage you to do so as soon as possible.
 >If you have questions regarding this requirement, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
->**Bearer Token to be Required for File Access Authorization**
+>**Bearer Token to be Required for File Access Authorization** (06/10/2022)
 >
 >Starting June 1, 2023 an authorization bearer token will be required in the request header for accessing any Procore file or document URL.
 >Today, an authorization token is not required to access a file directly from storage.procore.com, but it will be a requirement in the future in order to strengthen file access security.
@@ -27,7 +27,7 @@ section_title: Overview
 >If your integration requires direct access to files in storage.procore.com, we encourage you to begin planning for this change now.
 >If you have questions regarding this new requirement, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
->**Work Breakdown Structure Release and Deprecation of Financial Line Item Endpoints**
+>**Work Breakdown Structure Release and Deprecation of Financial Line Item Endpoints** (03/31/2022)
 >
 > With the release of [Work Breakdown Structure](https://developers.procore.com/documentation/tutorial-wbs), the following financial line item endpoints that utilize `cost_code`, `cost_type` and `sub_job` attributes will be deprecated on March 31, 2022.
 > 
@@ -41,7 +41,7 @@ section_title: Overview
 > If your existing integration uses any of these deprecated endpoints, or Cost Code, Cost Type and Sub Job endpoints in general, we encourage you to adopt the new [Work Breakdown Structure endpoints](https://developers.procore.com/reference/rest/v1/codes?version=1.0) and update your integration as needed.
 > If you have any concerns please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
->**Deprecation of Traditional Service Accounts**
+>**Deprecation of Traditional Service Accounts** (12/09/2021)
 >
 > Service Accounts will be deprecated on December 9, 2021.
 > Creation of new service accounts will no longer be allowed after July 31, 2022.

@@ -5,6 +5,8 @@ layout: default
 section_title: Overview
 ---
 
+>**For the latest news and updates, see our [Announcements]({{ site.url }}{{ site.baseurl }}{% link overview/announcements.md %}) and [Notifications]({{ site.url }}/notifications) pages.**
+
 Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
 You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
 

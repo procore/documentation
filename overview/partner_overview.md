@@ -1,6 +1,6 @@
 ---
 permalink: /partner-overview
-title: Technology Partner Integrations
+title: Marketplace Integrations
 layout: default
 section_title: Overview
 ---
