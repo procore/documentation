@@ -2,11 +2,13 @@
   items:
     - title: Introduction
       url: /introduction
+    - title: Announcements
+      url: /announcements
     - title: Service Account Deprecation
       url: /service-account-deprecation
-    - title: Build a Custom Integration
+    - title: Custom Integrations
       url: /custom-overview
-    - title: Build a Marketplace Integration
+    - title: Marketplace Integrations
       url: /partner-overview
     - title: Developer Training
       url: /training
