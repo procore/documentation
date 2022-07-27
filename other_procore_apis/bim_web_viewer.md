@@ -31,10 +31,6 @@ Though not recommended for production use, if you just want to prototype somethi
 <script src="https://unpkg.com/@procore/bim-webviewer-sdk"></script>
 ```
 
-### Usage
-
-<p class="heading-link-container"><a class="heading-link" href="#usage"></a></p>
-
 ### Load the Module
 
 <p class="heading-link-container"><a class="heading-link" href="#load-the-module"></a></p>
