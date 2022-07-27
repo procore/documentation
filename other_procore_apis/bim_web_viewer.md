@@ -441,17 +441,17 @@ Camera
 
 ---
 
-### Zoom to Extents of a Bounding Box
+### Zoom to Fit a Bounding Box
 
-<p class="heading-link-container"><a class="heading-link" href="#zoom-to-extents-of-a-bounding-box"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="zoom-to-fit-a-bounding-box"></a></p>
 
 ```js
-zoomExtents(bbox);
+zoomToBoundingBox(bbox);
 ```
 
 #### Description
 
-Moves camera such that the specified axis-aligned bounding box is in view.
+Moves camera such that the view fits the specified axis-aligned bounding box.
 
 #### Parameters
 
