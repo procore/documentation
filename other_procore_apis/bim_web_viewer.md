@@ -11,13 +11,57 @@ section_title: Other Procore APIs
 
 <p class="heading-link-container"><a class="heading-link" href="#getting-started"></a></p>
 
-The Procore BIM Web Viewer is a single distributable Javascript file.
+### Installation
 
-Instantiate the viewer with the options argument, and start rendering when ready.
+<p class="heading-link-container"><a class="heading-link" href="#installation"></a></p>
 
-- Add `<script type='text/javascript' src='dist/Procore.Bim.Webviewer.js'></script>` to your page
-- Instantiate a new viewer with options: `const viewer = new ProcoreBim.Webviewer(options);`
-- Start the viewer: `viewer.start();`
+The Procore BIM Web Viewer is available as a module on `npm` as [`@procore/bim-webviewer-sdk`](https://www.npmjs.com/package/@procore/bim-webviewer-sdk).
+
+To install it, open a terminal window in your project folder and run:
+
+```sh
+npm install @procore/bim-webviewer-sdk
+```
+
+---
+
+Though not recommended for production use, if you just want to prototype something you can use a tool like [`unpkg`](https://unpkg.com/) to get the module onto a page without the overhead of a build-system.
+
+```html
+<script src="https://unpkg.com/@procore/bim-webviewer-sdk"></script>
+```
+
+### Usage
+
+<p class="heading-link-container"><a class="heading-link" href="#usage"></a></p>
+
+### Load the Module
+
+<p class="heading-link-container"><a class="heading-link" href="#load-the-module"></a></p>
+
+Get the script on your page somehow!
+
+If you're using a bundling system with `import` (recommended):
+
+```js
+import * as ProcoreBim from '@procore/bim-webviewer-sdk';
+```
+
+Or more manually:
+
+```html
+<!-- This will instantiate window.ProcoreBim -->
+<script src='dist/Procore.Bim.Webviewer.js'></script>
+```
+
+### Instantiate and Start the Viewer
+
+<p class="heading-link-container"><a class="heading-link" href="#instantiate-and-start-the-viewer"></a></p>
+
+```js
+const viewer = new ProcoreBim.Webviewer(options);
+viewer.start();
+```
 
 See the [Options](#options) section for more detail on the options object.
 
