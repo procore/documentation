@@ -441,6 +441,36 @@ Camera
 
 ---
 
+### Zoom to Nodes
+
+<p class="heading-link-container"><a class="heading-link" href="zoom-to-nodes"></a></p>
+
+```js
+zoomToNodes(nodeIds);
+```
+
+#### Description
+
+Moves from current camera position to the axis-aligned bounding box of the node or set of nodes.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| nodeIds | true | NodeId[] | An array of node ids. To zoom to a single node, pass an array of one. |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Camera
+
+---
+
 ### Zoom to Fit a Bounding Box
 
 <p class="heading-link-container"><a class="heading-link" href="zoom-to-fit-a-bounding-box"></a></p>
