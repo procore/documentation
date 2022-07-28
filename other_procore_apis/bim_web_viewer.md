@@ -501,6 +501,34 @@ Camera
 
 ---
 
+### Zoom to Selection
+
+<p class="heading-link-container"><a class="heading-link" href="zoom-to-selection"></a></p>
+
+```js
+zoomToSelection();
+```
+
+#### Description
+
+Moves camera from current position to fit the axis-aligned bounding box of the current selection.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Camera
+
+---
+
 ### Set Euler Angles
 
 <p class="heading-link-container"><a class="heading-link" href="#set-euler-angles"></a></p>
