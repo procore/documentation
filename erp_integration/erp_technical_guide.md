@@ -17,24 +17,33 @@ This guide will stick to the basics of an ERP integration. It is advised to refe
 
 Before the Integration can start receiving Webhook events and processing events for a particular Procore company, a few things need to be setup:
 
-### 1. Establish ERP Connection and Update ERP Metadata
+### 1. Create a Developer Managed Service Account
+
+ERP Integrators must use a Developer Managed Service Account (DMSA) to authenticate requests to the Procore API.
+
+**Integrator Workflow:**
+1. Create a DMSA using [Developer Managed Service Account Documentation](https://developers.procore.com/documentation/developer-managed-service-accounts).
+
+### 2. Establish ERP Connection and Update ERP Metadata
 
 The purpose of this step is to create a connection between the Procore company and the ERP Integration as well as provide metadata which describes the specific functionality of the ERP Integration.
 
 **User Workflow in Procore:**
 1. Procore Super User activates ERP Integrations on customer’s company
-2. Project User (admin permission) creates a Service Account in the Procore company. A Client ID and Client secret are generated, as well as a Directory record to manage the Service Account’s read/write permissions to all of the tools available on the Procore company
-3. The record that was automatically created in the Directory for the Service Account needs to be updated. Go to the Directory tool and enable `Can Push To Accounting` for the Service account. Then, under the **Company Permissions Templates** set **ERP Integrations** to `Admin`.
+2. The DMSA that you created needs to be updated with the appropriate permission manifest:
+* **Company Level Admin** permission
+* **Company Level Directory Admin** permission
+* **Company Level ERP Integrations Admin** permission
 
 **Integrator Workflow:**
-1. Use the Client ID and Client secret to generate an auth token to authorize API requests: [OAuth Documentation](https://developers.procore.com/documentation/oauth-client-credentials).
+1. Use the DMSA Client ID and Client secret to generate an auth token to authorize API requests: [OAuth Documentation](https://developers.procore.com/documentation/oauth-client-credentials).
 2. Now that you are authenticated, create an ERP connection and include the ERP Integration Metadata in the API request: 
 * [ERP Connection API Documentation](https://developers.procore.com/reference/rest/v1/erp-connections?version=1.0#create-erp-connection-and-metadata-configuration)
 * [ERP Integration Metadata Documentation](https://developers.procore.com/documentation/erp-metadata-details)
 
 **Note:** Following the creation of an ERP Connection, an ERP Standard Cost Code List is automatically created on the company in Procore. Use this list when syncing in Standard Cost Codes.
 
-### 2. Create Webhook hook and trigger
+### 3. Create Webhook hook and trigger
 
 At this point the Procore Company should have:
 * a service account with admin privileges
