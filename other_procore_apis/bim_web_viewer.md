@@ -11,13 +11,65 @@ section_title: Other Procore APIs
 
 <p class="heading-link-container"><a class="heading-link" href="#getting-started"></a></p>
 
-The Procore BIM Web Viewer is a single distributable Javascript file.
+### Installation from NPM (recommended)
 
-Instantiate the viewer with the options argument, and start rendering when ready.
+<p class="heading-link-container"><a class="heading-link" href="#installation-from-npm-recommended"></a></p>
 
-- Add `<script type='text/javascript' src='dist/Procore.Bim.Webviewer.js'></script>` to your page
-- Instantiate a new viewer with options: `const viewer = new ProcoreBim.Webviewer(options);`
-- Start the viewer: `viewer.start();`
+The Procore BIM Web Viewer is available as a module on `npm` as [`@procore/bim-webviewer-sdk`](https://www.npmjs.com/package/@procore/bim-webviewer-sdk).
+
+To install it, open a terminal window in your project folder and run:
+
+```sh
+npm install @procore/bim-webviewer-sdk
+```
+
+### Installation from a CDN
+
+<p class="heading-link-container"><a class="heading-link" href="#installation-from-a-cdn"></a></p>
+
+Though not recommended for production use, if you just want to prototype something you can use a tool like [`unpkg`](https://unpkg.com/) to get the module onto a page without the overhead of a build-system. Note we do not control `unpkg` and do not otherwise host the package on a publicly available CDN with uptime guarantees.
+
+```html
+<script src="https://unpkg.com/@procore/bim-webviewer-sdk"></script>
+```
+
+### Installation by Saving the File
+
+<p class="heading-link-container"><a class="heading-link" href="#installation-by-saving-the-file"></a></p>
+
+If you prefer not to use `npm`, you can download the latest version of the code here: [https://unpkg.com/@procore/bim-webviewer-sdk](https://unpkg.com/@procore/bim-webviewer-sdk)
+
+If you would like a specific version you can declare that version in the url like so: [https://unpkg.com/@procore/bim-webviewer-sdk@4.0.0](https://unpkg.com/@procore/bim-webviewer-sdk@4.0.0)
+
+### Load the Module with a Bundler (recommended)
+
+<p class="heading-link-container"><a class="heading-link" href="#load-the-module-with-a-bundler-recommended"></a></p>
+
+If you're using a bundling system with `import` (recommended):
+
+```js
+import * as ProcoreBim from '@procore/bim-webviewer-sdk';
+```
+
+### Load the Module Manually
+
+<p class="heading-link-container"><a class="heading-link" href="#load-the-module-manually"></a></p>
+
+If you're managing script loading manually:
+
+```html
+<!-- This will instantiate window.ProcoreBim -->
+<script src='path/to/Procore.Bim.Webviewer.js'></script>
+```
+
+### Instantiate and Start the Viewer
+
+<p class="heading-link-container"><a class="heading-link" href="#instantiate-and-start-the-viewer"></a></p>
+
+```js
+const viewer = new ProcoreBim.Webviewer(options);
+viewer.start();
+```
 
 See the [Options](#options) section for more detail on the options object.
 
