@@ -142,4 +142,5 @@ In addition to the App logo/icon you upload on the Developer Portal, you can sub
 
 ## See Also
 
-[Sales and Support Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_support_content_reqs.md %})
+* [Sales and Support Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_support_content_reqs.md %})
+* [Maximizing Marketplace Conversion Rates]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_maximizing_conversion_rates.md %})
