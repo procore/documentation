@@ -10,42 +10,19 @@ section_title: Guides and Tutorials
 
 A _configurable fieldset_ is a group of fields in certain Procore tools that can be set to _optional_, _required_, or _hidden_, depending on the needs of your company.
 When a project user interacts with a tool that supports configurable fieldsets, the fieldset configuration assigned to a given project determines which fields are visible to the user and whether or not they are required fields.
-Procore’s API endpoints respect the configurable fieldsets that are created and managed within the Procore web application.
-Configurable fieldset requirements are respected on the following API endpoints:
 
-**Portfolio**
-
-- [Projects](https://developers.procore.com/reference/rest/v1/projects#create-project)
-
-**Project Management**
-
-- [Incidents](https://developers.procore.com/reference/rest/v1/projects#create-project)
-- [Inspections](https://developers.procore.com/reference/rest/v1/checklists#create-checklist)
-- [Observations](https://developers.procore.com/reference/rest/v1/observations#create-observation-item)
-- [Punch List](https://developers.procore.com/reference/rest/v1/punch-items#create-punch-item)
-- [RFIs](https://developers.procore.com/reference/rest/v1/projects#create-project)
-
-**Daily Log**
-
-- [Manpower Log](https://developers.procore.com/reference/rest/v1/daily-logs)
-- [Notes Log](https://developers.procore.com/reference/rest/v1/notes-logs)
-- [Daily Construction Report Log](https://developers.procore.com/reference/rest/v1/daily-construction-report-logs)
-
-**Company Directory**
-
-- [Company Users](https://developers.procore.com/reference/rest/v1/company-users#create-company-user)
-- [Company Vendors](https://developers.procore.com/reference/rest/v1/company-vendors)
-
-**Project Directory**
-
-- [Project Users](https://developers.procore.com/reference/rest/v1/project-users#create-project-user)
-- [Project Vendors](https://developers.procore.com/reference/rest/v1/project-vendors#create-project-vendor)
-
-> ADDITIONAL TOOL SUPPORT FOR CONFIGURABLE FIELDSETS
+>**Tools Not Supported**
 >
-> Our development teams continue to build out support for configurable fieldsets and custom fields in the various Procore tools.
-> Although the above list was accurate at time of publication, keep in mind that newly supported tools will have their API endpoints updated over time.
-> If you do not see the tool you are working with listed above, check the [API Reference](https://developers.procore.com/reference) pages for the relevant endpoints - support for configurable fieldsets may have been recently added!
+>While the majority of Procore’s API endpoints respect the configurable fieldsets that are created and managed within the Procore web application tools, some tools do not yet support configurable fieldsets:
+>
+>* Coordination Issues
+>* Meetings
+>* Schedule
+>* Action Plans
+>* Forms
+>* Budget
+>* Change Orders
+>* Direct Costs
 
 ## Understanding Configurable Validations
 
