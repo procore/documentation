@@ -441,9 +441,9 @@ Camera
 
 ---
 
-### Zoom to Nodes
+### Zoom to Objects
 
-<p class="heading-link-container"><a class="heading-link" href="zoom-to-nodes"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="zoom-to-objects"></a></p>
 
 ```js
 zoomToObjects(objectIds);
@@ -451,7 +451,7 @@ zoomToObjects(objectIds);
 
 #### Description
 
-Moves camera from current position to fit the axis-aligned bounding box of the node or set of nodes.
+Moves camera from current position to fit the axis-aligned bounding box of the node or set of objects.
 
 #### Parameters
 
