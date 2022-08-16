@@ -802,6 +802,8 @@ Events
 
 ## Event Names
 
+<p class="heading-link-container"><a class="heading-link" href="#event-names"></a></p>
+
 The following event names are available to notify third party code of changes in the viewer.
 
 #### Complete Example
@@ -824,11 +826,13 @@ viewer.start();
 
 ### Callback function
 
+<p class="heading-link-container"><a class="heading-link" href="#callback-function"></a></p>
+
 The second parameter to `addEventListener` is a third party defined function to be executed when the event fires. Depending on the event, the callback function may return undefined, or data. This data may be a number, string, or a JavaScript object.
 
 ### appResize
 
-<p class="heading-link-container"><a class="heading-link" href="#appResize"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#appresize"></a></p>
 
 Fires when the document view (window) has been resized.
 
@@ -845,7 +849,7 @@ Fires when the document view (window) has been resized.
 
 ### appStart
 
-<p class="heading-link-container"><a class="heading-link" href="#appStart"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#appstart"></a></p>
 
 Fires after .start() is called.
 
@@ -853,7 +857,7 @@ Fires after .start() is called.
 
 ### bcfCameraSet
 
-<p class="heading-link-container"><a class="heading-link" href="#bcfCameraSet"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#bcfcameraset"></a></p>
 
 Fires after a BCF Camera has been set.
 
@@ -861,7 +865,7 @@ Fires after a BCF Camera has been set.
 
 ### cameraUpdated
 
-<p class="heading-link-container"><a class="heading-link" href="#cameraUpdated"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#cameraupdated"></a></p>
 
 Fires after the camera direction or camera position has been modified.
 
@@ -869,7 +873,7 @@ Fires after the camera direction or camera position has been modified.
 
 ### canvasReady
 
-<p class="heading-link-container"><a class="heading-link" href="#canvasReady"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#canvasready"></a></p>
 
 Fires after the rendering canvas has been created.
 
@@ -877,7 +881,7 @@ Fires after the rendering canvas has been created.
 
 ### coachmarkHyperlinkClicked
 
-<p class="heading-link-container"><a class="heading-link" href="#coachmarkHyperlinkClicked"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#coachmarkhyperlinkclicked"></a></p>
 
 Fires when the coachmark indicator has been cleared. The coachmark in the upper right hand corner of the webviewer appears due to; hidden objects, applied section planes, or a field of view has been applied other than the default field of view. When you clear a coachmark, this event fires and returns a string value of which coachmark was cleared.
 
@@ -887,7 +891,7 @@ This string can be one of the following values: `hidden`, `section`, or `fov`.
 
 ### doubleClick
 
-<p class="heading-link-container"><a class="heading-link" href="#doubleClick"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#doubleclick"></a></p>
 
 Fires after a double click occurs on the webviewer container element. Returns a [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) object.
 
@@ -895,7 +899,7 @@ Fires after a double click occurs on the webviewer container element. Returns a 
 
 ### downloadComplete
 
-<p class="heading-link-container"><a class="heading-link" href="#downloadComplete"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#downloadcomplete"></a></p>
 
 Fires after all the requests for the model has been downloaded. This event will still fire even if the model is cached.
 
@@ -903,7 +907,7 @@ Fires after all the requests for the model has been downloaded. This event will 
 
 ### downloadProgress
 
-<p class="heading-link-container"><a class="heading-link" href="#downloadComplete"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#downloadprogress"></a></p>
 
 Fires periodically to report progress on how much of the model has been downloaded.
 
@@ -919,7 +923,7 @@ Fires periodically to report progress on how much of the model has been download
 
 ### downloadStart
 
-<p class="heading-link-container"><a class="heading-link" href="#downloadStart"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#downloadstart"></a></p>
 
 Fires before requests are made to download the model.
 
@@ -927,7 +931,7 @@ Fires before requests are made to download the model.
 
 ### drawingNavigated
 
-<p class="heading-link-container"><a class="heading-link" href="#drawingNavigated"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#drawingnavigated"></a></p>
 
 Fires when the 2D Navigation overlay is used to navigate the model. Specifically, this fires after a location and direction has been chose on the floor plan and the overlay is dismissed.
 
@@ -935,7 +939,7 @@ Fires when the 2D Navigation overlay is used to navigate the model. Specifically
 
 ### drawingMiniClick
 
-<p class="heading-link-container"><a class="heading-link" href="#drawingMiniClick"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#drawingminiclick"></a></p>
 
 Fires when the 2D Navigation mini map was clicked on.
 
@@ -943,7 +947,7 @@ Fires when the 2D Navigation mini map was clicked on.
 
 ### floorPlan
 
-<p class="heading-link-container"><a class="heading-link" href="#floorPlan"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#floorplan"></a></p>
 
 Fires when the 2D Navigation overlay is interacted with.
 
@@ -958,6 +962,8 @@ Fires when the 2D Navigation overlay is interacted with.
 
 ### floorPlanNavigateAndClose
 
+<p class="heading-link-container"><a class="heading-link" href="#floorplannavigateandclose"></a></p>
+
 Updates the camera position and direction in addition to dismissing the 2D floor plan overlay.
 
 #### Parameters
@@ -971,6 +977,8 @@ Updates the camera position and direction in addition to dismissing the 2D floor
 | dy         | true     | number | y direction of the camera. |
 
 ### floorPlanPoint
+
+<p class="heading-link-container"><a class="heading-link" href="#floorplanpoint"></a></p>
 
 Returns the corresponding point on the 2D floor plan overlay from a point in 3D model space.
 
@@ -1016,7 +1024,7 @@ const goto = (camera) => {
 
 ### fieldOfViewChanged
 
-<p class="heading-link-container"><a class="heading-link" href="#fieldOfViewChanged"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#fieldofviewchanged"></a></p>
 
 Fires when the camera field of view has been changed. Returns a number in degrees.
 
@@ -1024,7 +1032,7 @@ Fires when the camera field of view has been changed. Returns a number in degree
 
 ### hideUpdated
 
-<p class="heading-link-container"><a class="heading-link" href="#hideUpdated"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#hideupdated"></a></p>
 
 Fires when the object hidden set has been updated.
 
@@ -1032,7 +1040,7 @@ Fires when the object hidden set has been updated.
 
 ### hideSimilarCompleted
 
-<p class="heading-link-container"><a class="heading-link" href="#hideSimilarCompleted"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#hidesimilarcompleted"></a></p>
 
 Fires when the `Hide Similar` from the right click context menu operation has completed.
 
@@ -1040,7 +1048,7 @@ Fires when the `Hide Similar` from the right click context menu operation has co
 
 ### intersectPointClick
 
-<p class="heading-link-container"><a class="heading-link" href="#intersectPointClick"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#intersectpointclick"></a></p>
 
 Fires when a mouse click occurs on any part of the model and returns that point of intersection.
 
@@ -1056,7 +1064,7 @@ Fires when a mouse click occurs on any part of the model and returns that point 
 
 ### isolateCompleted
 
-<p class="heading-link-container"><a class="heading-link" href="#isolateCompleted"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#isolatecompleted"></a></p>
 
 Fires when the `Isolate` from the right click context menu operation has completed.
 
@@ -1088,7 +1096,7 @@ Fires when measuring two objects has completed.
 
 ### modelTreeParentInteracted
 
-<p class="heading-link-container"><a class="heading-link" href="#modelTreeParentInteracted"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#modeltreeparentinteracted"></a></p>
 
 Fires when an object in the `Model Objects` has been interacted with.
 
@@ -1104,7 +1112,7 @@ Fires when an object in the `Model Objects` has been interacted with.
 
 ### markupDisplayed
 
-<p class="heading-link-container"><a class="heading-link" href="#markupDisplayed"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#markupdisplayed"></a></p>
 
 Fires when markup from a viewpoint has been displayed.
 
@@ -1112,7 +1120,7 @@ Fires when markup from a viewpoint has been displayed.
 
 ### markupDismissed
 
-<p class="heading-link-container"><a class="heading-link" href="#markupDismissed"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#markupdismissed"></a></p>
 
 Fires when markup from a viewpoint has been dismissed.
 
@@ -1120,7 +1128,7 @@ Fires when markup from a viewpoint has been dismissed.
 
 ### navigationChanged
 
-<p class="heading-link-container"><a class="heading-link" href="#navigationChanged"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#navigationchanged"></a></p>
 
 Fires when the navigation mode has changed.
 
@@ -1135,7 +1143,7 @@ Fires when the navigation mode has changed.
 
 ### objectDoubleClick
 
-<p class="heading-link-container"><a class="heading-link" href="#objectDoubleClick"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#objectdoubleclick"></a></p>
 
 Fires on double mouse clicks. If the double mouse click occurs on an object, this event returns a Meshnode ID, otherwise -1 is returned. A double click also produces one `objectSingleClick` event.
 
@@ -1143,7 +1151,7 @@ Fires on double mouse clicks. If the double mouse click occurs on an object, thi
 
 ### objectSingleClick
 
-<p class="heading-link-container"><a class="heading-link" href="#objectSingleClick"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#objectsingleclick"></a></p>
 
 Fires on a single mouse click. If the single mouse click occurs on an object, this event returns Meshnode ID, otherwise -1 is returned.
 
@@ -1151,7 +1159,7 @@ Fires on a single mouse click. If the single mouse click occurs on an object, th
 
 ### objectHide
 
-<p class="heading-link-container"><a class="heading-link" href="#objectHide"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#objecthide"></a></p>
 
 Fires when objects have been hidden.
 
@@ -1165,7 +1173,7 @@ Fires when objects have been hidden.
 
 ### objectUnhide
 
-<p class="heading-link-container"><a class="heading-link" href="#objectUnhide"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#objectunhide"></a></p>
 
 Fires when objects have been removed from the hidden set.
 
@@ -1179,7 +1187,7 @@ Fires when objects have been removed from the hidden set.
 
 ### objectSelect
 
-<p class="heading-link-container"><a class="heading-link" href="#objectSelect"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#objectselect"></a></p>
 
 Fires when an object has been selected. This event returns Meshnode ID.
 
@@ -1187,7 +1195,7 @@ Fires when an object has been selected. This event returns Meshnode ID.
 
 ### optionsChanged
 
-<p class="heading-link-container"><a class="heading-link" href="#optionsChanged"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#optionschanged"></a></p>
 
 Fires when the Webviewer options have changed. This event fires when `setOptions` is called, or when actions cause the multiple selection option to change, such as keyboard shortcuts to multi select objects.
 
@@ -1195,7 +1203,7 @@ Fires when the Webviewer options have changed. This event fires when `setOptions
 
 ### objectMeasure
 
-<p class="heading-link-container"><a class="heading-link" href="#objectMeasure"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#objectmeasure"></a></p>
 
 Fires objects are selected for measurement. This event returns a Meshnode ID of the object selected fore measurement.
 
@@ -1203,7 +1211,7 @@ Fires objects are selected for measurement. This event returns a Meshnode ID of 
 
 ### renderReady
 
-<p class="heading-link-container"><a class="heading-link" href="#renderReady"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#renderready"></a></p>
 
 Fires when the webviewer is ready to render the model.
 
@@ -1228,7 +1236,7 @@ Fires when the keyboard shortcut to redo is pressed. This event fires regardless
 
 ### selectTool
 
-<p class="heading-link-container"><a class="heading-link" href="#selectTool"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#selecttool"></a></p>
 
 Fires when a tool has been activated.
 
@@ -1243,7 +1251,7 @@ Fires when a tool has been activated.
 
 ### selectedUpdated
 
-<p class="heading-link-container"><a class="heading-link" href="#selectedUpdated"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#selectedupdated"></a></p>
 
 Fires when the selection set of objects has been updated.
 
@@ -1251,7 +1259,7 @@ Fires when the selection set of objects has been updated.
 
 ### singleClick
 
-<p class="heading-link-container"><a class="heading-link" href="#singleClick"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#singleclick"></a></p>
 
 Fires when a single click occurs in the webviewer container element. this event returns a `MouseEvent` object.
 
@@ -1259,7 +1267,7 @@ Fires when a single click occurs in the webviewer container element. this event 
 
 ### sectionBoxSet
 
-<p class="heading-link-container"><a class="heading-link" href="#sectionBoxSet"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#sectionboxset"></a></p>
 
 Fires when a section box has been applied.
 
@@ -1267,7 +1275,7 @@ Fires when a section box has been applied.
 
 ### sectionPlaneAdded
 
-<p class="heading-link-container"><a class="heading-link" href="#sectionPlaneAdded"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#sectionplaneadded"></a></p>
 
 Fires when section planes have been applied.
 
@@ -1275,7 +1283,7 @@ Fires when section planes have been applied.
 
 ### sectionPlaneRemoved
 
-<p class="heading-link-container"><a class="heading-link" href="#sectionPlaneRemoved"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#sectionplaneremoved"></a></p>
 
 Fires when a section plane has been removed.
 
@@ -1283,7 +1291,7 @@ Fires when a section plane has been removed.
 
 ### sectionsCleared
 
-<p class="heading-link-container"><a class="heading-link" href="#sectionsCleared"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#sectionscleared"></a></p>
 
 Fires when all section planes have been removed as a result of individually removing all the planes, calling `clearSection`, or calling `removeSectionBox`.
 
@@ -1291,7 +1299,7 @@ Fires when all section planes have been removed as a result of individually remo
 
 ### savedViewpointClicked
 
-<p class="heading-link-container"><a class="heading-link" href="#savedViewpointClicked"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#savedviewpointclicked"></a></p>
 
 Fires when a Saved Viewpoint from the Viewpoints tool has been clicked on.
 
@@ -1307,7 +1315,7 @@ Fires when the keyboard shortcut to undo is pressed. This event fires regardless
 
 ### windowComponentChanged
 
-<p class="heading-link-container"><a class="heading-link" href="#windowComponentChanged"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#windowcomponentchanged"></a></p>
 
 Fires when a window based tool has changed its position or size.
 
