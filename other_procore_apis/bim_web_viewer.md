@@ -117,7 +117,7 @@ const viewer = new ProcoreBim.Webviewer(options);
 viewer.start();
 ```
 
-The Webviewer has been isntanced and we have invoked the `start` method which does not belong to a namespace to start initializing the model viewer.
+The Webviewer has been instanced and we have invoked the `start` method which does not belong to a namespace to start initializing the model viewer.
 
 ```js
 viewer.camera.setPosition(1, 10, -1);
@@ -836,7 +836,7 @@ Fires when the document view (window) has been resized.
 
 | Field Name   | Type   | Description                                        |
 | ------------ | ------ | -------------------------------------------------- |
-| offsetHeight | number | New offset hieght of the webviewer parent element. |
+| offsetHeight | number | New offset height of the webviewer parent element. |
 | offsetWidth  | number | New offset width of the webviewer parent element.  |
 | offsetLeft   | number | New offset left of the webviewer parent element.   |
 | offsetTop    | number | New offset top of the webviewer parent element.    |
@@ -1074,7 +1074,7 @@ Fires when the webviewer throws a warning or error.
 | ----------- | ------ | ------------------------------------------------- |
 | messageType | string | The type of message, either `Warning` or `Error`. |
 | component   | string | Where the message originates from.                |
-| message     | string | A human readbale message.                         |
+| message     | string | A human readable message.                         |
 
 ---
 
@@ -1126,10 +1126,10 @@ Fires when the navigation mode has changed.
 
 #### Data Properties
 
-| Field Name | Type   | Description                                    |
-| ---------- | ------ | ---------------------------------------------- |
-| mode       | number | The type of navgation that was just acitvated. |
-| controls   | object | An instance of the controller object.          |
+| Field Name | Type   | Description                                     |
+| ---------- | ------ | ----------------------------------------------- |
+| mode       | number | The type of navigation that was just activated. |
+| controls   | object | An instance of the controller object.           |
 
 ---
 
@@ -1285,7 +1285,7 @@ Fires when a section plane has been removed.
 
 <p class="heading-link-container"><a class="heading-link" href="#sectionsCleared"></a></p>
 
-Fires when all section planes have been removed as a result of indivudally removing all the planes, calling `clearSection`, or calling `removeSectionBox`.
+Fires when all section planes have been removed as a result of individually removing all the planes, calling `clearSection`, or calling `removeSectionBox`.
 
 ---
 
