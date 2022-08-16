@@ -933,7 +933,7 @@ Fires before requests are made to download the model.
 
 <p class="heading-link-container"><a class="heading-link" href="#drawingnavigated"></a></p>
 
-Fires when the 2D Navigation overlay is used to navigate the model. Specifically, this fires after a location and direction has been chose on the floor plan and the overlay is dismissed.
+Fires when the 2D Navigation overlay is used to navigate the model. Specifically, this fires after a location and direction has been chosen on the floor plan and the overlay is dismissed.
 
 ---
 
@@ -953,12 +953,12 @@ Fires when the 2D Navigation overlay is interacted with.
 
 #### Data Properties
 
-| Field Name                | Type        | Description                                                                                     |
-| ------------------------- | ----------- | ----------------------------------------------------------------------------------------------- |
-| floorPlanNavigateAndClose | function    | Provides a callback function to navigate to a position and close the modal. Returns a promise.  |
-| floorPlanPoint            | function    | Provides a callback function to calculate a point on the current floor plan. Returns a promise. |
-| overlay                   | HTMLElement | The HTMLElement for the 2D Navigation overlay                                                   |
-| type                      | string      | The type of interaction and has the following values: `open`, `close`, and `update`             |
+| Field Name                | Type        | Description                                                                                                 |
+| ------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| floorPlanNavigateAndClose | function    | Provides a callback function to navigate the camera to a position and close the overlay. Returns a promise. |
+| floorPlanPoint            | function    | Provides a callback function to calculate a point on the current floor plan. Returns a promise.             |
+| overlay                   | HTMLElement | The HTMLElement for the 2D Navigation overlay                                                               |
+| type                      | string      | The type of interaction and has the following values: `open`, `close`, and `update`                         |
 
 ### floorPlanNavigateAndClose
 
