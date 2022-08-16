@@ -477,7 +477,7 @@ navToHomeView();
 
 #### Description
 
-Navigation to the home viewpoint if the Bcf camera been set in the options object.
+Navigation to the home viewpoint if `bcfCamera` option has been set. If not, zooms to fit the axis-aligned bounding box of the entire model.
 
 #### Parameters
 
@@ -495,17 +495,48 @@ Camera
 
 ---
 
-### Zoom to Extents of a Bounding Box
+### Zoom to Objects
 
-<p class="heading-link-container"><a class="heading-link" href="#zoom-to-extents-of-a-bounding-box"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="zoom-to-objects"></a></p>
 
 ```js
-zoomExtents(bbox);
+zoomToObjects(objectIds);
 ```
 
 #### Description
 
-Moves camera such that the specified axis-aligned bounding box is in view.
+Moves camera from current position to fit the axis-aligned bounding box of the node or set of objects.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | ObjectId[] | An array of object ids. To zoom to a single object, pass an array of one. |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Camera
+
+---
+
+
+### Zoom to Fit a Bounding Box
+
+<p class="heading-link-container"><a class="heading-link" href="zoom-to-fit-a-bounding-box"></a></p>
+
+```js
+zoomToBoundingBox(bbox);
+```
+
+#### Description
+
+Moves camera to fit the specified axis-aligned bounding box.
 
 #### Parameters
 
@@ -517,6 +548,62 @@ Moves camera such that the specified axis-aligned bounding box is in view.
 
 ```js
 undefined;
+```
+
+##### Namespace
+
+Camera
+
+---
+
+### Zoom to Selection
+
+<p class="heading-link-container"><a class="heading-link" href="zoom-to-selection"></a></p>
+
+```js
+zoomToSelection();
+```
+
+#### Description
+
+Moves camera from current position to fit the axis-aligned bounding box of the current selection.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Camera
+
+---
+
+### Zoom to Global
+
+<p class="heading-link-container"><a class="heading-link" href="zoom-to-global"></a></p>
+
+```js
+zoomToGlobal();
+```
+
+#### Description
+
+Moves camera to fit the axis-aligned bounding box of the entire model. Does not take into account current camera position, i.e. will always give you the same view regardless of where the camera is currently.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+undefined
 ```
 
 ##### Namespace
