@@ -1,6 +1,6 @@
 ---
 permalink: /bim-web-viewer
-title: "Procore BIM Web Viewer: Integrator Documentation"
+title: 'Procore BIM Web Viewer: Integrator Documentation'
 layout: default
 section_title: Other Procore APIs
 ---
@@ -48,7 +48,7 @@ If you would like a specific version you can declare that version in the url lik
 If you're using a bundling system with `import` (recommended):
 
 ```js
-import * as ProcoreBim from "@procore/bim-webviewer-sdk";
+import * as ProcoreBim from '@procore/bim-webviewer-sdk';
 ```
 
 ### Load the Module Manually
@@ -147,10 +147,10 @@ var cameraDirection = viewer.camera.getCameraDirection();
 // Checks if the model is cached, `hasModel` returns a promise
 // and belongs to the `Cache` namespace.
 ProcoreBim.Cache.hasModel({
-  meshUrl: "samples/vortex.mesh",
-  meshnodeUrl: "samples/vortex.meshnode",
-  nodeUrl: "samples/vortex.node",
-  cellUrl: "samples/vortex.cell",
+  meshUrl: 'samples/vortex.mesh',
+  meshnodeUrl: 'samples/vortex.meshnode',
+  nodeUrl: 'samples/vortex.node',
+  cellUrl: 'samples/vortex.cell'
 }).then(function (isCached) {
   console.log(isCached);
 });
@@ -509,14 +509,14 @@ Moves camera from current position to fit the axis-aligned bounding box of the n
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
-| objectIds | true | ObjectId[] | An array of object ids. To zoom to a single object, pass an array of one. |
+| Field Name | Required | Type       | Description                                                               |
+| ---------- | -------- | ---------- | ------------------------------------------------------------------------- |
+| objectIds  | true     | ObjectId[] | An array of object ids. To zoom to a single object, pass an array of one. |
 
 ##### Returns
 
 ```js
-undefined
+undefined;
 ```
 
 ##### Namespace
@@ -524,7 +524,6 @@ undefined
 Camera
 
 ---
-
 
 ### Zoom to Fit a Bounding Box
 
@@ -575,7 +574,7 @@ None
 ##### Returns
 
 ```js
-undefined
+undefined;
 ```
 
 ##### Namespace
@@ -603,7 +602,7 @@ None
 ##### Returns
 
 ```js
-undefined
+undefined;
 ```
 
 ##### Namespace
@@ -810,13 +809,13 @@ The following event names are available to notify third party code of changes in
 ```js
 const viewer = new ProcoreBim.Webviewer(options);
 
-viewer.events.addEventListener("appResize", (data) => {
+viewer.events.addEventListener('appResize', (data) => {
   // Called when the window resizes and returns an object with properties
   // `offsetHeight`, `offsetWidth`, `offsetLeft`, `offsetTop`.
   console.log(data.offsetHeight);
 });
 
-viewer.events.addEventListener("bcfCameraSet", () => {
+viewer.events.addEventListener('bcfCameraSet', () => {
   // Called when the camera has been set, does not return any data.
 });
 
@@ -992,9 +991,9 @@ const viewer = new ProcoreBim.Webviewer(options);
 
 let floorPlanNavigateAndClose = null;
 
-viewer.events.addEventListener("floorPlan", (data) => {
+viewer.events.addEventListener('floorPlan', (data) => {
   // Executed when the 2D floor plan overlay is interacted with.
-  if (data.type === "open") {
+  if (data.type === 'open') {
     // Your application might need to know when the 2D floor plan overlay is `open` and keep a reference to
     // floorPlanNavigateAndClose
     floorPlanNavigateAndClose = data.floorPlanNavigateAndClose;
@@ -1986,10 +1985,10 @@ Checks if the internal caching system contains model data for an array of urls.
 
 ```js
 ProcoreBim.Cache.hasModel({
-  meshUrl: "samples/vortex.mesh",
-  meshnodeUrl: "samples/vortex.meshnode",
-  nodeUrl: "samples/vortex.node",
-  cellUrl: "samples/vortex.cell",
+  meshUrl: 'samples/vortex.mesh',
+  meshnodeUrl: 'samples/vortex.meshnode',
+  nodeUrl: 'samples/vortex.node',
+  cellUrl: 'samples/vortex.cell'
 }).then(function (isCached) {
   console.log(isCached);
 });
@@ -2025,10 +2024,10 @@ Remove model data for an array of urls.
 
 ```js
 ProcoreBim.Cache.removeModel({
-  meshUrl: "samples/vortex.mesh",
-  meshnodeUrl: "samples/vortex.meshnode",
-  nodeUrl: "samples/vortex.node",
-  cellUrl: "samples/vortex.cell",
+  meshUrl: 'samples/vortex.mesh',
+  meshnodeUrl: 'samples/vortex.meshnode',
+  nodeUrl: 'samples/vortex.node',
+  cellUrl: 'samples/vortex.cell'
 }).then(function (modelRemoved) {
   console.log(modelRemoved);
 });
@@ -2078,7 +2077,7 @@ Another example is if you want to avoid using the Implicit Grant flow you might 
 
 ```js
 {
-  parentElement: document.getElementById("myViewer");
+  parentElement: document.getElementById('myViewer');
 }
 ```
 
@@ -2088,7 +2087,7 @@ DOM node to attach viewer to.
 
 ```js
 {
-  modelId: "999-888-myModel";
+  modelId: '999-888-myModel';
 }
 ```
 
@@ -2099,7 +2098,7 @@ Must be unique to avoid cache collisions.
 
 ```js
 {
-  modelRevisionId: "999-888-myModel";
+  modelRevisionId: '999-888-myModel';
 }
 ```
 
@@ -2110,7 +2109,7 @@ Must be unique to avoid cache collisions.
 
 ```js
 {
-  meshUrl: "https://foo.com/geometry/mesh";
+  meshUrl: 'https://foo.com/geometry/mesh';
 }
 ```
 
@@ -2121,7 +2120,7 @@ Provided by a Procore service.
 
 ```js
 {
-  meshnodeUrl: "https://foo.com/geometry/meshnode";
+  meshnodeUrl: 'https://foo.com/geometry/meshnode';
 }
 ```
 
@@ -2132,7 +2131,7 @@ Provided by a Procore service.
 
 ```js
 {
-  nodeUrl: "https://foo.com/geometry/node";
+  nodeUrl: 'https://foo.com/geometry/node';
 }
 ```
 
@@ -2143,7 +2142,7 @@ Provided by a Procore service.
 
 ```js
 {
-  cellUrl: "https://foo.com/geometry/mesh";
+  cellUrl: 'https://foo.com/geometry/mesh';
 }
 ```
 
@@ -2241,7 +2240,7 @@ Sets the object selection mode.
 [
   ProcoreBim.Webviewer.tools.BOTTOMTOOL,
   ProcoreBim.Webviewer.tools.COACHMARKS,
-  ProcoreBim.Webviewer.tools.MEASUREMENT_SD,
+  ProcoreBim.Webviewer.tools.MEASUREMENT_SD
 ];
 ```
 
@@ -2257,7 +2256,7 @@ For example:
 ```js
 [
   ProcoreBim.Webviewer.tools.BOTTOMTOOL,
-  { type: ProcoreBim.Webviewer.tools.MEASUREMENT_SD, center_lock: true },
+  { type: ProcoreBim.Webviewer.tools.MEASUREMENT_SD, center_lock: true }
 ];
 ```
 
