@@ -446,7 +446,7 @@ Camera
 <p class="heading-link-container"><a class="heading-link" href="zoom-to-nodes"></a></p>
 
 ```js
-zoomToNodes(nodeIds);
+zoomToObjects(objectIds);
 ```
 
 #### Description
@@ -457,7 +457,7 @@ Moves camera from current position to fit the axis-aligned bounding box of the n
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| nodeIds | true | NodeId[] | An array of node ids. To zoom to a single node, pass an array of one. |
+| objectIds | true | ObjectId[] | An array of object ids. To zoom to a single object, pass an array of one. |
 
 ##### Returns
 
