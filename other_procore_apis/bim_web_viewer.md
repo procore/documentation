@@ -1195,7 +1195,7 @@ Fires when objects have been removed from the hidden set.
 
 <p class="heading-link-container"><a class="heading-link" href="#objectselect"></a></p>
 
-Fires when an object has been selected. This event returns Meshnode ID.
+Fires when an object has been selected. This event returns a Meshnode Index.
 
 ---
 
