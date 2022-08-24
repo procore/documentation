@@ -449,6 +449,8 @@ Example response:
 }
 ```
 
+You can also create WBS codes with a bulk operation - See [Bulk Create WBS codes](https://developers.procore.com/reference/rest/v1/codes?version=1.0#bulk-create-wbs-codes).
+
 Once you have created a complete set of WBS codes for your organization, you can use them in CRUD operations to manage financial line item data in the following resources.
 
 * [Budget Line Items](https://developers.procore.com/reference/rest/v1/budget-line-items?version=1.1) (UPDATE)
@@ -457,6 +459,13 @@ Once you have created a complete set of WBS codes for your organization, you can
 * [Prime Contract Line Items](https://developers.procore.com/reference/rest/v1/prime-contract-line-items?version=1.0) (SYNC)
 * [Purchase Order Contract Line Items](https://developers.procore.com/reference/rest/v1/purchase-order-contract-line-items?version=1.0) (SYNC)
 * [Work Order Contract Line Items](https://developers.procore.com/reference/rest/v1/work-order-contract-line-items?version=1.0) (SYNC)
+
+#### Updating WBS Codes
+
+You can update existing WBS codes using the following endpoints.
+
+- Update a single WBS code with new status and/or description values - See [Update a WBS Code](https://developers.procore.com/reference/rest/v1/codes?version=1.0#update-a-wbs-code).
+- Bulk update WBS codes with the same status - See [Bulk update WBS codes](https://developers.procore.com/reference/rest/v1/codes?version=1.0#bulk-update-wbs-codes).
 
 ## WBS Comparison with Legacy Financial Resources
 
@@ -518,4 +527,3 @@ The `origin_id` is not currently available on Custom Segments or WBS Codes. This
 ## Additional Information
 
 If you require additional guidance on working with the Work Breakdown Structure endpoints, please reach out to our API Support team at <apisupport@procore.com> for assistance.
-
