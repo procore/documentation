@@ -477,7 +477,7 @@ navToHomeView();
 
 #### Description
 
-Navigation to the home viewpoint if `bcfCamera` option has been set. If not, zooms to fit the axis-aligned bounding box of the entire model with space junk eliminated (see [zoomToGlobal](#zoom-to-global)).
+Navigation to the home viewpoint if `bcfCamera` option has been set. If not, zooms to fit the axis-aligned bounding box of the entire model with space junk eliminated (see [`zoomToGlobal`](#zoom-to-global)).
 
 #### Parameters
 
