@@ -456,9 +456,7 @@ None
 ##### Returns
 
 ```js
-{
-  Object;
-}
+{Object}
 ```
 
 ##### Namespace
@@ -666,7 +664,7 @@ Adds a container div to the Webviewer canvas and appends `Element` to it.
 ##### Returns
 
 ```js
-boolean;
+boolean
 ```
 
 ##### Namespace
@@ -696,7 +694,7 @@ Removes the container div from the viewer which contains the argument `Element`.
 ##### Returns
 
 ```js
-boolean;
+boolean
 ```
 
 ##### Namespace
@@ -1383,7 +1381,7 @@ None
 ##### Returns
 
 ```js
-Array[Number];
+Array[Number]
 ```
 
 ##### Namespace
@@ -1414,7 +1412,7 @@ Does not clear previous hiding(s).
 ##### Returns
 
 ```js
-Set(Number);
+Set(Number)
 ```
 
 ##### Namespace
@@ -1446,7 +1444,7 @@ Otherwise `false` is returned if at least one Object is not hidden.
 ##### Returns
 
 ```js
-boolean;
+boolean
 ```
 
 ##### Namespace
@@ -1502,7 +1500,7 @@ None
 ##### Returns
 
 ```js
-Array[Number];
+Array[Number]
 ```
 
 ##### Namespace
@@ -1565,7 +1563,7 @@ Otherwise `false` is returned if at least one Object is not selected.
 ##### Returns
 
 ```js
-boolean;
+boolean
 ```
 
 ##### Namespace
@@ -2011,7 +2009,7 @@ ProcoreBim.Cache.hasModel({
 ##### Returns
 
 ```js
-Promise(Boolean);
+Promise(boolean)
 ```
 
 ---
@@ -2050,7 +2048,7 @@ ProcoreBim.Cache.removeModel({
 ##### Returns
 
 ```js
-Promise(boolean);
+Promise(boolean)
 ```
 
 ## Options
