@@ -1159,7 +1159,7 @@ Fires on double mouse clicks. If the double mouse click occurs on an object, thi
 
 <p class="heading-link-container"><a class="heading-link" href="#objectsingleclick"></a></p>
 
-Fires on a single mouse click. If the single mouse click occurs on an object, this event returns Meshnode ID, otherwise -1 is returned.
+Fires on a single mouse click. If the single mouse click occurs on an object, this event returns a Meshnode Index, otherwise -1 is returned.
 
 ---
 
