@@ -851,7 +851,7 @@ Fires when the document view (window) has been resized.
 
 <p class="heading-link-container"><a class="heading-link" href="#appstart"></a></p>
 
-Fires after .start() is called.
+Fires after `start()` is called on the Webviewer instance.
 
 ---
 
