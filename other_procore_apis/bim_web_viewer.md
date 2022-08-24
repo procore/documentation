@@ -180,7 +180,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -206,7 +206,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -396,7 +396,7 @@ Force download the current render view into a png.
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -427,7 +427,7 @@ See [Orthogonal Camera](#orthogonal-camera-object) or [Perspective Camera](#pers
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -486,7 +486,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -516,7 +516,7 @@ Moves camera from current position to fit the axis-aligned bounding box of the n
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -546,7 +546,7 @@ Moves camera to fit the specified axis-aligned bounding box.
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -574,7 +574,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -602,7 +602,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -634,7 +634,7 @@ Sets the camera with euler angles, yaw, pitch and roll
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -729,7 +729,7 @@ Executes a callback when an internal viewer event occurs.
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -760,7 +760,7 @@ Removes a callback from an internal viewer event, if it is identical to a callba
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -791,7 +791,7 @@ Manually dispatches an event
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1474,7 +1474,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1533,7 +1533,7 @@ Does not clear previous selection(s).
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1593,7 +1593,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1625,7 +1625,7 @@ Overrides the color of an object.
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1683,7 +1683,7 @@ Sets section box given an XYZ max and min and rotation(optional);
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1711,7 +1711,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1742,7 +1742,7 @@ Adds a single section plane.
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1772,7 +1772,7 @@ Removes a single section plane.
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1800,7 +1800,7 @@ None
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
@@ -1832,7 +1832,7 @@ Currently can only set `selection`.
 ##### Returns
 
 ```js
-undefined;
+undefined
 ```
 
 ##### Namespace
