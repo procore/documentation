@@ -219,7 +219,7 @@ You can make two separate calls to the [List Projects](https://developers.procor
 ```
 - Make a GET call to the [List Projects](https://developers.procore.com/reference/rest/v1/projects?version=1.1) endpoint using the retreived access token for authorization.
 
-**For the Logged in User**
+**For the Logged in User:**
 
 - Make a GET call to the [Grant App Authorization](https://developers.procore.com/reference/rest/v1/authentication?version=1.0#grant-app-authorization) endpoint specifying `response_type=code` as a query parameter.
 - With the retrieved authorization code, make a POST call to the [Get or Refresh an Access Token](https://developers.procore.com/reference/rest/v1/authentication?version=1.0#get-or-refresh-an-access-token) to obtain an access token.
