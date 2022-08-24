@@ -1251,7 +1251,7 @@ Fires when a tool has been activated.
 | Field Name | Type   | Description                                                                                 |
 | ---------- | ------ | ------------------------------------------------------------------------------------------- |
 | origin     | string | The origin of the tool being activated.                                                     |
-| tool       | number | The tool that has been activated, enumerated from `ProcoreBim.Webviewer.toolstoolbar_enum`. |
+| tool       | number | The tool that has been activated, enumerated from `ProcoreBim.Webviewer.toolbar_enum`. |
 
 ---
 
