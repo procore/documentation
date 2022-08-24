@@ -939,7 +939,7 @@ Fires before requests are made to download the model.
 
 <p class="heading-link-container"><a class="heading-link" href="#drawingnavigated"></a></p>
 
-Fires when the 2D Navigation overlay is used to navigate the model. Specifically, this fires after a location and direction has been chosen on the floor plan and the overlay is dismissed.
+Fires when the 2D Navigation overlay is used to navigate the model. Specifically, this fires after a location and direction have been chosen on the floor plan and the overlay is dismissed.
 
 ---
 
