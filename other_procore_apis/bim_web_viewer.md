@@ -907,7 +907,7 @@ Fires after a double click occurs on the webviewer container element. Returns a 
 
 <p class="heading-link-container"><a class="heading-link" href="#downloadcomplete"></a></p>
 
-Fires after all the requests for the model has been downloaded. This event will still fire even if the model is cached.
+Fires after all download requests for the model have been completed. This event will still fire even if the model is cached.
 
 ---
 
