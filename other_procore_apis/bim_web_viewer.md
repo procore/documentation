@@ -15,7 +15,7 @@ section_title: Other Procore APIs
 
 <p class="heading-link-container"><a class="heading-link" href="#installation-from-npm-recommended"></a></p>
 
-![](https://img.shields.io/npm/v/@procore/bim-webviewer-sdk?color=%23f47e42)
+![npm version](https://img.shields.io/npm/v/@procore/bim-webviewer-sdk?color=%23f47e42)
 
 The Procore BIM Web Viewer is available as a module on `npm` as [`@procore/bim-webviewer-sdk`](https://www.npmjs.com/package/@procore/bim-webviewer-sdk).
 
