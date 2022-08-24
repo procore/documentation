@@ -200,4 +200,29 @@ In addition, the following steps can be used to retrieve the list of company acc
 
 The same DMSA credentials created for your data connection application can also be used with the [Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials).
 In this case, the access token you receive is for a specific logged in user, rather than for the DMSA 'bot' user.
-Before showing a user any specific company data or allowing them to trigger actions using your DMSA app, first have them sign in using the authorization code grant flow and check that they are a user on the correct company using the [List Companies](https://developers.procore.com/reference/rest/v1/companies?version=1.0) endpoint.
+Before showing a user any specific company data or allowing them to trigger actions using your DMSA app, first have them sign in using the authorization code grant flow and check that they are a user on the correct company using the [List Companies](https://developers.procore.com/reference/rest/v1/companies?version=1.0) endpoint. See [Handling Multiple Companies]({{ site.url }}{{ site.baseurl }}/api-call-sequencing#handling-multiple-companies) for additional information.
+
+### When using DMSA client credentials and authorization code grant flows in the same application, how do I determine if the DMSA 'bot' user and the logged in user have access to the same projects?
+
+You can make two separate calls to the [List Projects](https://developers.procore.com/reference/rest/v1/projects?version=1.1) endpoint - one using the client credentials flow and one using the authorization code flow.
+
+**For the DMSA 'Bot' User:**
+
+- Make a POST call to the  [Get or Refresh an Access Token](https://developers.procore.com/reference/rest/v1/authentication?version=1.0#get-or-refresh-an-access-token) endpoint with a request body formatted as follows:
+
+```
+{
+  "grant_type": "client_credentials",
+  "client_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "client_secret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}
+```
+- Make a GET call to the [List Projects](https://developers.procore.com/reference/rest/v1/projects?version=1.1) endpoint using the retreived access token for authorization.
+
+**For the Logged in User**
+
+- Make a GET call to the [Grant App Authorization](https://developers.procore.com/reference/rest/v1/authentication?version=1.0#grant-app-authorization) endpoint specifying `response_type=code` as a query parameter.
+- With the retrieved authorization code, make a POST call to the [Get or Refresh an Access Token](https://developers.procore.com/reference/rest/v1/authentication?version=1.0#get-or-refresh-an-access-token) to obtain an access token.
+- Make a GET call to the [List Projects](https://developers.procore.com/reference/rest/v1/projects?version=1.1) endpoint using the access token for authorization.
+
+The response objects from these two call sequences can then be compared by your application to determine which projects the DMSA 'bot' user is able to access, and which projects the logged in user is able to access.
