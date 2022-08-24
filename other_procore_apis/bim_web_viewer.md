@@ -1151,7 +1151,7 @@ Fires when the navigation mode has changed.
 
 <p class="heading-link-container"><a class="heading-link" href="#objectdoubleclick"></a></p>
 
-Fires on double mouse clicks. If the double mouse click occurs on an object, this event returns a Meshnode ID, otherwise -1 is returned. A double click also produces one `objectSingleClick` event.
+Fires on double mouse clicks. If the double mouse click occurs on an object, this event returns a Meshnode Index, otherwise -1 is returned. A double click also produces one `objectSingleClick` event.
 
 ---
 
