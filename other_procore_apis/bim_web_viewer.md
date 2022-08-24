@@ -475,7 +475,7 @@ navToHomeView();
 
 #### Description
 
-Navigation to the home viewpoint if `bcfCamera` option has been set. If not, zooms to fit the axis-aligned bounding box of the entire model.
+Navigation to the home viewpoint if `bcfCamera` option has been set. If not, zooms to fit the axis-aligned bounding box of the entire model with space junk eliminated (see [zoomToGlobal](#zoom-to-global)).
 
 #### Parameters
 
@@ -593,6 +593,10 @@ zoomToGlobal();
 #### Description
 
 Moves camera to fit the axis-aligned bounding box of the entire model. Does not take into account current camera position, i.e. will always give you the same view regardless of where the camera is currently.
+
+As of v5.1.0, `zoomToGlobal` will zoom to the "refined global bounding box" in which "space junk" has been eliminated. Space junk is loosely defined as objects which are far from all other objects in the model and distort the global bounding box dramatically.
+
+Performance Note: the execution time for eliminating space junk scales with the number of meshnodes in the model. Mostly this cost is incurred at load time, but will be incurred the first time `zoomToGlobal` is called if a `bcfCamera` option was provided.
 
 #### Parameters
 
