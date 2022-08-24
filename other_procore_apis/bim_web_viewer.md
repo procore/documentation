@@ -883,9 +883,15 @@ Fires after the rendering canvas has been created.
 
 <p class="heading-link-container"><a class="heading-link" href="#coachmarkhyperlinkclicked"></a></p>
 
-Fires when the coachmark indicator has been cleared. The coachmark in the upper right hand corner of the webviewer appears due to; hidden objects, applied section planes, or a field of view has been applied other than the default field of view. When you clear a coachmark, this event fires and returns a string value of which coachmark was cleared.
+Fires when the coachmark indicator has been cleared. The coachmark will appear in the upper right hand corner of the webviewer appear when:
+- objects are hidden
+- section planes are applied
+- a field of view has been applied other than the default field of view
 
-This string can be one of the following values: `hidden`, `section`, or `fov`.
+When the coachmark is cleared, this event will fire with a value indicating which type of coachmark was cleared:
+- `"hidden"`
+- `"section"`
+- `"fov"`
 
 ---
 
