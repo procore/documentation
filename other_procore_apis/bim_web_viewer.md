@@ -1211,7 +1211,7 @@ Fires when the Webviewer options have changed. This event fires when `setOptions
 
 <p class="heading-link-container"><a class="heading-link" href="#objectmeasure"></a></p>
 
-Fires objects are selected for measurement. This event returns a Meshnode ID of the object selected fore measurement.
+Fires when objects are selected for measurement. This event returns a Meshnode Index of the object selected for measurement.
 
 ---
 
