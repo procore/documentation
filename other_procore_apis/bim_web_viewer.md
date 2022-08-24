@@ -75,7 +75,7 @@ See the [Options](#options) section for more detail on the options object.
 
 ## Background Color
 
-<p class="heading-link-container"><a class="heading-link" href="#other-considerations"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#background-color"></a></p>
 
 The viewer does not render a background or color.
 You may set your own background color with CSS on any parent element that contains the viewer for that background color to be displayed.
