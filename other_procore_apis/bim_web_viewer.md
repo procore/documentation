@@ -660,6 +660,7 @@ Adds a container div to the Webviewer canvas and appends `Element` to it.
 | Field Name | Required | Type        | Description                                                           |
 | ---------- | -------- | ----------- | --------------------------------------------------------------------- |
 | domElement | true     | HTMLElement | The DOM element that makes up the panel to be appended to the viewer. |
+
 ##### Returns
 
 ```js
@@ -720,10 +721,10 @@ The `callback` parameter is a third party defined function to be executed when t
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
-| eventName | true | String | Name of the event |
-| callback | true | Function | Function to evoke when event occurs |
+| Field Name | Required | Type     | Description                         |
+| ---------- | -------- | -------- | ----------------------------------- |
+| eventName  | true     | String   | Name of the event                   |
+| callback   | true     | Function | Function to evoke when event occurs |
 
 ##### Returns
 
@@ -751,8 +752,8 @@ Removes a callback from an internal viewer event, if it is identical to a callba
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
+| Field Name | Required | Type     | Description                                         |
+| ---------- | -------- | -------- | --------------------------------------------------- |
 | eventName  | true     | String   | Name of the event                                   |
 | callback   | true     | Function | The function that was added from `addEventListener` |
 
@@ -782,8 +783,8 @@ Manually dispatches an event
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
+| Field Name | Required | Type     | Description                                         |
+| ---------- | -------- | -------- | --------------------------------------------------- |
 | eventName  | true     | String   | Name of the event                                   |
 | callback   | true     | Function | The function that was added from `addEventListener` |
 

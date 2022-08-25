@@ -6,3 +6,5 @@ group :jekyll_plugins do
 end
 
 gem "minima", "~> 2.5"
+
+gem "webrick", "~> 1.7"
