@@ -322,8 +322,8 @@ Sets the camera target.
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
+| Field Name | Required | Type   | Description                             |
+| ---------- | -------- | ------ | --------------------------------------- |
 | x          | true     | Number | X component of the world space position |
 | y          | true     | Number | Y component of the world space position |
 | z          | true     | Number | Z component of the world space position |
@@ -357,8 +357,8 @@ Take position in world space and convert it to screen space
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
+| Field Name | Required | Type   | Description                             |
+| ---------- | -------- | ------ | --------------------------------------- |
 | x          | true     | Number | X component of the world space position |
 | y          | true     | Number | Y component of the world space position |
 | z          | true     | Number | Z component of the world space position |
@@ -389,8 +389,8 @@ Force download the current render view into a png.
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
+| Field Name | Required | Type   | Description                                                                  |
+| ---------- | -------- | ------ | ---------------------------------------------------------------------------- |
 | color      | false    | String | Background css color, can use hex value ('#00ff00'), or color labels ('red') |
 
 ##### Returns
@@ -420,8 +420,8 @@ See [Orthogonal Camera](#orthogonal-camera-object) or [Perspective Camera](#pers
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
+| Field Name | Required | Type   | Description            |
+| ---------- | -------- | ------ | ---------------------- |
 | bcfCamera  | true     | Object | A BCF formatted object |
 
 ##### Returns
@@ -623,11 +623,11 @@ Sets the camera with euler angles, yaw, pitch and roll
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
-| x | true | Number | Angle of the x axis in radians |
-| y | true | Number | Angle of the y axis in radians |
-| z | true | Number | Angle of the z axis in radians |
+| Field Name | Required | Type   | Description                    |
+| ---------- | -------- | ------ | ------------------------------ |
+| x          | true     | Number | Angle of the x axis in radians |
+| y          | true     | Number | Angle of the y axis in radians |
+| z          | true     | Number | Angle of the z axis in radians |
 
 ##### Returns
 
@@ -657,10 +657,9 @@ Adds a container div to the Webviewer canvas and appends `Element` to it.
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
-| domElement | true | HTMLElement | The DOM element that makes up the panel to be appended to the viewer. |
-
+| Field Name | Required | Type        | Description                                                           |
+| ---------- | -------- | ----------- | --------------------------------------------------------------------- |
+| domElement | true     | HTMLElement | The DOM element that makes up the panel to be appended to the viewer. |
 ##### Returns
 
 ```js
@@ -687,9 +686,9 @@ Removes the container div from the viewer which contains the argument `Element`.
 
 #### Parameters
 
-| Field Name | Required | Type | Description |
-| - | - | - | - |
-| domElement | true | HTMLElement | The DOM element that makes up the panel to be removed from the viewer. |
+| Field Name | Required | Type        | Description                                                            |
+| ---------- | -------- | ----------- | ---------------------------------------------------------------------- |
+| domElement | true     | HTMLElement | The DOM element that makes up the panel to be removed from the viewer. |
 
 ##### Returns
 
