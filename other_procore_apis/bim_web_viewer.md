@@ -1,6 +1,6 @@
 ---
 permalink: /bim-web-viewer
-title: "Procore BIM Web Viewer: Integrator Documentation"
+title: 'Procore BIM Web Viewer: Integrator Documentation'
 layout: default
 section_title: Other Procore APIs
 ---
@@ -59,7 +59,7 @@ If you're managing script loading manually:
 
 ```html
 <!-- This will instantiate window.ProcoreBim -->
-<script src='path/to/Procore.Bim.Webviewer.js'></script>
+<script src="path/to/Procore.Bim.Webviewer.js"></script>
 ```
 
 ### Instantiate and Start the Viewer
@@ -73,9 +73,9 @@ viewer.start();
 
 See the [Options](#options) section for more detail on the options object.
 
-## Other Considerations
+## Background Color
 
-<p class="heading-link-container"><a class="heading-link" href="#other-considerations"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#background-color"></a></p>
 
 The viewer does not render a background or color.
 You may set your own background color with CSS on any parent element that contains the viewer for that background color to be displayed.
@@ -117,7 +117,7 @@ const viewer = new ProcoreBim.Webviewer(options);
 viewer.start();
 ```
 
-Here, there Webviewer has been isntanced and we have invoked start which does not belong to a namespace to start initializing the model viewer.
+The Webviewer has been instanced and we have invoked the `start` method which does not belong to a namespace to start initializing the model viewer.
 
 ```js
 viewer.camera.setPosition(1, 10, -1);
@@ -136,22 +136,22 @@ ProcoreBim.Cache.{method_name}
 ```js
 const viewer = new ProcoreBim.Webviewer(options);
 
-//Starts the viewer, must be called.
-`start` does not belong to a namespace.
+// Starts the viewer, must be called.
+// `start` does not belong to a namespace.
 viewer.start();
 
-//Gets the camera direction, `getCameraDirection()` belongs to
+// Gets the camera direction, `getCameraDirection()` belongs to
 // the `camera` namespace.
 var cameraDirection = viewer.camera.getCameraDirection();
 
-//Checks if the model is cached, `hasModel` returns a promise
+// Checks if the model is cached, `hasModel` returns a promise
 // and belongs to the `Cache` namespace.
 ProcoreBim.Cache.hasModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell',
-}).then(function(isCached) {
+  cellUrl: 'samples/vortex.cell'
+}).then(function (isCached) {
   console.log(isCached);
 });
 ```
@@ -523,7 +523,6 @@ Camera
 
 ---
 
-
 ### Zoom to Fit a Bounding Box
 
 <p class="heading-link-container"><a class="heading-link" href="zoom-to-fit-a-bounding-box"></a></p>
@@ -706,48 +705,6 @@ Dom
 
 <p class="heading-link-container"><a class="heading-link" href="#events-namespace"></a></p>
 
-Supported events are:
-
-| Event                  | Description                                                                                  |
-| ---------------------- | -------------------------------------------------------------------------------------------- |
-| `appResize`            | The window has resized.                                                                      |
-| `appStart`             | The first event that occurs, after .start() is called.                                       |
-| `cameraUpdated`        | The camera rotation or position has changed.                                                 |
-| `serviceWorkerReady`   | Service worker has been installed and is listening for events.                               |
-| `doubleClick`          | A double click has occurred anywhere on the canvas. Value: `Event`                           |
-| `downloadComplete`     | File retrieval has completed.                                                                |
-| `downloadProgress`     | File retrieval progress tick.                                                                |
-| `downloadStart`        | File retrieval has started.                                                                  |
-| `selectTool`           | Fires whenever a tool has been enabled.                                                      |
-| `navigationChanged`    | The navigation mode for the model has changed.                                               |
-| `objectDoubleClick`    | A double click has occurred on an object. Value: `objectId`                                  |
-| `objectRightClick`     | A right click has occurred on an object. Value: `objectId`                                   |
-| `objectSingleClick`    | A single click has occurred on an object. Value: `objectId`                                  |
-| `objectHide`           | An object was hidden. Value: `objectId`                                                      |
-| `hideUpdated`          | Hidden set of objects has changed.                                                           |
-| `objectSelect`         | An object was selected. Value: `objectId`                                                    |
-| `optionsChanged`       | Configuration options for the viewer have been modified. Value: `options`                    |
-| `canvasReady`          | Loading canvas is ready. Value: `<canvas>`                                                   |
-| `renderReady`          | Rendering canvas has loaded and is prepared to animate. Value: `renderReady`                 |
-| `rightClick`           | A right click has occurred anywhere on the canvas. Value: `Event`                            |
-| `singleClick`          | A single click has occurred anywhere on the canvas. Value: `Event`                           |
-| `messages`             | Internal Warnings and Errors are published to this event.                                    |
-| `sectionBoxSet`        | Section Box has been applied.                                                                |
-| `sectionBoxRemoved`    | Section Box has been removed.                                                                |
-| `sectionPlaneAdded`    | Section Plane has been applied.                                                              |
-| `sectionPlaneRemoved`  | Section Plane has been removed.                                                              |
-| `sectionsCleared`      | All section boxes and planes have been removed.                                              |
-| `drawingMiniClick`     | The 2D Navigation mini map was clicked.                                                      |
-| `drawingNavigated`     | After camera has been updated through 2D Navigation                                          |
-| `measured`             | Fired after completion of shortest distance calculation                                      |
-| `objectMeasure`        | An object was selected for measurement. Value: `objectId`                                    |
-| `bcfCameraSet`         | Fired after the BCF Camera has been set.                                                     |
-| `intersectPointClick`  | Fires after mouse click with point of intersection on the closest object of last mouse click |
-| `isolateCompleted`     | Fired after `Isolate` and after all the objects except the active object are hidden          |
-| `hideSimilarCompleted` | Fired after `Hide Similar` and after all the objects except the active object are hidden     |
-
----
-
 ### Add Event
 
 <p class="heading-link-container"><a class="heading-link" href="#add-event"></a></p>
@@ -759,6 +716,8 @@ addEventListener(eventName, callback);
 #### Description
 
 Executes a callback when an internal viewer event occurs.
+
+The `callback` parameter is a third party defined function to be executed when the event fires. Depending on the event, the callback function may return undefined, or data. This data may be a number, string, or a JavaScript object.
 
 #### Parameters
 
@@ -838,6 +797,534 @@ undefined
 ##### Namespace
 
 Events
+
+---
+
+## Event Names
+
+<p class="heading-link-container"><a class="heading-link" href="#event-names"></a></p>
+
+The following event names are available to notify third party code of changes in the viewer.
+
+#### Complete Example
+
+```js
+const viewer = new ProcoreBim.Webviewer(options);
+
+viewer.events.addEventListener('appResize', (data) => {
+  // Called when the window resizes and returns an object with properties
+  // `offsetHeight`, `offsetWidth`, `offsetLeft`, `offsetTop`.
+  console.log(data.offsetHeight);
+});
+
+viewer.events.addEventListener('bcfCameraSet', () => {
+  // Called when the camera has been set, does not return any data.
+});
+
+viewer.start();
+```
+
+### appResize
+
+<p class="heading-link-container"><a class="heading-link" href="#appresize"></a></p>
+
+Fires when the document view (window) has been resized.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| offsetHeight | number | New offset height of the webviewer parent element. |
+| offsetWidth  | number | New offset width of the webviewer parent element.  |
+| offsetLeft   | number | New offset left of the webviewer parent element.   |
+| offsetTop    | number | New offset top of the webviewer parent element.    |
+
+---
+
+### appStart
+
+<p class="heading-link-container"><a class="heading-link" href="#appstart"></a></p>
+
+Fires after `start()` is called on the Webviewer instance.
+
+---
+
+### bcfCameraSet
+
+<p class="heading-link-container"><a class="heading-link" href="#bcfcameraset"></a></p>
+
+Fires after a BCF Camera has been set.
+
+---
+
+### cameraUpdated
+
+<p class="heading-link-container"><a class="heading-link" href="#cameraupdated"></a></p>
+
+Fires after the camera direction or camera position has been modified.
+
+---
+
+### canvasReady
+
+<p class="heading-link-container"><a class="heading-link" href="#canvasready"></a></p>
+
+Fires after the rendering canvas has been created.
+
+---
+
+### coachmarkHyperlinkClicked
+
+<p class="heading-link-container"><a class="heading-link" href="#coachmarkhyperlinkclicked"></a></p>
+
+Fires when the coachmark indicator has been cleared. The coachmark will appear in the upper right hand corner of the webviewer appear when:
+- objects are hidden
+- section planes are applied
+- a field of view has been applied other than the default field of view
+
+When the coachmark is cleared, this event will fire with a value indicating which type of coachmark was cleared:
+- `"hidden"`
+- `"section"`
+- `"fov"`
+
+---
+
+### doubleClick
+
+<p class="heading-link-container"><a class="heading-link" href="#doubleclick"></a></p>
+
+Fires after a double click occurs on the webviewer container element. Returns a [MouseEvent](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) object.
+
+---
+
+### downloadComplete
+
+<p class="heading-link-container"><a class="heading-link" href="#downloadcomplete"></a></p>
+
+Fires after all download requests for the model have been completed. This event will still fire even if the model is cached.
+
+---
+
+### downloadProgress
+
+<p class="heading-link-container"><a class="heading-link" href="#downloadprogress"></a></p>
+
+Fires periodically to report progress on how much of the model has been downloaded.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - | 
+| loaded      | number  | Number of bytes downloaded.                                                                                     |
+| total       | number  | Total size of model in bytes. This amount will be arbitrarily large until all the requests have been initiated. |
+| total_found | boolean | Returns true to indicates all the requests for the model has been initiated.                                    |
+
+---
+
+### downloadStart
+
+<p class="heading-link-container"><a class="heading-link" href="#downloadstart"></a></p>
+
+Fires before requests are made to download the model.
+
+---
+
+### drawingNavigated
+
+<p class="heading-link-container"><a class="heading-link" href="#drawingnavigated"></a></p>
+
+Fires when the 2D Navigation overlay is used to navigate the model. Specifically, this fires after a location and direction have been chosen on the floor plan and the overlay is dismissed.
+
+---
+
+### drawingMiniClick
+
+<p class="heading-link-container"><a class="heading-link" href="#drawingminiclick"></a></p>
+
+Fires when the 2D Navigation mini map was clicked on.
+
+---
+
+### floorPlan
+
+<p class="heading-link-container"><a class="heading-link" href="#floorplan"></a></p>
+
+Fires when the 2D Navigation overlay is interacted with.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| floorPlanNavigateAndClose | function    | Provides a callback function to navigate the camera to a position and close the overlay. Returns a promise. |
+| floorPlanPoint            | function    | Provides a callback function to calculate a point on the current floor plan. Returns a promise.             |
+| overlay                   | HTMLElement | The HTMLElement for the 2D Navigation overlay                                                               |
+| type                      | string      | The type of interaction and has the following values: `open`, `close`, and `update`                         |
+
+#### floorPlanNavigateAndClose
+
+<p class="heading-link-container"><a class="heading-link" href="#floorplannavigateandclose"></a></p>
+
+Updates the camera position and direction in addition to dismissing the 2D floor plan overlay.
+
+##### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| x          | true     | number | x coordinate in 3D space.  |
+| y          | true     | number | y coordinate in 3D space.  |
+| z          | true     | number | z coordinate in 3D space.  |
+| dx         | true     | number | x direction of the camera. |
+| dy         | true     | number | y direction of the camera. |
+
+#### floorPlanPoint
+
+<p class="heading-link-container"><a class="heading-link" href="#floorplanpoint"></a></p>
+
+Returns the corresponding point on the 2D floor plan overlay from a point in 3D model space.
+
+##### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| x          | true     | number | x coordinate of the camera. |
+| y          | true     | number | y coordinate of the camera. |
+| z          | true     | number | z coordinate of the camera. |
+| dx         | true     | number | x direction of the camera.  |
+| dy         | true     | number | y direction of the camera.  |
+
+#### Example
+
+```js
+const viewer = new ProcoreBim.Webviewer(options);
+
+let floorPlanNavigateAndClose = null;
+
+viewer.events.addEventListener('floorPlan', (data) => {
+  // Executed when the 2D floor plan overlay is interacted with.
+  if (data.type === 'open') {
+    // Your application might need to know when the 2D floor plan overlay is `open` and keep a reference to
+    // floorPlanNavigateAndClose
+    floorPlanNavigateAndClose = data.floorPlanNavigateAndClose;
+  }
+});
+viewer.start();
+
+// Perhaps your application places markers that represent 3D positions on the 2D floor plan overlay while it is open. When
+// tapping on a marker, this function could be called that uses `floorPlanNavigateAndClose` to set the camera and close the
+// 2D floor plan overlay.
+const goto = (camera) => {
+  if (floorPlanNavigateAndClose !== null) {
+    floorPlanNavigateAndClose(camera.x, camera.y, camera.z, 0.1, 0.1);
+    floorPlanNavigateAndClose = null;
+  }
+};
+```
+
+---
+
+### fieldOfViewChanged
+
+<p class="heading-link-container"><a class="heading-link" href="#fieldofviewchanged"></a></p>
+
+Fires when the camera field of view has been changed. Returns a number in degrees.
+
+---
+
+### hideUpdated
+
+<p class="heading-link-container"><a class="heading-link" href="#hideupdated"></a></p>
+
+Fires when the object hidden set has been updated.
+
+---
+
+### hideSimilarCompleted
+
+<p class="heading-link-container"><a class="heading-link" href="#hidesimilarcompleted"></a></p>
+
+Fires when the `Hide Similar` from the right click context menu operation has completed.
+
+---
+
+### intersectPointClick
+
+<p class="heading-link-container"><a class="heading-link" href="#intersectpointclick"></a></p>
+
+Fires when a mouse click occurs on any part of the model and returns that point of intersection.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| x          | number | x coordinate of the point of intersection. |
+| y          | number | y coordinate of the point of intersection. |
+| z          | number | z coordinate of the point of intersection. |
+
+---
+
+### isolateCompleted
+
+<p class="heading-link-container"><a class="heading-link" href="#isolatecompleted"></a></p>
+
+Fires when the `Isolate` from the right click context menu operation has completed.
+
+---
+
+### messages
+
+<p class="heading-link-container"><a class="heading-link" href="#messages"></a></p>
+
+Fires when the webviewer throws a warning or error.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| messageType | string | The type of message, either `Warning` or `Error`. |
+| component   | string | Where the message originates from.                |
+| message     | string | A human readable message.                         |
+
+---
+
+### measured
+
+<p class="heading-link-container"><a class="heading-link" href="#measured"></a></p>
+
+Fires when measuring two objects has completed.
+
+---
+
+### modelTreeParentInteracted
+
+<p class="heading-link-container"><a class="heading-link" href="#modeltreeparentinteracted"></a></p>
+
+Fires when an object in the `Model Objects` has been interacted with.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| children | number | The number of children the interacted object has. |
+| action | string | The type of action, can be the following: `checkbox`, `open`, `click`, `double_click` or `close` |
+| depth | number | The depth of the object interacted with. A depth of 0 indicates top level objects. A depth of 1 indicates an object that is one level down from root level objects and so on. |
+
+---
+
+### markupDisplayed
+
+<p class="heading-link-container"><a class="heading-link" href="#markupdisplayed"></a></p>
+
+Fires when markup from a viewpoint has been displayed.
+
+---
+
+### markupDismissed
+
+<p class="heading-link-container"><a class="heading-link" href="#markupdismissed"></a></p>
+
+Fires when markup from a viewpoint has been dismissed.
+
+---
+
+### navigationChanged
+
+<p class="heading-link-container"><a class="heading-link" href="#navigationchanged"></a></p>
+
+Fires when the navigation mode has changed.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| mode       | number | The type of navigation that was just activated. |
+| controls   | object | An instance of the controller object.           |
+
+---
+
+### objectDoubleClick
+
+<p class="heading-link-container"><a class="heading-link" href="#objectdoubleclick"></a></p>
+
+Fires on double mouse clicks. If the double mouse click occurs on an object, this event returns a Meshnode Index, otherwise -1 is returned. A double click also produces one `objectSingleClick` event.
+
+---
+
+### objectSingleClick
+
+<p class="heading-link-container"><a class="heading-link" href="#objectsingleclick"></a></p>
+
+Fires on a single mouse click. If the single mouse click occurs on an object, this event returns a Meshnode Index, otherwise -1 is returned.
+
+---
+
+### objectHide
+
+<p class="heading-link-container"><a class="heading-link" href="#objecthide"></a></p>
+
+Fires when objects have been hidden.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| origin     | string | The origin of the hide operation, can be: `context_menu`, `keyboard`, `object_tree`, `object_tree_context_menu_hide`, or `object_tree_actions_hide` |
+
+---
+
+### objectUnhide
+
+<p class="heading-link-container"><a class="heading-link" href="#objectunhide"></a></p>
+
+Fires when objects have been removed from the hidden set.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| origin     | string | The origin of the un hide operation, can be: `coachmark_hidden`, `object_tree`, `object_tree_all_objects` |
+
+---
+
+### objectSelect
+
+<p class="heading-link-container"><a class="heading-link" href="#objectselect"></a></p>
+
+Fires when an object has been selected. This event returns a Meshnode Index.
+
+---
+
+### optionsChanged
+
+<p class="heading-link-container"><a class="heading-link" href="#optionschanged"></a></p>
+
+Fires when the Webviewer options have changed. This event fires when `setOptions` is called, or when actions cause the multiple selection option to change, such as keyboard shortcuts to multi select objects.
+
+---
+
+### objectMeasure
+
+<p class="heading-link-container"><a class="heading-link" href="#objectmeasure"></a></p>
+
+Fires when objects are selected for measurement. This event returns a Meshnode Index of the object selected for measurement.
+
+---
+
+### renderReady
+
+<p class="heading-link-container"><a class="heading-link" href="#renderready"></a></p>
+
+Fires when the webviewer is ready to render the model.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| offsetHeight | number | Offset height of the parent element container. |
+| offsetLeft   | object | Offset left of the parent element container.   |
+| offsetTop    | number | Offset top of the parent element container.    |
+| offsetWidth  | object | Offset width of the parent element container.  |
+
+---
+
+### redo
+
+<p class="heading-link-container"><a class="heading-link" href="#redo"></a></p>
+
+Fires when the keyboard shortcut to redo is pressed. This event fires regardless if there is anything to redo.
+
+---
+
+### selectTool
+
+<p class="heading-link-container"><a class="heading-link" href="#selecttool"></a></p>
+
+Fires when a tool has been activated.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| origin     | string | The origin of the tool being activated.                                                     |
+| tool       | number | The tool that has been activated, enumerated from `ProcoreBim.Webviewer.toolbar_enum`. |
+
+---
+
+### selectedUpdated
+
+<p class="heading-link-container"><a class="heading-link" href="#selectedupdated"></a></p>
+
+Fires when the selection set of objects has been updated.
+
+---
+
+### singleClick
+
+<p class="heading-link-container"><a class="heading-link" href="#singleclick"></a></p>
+
+Fires when a single click occurs in the webviewer container element. this event returns a `MouseEvent` object.
+
+---
+
+### sectionBoxSet
+
+<p class="heading-link-container"><a class="heading-link" href="#sectionboxset"></a></p>
+
+Fires when a section box has been applied.
+
+---
+
+### sectionPlaneAdded
+
+<p class="heading-link-container"><a class="heading-link" href="#sectionplaneadded"></a></p>
+
+Fires when section planes have been applied.
+
+---
+
+### sectionPlaneRemoved
+
+<p class="heading-link-container"><a class="heading-link" href="#sectionplaneremoved"></a></p>
+
+Fires when a section plane has been removed.
+
+---
+
+### sectionsCleared
+
+<p class="heading-link-container"><a class="heading-link" href="#sectionscleared"></a></p>
+
+Fires when all section planes have been removed as a result of individually removing all the planes, calling `clearSection`, or calling `removeSectionBox`.
+
+---
+
+### savedViewpointClicked
+
+<p class="heading-link-container"><a class="heading-link" href="#savedviewpointclicked"></a></p>
+
+Fires when a Saved Viewpoint from the Viewpoints tool has been clicked on.
+
+---
+
+### undo
+
+<p class="heading-link-container"><a class="heading-link" href="#undo"></a></p>
+
+Fires when the keyboard shortcut to undo is pressed. This event fires regardless if there is anything to undo.
+
+---
+
+### windowComponentChanged
+
+<p class="heading-link-container"><a class="heading-link" href="#windowcomponentchanged"></a></p>
+
+Fires when a window based tool has changed its position or size.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| modalSize  | object | An object with the keys, `height`, `left`, `top`, `width` to indicate the current position and size of the window. |
+| name       | string | Human readable name of the window based tool that is changing.                                                     |
 
 ## Model Namespace
 
@@ -1509,8 +1996,8 @@ ProcoreBim.Cache.hasModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell',
-}).then(function(isCached) {
+  cellUrl: 'samples/vortex.cell'
+}).then(function (isCached) {
   console.log(isCached);
 });
 ```
@@ -1518,7 +2005,7 @@ ProcoreBim.Cache.hasModel({
 ##### Returns
 
 ```js
-Promise(Boolean)
+Promise(boolean)
 ```
 
 ---
@@ -1548,8 +2035,8 @@ ProcoreBim.Cache.removeModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell',
-}).then(function(modelRemoved) {
+  cellUrl: 'samples/vortex.cell'
+}).then(function (modelRemoved) {
   console.log(modelRemoved);
 });
 ```
@@ -1593,7 +2080,6 @@ The `baseUrl` is a mechanism for determining which version of the Procore API yo
 For example, while developing a third-party Procore App, you may want to utilize one of the [Sandbox Environments](https://developers.procore.com/documentation/development-environments). To use the Development Sandbox, you could pass `baseUrl: 'https://sandbox.procore.com/'` and any requests made by the SDK will be made to that origin.
 
 Another example is if you want to avoid using the Implicit Grant flow you might set up a server at say `https://auth-proxy.myapp.com` and pass that in as the `baseUrl`. All SDK requests will then be made to your server which could add the `Authorization` header and make the actual request to the Procore API.
-
 
 `parentElement [Element]` (required)
 
@@ -1762,7 +2248,7 @@ Sets the object selection mode.
 [
   ProcoreBim.Webviewer.tools.BOTTOMTOOL,
   ProcoreBim.Webviewer.tools.COACHMARKS,
-  ProcoreBim.Webviewer.tools.MEASUREMENT_SD,
+  ProcoreBim.Webviewer.tools.MEASUREMENT_SD
 ];
 ```
 
@@ -1778,7 +2264,7 @@ For example:
 ```js
 [
   ProcoreBim.Webviewer.tools.BOTTOMTOOL,
-  { type: ProcoreBim.Webviewer.tools.MEASUREMENT_SD, center_lock: true },
+  { type: ProcoreBim.Webviewer.tools.MEASUREMENT_SD, center_lock: true }
 ];
 ```
 
