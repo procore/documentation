@@ -322,8 +322,8 @@ Sets the camera target.
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                             |
-| ---------- | -------- | ------ | --------------------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | x          | true     | Number | X component of the world space position |
 | y          | true     | Number | Y component of the world space position |
 | z          | true     | Number | Z component of the world space position |
@@ -357,8 +357,8 @@ Take position in world space and convert it to screen space
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                             |
-| ---------- | -------- | ------ | --------------------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | x          | true     | Number | X component of the world space position |
 | y          | true     | Number | Y component of the world space position |
 | z          | true     | Number | Z component of the world space position |
@@ -389,8 +389,8 @@ Force download the current render view into a png.
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                                                                  |
-| ---------- | -------- | ------ | ---------------------------------------------------------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | color      | false    | String | Background css color, can use hex value ('#00ff00'), or color labels ('red') |
 
 ##### Returns
@@ -420,8 +420,8 @@ See [Orthogonal Camera](#orthogonal-camera-object) or [Perspective Camera](#pers
 
 #### Parameters
 
-| Field Name | Required | Type   | Description            |
-| ---------- | -------- | ------ | ---------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | bcfCamera  | true     | Object | A BCF formatted object |
 
 ##### Returns
@@ -507,8 +507,8 @@ Moves camera from current position to fit the axis-aligned bounding box of the n
 
 #### Parameters
 
-| Field Name | Required | Type       | Description                                                               |
-| ---------- | -------- | ---------- | ------------------------------------------------------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | objectIds  | true     | ObjectId[] | An array of object ids. To zoom to a single object, pass an array of one. |
 
 ##### Returns
@@ -537,8 +537,8 @@ Moves camera to fit the specified axis-aligned bounding box.
 
 #### Parameters
 
-| Field Name | Required | Type        | Description                                                                              |
-| ---------- | -------- | ----------- | ---------------------------------------------------------------------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | bbox       | true     | BoundingBox | `{ min: { x: Number, y: Number, z: Number }, max: { x: Number, y: Number, z: Number } }` |
 
 ##### Returns
@@ -623,8 +623,8 @@ Sets the camera with euler angles, yaw, pitch and roll
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                    |
-| ---------- | -------- | ------ | ------------------------------ |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | x          | true     | Number | Angle of the x axis in radians |
 | y          | true     | Number | Angle of the y axis in radians |
 | z          | true     | Number | Angle of the z axis in radians |
@@ -657,8 +657,8 @@ Adds a container div to the Webviewer canvas and appends `Element` to it.
 
 #### Parameters
 
-| Field Name | Required | Type        | Description                                                           |
-| ---------- | -------- | ----------- | --------------------------------------------------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | domElement | true     | HTMLElement | The DOM element that makes up the panel to be appended to the viewer. |
 
 ##### Returns
@@ -716,6 +716,8 @@ addEventListener(eventName, callback);
 #### Description
 
 Executes a callback when an internal viewer event occurs.
+
+The `callback` parameter is a third party defined function to be executed when the event fires. Depending on the event, the callback function may return undefined, or data. This data may be a number, string, or a JavaScript object.
 
 #### Parameters
 
@@ -821,12 +823,6 @@ viewer.events.addEventListener('bcfCameraSet', () => {
 
 viewer.start();
 ```
-
-### Callback function
-
-<p class="heading-link-container"><a class="heading-link" href="#callback-function"></a></p>
-
-The second parameter to `addEventListener` is a third party defined function to be executed when the event fires. Depending on the event, the callback function may return undefined, or data. This data may be a number, string, or a JavaScript object.
 
 ### appResize
 
@@ -964,13 +960,13 @@ Fires when the 2D Navigation overlay is interacted with.
 | overlay                   | HTMLElement | The HTMLElement for the 2D Navigation overlay                                                               |
 | type                      | string      | The type of interaction and has the following values: `open`, `close`, and `update`                         |
 
-### floorPlanNavigateAndClose
+#### floorPlanNavigateAndClose
 
 <p class="heading-link-container"><a class="heading-link" href="#floorplannavigateandclose"></a></p>
 
 Updates the camera position and direction in addition to dismissing the 2D floor plan overlay.
 
-#### Parameters
+##### Parameters
 
 | Field Name | Required | Type   | Description                |
 | ---------- | -------- | ------ | -------------------------- |
@@ -980,13 +976,13 @@ Updates the camera position and direction in addition to dismissing the 2D floor
 | dx         | true     | number | x direction of the camera. |
 | dy         | true     | number | y direction of the camera. |
 
-### floorPlanPoint
+#### floorPlanPoint
 
 <p class="heading-link-container"><a class="heading-link" href="#floorplanpoint"></a></p>
 
 Returns the corresponding point on the 2D floor plan overlay from a point in 3D model space.
 
-#### Parameters
+##### Parameters
 
 | Field Name | Required | Type   | Description                 |
 | ---------- | -------- | ------ | --------------------------- |
