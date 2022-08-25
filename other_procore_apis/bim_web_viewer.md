@@ -509,7 +509,7 @@ Moves camera from current position to fit the axis-aligned bounding box of the n
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| objectIds  | true     | ObjectId[] | An array of object ids. To zoom to a single object, pass an array of one. |
+| objectIds | true | ObjectId[] | An array of object ids. To zoom to a single object, pass an array of one. |
 
 ##### Returns
 
@@ -539,7 +539,7 @@ Moves camera to fit the specified axis-aligned bounding box.
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| bbox       | true     | BoundingBox | `{ min: { x: Number, y: Number, z: Number }, max: { x: Number, y: Number, z: Number } }` |
+| bbox | true | BoundingBox | `{ min: { x: Number, y: Number, z: Number }, max: { x: Number, y: Number, z: Number } }` |
 
 ##### Returns
 
@@ -625,9 +625,9 @@ Sets the camera with euler angles, yaw, pitch and roll
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| x          | true     | Number | Angle of the x axis in radians |
-| y          | true     | Number | Angle of the y axis in radians |
-| z          | true     | Number | Angle of the z axis in radians |
+| x | true | Number | Angle of the x axis in radians |
+| y | true | Number | Angle of the y axis in radians |
+| z | true | Number | Angle of the z axis in radians |
 
 ##### Returns
 
@@ -659,7 +659,7 @@ Adds a container div to the Webviewer canvas and appends `Element` to it.
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| domElement | true     | HTMLElement | The DOM element that makes up the panel to be appended to the viewer. |
+| domElement | true | HTMLElement | The DOM element that makes up the panel to be appended to the viewer. |
 
 ##### Returns
 
@@ -687,9 +687,9 @@ Removes the container div from the viewer which contains the argument `Element`.
 
 #### Parameters
 
-| Field Name | Required | Type        | Description                                                            |
-| ---------- | -------- | ----------- | ---------------------------------------------------------------------- |
-| domElement | true     | HTMLElement | The DOM element that makes up the panel to be removed from the viewer. |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| domElement | true | HTMLElement | The DOM element that makes up the panel to be removed from the viewer. |
 
 ##### Returns
 
@@ -721,10 +721,10 @@ The `callback` parameter is a third party defined function to be executed when t
 
 #### Parameters
 
-| Field Name | Required | Type     | Description                         |
-| ---------- | -------- | -------- | ----------------------------------- |
-| eventName  | true     | String   | Name of the event                   |
-| callback   | true     | Function | Function to evoke when event occurs |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| eventName | true | String | Name of the event |
+| callback | true | Function | Function to evoke when event occurs |
 
 ##### Returns
 
@@ -752,8 +752,8 @@ Removes a callback from an internal viewer event, if it is identical to a callba
 
 #### Parameters
 
-| Field Name | Required | Type     | Description                                         |
-| ---------- | -------- | -------- | --------------------------------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | eventName  | true     | String   | Name of the event                                   |
 | callback   | true     | Function | The function that was added from `addEventListener` |
 
@@ -783,8 +783,8 @@ Manually dispatches an event
 
 #### Parameters
 
-| Field Name | Required | Type     | Description                                         |
-| ---------- | -------- | -------- | --------------------------------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | eventName  | true     | String   | Name of the event                                   |
 | callback   | true     | Function | The function that was added from `addEventListener` |
 
@@ -832,8 +832,8 @@ Fires when the document view (window) has been resized.
 
 #### Data Properties
 
-| Field Name   | Type   | Description                                        |
-| ------------ | ------ | -------------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - |
 | offsetHeight | number | New offset height of the webviewer parent element. |
 | offsetWidth  | number | New offset width of the webviewer parent element.  |
 | offsetLeft   | number | New offset left of the webviewer parent element.   |
@@ -913,8 +913,8 @@ Fires periodically to report progress on how much of the model has been download
 
 #### Data Properties
 
-| Field Name  | Type    | Description                                                                                                     |
-| ----------- | ------- | --------------------------------------------------------------------------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - | 
 | loaded      | number  | Number of bytes downloaded.                                                                                     |
 | total       | number  | Total size of model in bytes. This amount will be arbitrarily large until all the requests have been initiated. |
 | total_found | boolean | Returns true to indicates all the requests for the model has been initiated.                                    |
@@ -953,8 +953,8 @@ Fires when the 2D Navigation overlay is interacted with.
 
 #### Data Properties
 
-| Field Name                | Type        | Description                                                                                                 |
-| ------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - |
 | floorPlanNavigateAndClose | function    | Provides a callback function to navigate the camera to a position and close the overlay. Returns a promise. |
 | floorPlanPoint            | function    | Provides a callback function to calculate a point on the current floor plan. Returns a promise.             |
 | overlay                   | HTMLElement | The HTMLElement for the 2D Navigation overlay                                                               |
@@ -968,8 +968,8 @@ Updates the camera position and direction in addition to dismissing the 2D floor
 
 ##### Parameters
 
-| Field Name | Required | Type   | Description                |
-| ---------- | -------- | ------ | -------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | x          | true     | number | x coordinate in 3D space.  |
 | y          | true     | number | y coordinate in 3D space.  |
 | z          | true     | number | z coordinate in 3D space.  |
@@ -984,8 +984,8 @@ Returns the corresponding point on the 2D floor plan overlay from a point in 3D 
 
 ##### Parameters
 
-| Field Name | Required | Type   | Description                 |
-| ---------- | -------- | ------ | --------------------------- |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
 | x          | true     | number | x coordinate of the camera. |
 | y          | true     | number | y coordinate of the camera. |
 | z          | true     | number | z coordinate of the camera. |
@@ -1054,8 +1054,8 @@ Fires when a mouse click occurs on any part of the model and returns that point 
 
 #### Data Properties
 
-| Field Name | Type   | Description                                |
-| ---------- | ------ | ------------------------------------------ |
+| Field Name | Type | Description |
+| - | - | - |
 | x          | number | x coordinate of the point of intersection. |
 | y          | number | y coordinate of the point of intersection. |
 | z          | number | z coordinate of the point of intersection. |
@@ -1078,8 +1078,8 @@ Fires when the webviewer throws a warning or error.
 
 #### Data Properties
 
-| Field Name  | Type   | Description                                       |
-| ----------- | ------ | ------------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - |
 | messageType | string | The type of message, either `Warning` or `Error`. |
 | component   | string | Where the message originates from.                |
 | message     | string | A human readable message.                         |
@@ -1102,11 +1102,11 @@ Fires when an object in the `Model Objects` has been interacted with.
 
 #### Data Properties
 
-| Field Name | Type   | Description                                                                                                                                                                   |
-| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| children   | number | The number of children the interacted object has.                                                                                                                             |
-| action     | string | The type of action, can be the following: `checkbox`, `open`, `click`, `double_click` or `close`                                                                              |
-| depth      | number | The depth of the object interacted with. A depth of 0 indicates top level objects. A depth of 1 indicates an object that is one level down from root level objects and so on. |
+| Field Name | Type | Description |
+| - | - | - |
+| children | number | The number of children the interacted object has. |
+| action | string | The type of action, can be the following: `checkbox`, `open`, `click`, `double_click` or `close` |
+| depth | number | The depth of the object interacted with. A depth of 0 indicates top level objects. A depth of 1 indicates an object that is one level down from root level objects and so on. |
 
 ---
 
@@ -1134,8 +1134,8 @@ Fires when the navigation mode has changed.
 
 #### Data Properties
 
-| Field Name | Type   | Description                                     |
-| ---------- | ------ | ----------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - |
 | mode       | number | The type of navigation that was just activated. |
 | controls   | object | An instance of the controller object.           |
 
@@ -1165,8 +1165,8 @@ Fires when objects have been hidden.
 
 #### Data Properties
 
-| Field Name | Type   | Description                                                                                                                                         |
-| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - |
 | origin     | string | The origin of the hide operation, can be: `context_menu`, `keyboard`, `object_tree`, `object_tree_context_menu_hide`, or `object_tree_actions_hide` |
 
 ---
@@ -1179,8 +1179,8 @@ Fires when objects have been removed from the hidden set.
 
 #### Data Properties
 
-| Field Name | Type   | Description                                                                                               |
-| ---------- | ------ | --------------------------------------------------------------------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - |
 | origin     | string | The origin of the un hide operation, can be: `coachmark_hidden`, `object_tree`, `object_tree_all_objects` |
 
 ---
@@ -1217,8 +1217,8 @@ Fires when the webviewer is ready to render the model.
 
 #### Data Properties
 
-| Field Name   | Type   | Description                                    |
-| ------------ | ------ | ---------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - |
 | offsetHeight | number | Offset height of the parent element container. |
 | offsetLeft   | object | Offset left of the parent element container.   |
 | offsetTop    | number | Offset top of the parent element container.    |
@@ -1242,8 +1242,8 @@ Fires when a tool has been activated.
 
 #### Data Properties
 
-| Field Name | Type   | Description                                                                                 |
-| ---------- | ------ | ------------------------------------------------------------------------------------------- |
+| Field Name | Type | Description |
+| - | - | - |
 | origin     | string | The origin of the tool being activated.                                                     |
 | tool       | number | The tool that has been activated, enumerated from `ProcoreBim.Webviewer.toolbar_enum`. |
 
@@ -1321,8 +1321,8 @@ Fires when a window based tool has changed its position or size.
 
 #### Data Properties
 
-| Field Name | Type   | Description                                                                                                        |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
+| Field Name | Type | Description |
+| - | - | - |
 | modalSize  | object | An object with the keys, `height`, `left`, `top`, `width` to indicate the current position and size of the window. |
 | name       | string | Human readable name of the window based tool that is changing.                                                     |
 
