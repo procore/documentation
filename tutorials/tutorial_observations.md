@@ -157,6 +157,13 @@ Once the work has been reviewed for completeness, the final step in the observat
 
 - Update the observation (PATCH /rest/v1.0/observations/items/{id}) including the `id` of the observation as a path parameter and setting the Status field in the request body to ‘closed’.
 
+## Adding Attachments to Observation Items
+
+You can add an attachment to an observation item following the process outlined in [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %}).
+Here is a Postman example showing a POST call to the [Create Observation Item](https://developers.procore.com/reference/rest/v1/observations#create-observation-item) endpoint with an included attachment.
+
+![Obseervation Attachment]({{ site.baseurl }}/assets/guides/observation-attachment-example.png)
+
 ## Additional Information
 
 For additional information on using the Observations tool, refer to the following resources.
