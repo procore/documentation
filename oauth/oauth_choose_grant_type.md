@@ -47,19 +47,6 @@ Once authorization has been granted by the end-user, the Procore authorization s
 
 Though not required for implementing OAuth 2.0 in your Procore integration, we highly recommend including the `state` parameter in your authentication architecture.
 
-## Implicit Grant (Client-Side, Browser-based Applications)
-
-If you are developing a client-side application, such as a single-page javascript browser-based solution, then you will want to implement the Implicit grant type. Browser-based applications run entirely in the browser after loading the source code from a web page. Since the entire source code is available to the browser, they cannot maintain the confidentiality of their Client Secret, so the secret is not used in this case. The authorization code exchange step is skipped and the access token is returned directly from the Grant App Authorization endpoint (/authorize).
-
-Here is a diagram illustrating the flow for the Implicit grant type. Let’s walk through each step in the flow.
-
-![Implicit grant type]({{ site.baseurl }}/assets/guides/implicit-grant-type-diag.svg)
-
-1. When a Procore user accesses your application, it initiates the implicit grant flow and redirects the user’s web browser to the Procore API, so the user can authenticate.
-1. The Procore authentication server authenticates the user (via the browser) and displays a consent dialog where the user can choose to allow or deny your application access to their data in Procore.
-1. Once the user allows access, the Procore authentication server redirects the user back to your application with an access token in the hash fragment of the URI. Your application can now extract the token from the hash fragment. In a Single Page Application (SPA) this would be done using JavaScript and in a Mobile Application this is typically handled by interacting with a Web View.
-1. Your application can now use the access token to make calls to the Procore API on behalf of the user.
-
 ## Client Credentials Grant (Data Connection Applications, userless access)
 
 If you are developing an application or integration that does not rely on or require access authorization from a specific Procore user, then you will want to implement the Client Credentials grant type using a Developer Managed Service Account (DMSA).
