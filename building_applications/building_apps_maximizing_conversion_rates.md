@@ -8,6 +8,14 @@ section_title: Building Applications
 
 ## Introduction
 
+### In this article:
+
+* [In General, What are Customers Looking For?](#in-general-what-are-customers-looking-for)
+* [Creating a Marketplace Listing to Maximize Conversion](#creating-a-marketplace-listing-to-maximize-conversion)
+* [Using Metrics to Monitor Conversion Rate](#using-metrics-to-monitor-conversion-rate)
+
+### Overview
+
 Procore customers seek to realize value through integrations.
 This document offers specific guidance to maximize your Marketplace Listing’s conversion - installs, contact form submits, and purchases - from customers in the Procore Marketplace.
 General guidance about what customers are looking for with integrations is provided for your Marketplace Listing.
@@ -15,7 +23,7 @@ Specific guidance and best practices for each field is also included.
 
 **Note**: This help article is a current snapshot - as more insights and information are gathered from Procore customers, the article will be updated to provide the best practices for maximizing conversion rate on the Procore Marketplace. 
 
-##  In General, What are Customers Looking For?
+## In General, What are Customers Looking For?
 
 Customers tell us they are looking to realize value from integrations.
 Any of the following values, or a combination:

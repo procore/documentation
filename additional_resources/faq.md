@@ -3,7 +3,6 @@ permalink: /faq
 title: FAQ
 layout: default
 section_title: Additional Resources
-
 ---
 
 ## General Questions/Issues
@@ -62,8 +61,8 @@ If you have followed the previous instructions and are still having issues authe
 
 There are a number of reasons why this might be the case as outlined in the following table.
 
-| Symptom               | Description |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Symptom               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |     |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
 | Refresh Token Invalid | Keep in mind that refresh tokens are for one-time use only. For security reasons, any call to [refresh an access token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token), successful or not, permanently invalidates the current refresh token. Therefore, if your application erroneously makes a "double-call", or does not properly store the returned access & refresh tokens, you will need to re-authenticate the user and retrieve all new tokens using the application's proper OAuth flow. |
 | Refresh Token Revoked | Keep in mind that if you use the [Revoke Token](https://developers.procore.com/reference/authentication#revoke-token) endpoint to revoke your access token, your refresh token will also be revoked. Under this scenario, you will need to have your user re-authorize access to your application by calling the [Grant App Authorization](https://developers.procore.com/reference/authentication#grant-app-authorization) endpoint.                                                                                                      |
 | Network Problems      | Note that on rare occasions you may experience network issues or other unforseen outages that could cause a call to be made but whose response is lost. In these cases, you would need to regenerate a fresh set of tokens.                                                                                                                                                                                                                                                                                                                |
@@ -144,7 +143,6 @@ In order to take advantage of CORS, you must first register your domain with our
 
 For CORS requests from client-side apps, you will need to have your origin domain whitelisted for your app.
 To do that, please contact <apisupport@procore.com> and provide the domain you wish to have whitelisted.
-If you are having trouble with authentication using your client-side app, please consult our [OAuth 2.0 Implicit Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_implicit_flow.md %}) article for more information.
 
 **How many CORS domains can I whitelist?**
 
@@ -162,7 +160,7 @@ Please visit our [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% l
 **I am receiving a 429 status code error when making a call to the Procore API, what causes this?**
 
 You have exceeded the Procore API rate limit of 3600 requests per hour.
-See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limiting.md %})  guide for additional information and suggestions for resolving your issue.
+See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limiting.md %}) guide for additional information and suggestions for resolving your issue.
 
 ## Multiple Procore Zones (MPZ)
 
