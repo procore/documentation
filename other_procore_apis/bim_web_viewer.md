@@ -1346,13 +1346,44 @@ getMeshnode(meshnodeIndex);
 
 #### Description
 
-Retrieves a JavScript object that describes the object.
+Retrieves a JavaScript object that describes the object.
 
 #### Parameters
 
 | Field Name | Required | Type | Description      |
 | - | - | - | - |
 | meshnodeIndex | true | Number | meshnode index |
+
+##### Returns
+
+See [Meshnode](#meshnode).
+
+##### Namespace
+
+Model
+
+---
+
+## Get Object from Object ID
+
+<p class="heading-link-container"><a class="heading-link" href="#get-object-from-object-id"></a></p>
+
+```js
+getObjectFromObjectId(objectId);
+```
+
+#### Description
+
+Retrieves the Meshnode associated with an `objectId`. `objectId`'s are returned by these Rest endpoints:
+
+- BIM Property File Objects: https://developers.procore.com/reference/rest/v1/bim-model-objects?version=1.0
+- BIM Model Objects: https://developers.procore.com/reference/rest/v1/bim-model-objects?version=1.0
+
+#### Parameters
+
+| Field Name | Required | Type | Description      |
+| - | - | - | - |
+| objectId | true | Number | Object ID |
 
 ##### Returns
 
