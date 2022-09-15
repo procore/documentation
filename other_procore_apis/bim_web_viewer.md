@@ -2429,3 +2429,49 @@ Otherwise, `rotation` will be undefined.
 | center_lock | Boolean | Enables or disables the measurement navigation mode. Set to false if you don't want the navigation to change in anyway after a measurement is made. |
 
 <!-- markdownlint-enable no-inline-html -->
+
+## Migration Guides
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#migration-guides"></a>
+</p>
+
+### v5 to v6
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v5-to-v6"></a>
+</p>
+
+Methods in the model namespace have been renamed to better match what they return and what type of parameters they expect. Primarily this has meant clarifying that the particular type of "id" that these methods expect is a "meshnode index". To be clear: there is no behavior change of these methods, they have only been renamed and will continue to work as they have been.
+
+#### Method Renames
+
+To migrate you can safely do a find a replace for each of these renamed methods:
+
+```
+model.getObject => model.getMeshnode
+model.getObjectFromPropertyId => model.getObjectFromObjectId
+model.getHiddenGeoIds => model.getHiddenMeshnodeIndices
+model.addHiddenGeoIds => model.addHiddenMeshnodeIndices
+model.hasHiddenGeoIds => model.hasHiddenMeshnodeIndices
+model.clearHiddenIds => model.clearHiddenMeshnodeIndices
+model.getSelectedGeoIds => model.getSelectedMeshnodeIndices
+model.addSelectedIds => model.addSelectedMeshnodeIndices
+model.hasSelectedIds => model.hasSelectedMeshnodeIndices
+model.clearSelectedIds => model.clearSelectedMeshnodeIndices
+model.setObjectColor => model.setMeshnodeColor
+```
+
+Usages of `model.getModelItemBoundary` can be found and replaced with a call to `model.getMeshnode`.
+
+```
+model.getModelItemBoundary(meshnodeIndex) => model.getMeshnode(meshnodeIndex).bbox
+```
+
+#### Reasoning
+
+These methods referred to `object`, `objectId`, `propertyId`, `geoId`, and simply `id`. There are two issues with this: (1) There are multiple names for the same thing. As it currently stands, most things are actually referring to a `meshnodeIndex` or a `meshnode`. (2) What we referred to as an `object`, e.g. what’s returned from the old `getObject`, is not what the BIM Rest API refers to as an object. We believe these method renames will bring more clarity to how to use them in your own code.
+
+#### Future Plans
+
+We intend to release another set of methods that operate on objects (of which meshnodes are a subtype) and object ids rather than directly on meshnodes and meshnode indices. These object methods will be released in a non-breaking way and the meshnode methods will continue to work. However, the meshnode methods may eventually be deprecated or become considered internal, meaning they not be subject to semver.
