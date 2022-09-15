@@ -1364,17 +1364,19 @@ Model
 
 ---
 
-## Get Object from Object ID
+## Get Meshnode from Object ID
 
 <p class="heading-link-container"><a class="heading-link" href="#get-object-from-object-id"></a></p>
 
 ```js
-getObjectFromObjectId(objectId);
+getMeshnodeFromObjectId(objectId);
 ```
 
 #### Description
 
-Retrieves the Meshnode associated with an `objectId`. `objectId`'s are returned by these Rest endpoints:
+Retrieves the Meshnode associated with an `objectId` or `null` if there is none.
+
+`objectId`'s are returned by these Rest endpoints:
 
 - BIM Property File Objects: https://developers.procore.com/reference/rest/v1/bim-model-objects?version=1.0
 - BIM Model Objects: https://developers.procore.com/reference/rest/v1/bim-model-objects?version=1.0
@@ -2479,7 +2481,7 @@ To migrate you can safely do a find a replace for each of these renamed methods:
 
 ```
 model.getObject => model.getMeshnode
-model.getObjectFromPropertyId => model.getObjectFromObjectId
+model.getObjectFromPropertyId => model.getMeshnodeFromObjectId
 model.getHiddenGeoIds => model.getHiddenMeshnodeIndices
 model.addHiddenGeoIds => model.addHiddenMeshnodeIndices
 model.hasHiddenGeoIds => model.hasHiddenMeshnodeIndices
