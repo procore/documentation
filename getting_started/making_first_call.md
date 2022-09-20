@@ -15,9 +15,12 @@ Prior to making calls to the Procore API you must complete the following tasks:
 In addition, you will need to familiarize yourself with the [OAuth 2.0 authentication protocol]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) as access to the Procore API is secured by the authorization and authentication requirements of OAuth 2.0.
 Applications you develop for integrating with Procore must implement OAuth 2.0.
 
-> HTTPS PROTOCOL REQUIREMENT
+> HTTPS REQUIREMENT
 >
-> Because all Procore API resources are protected by Secure Sockets Layer (SSL) encryption, any call you make to a Procore API resource must use the `HTTPS` scheme in the URL. SSL establishes an encrypted link between the Procore resource server and your application. This link ensures that all data passed between the resource server and your appplication remain private.
+> All Procore API resources are protected by the [Transport Layer Security (TLS) protocol](https://tools.ietf.org/html/rfc5246) for ensuring user interaction with Procore over the internet occurs securely without transmissions being vulnerable to outside entities.
+TLS encrypts a channel between two endpoints (for example, between a web browser and web server) to provide privacy and reliability of data transmitted over the communications channel.
+As a result, any call you make to a Procore API resource must use the `HTTPS` scheme in the URL.
+See [Transport Layer Security Requirements]({{ site.url }}{{ site.baseurl }}{% link api_essentials/tls_reqs.md %}) for additional information.
 
 ## cURL and Postman
 
