@@ -5,6 +5,20 @@ layout: default
 section_title: Overview
 ---
 
+>**Budget Modifications - Endpoint Deprecation** (10/03/2022)
+>
+>The [Budget Modifications](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0) endpoints were deprecated on October 3, 2022.
+>These endpoints are planned for sunset in October 2023.
+> - List Budget Modifications - GET /rest/v1.0/projects/{project_id}/budget_modifications
+> - Show Budget Modification - GET /rest/v1.0/projects/{project_id}/budget_modifications/{id}
+> - Create Budget Modification - POST /rest/v1.0/projects/{project_id}/budget_modifications
+> - Update Budget Modification - PATCH /rest/v1.0/projects/{project_id}/budget_modifications/{id}
+> - Delete Budget Modification - DELETE /rest/v1.0/projects/{project_id}/budget_modifications/{id}
+>
+>We recommend developers use the new [Budget Changes](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0) resource designed to replace Budget Modifications.
+>These new endpoints accompany the release of the [Budget Changes feature for Project Financials](https://support.procore.com/product-releases/new-releases/budget-new-budget-changes-feature-for-change-management-in-project-financials).
+>If you have questions regarding this announcement, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Issue Uploading Drawings and Specifications in Developer Sandbox Environments** (09/02/2022)
 >
 >Our engineering team is aware of an issue regarding the inability to upload Drawings and Specifications in Developer Sandbox environments and is actively working towards resolution.
