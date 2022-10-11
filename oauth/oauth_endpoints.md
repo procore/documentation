@@ -26,16 +26,16 @@ The Grant App Authorization endpoint creates and returns either a temporary one-
 This endpoint corresponds to the OAuth 2.0 authorization endpoint described in section 3.1 of the OAuth 2.0 RFC.
 Three required request parameters are used with this endpoint as described in in the following table.
 
-| Parameter     |  Description                                                                                                                                                                                                                                                                                            |
+| Parameter     | Description                                                                                                                                                                                                                                                                                             |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| response_type | Specifies the type of response you need from the endpoint. Use a value of ‘code’ if you are using the authorization grant type flow, or use ‘token’ if you are using the implicit grant type flow.                                                                                                      |
+| response_type | Specifies the type of response you need from the endpoint. Use a value of ‘code’ if you are using the authorization grant type flow.                                                                                                                                                                    |
 | client_id     | Specifies the Client ID value you were issued when you registered your application on the Developer Portal.                                                                                                                                                                                             |
 | redirect_uri  | Specifies the URI that the user will be redirected to after they grant authorization to your application. For web applications applications, use an SSL (`https://`) web address. For "server-less" applications (such as cron jobs, backend scripts, etc.) use a value of `urn:ietf:wg:oauth:2.0:oob`. |
 | state         | An alphanumeric value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter SHOULD be used for preventing cross-site request forgery                                    |
 
 ### How to Use
 
-Unlike the other endpoints, the Grant App Authorization endpoint requires user interaction. Please follow the steps outlined in Steps 1 and 2 in [OAuth 2.0 for Installed Applications]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %}) 
+Unlike the other endpoints, the Grant App Authorization endpoint requires user interaction. Please follow the steps outlined in Steps 1 and 2 in [OAuth 2.0 for Installed Applications]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %})
 
 ## Get Or Refresh an Access Token ([/oauth/token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token))
 
@@ -45,8 +45,8 @@ This endpoint corresponds to the token endpoint described in section 3.2 of the 
 Note that client-side (JavaScript) applications are not able to use this endpoint to request access tokens or refresh tokens as it requires using the client_secret parameter which is not feasible with client-side applications.
 Six request parameters are used with this endpoint as described in the following table.
 
-| Parameter     |  Description                                                                                                                                                                                                                                                                                     |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameter     | Description                                                                                                                                                                                                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | grant_type    | Specifies whether you want to retrieve a new access or refresh an existing access token. Use the value `authorization_code` when getting a new access token. Use `refresh_token` when refreshing an existing access token.                                                                       |
 | client_id     | Specifies the Client ID value you were issued when you registered your application on the Developer Portal.                                                                                                                                                                                      |
 | client_secret | Specifies the Client Secret value you were issued when you registered your application on the Developer Portal.                                                                                                                                                                                  |
@@ -83,7 +83,7 @@ curl -H "Authorization: Bearer 53cff8f4a549beb1c38704158b0f6608a2382f094b6947ecc
 
 ## Revoke Token ([/oauth/revoke](https://developers.procore.com/reference/authentication#revoke-token))
 
-*IMPORTANT*: For security reasons, it is imperative that you implement a solution within your application or integration for revoking access tokens for Procore user accounts that become inactive or are otherwise terminated.
+_IMPORTANT_: For security reasons, it is imperative that you implement a solution within your application or integration for revoking access tokens for Procore user accounts that become inactive or are otherwise terminated.
 
 The Revoke Token endpoint revokes authorization of an access token.
 The request must contain the access token and other required parameters in the request body as form-data in order to hide potentially sensitive information, thereby providing an extra layer of security.
@@ -91,11 +91,11 @@ If the token is revoked successfully, or if the client submits an invalid token,
 Note that the Revoke Token endpoint revokes both the Access Token and Refresh Token.
 Three request parameters are used with this endpoint as described in the following table.
 
-| Parameter     |  Description                                                                                                                                                                                                                                                                                             |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| token         | Specifies the value of the access token you want to revoke.                                                                                                                                                                                                                                              |
-| client_id     | Specifies the Client ID value you were issued when you registered your application on the Developer Portal.                                                                                                                                                                                              |
-| client_secret | Specifies the Client Secret value you were issued when you registered your application on the Developer Portal. Note that client_secret is only required for confidential applications. Public applications using the Implicit Grant flow do not need to provide this parameter to revoke access tokens. |
+| Parameter     | Description                                                                                                                                                                             |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| token         | Specifies the value of the access token you want to revoke.                                                                                                                             |
+| client_id     | Specifies the Client ID value you were issued when you registered your application on the Developer Portal.                                                                             |
+| client_secret | Specifies the Client Secret value you were issued when you registered your application on the Developer Portal. Note that client_secret is only required for confidential applications. |
 
 To further understand how the Revoke Token endpoint functions, we recommend becoming familier with how access to Connected Apps is revoked using the Procore Web user interface.
 See the [Revoke Access to Connected Apps](http://support.procore.com/products/online/user-guide/company-level/portfolio/tutorials/revoke-access-for-connected-apps) article on our Support Site for additional information.

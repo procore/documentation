@@ -32,6 +32,19 @@ An email is sent out to the new team member inviting them to join your developme
 The list of team members is updated to include the new team member with a status of 'Pending Invitation'.
 After they accept the email invite and join the team, they have access to the App on the Developer Portal with the permissions defined by their assigned role.
 
+## Giving Collaborators Access to Development Sandbox Environments
+
+As an App owner you can provide your collaborators with access to the development sandbox using the following steps.
+
+1. Log in to the sandbox company for your App and navigate to the Company Directory tool.
+2. Click **Add User**.
+3. Fill out the Add User form with the required fields and click **Create**.
+4. On the Edit User page, set permissions and project settings for the new user as needed.
+5. Scroll to the bottom of the Edit User page and click **Save and Send Invitation to Procore**.
+
+Once your collaborator has accepted the invitation to the sandbox company, they can access resources in that company using the API and sandbox credentials.
+For additional information, see [Add a User Account to the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-user-account-to-the-company-directory) and [Edit a User Account in the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/edit-a-user-account-in-the-company-directory).
+
 ## Additional Actions
 
 In addition to adding new members to your development team, as an Owner or Admin you can perform other actions to help manage collaboration on your project.

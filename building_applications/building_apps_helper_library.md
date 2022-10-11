@@ -3,13 +3,13 @@ permalink: /building-apps-helper-library
 title: Procore Iframe Helper Library
 layout: default
 section_title: Building Applications
-
 ---
 
 To aid you in developing your embedded App, we have published an open-source Javascript library to help simplify the implementation of the required authorization and authentication components of your App.
 The Procore Iframe Helper Library is available for download on GitHub at: [procore-iframe-helpers](https://github.com/procore/procore-iframe-helpers).
 
 For general information on building embedded Apps see:
+
 - [Understanding App Types]({{ site.url }}{{ site.baseurl }}/building-apps-app-types)
 - [Creating a New App]({{ site.url }}{{ site.baseurl }}/building-apps-create-new)
 - [Creating an App Manifest]({{ site.url }}{{ site.baseurl }}/building-apps-define-manifest)
@@ -40,49 +40,49 @@ Here are some sample code pages to help you get started.
 
 ```html
 <html>
-<head>
-  <script type="text/javascript" src="/libraries/index.js"></script>
-  <script>
-    $(document).ready(function() {
+  <head>
+    <script type="text/javascript" src="/libraries/index.js"></script>
+    <script>
+      $(document).ready(function () {
+        const context = ProcoreIframeHelpers.initialize();
 
-      const context = ProcoreIframeHelpers.initialize();
+        $("#submit1").on("click", function () {
+          context.authentication.authenticate({
+            // Set this to a URL on your domain that will start the authentication process.
+            // This URL points to a route that calls the /oauth/authorize endpoint with client_id,
+            // response_type, and redirect_uri query parameters...
+            // https://login.procore.com/oauth/authorize?client_id=<ClientID>&response_type=<ResponseType>&redirect_uri=<RedirectID>
+            url: "/auth/procore",
 
-      $('#submit1').on('click', function() {
+            // Send the end user to the /main route of your embedded app if authentication is successful.
+            // This can be any route you choose.
+            // You can optionally include a payload as a function parameter (i.e., function(payload))
+            onSuccess: function () {
+              window.location = "/main";
+            },
 
-        context.authentication.authenticate({
-
-        // Set this to a URL on your domain that will start the authentication process.
-        // This URL points to a route that calls the /oauth/authorize endpoint with client_id,
-        // response_type, and redirect_uri query parameters...
-        // https://login.procore.com/oauth/authorize?client_id=<ClientID>&response_type=<ResponseType>&redirect_uri=<RedirectID>
-        url: "/auth/procore",
-
-        // Send the end user to the /main route of your embedded app if authentication is successful.
-        // This can be any route you choose.
-        // You can optionally include a payload as a function parameter (i.e., function(payload))
-        onSuccess: function() {
-          window.location = "/main"
-        },
-
-        // Error handling function that runs if authentication fails. Here we are just logging the error
-        // to the console, but you will want to display an error to the user. This
-        // function can be triggered by you, or will be triggered automatically if the
-        // user closes the authenication window.
-        onFailure: function(error) {
-          console.log(error);
-        }
-
+            // Error handling function that runs if authentication fails. Here we are just logging the error
+            // to the console, but you will want to display an error to the user. This
+            // function can be triggered by you, or will be triggered automatically if the
+            // user closes the authenication window.
+            onFailure: function (error) {
+              console.log(error);
+            },
+          });
         });
       });
-    });
-  </script>
-</head>
-<body>
-  <div>
-    <h1>Welcome to the Embedded App!</h1>
-    <input id="submit1" type="button" value="Allow the Embedded App to Access Your Procore Data"/>
-  </div>
-</body>
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Welcome to the Embedded App!</h1>
+      <input
+        id="submit1"
+        type="button"
+        value="Allow the Embedded App to Access Your Procore Data"
+      />
+    </div>
+  </body>
 </html>
 ```
 
@@ -90,21 +90,21 @@ Here are some sample code pages to help you get started.
 
 ```html
 <html>
-<head>
-  <script type="text/javascript" src="/libraries/index.js"></script>
-  <script>
-    const context = ProcoreIframeHelpers.initialize();
+  <head>
+    <script type="text/javascript" src="/libraries/index.js"></script>
+    <script>
+      const context = ProcoreIframeHelpers.initialize();
 
-    // Call notifySuccess to close the login panel. An optional payload to be passed to your
-    // onSuccess handler can be included with the notifySuccess method...
-    context.authentication.notifySuccess({})
-  </script>
-</head>
-<body>
-  <div>
-    <h1>Here is the main page of your embedded App!</h1>
-  </div>
-</body>
+      // Call notifySuccess to close the login panel. An optional payload to be passed to your
+      // onSuccess handler can be included with the notifySuccess method...
+      context.authentication.notifySuccess({});
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Here is the main page of your embedded App!</h1>
+    </div>
+  </body>
 </html>
 ```
 
@@ -113,4 +113,3 @@ Here are some sample code pages to help you get started.
 Here are a few points to consider as you work with the Procore Iframe Helper library.
 
 - If your application uses the [OAuth 2.0 Authorization Code Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) flow, the user will be redirected to your application's registered `redirect_uri` with the authorization code included as a URL hash fragment. You will need to implement a callback function that parses this fragment in order to obtain the authorization code so that you can subsequently exchange it for an access token and successfully make calls to the Procore API.
-- If your application uses the [OAuth 2.0 Implicit Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_implicit_flow.md %}) flow, the user will be redirected to your application's registered `redirect_uri` with the access token included as a URL hash fragment. You will need to implement a callback function that parses this fragment in order to obtain the access token so that you can successfully make calls to the Procore API.

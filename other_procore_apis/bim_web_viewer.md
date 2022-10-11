@@ -1336,27 +1336,27 @@ Fires when a window based tool has changed its position or size.
 
 <p class="heading-link-container"><a class="heading-link" href="#model-namespace"></a></p>
 
-### Get Object from object id
+### Get Meshnode from Meshnode Index
 
-<p class="heading-link-container"><a class="heading-link" href="#get-object-from-object-id"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#get-meshnode-from-meshnode-index"></a></p>
 
 ```js
-getObject(objectId);
+getMeshnode(meshnodeIndex);
 ```
 
 #### Description
 
-Retrieves a JavScript object that describes the object.
+Retrieves a JavaScript object that describes the object.
 
 #### Parameters
 
-| Field Name | Required | Type   | Description      |
-| ---------- | -------- | ------ | ---------------- |
-| objectId   | true     | Number | ID of the object |
+| Field Name | Required | Type | Description      |
+| - | - | - | - |
+| meshnodeIndex | true | Number | meshnode index |
 
 ##### Returns
 
-See [Model Object](#model-object).
+See [Meshnode](#meshnode).
 
 ##### Namespace
 
@@ -1364,17 +1364,50 @@ Model
 
 ---
 
-### Get Hidden ID's
+## Get Meshnode from Object ID
 
-<p class="heading-link-container"><a class="heading-link" href="#get-hidden-ids"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#get-object-from-object-id"></a></p>
 
 ```js
-getHiddenGeoIds();
+getMeshnodeFromObjectId(objectId);
 ```
 
 #### Description
 
-Retrieves a list of object IDs that are currently hidden.
+Retrieves the Meshnode associated with an `objectId` or `null` if there is none.
+
+`objectId`'s are returned by these Rest endpoints:
+
+- BIM Property File Objects: https://developers.procore.com/reference/rest/v1/bim-model-objects?version=1.0
+- BIM Model Objects: https://developers.procore.com/reference/rest/v1/bim-model-objects?version=1.0
+
+#### Parameters
+
+| Field Name | Required | Type | Description      |
+| - | - | - | - |
+| objectId | true | Number | Object ID |
+
+##### Returns
+
+See [Meshnode](#meshnode).
+
+##### Namespace
+
+Model
+
+---
+
+### Get Hidden Meshnode Indices
+
+<p class="heading-link-container"><a class="heading-link" href="#get-hidden-meshnode-indices"></a></p>
+
+```js
+getHiddenMeshnodeIndices();
+```
+
+#### Description
+
+Retrieves a list of meshnode indices that are currently hidden.
 
 #### Parameters
 
@@ -1392,24 +1425,23 @@ Model
 
 ---
 
-### Add Hidden ID's
+### Add Hidden Meshnode Indices
 
-<p class="heading-link-container"><a class="heading-link" href="#add-hidden-ids"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#add-hidden-meshnode-indices"></a></p>
 
 ```js
-addHiddenGeoIds(objectIds);
+addHiddenMeshnodeIndices(meshnodeIndices);
 ```
 
 #### Description
 
-Hides Object ID's.
-Does not clear previous hiding(s).
+Hides meshnode indices. Does not clear previous hiding(s).
 
 #### Parameters
 
-| Field Name | Required | Type          | Description          |
-| ---------- | -------- | ------------- | -------------------- |
-| objectIds  | true     | Array[Number] | Array of Object ID's |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| meshnodeIndices | true | Array[Number] | Array of meshnode indices |
 
 ##### Returns
 
@@ -1423,25 +1455,25 @@ Model
 
 ---
 
-### Has Hidden ID's
+### Has Hidden Meshnode Indices
 
-<p class="heading-link-container"><a class="heading-link" href="#has-hidden-ids"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#has-hidden-meshnode-indices"></a></p>
 
 ```js
-hasHiddenGeoIds(objectIds);
+hasHiddenMeshnodeIndices(meshnodeIndices);
 ```
 
 #### Description
 
-Checks if passed object IDs are hidden.
-Returns `true` is all the Object ID's in the array are hidden.
-Otherwise `false` is returned if at least one Object is not hidden.
+Checks if passed meshnode indices are hidden.
+Returns `true` is all the meshnode indices in the array are hidden.
+Otherwise `false` is returned if at least one meshnode is not hidden.
 
 #### Parameters
 
-| Field Name | Required | Type          | Description          |
-| ---------- | -------- | ------------- | -------------------- |
-| objectIds  | true     | Array[Number] | Array of Object ID's |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| meshnodeIndices | true | Array[Number] | Array of meshnode indices |
 
 ##### Returns
 
@@ -1455,17 +1487,17 @@ Model
 
 ---
 
-### Clear Hidden ID's
+### Clear Hidden Meshnode Indices
 
-<p class="heading-link-container"><a class="heading-link" href="#clear-hidden-ids"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#clear-hidden-meshnode-indices"></a></p>
 
 ```js
-clearHiddenIds();
+clearHiddenMeshnodeIndices();
 ```
 
 #### Description
 
-Clear hidden array list.
+Clear hidden meshnode indices.
 
 #### Parameters
 
@@ -1483,17 +1515,17 @@ Model
 
 ---
 
-### Get Selected ID's
+### Get Selected Meshnode Indices
 
-<p class="heading-link-container"><a class="heading-link" href="#get-selected-ids"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#get-selected-meshnode-indices"></a></p>
 
 ```js
-getSelectedGeoIds();
+getSelectedMeshnodeIndices();
 ```
 
 #### Description
 
-Retrieves a list of Object ID's that are currently selected.
+Retrieves a list of meshnode indices that are currently selected.
 
 #### Parameters
 
@@ -1511,24 +1543,23 @@ Model
 
 ---
 
-### Add Selected ID's
+### Add Selected Meshnode Indices
 
-<p class="heading-link-container"><a class="heading-link" href="#add-selected-ids"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#add-selected-meshnode-indices"></a></p>
 
 ```js
-addSelectedIds(objectIds);
+addSelectedMeshnodeIndices(meshnodeIndices);
 ```
 
 #### Description
 
-Selects Object ID's.
-Does not clear previous selection(s).
+Selects meshnode indices. Does not clear previous selection(s).
 
 #### Parameters
 
-| Field Name | Required | Type          | Description          |
-| ---------- | -------- | ------------- | -------------------- |
-| objectIds  | true     | Array[Number] | Array of Object ID's |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| meshnodeIndices | true | Array[Number] | Array of meshnode indices |
 
 ##### Returns
 
@@ -1542,25 +1573,25 @@ Model
 
 ---
 
-### Has Selected ID's
+### Has Selected Meshnode Indices
 
-<p class="heading-link-container"><a class="heading-link" href="#has-selected-ids"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#has-selected-meshnode-indices"></a></p>
 
 ```js
-hasSelectedIds(objectIds);
+hasSelectedMeshnodeIndices(meshnodeIndices);
 ```
 
 #### Description
 
-Checks if passed Object ID's are selected.
-Returns `true` is all the Object ID's in the array are selected.
-Otherwise `false` is returned if at least one Object is not selected.
+Checks if passed meshnode indices are selected.
+Returns `true` is all the meshnode indices in the array are selected.
+Otherwise `false` is returned if at least one meshnode index is not selected.
 
 #### Parameters
 
-| Field Name | Required | Type          | Description          |
-| ---------- | -------- | ------------- | -------------------- |
-| objectIds  | true     | Array[Number] | Array of Object ID's |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| meshnodeIndices | true | Array[Number] | Array of meshnode indices |
 
 ##### Returns
 
@@ -1574,17 +1605,17 @@ Model
 
 ---
 
-### Clear Selected ID's
+### Clear Selected Meshnode Indices
 
-<p class="heading-link-container"><a class="heading-link" href="#clear-selected-ids"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#clear-selected-meshnode-indices"></a></p>
 
 ```js
-clearSelectedIds();
+clearSelectedMeshnodeIndices();
 ```
 
 #### Description
 
-Deselects all objects.
+Deselects all meshnodes.
 
 #### Parameters
 
@@ -1602,25 +1633,25 @@ Model
 
 ---
 
-### Set Object Color
+### Set Meshnode Color
 
-<p class="heading-link-container"><a class="heading-link" href="#set-object-color"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#set-meshnode-color"></a></p>
 
 ```js
-setObjectColor(objectId, hexColor, opacity);
+setMeshnodeColor(meshnodeIndex, hexColor, opacity);
 ```
 
 #### Description
 
-Overrides the color of an object.
+Overrides the color of a meshnode.
 
 #### Parameters
 
-| Field Name | Required | Type   | Description |
-| ---------- | -------- | ------ | ----------- |
-| objectId   | true     | Number | Object Id   |
-| hexColor   | true     | String | Hex Color   |
-| opacity    | true     | Number | Opacity     |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| meshnodeIndex | true | Number | Meshnode Index |
+| hexColor | true | String | Hex Color |
+| opacity | true | Number | Opacity |
 
 ##### Returns
 
@@ -2313,10 +2344,10 @@ See [Tools](#tools) for further information.
 }
 ```
 
-### Model Object
+### Meshnode
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#model-object"></a>
+  <a class="heading-link" href="#meshnode"></a>
 </p>
 
 ```js
@@ -2429,3 +2460,49 @@ Otherwise, `rotation` will be undefined.
 | center_lock | Boolean | Enables or disables the measurement navigation mode. Set to false if you don't want the navigation to change in anyway after a measurement is made. |
 
 <!-- markdownlint-enable no-inline-html -->
+
+## Migration Guides
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#migration-guides"></a>
+</p>
+
+### v5 to v6
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v5-to-v6"></a>
+</p>
+
+Methods in the model namespace have been renamed to better match what they return and what type of parameters they expect. Primarily this has meant clarifying that the particular type of "id" that these methods expect is a "meshnode index". To be clear: there is no behavior change of these methods, they have only been renamed and will continue to work as they have been.
+
+#### Method Renames
+
+To migrate you can safely do a find a replace for each of these renamed methods:
+
+```
+model.getObject => model.getMeshnode
+model.getObjectFromPropertyId => model.getMeshnodeFromObjectId
+model.getHiddenGeoIds => model.getHiddenMeshnodeIndices
+model.addHiddenGeoIds => model.addHiddenMeshnodeIndices
+model.hasHiddenGeoIds => model.hasHiddenMeshnodeIndices
+model.clearHiddenIds => model.clearHiddenMeshnodeIndices
+model.getSelectedGeoIds => model.getSelectedMeshnodeIndices
+model.addSelectedIds => model.addSelectedMeshnodeIndices
+model.hasSelectedIds => model.hasSelectedMeshnodeIndices
+model.clearSelectedIds => model.clearSelectedMeshnodeIndices
+model.setObjectColor => model.setMeshnodeColor
+```
+
+Usages of `model.getModelItemBoundary` can be found and replaced with a call to `model.getMeshnode`.
+
+```
+model.getModelItemBoundary(meshnodeIndex) => model.getMeshnode(meshnodeIndex).bbox
+```
+
+#### Reasoning
+
+These methods referred to `object`, `objectId`, `propertyId`, `geoId`, and simply `id`. There are two issues with this: (1) There are multiple names for the same thing. As it currently stands, most things are actually referring to a `meshnodeIndex` or a `meshnode`. (2) What we referred to as an `object`, e.g. what’s returned from the old `getObject`, is not what the BIM Rest API refers to as an object. We believe these method renames will bring more clarity to how to use them in your own code.
+
+#### Future Plans
+
+We intend to release another set of methods that operate on objects (of which meshnodes are a subtype) and object ids rather than directly on meshnodes and meshnode indices. These object methods will be released in a non-breaking way and the meshnode methods will continue to work. However, the meshnode methods may eventually be deprecated or become considered internal, meaning they not be subject to semver.

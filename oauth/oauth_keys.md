@@ -16,7 +16,7 @@ Your Client Secrets, on the other hand, must be kept confidential.
 
 > CLIENT SECRET CONFIDENTIALITY
 >
-> If your application is unable to maintain confidentiality with the Client Secret, as is the case with single-page Javascript applications or native applications, then you should not use the Client Secret. This is a common scenario with applications that implement the Implicit grant type.
+> If your application is unable to maintain confidentiality with the Client Secret, as is the case with single-page Javascript applications or native applications, then you should not use the Client Secret.
 
 Once a user successfully authorizes your app to access their data in Procore, the Procore authorization server redirects them back to your app with either an authorization code or access token in the URL depending on the particular [OAuth 2.0 _grant type_]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) you have implemented.
 To ensure that the user's browser is directed back to the proper location, you are required to define one or more _Redirect URIs_ for your application.
