@@ -39,11 +39,11 @@
   $(".collapsible")
     .has("dd.active")
     .find(".icon")
-    .toggleClass(["fa-solid", "fa-arrows-up-down"]);
+    .toggleClass(["fa-thin", "fa-plus"]);
   $(".collapsible")
     .find(".trigger")
     .on("click", function () {
       $(this).closest(".collapsible").find(".col_content").slideToggle("350");
-      $(this).find(".icon").toggleClass(["fa-solid", "fa-arrows-up-down"]);
+      $(this).find(".icon").toggleClass(["fa-thin", "fa-plus"]);
     });
 })();
