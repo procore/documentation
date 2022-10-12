@@ -40,7 +40,6 @@
     .has("dd.active")
     .find(".icon")
     .toggleClass(["fa-square-minus", "fa-square-plus"]);
-
   $(".collapsible")
     .find(".trigger")
     .on("click", function () {

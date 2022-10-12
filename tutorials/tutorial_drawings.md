@@ -159,10 +159,3 @@ To accomplish this using the API, you will need to work through the following st
 1. Make a call to List Drawing Revisions to retrieve all Drawing Revisions in a specific Project.
 1. Iterate through each Drawing Revision element in the JSON response block and examine the value of the `current` attribute. If the value is `true`, store the `id` of that revision in an array.
 1. Call List Drawing Revisions again, this time using the array of ids you collected in Step 2 to construct a filter using the `id` query parameter (e.g., ?id[]=42&id[]=43...). This will return only the revisions where `current: true`.
-
-## Sample Code ##
-
-
-This [downloadable sample code]({{ site.baseurl }}/assets/static/implicit-grant-sample-code.html) provides examples of some basic operations using the Drawings Tool API endpoints within the context of a single-page javascript/jquery application.
-Each function in the application demonstrates a particular Drawing Tool action or task.
-Constants are provided for you to specify `ACCESS_TOKEN`, `PROJECT_ID`, and `DRAWING_AREA_ID` values as needed.
