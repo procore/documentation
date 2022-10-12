@@ -17,7 +17,7 @@
 <nav>
   {% for section in site.data.navigation %}
   <dl class="collapsible">
-    <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger"><i class="icon fa-solid fa-arrows-up-down"></i> {{ section.title }}</dt>
+    <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger"><i class="icon fa-regular fa-square-plus"></i> {{ section.title }}</dt>
     <dl class="col_content">    
       {% for item in section.items %}
       <dd{% if item.url == page.url %} class="active"{% endif %}>
