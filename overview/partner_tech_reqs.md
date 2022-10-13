@@ -7,7 +7,7 @@ section_title: Overview
 
 ## App Submittal and Technical Review
 
-The following conditions must be met in order to successfully complete the App Markletplace submittal and technical review process.
+The following conditions must be met in order to successfully complete the App Marketplace submittal and technical review process.
 
 * Provide details of any paid test accounts that are needed in order to test and use your service.
 * Provide details of any test accounts that might be needed for third-party services.
