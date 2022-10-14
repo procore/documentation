@@ -122,3 +122,6 @@ section.full-width {
     padding: 48px;
   }
 }
+nav i.icon {
+  color: #2066DF;
+}

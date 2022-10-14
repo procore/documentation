@@ -6,8 +6,7 @@
     const params = new URLSearchParams(window.location.search);
     const shouldHideNav = params.get("hideNav");
     addNavEventListeners();
-    console.log('hello');
-    
+    console.log("hello");
 
     if (shouldHideNav) {
       hideNav();
@@ -37,10 +36,14 @@
     }
   });
   $('.col_content:not(:has("dd.active"))').hide();
-  $('.collapsible').find('.trigger').on('click',function(){
-    $(this).closest('.collapsible').find('.col_content').slideToggle('350');
-  
-
-});
-
+  $(".collapsible")
+    .has("dd.active")
+    .find(".icon")
+    .toggleClass(["fa-square-minus", "fa-square-plus"]);
+  $(".collapsible")
+    .find(".trigger")
+    .on("click", function () {
+      $(this).closest(".collapsible").find(".col_content").slideToggle("350");
+      $(this).find(".icon").toggleClass(["fa-square-minus", "fa-square-plus"]);
+    });
 })();

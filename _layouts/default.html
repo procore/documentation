@@ -8,6 +8,7 @@
   <base target="_parent">
   <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/nav.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -16,7 +17,7 @@
 <nav>
   {% for section in site.data.navigation %}
   <dl class="collapsible">
-    <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger">{{ section.title }}</dt>
+    <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger"><i class="icon fa-regular fa-square-plus"></i> {{ section.title }}</dt>
     <dl class="col_content">    
       {% for item in section.items %}
       <dd{% if item.url == page.url %} class="active"{% endif %}>
