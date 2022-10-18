@@ -2505,4 +2505,30 @@ These methods referred to `object`, `objectId`, `propertyId`, `geoId`, and simpl
 
 #### Future Plans
 
-We intend to release another set of methods that operate on objects (of which meshnodes are a subtype) and object ids rather than directly on meshnodes and meshnode indices. These object methods will be released in a non-breaking way and the meshnode methods will continue to work. However, the meshnode methods may eventually be deprecated or become considered internal, meaning they not be subject to semver.
+We intend to release another set of methods that operate on objects (of which meshnodes are a subtype) and object ids rather than directly on meshnodes and meshnode indices. These object methods will be released in a non-breaking way and the meshnode methods will continue to work. However, the meshnode methods may eventually be deprecated or become considered internal, meaning they are not subject to semver.
+
+### v4 to v5
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v4-to-v5"></a>
+</p>
+
+New `camera.zoomTo*` methods were added and the naming of `camera.zoomExtents` (added in v3.1.0) no longer really made sense.
+
+#### Method Renames
+
+To migrate you can safely do a find a replace for each of these renamed methods:
+
+```
+camera.zoomExtents => camera.zoomToBoundingBox
+```
+
+### v3 to v4
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v3-to-v4"></a>
+</p>
+
+There were no actual API changes that necesitated a breaking change here but we did drastically change our rendering algorithm to reduce flashing and dropout. For larger models this may come at the expense of low framerates.
+
+I have the privilege of writing this migration guide from the future and can tell you that we've been able to make it even better without (as much) of a framerate hit for larger models in v6.0.1 and you should consider upgrading to that or later. v3 to v4 may also not have needed a breaking change in retrospect so you can safely go from v3 to v4 without your code breaking but know that rendering will behave and perform differently and hopefully mostly for the better on v4 (but again vastly better on v6).
