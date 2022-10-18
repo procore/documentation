@@ -497,7 +497,7 @@ Camera
 
 ### Zoom to Objects
 
-<p class="heading-link-container"><a class="heading-link" href="zoom-to-objects"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#zoom-to-objects"></a></p>
 
 ```js
 zoomToObjects(objectIds);
@@ -527,7 +527,7 @@ Camera
 
 ### Zoom to Fit a Bounding Box
 
-<p class="heading-link-container"><a class="heading-link" href="zoom-to-fit-a-bounding-box"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#zoom-to-fit-a-bounding-box"></a></p>
 
 ```js
 zoomToBoundingBox(bbox);
@@ -557,7 +557,7 @@ Camera
 
 ### Zoom to Selection
 
-<p class="heading-link-container"><a class="heading-link" href="zoom-to-selection"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#zoom-to-selection"></a></p>
 
 ```js
 zoomToSelection();
@@ -585,7 +585,7 @@ Camera
 
 ### Zoom to Global
 
-<p class="heading-link-container"><a class="heading-link" href="zoom-to-global"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#zoom-to-global"></a></p>
 
 ```js
 zoomToGlobal();
