@@ -99,7 +99,7 @@ Data connection components are defined by the `oauth` attribute. The details of 
   - Use `authorization_code` if your App uses the OAuth 2.0 Authorization Code Grant flow (as in the example above).
     These Apps store the client secret in a safe and secure (i.e., server-side) location and do not expose it to end users.
     See [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) and [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) for additional information.
-  - Use `client credentials` if your App uses a Developer Managed Service Account to specify required tool permissions and permitted projects.
+  - Use `client_credentials` if your App uses a Developer Managed Service Account to specify required tool permissions and permitted projects.
     See [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) and [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %}) for additional information.
 
 Embedded components are defined by the iframe attribute. The details of an `iframe` instance are specified using the following parameters:
