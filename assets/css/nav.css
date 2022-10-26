@@ -125,3 +125,7 @@ section.full-width {
 nav i.icon {
   color: #2066DF;
 }
+
+#results-container a {
+  color: #095ac6;
+}

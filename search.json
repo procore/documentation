@@ -1,0 +1,14 @@
+---
+layout: none
+---
+[
+  {% for section in site.data.navigation %}
+    {% for item in section.items %}
+        {
+        "title"    : "{{ item.title | escape }}",
+        "url"      : "{{ site.baseurl }}{{ item.url }}"
+        } {% unless forloop.last %},{% endunless %} 
+    {% endfor %}
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

@@ -6,7 +6,6 @@
     const params = new URLSearchParams(window.location.search);
     const shouldHideNav = params.get("hideNav");
     addNavEventListeners();
-    console.log("hello");
 
     if (shouldHideNav) {
       hideNav();
@@ -46,4 +45,10 @@
       $(this).closest(".collapsible").find(".col_content").slideToggle("350");
       $(this).find(".icon").toggleClass(["fa-square-minus", "fa-square-plus"]);
     });
+  var sjs = SimpleJekyllSearch({
+    searchInput: document.getElementById("search-input"),
+    resultsContainer: document.getElementById("results-container"),
+    json: "/documentation/search.json",
+    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+  });
 })();
