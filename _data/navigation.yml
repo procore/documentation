@@ -171,10 +171,12 @@
     - title: Correspondence
       url: /tutorial-correspondence
 
-- title: Other Procore APIs
+- title: BIM Web Viewer
   items:
     - title: BIM Web Viewer API
       url: /bim-web-viewer
+    - title: Basic Web Viewer Setup
+      url: /basic-web-viewer-setup
 
 - title: Tools
   items:
