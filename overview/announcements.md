@@ -5,6 +5,20 @@ layout: default
 section_title: Overview
 ---
 
+>**Development Sandbox Maintenance** (11/07/2022)
+>
+>To improve the performance and reliability of the Development Sandbox, we will conduct maintenance beginning on Monday, November 14th, at approximately 9 AM PST and expect it to complete by approximately 1 PM PST.  During this time, the Development Sandbox will not be available. The full impact and schedule are summarized below:
+>
+> - We will take a snapshot of the Development Sandbox on Friday, November 11th.  Please refrain from writing any new data to the Development Sandbox between 12:00 AM PST Friday, November 11th, and the completion of the maintenance at 1:00 PM PST on Monday, November 14th.
+>   - Data written to the environment between taking the snapshot and completing the maintenance window may not be restored.
+>   - Creating new application manifests will also be temporarily disabled between when the snapshot is taken and the maintenance is complete.
+> - On Monday, November 14th, between approximately 9 AM PST and 1 PM PST, the Development Sandbox will not be available. Please note that this only impacts the Development Sandbox and does not impact the Monthly Sandbox.
+> - When the environment is restored at approximately 1 PM PST on Monday, November 14th, the data will be from the snapshot taken on Friday, November 11th. 
+> - After the maintenance is complete, webhooks will continue to be unavailable for approximately one week while we roll out some additional enhancements to resolve the current scale and reliability issues of webhooks in the Development Sandbox.
+>
+>If you have questions regarding this maintenance, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
+
 >**Issue Uploading Drawings and Specifications in Developer Sandbox Environments** (09/02/2022)
 >
 >Our engineering team is aware of an issue regarding the inability to upload Drawings and Specifications in Developer Sandbox environments and is actively working towards resolution.
