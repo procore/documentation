@@ -142,6 +142,8 @@
       url: /daily-logs
     - title: Financial Tools
       url: /tutorial-financial-tools
+    - title: Budget Changes API
+      url: /tutorial-budget-changes-api
     - title: Work Breakdown Structure
       url: /tutorial-wbs
     - title: Budget Line Items
