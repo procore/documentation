@@ -21,13 +21,20 @@ Any developer who has an application leveraging the [Budget Modifications Rest A
 
 ## Endpoints
 
-### [List Budget Modifications](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#list-budget-modifications) and [List Budget Change Summaries](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#list-budget-change-summaries)
+### Quick Reference
+* [List Endpoints](#list-apis)
+* [Show Endpoints](#show-apis)
+* [Creation Endpoints](#create-apis)
+* [Update Endpoints](#update-apis)
+* [Delete Endpoints](#delete-apis)
+
+### [List Budget Modifications](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#list-budget-modifications) and [List Budget Change Summaries](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#list-budget-change-summaries) {#list-apis}
 
 The List Budget Modifications API returns a list of objects representing budget modifications that have been created. A major difference between this list endpoint and the list endpoint for Budget Changes is the objects returned contain summarized information about a Budget Change and the Adjustments made for it. The endpoint is called `List Budget Change Summaries` because it tells you the information about the Budget Change as a whole: the title, description, number, status, how many Change Event Line Items are associated with it, and the total amount of changes from Adjustments. As well, we include an `erp_status` field to indicate whether or not the Budget Change has been sent to or synced with ERP.
 
 This endpoint behaves similarly to [Potential Change Orders List](https://developers.procore.com/reference/rest/v1/change-order-packages?version=1.0#list-change-order-packages), [Change Order Packages List](https://developers.procore.com/reference/rest/v1/change-order-packages?version=1.0#list-change-order-packages), and [Purchase Order Contracts List](https://developers.procore.com/reference/rest/v1/purchase-order-contracts?version=1.0#list-of-purchase-order-contracts), to give a few examples. The [Budget Changes Show endpoint](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#get-information-of-a-budget-change) must be used to get the list of Adjustment Line Items or Production Quantities from Budget Changes.
 
-### [Show Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#show-budget-modification) and [Get Information of a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#get-information-of-a-budget-change)
+### [Show Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#show-budget-modification) and [Get Information of a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#get-information-of-a-budget-change) {#show-apis}
 
 In the Budget Changes API, Budget Modifications are analogous to the `adjustment_line_items` that are returned by the [Get Information of a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#get-information-of-a-budget-change) API endpoint. This `adjustment_line_items` field is also returned in the successful responses from [Create a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#create-a-budget-change) and [Update Information of a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#update-information-of-a-budget-change). Let's look at an Adjustment Line Item object and see how it connects with the information provided by the [Show Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#show-budget-modification) and [List Budget Modifications](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#list-budget-modifications) endpoints.
 
@@ -98,3 +105,85 @@ In the Budget Changes API, Budget Modifications are analogous to the `adjustment
 | | | `unit_cost` | Value used to calculated amount of an Adjustment Line Item |
 | | | `uom` | Unit of Measure for an Adjustment Line Item |
 | | | `change_event_line_item_id` | ID of associated Change Event Line Item record for Adjustment Line Item
+
+### [Create Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#create-budget-modification) and [Create a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#create-a-budget-change) {#create-apis}
+
+Once a company has migrated to Budget Changes from the Budget Modifications experience, the [Create Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#create-budget-modification) endpoint will return 405 error responses with an `Allow` header dictating that the only allowed HTTP method is `GET`. To translate a Budget Modification creation to a Budget Change creation, we use the [Create a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#create-a-budget-change) endpoint with the a request body that nests the Budget Modification information as an object under an `adjustment_line_items` attribute.
+
+### Example Request Body
+```json
+{
+  "number": 10,
+  "status": "draft",
+  "title": "Equipment",
+  "description": "bla bla description",
+  "adjustment_line_items": [
+    {
+      "ref": "item56",
+      "adjustment_number": 5,
+      "wbs_code_id": 56,
+      "description": "Foobar",
+      "comment": "Baz",
+      "calculation_strategy": "manual",
+      "quantity": 1,
+      "type": "change_event",
+      "uom": "Ea",
+      "unit_cost": 500,
+      "amount": 500,
+      "change_event_line_item_id": 860001
+    }
+  ]
+}
+```
+In this case, `number`, `title`, `status`, and `description` are attributes of the Budget Change object, which is a holder for `adjustment_line_items`. The fields in Adjustment Line Items are described above in the [Show Budget Modification](#show-apis) section and can be used to create a Budget Modification as a Budget Change Adjustment Line Item.
+
+### [Update Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#update-budget-modification) and [Update information of a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#update-information-of-a-budget-change) {#update-apis}
+
+Similarly to the [Create Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#create-budget-modification) endpoint, the [Update Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#update-budget-modification) endpoint also will return a `405 - Method not Allowed` response with an `Allow` header describing that `GET` is the only allowed method. The [Update information of a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#update-information-of-a-budget-change) endpoint behaves similarly to the [Create a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#create-a-budget-change) endpoint, where the request body is almost exactly the same with the exception of an `id` attribute for the Adjustment Line Items in a Budget Change, as well as an `id` attribute alongside other `Budget Change attributes like `title` and `status`. All fields are not required for updates, only `id` and the attribute or attributes that need to be updated.
+
+#### Example Request Body to update the amount of an Adjustment Line Item
+
+```json
+{
+  "id": 1,
+  "adjustment_line_items": [
+    {
+      "id": 1,
+      "amount": 500,
+    }
+  ]
+}
+```
+
+#### Deleting Adjustments
+The [Update information of a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#update-information-of-a-budget-change) endpoint can also be used to delete Adjustment Line Items. Passing an optional `_delete` flag with a boolean value will cause the Adjustment Line Item to be deleted.
+
+**Example Request Body to delete an Adjustment Line Item**
+
+```json
+{
+  "id": 1,
+  "adjustment_line_items": [
+    {
+      "id": 1,
+      "_delete": true,
+    }
+  ]
+}
+```
+
+### [Delete Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#delete-budget-modification) and [Delete a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#update-information-of-a-budget-change) {#delete-apis}
+
+The key difference between the [Delete Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#delete-budget-modification) endpoint and the [Delete a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#update-information-of-a-budget-change) endpoint is that the Budget Modification endpoint deletes the entities that have an amount, namely the `transfer_amount`. The Budget Changes endpoint will delete a holder and all of its Adjustment Line Items and Production Quantities. It would more than likely be deleting multiple Adjustment Line Items, which are the analog to Budget Modification records in Budget Changes. In order to delete individual Adjustment Line Items and not an entire Budget Change, we pass a `_delete` flag to an `adjustment_line_item` object as described [above](#deleting-adjustments).
+
+To delete a Budget Modification, we use the endpoint with the Budget Modification ID in the path:
+
+```
+DELETE /rest/v1.0/projects/{project_id}/budget_modifications/{id}
+```
+
+The Budget Changes API behaves almost exactly the same way, with the Budget Change ID being provided in the path:
+
+```
+DELETE /rest/v1.0/projects/{project_id}/budget_changes/{id}
+```
