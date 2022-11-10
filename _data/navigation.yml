@@ -126,52 +126,52 @@
 
 - title: Guides and Tutorials
   items:
-    - title: Multiple Procore Zones
-      url: /tutorial-mpz
-    - title: User Permissions
-      url: /tutorial-user-permissions
-    - title: Filtering and Sorting
-      url: /filtering-on-list-actions
-    - title: Sync Actions
-      url: /using-sync-actions
-    - title: File Attachments and Image Uploads
-      url: /attachments
-    - title: Direct File Uploads
-      url: /tutorial-uploads
-    - title: Daily Logs
-      url: /daily-logs
-    - title: Financial Tools
-      url: /tutorial-financial-tools
     - title: Budget Changes API
       url: /tutorial-budget-changes-api
-    - title: Work Breakdown Structure
-      url: /tutorial-wbs
     - title: Budget Line Items
       url: /tutorial-budget-line-items
     - title: Change Orders
       url: /tutorial-change-orders
-    - title: Subcontractor Invoices
-      url: /tutorial-requisitions
-    - title: Workflows
-      url: /tutorial-workflows
-    - title: Drawings
-      url: /tutorial-drawings
-    - title: Direct Drawing Uploads
-      url: /tutorial-direct-drawing-uploads
-    - title: Timesheets and Timecards
-      url: /tutorial-field-prod
-    - title: Timecard Entries
-      url: /tutorial-timecard-entries
-    - title: Incidents
-      url: /tutorial-incidents
-    - title: Observations
-      url: /tutorial-observations
-    - title: Project Stages
-      url: /tutorial-project-stages
     - title: Configurable Fieldsets
       url: /tutorial-config-fieldsets
     - title: Correspondence
       url: /tutorial-correspondence
+    - title: Daily Logs
+      url: /daily-logs
+    - title: Direct Drawing Uploads
+      url: /tutorial-direct-drawing-uploads
+    - title: Direct File Uploads
+      url: /tutorial-uploads
+    - title: Drawings
+      url: /tutorial-drawings
+    - title: File Attachments and Image Uploads
+      url: /attachments
+    - title: Filtering and Sorting
+      url: /filtering-on-list-actions
+    - title: Financial Tools
+      url: /tutorial-financial-tools
+    - title: Incidents
+      url: /tutorial-incidents
+    - title: Multiple Procore Zones
+      url: /tutorial-mpz
+    - title: Observations
+      url: /tutorial-observations
+    - title: Project Stages
+      url: /tutorial-project-stages
+    - title: Subcontractor Invoices
+      url: /tutorial-requisitions
+    - title: Sync Actions
+      url: /using-sync-actions
+    - title: Timecard Entries
+      url: /tutorial-timecard-entries
+    - title: Timesheets and Timecards
+      url: /tutorial-field-prod
+    - title: User Permissions
+      url: /tutorial-user-permissions
+    - title: Work Breakdown Structure
+      url: /tutorial-wbs
+    - title: Workflows
+      url: /tutorial-workflows
 
 - title: Other Procore APIs
   items:
