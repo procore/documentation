@@ -1,6 +1,6 @@
 ---
-permalink: /basic-web-viewer-setup
-title: 'Basic Web Viewer Setup'
+permalink: /demo
+title: 'Demo'
 layout: default
 section_title: BIM Web Viewer
 ---

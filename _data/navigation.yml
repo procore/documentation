@@ -175,8 +175,8 @@
   items:
     - title: BIM Web Viewer API
       url: /bim-web-viewer
-    - title: Basic Web Viewer Setup
-      url: /basic-web-viewer-setup
+    - title: Demo
+      url: /demo
 
 - title: Tools
   items:
