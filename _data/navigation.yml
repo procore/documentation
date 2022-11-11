@@ -126,7 +126,7 @@
 
 - title: Guides and Tutorials
   items:
-    - title: Budget Changes API
+    - title: Budget Changes APIs
       url: /tutorial-budget-changes-api
     - title: Budget Line Items
       url: /tutorial-budget-line-items
