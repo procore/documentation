@@ -344,7 +344,9 @@ It also eliminates the need for double-entry of contract modifications and chang
 This helps you gain greater control over complicated project factors when evaluating and forecasting your project's completion costs.
 See [Budget](http://support.procore.com/products/online/user-guide/project-level/budget) for additional infomation.
 
-API Endpoints: [Budget Line Items](https://developers.procore.com/rest/v1/budget-line-items), [Budget Modifications](https://developers.procore.com/documentation/reference/rest/v1/budget-modifications)
+For a guide on how to use the Budget Changes API after a company migrates from Budget Modifications to Budget Changes, see the [Understanding Budget Changes API]({{ site.baseurl }}/tutorial-budget-changes-api) tutorial.
+
+API Endpoints: [Budget Line Items](https://developers.procore.com/rest/v1/budget-line-items), [Budget Modifications](https://developers.procore.com/documentation/reference/rest/v1/budget-modifications), [Budget](https://developers.procore.com/reference/rest/v1/budget?version=1.0), [Budget Changes](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0), [Budget Views](https://developers.procore.com/reference/rest/v1/budget-views?version=1.0), [Budget View Detail Rows](https://developers.procore.com/reference/rest/v1/budget-view-detail-rows?version=1.0), [Budget Details](https://developers.procore.com/reference/rest/v1/budget-details?version=1.0), [Manual Forecast Line Items](https://developers.procore.com/reference/rest/v1/manual-forecast-line-items?version=1.0), [Monitoring Resources](https://developers.procore.com/reference/rest/v1/monitoring-resources?version=1.0), as well as supplemantary endpoints for Budget Views and Budget Details.
 
 ## Change Events
 
