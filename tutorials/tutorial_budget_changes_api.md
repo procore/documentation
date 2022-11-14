@@ -136,7 +136,7 @@ Once a company has migrated to Budget Changes from the Budget Modifications expe
 }
 ```
 
-If attempting to create a Budget Change with adjustments that correlate to a Budget Modification, ensure the WBS Code ID of the `To` Budget Line Item for a Budget Modification maps to an Adjustment Line Item with type `change_event` and the WBS Code ID for the `From` Budget Line Item maps to an Adjustment Line Item of type `budget_change`.
+If attempting to create a Budget Change with adjustments that correlate to a Budget Modification, ensure the WBS Code ID of the `To` Budget Line Item for a Budget Modification maps to an Adjustment Line Item with type `change_event` and the WBS Code ID for the `From` Budget Line Item maps to an Adjustment Line Item of type `budget_change`. As well, the two Adjustment Line Items are grouped together by setting the same `adjustment_number` on each record. On top of that, we can create multiple Adjustment Line Items with type `budget_change` with the same adjustment number, effectively making a Budget Modification with multiple `From` values.
 
 **Example Budget Modification**
 * Request Body:
@@ -181,7 +181,44 @@ If attempting to create a Budget Change with adjustments that correlate to a Bud
 }
 ```
 
-In this case, `number`, `title`, `status`, and `description` are attributes of the Budget Change object, which is a holder for `adjustment_line_items`. The fields in Adjustment Line Items are described above in the [Show Budget Modification](#show-apis) section and can be used to create a Budget Modification as a Budget Change Adjustment Line Item.
+**Another example Budget Change Creation with multiple `From` values**
+* In this case, we've split the `From` value across two Adjustment Line Items
+  * One uses the WBS Code ID for the `From` Budget Line Item and has an amount of $(2500).
+  * Another uses a separate WBS Code ID with an amount of $(2000).
+
+```json
+{
+  "number": 10,
+  "status": "draft",
+  "title": "Equipment",
+  "description": "Example description",
+  "adjustment_line_items": [
+    {
+      "ref": "item1",
+      "adjustment_number": 1,
+      "wbs_code_id": 2, // Same WBS Code as "To" Budget Line Item above
+      "type": "change_event",
+      "amount": 4500
+    },
+    {
+      "ref": "item2",
+      "adjustment_number": 1,
+      "wbs_code_id": 4, // Same WBS Code as "From" Budget Line Item above
+      "type": "budget_change",
+      "amount": -2500
+    },
+    {
+      "ref": "item3",
+      "adjustment_number": 1,
+      "wbs_code_id": 5, // Separate WBS Code unrelated to original Budget Modification
+      "type": "budget_change",
+      "amount": -2000
+    }
+  ]
+}
+```
+
+In these cases, `number`, `title`, `status`, and `description` are attributes of the Budget Change object, which is a holder for `adjustment_line_items`. The fields in Adjustment Line Items are described above in the [Show Budget Modification](#show-apis) section and can be used to create a Budget Modification as a Budget Change Adjustment Line Item.
 
 ### [Update Budget Modification](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0#update-budget-modification) and [Update information of a Budget Change](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0#update-information-of-a-budget-change) {#update-apis}
 
