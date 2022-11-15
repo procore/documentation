@@ -7,17 +7,17 @@ section_title: Overview
 
 >**Development Sandbox Maintenance** (11/07/2022)
 >
->**Maintenance Update (11/14/2022)** 
->We are still working on maintenance work and will extend the maintenance until Tuesday, November 15th 4:00 PM PST. Details below have been updated to reflect this change.
+>**Maintenance Update (11/15/2022)** 
+>We are still working on maintenance work and will extend the maintenance until Wednesday, November 16th 5:00 PM PST. Details below have been updated to reflect this change.
 >
 >
->To improve the performance and reliability of the Development Sandbox, we will conduct maintenance beginning on Monday, November 14th, at approximately 9:00 AM PST and expect it to complete by approximately Tuesday, November 15th 4:00 PM PST.  During this time, the Development Sandbox will not be available. The full impact and schedule are summarized below:
+>To improve the performance and reliability of the Development Sandbox, we will conduct maintenance beginning on Monday, November 14th, at approximately 9:00 AM PST and expect it to complete by approximately Wednesday, November 16th 5:00 PM PST.  During this time, the Development Sandbox will not be available. The full impact and schedule are summarized below:
 >
-> - We will take a snapshot of the Development Sandbox on Friday, November 11th.  Please refrain from writing any new data to the Development Sandbox between 12:00 AM PST Friday, November 11th, and the completion of the maintenance at 4:00 PM PST on Tuesday, November 15th.
+> - We will take a snapshot of the Development Sandbox on Friday, November 11th.  Please refrain from writing any new data to the Development Sandbox between 12:00 AM PST Friday, November 11th, and the completion of the maintenance at 5:00 PM PST on Wednesday, November 16th.
 >   - Data written to the environment between taking the snapshot and completing the maintenance window may not be restored.
 >   - Creating new application manifests will also be temporarily disabled between when the snapshot is taken and the maintenance is complete.
-> - Beginning Monday, November 14th, between approximately 9 AM PST and until Tuesday, November 15th 4:00 PM PST, the Development Sandbox will not be available. Please note that this only impacts the Development Sandbox and does not impact the Monthly Sandbox.
-> - When the environment is restored at approximately 4:00 PM PST on Tuesday, November 15th, the data will be from the snapshot taken on Friday, November 11th. 
+> - Beginning Monday, November 14th, between approximately 9 AM PST and until Wednesday, November 16th 5:00 PM PST, the Development Sandbox will not be available. Please note that this only impacts the Development Sandbox and does not impact the Monthly Sandbox.
+> - When the environment is restored at approximately 5:00 PM PST on Wednesday, November 16th, the data will be from the snapshot taken on Friday, November 11th. 
 > - After the maintenance is complete, webhooks will continue to be unavailable for approximately one week while we roll out some additional enhancements to resolve the current scale and reliability issues of webhooks in the Development Sandbox.
 >
 >If you have questions regarding this maintenance, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
