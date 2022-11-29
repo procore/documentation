@@ -125,3 +125,16 @@ section.full-width {
 nav i.icon {
   color: #2066DF;
 }
+
+#results-container a {
+  color: #095ac6;
+}
+
+#results-container a:hover {
+  text-decoration: underline;
+}
+
+#search-input {
+  width: 75%;
+  height: 1.5em;
+}
