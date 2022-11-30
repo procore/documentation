@@ -38,7 +38,7 @@ With traditional service accounts, company administrators have to manually creat
 When an application incorporates new functionality and releases an updated version, the developer can request new permissions via the upgrade process to be reviewed and approved.
 
 - **Improved Project Access Control** -  During the installation and configuration process, company administrators select exactly which projects the DMSA application is allowed to use.
-With traditional service accounts, project access is configured and managed manually by the company administrator, which can be time consuming and costly.
+With traditional service accounts, project access is configured and managed manually by the company administrator, which can be time consuming and costly, and may be less secure as described below.
 
 - **Better Insight on Application Usage** - Because DMSAs are installed using App Management, company administrators have visibility into application usage in the form of application metrics such as the number of API requests, which users have installed and/or used an application, which projects are permitted to use an application, and more
 With traditional service accounts, such metrics are neither gathered nor accessible.
