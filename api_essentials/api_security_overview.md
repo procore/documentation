@@ -30,11 +30,10 @@ Disconnecting the app in a specific company will not revoke tokens on behalf of 
 
 >**Deprecation of Traditional Service Accounts**
 >
-> Service Accounts will be deprecated on December 9, 2021.
-> Creation of new service accounts will no longer be allowed after July 31, 2022.
-> All service accounts will be sunset on January 31, 2023.
-> As a result of this deprecation, all data connection integrations that currently use traditional service accounts must migrate to using Developer Managed Service Accounts before the January 31, 2023 sunset date.
-> See the following articles for information on Developer Managed Service Accounts and steps for migrating your projects from traditional service accounts.
+> Traditional Service Accounts were deprecated on December 9, 2021.
+> All traditional service accounts will be sunset on a future date to be announced.
+> As a result of this deprecation, developers of data connection applications that currently use traditional service accounts are required to update their applications to use Developer Managed Service Accounts (DMMSAs), and customers will be required to install these updated applications before the sunset date.
+> See the following articles for information on DMSAs and steps for migrating your projects from traditional service accounts.
 > - [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %})
 > - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %})
 
