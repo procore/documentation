@@ -25,7 +25,8 @@ section_title: Overview
 
 >**Issue Uploading Drawings and Specifications in Developer Sandbox Environments** (09/02/2022)
 >
->Our engineering team is aware of an issue regarding the inability to upload Drawings and Specifications in Developer Sandbox environments and is actively working towards resolution.
+>_(Updated 12/07/2022)_ Uploading Drawings and Specifications is now functional.
+>However, users may still encounter errors when confirming Drawings and will need to retry confirming Drawings.
 >Additional updates will be posted as they become available.
 >If you have questions regarding this issue, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
