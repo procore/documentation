@@ -98,7 +98,7 @@ These can be links to user documentation, your company website, case studies, et
 
 **Procore Tools** - These are the Procore tools that are required for your App to function properly.
 
-### Integration Requirments Tab
+### Integration Requirements Tab
 
 **Requirement (optional)** - Short descriptions of any prerequisites that must be met in order for your App to function properly.
 For example, product subscriptions, proper licensing, third-party systems, etc.
