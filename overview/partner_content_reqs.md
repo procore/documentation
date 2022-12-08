@@ -5,6 +5,11 @@ layout: default
 section_title: Overview
 ---
 
+## Prerequisites
+
+In order to list your integration on the Procore App Marketplace, you must first complete our [Partner Application](https://developers.procore.com/partner-signup).
+Our Partnerships team will work with you on completing a partnership agreement.
+
 ## Submitting Information for a Marketplace Listing
 
 We want to help you succeed, so we created this guide to ensure we have all the necessary content to properly publish your App on the [Procore Marketplace](https://marketplace.procore.com/).
