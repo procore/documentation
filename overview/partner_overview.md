@@ -23,6 +23,7 @@ During this stage, partners and their developers are able to learn about and exp
 
 Procore technology partners progress through the following steps during the Self-Service stage:
 
+- [Complete Partner Application](https://developers.procore.com/partner-signup)
 - [Create a developer account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %})
 - [Register your application]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %})
 - [Work with sandbox environments]({{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %})
