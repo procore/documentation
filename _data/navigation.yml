@@ -128,42 +128,20 @@
   items:
     - title: Budget Changes APIs
       url: /tutorial-budget-changes-api
-    - title: Budget Line Items
-      url: /tutorial-budget-line-items
-    - title: Change Orders
-      url: /tutorial-change-orders
     - title: Configurable Fieldsets
       url: /tutorial-config-fieldsets
     - title: Correspondence
       url: /tutorial-correspondence
-    - title: Daily Logs
-      url: /daily-logs
-    - title: Direct Drawing Uploads
-      url: /tutorial-direct-drawing-uploads
     - title: Direct File Uploads
       url: /tutorial-uploads
-    - title: Drawings
-      url: /tutorial-drawings
     - title: File Attachments and Image Uploads
       url: /attachments
     - title: Filtering and Sorting
       url: /filtering-on-list-actions
-    - title: Financial Tools
-      url: /tutorial-financial-tools
-    - title: Incidents
-      url: /tutorial-incidents
     - title: Multiple Procore Zones
       url: /tutorial-mpz
-    - title: Observations
-      url: /tutorial-observations
-    - title: Project Stages
-      url: /tutorial-project-stages
-    - title: Subcontractor Invoices
-      url: /tutorial-requisitions
     - title: Sync Actions
       url: /using-sync-actions
-    - title: Timecard Entries
-      url: /tutorial-timecard-entries
     - title: Timesheets and Timecards
       url: /tutorial-field-prod
     - title: User Permissions
@@ -172,6 +150,31 @@
       url: /tutorial-wbs
     - title: Workflows
       url: /tutorial-workflows
+
+- title: Use Cases
+  items:
+    - title: Daily Logs
+      url: /daily-logs
+    - title: Financial Tools
+      url: /tutorial-financial-tools
+    - title: Budget Line Items
+      url: /tutorial-budget-line-items
+    - title: Change Orders
+      url: /tutorial-change-orders
+    - title: Subcontractor Invoices
+      url: /tutorial-requisitions
+    - title: Drawings
+      url: /tutorial-drawings
+    - title: Direct Drawing Uploads
+      url: /tutorial-direct-drawing-uploads
+    - title: Timecard Entries
+      url: /tutorial-timecard-entries
+    - title: Incidents
+      url: /tutorial-incidents
+    - title: Observations
+      url: /tutorial-observations
+    - title: Project Stages
+      url: /tutorial-project-stages
 
 - title: BIM Web Viewer
   items:
