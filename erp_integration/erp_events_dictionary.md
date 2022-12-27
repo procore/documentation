@@ -1011,6 +1011,9 @@ There are no required actions in response to this event, but integrators can use
   request_data: {
     payment_id: 1,
     payment_type: "credit_card",
+    origin_id: "payment_origin_id",
+    origin_code: "payment_origin_code",
+    origin_data: "payment_origin_data",
     reset_override: false
   }
 }
