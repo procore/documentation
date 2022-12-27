@@ -11,6 +11,28 @@ section_title: ERP Integration
 For an ERP object to be imported into Procore, records must be staged in the ERP Integration tool where an accountant can review and approve records for import. 
 Integrators can use the publicly accessible [**Staged Records API**](https://developers.procore.com/reference/rest/v1/erp-staged-record).
 
+## Configuration
+
+Procore utilizes the ERP metadata to determine whether or not an ERP Integration uses Staged Records instead of the legacy endpoints (`erp_vendors`, `erp_jobs`, etc).
+Staged Records functionality is enabled/disabled at the entity type level. 
+To enable Staged Records for an entity, add the following field to the ERP metadata.:
+
+```json
+{
+  "settings": {
+    "entities": {
+      "vendors": {
+        "tab": {
+          "staged_records": {
+            "enabled": true
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ## Procore Type
 
 When integrators use the Staged Records API to fetch/create/sync Staged Records, they must supply an **item_type**.
