@@ -31,4 +31,4 @@ The following table summarizes the two OAuth 2.0 token types used with the Proco
 ### Related Topics
 
 - [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
-- [Procore API Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+- [Procore API Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %})
