@@ -22,14 +22,6 @@ section_title: Overview
 >
 >If you have questions regarding this maintenance, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
-
->**Issue Uploading Drawings and Specifications in Developer Sandbox Environments** (09/02/2022)
->
->_(Updated 12/07/2022)_ Uploading Drawings and Specifications is now functional.
->However, users may still encounter errors when confirming Drawings and will need to retry confirming Drawings.
->Additional updates will be posted as they become available.
->If you have questions regarding this issue, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
-
 >**Procore-Company-Id Request Header Requirement** (06/16/2022)
 >
 >As described in [Request Header Requirements for Multiple Procore Zones]({{ site.url }}{{ site.baseurl }}{% link best_practices/mpz_headers.md %}), the `Procore-Company-Id` request header is required to successfully make calls to the Procore API (api.procore.com), regardless of zone.
