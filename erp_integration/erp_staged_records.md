@@ -22,7 +22,7 @@ To enable Staged Records for an entity, add the following field to the ERP metad
   "settings": {
     "entities": {
       "vendors": {
-        "tab": {
+        "configs": {
           "staged_records": {
             "enabled": true
           }
