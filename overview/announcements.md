@@ -5,6 +5,12 @@ layout: default
 section_title: Overview
 ---
 
+>**Change to Monthly Sandbox Refresh Schedule** (02/3/2023)
+>
+>The scheduled date for the monthly sandbox refresh has changed from the second working day of each month to the first working day of each month.
+>See [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %}) for additional information.
+>If you have questions regarding this change, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Development Sandbox Maintenance** (11/07/2022)
 >
 >**Maintenance Update (11/16/2022)** 
