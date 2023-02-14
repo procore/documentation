@@ -2046,6 +2046,122 @@ Returns a JavaScript object that describes the object defined by the id. Contain
 
 Model
 
+---
+
+### Hide Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#hide-objects"></a></p>
+
+```js
+hideObjects(objectIds);
+```
+
+#### Description
+
+Adds the array of object ids to the hidden set.
+
+#### Parameters
+
+| Field Name | Required | Type | Description          |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids to hide. |
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Unhide All Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#unhide-all-objects"></a></p>
+
+```js
+unhideAllObjects();
+```
+
+#### Description
+
+Unhides and removes all objects from the hidden set.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Unhide Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#unhide-objects"></a></p>
+
+```js
+unhideObjects(objectIds);
+```
+
+#### Description
+
+The objects defined by the array of object ids are unhidden and removed from the hidden set.
+
+#### Parameters
+
+| Field Name | Required | Type | Description          |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids to hide. |
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Hidden Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#get-hidden-objects"></a></p>
+
+```js
+getHiddenObjects();
+```
+
+#### Description
+
+Returns an array of object ids that are hidden.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+number[]
+```
+
+##### Namespace
+
+Model
+
 ## Cache Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#cache-namespace"></a></p>
