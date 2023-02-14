@@ -2122,7 +2122,7 @@ The objects defined by the array of object ids are unhidden and removed from the
 
 | Field Name | Required | Type | Description          |
 | - | - | - | - |
-| objectIds | true | number[] | An array of object ids to hide. |
+| objectIds | true | number[] | An array of object ids to unhide. |
 
 ##### Returns
 
