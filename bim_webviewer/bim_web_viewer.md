@@ -2266,7 +2266,7 @@ The objects defined by the array of object ids are deselected and removed from t
 
 | Field Name | Required | Type | Description          |
 | - | - | - | - |
-| objectIds | true | number[] | An array of object ids to select. |
+| objectIds | true | number[] | An array of object ids to deselect. |
 
 ##### Returns
 
