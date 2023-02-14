@@ -2011,7 +2011,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#get-object"></a></p>
 
 ```js
-getObject();
+getObject(id);
 ```
 
 #### Description
