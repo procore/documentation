@@ -2028,12 +2028,12 @@ Returns a JavaScript object that describes the object defined by the id. Contain
 
 ```js
 {
-  id: Number, 
+  id: number, 
   bbox: {
     min: number[],
     max: number[]
   }, 
-  nodeType: Number,
+  nodeType: number,
   hidden: boolean,
   selected: boolean,
   partiallySelected: boolean,
