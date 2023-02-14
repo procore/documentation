@@ -2004,6 +2004,48 @@ None
 
 Model
 
+---
+
+### Get Object
+
+<p class="heading-link-container"><a class="heading-link" href="#get-object"></a></p>
+
+```js
+getObject(id);
+```
+
+#### Description
+
+Returns a JavaScript object that describes the object defined by the id. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+
+#### Parameters
+
+| Field Name | Required | Type | Description          |
+| - | - | - | - |
+| id | true | number | The id of the object |
+
+##### Returns
+
+```js
+{
+  id: number, 
+  bbox: {
+    min: number[],
+    max: number[]
+  }, 
+  nodeType: number,
+  hidden: boolean,
+  selected: boolean,
+  partiallySelected: boolean,
+  parentId: number,
+  children: number[]
+}
+```
+
+##### Namespace
+
+Model
+
 ## Cache Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#cache-namespace"></a></p>
