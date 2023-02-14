@@ -2162,6 +2162,150 @@ number[]
 
 Model
 
+---
+
+### Select Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#select-objects"></a></p>
+
+```js
+selectObjects(objectIds);
+```
+
+#### Description
+
+Adds the array of object ids to the selected set.
+
+#### Parameters
+
+| Field Name | Required | Type | Description          |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids to select. |
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Select All Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#select-all-objects"></a></p>
+
+```js
+selectAllObjects();
+```
+
+#### Description
+
+Selects and adds all objects to the selected set.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Deselect All Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#deselect-all-objects"></a></p>
+
+```js
+deselectAllObjects();
+```
+
+#### Description
+
+Deselects and removes all objects from the selected set.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Deselect Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#deselect-objects"></a></p>
+
+```js
+deselectObjects(objectIds);
+```
+
+#### Description
+
+The objects defined by the array of object ids are deselected and removed from the selected set.
+
+#### Parameters
+
+| Field Name | Required | Type | Description          |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids to select. |
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Selected Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#get-selected-objects"></a></p>
+
+```js
+getSelectedObjects();
+```
+
+#### Description
+
+Returns an array of object ids that are selected.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+number[]
+```
+
+##### Namespace
+
+Model
+
 ## Cache Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#cache-namespace"></a></p>
