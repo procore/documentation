@@ -2058,7 +2058,7 @@ hideObjects(objectIds);
 
 #### Description
 
-Hides objects defined by the array of object ids .
+Hides objects defined by the array of object ids.
 
 #### Parameters
 
@@ -2147,6 +2147,150 @@ getHiddenObjects();
 #### Description
 
 Returns an array of object ids that are hidden.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+number[]
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Select Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#select-objects"></a></p>
+
+```js
+selectObjects(objectIds);
+```
+
+#### Description
+
+Selects objects defined by the array of object ids.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids to select. |
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Select All Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#select-all-objects"></a></p>
+
+```js
+selectAllObjects();
+```
+
+#### Description
+
+Selects all objects.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Deselect All Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#deselect-all-objects"></a></p>
+
+```js
+deselectAllObjects();
+```
+
+#### Description
+
+Deselects all objects.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Deselect Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#deselect-objects"></a></p>
+
+```js
+deselectObjects(objectIds);
+```
+
+#### Description
+
+Deselect objects defined by the array of object ids.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids to deselect. |
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Selected Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#get-selected-objects"></a></p>
+
+```js
+getSelectedObjects();
+```
+
+#### Description
+
+Returns an array of object ids that are selected.
 
 #### Parameters
 
