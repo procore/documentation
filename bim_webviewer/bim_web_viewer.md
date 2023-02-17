@@ -2020,7 +2020,7 @@ Returns a JavaScript object that describes the object defined by the id. Contain
 
 #### Parameters
 
-| Field Name | Required | Type | Description          |
+| Field Name | Required | Type | Description |
 | - | - | - | - |
 | id | true | number | The id of the object |
 
@@ -2058,11 +2058,11 @@ hideObjects(objectIds);
 
 #### Description
 
-Adds the array of object ids to the hidden set.
+Hides objects defined by the array of object ids.
 
 #### Parameters
 
-| Field Name | Required | Type | Description          |
+| Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids to hide. |
 
@@ -2088,7 +2088,7 @@ unhideAllObjects();
 
 #### Description
 
-Unhides and removes all objects from the hidden set.
+Unhides all objects.
 
 #### Parameters
 
@@ -2116,11 +2116,11 @@ unhideObjects(objectIds);
 
 #### Description
 
-The objects defined by the array of object ids are unhidden and removed from the hidden set.
+Unhides objects defined by the array of object ids.
 
 #### Parameters
 
-| Field Name | Required | Type | Description          |
+| Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids to unhide. |
 
@@ -2174,11 +2174,11 @@ selectObjects(objectIds);
 
 #### Description
 
-Adds the array of object ids to the selected set.
+Selects objects defined by the array of object ids.
 
 #### Parameters
 
-| Field Name | Required | Type | Description          |
+| Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids to select. |
 
@@ -2204,7 +2204,7 @@ selectAllObjects();
 
 #### Description
 
-Selects and adds all objects to the selected set.
+Selects all objects.
 
 #### Parameters
 
@@ -2232,7 +2232,7 @@ deselectAllObjects();
 
 #### Description
 
-Deselects and removes all objects from the selected set.
+Deselects all objects.
 
 #### Parameters
 
@@ -2260,11 +2260,11 @@ deselectObjects(objectIds);
 
 #### Description
 
-The objects defined by the array of object ids are deselected and removed from the selected set.
+Deselect objects defined by the array of object ids.
 
 #### Parameters
 
-| Field Name | Required | Type | Description          |
+| Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids to deselect. |
 
