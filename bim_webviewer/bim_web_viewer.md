@@ -2020,7 +2020,7 @@ Returns a JavaScript object that describes the object defined by the id. Contain
 
 #### Parameters
 
-| Field Name | Required | Type | Description          |
+| Field Name | Required | Type | Description |
 | - | - | - | - |
 | id | true | number | The id of the object |
 
