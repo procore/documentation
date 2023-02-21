@@ -103,11 +103,12 @@ ProcoreBim contains a mix of both static and non static methods and are generall
 <p class="heading-link-container"><a class="heading-link" href="#webviewer-namespaces"></a></p>
 
 | Namespace | Description                                                                                   |
-| --------- | --------------------------------------------------------------------------------------------- |
+|-----------|-----------------------------------------------------------------------------------------------|
 | camera    | Webviewer camera retrieval and manipulation [Camera Namespace](#camera-namespace)             |
 | dom       | Helper methods to create extendable panels [Dom Namespace](#dom-namespace)                    |
 | events    | Event management system similar to Javascript Event API [Events Namespace](#events-namespace) |
 | model     | Webviewer model data retrieval and manipulation [Model Namespace](#model-namespace)           |
+| gui       | Webviewer GUI manipulation [GUI Namespace](#gui-namespace)                                    |
 | none      | Methods not grouped into a namespace                                                          |
 
 When you create a new instance of Webviewer, an object is returned that allows you to act on the model and camera data.
@@ -2385,6 +2386,70 @@ ProcoreBim.Cache.removeModel({
 ```js
 Promise(boolean)
 ```
+
+## GUI Namespace
+
+<p class="heading-link-container"><a class="heading-link" href="#gui-namespace"></a></p>
+
+### Add Context Menu Item
+
+<p class="heading-link-container"><a class="heading-link" href="#add-context-menu-item"></a></p>
+
+```js
+addContextMenuItem({label, id, shortcut, onClick, singleObject});
+```
+
+#### Description
+
+Retrieves a JavaScript object that describes the object.
+
+#### Parameters
+
+| Field Name | Required | Type    | Description                                               |
+|-----------| --- |---------|-----------------------------------------------------------|
+| label     | true | String  | Human-readable label of the new contet menu entry         |
+| id        | true | String  | Unique identifier for the new context menu entry          |
+| shortcut  | true | char[]  | Keyboard-shortcut equivalent                              |
+| onClick   | true | callback | JS function triggered when menu entry is clicked          |
+| singleObject   | true | boolean | Indicates if the action applies only to single selections |
+
+##### Returns
+
+HTMLDivElement
+
+##### Namespace
+
+GUI
+
+---
+
+### Remove Context Menu Items
+
+<p class="heading-link-container"><a class="heading-link" href="#remove-context-menu-items"></a></p>
+
+```js
+removeContextMenuItems({contextMenuItemIds});
+```
+
+#### Description
+
+Retrieves a JavaScript object that describes the object.
+
+#### Parameters
+
+| Field Name | Required | Type     | Description                                  |
+|-----------| --- |----------|----------------------------------------------|
+| contextMenuItemIds     | true | String[] | Array of the Context Menu Item Ids to remove |
+
+##### Returns
+
+void
+
+##### Namespace
+
+GUI
+
+---
 
 ## Options
 
