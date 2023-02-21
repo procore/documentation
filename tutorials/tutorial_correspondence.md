@@ -3,7 +3,6 @@ permalink: /tutorial-correspondence
 title: Working with the Correspondence Tool
 layout: default
 section_title: Guides and Tutorials
-
 ---
 
 ## Introduction
@@ -22,7 +21,7 @@ There are a number of requirements that need to be satisfied before you can work
 - Use the Admin tool to [Create a New Correspondence Type](https://support.procore.com/products/online/user-guide/project-level/correspondence/tutorials/create-a-new-correspondence-type). There must be at least one Correspondence Type set up in the company.
 - Use the Admin tool to [Apply a Fieldset to Projects in the Correspondence Tool](https://support.procore.com/products/online/user-guide/project-level/correspondence/tutorials/apply-a-fieldset-to-projects-in-the-correspondence-tool). There must be at least one fieldset applied to one or more projects.
 
-## Resource Naming Conventions ##
+## Resource Naming Conventions
 
 While working with the Correspondence Tool API resources, it is important to be aware of how the various resources are named and how the naming conventions compare and contrast with the equivalent constructs in the Procore web application.
 The following table presents Correspondence Tool API resources and lists the equivalent name in the context of the Procore web application.
@@ -30,9 +29,10 @@ The following table presents Correspondence Tool API resources and lists the equ
 | Correspondence Tool API Resource | Procore Web Application Equivalent |
 | -------------------------------- | ---------------------------------- |
 | Generic Tool                     | Correspondence Type                |
-| Correspondence Type Item         | Correspondence Item                |
+| Generic Tool Item                | Correspondence Item                |
 
 ## Resources and Associations
+
 Here is a simplified class diagram showing the main resource objects and their relationships.
 
 ![Correspondence Tool Objects]({{ site.baseurl }}/assets/guides/correspondence-tool-objects.png)
@@ -53,15 +53,15 @@ The endpoint names are linked to their corresponding reference pages.
 
 ### Company Level Endpoints (Base URL: /rest/v1.0/companies/{company_id})
 
-| Name                                                                                                                                  | Action | Endpoint URI | Description
+| Name                                                                                                                                  | Action | Endpoint URI                                   | Description                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------- | ---------------------------------------------------------------------------- |
 | [List Generic Tools](https://developers.procore.com/reference/rest/v1/correspondences#list-generic-tools)                             | GET    | /generic_tools                                 | Returns a list of all Correspondence Generic Tools in the specified Company. |
-| [Create Generic Tool *](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool)                         | POST   | /generic_tools                                 | Create a new Correspondence Generic Tool in the specified Company.           |
+| [Create Generic Tool \*](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool)                        | POST   | /generic_tools                                 | Create a new Correspondence Generic Tool in the specified Company.           |
 | [List Statuses for a Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences#list-statuses-for-a-generic-tool) | GET    | /generic_tools/{generic_tool_id}/statuses      | Returns a list of all Statuses for a Generic Tool.                           |
 | [Create Generic Tool Status](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool-status)             | POST   | /generic_tools/{generic_tool_id}/statuses      | Create a new Generic Tool Status for the specified Generic Tool.             |
 | [Delete Generic Tool Status](https://developers.procore.com/reference/rest/v1/correspondences#delete-generic-tool-status)             | DELETE | /generic_tools/{generic_tool_id}/statuses/{id} | Delete the specified Generic Tool Status.                                    |
 
-* Details on working with the Create Generic Tool endpoint will be covered in a future revision of this guide.
+- Details on working with the Create Generic Tool endpoint will be covered in a future revision of this guide.
 
 ### Project Level Endpoints (Base URL: /rest/v1.0/projects/{project_id})
 
@@ -153,14 +153,15 @@ Because Correspondence workflows commonly happen at the project level, it is imp
 
 #### Using the Procore Web Application
 
-1. In the Procore web application, open the project you want to work with.
-1. From the Project Tools menu, choose Correspondence under Project Management.
+1.  In the Procore web application, open the project you want to work with.
+1.  From the Project Tools menu, choose Correspondence under Project Management.
 
     ![Correspondence menu item]({{ site.baseurl }}/assets/guides/corres-menu-item.png)
-1. On the Correspondence page, open the **Create** menu and examine the list available Correspondence Types in the dropdown.
-If you find the type you want to work with in the dropdown list, that indicates it is supported in the current project.
 
-    ![Create Correspondence]({{ site.baseurl }}/assets/guides/corres-create-menu.png)
+1.  On the Correspondence page, open the **Create** menu and examine the list available Correspondence Types in the dropdown.
+    If you find the type you want to work with in the dropdown list, that indicates it is supported in the current project.
+
+        ![Create Correspondence]({{ site.baseurl }}/assets/guides/corres-create-menu.png)
 
 #### Using the Procore API
 
