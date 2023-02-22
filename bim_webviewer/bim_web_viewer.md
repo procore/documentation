@@ -2016,7 +2016,7 @@ getObject(id);
 
 #### Description
 
-Returns a JavaScript object that describes the model object defined by the id. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+Returns a model object with the given id. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
 
 #### Parameters
 
@@ -2058,7 +2058,7 @@ getObjects(objectIds);
 
 #### Description
 
-Returns an array of JavaScript objects where each JavaScript object describes the model object as defined by each id in the array. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+Returns an array of model objects as defined by each id in the array. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
 
 #### Parameters
 
