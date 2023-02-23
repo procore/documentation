@@ -2048,6 +2048,46 @@ Model
 
 ---
 
+### Get Root Object
+
+<p class="heading-link-container"><a class="heading-link" href="#get-root-object"></a></p>
+
+```js
+getRootObject();
+```
+
+#### Description
+
+Returns a model object which is the root of the model object tree. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+{
+  id: number,
+  bbox: {
+    min: number[],
+    max: number[]
+  },
+  nodeType: number,
+  hidden: boolean,
+  selected: boolean,
+  partiallySelected: boolean,
+  parentId: undefined,
+  children: number[]
+}
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Hide Objects
 
 <p class="heading-link-container"><a class="heading-link" href="#hide-objects"></a></p>
