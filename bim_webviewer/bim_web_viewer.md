@@ -2370,7 +2370,7 @@ setNavigationMode(mode);
 
 #### Description
 
-Sets the navigation mode. The following values for `mode`: 0 for the default mode, 1 for fly, and 2 for orbit. 
+Sets the navigation mode. The following values for `mode` are: 0 for the default mode, 1 for fly, and 2 for orbit. 
 
 
 #### Parameters
