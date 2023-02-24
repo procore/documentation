@@ -2399,7 +2399,7 @@ setMeasurement(enable);
 
 #### Description
 
-Enables or disables the measurement tool.
+Enables or disables the measurement tool. Requires the Measurement Tool be enabled upon viewer initialization by adding `MEASUREMENT_SD` to the options tools array. 
 
 #### Parameters
 
