@@ -2405,13 +2405,13 @@ Retrieves a JavaScript object that describes the object.
 
 #### Parameters
 
-| Field Name | Required | Type    | Description                                               |
-|-----------| --- |---------|-----------------------------------------------------------|
-| label     | true | String  | Human-readable label of the new contet menu entry         |
-| id        | true | String  | Unique identifier for the new context menu entry          |
-| shortcut  | true | char[]  | Keyboard-shortcut equivalent                              |
-| onClick   | true | callback | JS function triggered when menu entry is clicked          |
-| singleObject   | true | boolean | Indicates if the action applies only to single selections |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| label | true | String | Human-readable label of the new context menu entry |
+| id | true | String  | Unique identifier for the new context menu entry |
+| shortcut  | true | char[]  | The keyboard-shortcut label to show. Does not register a keyboard listener |
+| onClick | true | callback | JS function triggered when menu entry is clicked |
+| singleObject | true | boolean | Indicates if the action applies only to single selections |
 
 ##### Returns
 
