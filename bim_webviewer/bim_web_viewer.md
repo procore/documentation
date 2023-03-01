@@ -2437,9 +2437,9 @@ Retrieves a JavaScript object that describes the object.
 
 #### Parameters
 
-| Field Name | Required | Type     | Description                                  |
-|-----------| --- |----------|----------------------------------------------|
-| contextMenuItemIds     | true | String[] | Array of the Context Menu Item Ids to remove |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| contextMenuItemIds | true | String[] | Array of the Context Menu Item Ids to remove |
 
 ##### Returns
 
