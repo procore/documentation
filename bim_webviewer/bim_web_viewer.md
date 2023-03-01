@@ -2084,7 +2084,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#hide-all-objects"></a></p>
 
 ```js
-hideAllObjects(objectIds);
+hideAllObjects();
 ```
 
 #### Description
