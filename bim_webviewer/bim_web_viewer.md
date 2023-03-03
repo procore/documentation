@@ -2049,7 +2049,7 @@ getObject(id);
 
 #### Description
 
-Returns a JavaScript object that describes the object defined by the id. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+Returns a model object with the given id. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
 
 #### Parameters
 
@@ -2073,6 +2073,51 @@ Returns a JavaScript object that describes the object defined by the id. Contain
   parentId: number,
   children: number[]
 }
+```
+
+##### Namespace
+
+Model
+
+---
+
+
+### Get Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#get-objects"></a></p>
+
+```js
+getObjects(objectIds);
+```
+
+#### Description
+
+Returns an array of model objects as defined by each id in the array. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids. |
+
+##### Returns
+
+```js
+[
+  {
+    id: number, 
+    bbox: {
+      min: number[],
+      max: number[]
+    }, 
+    nodeType: number,
+    hidden: boolean,
+    selected: boolean,
+    partiallySelected: boolean,
+    parentId: number,
+    children: number[]
+  }
+]
 ```
 
 ##### Namespace
