@@ -109,6 +109,7 @@ ProcoreBim contains a mix of both static and non static methods and are generall
 | dom       | Helper methods to create extendable panels [Dom Namespace](#dom-namespace)                    |
 | events    | Event management system similar to Javascript Event API [Events Namespace](#events-namespace) |
 | model     | Webviewer model data retrieval and manipulation [Model Namespace](#model-namespace)           |
+| gui       | Webviewer GUI manipulation [GUI Namespace](#gui-namespace)                                    |
 | none      | Methods not grouped into a namespace                                                          |
 
 When you create a new instance of Webviewer, an object is returned that allows you to act on the model and camera data.
@@ -2042,6 +2043,38 @@ Model
 
 ---
 
+### Get Number Of Objects Selected
+
+<p class="heading-link-container"><a class="heading-link" href="#get-number-of-objects-selected"></a></p>
+
+```js
+getNumObjectsSelected(method);
+```
+
+#### Description
+
+Retrieve the number of objects selected base on the count method. 
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| method | false | string |  Method to count, can be the following: `FirstObject`, `Object`, or `Geometry`. Default value is `FirstObject` |
+
+##### Returns
+
+```js
+{
+  count: number
+}
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Get Object
 
 <p class="heading-link-container"><a class="heading-link" href="#get-object"></a></p>
@@ -2052,7 +2085,7 @@ getObject(id);
 
 #### Description
 
-Returns a JavaScript object that describes the object defined by the id. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+Returns a model object with the given id. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
 
 #### Parameters
 
@@ -2074,6 +2107,91 @@ Returns a JavaScript object that describes the object defined by the id. Contain
   selected: boolean,
   partiallySelected: boolean,
   parentId: number,
+  children: number[]
+}
+```
+
+##### Namespace
+
+Model
+
+---
+
+
+### Get Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#get-objects"></a></p>
+
+```js
+getObjects(objectIds);
+```
+
+#### Description
+
+Returns an array of model objects as defined by each id in the array. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids. |
+
+##### Returns
+
+```js
+[
+  {
+    id: number, 
+    bbox: {
+      min: number[],
+      max: number[]
+    }, 
+    nodeType: number,
+    hidden: boolean,
+    selected: boolean,
+    partiallySelected: boolean,
+    parentId: number,
+    children: number[]
+  }
+]
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Root Object
+
+<p class="heading-link-container"><a class="heading-link" href="#get-root-object"></a></p>
+
+```js
+getRootObject();
+```
+
+#### Description
+
+Returns a model object which is the root of the model object tree. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+{
+  id: number,
+  bbox: {
+    min: number[],
+    max: number[]
+  },
+  nodeType: number,
+  hidden: boolean,
+  selected: boolean,
+  partiallySelected: boolean,
+  parentId: undefined,
   children: number[]
 }
 ```
@@ -2421,6 +2539,70 @@ ProcoreBim.Cache.removeModel({
 ```js
 Promise(boolean)
 ```
+
+## GUI Namespace
+
+<p class="heading-link-container"><a class="heading-link" href="#gui-namespace"></a></p>
+
+### Add Context Menu Item
+
+<p class="heading-link-container"><a class="heading-link" href="#add-context-menu-item"></a></p>
+
+```js
+addContextMenuItem({label, id, shortcut, onClick, singleObject});
+```
+
+#### Description
+
+Retrieves a JavaScript object that describes the object.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| label | true | String | Human-readable label of the new context menu entry |
+| id | true | String  | Unique identifier for the new context menu entry |
+| shortcut  | true | char[]  | The keyboard-shortcut label to show. Does not register a keyboard listener |
+| onClick | true | callback | JS function triggered when menu entry is clicked |
+| singleObject | true | boolean | Indicates if the action applies only to single selections |
+
+##### Returns
+
+HTMLDivElement
+
+##### Namespace
+
+GUI
+
+---
+
+### Remove Context Menu Items
+
+<p class="heading-link-container"><a class="heading-link" href="#remove-context-menu-items"></a></p>
+
+```js
+removeContextMenuItems({contextMenuItemIds});
+```
+
+#### Description
+
+Retrieves a JavaScript object that describes the object.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| contextMenuItemIds | true | String[] | Array of the Context Menu Item Ids to remove |
+
+##### Returns
+
+void
+
+##### Namespace
+
+GUI
+
+---
 
 ## Options
 
