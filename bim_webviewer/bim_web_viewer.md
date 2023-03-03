@@ -103,7 +103,8 @@ ProcoreBim contains a mix of both static and non static methods and are generall
 <p class="heading-link-container"><a class="heading-link" href="#webviewer-namespaces"></a></p>
 
 | Namespace | Description                                                                                   |
-|-----------|-----------------------------------------------------------------------------------------------|
+| --------- | --------------------------------------------------------------------------------------------- |
+| api       | Helper method to retrieve data from procore server [Api Namespace](#api-namespace)            |
 | camera    | Webviewer camera retrieval and manipulation [Camera Namespace](#camera-namespace)             |
 | dom       | Helper methods to create extendable panels [Dom Namespace](#dom-namespace)                    |
 | events    | Event management system similar to Javascript Event API [Events Namespace](#events-namespace) |
@@ -215,6 +216,41 @@ undefined
 ##### Namespace
 
 None
+
+## Api Namespace
+
+<p class="heading-link-container"><a class="heading-link" href="#api-namespace"></a></p>
+
+### Get Object Name
+
+<p class="heading-link-container"><a class="heading-link" href="#get-object-name"></a></p>
+
+```js
+getNamesForObjects(objectIds);
+```
+
+#### Description
+
+Return an array of object names with the given id.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | number[] | An array of object ids |
+
+##### Returns
+
+```js
+{
+  id: number,
+  value: string
+}
+```
+
+##### Namespace
+
+Api
 
 ## Camera Namespace
 
