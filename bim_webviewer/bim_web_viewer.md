@@ -921,7 +921,7 @@ Fires periodically to report progress on how much of the model has been download
 #### Data Properties
 
 | Field Name | Type | Description |
-| - | - | - | 
+| - | - | - |
 | loaded      | number  | Number of bytes downloaded.                                                                                     |
 | total       | number  | Total size of model in bytes. This amount will be arbitrarily large until all the requests have been initiated. |
 | total_found | boolean | Returns true to indicates all the requests for the model has been initiated.                                    |
@@ -1160,7 +1160,16 @@ Fires on double mouse clicks. If the double mouse click occurs on an object, thi
 
 <p class="heading-link-container"><a class="heading-link" href="#objectsingleclick"></a></p>
 
-Fires on a single mouse click. If the single mouse click occurs on an object, this event returns a Meshnode Index, otherwise -1 is returned.
+Fires on a single mouse click.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| objectId | number | The object id of the selected object. -1 if empty space is clicked. |
+| selectionContainerId | number | The object id of the selection container. Currently this is always the "First Object". -1 if empty space is clicked |
+| ancestry | object[] | An array of objects from the root object down to the selected object. Each object also contains fully materialized children one level deep. Past this level the children are object ids. Empty array if empty space is clicked. |
+
 
 ---
 
@@ -1196,7 +1205,23 @@ Fires when objects have been removed from the hidden set.
 
 <p class="heading-link-container"><a class="heading-link" href="#objectselect"></a></p>
 
-Fires when an object has been selected. This event returns a Meshnode Index.
+Fires when an object has been selected.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| objectId | number | The object id of the selected object |
+| selectionContainerId | number | The object id of the selection container. Currently this is always the "First Object". |
+| ancestry | object[] | An array of objects from the root object down to the selected object. Each object also contains fully materialized children one level deep. Past this level the children are object ids |
+
+---
+
+### objectDeselect
+
+<p class="heading-link-container"><a class="heading-link" href="#objectdeselect"></a></p>
+
+Fires when an object has been deselected. This event returns an array of object ids that were deselected.
 
 ---
 
@@ -1260,7 +1285,7 @@ Fires when a tool has been activated.
 
 <p class="heading-link-container"><a class="heading-link" href="#selectedupdated"></a></p>
 
-Fires when the selection set of objects has been updated.
+Fires when the selection set of objects has been updated. This event returns an array of the full set of selected object ids at the time of selection update.
 
 ---
 
@@ -1268,7 +1293,7 @@ Fires when the selection set of objects has been updated.
 
 <p class="heading-link-container"><a class="heading-link" href="#singleclick"></a></p>
 
-Fires when a single click occurs in the webviewer container element. this event returns a `MouseEvent` object.
+Fires when a single click occurs in the webviewer container element. This event returns a `MouseEvent` object.
 
 ---
 
