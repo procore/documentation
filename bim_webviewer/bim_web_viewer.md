@@ -1369,6 +1369,38 @@ Fires when a window based tool has changed its position or size.
 | modalSize  | object | An object with the keys, `height`, `left`, `top`, `width` to indicate the current position and size of the window. |
 | name       | string | Human readable name of the window based tool that is changing.                                                     |
 
+---
+
+### onWindowOpen
+
+<p class="heading-link-container"><a class="heading-link" href="#onwindowopen"></a></p>
+
+Fires when a window based tool has been opened.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| id | string | The name of the window based tool that has been opened. |
+| name | string | Human readable name of the window based tool that has been opened. |
+| element | DOM | The DOM Node of the window based tool. |
+
+---
+
+### onWindowHide
+
+<p class="heading-link-container"><a class="heading-link" href="#onwindowhide"></a></p>
+
+Fires when a window based tool has been hidden.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| id | string | The name of the window based tool that has been hidden. |
+| name | string | Human readable name of the window based tool that has been hidden. |
+| element | DOM | The DOM Node of the window based tool. |
+
 ## Model Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#model-namespace"></a></p>
