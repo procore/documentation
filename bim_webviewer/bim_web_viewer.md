@@ -1205,7 +1205,7 @@ Fires when objects have been removed from the hidden set.
 
 <p class="heading-link-container"><a class="heading-link" href="#objectselect"></a></p>
 
-Fires when an object has been selected.
+Fires when an object has been selected. Does not fire if empty space is clicked because nothing has been selected.
 
 #### Data Properties
 
