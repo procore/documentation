@@ -2953,7 +2953,7 @@ The new shape looks like this:
       id: 1,
       parentId: undefined,
       children: [
-        { id: 2, parentId: 1, children: [3] },
+        { id: 2, parentId: 1, children: [3, 42] },
       ],
     },
     { 
