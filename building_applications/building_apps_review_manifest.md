@@ -40,6 +40,7 @@ Your next step is to create a new sandbox manifest version and make revisions to
 1. Open the email response and click **Update**.
 1. Scroll down to the ‘Manage Manifest’ section.
 1. With the ‘Sandbox’ tab selected, click **Create New Version**.
+1. Enter a new version number following the semantic versioning scheme.
 1. Edit the new manifest version as needed, then click **Create**. Your revised manifest is saved as a new version.
 1. Test your new sandbox manifest version to verify your updates.
 

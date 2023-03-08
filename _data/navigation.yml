@@ -57,6 +57,8 @@
       url: /building-apps-app-types
     - title: App Installation Architecture
       url: /building-apps-install-arch
+    - title: App Versioning and Update Notification
+      url: /building-apps-versioning
     - title: Creating a New App
       url: /building-apps-create-new
     - title: Creating an App Manifest
