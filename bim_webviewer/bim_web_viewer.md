@@ -1381,9 +1381,9 @@ Fires when a window based tool has been opened.
 
 | Field Name | Type | Description |
 | - | - | - |
-| id | string | The name of the window based tool that has been opened. |
-| name | string | Human readable name of the window based tool that has been opened. |
-| element | DOM | The DOM Node of the window based tool. |
+| elementId | string | The value of the id attribute on the root DOM element of the window. |
+| toolId | number | The id of the tool the window belongs to. See [Tools](#tools) for further information. |
+
 
 ---
 
@@ -1397,9 +1397,8 @@ Fires when a window based tool has been hidden.
 
 | Field Name | Type | Description |
 | - | - | - |
-| id | string | The name of the window based tool that has been hidden. |
-| name | string | Human readable name of the window based tool that has been hidden. |
-| element | DOM | The DOM Node of the window based tool. |
+| elementId | string | The value of the id attribute on the root DOM element of the window. |
+| toolId | number | The id of the tool the window belongs to. See [Tools](#tools) for further information. |
 
 ## Model Namespace
 
@@ -3003,7 +3002,8 @@ Otherwise, `rotation` will be undefined.
 | MEASUREMENT_SD   | Shortest Distance tool                                      |
 | MODELVIEWS       | Views Window                                                |
 | SETTINGS         | Settings Window to change unit display                      |
-| VIEW_PROPERTIES  | View properties of an object                                |
+| VIEW_PROPERTIES  | Properties Window to display properties of an object        |
+| OBJECTMODELTREE  | Object Tree Window                                          |
 
 `MEASUREMENT_SD`
 
