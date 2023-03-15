@@ -1371,9 +1371,9 @@ Fires when a window based tool has changed its position or size.
 
 ---
 
-### onWindowOpen
+### windowOpen
 
-<p class="heading-link-container"><a class="heading-link" href="#onwindowopen"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#windowopen"></a></p>
 
 Fires when a window based tool has been opened.
 
@@ -1387,9 +1387,9 @@ Fires when a window based tool has been opened.
 
 ---
 
-### onWindowHide
+### windowClose
 
-<p class="heading-link-container"><a class="heading-link" href="#onwindowhide"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#windowclose"></a></p>
 
 Fires when a window based tool has been hidden.
 
