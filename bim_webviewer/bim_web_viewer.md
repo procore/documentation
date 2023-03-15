@@ -2377,7 +2377,7 @@ Sets the navigation mode. The following values for `mode` are: 0 for the default
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| mode | true | number | Valid values for mode are { Default: 0, Fly: 1, Orbit: 2 } |
+| mode | true | number | The following values for `mode` are: 0 for the default mode, 1 for fly, and 2 for orbit. |
 
 ##### Returns
 
