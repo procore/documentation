@@ -2485,6 +2485,115 @@ number[]
 
 Model
 
+---
+
+### Set X Ray Mode
+
+<p class="heading-link-container"><a class="heading-link" href="#set-x-ray-mode"></a></p>
+
+```js
+setXRayMode();
+```
+
+#### Description
+
+Sets the rendering mode to X Ray. In this mode, all non selected geometry is rendered with a single color and are transparent.
+
+#### Parameters
+
+None
+
+##### Returns
+
+None
+
+##### Namespace
+
+Model
+
+---
+
+### Set Normal Mode
+
+<p class="heading-link-container"><a class="heading-link" href="#set-normal-mode"></a></p>
+
+```js
+setNormalMode();
+```
+
+#### Description
+
+Sets the rendering mode to normal. In this mode, geometry is rendered using the geometries color and opacity values.
+
+#### Parameters
+
+None
+
+##### Returns
+
+None
+
+##### Namespace
+
+Model
+
+---
+
+### Set Navigation Mode
+
+<p class="heading-link-container"><a class="heading-link" href="#set-navigation-mode"></a></p>
+
+```js
+setNavigationMode(mode);
+```
+
+#### Description
+
+Sets the navigation mode. The following values for `mode` are: 0 for the default mode, 1 for fly, and 2 for orbit. 
+
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| mode | true | number | The following values for `mode` are: 0 for the default mode, 1 for fly, and 2 for orbit. |
+
+##### Returns
+
+None
+
+##### Namespace
+
+Model
+
+---
+
+### Set Measurement
+
+<p class="heading-link-container"><a class="heading-link" href="#set-measurement"></a></p>
+
+```js
+setMeasurement(enable);
+```
+
+#### Description
+
+Enables or disables the measurement tool. Requires the Measurement Tool be enabled upon viewer initialization by adding `MEASUREMENT_SD` to the options tools array. 
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| enable | true | boolean | True to enable the measurement tool. False to disable. |
+
+##### Returns
+
+None
+
+##### Namespace
+
+Model
+
 ## Cache Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#cache-namespace"></a></p>
