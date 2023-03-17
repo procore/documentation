@@ -957,7 +957,7 @@ Fires periodically to report progress on how much of the model has been download
 #### Data Properties
 
 | Field Name | Type | Description |
-| - | - | - | 
+| - | - | - |
 | loaded      | number  | Number of bytes downloaded.                                                                                     |
 | total       | number  | Total size of model in bytes. This amount will be arbitrarily large until all the requests have been initiated. |
 | total_found | boolean | Returns true to indicates all the requests for the model has been initiated.                                    |
@@ -1196,7 +1196,16 @@ Fires on double mouse clicks. If the double mouse click occurs on an object, thi
 
 <p class="heading-link-container"><a class="heading-link" href="#objectsingleclick"></a></p>
 
-Fires on a single mouse click. If the single mouse click occurs on an object, this event returns a Meshnode Index, otherwise -1 is returned.
+Fires on a single mouse click.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| objectId | number | The object id of the selected object. -1 if empty space is clicked. |
+| selectionContainerId | number | The object id of the selection container. Currently this is always the "First Object". -1 if empty space is clicked |
+| ancestry | object[] | An array of objects from the root object down to the selected object. Each object also contains fully materialized children one level deep. Past this level the children are object ids. Empty array if empty space is clicked. |
+
 
 ---
 
@@ -1232,7 +1241,23 @@ Fires when objects have been removed from the hidden set.
 
 <p class="heading-link-container"><a class="heading-link" href="#objectselect"></a></p>
 
-Fires when an object has been selected. This event returns a Meshnode Index.
+Fires when an object has been selected. Does not fire if empty space is clicked because nothing has been selected.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| objectId | number | The object id of the selected object |
+| selectionContainerId | number | The object id of the selection container. Currently this is always the "First Object". |
+| ancestry | object[] | An array of objects from the root object down to the selected object. Each object also contains fully materialized children one level deep. Past this level the children are object ids |
+
+---
+
+### objectDeselect
+
+<p class="heading-link-container"><a class="heading-link" href="#objectdeselect"></a></p>
+
+Fires when an object has been deselected. This event returns an array of object ids that were deselected.
 
 ---
 
@@ -1296,7 +1321,7 @@ Fires when a tool has been activated.
 
 <p class="heading-link-container"><a class="heading-link" href="#selectedupdated"></a></p>
 
-Fires when the selection set of objects has been updated.
+Fires when the selection set of objects has been updated. This event returns an array of the full set of selected object ids at the time of selection update.
 
 ---
 
@@ -1304,7 +1329,7 @@ Fires when the selection set of objects has been updated.
 
 <p class="heading-link-container"><a class="heading-link" href="#singleclick"></a></p>
 
-Fires when a single click occurs in the webviewer container element. this event returns a `MouseEvent` object.
+Fires when a single click occurs in the webviewer container element. This event returns a `MouseEvent` object.
 
 ---
 
@@ -2986,6 +3011,69 @@ Otherwise, `rotation` will be undefined.
 <p class="heading-link-container">
   <a class="heading-link" href="#migration-guides"></a>
 </p>
+
+### v6 to v7
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v5-to-v6"></a>
+</p>
+
+#### Changes to Payloads of `objectSelect` and `objectSingleClick` Events
+
+##### New Payload
+
+In versions < v7 the `objectSelect` and `objectSingleClick` events had a payload of the meshnode index that was clicked. They now have a new shape that is based around object id instead of meshnode index.
+
+The new shape looks like this:
+```ts
+{
+  objectId: 3,
+  selectionContainerId: 2,
+  ancestry: [
+    { 
+      id: 1,
+      parentId: undefined,
+      children: [
+        { id: 2, parentId: 1, children: [3, 42] },
+      ],
+    },
+    { 
+      id: 2,
+      parentId: 1,
+      children: [
+        { id: 3, parentId: 2, children: [] },
+        { id: 42, parentId: 2, children: [] },
+      ] 
+    },
+    { 
+      id: 3,
+      parentId: 2,
+      children: [],
+    },
+  ]
+}
+```
+
+The `objectId` is the object id of the object that was clicked/selected
+
+The `selectionContainerId` is the object id of the object that contains the object that was clicked/selected. In v7 this will always be the "First Object".
+
+The `ancestry` attribute is intended to tell you all the information needed to recreate the subtree for what was clicked/selected. Each item in the array represents a depth of the object tree, starting at the root object and going down to the leaf object that was clicked/selected. The shape of these objects is the same that is returned by `model.getObject` with the one exception that the first level of children are fully materialized objects instead of just being object ids. This is to capture the siblings of each item without an additional request as these would be displayed as closed items in an object tree implementation (object id 42 in the example above.)
+
+See [`objectSelect`](#objectselect) or [`objectSingleClick`](#objectsingleclick) for more details on these payloads.
+
+##### Converting from Old Payload
+
+We encourage building around object ids moving forward, but if you need a straight conversion of the new payload to the previous one you could modify event listeners on `objectSelect` or `objectSingleClick` like so:
+
+```ts
+viewer.events.addEventListener('objectSelect', async (payload) => {
+  const { objectId } = payload;
+  const { meshnodeIndex } = await viewer.model.getMeshnodeFromObjectId(objectId)
+
+  // meshnodeIndex should be the same as the < v7 payload.
+})
+```
 
 ### v5 to v6
 
