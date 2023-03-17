@@ -2257,6 +2257,35 @@ Model
 
 ---
 
+
+### Hide All Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#hide-all-objects"></a></p>
+
+```js
+hideAllObjects();
+```
+
+#### Description
+
+Hides all objects.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+boolean
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Unhide All Objects
 
 <p class="heading-link-container"><a class="heading-link" href="#unhide-all-objects"></a></p>
