@@ -3,7 +3,6 @@ permalink: /tutorial-workflows
 title: Interacting with Workflows
 layout: default
 section_title: Guides and Tutorials
-
 ---
 
 ## Introduction
@@ -19,20 +18,19 @@ The Workflows tool was designed to streamline the user experience and to replace
 - It is important to note that once a workflow has been applied to an object (such as a Subcontract or Purchase Order), you will not be able to update the status field directly using the API for that object. Instead, you will need to use the Workflow API in order to adjust the status field.
 - Currenty, there is no way to programmatically determine if a workflow has been applied to a given object. Your Procore administrator in conjunction with your Procore point-of-contact should be able to identify for you which objects in your account have workflows applied.
 
-## Workflow API Endpoints ##
-
+## Workflow API Endpoints
 
 The Procore API provides a number of endpoints that allow you interact with workflows in Procore.
 The following table provides descriptions of these endpoints.
 Clicking an endpoint title in the table takes you to the API reference page for that endpoint where you can learn about the various parameters and response body attributes.
 
-| Workflow Endpoint                                                                                                              | Description                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| [List Workflow Instances](https://developers.procore.com/reference/rest/v1/workflow#list-workflow-instances)                   | Return a list of workflow instances for a specified company.             |
-| [Show Workflow Instance](https://developers.procore.com/reference/rest/v1/workflow#show-workflow-instance)                     | Return information for a specific workflow instance.                     |
-| [Create Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow#create-workflow-activity-history) | Perform a workflow activity.                                             |
-| [List Workflow Activity Histories](https://developers.procore.com/reference/rest/v1/workflow#list-workflow-activity-histories) | Return a list of activities performed for a specified workflow instance. |
-| [Show Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow#show-workflow-activity-history)     | Return information for a single workflow activity.                       |
+| Workflow Endpoint                                                                                                                                             | Description                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [List Workflow Instances](https://developers.procore.com/reference/rest/v1/workflow-instances?version=1.0#list-workflow-instances)                            | Return a list of workflow instances for a specified company.             |
+| [Show Workflow Instance](https://developers.procore.com/reference/rest/v1/workflow-instances?version=1.0#show-workflow-instance)                              | Return information for a specific workflow instance.                     |
+| [Create Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow-activity-histories?version=1.0#create-workflow-activity-history) | Perform a workflow activity.                                             |
+| [List Workflow Activity Histories](https://developers.procore.com/reference/rest/v1/workflow-activity-histories?version=1.0#list-workflow-activity-histories) | Return a list of activities performed for a specified workflow instance. |
+| [Show Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow-activity-histories?version=1.0#show-workflow-activity-history)     | Return information for a single workflow activity.                       |
 
 ## Example Workflow
 
@@ -48,8 +46,7 @@ Next, the Reviewer role can execute the `Approve` activity to transition the Pur
 Or, the Reviewer role can execute the `Deny` activity to send the Purchase Order back to the `Start` state for re-work by the Project Manager.
 We will refer to this example workflow as we work through the following sections.
 
-## Retrieving Workflow Information ##
-
+## Retrieving Workflow Information
 
 Each object (such as a Subcontract or Purchase Order) that has an associated workflow will have one (and only one) _workflow instance_.
 The workflow instance includes the name of the applied workflow, the current workflow state, and the activities that can be performed from the current workflow state.
@@ -124,14 +121,14 @@ The details returned for each workflow instance indicate exactly what activities
 You will also need the ID for the user performing the activity.
 The following table lists the required parameters for the [Create Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow#create-workflow-activity-history) endpoint.
 
-| Parameter              | Type  | Description                                                 |
-| ---------------------- | ----- | ----------------------------------------------------------- |
-| company_id             | Query | ID for the company                                          |
-| workflow_instance_id   | Query | ID of the workflow instance                                 |
-| workflow_activity_id   | Body  | ID of the workflow activity.                                |
-| workflow_instance_id   | Body  | ID of the workflow instance.                                |
-| workflow_user_role_id  | Body  | ID of the user role associated with the activity.           |
-| performed_by_id        | Body  | The login information for the user performing the activity. |
+| Parameter             | Type  | Description                                                 |
+| --------------------- | ----- | ----------------------------------------------------------- |
+| company_id            | Query | ID for the company                                          |
+| workflow_instance_id  | Query | ID of the workflow instance                                 |
+| workflow_activity_id  | Body  | ID of the workflow activity.                                |
+| workflow_instance_id  | Body  | ID of the workflow instance.                                |
+| workflow_user_role_id | Body  | ID of the user role associated with the activity.           |
+| performed_by_id       | Body  | The login information for the user performing the activity. |
 
 In addition to the parameters listed above, there are optional parameters for including comments and attachements to the activity history.
 See the [Create Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow#create-workflow-activity-history) reference page for more information.
