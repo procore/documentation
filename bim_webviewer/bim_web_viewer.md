@@ -1394,6 +1394,37 @@ Fires when a window based tool has changed its position or size.
 | modalSize  | object | An object with the keys, `height`, `left`, `top`, `width` to indicate the current position and size of the window. |
 | name       | string | Human readable name of the window based tool that is changing.                                                     |
 
+---
+
+### windowOpen
+
+<p class="heading-link-container"><a class="heading-link" href="#windowopen"></a></p>
+
+Fires when a window based tool has been opened.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| elementId | string | The value of the id attribute on the root DOM element of the window. |
+| toolId | number | The id of the tool the window belongs to. See [Tools](#tools) for further information. |
+
+
+---
+
+### windowClose
+
+<p class="heading-link-container"><a class="heading-link" href="#windowclose"></a></p>
+
+Fires when a window based tool has been hidden.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| elementId | string | The value of the id attribute on the root DOM element of the window. |
+| toolId | number | The id of the tool the window belongs to. See [Tools](#tools) for further information. |
+
 ## Model Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#model-namespace"></a></p>
@@ -3134,7 +3165,8 @@ Otherwise, `rotation` will be undefined.
 | MEASUREMENT_SD   | Shortest Distance tool                                      |
 | MODELVIEWS       | Views Window                                                |
 | SETTINGS         | Settings Window to change unit display                      |
-| VIEW_PROPERTIES  | View properties of an object                                |
+| VIEW_PROPERTIES  | Properties Window to display properties of an object        |
+| OBJECTMODELTREE  | Object Tree Window                                          |
 
 `MEASUREMENT_SD`
 
