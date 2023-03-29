@@ -867,6 +867,20 @@ viewer.events.addEventListener('bcfCameraSet', () => {
 viewer.start();
 ```
 
+### animate
+
+<p class="heading-link-container"><a class="heading-link" href="#animate"></a></p>
+
+Fires at the end of the animation loop. Returns an object containing the property `stage` to indicate the stage the renderer is in to render the scene. `renderIdle` indicates that the scene has been fully rendered and the renderer is no longer rendering any objects. `renderStart` indicates the start of rendering a scene. `renderProgress` is a state after `renderStart` and indicates the renderer is still rendering the scene. Finally, `renderComplete` indicates that all the objects have been rendered.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| stage | string | The stage the renderer is in during the animation loop. Can either be `renderIdle`, `renderStart`, `renderProgress`, or `renderComplete`. |
+
+---
+
 ### appResize
 
 <p class="heading-link-container"><a class="heading-link" href="#appresize"></a></p>
