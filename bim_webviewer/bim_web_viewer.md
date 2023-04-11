@@ -1727,6 +1727,94 @@ Model
 
 ---
 
+### Set Object Color
+
+<p class="heading-link-container"><a class="heading-link" href="#set-object-color"></a></p>
+
+```js
+setObjectColor(palettes);
+```
+
+#### Description
+
+Changes object color in selcted, default, and xray mode.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| palettes | true | Object[] | color palettes with object ids: {palette: {default: {color: '#ff0000', opacity: 1}, xray: {color: '#00ff00', opacity: 1}, selected: {color: '#0000ff', opacity: 1}}, objectIds: [1, 2, 3]}. Must provide at least one of default, xray or selected color. If no color declared will use the our baked-in values or the color from the file for the "default" value. |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Clear Object Color
+
+<p class="heading-link-container"><a class="heading-link" href="#clear-object-color"></a></p>
+
+```js
+clearObjectColor(objectIds);
+```
+
+#### Description
+
+Clears object color set by [setObjectColor](#set-object-color) with specific object ids
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | number[] | Array of object ids |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Clear All Object Color
+
+<p class="heading-link-container"><a class="heading-link" href="#clear-all-object-color"></a></p>
+
+```js
+clearAllObjectColor();
+```
+
+#### Description
+
+Clears all object color set by [setObjectColor](#set-object-color)
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Get Sections
 
 <p class="heading-link-container"><a class="heading-link" href="#get-sections"></a></p>
