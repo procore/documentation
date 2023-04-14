@@ -1737,7 +1737,7 @@ setObjectColor(palettes);
 
 #### Description
 
-Changes object color in selcted, default, and xray mode.
+Changes object color in selected, default, and xray mode.
 
 #### Parameters
 
