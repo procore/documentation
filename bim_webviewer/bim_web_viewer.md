@@ -1743,7 +1743,7 @@ Changes object color in selected, default, and xray mode.
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| palettes | true | Object[] | color palettes with object ids: {palette: {default: {color: '#ff0000', opacity: 1}, xray: {color: '#00ff00', opacity: 1}, selected: {color: '#0000ff', opacity: 1}}, objectIds: [1, 2, 3]}. Must provide at least one of default, xray or selected color. If no color declared will use the our baked-in values or the color from the file for the "default" value. |
+| palettes | true | Object[] | Color palettes with object ids: {palette: {default: {color: '#ff0000', opacity: 1}, xray: {color: '#00ff00', opacity: 1}, selected: {color: '#0000ff', opacity: 1}}, objectIds: [1, 2, 3]}. Must provide at least one of `default`, `xray` or `selected` color. If the `color` property is not provided, then default colors are used. |
 
 ##### Returns
 
