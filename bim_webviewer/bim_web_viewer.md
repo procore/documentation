@@ -1797,7 +1797,7 @@ clearAllObjectColor();
 
 #### Description
 
-Clears all object color set by [setObjectColor](#set-object-color)
+Clears all object colors set by [setObjectColor](#set-object-color).
 
 #### Parameters
 
