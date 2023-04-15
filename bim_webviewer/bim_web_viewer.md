@@ -1767,7 +1767,7 @@ clearObjectColor(objectIds);
 
 #### Description
 
-Clears object color set by [setObjectColor](#set-object-color) with specific object ids
+Clears object colors set by [setObjectColor](#set-object-color) defined by sets of object ids.
 
 #### Parameters
 
