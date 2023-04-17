@@ -1772,6 +1772,111 @@ Model
 
 ---
 
+### Set Object Color
+
+<p class="heading-link-container"><a class="heading-link" href="#set-object-color"></a></p>
+
+```js
+setObjectColor(colorDescriptor);
+```
+
+#### Description
+
+Changes the color of an object while in three modes; `default`, `selected` or `xray`. Default is while the object is neither selected or in X Ray mode. Selected is while the object is selected. X Ray is while in X Ray mode.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| palettes | true | Object[] | see [colorDescriptor](#colordescriptor) |
+
+##### ColorDescriptor
+
+<p class="heading-link-container"><a class="heading-link" href="#colordescriptor"></a></p>
+
+A ColorDescriptor is composed of a palette, which may contain at least one of default, xray, or selected, and an array of object ids to apply it to.
+
+```js
+{
+  palette: {
+    default: {color: '#ff0000', opacity: 1},
+    xray: {color: '#00ff00', opacity: 1},
+    selected: {color: '#0000ff', opacity: 1}
+  },
+  objectIds: [1, 2, 3]
+}
+```
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Clear Object Color
+
+<p class="heading-link-container"><a class="heading-link" href="#clear-object-color"></a></p>
+
+```js
+clearObjectColor(objectIds);
+```
+
+#### Description
+
+Clears object colors set by [setObjectColor](#set-object-color) defined by sets of object ids.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | number[] | Array of object ids |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Clear All Object Color
+
+<p class="heading-link-container"><a class="heading-link" href="#clear-all-object-color"></a></p>
+
+```js
+clearAllObjectColor();
+```
+
+#### Description
+
+Clears all object colors set by [setObjectColor](#set-object-color).
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Get Sections
 
 <p class="heading-link-container"><a class="heading-link" href="#get-sections"></a></p>
