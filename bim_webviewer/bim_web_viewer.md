@@ -1732,7 +1732,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#set-object-color"></a></p>
 
 ```js
-setObjectColor(palettes);
+setObjectColor(colorDescriptor);
 ```
 
 #### Description
@@ -1743,7 +1743,24 @@ Changes the color of an object while in three modes; `default`, `selected` or `x
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| palettes | true | Object[] | Color palettes with object ids: {palette: {default: {color: '#ff0000', opacity: 1}, xray: {color: '#00ff00', opacity: 1}, selected: {color: '#0000ff', opacity: 1}}, objectIds: [1, 2, 3]}. Must provide at least one of `default`, `xray` or `selected` color. If the `color` property is not provided, then default colors are used. |
+| palettes | true | Object[] | see [colorDescriptor](#colordescriptor) |
+
+##### ColorDescriptor
+
+<p class="heading-link-container"><a class="heading-link" href="#colordescriptor"></a></p>
+
+A ColorDescriptor is composed of a palette, which may contain at least one of default, xray, or selected, and an array of object ids to apply it to.
+
+```js
+{
+  palette: {
+    default: {color: '#ff0000', opacity: 1},
+    xray: {color: '#00ff00', opacity: 1},
+    selected: {color: '#0000ff', opacity: 1}
+  },
+  objectIds: [1, 2, 3]
+}
+```
 
 ##### Returns
 
