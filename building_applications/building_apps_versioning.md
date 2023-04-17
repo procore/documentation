@@ -38,4 +38,4 @@ The App Management listing for the application will dislplay an 'Update Availabl
 
 ![App Update Available]({{ site.baseurl }}/assets/guides/update-available-badge.png)
 
-See [Update an Insalled App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/update-installed-app) for additional information.
+See [Update an Installed App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/update-installed-app) for additional information.
