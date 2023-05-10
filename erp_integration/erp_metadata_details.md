@@ -648,6 +648,28 @@ Only when this metadata import configuration is enabled and the ERP synced Proco
 }
 ```
 
+## Contracgt Payments Metadata
+Currently we use **sync_payments** section in requisitions for importing payments. 
+We will deprecate it and use the import here soon.
+
+```
+"contract_payments": {
+  "enabled": true,
+  "tab": {
+    "enabled": true
+  },
+  "configs": {
+    "export": {
+      "enabled": true
+    },
+    "import": {
+      "enabled": true,
+      "minimum_sync_version": "0"
+    }
+  }
+}
+```
+
 ## Example - Full Metadata
 
 ```
@@ -1358,6 +1380,21 @@ Only when this metadata import configuration is enabled and the ERP synced Proco
                 }
               }
             }
+          }
+        }
+      },
+      "contract_payments": {
+        "enabled": true,
+        "tab": {
+          "enabled": true
+        },
+        "configs": {
+          "export": {
+            "enabled": true
+          },
+          "import": {
+            "enabled": true,
+            "minimum_sync_version": "0"
           }
         }
       },
