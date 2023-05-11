@@ -1003,6 +1003,54 @@ There are no required actions in response to this event, but integrators can use
 
 <br>
 
+### create_payment
+**Event Payload:**
+```
+{
+  {
+  	"id": 1,
+  	"company_id": 2,
+  	"request_name": "create_contract_payment",
+  	"request_data": {
+  		"request_detail_id": 3,
+  		"contract_payment": {
+  			"id": 4,
+  			"company_id": 2,
+  			"project_id": 5,
+  			"contract_id": 6,
+  			"requisition_id": 7,
+  			"external_payment_id": "external_payment_id",
+  			"invoice_number": "invoice_number",
+  			"invoice_date": "2023-05-01",
+  			"status": "paid",
+  			"amount": "1.0",
+  			"date_payment_created": "2023-05-02T15:06:02Z",
+  			"date_payment_initiated": "1970-01-01T00:00:00Z",
+  			"date_payment_funded": "2023-05-02T15:06:05Z",
+  			"date_payment_settled": null,
+  			"retainage_released_payment_amount": "3.0",
+  			"draw_request_number": 9,
+  			"payment_method": "ach",
+  			"payment_number": null,
+  			"vendor_id": 598134325841112,
+  			"bank_id": "primary",
+  			"check_number": "12"
+  		},
+  		"company_id": 2
+  	},
+  	"created_at": "2023-05-08T19:56:28Z",
+  	"updated_at": "2023-05-08T19:56:28Z",
+  	"integration_app_name": null
+  }
+}
+```
+**Required Actions:** <br>
+After the ERP connector handles the export of the payment to the ERP system, the connector should finish up the export by:
+1. Setting the **origin_id** values on the external data record here: [Rest API Overview](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) <br>
+    **item_type=contract_payment** and **item_id** is the **id** value of the contract payment export <br>
+2. Closing out the export request detail record with status success [Rest API Overview](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0#update-erp-request-detail) 
+
+
 ### reset_payment
 **Event Payload:**
 ```
