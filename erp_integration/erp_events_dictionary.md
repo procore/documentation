@@ -998,6 +998,7 @@ There are no required actions in response to this event, but integrators can use
 ## Payments
 
 | **Name** | **Super User** | **Action Required** | **Occurs When** |
+| [**create_payment**](#create_payment) | No | Yes | A user exports a payment to the ERP integration tool. |
 | [**reset_payment**](#reset_payment) | Yes | Yes | An ERP support member resets a payment at the request of the user. |
 | [**sync_contract_payments**](#reset_payment) | No | Yes | A user initiates a sync of invoice payments on the Subcontractor Invoices tab in Procore's ERP Integration tool. |
 
