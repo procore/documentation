@@ -5,6 +5,15 @@ layout: default
 section_title: Overview
 ---
 
+>**Development Sandbox Maintenance** (05/16/2022)
+>
+>To improve the performance and reliability of the Development Sandbox, we will conduct maintenance beginning on Thursday, May 18th, at approximately 5:00 PM PST and expect it to last approximately 2 hours.  During this time, the Development Sandbox will not be available. The full impact and schedule are summarized below:
+>
+> - During the maintenance window, the Development Sandbox will be unavailable to login or use
+> - During the maintenance window, creation of new Sandbox app manifests will not work
+>
+>If you have questions regarding this maintenance, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Change to Monthly Sandbox Refresh Schedule** (02/3/2023)
 >
 >The scheduled date for the monthly sandbox refresh has changed from the second working day of each month to the first working day of each month.
