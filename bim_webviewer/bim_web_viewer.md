@@ -460,13 +460,11 @@ Returns a data url of an image produced by the current render view.
 
 | Field Name | Required | Type | Description |
 | - | - | -| - |
-| params | false | Object | A JavaScript object that accepts the following keys: 'color': Background css color, can use hex value ('#00ff00'), or color labels ('red') |
+| params | false | Object | A JavaScript object that can have the following keys: 'color': Background css color, can use hex value ('#00ff00'), or color labels ('red') |
 
 ##### Returns
 
-```js
-String
-```
+The canvas as a base64-encoded image.
 
 ##### Namespace
 
