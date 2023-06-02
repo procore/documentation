@@ -459,7 +459,7 @@ Returns a data url of an image produced by the current render view.
 #### Parameters
 
 | Field Name | Required | Type | Description |
-| - | - | -| - |
+| - | - | - | - |
 | params | false | Object | A JavaScript object that can have the following keys: 'color': Background css color, can use hex value ('#00ff00'), or color labels ('red') |
 
 ##### Returns
