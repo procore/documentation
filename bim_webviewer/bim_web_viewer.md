@@ -444,6 +444,36 @@ Camera
 
 ---
 
+### Get Snapshot Data URL
+
+<p class="heading-link-container"><a class="heading-link" href="#get-snapshot-data-url"></a></p>
+
+```js
+getSnapshotDataUrl(params);
+```
+
+#### Description
+
+Returns a data url of an image produced by the current render view.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | -| - |
+| params | false | Object | A JavaScript object that accepts the following keys: 'color': Background css color, can use hex value ('#00ff00'), or color labels ('red') |
+
+##### Returns
+
+```js
+String
+```
+
+##### Namespace
+
+Camera
+
+---
+
 ### Set Camera From BCF Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-from-bcf-camera"></a></p>
