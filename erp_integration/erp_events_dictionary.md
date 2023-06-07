@@ -22,11 +22,12 @@ The main property to be aware of is **resource_id**, which is the ERP Request ID
 
 ## Standard Cost Codes
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_standard_cost_codes**](#create_standard_cost_codes) | No | Yes | A user exports a list of standard cost codes from the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
-| [**delete_standard_cost_codes**](#delete_standard_cost_codes) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to delete standard cost codes. |
-| [**sync_standard_cost_codes**](#sync_standard_cost_codes) | No | Yes | A user initiates a sync of standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
-| [**unlink_standard_cost_codes**](#unlink_standard_cost_codes) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to unlink standard cost codes. |
+| **Name**                                                      | **Super User** | **Action Required** | **Occurs When**                                                                                                                          |
+|---------------------------------------------------------------|----------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| [**create_standard_cost_codes**](#create_standard_cost_codes) | No             | Yes                 | A user exports a list of standard cost codes from the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool.                |
+| [**delete_standard_cost_codes**](#delete_standard_cost_codes) | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to delete standard cost codes.                     |
+| [**sync_standard_cost_codes**](#sync_standard_cost_codes)     | No             | Yes                 | A user initiates a sync of standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
+| [**unlink_standard_cost_codes**](#unlink_standard_cost_codes) | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to unlink standard cost codes.                     |
 
 <br>
 
@@ -110,9 +111,10 @@ There are no required actions for this event. If any standard cost code data has
 
 ## Standard Categories (Cost Types/Line Item Types)
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**delete_standard_categories**](#delete_standard_categories) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to delete standard categories. |
-| [**sync_standard_categories**](#sync_standard_categories) | No | Yes | A user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
+| **Name**                                                      | **Super User** | **Action Required** | **Occurs When**                                                                                                                                 |
+|---------------------------------------------------------------|----------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [**delete_standard_categories**](#delete_standard_categories) | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to delete standard categories.                            |
+| [**sync_standard_categories**](#sync_standard_categories)     | No             | Yes                 | A user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
 
 <br>
 
@@ -148,14 +150,15 @@ To close out this event, the integrator should send any standard categories retr
 
 ## Vendors
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_vendor**](#create_vendor) | No | Yes | A user exports a vendor from Procore to the ERP System. |
-| [**create_vendor_in_procore**](#create_vendor_in_procore) | No | No | A user imports a staged vendor in the ERP Integration Tool. |
-| [**link_all_vendors**](#link_all_vendors) | No | No | A user links multiple ERP vendors to Procore vendors in the ERP Tab. |
-| [**link_vendor**](#link_vendor) | No | No | A user links a vendor to a Procore vendor in the ERP Integration Tool. |
-| [**merge_vendors**](#merge_vendors) | No | No | A user merges vendors using the Vendor Merge Tool. |
-| [**sync_vendors**](#sync_vendors) | No | Yes | A user presses the Refresh Vendors List button in the ERP Tab in Procore. |
-| [**unlink_vendor**](#unlink_vendor) | No | No | A user unlinks a vendor in the ERP Integration tool. |
+| **Name**                                                  | **Super User** | **Action Required** | **Occurs When**                                                           |
+|-----------------------------------------------------------|----------------|---------------------|---------------------------------------------------------------------------|
+| [**create_vendor**](#create_vendor)                       | No             | Yes                 | A user exports a vendor from Procore to the ERP System.                   |
+| [**create_vendor_in_procore**](#create_vendor_in_procore) | No             | No                  | A user imports a staged vendor in the ERP Integration Tool.               |
+| [**link_all_vendors**](#link_all_vendors)                 | No             | No                  | A user links multiple ERP vendors to Procore vendors in the ERP Tab.      |
+| [**link_vendor**](#link_vendor)                           | No             | No                  | A user links a vendor to a Procore vendor in the ERP Integration Tool.    |
+| [**merge_vendors**](#merge_vendors)                       | No             | No                  | A user merges vendors using the Vendor Merge Tool.                        |
+| [**sync_vendors**](#sync_vendors)                         | No             | Yes                 | A user presses the Refresh Vendors List button in the ERP Tab in Procore. |
+| [**unlink_vendor**](#unlink_vendor)                       | No             | No                  | A user unlinks a vendor in the ERP Integration tool.                      |
 
 <br>
 
@@ -331,12 +334,13 @@ There are no required actions. Optionally, the ERP Integration can perform clean
 
 ## Projects
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_job_in_procore**](#create_job_in_procore) | No | No | A user presses the Add to Procore button for a project in the ERP Integration Tool. |
-| [**create_or_update_job**](#create_or_update_job) | No | Yes | A project is exported from Procore to the ERP System. |
-| [**reset_job**](#reset_job) | Yes | No | An ERP support representative uses Super User access to reset a project at the request of a user. |
-| [**sync_jobs**](#sync_jobs) | No | Yes | A user presses Refresh Job List button in the ERP Tab in Procore. |
-| [**sync_single_job**](#sync_single_job) | No | No | Sent out periodically and notifies the integrator to send any updates related to a specific job to Procore. |
+| **Name**                                            | **Super User** | **Action Required** | **Occurs When**                                                                                             |
+|-----------------------------------------------------|----------------|---------------------|-------------------------------------------------------------------------------------------------------------|
+| [**create_job_in_procore**](#create_job_in_procore) | No             | No                  | A user presses the Add to Procore button for a project in the ERP Integration Tool.                         |
+| [**create_or_update_job**](#create_or_update_job)   | No             | Yes                 | A project is exported from Procore to the ERP System.                                                       |
+| [**reset_job**](#reset_job)                         | Yes            | No                  | An ERP support representative uses Super User access to reset a project at the request of a user.           |
+| [**sync_jobs**](#sync_jobs)                         | No             | Yes                 | A user presses Refresh Job List button in the ERP Tab in Procore.                                           |
+| [**sync_single_job**](#sync_single_job)             | No             | No                  | Sent out periodically and notifies the integrator to send any updates related to a specific job to Procore. |
 
 <br>
 
@@ -512,12 +516,13 @@ There are no required actions. Optionally, the ERP Integration can update the pr
 
 ## Sub Jobs
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_sub_job**](#create_sub_job) | No | Yes | A sub job is exported from Procore to the ERP System. The event payload contains all the exported attributes. |
-| [**create_sub_job_in_procore**](#create_sub_job_in_procore) | No | No | A user presses the Add to Procore button for a Sub Job in the ERP Integration Tool. |
-| [**reset_sub_job**](#reset_sub_job) | Yes | No | An ERP support representative uses Super User access to reset a sub job at the request of the customer. |
-| [**sync_sub_job**](#sync_sub_job) | No | No | Sent periodically and notifies the integrator to send any updates related to a specific sub job to Procore. |
-| [**sync_sub_jobs**](#sync_sub_jobs) | No | Yes | A user presses the Refresh Sub Jobs button in the ERP Tab in Procore. |
+| **Name**                                                    | **Super User** | **Action Required** | **Occurs When**                                                                                               |
+|-------------------------------------------------------------|----------------|---------------------|---------------------------------------------------------------------------------------------------------------|
+| [**create_sub_job**](#create_sub_job)                       | No             | Yes                 | A sub job is exported from Procore to the ERP System. The event payload contains all the exported attributes. |
+| [**create_sub_job_in_procore**](#create_sub_job_in_procore) | No             | No                  | A user presses the Add to Procore button for a Sub Job in the ERP Integration Tool.                           |
+| [**reset_sub_job**](#reset_sub_job)                         | Yes            | No                  | An ERP support representative uses Super User access to reset a sub job at the request of the customer.       |
+| [**sync_sub_job**](#sync_sub_job)                           | No             | No                  | Sent periodically and notifies the integrator to send any updates related to a specific sub job to Procore.   |
+| [**sync_sub_jobs**](#sync_sub_jobs)                         | No             | Yes                 | A user presses the Refresh Sub Jobs button in the ERP Tab in Procore.                                         |
 
 <br>
 
@@ -717,10 +722,11 @@ The integrator can use the Procore API to stage any new sub jobs and update any 
 
 ## Cost Codes and Line Item Type Assignments
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**delete_cost_code**](#delete_cost_code) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to delete synced project cost codes. |
-| [**delete_cost_codes**](#delete_cost_codes) | No | Yes | A user attempts to delete synced project cost codes. |
-| [**delete_cost_type_assignments**](#delete_cost_type_assignments) | No | Yes | A user attempts to delete synced project line item type assignments. |
+| **Name**                                                          | **Super User** | **Action Required** | **Occurs When**                                                                                                            |
+|-------------------------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|
+| [**delete_cost_code**](#delete_cost_code)                         | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to delete synced project cost codes. |
+| [**delete_cost_codes**](#delete_cost_codes)                       | No             | Yes                 | A user attempts to delete synced project cost codes.                                                                       |
+| [**delete_cost_type_assignments**](#delete_cost_type_assignments) | No             | Yes                 | A user attempts to delete synced project line item type assignments.                                                       |
 
 <br>
 
@@ -807,10 +813,11 @@ The ERP Integration is expected to check the state of the assignments. If the as
 
 ## Budgets
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_budget**](#create_budget) | No | Yes | A user attempts to export a budget from Procore. |
-| [**update_budget**](#update_budget) | No | Yes | A user attempts to re-export a budget from Procore. |
-| [**create_budget_in_procore**](#create_budget_in_procore) | No | No | A user imports a budget in the ERP Integration Tool. |
+| **Name**                                                  | **Super User** | **Action Required** | **Occurs When**                                      |
+|-----------------------------------------------------------|----------------|---------------------|------------------------------------------------------|
+| [**create_budget**](#create_budget)                       | No             | Yes                 | A user attempts to export a budget from Procore.     |
+| [**update_budget**](#update_budget)                       | No             | Yes                 | A user attempts to re-export a budget from Procore.  |
+| [**create_budget_in_procore**](#create_budget_in_procore) | No             | No                  | A user imports a budget in the ERP Integration Tool. |
 
 <br>
 
@@ -890,9 +897,10 @@ There are no required actions. Optionally, the ERP integration might perform som
 
 ## Requisitions
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_requisitions**](#create_requisitions) | No | Yes | A user exports a batch of requisitions from the ERP Integration tool. |
-| [**reset_requisition**](#reset_requisition) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to reset a synced requisition. |
+| **Name**                                        | **Super User** | **Action Required** | **Occurs When**                                                                                                      |
+|-------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------------------------------------|
+| [**create_requisitions**](#create_requisitions) | No             | Yes                 | A user exports a batch of requisitions from the ERP Integration tool.                                                |
+| [**reset_requisition**](#reset_requisition)     | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to reset a synced requisition. |
 
 <br>
 
@@ -997,10 +1005,11 @@ There are no required actions in response to this event, but integrators can use
 
 ## Payments
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_payment**](#create_payment) | No | Yes | A user exports a payment to the ERP integration tool. |
-| [**reset_payment**](#reset_payment) | Yes | Yes | An ERP support member resets a payment at the request of the user. |
-| [**sync_contract_payments**](#reset_payment) | No | Yes | A user initiates a sync of invoice payments on the Subcontractor Invoices tab in Procore's ERP Integration tool. |
+| **Name**                                     | **Super User** | **Action Required** | **Occurs When**                                                                                                  |
+|----------------------------------------------|----------------|---------------------|------------------------------------------------------------------------------------------------------------------|
+| [**create_payment**](#create_payment)        | No             | Yes                 | A user exports a payment to the ERP integration tool.                                                            |
+| [**reset_payment**](#reset_payment)          | Yes            | Yes                 | An ERP support member resets a payment at the request of the user.                                               |
+| [**sync_contract_payments**](#reset_payment) | No             | Yes                 | A user initiates a sync of invoice payments on the Subcontractor Invoices tab in Procore's ERP Integration tool. |
 
 <br>
 
@@ -1087,11 +1096,12 @@ The integrator is responsible for pulling invoice payments from the ERP system a
 
 ## Commitments
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_commitment**](#create_commitment) | No | Yes | A user exports a commitment from the ERP Tab in Procore. |
-| [**create_commitment_in_procore**](#create_commitment_in_procore) | No | No | A user presses the Add to Procore button for a commitment in the ERP Integration Tool. |
-| [**sync_commitments**](#sync_commitments) | No | Yes | A user presses the Refresh Commitments button in the ERP Tab in Procore. |
-| [**unlink_commitment**](#unlink_commitment) | No | Yes | A user attempts to unlink a commitment in the ERP Integration tool. |
+| **Name**                                                          | **Super User** | **Action Required** | **Occurs When**                                                                        |
+|-------------------------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------|
+| [**create_commitment**](#create_commitment)                       | No             | Yes                 | A user exports a commitment from the ERP Tab in Procore.                               |
+| [**create_commitment_in_procore**](#create_commitment_in_procore) | No             | No                  | A user presses the Add to Procore button for a commitment in the ERP Integration Tool. |
+| [**sync_commitments**](#sync_commitments)                         | No             | Yes                 | A user presses the Refresh Commitments button in the ERP Tab in Procore.               |
+| [**unlink_commitment**](#unlink_commitment)                       | No             | Yes                 | A user attempts to unlink a commitment in the ERP Integration tool.                    |
 
 <br>
 
@@ -1309,10 +1319,11 @@ The ERP Integration is expected to check the state of the commitment. If the com
 
 ## Commitment Change Orders
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_commitment_change_order**](#create_commitment_change_order) | No | Yes | A user exports a commitment change order from the ERP Tab in Procore. |
-| [**sync_commitment_change_orders**](#sync_commitment_change_orders) | No | Yes | A user initiates a sync of commitment change orders in Procore's ERP Integration tool. |
-| [**unlink_commitment_change_order**](#unlink_commitment_change_order) | No | Yes | A user attempts to unlink a commitment change order in the ERP Integration tool. |
+| **Name**                                                              | **Super User** | **Action Required** | **Occurs When**                                                                        |
+|-----------------------------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------|
+| [**create_commitment_change_order**](#create_commitment_change_order) | No             | Yes                 | A user exports a commitment change order from the ERP Tab in Procore.                  |
+| [**sync_commitment_change_orders**](#sync_commitment_change_orders)   | No             | Yes                 | A user initiates a sync of commitment change orders in Procore's ERP Integration tool. |
+| [**unlink_commitment_change_order**](#unlink_commitment_change_order) | No             | Yes                 | A user attempts to unlink a commitment change order in the ERP Integration tool.       |
 
 <br>
 
@@ -1605,11 +1616,15 @@ The ERP Integration is expected to check the state of the commitment change orde
 
 
 ## Payment Applications
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_payment_application**](#create_payment_application) | No | Yes | A user exports a payment application from the ERP Tab in Procore. |
-| [**unlink_payment_application**](#unlink_payment_application) | No | Yes | A user unlinks a payment application from the ERP Tab in Procore. |
 
-### unlink_commitment_change_order
+| **Name**                                                      | **Super User** | **Action Required** | **Occurs When**                                                   |
+|---------------------------------------------------------------|----------------|---------------------|-------------------------------------------------------------------|
+| [**create_payment_application**](#create_payment_application) | No             | Yes                 | A user exports a payment application from the ERP Tab in Procore. |
+| [**unlink_payment_application**](#unlink_payment_application) | No             | Yes                 | A user unlinks a payment application from the ERP Tab in Procore. |
+
+<br>
+
+### create_payment_application
 **Event Payload:**
 ```
 {
@@ -1733,7 +1748,7 @@ The ERP Integration is expected to check the state of the commitment change orde
 After the payment application and its items have been exported to the ERP system, the integrator must send third-party **origin_id** information back to Procore for the payment application and its items, using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
 
 
-### unlink_commitment_change_order
+### unlink_payment_application
 **Event Payload:**
 ```
 {
@@ -1861,8 +1876,9 @@ The ERP Integration is expected to check the state of the payment application. I
 
 ## Prime Contracts
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**sync_prime_contracts**](#sync_prime_contracts) | No | Yes | A user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import. |
+| **Name**                                          | **Super User** | **Action Required** | **Occurs When**                                                                                                              |
+|---------------------------------------------------|----------------|---------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [**sync_prime_contracts**](#sync_prime_contracts) | No             | Yes                 | A user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import. |
 
 <br>
 
@@ -1883,10 +1899,11 @@ The integrator can use the Procore API to stage any new prime contracts or prime
 
 ## Prime Contract Change Orders
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_prime_contract_change_order**](#create_prime_contract_change_order) | No | Yes | An accounting approver approves the export of a prime contract change order. |
-| [**reset_prime_contract_change_order**](#reset_prime_contract_change_order) | Yes | Yes | An ERP support member resets a prime contract change order at the request of the user. |
-| [**unlink_prime_contract_change_order**](#unlink_prime_contract_change_order) | No | Yes | A user attempts to unlink a prime contract change order in the ERP Integration tool. |
+| **Name**                                                                      | **Super User** | **Action Required** | **Occurs When**                                                                        |
+|-------------------------------------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------|
+| [**create_prime_contract_change_order**](#create_prime_contract_change_order) | No             | Yes                 | An accounting approver approves the export of a prime contract change order.           |
+| [**reset_prime_contract_change_order**](#reset_prime_contract_change_order)   | Yes            | Yes                 | An ERP support member resets a prime contract change order at the request of the user. |
+| [**unlink_prime_contract_change_order**](#unlink_prime_contract_change_order) | No             | Yes                 | A user attempts to unlink a prime contract change order in the ERP Integration tool.   |
 
 <br>
 
@@ -2259,8 +2276,9 @@ The ERP Integration is expected to check the state of the prime contract change 
 
 ## ERP Metadata
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**sync_metadata**](#sync_metadata) | No | Yes | A user performs an action requiring ERP metadata but the integration's metadata is not stored in Procore. |
+| **Name**                            | **Super User** | **Action Required** | **Occurs When**                                                                                           |
+|-------------------------------------|----------------|---------------------|-----------------------------------------------------------------------------------------------------------|
+| [**sync_metadata**](#sync_metadata) | No             | Yes                 | A user performs an action requiring ERP metadata but the integration's metadata is not stored in Procore. |
 
 <br>
 
