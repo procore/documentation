@@ -31,6 +31,7 @@ The table below enumerates all Procore Object Types the External Data API suppor
 | Line Item Type | line_item_type |
 | Markup | markup |
 | Payment Application | payment_application |
+ | Payment Application Line Item | payment_application_line_item |
 | Prime Contract | prime_contract |
 | Project | project |
 | Purchase Order Contract | purchase_order_contract |
