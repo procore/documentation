@@ -5,6 +5,12 @@ layout: default
 section_title: Overview
 ---
 
+>**Monthly Sandbox Refresh July Schedule** (07/12/2023)
+>
+>Due to the holiday timing on the first of the month, the Monthly Sandbox refresh will occur on July 11th for the July refresh.
+>
+>If you have questions regarding this maintenance, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Development Sandbox Maintenance** (05/16/2022)
 >
 >To improve the performance and reliability of the Development Sandbox, we will conduct maintenance beginning on Thursday, May 18th, at approximately 5:00 PM PST and expect it to last approximately 2 hours.  During this time, the Development Sandbox will not be available. The full impact and schedule are summarized below:
