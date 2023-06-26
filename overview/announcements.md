@@ -5,6 +5,30 @@ layout: default
 section_title: Overview
 ---
 
+>**Expiration of OAuth access tokens and OAuth Revoke endpoint are changing** (05/15/2023)
+>
+>*Effective: JULY 21, 2023 6PM PT*
+>
+>**What's changing?**
+>
+>Beginning on JULY 21, 2023 6PM PT, Procore OAuth access tokens will be generated with a shorter expiration time. Tokens currently expire 2 hours after they are generated.
+>After this change, tokens will expire 10 minutes after being generated.
+>The `expires_in` parameter returned with tokens will always reflect the amount of time that the token will expire (initially 7200 seconds) so if your integration is following that parameter, or automatically refreshing the access token when receiving an HTTP 401 error for an expired token, then you should not need to make any changes to your integration.
+>However, if you've hardcoded the current 2 hour refresh time, then you will need to update your integration to match the new 10 minute expiration time.
+>We strongly recommend following the `expires_in` parameter for refreshing access tokens, and not hardcoding a refresh time.
+>
+>This change will also affect the current Procore OAuth revoke process.
+>To follow OAuth best practices, we are shifting towards revoking only renewal tokens instead of simultaneously revoking renewal and access tokens.
+>The `/oauth/revoke` endpoint currently revokes both access and renewal tokens but in the future this endpoint will only revoke renewal tokens since access tokens will no longer be valid after 10 minutes.
+>Between now and JULY 21, 2023 6PM PT Procore will periodically shorten the 2 hour window to begin this transition.
+>
+>**When is this happening?**
+>
+>This change will affect new access tokens starting on {{Date}}{{Time}}.
+>Any access tokens created before this change will be valid for their full lifetime based on the expires_in parameter received at the time the token was generated.
+>
+>If you have questions regarding this change, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Change to Monthly Sandbox Refresh Schedule** (02/3/2023)
 >
 >The scheduled date for the monthly sandbox refresh has changed from the second working day of each month to the first working day of each month.
