@@ -2333,6 +2333,8 @@ getObjects(objectIds);
 
 Returns an array of model objects as defined by each id in the array. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
 
+If an id is not found, it will not be included in the returned array.
+
 #### Parameters
 
 | Field Name | Required | Type | Description |
