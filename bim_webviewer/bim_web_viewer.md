@@ -3314,6 +3314,8 @@ Otherwise, `rotation` will be undefined.
 | SETTINGS         | Settings Window to change unit display                      |
 | VIEW_PROPERTIES  | Properties Window to display properties of an object        |
 | OBJECTMODELTREE  | Object Tree Window                                          |
+| XRAY_MODE        | Adds button to toggle Xray Mode                             |
+| SECTION_BOX      | Adds button to toggle interactive Section Box               |
 
 `MEASUREMENT_SD`
 
