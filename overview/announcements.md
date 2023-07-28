@@ -5,7 +5,7 @@ layout: default
 section_title: Overview
 ---
 
->**Expiration of OAuth access tokens and OAuth Revoke endpoint are changing** (08/15/2023)
+>**Expiration of OAuth access tokens and OAuth Revoke endpoint are changing** (08/04/2023)
 >
 >*Effective: NOVEMBER 17, 2023 6PM PT*
 >
