@@ -30,6 +30,58 @@ section_title: Overview
 >
 >If you have questions regarding this change, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
+>**File Link URL Schema Change** (06/28/2023)
+>
+>Starting June 30, 2024, the URL schema for file API responses and redirects will be changing.
+>Today, file links have the following structure: `https://storage.procore.com/…` and they redirect to `https://s3.amazonaws.com/…`.
+>But in the future, file links will have a more general structure of `https://*.procore.com/…` and they will redirect to `https://*/… `.
+>
+> Note that a file link should be considered an opaque URL when used and no attempt should be made to build logic around the URL itself, or attempt to generate one (unless documented on our developer portal).
+>If the file link domain (or domain from any subsequent redirects) ends in ".procore.com" a valid access token will need to be included unless otherwise documented.
+>At the same time, Procore access tokens should not be sent/shared with non-Procore domains (like cloud service partner domains from any subsequent redirects).
+>
+>One example of an affected endpoint whose output contains file links is [Project Folders and Files](https://developers.procore.com/reference/rest/v1/project-folders-and-files?version=1.0#list-project-folders-and-files).
+>The file link schema change will not only affect this endpoint but will also affect any other endpoint where file links are returned in the response (i.e., images, attachments, etc).
+>
+>For example, the file URL in API responses will change from:
+>
+>* `https://storage.procore.com/v4/d/us-east-1/pro-core.com/companies/…`
+>
+>&emsp;&emsp;to:
+>
+>* `https://us02.procore.com/fas/api/v5/us-east-1/pro-core.com/companies/…`  
+>or  
+`https://app.procore.com/fas/api/v5/us-east-1/pro-core.com/companies/…`
+>
+>Redirects for the above URL will change from:
+>
+>* `https://s3.amazonaws.com/prostore-apse2/…`
+>
+>&emsp;&emsp;to:  
+>* `https://prostore-apse2.s3.ap-southeast-2.amazonaws.com/…`
+>
+>The file link URL schema change is required for Procore to roll out our new file access service and to support the changes that our cloud service partner, Amazon Web Services, is making on their platform.
+>Before the target date we’re planning to enable this change in the developer and monthly sandbox environments for you to be able to test your integrations.
+>We expect that most integrations will not be impacted by the above changes, but those that have strict limitations on incoming/outgoing URLs, need to be carefully tested.
+>
+>If your integration requires direct access to files in storage.procore.com, we encourage you to begin planning for this change now.
+>If you have questions regarding this new requirement, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
+>**Monthly Sandbox Refresh July Schedule** (07/12/2023)
+>
+>Due to the holiday timing on the first of the month, the Monthly Sandbox refresh will occur on July 11th for the July refresh.
+>
+>If you have questions regarding this maintenance, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
+>**Development Sandbox Maintenance** (05/16/2022)
+>
+>To improve the performance and reliability of the Development Sandbox, we will conduct maintenance beginning on Thursday, May 18th, at approximately 5:00 PM PST and expect it to last approximately 2 hours.  During this time, the Development Sandbox will not be available. The full impact and schedule are summarized below:
+>
+> - During the maintenance window, the Development Sandbox will be unavailable to login or use
+> - During the maintenance window, creation of new Sandbox app manifests will not work
+>
+>If you have questions regarding this maintenance, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Change to Monthly Sandbox Refresh Schedule** (02/3/2023)
 >
 >The scheduled date for the monthly sandbox refresh has changed from the second working day of each month to the first working day of each month.

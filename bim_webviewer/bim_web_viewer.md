@@ -444,6 +444,34 @@ Camera
 
 ---
 
+### Get Snapshot Data URL
+
+<p class="heading-link-container"><a class="heading-link" href="#get-snapshot-data-url"></a></p>
+
+```js
+getSnapshotDataUrl(params);
+```
+
+#### Description
+
+Returns a data url of an image produced by the current render view.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| params | false | Object | A JavaScript object that can have the following keys: 'color': Background css color, can use hex value ('#00ff00'), or color labels ('red') |
+
+##### Returns
+
+The canvas as a base64-encoded image.
+
+##### Namespace
+
+Camera
+
+---
+
 ### Set Camera From BCF Camera
 
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-from-bcf-camera"></a></p>
@@ -2305,6 +2333,8 @@ getObjects(objectIds);
 
 Returns an array of model objects as defined by each id in the array. Contains data such as bounding box, hidden/selected states, and parent/child relationships.
 
+If an id is not found, it will not be included in the returned array.
+
 #### Parameters
 
 | Field Name | Required | Type | Description |
@@ -3286,6 +3316,8 @@ Otherwise, `rotation` will be undefined.
 | SETTINGS         | Settings Window to change unit display                      |
 | VIEW_PROPERTIES  | Properties Window to display properties of an object        |
 | OBJECTMODELTREE  | Object Tree Window                                          |
+| XRAY_MODE        | Adds button to toggle Xray Mode                             |
+| SECTION_BOX      | Adds button to toggle interactive Section Box               |
 
 `MEASUREMENT_SD`
 

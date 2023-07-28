@@ -22,11 +22,12 @@ The main property to be aware of is **resource_id**, which is the ERP Request ID
 
 ## Standard Cost Codes
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_standard_cost_codes**](#create_standard_cost_codes) | No | Yes | A user exports a list of standard cost codes from the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
-| [**delete_standard_cost_codes**](#delete_standard_cost_codes) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to delete standard cost codes. |
-| [**sync_standard_cost_codes**](#sync_standard_cost_codes) | No | Yes | A user initiates a sync of standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
-| [**unlink_standard_cost_codes**](#unlink_standard_cost_codes) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to unlink standard cost codes. |
+| **Name**                                                      | **Super User** | **Action Required** | **Occurs When**                                                                                                                          |
+|---------------------------------------------------------------|----------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| [**create_standard_cost_codes**](#create_standard_cost_codes) | No             | Yes                 | A user exports a list of standard cost codes from the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool.                |
+| [**delete_standard_cost_codes**](#delete_standard_cost_codes) | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to delete standard cost codes.                     |
+| [**sync_standard_cost_codes**](#sync_standard_cost_codes)     | No             | Yes                 | A user initiates a sync of standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
+| [**unlink_standard_cost_codes**](#unlink_standard_cost_codes) | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to unlink standard cost codes.                     |
 
 <br>
 
@@ -110,9 +111,10 @@ There are no required actions for this event. If any standard cost code data has
 
 ## Standard Categories (Cost Types/Line Item Types)
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**delete_standard_categories**](#delete_standard_categories) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to delete standard categories. |
-| [**sync_standard_categories**](#sync_standard_categories) | No | Yes | A user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
+| **Name**                                                      | **Super User** | **Action Required** | **Occurs When**                                                                                                                                 |
+|---------------------------------------------------------------|----------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [**delete_standard_categories**](#delete_standard_categories) | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to delete standard categories.                            |
+| [**sync_standard_categories**](#sync_standard_categories)     | No             | Yes                 | A user presses the button to sync standard cost codes and cost types on the Std. Cost Codes & Cost Types tab in Procore's ERP Integration tool. |
 
 <br>
 
@@ -148,14 +150,15 @@ To close out this event, the integrator should send any standard categories retr
 
 ## Vendors
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_vendor**](#create_vendor) | No | Yes | A user exports a vendor from Procore to the ERP System. |
-| [**create_vendor_in_procore**](#create_vendor_in_procore) | No | No | A user imports a staged vendor in the ERP Integration Tool. |
-| [**link_all_vendors**](#link_all_vendors) | No | No | A user links multiple ERP vendors to Procore vendors in the ERP Tab. |
-| [**link_vendor**](#link_vendor) | No | No | A user links a vendor to a Procore vendor in the ERP Integration Tool. |
-| [**merge_vendors**](#merge_vendors) | No | No | A user merges vendors using the Vendor Merge Tool. |
-| [**sync_vendors**](#sync_vendors) | No | Yes | A user presses the Refresh Vendors List button in the ERP Tab in Procore. |
-| [**unlink_vendor**](#unlink_vendor) | No | No | A user unlinks a vendor in the ERP Integration tool. |
+| **Name**                                                  | **Super User** | **Action Required** | **Occurs When**                                                           |
+|-----------------------------------------------------------|----------------|---------------------|---------------------------------------------------------------------------|
+| [**create_vendor**](#create_vendor)                       | No             | Yes                 | A user exports a vendor from Procore to the ERP System.                   |
+| [**create_vendor_in_procore**](#create_vendor_in_procore) | No             | No                  | A user imports a staged vendor in the ERP Integration Tool.               |
+| [**link_all_vendors**](#link_all_vendors)                 | No             | No                  | A user links multiple ERP vendors to Procore vendors in the ERP Tab.      |
+| [**link_vendor**](#link_vendor)                           | No             | No                  | A user links a vendor to a Procore vendor in the ERP Integration Tool.    |
+| [**merge_vendors**](#merge_vendors)                       | No             | No                  | A user merges vendors using the Vendor Merge Tool.                        |
+| [**sync_vendors**](#sync_vendors)                         | No             | Yes                 | A user presses the Refresh Vendors List button in the ERP Tab in Procore. |
+| [**unlink_vendor**](#unlink_vendor)                       | No             | No                  | A user unlinks a vendor in the ERP Integration tool.                      |
 
 <br>
 
@@ -331,12 +334,13 @@ There are no required actions. Optionally, the ERP Integration can perform clean
 
 ## Projects
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_job_in_procore**](#create_job_in_procore) | No | No | A user presses the Add to Procore button for a project in the ERP Integration Tool. |
-| [**create_or_update_job**](#create_or_update_job) | No | Yes | A project is exported from Procore to the ERP System. |
-| [**reset_job**](#reset_job) | Yes | No | An ERP support representative uses Super User access to reset a project at the request of a user. |
-| [**sync_jobs**](#sync_jobs) | No | Yes | A user presses Refresh Job List button in the ERP Tab in Procore. |
-| [**sync_single_job**](#sync_single_job) | No | No | Sent out periodically and notifies the integrator to send any updates related to a specific job to Procore. |
+| **Name**                                            | **Super User** | **Action Required** | **Occurs When**                                                                                             |
+|-----------------------------------------------------|----------------|---------------------|-------------------------------------------------------------------------------------------------------------|
+| [**create_job_in_procore**](#create_job_in_procore) | No             | No                  | A user presses the Add to Procore button for a project in the ERP Integration Tool.                         |
+| [**create_or_update_job**](#create_or_update_job)   | No             | Yes                 | A project is exported from Procore to the ERP System.                                                       |
+| [**reset_job**](#reset_job)                         | Yes            | No                  | An ERP support representative uses Super User access to reset a project at the request of a user.           |
+| [**sync_jobs**](#sync_jobs)                         | No             | Yes                 | A user presses Refresh Job List button in the ERP Tab in Procore.                                           |
+| [**sync_single_job**](#sync_single_job)             | No             | No                  | Sent out periodically and notifies the integrator to send any updates related to a specific job to Procore. |
 
 <br>
 
@@ -461,7 +465,7 @@ When the project has successfully exported to the ERP System, the integrator mus
     "project": {
       "id": 2,
       "name": "Big Skyscraper",
-      "origin_data": nil,
+      "origin_data": null,
       "origin_id": "project_origin_id"
     }
   }
@@ -512,12 +516,13 @@ There are no required actions. Optionally, the ERP Integration can update the pr
 
 ## Sub Jobs
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_sub_job**](#create_sub_job) | No | Yes | A sub job is exported from Procore to the ERP System. The event payload contains all the exported attributes. |
-| [**create_sub_job_in_procore**](#create_sub_job_in_procore) | No | No | A user presses the Add to Procore button for a Sub Job in the ERP Integration Tool. |
-| [**reset_sub_job**](#reset_sub_job) | Yes | No | An ERP support representative uses Super User access to reset a sub job at the request of the customer. |
-| [**sync_sub_job**](#sync_sub_job) | No | No | Sent periodically and notifies the integrator to send any updates related to a specific sub job to Procore. |
-| [**sync_sub_jobs**](#sync_sub_jobs) | No | Yes | A user presses the Refresh Sub Jobs button in the ERP Tab in Procore. |
+| **Name**                                                    | **Super User** | **Action Required** | **Occurs When**                                                                                               |
+|-------------------------------------------------------------|----------------|---------------------|---------------------------------------------------------------------------------------------------------------|
+| [**create_sub_job**](#create_sub_job)                       | No             | Yes                 | A sub job is exported from Procore to the ERP System. The event payload contains all the exported attributes. |
+| [**create_sub_job_in_procore**](#create_sub_job_in_procore) | No             | No                  | A user presses the Add to Procore button for a Sub Job in the ERP Integration Tool.                           |
+| [**reset_sub_job**](#reset_sub_job)                         | Yes            | No                  | An ERP support representative uses Super User access to reset a sub job at the request of the customer.       |
+| [**sync_sub_job**](#sync_sub_job)                           | No             | No                  | Sent periodically and notifies the integrator to send any updates related to a specific sub job to Procore.   |
+| [**sync_sub_jobs**](#sync_sub_jobs)                         | No             | Yes                 | A user presses the Refresh Sub Jobs button in the ERP Tab in Procore.                                         |
 
 <br>
 
@@ -656,14 +661,14 @@ There are no required actions. Optionally, the ERP Integration can sync data rel
         "code": "5",
         "created_at": "",
         "name": "Floor 5",
-        "origin_data": nil,
+        "origin_data": null,
         "origin_id": "sub_job_origin_id",
         "updated_at": "",
         "synced": true,
         "project": {
           "id": 2,
           "name": "Big Skyscraper",
-          "origin_data": nil,
+          "origin_data": null,
           "origin_id": "project_origin_id"
         }
       }
@@ -717,10 +722,11 @@ The integrator can use the Procore API to stage any new sub jobs and update any 
 
 ## Cost Codes and Line Item Type Assignments
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**delete_cost_code**](#delete_cost_code) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to delete synced project cost codes. |
-| [**delete_cost_codes**](#delete_cost_codes) | No | Yes | A user attempts to delete synced project cost codes. |
-| [**delete_cost_type_assignments**](#delete_cost_type_assignments) | No | Yes | A user attempts to delete synced project line item type assignments. |
+| **Name**                                                          | **Super User** | **Action Required** | **Occurs When**                                                                                                            |
+|-------------------------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|
+| [**delete_cost_code**](#delete_cost_code)                         | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to delete synced project cost codes. |
+| [**delete_cost_codes**](#delete_cost_codes)                       | No             | Yes                 | A user attempts to delete synced project cost codes.                                                                       |
+| [**delete_cost_type_assignments**](#delete_cost_type_assignments) | No             | Yes                 | A user attempts to delete synced project line item type assignments.                                                       |
 
 <br>
 
@@ -807,10 +813,11 @@ The ERP Integration is expected to check the state of the assignments. If the as
 
 ## Budgets
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_budget**](#create_budget) | No | Yes | A user attempts to export a budget from Procore. |
-| [**update_budget**](#update_budget) | No | Yes | A user attempts to re-export a budget from Procore. |
-| [**create_budget_in_procore**](#create_budget_in_procore) | No | No | A user imports a budget in the ERP Integration Tool. |
+| **Name**                                                  | **Super User** | **Action Required** | **Occurs When**                                      |
+|-----------------------------------------------------------|----------------|---------------------|------------------------------------------------------|
+| [**create_budget**](#create_budget)                       | No             | Yes                 | A user attempts to export a budget from Procore.     |
+| [**update_budget**](#update_budget)                       | No             | Yes                 | A user attempts to re-export a budget from Procore.  |
+| [**create_budget_in_procore**](#create_budget_in_procore) | No             | No                  | A user imports a budget in the ERP Integration Tool. |
 
 <br>
 
@@ -890,9 +897,10 @@ There are no required actions. Optionally, the ERP integration might perform som
 
 ## Requisitions
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_requisitions**](#create_requisitions) | No | Yes | A user exports a batch of requisitions from the ERP Integration tool. |
-| [**reset_requisition**](#reset_requisition) | Yes | No | An ERP support representative, at the request of the customer, uses Super User access to reset a synced requisition. |
+| **Name**                                        | **Super User** | **Action Required** | **Occurs When**                                                                                                      |
+|-------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------------------------------------|
+| [**create_requisitions**](#create_requisitions) | No             | Yes                 | A user exports a batch of requisitions from the ERP Integration tool.                                                |
+| [**reset_requisition**](#reset_requisition)     | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to reset a synced requisition. |
 
 <br>
 
@@ -997,11 +1005,61 @@ There are no required actions in response to this event, but integrators can use
 
 ## Payments
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**reset_payment**](#reset_payment) | Yes | Yes | An ERP support member resets a payment at the request of the user. |
-| [**sync_contract_payments**](#reset_payment) | No | Yes | A user initiates a sync of invoice payments on the Subcontractor Invoices tab in Procore's ERP Integration tool. |
+| **Name**                                     | **Super User** | **Action Required** | **Occurs When**                                                                                                  |
+|----------------------------------------------|----------------|---------------------|------------------------------------------------------------------------------------------------------------------|
+| [**create_payment**](#create_payment)        | No             | Yes                 | A user exports a payment to the ERP integration tool.                                                            |
+| [**reset_payment**](#reset_payment)          | Yes            | Yes                 | An ERP support member resets a payment at the request of the user.                                               |
+| [**sync_contract_payments**](#reset_payment) | No             | Yes                 | A user initiates a sync of invoice payments on the Subcontractor Invoices tab in Procore's ERP Integration tool. |
 
 <br>
+
+### create_payment
+**Event Payload:**
+```
+{
+  {
+  	"id": 1,
+  	"company_id": 2,
+  	"request_name": "create_contract_payment",
+  	"request_data": {
+  		"request_detail_id": 3,
+  		"contract_payment": {
+  			"id": 4,
+  			"company_id": 2,
+  			"project_id": 5,
+  			"contract_id": 6,
+  			"requisition_id": 7,
+  			"external_payment_id": "external_payment_id",
+  			"invoice_number": "invoice_number",
+  			"invoice_date": "2023-05-01",
+  			"status": "paid",
+  			"amount": "1.0",
+  			"date_payment_created": "2023-05-02T15:06:02Z",
+  			"date_payment_initiated": "1970-01-01T00:00:00Z",
+  			"date_payment_funded": "2023-05-02T15:06:05Z",
+  			"date_payment_settled": null,
+  			"retainage_released_payment_amount": "3.0",
+  			"draw_request_number": 9,
+  			"payment_method": "ach",
+  			"payment_number": null,
+  			"vendor_id": 598134325841112,
+  			"bank_id": "primary",
+  			"check_number": "12"
+  		},
+  		"company_id": 2
+  	},
+  	"created_at": "2023-05-08T19:56:28Z",
+  	"updated_at": "2023-05-08T19:56:28Z",
+  	"integration_app_name": null
+  }
+}
+```
+**Required Actions:** <br>
+After the ERP connector handles the export of the payment to the ERP system, the connector should finish up the export by:
+1. Setting the **origin_id** values on the external data record here: [Rest API Overview](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) <br>
+    **item_type=contract_payment** and **item_id** is the **id** value of the contract payment export <br>
+2. Closing out the export request detail record with status success [Rest API Overview](https://developers.procore.com/reference/rest/v1/erp-request-details?version=1.0#update-erp-request-detail) 
+
 
 ### reset_payment
 **Event Payload:**
@@ -1038,11 +1096,12 @@ The integrator is responsible for pulling invoice payments from the ERP system a
 
 ## Commitments
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_commitment**](#create_commitment) | No | Yes | A user exports a commitment from the ERP Tab in Procore. |
-| [**create_commitment_in_procore**](#create_commitment_in_procore) | No | No | A user presses the Add to Procore button for a commitment in the ERP Integration Tool. |
-| [**sync_commitments**](#sync_commitments) | No | Yes | A user presses the Refresh Commitments button in the ERP Tab in Procore. |
-| [**unlink_commitment**](#unlink_commitment) | No | Yes | A user attempts to unlink a commitment in the ERP Integration tool. |
+| **Name**                                                          | **Super User** | **Action Required** | **Occurs When**                                                                        |
+|-------------------------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------|
+| [**create_commitment**](#create_commitment)                       | No             | Yes                 | A user exports a commitment from the ERP Tab in Procore.                               |
+| [**create_commitment_in_procore**](#create_commitment_in_procore) | No             | No                  | A user presses the Add to Procore button for a commitment in the ERP Integration Tool. |
+| [**sync_commitments**](#sync_commitments)                         | No             | Yes                 | A user presses the Refresh Commitments button in the ERP Tab in Procore.               |
+| [**unlink_commitment**](#unlink_commitment)                       | No             | Yes                 | A user attempts to unlink a commitment in the ERP Integration tool.                    |
 
 <br>
 
@@ -1260,10 +1319,11 @@ The ERP Integration is expected to check the state of the commitment. If the com
 
 ## Commitment Change Orders
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_commitment_change_order**](#create_commitment_change_order) | No | Yes | A user exports a commitment change order from the ERP Tab in Procore. |
-| [**sync_commitment_change_orders**](#sync_commitment_change_orders) | No | Yes | A user initiates a sync of commitment change orders in Procore's ERP Integration tool. |
-| [**unlink_commitment_change_order**](#unlink_commitment_change_order) | No | Yes | A user attempts to unlink a commitment change order in the ERP Integration tool. |
+| **Name**                                                              | **Super User** | **Action Required** | **Occurs When**                                                                        |
+|-----------------------------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------|
+| [**create_commitment_change_order**](#create_commitment_change_order) | No             | Yes                 | A user exports a commitment change order from the ERP Tab in Procore.                  |
+| [**sync_commitment_change_orders**](#sync_commitment_change_orders)   | No             | Yes                 | A user initiates a sync of commitment change orders in Procore's ERP Integration tool. |
+| [**unlink_commitment_change_order**](#unlink_commitment_change_order) | No             | Yes                 | A user attempts to unlink a commitment change order in the ERP Integration tool.       |
 
 <br>
 
@@ -1554,10 +1614,271 @@ The ERP Integration is expected to check the state of the commitment change orde
 
 ---
 
+
+## Payment Applications
+
+| **Name**                                                      | **Super User** | **Action Required** | **Occurs When**                                                   |
+|---------------------------------------------------------------|----------------|---------------------|-------------------------------------------------------------------|
+| [**create_payment_application**](#create_payment_application) | No             | Yes                 | A user exports a payment application from the ERP Tab in Procore. |
+| [**unlink_payment_application**](#unlink_payment_application) | No             | Yes                 | A user unlinks a payment application from the ERP Tab in Procore. |
+
+<br>
+
+### create_payment_application
+**Event Payload:**
+```
+{
+  "request_name": "create_payment_application",
+  "request_data": {
+    "request_detail_id": 123,
+    "payment_application": {
+      "id": 1,
+      "attachment_sources": [],
+      "attachment_sources_status": null,
+      "attachments": [],
+      "billing_date": "2023-05-01",
+      "billing_period": {
+        "start_date": "2023-05-01",
+        "end_date": "2023-05-31"
+      },
+      "contract_name": "Prime Contract #100",
+      "description_type": "automatic",
+      "electronic_signature_id": null,
+      "invoice_number": "123",
+      "items": [
+        {
+          "accounting_method": "amount",
+          "balance_to_finish": 500,
+          "custom_group_item_ids": [],
+          "description_of_work": "General Conditions",
+          "description_override": null,
+          "holder_id": 22,
+          "holder_type": "PrimeContract",
+          "id": 1,
+          "item_number": 1,
+          "materials_presently_stored": 0,
+          "materials_presently_stored_from_previous_application": 0,
+          "materials_stored_retainage_currently_retained": 0,
+          "materials_stored_retainage_from_previous_application": 0,
+          "materials_stored_retainage_percent_this_period": 0,
+          "materials_stored_retainage_released_this_period": 0,
+          "materials_stored_retainage_retained_this_period": 0,
+          "new_materials": 0,
+          "origin_id": "origin_id",
+          "origin_type": "LineItem",
+          "previous_quantity": null,
+          "scheduled_value": 500,
+          "stored_materials": 0,
+          "total_completed_and_stored_to_date": 0,
+          "total_completed_and_stored_to_date_percent": 0,
+          "total_retainage_currently_retained": 0,
+          "total_retainage_from_previous_application": 0,
+          "type": "payment_application_line_item",
+          "wbs_code": {
+            "description": "",
+            "flat_code": "",
+            "id": 123,
+            "segment_items": []
+          },
+          "work_completed_from_previous_application": 0,
+          "work_completed_retainage_currently_retained": 0,
+          "work_completed_retainage_from_previous_application": 0,
+          "work_completed_retainage_percent_this_period": 0,
+          "work_completed_retainage_released_this_period": 0,
+          "work_completed_retainage_retained_this_period": 0,
+          "work_completed_this_period": 0
+        }
+      ],
+      "period_end": "2023-05-31",
+      "period_id": 123,
+      "period_start": "2023-05-01",
+      "status": "approved",
+      "summary": {
+        "application_number": "123",
+        "contract_for": "Test Project",
+        "contract_date": null,
+        "from_architect_or_engineer": {
+          "name": "Architect",
+          "city": "",
+          "country_code": "US",
+          "state_code": "",
+          "street": "",
+          "zip": ""
+        },
+        "from_general_contractor": null,
+        "project_name": "Test Project",
+        "project_number": "01-001",
+        "to_owner": {
+          "name": null,
+          "city": null,
+          "country_code": null,
+          "state_code": null,
+          "street": null,
+          "zip": null
+        },
+        "contract_original_sum": 1000,
+        "contract_sum_to_date": 500,
+        "total_completed_and_stored_to_date": 0,
+        "completed_work_retainage_amount": 0,
+        "completed_work_retainage_percent": 0,
+        "stored_materials_retainage_amount": 0,
+        "stored_materials_retainage_percent": 0,
+        "total_retainage": 0,
+        "total_earned_less_retainage": 0,
+        "less_previous_certificates_for_payment": 0,
+        "current_payment_due": 0,
+        "balance_to_finish_including_retainage": 500,
+        "positive_previous_change_order_item_total": 0,
+        "negative_previous_change_order_item_total": 0,
+        "positive_new_change_order_item_total": 0,
+        "negative_new_change_order_item_total": 0,
+        "positive_change_order_item_total": 0,
+        "negative_change_order_item_total": 0,
+        "net_change_by_change_order": 0
+      },
+      "origin_id": "null",
+      "origin_code": null,
+      "origin_data": null
+    },
+    "company_id": 123
+  }
+}
+```
+**Required Actions**:
+After the payment application and its items have been exported to the ERP system, the integrator must send third-party **origin_id** information back to Procore for the payment application and its items, using the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The event payload also contains a **request_detail_id** which the integrator must close out, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
+
+### unlink_payment_application
+**Event Payload:**
+```
+{
+  "request_name": "unlink_payment_application",
+  "request_data": {
+    "request_detail_id": 123,
+    "payment_application": {
+      "id": 1,
+      "attachment_sources": [],
+      "attachment_sources_status": null,
+      "attachments": [],
+      "billing_date": "2023-05-01",
+      "billing_period": {
+        "start_date": "2023-05-01",
+        "end_date": "2023-05-31"
+      },
+      "contract_name": "Prime Contract #100",
+      "description_type": "automatic",
+      "electronic_signature_id": null,
+      "invoice_number": "123",
+      "items": [
+        {
+          "accounting_method": "amount",
+          "balance_to_finish": 500,
+          "custom_group_item_ids": [],
+          "description_of_work": "General Conditions",
+          "description_override": null,
+          "holder_id": 22,
+          "holder_type": "PrimeContract",
+          "id": 1,
+          "item_number": 1,
+          "materials_presently_stored": 0,
+          "materials_presently_stored_from_previous_application": 0,
+          "materials_stored_retainage_currently_retained": 0,
+          "materials_stored_retainage_from_previous_application": 0,
+          "materials_stored_retainage_percent_this_period": 0,
+          "materials_stored_retainage_released_this_period": 0,
+          "materials_stored_retainage_retained_this_period": 0,
+          "new_materials": 0,
+          "origin_id": "origin_id",
+          "origin_type": "LineItem",
+          "previous_quantity": null,
+          "scheduled_value": 500,
+          "stored_materials": 0,
+          "total_completed_and_stored_to_date": 0,
+          "total_completed_and_stored_to_date_percent": 0,
+          "total_retainage_currently_retained": 0,
+          "total_retainage_from_previous_application": 0,
+          "type": "payment_application_line_item",
+          "wbs_code": {
+            "description": "",
+            "flat_code": "",
+            "id": 123,
+            "segment_items": []
+          },
+          "work_completed_from_previous_application": 0,
+          "work_completed_retainage_currently_retained": 0,
+          "work_completed_retainage_from_previous_application": 0,
+          "work_completed_retainage_percent_this_period": 0,
+          "work_completed_retainage_released_this_period": 0,
+          "work_completed_retainage_retained_this_period": 0,
+          "work_completed_this_period": 0
+        }
+      ],
+      "period_end": "2023-05-31",
+      "period_id": 123,
+      "period_start": "2023-05-01",
+      "status": "approved",
+      "summary": {
+        "application_number": "123",
+        "contract_for": "Test Project",
+        "contract_date": null,
+        "from_architect_or_engineer": {
+          "name": "Architect",
+          "city": "",
+          "country_code": "US",
+          "state_code": "",
+          "street": "",
+          "zip": ""
+        },
+        "from_general_contractor": null,
+        "project_name": "Test Project",
+        "project_number": "01-001",
+        "to_owner": {
+          "name": null,
+          "city": null,
+          "country_code": null,
+          "state_code": null,
+          "street": null,
+          "zip": null
+        },
+        "contract_original_sum": 1000,
+        "contract_sum_to_date": 500,
+        "total_completed_and_stored_to_date": 0,
+        "completed_work_retainage_amount": 0,
+        "completed_work_retainage_percent": 0,
+        "stored_materials_retainage_amount": 0,
+        "stored_materials_retainage_percent": 0,
+        "total_retainage": 0,
+        "total_earned_less_retainage": 0,
+        "less_previous_certificates_for_payment": 0,
+        "current_payment_due": 0,
+        "balance_to_finish_including_retainage": 500,
+        "positive_previous_change_order_item_total": 0,
+        "negative_previous_change_order_item_total": 0,
+        "positive_new_change_order_item_total": 0,
+        "negative_new_change_order_item_total": 0,
+        "positive_change_order_item_total": 0,
+        "negative_change_order_item_total": 0,
+        "net_change_by_change_order": 0
+      },
+      "origin_id": "synced-pay-app-123",
+      "origin_code": null,
+      "origin_data": null
+    },
+    "company_id": 123
+  }
+}
+```
+
+**Required Actions:**
+The ERP Integration is expected to check the state of the payment application. If the payment application is in a deleted state (e.g. deleted, archived, etc.), it should be marked as unsynced via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint. The request detail should then be closed out, optionally with error messages if the payment application failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
+---
+
 ## Prime Contracts
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**sync_prime_contracts**](#sync_prime_contracts) | No | Yes | A user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import. |
+| **Name**                                          | **Super User** | **Action Required** | **Occurs When**                                                                                                              |
+|---------------------------------------------------|----------------|---------------------|------------------------------------------------------------------------------------------------------------------------------|
+| [**sync_prime_contracts**](#sync_prime_contracts) | No             | Yes                 | A user hits the "Refresh Prime Contracts" button asking for new prime contracts they entered in ERP to be staged for import. |
 
 <br>
 
@@ -1578,10 +1899,11 @@ The integrator can use the Procore API to stage any new prime contracts or prime
 
 ## Prime Contract Change Orders
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**create_prime_contract_change_order**](#create_prime_contract_change_order) | No | Yes | An accounting approver approves the export of a prime contract change order. |
-| [**reset_prime_contract_change_order**](#reset_prime_contract_change_order) | Yes | Yes | An ERP support member resets a prime contract change order at the request of the user. |
-| [**unlink_prime_contract_change_order**](#unlink_prime_contract_change_order) | No | Yes | A user attempts to unlink a prime contract change order in the ERP Integration tool. |
+| **Name**                                                                      | **Super User** | **Action Required** | **Occurs When**                                                                        |
+|-------------------------------------------------------------------------------|----------------|---------------------|----------------------------------------------------------------------------------------|
+| [**create_prime_contract_change_order**](#create_prime_contract_change_order) | No             | Yes                 | An accounting approver approves the export of a prime contract change order.           |
+| [**reset_prime_contract_change_order**](#reset_prime_contract_change_order)   | Yes            | Yes                 | An ERP support member resets a prime contract change order at the request of the user. |
+| [**unlink_prime_contract_change_order**](#unlink_prime_contract_change_order) | No             | Yes                 | A user attempts to unlink a prime contract change order in the ERP Integration tool.   |
 
 <br>
 
@@ -1595,41 +1917,41 @@ The integrator can use the Procore API to stage any new prime contracts or prime
       "id": 48,
       "name": "56-234 - Community Center",
       "origin_id": "0cccd6e7-2bd9-43c3-9f9d-aab800bce42c",
-      "origin_data": nil,
+      "origin_data": null,
       "origin_code": "56-234"
     },
     "prime_contract": {
       "id": 76,
       "accounting_method": "amount",
-      "actual_completion_date": nil,
-      "approval_letter_date": nil,
+      "actual_completion_date": null,
+      "approval_letter_date": null,
       "approved_change_orders": "1929.85",
-      "architect": nil,
+      "architect": null,
       "attachments": [],
-      "contract_date": nil,
-      "contract_estimated_completion_date": nil,
-      "contract_start_date": nil,
-      "contract_termination_date": nil,
-      "contractor": {"id": nil},
+      "contract_date": null,
+      "contract_estimated_completion_date": null,
+      "contract_start_date": null,
+      "contract_termination_date": null,
+      "contractor": {"id": null},
       "created_at": "2021-04-13T22:17:28Z",
       "created_by": {"id": 2, "login": "procore@procore.com", "name": "Customer Support"},
-      "deleted_at": nil,
+      "deleted_at": null,
       "description": "Community Center",
       "draft_change_orders_amount": "0.0",
-      "exclusions": nil,
-      "executed": nil,
-      "execution_date": nil,
+      "exclusions": null,
+      "executed": null,
+      "execution_date": null,
       "grand_total": "7396144.0",
       "has_change_order_packages": true,
       "has_potential_change_orders": true,
-      "inclusions": nil,
-      "issued_on_date": nil,
-      "letter_of_intent_date": nil,
+      "inclusions": null,
+      "issued_on_date": null,
+      "letter_of_intent_date": null,
       "number": "CC",
-      "origin_code": nil,
-      "origin_data": nil,
+      "origin_code": null,
+      "origin_data": null,
       "origin_id": "1e32af04-b238-458f-8e35-aab800bcd886",
-      "original_substantial_completion_date": nil,
+      "original_substantial_completion_date": null,
       "outstanding_balance": "7398073.85",
       "owner_invoices_amount": "0.0",
       "pending_change_orders_amount": "0.0",
@@ -1637,29 +1959,29 @@ The integrator can use the Procore API to stage any new prime contracts or prime
       "percentage_paid": "0.0",
       "private": true,
       "retainage_percent": "0.0",
-      "returned_date": nil,
+      "returned_date": null,
       "revised_contract_amount": "7398073.85",
-      "show_line_items_to_non_admins": nil,
-      "signed_contract_received_date": nil,
+      "show_line_items_to_non_admins": null,
+      "signed_contract_received_date": null,
       "status": "Approved",
-      "substantial_completion_date": nil,
+      "substantial_completion_date": null,
       "title": "Community Center",
       "total_payments": "0.0",
       "updated_at": "2021-04-20T15:49:56Z",
-      "vendor": {"id": nil}
+      "vendor": {"id": null}
     },
     "prime_contract_items": [
       {
         "id": 592,
         "amount": "0.0",
-        "commitment_line_item_id": nil,
+        "commitment_line_item_id": null,
         "company": {"id": 7, "name": "Sage 300 Main"},
         "cost_code":  {
           "id": 1952,
           "name": "Summary of Work",
           "full_code": "1-010",
           "origin_id": "361360e0-4c90-4798-81c3-aab800c2a668",
-          "origin_data": nil,
+          "origin_data": null,
           "standard_cost_code_id": 307,
           "biller": "Community Center",
           "biller_id": 48,
@@ -1670,14 +1992,14 @@ The integrator can use the Procore API to stage any new prime contracts or prime
           "parent": {"id": 1951},
           "sortable_code": "1-010",
           "created_at": "2020-09-25T19:12:31Z",
-          "deleted_at": nil,
+          "deleted_at": null,
           "line_item_types":  [
             {"id": 23, "name": "Subcontracts", "code": "S",
-             "base_type": nil, "origin_id": "c0daefcf-5b29-42bf-b5b1-aa62009650ce"},
-            {"id": 17, "name": "Other", "code": "O", "base_type": nil,
+             "base_type": null, "origin_id": "c0daefcf-5b29-42bf-b5b1-aa62009650ce"},
+            {"id": 17, "name": "Other", "code": "O", "base_type": null,
             "origin_id": "3e572c2e-e33e-4652-9618-aa6200965095"},
           ],
-          "position": nil,
+          "position": null,
           "updated_at": "2020-09-25T19:12:31Z"
         },
         "created_at": "2021-04-20T15:47:07Z",
@@ -1686,21 +2008,21 @@ The integrator can use the Procore API to stage any new prime contracts or prime
         "extended_amount": "0.0",
         "extended_type": "manual",
         "holder": {"id": 76, "holder_type": "PrimeContract"},
-        "line_item_type": {"id": 16, "base_type": nil, "code": "E", "name": "Equipment",
-          "origin_data": nil, "origin_id": "1d2de64e-9cec-4ca7-be7a-aa6200965087"},
+        "line_item_type": {"id": 16, "base_type": null, "code": "E", "name": "Equipment",
+          "origin_data": null, "origin_id": "1d2de64e-9cec-4ca7-be7a-aa6200965087"},
         "origin_code": "49",
-        "origin_data": nil,
-        "origin_id": nil,
+        "origin_data": null,
+        "origin_id": null,
         "position": 55,
-        "prime_line_item_id": nil,
+        "prime_line_item_id": null,
         "project": {"id": 48, "name": "56-234 - Community Center",
-          "origin_data": nil, "origin_id": "0cccd6e7-2bd9-43c3-9f9d-aab800bce42c"},
+          "origin_data": null, "origin_id": "0cccd6e7-2bd9-43c3-9f9d-aab800bce42c"},
         "quantity": "0.0",
         "tax_amount": "0.0",
         "tax_code_id": 2,
         "total_amount": "0.0",
         "unit_cost": "0.0",
-        "uom": nil,
+        "uom": null,
         "updated_at": "2021-04-20T15:54:45Z"
       }
     ],
@@ -1708,17 +2030,17 @@ The integrator can use the Procore API to stage any new prime contracts or prime
       "id": 81,
       "contract_id": 76,
       "created_at": "2021-04-20T15:45:46Z",
-      "deleted_at": nil,
+      "deleted_at": null,
       "description": "asdf",
-      "due_date": nil,
+      "due_date": null,
       "erp_custom_fields": {"transaction_date": "2021-04-20"},
       "executed": false,
-      "invoiced_date": nil,
+      "invoiced_date": null,
       "number": "049",
-      "origin_code": nil,
-      "origin_data": nil,
-      "origin_id": nil,
-      "paid_date": nil,
+      "origin_code": null,
+      "origin_data": null,
+      "origin_id": null,
+      "paid_date": null,
       "reviewed_at": "2021-04-20T15:49:18Z",
       "status": "approved",
       "title": "",
@@ -1729,14 +2051,14 @@ The integrator can use the Procore API to stage any new prime contracts or prime
       {
         "id": 593,
         "amount": "343.85",
-        "commitment_line_item_id": nil,
+        "commitment_line_item_id": null,
         "company": {"id": 7, "name": "Sage 300 Main"},
         "cost_code":  {
           "id": 1952,
           "name": "Summary of Work",
           "full_code": "1-010",
           "origin_id": "361360e0-4c90-4798-81c3-aab800c2a668",
-          "origin_data": nil,
+          "origin_data": null,
           "standard_cost_code_id": 307,
           "biller": "Community Center",
           "biller_id": 48,
@@ -1747,14 +2069,14 @@ The integrator can use the Procore API to stage any new prime contracts or prime
           "parent": {"id": 1951},
           "sortable_code": "1-010",
           "created_at": "2020-09-25T19:12:31Z",
-          "deleted_at": nil,
+          "deleted_at": null,
           "line_item_types":  [
-            {"id": 23, "name": "Subcontracts", "code": "S", "base_type": nil,
+            {"id": 23, "name": "Subcontracts", "code": "S", "base_type": null,
                "origin_id": "c0daefcf-5b29-42bf-b5b1-aa62009650ce"},
-            {"id": 17, "name": "Other", "code": "O", "base_type": nil,
+            {"id": 17, "name": "Other", "code": "O", "base_type": null,
               "origin_id": "3e572c2e-e33e-4652-9618-aa6200965095"}
           ],
-          "position": nil,
+          "position": null,
           "updated_at": "2020-09-25T19:12:31Z"
         },
         "created_at": "2021-04-20T15:47:08Z",
@@ -1763,8 +2085,8 @@ The integrator can use the Procore API to stage any new prime contracts or prime
         "extended_amount": "299.0",
         "extended_type": "manual",
         "holder": {"id": 81, "holder_type": "PotentialChangeOrder"},
-        "line_item_type": {"id": 16, "base_type": nil, "code": "E", "name": "Equipment",
-          "origin_data": nil, "origin_id": "1d2de64e-9cec-4ca7-be7a-aa6200965087"},
+        "line_item_type": {"id": 16, "base_type": null, "code": "E", "name": "Equipment",
+          "origin_data": null, "origin_id": "1d2de64e-9cec-4ca7-be7a-aa6200965087"},
         "markup_line_items": [
           {
             "id": 9,
@@ -1775,31 +2097,31 @@ The integrator can use the Procore API to stage any new prime contracts or prime
               "can_export_estimate_markup": true,
               "compounds_markups_above": false,
               "created_at": "2021-04-20T15:49:02Z",
-              "destination_budget_line_item_id": nil,
+              "destination_budget_line_item_id": null,
               "destination_cost_code":  {"id": 1952, "name": "Summary of Work", "full_code": "1-010",
-                "origin_id": "361360e0-4c90-4798-81c3-aab800c2a668", "origin_data": nil},
-              "destination_line_item_type":  {"id": 16, "base_type": nil, "code": "E", "name": "Equipment",
-                "origin_data": nil, "origin_id": "1d2de64e-9cec-4ca7-be7a-aa6200965087"},
+                "origin_id": "361360e0-4c90-4798-81c3-aab800c2a668", "origin_data": null},
+              "destination_line_item_type":  {"id": 16, "base_type": null, "code": "E", "name": "Equipment",
+                "origin_data": null, "origin_id": "1d2de64e-9cec-4ca7-be7a-aa6200965087"},
               "destination_sub_job": {},
               "markup_set": "vertical",
               "name": "ppmarkupvert",
               "percentage": "15.00",
               "position": 1,
-              "prime_line_item": {"id": 592, "origin_id": nil},
+              "prime_line_item": {"id": 592, "origin_id": null},
               "updated_at": "2021-04-20T15:49:02Z"
             },
             "updated_at": "2021-04-20T15:49:02Z"
           }
         ],
-        "origin_code": nil,
-        "origin_data": nil,
-        "origin_id": nil,
+        "origin_code": null,
+        "origin_data": null,
+        "origin_id": null,
         "position": 1,
         "prime_line_item_id": 592,
         "prime_line_item_origin_code": "49",
-        "prime_line_item_origin_data": nil,
-        "prime_line_item_origin_id": nil,
-        "project": {"id": 48, "name": "56-234 - Community Center", "origin_data": nil,
+        "prime_line_item_origin_data": null,
+        "prime_line_item_origin_id": null,
+        "project": {"id": 48, "name": "56-234 - Community Center", "origin_data": null,
           "origin_id": "0cccd6e7-2bd9-43c3-9f9d-aab800bce42c"},
         "quantity": "0.0",
         "tax_amount": "12.71",
@@ -1830,14 +2152,14 @@ After the prime contract change order and its items have been exported to the ER
     {
       "id": 586,
       "amount": "66.0",
-      "commitment_line_item_id": nil,
+      "commitment_line_item_id": null,
       "company": {"id": 7, "name": "Sage 300 Main"},
       "cost_code": {
         "id": 1961,
         "name": "Dewatering",
         "full_code": "2-140",
         "origin_id": "1e7310e6-6592-4189-80cb-ab1000ff4452",
-        "origin_data": nil,
+        "origin_data": null,
         "standard_cost_code_id": 420,
         "biller": "Community Center",
         "biller_id": 48,
@@ -1848,14 +2170,14 @@ After the prime contract change order and its items have been exported to the ER
         "parent": {"id": 1960},
         "sortable_code": "2-140",
         "created_at": "2020-09-25T19:12:32Z",
-        "deleted_at": nil,
+        "deleted_at": null,
         "line_item_types": [
-          {"id": 39, "name": "Material", "code": "M", "base_type": nil,
+          {"id": 39, "name": "Material", "code": "M", "base_type": null,
             "origin_id": "29eddbaa-62ff-4009-806f-abde0111ee51"},
-          {"id": 20, "name": "Labor", "code": "L", "base_type": nil,
+          {"id": 20, "name": "Labor", "code": "L", "base_type": null,
             "origin_id": "6e75253f-35a3-4a7d-bed4-aa62009650c4"}
         ],
-        "position": nil,
+        "position": null,
         "updated_at": "2020-09-25T19:12:32Z"
       },
       "created_at": "2021-04-16T15:05:07Z",
@@ -1864,18 +2186,18 @@ After the prime contract change order and its items have been exported to the ER
       "extended_amount": "66.0",
       "extended_type": "manual",
       "holder": {"id": 79, "holder_type": "PotentialChangeOrder"},
-      "line_item_type": {"id": 17, "base_type": nil, "code": "O", "name": "Other",
-        "origin_data": nil, "origin_id": "3e572c2e-e33e-4652-9618-aa6200965095"},
+      "line_item_type": {"id": 17, "base_type": null, "code": "O", "name": "Other",
+        "origin_data": null, "origin_id": "3e572c2e-e33e-4652-9618-aa6200965095"},
       "markup_line_items": [],
-      "origin_code": nil,
-      "origin_data": nil,
-      "origin_id": nil,
+      "origin_code": null,
+      "origin_data": null,
+      "origin_id": null,
       "position": 1,
       "prime_line_item_id": 585,
       "prime_line_item_origin_code": "047",
-      "prime_line_item_origin_data": nil,
-      "prime_line_item_origin_id": nil,
-      "project": {"id": 48, "name": "56-234 - Community Center", "origin_data": nil,
+      "prime_line_item_origin_data": null,
+      "prime_line_item_origin_id": null,
+      "project": {"id": 48, "name": "56-234 - Community Center", "origin_data": null,
         "origin_id": "0cccd6e7-2bd9-43c3-9f9d-aab800bce42c"},
       "quantity": "0.0",
       "tax_amount": "2.81",
@@ -1954,8 +2276,9 @@ The ERP Integration is expected to check the state of the prime contract change 
 
 ## ERP Metadata
 
-| **Name** | **Super User** | **Action Required** | **Occurs When** |
-| [**sync_metadata**](#sync_metadata) | No | Yes | A user performs an action requiring ERP metadata but the integration's metadata is not stored in Procore. |
+| **Name**                            | **Super User** | **Action Required** | **Occurs When**                                                                                           |
+|-------------------------------------|----------------|---------------------|-----------------------------------------------------------------------------------------------------------|
+| [**sync_metadata**](#sync_metadata) | No             | Yes                 | A user performs an action requiring ERP metadata but the integration's metadata is not stored in Procore. |
 
 <br>
 

@@ -57,6 +57,7 @@ Procore currently supports the following entities:
 - commitments
 - commitment_change_orders
 - requisitions
+- payment_applications
 - prime_contracts
 - prime_contract_change_orders
 
@@ -643,6 +644,62 @@ Only when this metadata import configuration is enabled and the ERP synced Proco
   "configs": {
     "import": {
       "enabled": true
+    }
+  }
+}
+```
+
+
+## Contract Payments Metadata
+Currently we use **sync_payments** section in requisitions for importing payments. 
+We will deprecate it and use the import here soon.
+
+```
+"contract_payments": {
+  "enabled": true,
+  "tab": {
+    "enabled": true
+  },
+  "configs": {
+    "export": {
+      "enabled": true
+    },
+    "import": {
+      "enabled": true,
+      "minimum_sync_version": "0"
+    }
+  }
+}
+```
+
+## Payment Application Metadata
+
+The Payment Application metadata does not contain any custom configurations. Payment Applications can currently only be exported and unlinked.
+
+```
+"payment_applications": {
+  "enabled": false,
+  "configs": {
+    "export": {
+      "enabled": false
+    },
+    "unlink": {
+      "enabled": false
+    }
+  },
+  "tab": {
+    "enabled": false
+  },
+  "rules": {
+    "export": {
+      "warning_message": {
+        "enabled": false,
+        "message": ""
+      },
+      "fields": {}
+    },
+    "save": {
+      "fields": {}
     }
   }
 }
@@ -1361,6 +1418,21 @@ Only when this metadata import configuration is enabled and the ERP synced Proco
           }
         }
       },
+      "contract_payments": {
+        "enabled": true,
+        "tab": {
+          "enabled": true
+        },
+        "configs": {
+          "export": {
+            "enabled": true
+          },
+          "import": {
+            "enabled": true,
+            "minimum_sync_version": "0"
+          }
+        }
+      },
       "requisitions": {
         "enabled": false,
         "configs": {
@@ -1553,6 +1625,32 @@ Only when this metadata import configuration is enabled and the ERP synced Proco
                 }
               }
             }
+          }
+        }
+      },
+      "payment_applications": {
+        "enabled": false,
+        "configs": {
+          "export": {
+            "enabled": false
+          },
+          "unlink": {
+            "enabled": false
+          }
+        },
+        "tab": {
+          "enabled": false
+        },
+        "rules": {
+          "export": {
+            "warning_message": {
+              "enabled": false,
+              "message": ""
+            },
+            "fields": {}
+          },
+          "save": {
+            "fields": {}
           }
         }
       }
