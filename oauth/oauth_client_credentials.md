@@ -100,7 +100,7 @@ If successful, this call will return a JSON response block similar to the follow
 
 ## Using Developer Managed Service Accounts with MPR
 
-If you intend to use DMSAs with Multiple Procore Zones (MPR), you _must_ include the `Procore-Company-Id` request header when making calls to the `/rest/v1.0/me` or `/rest/v1.0/companies` endpoints.
+If you intend to use DMSAs with Multiple Procore Regions (MPR), you _must_ include the `Procore-Company-Id` request header when making calls to the `/rest/v1.0/me` or `/rest/v1.0/companies` endpoints.
 
 Here is a cURL example showing a call to `GET /rest/v1.0/me`:
 

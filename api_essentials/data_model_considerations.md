@@ -12,7 +12,7 @@ The following sections identify certain Procore data model constraints and chara
 
 ## Resource ID Value Size
 
-With the introduction of Multiple Procore Zones (MPZ), the size of resource ID values in any new Procore zone may exceed what can be stored in a 32-bit integer.
+With the introduction of Multiple Procore Regions (MPR), the size of resource ID values in any new Procore region may exceed what can be stored in a 32-bit integer.
 As a result, please ensure that you store ID values using a data type capable of storing 64-bit integers or larger, such as `BigInt`, `int64_t`, or `long long` depending on your particular coding language/framework.
 
 ## Globally Unique User IDs
