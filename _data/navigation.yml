@@ -101,7 +101,7 @@
       url: /date-time
     - title: Working with Time Zones
       url: /tutorial-timezones
-    - title: MPZ Request Headers
+    - title: MPR Request Headers
       url: /mpz-headers
     - title: Working with Documents
       url: /tutorial-documents

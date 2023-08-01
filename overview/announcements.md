@@ -5,6 +5,12 @@ layout: default
 section_title: Overview
 ---
 
+>**Procore-Company-Id Request Header Requirement** (08/04/2023)
+>
+>As described in [Request Header Requirements for Multiple Procore Regions]({{ site.url }}{{ site.baseurl }}{% link best_practices/mpz_headers.md %}), the `Procore-Company-Id` request header is required to successfully make calls to the Procore API (api.procore.com), regardless of region.
+>If you have yet to incorporate the `Procore-Company-Id` request header into your integration designs, we encourage you to do so as soon as possible.
+>If you have questions regarding this requirement, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**File Link URL Schema Change** (06/28/2023)
 >
 >Starting June 30, 2024, the URL schema for file API responses and redirects will be changing.

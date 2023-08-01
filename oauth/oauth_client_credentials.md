@@ -98,9 +98,9 @@ If successful, this call will return a JSON response block similar to the follow
 }
 ```
 
-## Using Developer Managed Service Accounts with MPZ
+## Using Developer Managed Service Accounts with MPR
 
-If you intend to use DMSAs with Multiple Procore Zones (MPZ), you _must_ include the `Procore-Company-Id` request header when making calls to the `/rest/v1.0/me` or `/rest/v1.0/companies` endpoints.
+If you intend to use DMSAs with Multiple Procore Zones (MPR), you _must_ include the `Procore-Company-Id` request header when making calls to the `/rest/v1.0/me` or `/rest/v1.0/companies` endpoints.
 
 Here is a cURL example showing a call to `GET /rest/v1.0/me`:
 
@@ -127,7 +127,7 @@ https://app.procore.com/<COMPANY ID>/company/home/list
 
 Where: `<COMPANY ID>` is the integer value for the ID of the company you are currently logged into.
 
-For addtional information on MPZ, see [Working with Multiple Procore Zones]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
+For addtional information on MPR, see [Working with Multiple Procore Regions]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
 
 ## Security Considerations
 
