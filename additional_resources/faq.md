@@ -43,7 +43,7 @@ To ensure that changes you make in your production environment are available in 
 
 **How long does my access token last?**
 
-Once obtained, your access token will last for two (2) hours.
+Once obtained, your access token will last for 15 minutes.
 See [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}) for additional information.
 
 **How long does my refresh token last?**
@@ -54,7 +54,7 @@ See [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oaut
 **My access token isn’t working. Why not?**
 
 Please ensure that you are passing in your access token under the “Authorization” header in the format `"Bearer <token>"`.
-If it has been at least two hours since you received your access token, make sure you have refreshed your token before passing it in.
+If it has been at least 15 minutes since you received your access token, make sure you have refreshed your token before passing it in.
 If you have followed the previous instructions and are still having issues authenticating, please contact us at <apisupport@procore.com> and we will be happy to help.
 
 **My refresh token is not working, or it says it is invalid. Why is that?**
@@ -72,11 +72,11 @@ There are a number of reasons why this might be the case as outlined in the foll
 While our [installed application configuration]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %}) does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
 Once you manually go through that step by logging in and getting an authorization code, you can then programmatically authenticate from that point forward without user intervention.
 After the initial App Authorization Grant, you can retrieve a pair of tokens: an access_token and refresh_token.
-The access_token is used to authenticate (passed in under the Authorization header as `Bearer <token>`), and it expires after 2 hours.
+The access_token is used to authenticate (passed in under the Authorization header as `Bearer <token>`), and it expires after 15 minutes.
 The refresh_token, which corresponds to that access_token, will not expire until it is used to acquire a new pair of tokens.
 Using those two tokens, you can authenticate endlessly without any user input.
 
-In other words, after getting your first pair of tokens, your program would use the access_token for up to 2 hours, after which that token would expire.
+In other words, after getting your first pair of tokens, your program would use the access_token for up to 15 minutes, after which that token would expire.
 After that token expires, the next time your program wanted to access our API it would use the refresh_token received with the now-expired access_token to [refresh the access token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token) and get a new pair of tokens.
 Once it makes that call, your old refresh_token would expire since it has now been used and you would have a new access_token and refresh_token.
 Then, your program would use that new access_token until it expires, and the cycle would repeat again.
