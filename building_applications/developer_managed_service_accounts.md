@@ -219,7 +219,7 @@ The backend for your integration needs to change in the following ways.
 - Required tool permissions for the application must be specified using the Permissions Builder.
 - Calls to the Procore API must use the DMSA `client_id` and `client_secret` for authorization and authentication.
 - Must include the `Procore-Company-Id` request header when making calls to the `/rest/v1.0/me` or `/rest/v1.0/companies` endpoints.
-See [Using Developer Managed Service Accounts with MPZ]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials#using-developer-managed-service-accounts-with-mpz) for additional information.
+See [Using Developer Managed Service Accounts with MPR]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials#using-developer-managed-service-accounts-with-mpz) for additional information.
 
 ### How do we see which companies have the App installed?
 

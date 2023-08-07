@@ -162,7 +162,7 @@ Please visit our [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% l
 You have exceeded the Procore API rate limit of 3600 requests per hour.
 See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limiting.md %}) guide for additional information and suggestions for resolving your issue.
 
-## Multiple Procore Zones (MPZ)
+## Multiple Procore Regions (MPR)
 
 **I’m passing in the Procore Company ID header as required. Do I also need to pass in the query parameter with the company ID in it?**
 
