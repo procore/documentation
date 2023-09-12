@@ -1910,20 +1910,27 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#get-sections"></a></p>
 
 ```js
-getSections();
+getSections(format);
 ```
 
 #### Description
 
-Returns a collection of section planes or a section box, whichever has been applied.
+Returns the current sectioning information as set by the Section Box tool or the sectioning API methods (e.g. [`setSectionBox`](#set-section-box) and [`addSectionPlane`](#add-section-plane)).
+
 
 #### Parameters
 
-None
+| Field Name | Required | Type   | Description         |
+| ---------- | -------- | ------ | --------------------|
+| format     | true     | string | 'autodesk' \| 'bcf' |
 
 ##### Returns
 
-See [sectionPlane](#section-plane-object) and [sectionBox](#section-box-object)
+The `format` parameter determines the shape of this data.
+
+The `bcf` format will return an array of [BCF clipping planes](#bcf-clipping-planes) regardless of whether a box or plane section is set. If no section is set it will return `[]`.
+
+The `autodesk` format will return an [Autodesk Section Data object](#autodesk-section-data). If no section is set it will return `null`.
 
 ##### Namespace
 
@@ -3228,47 +3235,62 @@ See [Tools](#tools) for further information.
 }
 ```
 
-### Section Plane Object
+### BCF Clipping Plane
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#section-plane-object"></a>
+  <a class="heading-link" href="#bcf-clipping-planes"></a>
 </p>
 
-The key `plane` is an array of planes added.
+The BCF Clipping Plane is based off of the BCF schema defined here: https://github.com/buildingSMART/BCF-API#3526-clipping-plane
 
-```js
+The one addition we've made is the `unit` field. If the `unit` is not present, we will assume it to be `'ft'`.
+
+```ts
 {
-  type: "plane",
-  plane:
-  [
-    {
-      distance: Number,
-      normal: {normalX: Number, normalY: Number, normalZ: Number},
-      uuid: String
-    }
-  ]
+  unit?: string; // Assumed to be "ft" if not present.
+  direction: {
+    x: number;
+    y: number;
+    z: number;
+  };
+  location: {
+    x: number;
+    y: number;
+    z: number;
+  }
 }
 ```
 
-### Section Box Object
+### Autodesk Section Data
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#section-box-object"></a>
+  <a class="heading-link" href="#autodesk-section-data"></a>
 </p>
 
-If `rotation` is applied, `rotation` will be represented as Euler angle of type Number.
-Otherwise, `rotation` will be undefined.
-
-```js
+```ts
 {
-  type: "box",
-  box:
-  {
-    min:{ x: Number, y: Number, z: Number},
-    max:{ x: Number, y: Number, z: Number},
-    rotation: undefined | Number
-  }
-}
+  Type: 'ClipPlaneSet';
+  Version: 1;
+  Unit?: string;
+  OrientedBox?: {
+    Type: 'OrientedBox3D';
+    Version: 1;
+    Box: [
+      [number, number, number], // [minX, minY, minZ]
+      [number, number, number]  // [maxX, maxY, maxZ]
+    ];
+    Rotation: [number, number, number]; // [degX, degY, degZ]
+  } | null;
+  Planes?: {
+    Type: 'ClipPlane';
+    Version: 1;
+    Normal: [number, number, number]; // [dirX, dirY, dirZ]
+    Distance: number;
+    Enabled: boolean;
+  }[] | null;
+  Linked: boolean;
+  Enabled: boolean;
+};
 ```
 
 ### Urls Object
