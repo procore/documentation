@@ -3386,6 +3386,21 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
 
 #### Coordinates Should Be Consistent with the Source File
 
+Several methods were returning/expecting to receive coordinates that were not consistent with the model coordinates from the source file. Prior to this change, to get the correct coordinates you would need to add the result of `model.getGlobalOffset` to them. This would affect models that are significantly offset from the origin, which we refer to as being in "world coordinates". As of this change, most instances of not returning "world coordinates" have been fixed.
+
+The changed methods:
+
+- `camera.getPosition` now returns a point in world coordinates.
+- `camera.setPosition` now expects a point in world coordinates.
+- `camera.getLookAt` now returns a point in world coordinates.
+- `camera.setLookAt` now expects a point in world coordinates.
+  - NOTE: this method has a return value that is still NOT in world coordinates. Prefer using `camera.getPosition/getLookAt/getBcfCamera` if you want the resulting position after a set.
+- `camera.getBcfCamera`'s return value's `camera_view_point` is now in world coordinates.
+- `camera.setBcfCamera` took a second boolean argument that defaulted to receiving local coordinates. If you were passing `false` or nothing here it will no longer be consistent with the coordinates from other methods. If you were passing `true` then no change required.
+- `model.ModelToMapSpace` now expects a `point` parameter in world coordinates.
+
+If you were saving data returned from these, that data may now be inconsistent if there is a global offset (i.e. if `model.getGlobalOffset` is a non-zero vector) for that model. This can result in behavior where setting the camera position with `setPosition` may be very far away from the actual model. To migrate the old data you would need to translate by the `model.getGlobalOffset` to be in the correct coordinate system.
+
 #### `model.getSections` Now Requires Format Parameter
 
 Calling `model.getSections()` without argument will now throw an error. You must pass either `"autodesk"` or `"bcf"`.
