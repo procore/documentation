@@ -347,6 +347,31 @@ Camera
 
 ---
 
+### Get Camera Look At
+
+<p class="heading-link-container"><a class="heading-link" href="#get-camera-look-at"></a></p>
+
+```js
+getLookAt();
+```
+
+#### Description
+
+Gets the camera target.
+
+#### Parameters
+
+None
+
+#### Returns
+
+```js
+{
+  direction: {x: Number, y: Number, z: Number},
+  position: {x: Number, y: Number, z: Number}
+}
+```
+
 ### Set Camera Look At
 
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-look-at"></a></p>
