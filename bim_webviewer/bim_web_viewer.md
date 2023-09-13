@@ -502,7 +502,7 @@ Camera
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-from-bcf-camera"></a></p>
 
 ```js
-setBcfCamera(bcfCamera);
+setBcfCamera(bcfCamera, applyOffset);
 ```
 
 #### Description
@@ -510,11 +510,14 @@ setBcfCamera(bcfCamera);
 Sets the camera position and direction from BCF camera data.
 See [Orthogonal Camera](#orthogonal-camera-object) or [Perspective Camera](#perspective-camera-object)
 
+NOTE: You should always pass `true` for the `applyOffset` argument. If you pass nothing or `false` then it is probably not what you want. It will soon be removed and that will be the default as it is an implementation detail that need not be exposed. See [migration guide for v7 to v8](#v7-to-v8) for more details.
+
 #### Parameters
 
-| Field Name | Required | Type   | Description            |
-| ---------- | -------- | ------ | ---------------------- |
-| bcfCamera  | true     | Object | A BCF formatted object |
+| Field Name   | Required | Type    | Description                                 |
+| ------------ | -------- | ------- | ------------------------------------------- |
+| bcfCamera    | true     | Object  | A BCF formatted object                      |
+| applyOffset  | false    | boolean | Whether to apply global offset to bcfCamera |
 
 ##### Returns
 
@@ -539,7 +542,6 @@ getBcfCamera();
 #### Description
 
 Retrieves a BCF perspective camera.
-See [Perspective Camera](#perspective-camera-object)
 
 #### Parameters
 
@@ -547,9 +549,7 @@ None
 
 ##### Returns
 
-```js
-{Object}
-```
+See [Perspective Camera](#perspective-camera-object)
 
 ##### Namespace
 
