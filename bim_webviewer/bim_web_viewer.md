@@ -1953,7 +1953,7 @@ Returns the current sectioning information as set by the Section Box tool or the
 
 The `format` parameter determines the shape of this data.
 
-The `bcf` format will return an array of [BCF clipping planes](#bcf-clipping-planes) regardless of whether a box or plane section is set. If no section is set it will return `[]`.
+The `bcf` format will return an array of [BCF clipping plane](#bcf-clipping-plane) regardless of whether a box or plane section is set. If no section is set it will return `[]`.
 
 The `autodesk` format will return an [Autodesk Section Data object](#autodesk-section-data). If no section is set it will return `null`.
 
@@ -3263,7 +3263,7 @@ See [Tools](#tools) for further information.
 ### BCF Clipping Plane
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#bcf-clipping-planes"></a>
+  <a class="heading-link" href="#bcf-clipping-plane"></a>
 </p>
 
 The BCF Clipping Plane is based off of the BCF schema defined here: https://github.com/buildingSMART/BCF-API#3526-clipping-plane
