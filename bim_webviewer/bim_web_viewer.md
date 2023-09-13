@@ -3378,10 +3378,148 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v7 to v8
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v7-to-v8"></a>
+</p>
+
+#### Coordinates Should Be Consistent with the Source File
+
+#### `model.getSections` Now Requires Format Parameter
+
+Calling `model.getSections()` without argument will now throw an error. You must pass either `"autodesk"` or `"bcf"`.
+
+The previous return shape looked like this:
+
+```ts
+  {
+    type: "box",
+    box:
+    {
+      min:{ x: Number, y: Number, z: Number},
+      max:{ x: Number, y: Number, z: Number},
+      rotation: undefined | Number
+    }
+  } 
+| {
+  type: "plane",
+  plane:
+  [
+    {
+      distance: Number,
+      normal: {normalX: Number, normalY: Number, normalZ: Number},
+      uuid: String
+    }
+  ]
+}
+```
+
+In this format you would get a different shape based on whether section planes or a section box had been set. This format is no longer available so you will need to convert your code to one of the new formats if you were using it.
+
+The `"autodesk"` format is closer to the previous return shape in that it supports both a box return type and a plane return type. For historical reasons, it is also the format that most section data in Procore is stored in. See [Autodesk Section Data object](#autodesk-section-data).
+
+The `"bcf"` format is a bit less esoteric, but will always return an array of planes even if you had set a box. See [BCF clipping plane](#bcf-clipping-plane).
+
+##### Conversion Scripts
+
+If you have stored the data previously returned by `model.getSections()` you may consider converting that data to one of the new formats. For example, if you wanted to create a [Procore Coordination Issue](https://developers.procore.com/reference/rest/v1/coordination-issues?version=1.0#create-coordination-issue) with section data you had been storing, at the time of this writing you would need to convert the old data to the autodesk format.
+
+Alternatively you may need to convert to BCF to interoperate with other systems.
+
+The scripts here are a starting off point to help with such conversions. However, please test them on your own systems and validate that they handle your data.
+
+##### Conversion Script: Old Format to `"autodesk"`
+
+```js
+const convertOldSectionDataToAutodesk = (oldSectionData) => {
+  if (oldSectionData.type === 'box') {
+    const {
+      box: { min, max },
+    } = oldSectionData;
+    let {
+      box: { rotation },
+    } = oldSectionData;
+    if (rotation === null) {
+      rotation = { x: 0, y: 0, z: 0 };
+    }
+    return {
+      Type: 'ClipPlaneSet',
+      Version: 1,
+      Unit: 'ft',
+      OrientedBox: {
+        Type: 'OrientedBox3d',
+        Version: 1,
+        Box: [
+          [min.x, min.y, min.z],
+          [max.x, max.y, max.z],
+        ],
+        Rotation: [rotation.x, rotation.y, rotation.z],
+      },
+      Planes: null,
+      Enabled: true,
+      Linked: false,
+    };
+  }
+  if (oldSectionData.type === 'plane') {
+    return {
+      Type: 'ClipPlaneSet',
+      Version: 1,
+      Unit: 'ft',
+      OrientedBox: null,
+      Planes: oldSectionData.plane.map((plane) => {
+        const { normal, distance } = plane;
+        return {
+          Type: 'ClipPlane',
+          Version: 1,
+          Normal: [normal.normalX, normal.normalY, normal.normalZ],
+          Distance: distance,
+          Enabled: true,
+        };
+      }),
+      Enabled: true,
+      Linked: false,
+    };
+  }
+  throw new Error(`Unrecognized old section data type: ${oldSectionData.type}`);
+};
+```
+
+##### Conversion Script: Old Format to `"bcf"`
+
+This one is a little tricky in the case of converting box data to planes. If this is your use case please reach out and we'll find a way to expose this more easily.
+
+```js
+const convertOldSectionDataToBcf = (oldSectionData) => {
+  if (oldSectionData.type === 'box') {
+    throw new Error('Please reach out if you need assistance with this use case. It requires a math library or more code than is reasonable to put here.');
+  }
+  if (oldSectionData.type === 'plane') {
+    return oldSectionData.plane.map((plane) => {
+      const { normal, distance } = plane;
+      return {
+        unit: 'ft',
+        direction: {
+          x: normal.normalX,
+          y: normal.normalY,
+          z: normal.normalZ,
+        },
+        location: {
+          x: -normal.normalX * distance + 0, // Add 0 to avoid -0 values.
+          y: -normal.normalY * distance + 0,
+          z: -normal.normalZ * distance + 0,
+        },
+      };
+    });
+  }
+  throw new Error(`Unrecognized old section data type: ${oldSectionData.type}`);
+};
+```
+
 ### v6 to v7
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#v5-to-v6"></a>
+  <a class="heading-link" href="#v6-to-v7"></a>
 </p>
 
 #### Changes to Payloads of `objectSelect` and `objectSingleClick` Events
