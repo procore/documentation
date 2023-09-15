@@ -3502,7 +3502,7 @@ const convertOldSectionDataToAutodesk = (oldSectionData) => {
 
 ##### Conversion Script: Old Format to `"bcf"`
 
-This one is a little tricky in the case of converting box data to planes. If this is your use case please reach out and we'll find a way to expose this more easily.
+This one is a little tricky in the case of converting box data to planes. If this is your use case please reach out in your integrator slack channel and we'll find a way to expose this more easily.
 
 ```js
 const convertOldSectionDataToBcf = (oldSectionData) => {
