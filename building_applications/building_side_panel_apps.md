@@ -1,6 +1,6 @@
 ---
 permalink: /building-side-panel-apps
-title: Building Side Panel Applications
+title: Building Procore Side Panel Applications
 layout: default
 section_title: Building Applications
 ---
