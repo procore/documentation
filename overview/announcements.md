@@ -5,6 +5,11 @@ layout: default
 section_title: Overview
 ---
 
+>**OAuth access token expiration time reduced to 5400 seconds** (09/26/2023)
+>
+>As part of the planned transition to shorter duration OAuth access tokens, token expiration time has been reduced from 7200 seconds (2 hours) to 5400 seconds (1.5 hours).
+>If you have questions regarding this change, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**Procore-Company-Id Request Header Requirement** (08/04/2023)
 >
 >As described in [Request Header Requirements for Multiple Procore Regions]({{ site.url }}{{ site.baseurl }}{% link best_practices/mpz_headers.md %}), the `Procore-Company-Id` request header is required to successfully make calls to the Procore API (api.procore.com), regardless of region.
