@@ -252,6 +252,61 @@ Return an array of object names with the given id.
 
 Api
 
+---
+
+### Filter Objects
+
+<p class="heading-link-container"><a class="heading-link" href="#filter-objects"></a></p>
+
+```js
+filterObjects(objectIds);
+```
+
+#### Description
+
+Lists objects for the loaded model given a filter. The schema for the filter parameter is defined as
+
+```js
+export const ObjectFilterSchema: JSONSchemaType<ObjectFilter> = {
+  type: 'object',
+  properties: {
+    filterField: {
+      type: 'string',
+      enum: ['name'],
+    },
+    filterValue: {
+      type: 'string',
+    },
+  },
+  required: ['filterField', 'filterValue'],
+};
+```
+Currently, we only support a filter field of `name`.
+
+Example usage:
+```js
+const response = await this.viewer.api.filterObjects({
+  filterField: 'name',
+  filterValue: 'wall',
+});
+```
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| filter | true | Object | An ObjectFilterSchema |
+
+##### Returns
+
+```js
+Response Object
+```
+
+##### Namespace
+
+Api
+
 ## Camera Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#camera-namespace"></a></p>
@@ -2283,7 +2338,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#get-object"></a></p>
 
 ```js
-getObject(id);
+getObject(id, objectTreeName);
 ```
 
 #### Description
@@ -2295,6 +2350,7 @@ Returns a model object with the given id. Contains data such as bounding box, hi
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | id | true | number | The id of the object |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2326,7 +2382,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#get-objects"></a></p>
 
 ```js
-getObjects(objectIds);
+getObjects(objectIds, objectTreeName);
 ```
 
 #### Description
@@ -2340,6 +2396,7 @@ If an id is not found, it will not be included in the returned array.
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids. |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2372,7 +2429,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#get-root-object"></a></p>
 
 ```js
-getRootObject();
+getRootObject(objectTreeName);
 ```
 
 #### Description
@@ -2381,7 +2438,9 @@ Returns a model object which is the root of the model object tree. Contains data
 
 #### Parameters
 
-None
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2412,7 +2471,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#hide-objects"></a></p>
 
 ```js
-hideObjects(objectIds);
+hideObjects(objectIds, objectTreeName);
 ```
 
 #### Description
@@ -2424,6 +2483,7 @@ Hides objects defined by the array of object ids.
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids to hide. |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2443,7 +2503,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#hide-all-objects"></a></p>
 
 ```js
-hideAllObjects();
+hideAllObjects(objectTreeName);
 ```
 
 #### Description
@@ -2452,7 +2512,9 @@ Hides all objects.
 
 #### Parameters
 
-None
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2499,7 +2561,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#unhide-objects"></a></p>
 
 ```js
-unhideObjects(objectIds);
+unhideObjects(objectIds, objectTreeName);
 ```
 
 #### Description
@@ -2511,6 +2573,7 @@ Unhides objects defined by the array of object ids.
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids to unhide. |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2557,7 +2620,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#select-objects"></a></p>
 
 ```js
-selectObjects(objectIds);
+selectObjects(objectIds, objectTreeName);
 ```
 
 #### Description
@@ -2569,6 +2632,7 @@ Selects objects defined by the array of object ids.
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids to select. |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2587,7 +2651,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#select-all-objects"></a></p>
 
 ```js
-selectAllObjects();
+selectAllObjects(objectTreeName);
 ```
 
 #### Description
@@ -2596,7 +2660,9 @@ Selects all objects.
 
 #### Parameters
 
-None
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2643,7 +2709,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#deselect-objects"></a></p>
 
 ```js
-deselectObjects(objectIds);
+deselectObjects(objectIds, objectTreeName);
 ```
 
 #### Description
@@ -2655,6 +2721,7 @@ Deselect objects defined by the array of object ids.
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | objectIds | true | number[] | An array of object ids to deselect. |
+| objectTreeName | false | string | Invokes this method on the object tree specified by the name. Defaults to `default`, and when filtered tree is enabled, can be `filtered` |
 
 ##### Returns
 
@@ -2798,6 +2865,124 @@ Enables or disables the measurement tool. Requires the Measurement Tool be enabl
 ##### Returns
 
 None
+
+##### Namespace
+
+Model
+
+---
+
+### Filter Object Tree
+
+<p class="heading-link-container"><a class="heading-link" href="#filter-object-tree"></a></p>
+
+```js
+filterObjectTree(objectIds);
+```
+
+#### Description
+
+Constructs a filtered object tree from an array of object id's. The filtered object tree is used to determine which objects are visible in the Model Objects tool. Additionally, when the filtered object tree is enabled, methods that get, select, or hide nodes can operate on this filtered object tree instead of the full object tree.
+
+When a filtered object tree is enabled, the full object tree is kept in synch with changes made on the filtered tree and vice versa. For example, if you select an object in the filtered tree, the full tree will also have that object selected. This is to ensure that the rendering is kept in synch with the Model Objects tool.
+
+Consider the following example:
+```js
+// For illustrative purposes, the full tree looks like this
+// 0
+// ├── 1
+// │   ├── 2
+// │   └── 3
+// └── 4
+//     ├── 5 // <-- This object is named `Wall`
+//     └── 6
+
+const response = await this.viewer.api.filterObjects({
+  filterField: 'name',
+  filterValue: 'wall',
+});
+const objects = await response.json();
+const objectIds = objects.map((object) => object.id);
+await this.viewer.model.filterObjectTree(objectIds);
+
+// After a filter has been applied, a filtered tree might look like this
+// 0
+// └── 4
+//     └── 5
+
+// Both full and filtered trees are available for you to take actions on.
+// For example, you can select a node in the filtered tree.
+// This will select the node in the full tree as well and display the object as being selected
+// in the Model Objects Tool and in the rendering.
+await this.viewer.model.selectObjects([5], 'filtered');
+
+// Any method that would take an optional parameter of `objectTreeName` will default to the full tree.
+// Returns:
+// {
+//    id: 0,
+//    children: [1, 4],
+//    ...
+// }
+await this.viewer.model.getRootObject(); 
+
+// You can specify the filtered tree by passing in the name of the filtered tree, in this case 'filtered'
+// Returns:
+// {
+//    id: 0,
+//    children: [4],
+//    ...
+// }
+await this.viewer.model.getRootObject('filtered'); 
+```
+
+The following methods now accept an optional parameter `objectTreeName`. If not supplied, the default object tree is used. This is the same as passing in `default` for the `objectTreeName` parameter. If a filtered object tree is enabled, the `objectTreeName` parameter can be set to `filtered` to invoke the method on the filtered object tree instead of the default object tree.
+- [getObjects](#get-objects)
+- [getObject](#get-object)
+- [getRootObject](#get-root-object)
+- [hideObjects](#hide-objects)
+- [hideAllObjects](#hide-all-objects)
+- [unhideObjects](#unhide-objects)
+- [selectObjects](#select-objects)
+- [selectAllObjects](#select-all-objects)
+- [deselectObjects](#deselect-objects)
+
+
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| objectIds | true | array | Array of object id's to construct a filtered object tree from. |
+
+##### Returns
+
+Promise<void>
+
+##### Namespace
+
+Model
+
+---
+
+### Clear Object Tree Filter
+
+<p class="heading-link-container"><a class="heading-link" href="#clear-object-tree-filter"></a></p>
+
+```js
+clearObjectTreeFilter();
+```
+
+#### Description
+
+Clears the filtered object tree. This will cause the Model Objects tool to display all objects in the model.
+
+#### Parameters
+
+None
+
+##### Returns
+
+Promise<void>
 
 ##### Namespace
 
