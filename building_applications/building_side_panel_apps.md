@@ -74,7 +74,7 @@ The following Side Panel Views are supported and can be defined in the applicati
 | budgeting.list | /projects/1003496/budgeting |
 | submittal_logs.detail | /:project_id/project/submittal_logs/:id |
 | drawing_areas_drawing_log.list | /:project_id/project/drawing_areas/:id/drawing_log |
-| project_directory.venders.edit | /:project_id/project/directory/vendors/:id/edit |
+| project_directory.vendors.edit | /:project_id/project/directory/vendors/:id/edit |
 | project_directory.person.edit | /:project_id/project/directory/edit_person/:id |
 | observations.list | /:project_id/project/observations/items |
 | observations.edit | /:project_id/project/observations/items/:id/edit |
