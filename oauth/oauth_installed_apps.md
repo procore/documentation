@@ -90,7 +90,7 @@ If everything goes right and the request is successful, you’ll receive a 200 r
 {
     "access_token": "dbaf9757982a9e7...",
     "token_type": "bearer",
-    "expires_in": 7200,
+    "expires_in": 5400,
     "refresh_token": "76ba4c5c75c96f608...",
     "created_at": 1484786897
 }
@@ -114,7 +114,7 @@ See [Get Token Info](https://developers.procore.com/reference/rest/v1/authentica
 
 ## Step 5: Refreshing the Access Token using Refresh Token
 
-Because the access token expires after 2 hours, you will need to use the [Get or Refresh an Access Token](https://developers.procore.com/reference/rest/v1/authentication#get-or-refresh-an-access-token) endpoint again to periodically renew it using the below parameters:
+Because the access token expires after 1.5 hours, you will need to use the [Get or Refresh an Access Token](https://developers.procore.com/reference/rest/v1/authentication#get-or-refresh-an-access-token) endpoint again to periodically renew it using the below parameters:
 
 Here is an example request:
 
@@ -140,7 +140,7 @@ If everything goes right and the request is successful, you will receive a 200 r
 {
     "access_token": "eyJ0eXAiOiJKV1QiL...",
     "token_type": "bearer",
-    "expires_in": 7200,
+    "expires_in": 5400,
     "refresh_token": "2aa7d1e10f84504231553...",
     "created_at": 1484790429
 }
@@ -151,9 +151,9 @@ If everything goes right and the request is successful, you will receive a 200 r
 While our installed application configuration does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
 Once you manually go through that step by logging in and getting an authorization code, you can then programmatically authenticate from that point forward without user intervention.
 
-After the initial App Authorization Grant, you can retrieve a pair of tokens - an Access Token and a Refresh Token. The Access Token is used to authenticate (passed with the request header as `Authorization: Bearer <YOUR_ACCESS_TOKEN>`), and it expires after 2 hours.
+After the initial App Authorization Grant, you can retrieve a pair of tokens - an Access Token and a Refresh Token. The Access Token is used to authenticate (passed with the request header as `Authorization: Bearer <YOUR_ACCESS_TOKEN>`), and it expires after 1.5 hours.
 The Refresh Token, which corresponds to that Access Token, will not expire until it is used to acquire a new pair of tokens.
 Using those two tokens, you can authenticate repeatedly without any user input.
-In other words, after getting your first pair of tokens, your application would use the Access Token for up to 2 hours, after which that token would expire.
+In other words, after getting your first pair of tokens, your application would use the Access Token for up to 1.5 hours, after which that token would expire.
 The next time your application needed to access the API it would use the Refresh Token received with the now-expired Access Token to get a new pair of fresh tokens.
 Your application would use that new Access Token until it expires, and so on, as the cycle repeats.

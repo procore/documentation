@@ -50,13 +50,13 @@ The JSON response block from the call includes an `access_token` string and addt
 {
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzUxMiJ9xeyJhaWQiOiIwY2I3ZDc1...",
   "token_type": "bearer",
-  "expires_in": 7200,
+  "expires_in": 5400,
   "created_at": 1511289006
 }
 ```
 
 - `token_type` - value of "bearer" indicates that the Authorization header you pass when making Procore API calls will be the "bearer" type.
-- `expires_in` - value of 7200 indicates that the access token is valid for 7200 seconds (2 hours).
+- `expires_in` - value of 5400 indicates that the access token is valid for 5400 seconds (1.5 hours).
 - `created_at` - date/time the access token was genterated in UNIX time format.
 
 ## Making a Test Call to the Procore API

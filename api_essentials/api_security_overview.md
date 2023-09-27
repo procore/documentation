@@ -17,7 +17,7 @@ The OAuth 2.0 grant types supported by the Procore API rely on the use of tokens
 
 There are two types of tokens to consider in the context of OAuth 2.0 - _access tokens_ and _refresh tokens_.
 An access token is passed in with an API request and lets the Procore API server know who the logged in user is that is making the request and allows an application to take action on their behalf (using the same permissions the user has in the Procore web application).
-An access token lasts for two hours, after which it ceases to function.
+An access token lasts for 1.5 hours, after which it ceases to function.
 A refresh token is used to request a new access token after the existing one expires.
 The refresh token lasts indefinitely until it is consumed by a request for a new access token (at which point a new refresh token is generated).
 
@@ -38,7 +38,7 @@ Disconnecting the app in a specific company will not revoke tokens on behalf of 
 > - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %})
 
 Service accounts, which are created and managed by company administrators using the Procore web application, can only be used to access API data within the company account in which they are created.
-Service accounts do not utilize refresh tokens, but rather use their Client ID and Client Secret to generate a new access token that lasts for two hours each time they are used to make API requests.
+Service accounts do not utilize refresh tokens, but rather use their Client ID and Client Secret to generate a new access token that lasts for 1.5 hours each time they are used to make API requests.
 See [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) for additional information.
 Service accounts do not act on behalf of an existing Procore user, but rather they utilize a [Directory contact](https://support.procore.com/faq/what-is-a-contact-in-procore-and-which-project-tools-support-the-concept) that is generated automatically upon creation of the service account.
 Service account permissions and access are controlled by the permissions settings for the Directory contact.

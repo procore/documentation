@@ -10,7 +10,7 @@ Each user will need to authenticate with Procore to verify their identity and to
 
 OAuth 2.0 is a protocol that allows third-party applications to authenticate with APIs.
 OAuth 2.0 facilitates two main actions - obtaining an access token through user authorization, and using that access token to make API requests.
-At the end of a successful OAuth 2.0 exchange, an access token that lasts for two hours is returned to your application.
+At the end of a successful OAuth 2.0 exchange, an access token that lasts for 1.5 hours is returned to your application.
 You will need to submit this token with each Procore API request in order to properly identify your application and access end-user data in a secure manner.
 
 Because the Procore API supports the OAuth 2.0 protocol, your application does not need to store or transmit user account names or passwords, but instead relies on application credentials in the form of a Client ID and Client Secret that are unique to your application.
