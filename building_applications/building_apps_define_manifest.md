@@ -55,7 +55,7 @@ Below is an example App manifest that helps to describe the various sections of 
       "instances": [
         {
           "name": "My Sample App",
-          "type": "sidepanel"
+          "type": "sidepanel",
           "uuid": "10e58965-49d2-4a3b-a5b1-aeeef0hn67des",
           "views": [
             "commitments.work_order_contracts.detail"
