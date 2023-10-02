@@ -3662,4 +3662,9 @@ I have the privilege of writing this migration guide from the future and can tel
 
 ## Legal Notice
 
+<p class="heading-link-container">
+  <a class="heading-link" href="#legal-notice"></a>
+</p>
+
+
 Autodesk and Navisworks are registered trademarks or trademarks of Autodesk, Inc., in the USA and other countries.
