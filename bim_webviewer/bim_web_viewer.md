@@ -347,6 +347,31 @@ Camera
 
 ---
 
+### Get Camera Look At
+
+<p class="heading-link-container"><a class="heading-link" href="#get-camera-look-at"></a></p>
+
+```js
+getLookAt();
+```
+
+#### Description
+
+Gets the camera target.
+
+#### Parameters
+
+None
+
+#### Returns
+
+```js
+{
+  direction: {x: Number, y: Number, z: Number},
+  position: {x: Number, y: Number, z: Number}
+}
+```
+
 ### Set Camera Look At
 
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-look-at"></a></p>
@@ -477,7 +502,7 @@ Camera
 <p class="heading-link-container"><a class="heading-link" href="#set-camera-from-bcf-camera"></a></p>
 
 ```js
-setBcfCamera(bcfCamera);
+setBcfCamera(bcfCamera, applyOffset);
 ```
 
 #### Description
@@ -485,11 +510,14 @@ setBcfCamera(bcfCamera);
 Sets the camera position and direction from BCF camera data.
 See [Orthogonal Camera](#orthogonal-camera-object) or [Perspective Camera](#perspective-camera-object)
 
+NOTE: You should always pass `true` for the `applyOffset` argument. If you pass nothing or `false` then it is probably not what you want. It will soon be removed and that will be the default as it is an implementation detail that need not be exposed. See [migration guide for v7 to v8](#v7-to-v8) for more details.
+
 #### Parameters
 
-| Field Name | Required | Type   | Description            |
-| ---------- | -------- | ------ | ---------------------- |
-| bcfCamera  | true     | Object | A BCF formatted object |
+| Field Name   | Required | Type    | Description                                 |
+| ------------ | -------- | ------- | ------------------------------------------- |
+| bcfCamera    | true     | Object  | A BCF formatted object                      |
+| applyOffset  | false    | boolean | Whether to apply global offset to bcfCamera |
 
 ##### Returns
 
@@ -514,7 +542,6 @@ getBcfCamera();
 #### Description
 
 Retrieves a BCF perspective camera.
-See [Perspective Camera](#perspective-camera-object)
 
 #### Parameters
 
@@ -522,9 +549,7 @@ None
 
 ##### Returns
 
-```js
-{Object}
-```
+See [Perspective Camera](#perspective-camera-object)
 
 ##### Namespace
 
@@ -1910,20 +1935,27 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#get-sections"></a></p>
 
 ```js
-getSections();
+getSections(format);
 ```
 
 #### Description
 
-Returns a collection of section planes or a section box, whichever has been applied.
+Returns the current sectioning information as set by the Section Box tool or the sectioning API methods (e.g. [`setSectionBox`](#set-section-box) and [`addSectionPlane`](#add-section-plane)).
+
 
 #### Parameters
 
-None
+| Field Name | Required | Type   | Description         |
+| ---------- | -------- | ------ | --------------------|
+| format     | true     | string | 'autodesk' \| 'bcf' |
 
 ##### Returns
 
-See [sectionPlane](#section-plane-object) and [sectionBox](#section-box-object)
+The `format` parameter determines the shape of this data.
+
+The `bcf` format will return an array of [BCF clipping plane](#bcf-clipping-plane). If no section is set it will return `[]`.
+
+The `autodesk` format will return an [Autodesk Section Data object](#autodesk-section-data). If no section is set it will return `null`.
 
 ##### Namespace
 
@@ -3230,47 +3262,62 @@ See [Tools](#tools) for further information.
 }
 ```
 
-### Section Plane Object
+### BCF Clipping Plane
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#section-plane-object"></a>
+  <a class="heading-link" href="#bcf-clipping-plane"></a>
 </p>
 
-The key `plane` is an array of planes added.
+The BCF Clipping Plane is based off of the BCF schema defined here: https://github.com/buildingSMART/BCF-API#3526-clipping-plane
 
-```js
+The one addition we've made is the `unit` field. If the `unit` is not present, we will assume it to be `'ft'`.
+
+```ts
 {
-  type: "plane",
-  plane:
-  [
-    {
-      distance: Number,
-      normal: {normalX: Number, normalY: Number, normalZ: Number},
-      uuid: String
-    }
-  ]
+  unit?: string; // Assumed to be "ft" if not present.
+  direction: {
+    x: number;
+    y: number;
+    z: number;
+  };
+  location: {
+    x: number;
+    y: number;
+    z: number;
+  }
 }
 ```
 
-### Section Box Object
+### Autodesk Section Data
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#section-box-object"></a>
+  <a class="heading-link" href="#autodesk-section-data"></a>
 </p>
 
-If `rotation` is applied, `rotation` will be represented as Euler angle of type Number.
-Otherwise, `rotation` will be undefined.
-
-```js
+```ts
 {
-  type: "box",
-  box:
-  {
-    min:{ x: Number, y: Number, z: Number},
-    max:{ x: Number, y: Number, z: Number},
-    rotation: undefined | Number
-  }
-}
+  Type: 'ClipPlaneSet';
+  Version: 1;
+  Unit?: string;
+  OrientedBox?: {
+    Type: 'OrientedBox3D';
+    Version: 1;
+    Box: [
+      [number, number, number], // [minX, minY, minZ]
+      [number, number, number]  // [maxX, maxY, maxZ]
+    ];
+    Rotation: [number, number, number]; // [degX, degY, degZ]
+  } | null;
+  Planes?: {
+    Type: 'ClipPlane';
+    Version: 1;
+    Normal: [number, number, number]; // [dirX, dirY, dirZ]
+    Distance: number;
+    Enabled: boolean;
+  }[] | null;
+  Linked: boolean;
+  Enabled: boolean;
+};
 ```
 
 ### Urls Object
@@ -3333,10 +3380,163 @@ Otherwise, `rotation` will be undefined.
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v7 to v8
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v7-to-v8"></a>
+</p>
+
+#### Coordinates Should Be Consistent with the Source File
+
+Several methods were returning/expecting to receive coordinates that were not consistent with the model coordinates from the source file. Prior to this change, to get the correct coordinates you would need to add the result of `model.getGlobalOffset` to them. This would affect models that are significantly offset from the origin, which we refer to as being in "world coordinates". As of this change, most instances of not returning "world coordinates" have been fixed.
+
+The changed methods:
+
+- `camera.getPosition` now returns a point in world coordinates.
+- `camera.setPosition` now expects a point in world coordinates.
+- `camera.getLookAt` now returns a point in world coordinates.
+- `camera.setLookAt` now expects a point in world coordinates.
+  - NOTE: this method has a return value that is still NOT in world coordinates. Prefer using `camera.getPosition/getLookAt/getBcfCamera` if you want the resulting position after a set.
+- `camera.getBcfCamera`'s return value's `camera_view_point` is now in world coordinates.
+- `camera.setBcfCamera` took a second boolean argument that defaulted to receiving local coordinates. If you were passing `false` or nothing here it will no longer be consistent with the coordinates from other methods. If you were passing `true` then no change required.
+- `model.ModelToMapSpace` now expects a `point` parameter in world coordinates.
+
+If you were saving data returned from these, that data may now be inconsistent if there is a global offset (i.e. if `model.getGlobalOffset` is a non-zero vector) for that model. This can result in behavior where setting the camera position with `setPosition` may be very far away from the actual model. To migrate the old data you would need to translate by the `model.getGlobalOffset` to be in the correct coordinate system.
+
+#### `model.getSections` Now Requires Format Parameter
+
+Calling `model.getSections()` without argument will now throw an error. You must pass either `"autodesk"` or `"bcf"`.
+
+The previous return shape looked like this:
+
+```ts
+  {
+    type: "box",
+    box:
+    {
+      min:{ x: Number, y: Number, z: Number},
+      max:{ x: Number, y: Number, z: Number},
+      rotation: undefined | Number
+    }
+  } 
+| {
+  type: "plane",
+  plane:
+  [
+    {
+      distance: Number,
+      normal: {normalX: Number, normalY: Number, normalZ: Number},
+      uuid: String
+    }
+  ]
+}
+```
+
+In this format you would get a different shape based on whether section planes or a section box had been set. This format is no longer available so you will need to convert your code to one of the new formats if you were using it.
+
+The `"autodesk"` format is closer to the previous return shape in that it supports both a box return type and a plane return type. For historical reasons, it is also the format that most section data in Procore is stored in. See [Autodesk Section Data object](#autodesk-section-data).
+
+The `"bcf"` format is a bit less esoteric, but will always return an array of planes even if you had set a box. See [BCF clipping plane](#bcf-clipping-plane).
+
+##### Conversion Scripts
+
+If you have stored the data previously returned by `model.getSections()` you may consider converting that data to one of the new formats. For example, if you wanted to create a [Procore Coordination Issue](https://developers.procore.com/reference/rest/v1/coordination-issues?version=1.0#create-coordination-issue) with section data you had been storing, at the time of this writing you would need to convert the old data to the autodesk format.
+
+Alternatively you may need to convert to BCF to interoperate with other systems.
+
+The scripts here are a starting off point to help with such conversions. However, please test them on your own systems and validate that they handle your data.
+
+##### Conversion Script: Old Format to `"autodesk"`
+
+```js
+const convertOldSectionDataToAutodesk = (oldSectionData) => {
+  if (oldSectionData.type === 'box') {
+    const {
+      box: { min, max },
+    } = oldSectionData;
+    let {
+      box: { rotation },
+    } = oldSectionData;
+    if (rotation === null) {
+      rotation = { x: 0, y: 0, z: 0 };
+    }
+    return {
+      Type: 'ClipPlaneSet',
+      Version: 1,
+      Unit: 'ft',
+      OrientedBox: {
+        Type: 'OrientedBox3d',
+        Version: 1,
+        Box: [
+          [min.x, min.y, min.z],
+          [max.x, max.y, max.z],
+        ],
+        Rotation: [rotation.x, rotation.y, rotation.z],
+      },
+      Planes: null,
+      Enabled: true,
+      Linked: false,
+    };
+  }
+  if (oldSectionData.type === 'plane') {
+    return {
+      Type: 'ClipPlaneSet',
+      Version: 1,
+      Unit: 'ft',
+      OrientedBox: null,
+      Planes: oldSectionData.plane.map((plane) => {
+        const { normal, distance } = plane;
+        return {
+          Type: 'ClipPlane',
+          Version: 1,
+          Normal: [normal.normalX, normal.normalY, normal.normalZ],
+          Distance: distance,
+          Enabled: true,
+        };
+      }),
+      Enabled: true,
+      Linked: false,
+    };
+  }
+  throw new Error(`Unrecognized old section data type: ${oldSectionData.type}`);
+};
+```
+
+##### Conversion Script: Old Format to `"bcf"`
+
+This one is a little tricky in the case of converting box data to planes. If this is your use case please reach out in your integrator slack channel and we'll find a way to expose this more easily.
+
+```js
+const convertOldSectionDataToBcf = (oldSectionData) => {
+  if (oldSectionData.type === 'box') {
+    throw new Error('Please reach out if you need assistance with this use case. It requires a math library or more code than is reasonable to put here.');
+  }
+  if (oldSectionData.type === 'plane') {
+    return oldSectionData.plane.map((plane) => {
+      const { normal, distance } = plane;
+      return {
+        unit: 'ft',
+        direction: {
+          x: normal.normalX,
+          y: normal.normalY,
+          z: normal.normalZ,
+        },
+        location: {
+          x: -normal.normalX * distance + 0, // Add 0 to avoid -0 values.
+          y: -normal.normalY * distance + 0,
+          z: -normal.normalZ * distance + 0,
+        },
+      };
+    });
+  }
+  throw new Error(`Unrecognized old section data type: ${oldSectionData.type}`);
+};
+```
+
 ### v6 to v7
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#v5-to-v6"></a>
+  <a class="heading-link" href="#v6-to-v7"></a>
 </p>
 
 #### Changes to Payloads of `objectSelect` and `objectSingleClick` Events
@@ -3461,3 +3661,12 @@ camera.zoomExtents => camera.zoomToBoundingBox
 There were no actual API changes that necesitated a breaking change here but we did drastically change our rendering algorithm to reduce flashing and dropout. For larger models this may come at the expense of low framerates.
 
 I have the privilege of writing this migration guide from the future and can tell you that we've been able to make it even better without (as much) of a framerate hit for larger models in v6.0.1 and you should consider upgrading to that or later. v3 to v4 may also not have needed a breaking change in retrospect so you can safely go from v3 to v4 without your code breaking but know that rendering will behave and perform differently and hopefully mostly for the better on v4 (but again vastly better on v6).
+
+## Legal Notice
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#legal-notice"></a>
+</p>
+
+
+Autodesk and Navisworks are registered trademarks or trademarks of Autodesk, Inc., in the USA and other countries.
