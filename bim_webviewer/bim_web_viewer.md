@@ -3659,3 +3659,7 @@ camera.zoomExtents => camera.zoomToBoundingBox
 There were no actual API changes that necesitated a breaking change here but we did drastically change our rendering algorithm to reduce flashing and dropout. For larger models this may come at the expense of low framerates.
 
 I have the privilege of writing this migration guide from the future and can tell you that we've been able to make it even better without (as much) of a framerate hit for larger models in v6.0.1 and you should consider upgrading to that or later. v3 to v4 may also not have needed a breaking change in retrospect so you can safely go from v3 to v4 without your code breaking but know that rendering will behave and perform differently and hopefully mostly for the better on v4 (but again vastly better on v6).
+
+## Legal Notice
+
+Autodesk and Navisworks are registered trademarks or trademarks of Autodesk, Inc., in the USA and other countries.
