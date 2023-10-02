@@ -1953,7 +1953,7 @@ Returns the current sectioning information as set by the Section Box tool or the
 
 The `format` parameter determines the shape of this data.
 
-The `bcf` format will return an array of [BCF clipping plane](#bcf-clipping-plane) regardless of whether a box or plane section is set. If no section is set it will return `[]`.
+The `bcf` format will return an array of [BCF clipping plane](#bcf-clipping-plane). If no section is set it will return `[]`.
 
 The `autodesk` format will return an [Autodesk Section Data object](#autodesk-section-data). If no section is set it will return `null`.
 
@@ -3502,7 +3502,7 @@ const convertOldSectionDataToAutodesk = (oldSectionData) => {
 
 ##### Conversion Script: Old Format to `"bcf"`
 
-This one is a little tricky in the case of converting box data to planes. If this is your use case please reach out and we'll find a way to expose this more easily.
+This one is a little tricky in the case of converting box data to planes. If this is your use case please reach out in your integrator slack channel and we'll find a way to expose this more easily.
 
 ```js
 const convertOldSectionDataToBcf = (oldSectionData) => {
