@@ -1522,6 +1522,22 @@ Fires when a window based tool has been hidden.
 | elementId | string | The value of the id attribute on the root DOM element of the window. |
 | toolId | number | The id of the tool the window belongs to. See [Tools](#tools) for further information. |
 
+---
+
+### objectTreeUpdated
+
+<p class="heading-link-container"><a class="heading-link" href="#objecttreeupdated"></a></p>
+
+Fires when a filter has been applied to the Object Tree or if the filtered has been cleared. When the filter is cleared, this event returns a null payload.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| ancestors | Array[Number] | An aggregate of all object ids that are ancestors of object ids that constructed the filtered object tree. |
+| children | Array[Number] | An aggregate of all the object ids that are children of the object ids that constructed the filtered object tree. |
+| nodeIds | Array[Number] | An aggregate of all the object ids that constructed the filtered object tree. |
+
 ## Model Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#model-namespace"></a></p>
