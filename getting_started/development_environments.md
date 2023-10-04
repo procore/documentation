@@ -9,8 +9,19 @@ section_title: Getting Started
 
 To make Procore's API as explorable as possible, we have provided the following sandbox environments you can use for testing:
 
-- **Monthly Sandbox** - refreshed with current production data on a regularly scheduled basis once each month. Data you create, update, or manipulate within a Monthly Sandbox environment will never affect the original production data and will exist solely in the context of that environment. The monthly sandbox environment mimics the production environment approximately 24 hours prior to the swap that occurs on the first working day of each month between 9:00-10:00am Eastern Time. In order to ensure that changes you make in your production environment are present in the next month's monthly sandbox instance, we recommend making those production changes by the end of the current month. The client_id and client_secret to use are in the **Production OAuth Credentials** section of the application’s configuration page. For authentication requests, you will want to use the base URL: <https://login-sandbox-monthly.procore.com>. For general API requests, you will want to use the base URL: <https://api-monthly.procore.com>.
-- **Development Sandbox** - automatically generated for third-party developers in their Developer Portal account and includes seed project data that can be used for testing purposes. The Development Sandbox environment does not refresh with production data at any time. The client_id and client_secret to use are in the **Sandbox OAuth Credentials** section of the application’s configuration page. For authentication requests, you will want to use the base URL: <https://login-sandbox.procore.com>. For general API requests, you will want to use the base URL: <https://sandbox.procore.com>.
+- **Monthly Sandbox** - refreshed with current production data on a regularly scheduled basis once each month.
+Data you create, update, or manipulate within a Monthly Sandbox environment will never affect the original production data and will exist solely in the context of that environment.
+The monthly sandbox environment mimics the production environment approximately 24 hours prior to the swap that occurs on the first working day of each month between 9:00-10:00am Eastern Time.
+See the section on projected refresh dates below for more information.
+In order to ensure that changes you make in your production environment are present in the next month's monthly sandbox instance, we recommend making those production changes by the end of the current month.
+The client_id and client_secret to use are in the **Production OAuth Credentials** section of the application’s configuration page.
+For authentication requests, you will want to use the base URL: <https://login-sandbox-monthly.procore.com>.
+For general API requests, you will want to use the base URL: <https://api-monthly.procore.com>.
+- **Development Sandbox** - automatically generated for third-party developers in their Developer Portal account and includes seed project data that can be used for testing purposes.
+The Development Sandbox environment does not refresh with production data at any time.
+The client_id and client_secret to use are in the **Sandbox OAuth Credentials** section of the application’s configuration page.
+For authentication requests, you will want to use the base URL: <https://login-sandbox.procore.com>.
+For general API requests, you will want to use the base URL: <https://sandbox.procore.com>.
 
 ## Sandbox Environment URL Details
 
@@ -21,6 +32,28 @@ To make Procore's API as explorable as possible, we have provided the following 
 |                     | https://api-sandbox-monthly.procore.com   | Domain for browser access to the Procore Web Application in the monthly sandbox environment.           |
 | Development Sandbox | https://sandbox.procore.com/              | Domain for browser access and API gateway access to a development sandbox environment.                 |
 |                     | https://login-sandbox.procore.com/        | Domain for making API calls to the Procore authentication server in a development sandbox environment. |
+
+## Projected Monthly Sandbox Refresh Dates
+
+Here are the projected 2023-24 dates for the refresh of the monthly sandbox.
+
+| Year | Month     | Date       | Day       |
+| ---- | --------- | ---------- | --------- |
+| 2023 | October   | 10/02/2023 | Monday    |
+| 2023 | November  | 11/01/2023 | Wednesday |
+| 2023 | December  | 12/04/2023 | Monday    |
+| 2024 | January   | 01/03/2024 | Wednesday |
+| 2024 | February  | 02/01/2024 | Thursday  |
+| 2024 | March     | 03/04/2024 | Monday    |
+| 2024 | April     | 04/01/2024 | Monday    |
+| 2024 | May       | 05/01/2024 | Wednesday |
+| 2024 | June      | 06/03/2024 | Monday    |
+| 2024 | July      | 07/09/2024 | Tuesday   |
+| 2024 | August    | 08/01/2024 | Thursday  |
+| 2024 | September | 09/02/2024 | Monday    |
+| 2024 | October   | 10/01/2024 | Tuesday   |
+| 2024 | November  | 11/04/2024 | Monday    |
+| 2024 | December  | 12/02/2024 | Monday    |
 
 ## Working with a Development Sandbox
 
