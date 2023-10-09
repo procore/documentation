@@ -66,6 +66,13 @@ The following Side Panel Views are supported and can be defined in the applicati
 |----------|-------------|
 | commitments.work_order_contracts.detail | /projects/work_order_contracts/7542524<br> /projects/work_order_contracts/7542524/requisitions/6620298/g703 |
 | commitments.purchase_order_contracts.detail | /projects/commitments/purchase_order_contracts/754251<br> /projects/commitments/purchase_order_contracts/754251/requisitions/6620298/g703 |
+| commitments.commitment_contract_change_orders.new | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br >/change_orders/commitment_contract_change_orders/new |
+| commitments.commitment_contract_change_orders.detail | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br >/change_orders/commitment_contract_change_orders/:id |
+| commitments.commitment_contract_change_orders.edit |/:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br >/change_orders/commitment_contract_change_orders/:id/edit |
+| prime_contracts.invoices.list | /:project_id/project/contracts/prime_contracts/:prime_contract_id/invoices |
+| prime_contracts.payment_applications.new | /:project_id/project/prime_contracts/:prime_contract_id/payment_applications/new  |
+| prime_contracts.payment_applications.detail | /:project_id/project/prime_contracts/:prime_contract_id/payment_applications/:id |
+| prime_contracts.payment_applications.edit | /:project_id/project/prime_contracts/:prime_contract_id/payment_applications/:id/edit |
 | change_events.new | /:project_id/project/change_events/events/new |
 | change_events.detail | /:project_id/project/change_events/events/:id |
 | change_events.edit | /:project_id/project/change_events/events/:id/edit |
