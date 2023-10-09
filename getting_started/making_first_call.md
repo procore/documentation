@@ -45,7 +45,10 @@ In this section, the cURL command line tool is used to retrieve an OAuth 2.0 acc
 
 ### 1. Obtain Authorization from the User
 
-The first step to obtaining an access token is to open your browser and make a call to the ‘Authorize’ endpoint using a REST URL.
+The first step to obtaining a token is to open your browser and make a call to the `/authorize` endpoint using a REST URL.
+<br >(Note: If you are using the client credentials grant type, this Step 1 can be skipped and you can go straight to Step 2 below - Retrieve an Access Token.
+See [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) for additional information.)
+
 The syntax for this URL is shown here:
 
     https://login.procore.com/oauth/authorize?response_type=code&client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>
@@ -80,16 +83,27 @@ Our cURL command for retrieving an access token will pass the following paramete
 - `client_id` - should match what you retrieve from your application page on the Developer Portal.
 - `client_secret` - should match what you retrieve from your application page on the Developer Portal.
 - `code` - is the authorization code string you captured in the previous step using the /authorize endpoint.
-- `grant_type` - is set to “authorization_code”.
+(only needed when using the authorization code grant type)
+- `grant_type` - is set to “authorization_code” or "client_credentials" as appropriate.
 - `redirect_uri` - should be set to “urn:ietf:wg:oauth:2.0:oob” to be consistent with our example.
 
-Below is an example cURL command for retrieving an access token:
+Below is an example cURL command for retrieving an access token using the authorization code grant type:
 
 ```
 curl -F grant_type=authorization_code \
   -F client_id=db0d63cfa7ac3ceed7166081542216ec51e36941234e5e879105e36bd76dbf63 \
   -F client_secret=0b57e8d87e35370307ba5f98ad135bd155cabacea56d12344afe083e2eb04b54 \
   -F code=8957b84a67f6ae55ab79c9767836a0af30b7fb7e4c36b27412343728cce71ec7 \
+  -F redirect_uri=urn:ietf:wg:oauth:2.0:oob \
+  -X POST https://api.procore.com/oauth/token
+```
+
+Here is an example cURL command for retrieving an access token using the client credentials grant type:
+
+```
+curl -F grant_type=client_credentials \
+  -F client_id=db0d63cfa7ac3ceed7166081542216ec51e36941234e5e879105e36bd76dbf63 \
+  -F client_secret=0b57e8d87e35370307ba5f98ad135bd155cabacea56d12344afe083e2eb04b54 \
   -F redirect_uri=urn:ietf:wg:oauth:2.0:oob \
   -X POST https://api.procore.com/oauth/token
 ```
