@@ -5,9 +5,12 @@ layout: default
 section_title: Building Applications
 ---
 
+>**Note:** This article covers topics consistent with the App Manifest v4.1 format.
+>For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
+
 ## Background
 
-Procore has expanded the capabilities of embedded applications to include a context-aware side panel experience in addition to the full screen experience.
+Procore has expanded the capabilities of the Procore platform to include a context-aware side panel experience in addition to the full screen embedded experience.
 Developers can now build applications that display in a side panel iframe located on the right side of the Procore user interface.
 Procore users click a dock icon to launch the side panel experience.
 Side panel applications operate in the context of specific tools/views in Procore.
@@ -17,11 +20,7 @@ This article outlines the steps for creating a new side panel application.
 
 ## Create an Application
 
-(NOTE: If your existing app already has an embedded component defined in the manifest, you will need to create a new app.
-You cannot add a side panel component to your existing app.
-This limitation will be addressed in a feature release.)
-
-1. Open your browser and navigate to the Developer Portal landing page.
+Open your browser and navigate to the Developer Portal landing page.
 1. Click **Sign In** to log in to your Developer Portal account.
 1. Navigate to the My Apps page and click **Create a New App**. The Create New App dialog displays.
 1. Enter an **App Name**. This will be the name you use to refer to your app internally within your organization.
@@ -29,34 +28,31 @@ This limitation will be addressed in a feature release.)
 
 ## Define an App Manifest
 
-As a developer, you can control which Procore tools and resource views your app can display in.
-The following sections outline the steps for defining an app manifest for a side panel embedded app.
+The following sections outline the steps for defining an app manifest for a fullscreen embedded app.
 
 ### Create New Sandbox Manifest Version
 
 Let’s start by creating a new version of our app manifest in the sandbox environment.
 1. In the Developer Portal, navigate to the Manage Manifests panel for your app.
 1. Make sure the Sandbox tab is selected.
-1. Click **Create New Version**.
+1. Click **Create New Version** to display the manifest editor. You can use the editor to add an embedded component to your manifest and modify it for your specific application. The editor provides built-in validation so that you are notified when the format of your manifest does not conform to the required structure.
 
-![create new manifest version]({{ site.baseurl }}/assets/guides/side-panel-create-new-manifest-version.png)
+    ![create new manifest version]({{ site.baseurl }}/assets/guides/side-panel-create-new-manifest-version.png)
 
-### Add a Side Panel iframe Component
+### Add a Side Panel Component
 
-Now we can add an iframe component for our side panel in the manifest.
-Below is an example app manifest that defines a simple side panel iframe component.
+You can add a side panel component to the manifest using the **Inject Component** button for the `sidepanel` component type.
 
-![3.2 manifest example]({{ site.baseurl }}/assets/guides/side-panel-32-manifest.png)
+![Inject SidePanel]({{ site.baseurl }}/assets/guides/inject-component-sidepanel.png)
 
-A valid side panel app manifest requires the following:
+A new code block is added to the manifest where you can define the structure of your side panel component. For example:
 
-* Manifest version number must be ‘3.2’.
-* iframe component instance type defined as ‘sidepanel’.
-* Targeted tools/resources defined with the ‘views’ attribute (see below).
-* Side panel application URL specified in the ‘iframe_src’ attribute.
-* Required and/or optional fields defined in the ‘configuration’ section.
+![Sidepanel Snippet]({{ site.baseurl }}/assets/guides/create-new-manifest-v4.1-sidepanel-snippet.png)
 
-See [Creating an App Manifest]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_define_manifest.md %}) to learn more about app manifests and their attributes.
+The manifest objects and attributes for the side panel component are the same as for embedded components, with the addition of the `sidepanel:views` array.
+This is where you define which Procore application views your component supports.
+For example, `commitments.purchase_orders.detail` and `commitments.purchase_orders.edit`.
+Supported side panel views are discussed in the following section.
 
 ## Working with Side Panel Views
 
@@ -349,10 +345,5 @@ window.addEventListener('message', (event) => {
 
 ## Promote Updated Sandbox Manifest to Production
 
-After you have successfully tested and validated your updated manifest in the development sandbox environment, you can promote it to the production environment and use your production OAuth credentials with your App.
+After you have successfully tested and validated your updated manifest in the development sandbox environment, you can promote it to the production environment.
 See [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for additional information.
-
-## App Installation and Management
-
-Side panel applications are installed by Procore company administrators either from the Procore App Marketplace or as custom installations.
-See [Install an Embedded App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-embedded-app), [Install a Data Connection App from the Marketplace](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/Install-data-connection-app), and [Install a Custom App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app) for additional information.

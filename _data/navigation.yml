@@ -63,14 +63,18 @@
       url: /building-apps-create-new
     - title: Creating an App Manifest
       url: /building-apps-define-manifest
+    - title: Building Procore Embedded (Fullscreen) Applications
+      url: /building-embedded-fullscreen-apps  
+    - title: Building Procore Side Panel Applications
+      url: /building-side-panel-apps
+    - title: Building Procore Data Connection Applications with DMSA
+      url: /building-data-connection-apps
     - title: Promoting a Sandbox Manifest to Production
       url: /building-apps-promote-manifest
     - title: Submitting a Production App Manifest for Review
       url: /building-apps-review-manifest
     - title: Creating a Marketplace Listing and Submitting for Review
       url: /building-apps-submit-marketplace
-    - title: Building Procore Side Panel Applications
-      url: /building-side-panel-apps
     - title: Managing App Collaboration
       url: /building-apps-manage-collabs
     - title: Working with App Metrics
@@ -81,6 +85,10 @@
       url: /building-apps-helper-library
     - title: Developer Managed Service Accounts
       url: /developer-managed-service-accounts
+    - title: App Manifest v3.x Legacy Format
+      url: /building-apps-legacy-v3x-manifest-format
+    - title: Migrating an App Manifest from v3.x to v4.1
+      url: /building-apps-v3x-v41-manifest-migration
 
 - title: API Essentials
   items:

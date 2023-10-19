@@ -74,15 +74,15 @@ Traditional Service Accounts were deprecated on December 9, 2021.
 >
 >&emsp;&emsp;to:
 >
->* `https://us02.procore.com/fas/api/v5/us-east-1/pro-core.com/companies/…`  
->or  
+>* `https://us02.procore.com/fas/api/v5/us-east-1/pro-core.com/companies/…`
+>or
 `https://app.procore.com/fas/api/v5/us-east-1/pro-core.com/companies/…`
 >
 >Redirects for the above URL will change from:
 >
 >* `https://s3.amazonaws.com/prostore-apse2/…`
 >
->&emsp;&emsp;to:  
+>&emsp;&emsp;to:
 >* `https://prostore-apse2.s3.ap-southeast-2.amazonaws.com/…`
 >
 >The file link URL schema change is required for Procore to roll out our new file access service and to support the changes that our cloud service partner, Amazon Web Services, is making on their platform.
@@ -115,7 +115,7 @@ Traditional Service Accounts were deprecated on December 9, 2021.
 
 >**Development Sandbox Maintenance** (11/07/2022)
 >
->**Maintenance Update (11/16/2022)** 
+>**Maintenance Update (11/16/2022)**
 >We are still working on maintenance work and will extend the maintenance until Friday, November 18th 5:00 PM PST. Details below have been updated to reflect this change.
 >
 >
@@ -125,7 +125,7 @@ Traditional Service Accounts were deprecated on December 9, 2021.
 >   - Data written to the environment between taking the snapshot and completing the maintenance window may not be restored.
 >   - Creating new application manifests will also be temporarily disabled between when the snapshot is taken and the maintenance is complete.
 > - Beginning Monday, November 14th, between approximately 9 AM PST and until Friday, November 18th 5:00 PM PST, the Development Sandbox will not be available. Please note that this only impacts the Development Sandbox and does not impact the Monthly Sandbox.
-> - When the environment is restored at approximately 5:00 PM PST on Friday, November 18th, the data will be from the snapshot taken on Friday, November 11th. 
+> - When the environment is restored at approximately 5:00 PM PST on Friday, November 18th, the data will be from the snapshot taken on Friday, November 11th.
 > - After the maintenance is complete, webhooks will continue to be unavailable for approximately one week while we roll out some additional enhancements to resolve the current scale and reliability issues of webhooks in the Development Sandbox.
 >
 >If you have questions regarding this maintenance, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
@@ -154,7 +154,7 @@ Traditional Service Accounts were deprecated on December 9, 2021.
 >**Work Breakdown Structure Release and Deprecation of Financial Line Item Endpoints** (03/31/2022)
 >
 > With the release of [Work Breakdown Structure](https://developers.procore.com/documentation/tutorial-wbs), the following financial line item endpoints that utilize `cost_code`, `cost_type` and `sub_job` attributes will be deprecated on March 31, 2022.
-> 
+>
 > - [List Standard Cost Code Lists](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#list-standard-cost-code-lists) (replaced by [List Company WBS Segment Item Lists](https://developers.procore.com/reference/rest/v1/segment-item-lists?version=1.0#list-company-wbs-segment-item-lists))
 > - [Delete Standard Cost Code](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#delete-standard-cost-code) (replaced by [Delete Company Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#delete-company-segment-item))
 > - [Delete Sub Job](https://developers.procore.com/reference/rest/v1/sub-jobs?version=1.0#delete-sub-job) (replaced by [Delete Project Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#delete-project-segment-item))
