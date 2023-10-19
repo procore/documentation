@@ -5,6 +5,24 @@ layout: default
 section_title: Overview
 ---
 
+>**New App Manifest v4.1 Now Available** (xx/xx/2023)
+>
+>The schema for the App manifest has been updated to more easily support multiple component types and simplify the way OAuth 2.0 authentication is configured.
+>Version 4.1 of the App manifest now lets you quickly define embedded (fullscreen) components, side panel components, and tool access permissions for data connection components.
+>In addition, you no longer have to explicitly specify the OAuth 2.0 authentication grant type in the manifest.
+>The single set of OAuth credentials established when you create a new application can be used for making API calls using any OAuth grant type Procore supports.
+>A number of new developer articles have been published and existing ones updated to cover the use of the new v4.1 manifest schema:
+>- [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %})
+>- [Building Procore Embedded (Fullscreen) Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %})
+>- [Building Procore Side Panel Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %})
+>- [Building Procore Data Connection Applications with DMSA]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %})
+>- [Creating an App Manifest]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_define_manifest.md %})
+>- [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %})
+>- [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %})
+>- [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %})
+>
+>If you have questions regarding this change, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 >**OAuth access token expiration time reduced to 5400 seconds** (09/26/2023)
 >
 >As part of the planned transition to shorter duration OAuth access tokens, token expiration time has been reduced from 7200 seconds (2 hours) to 5400 seconds (1.5 hours).
