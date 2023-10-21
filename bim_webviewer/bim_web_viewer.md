@@ -3581,6 +3581,28 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v8 to v9
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v8-to-v9"></a>
+</p>
+
+#### Changes to `camera.getSnapshot` amd  `camera.getSnapshotDataUrl` methods
+
+These methods now return a Promise that resolves to a `void` and a `string` respectively. Previously these methods would run synchronously and `camera.getSnapshotDataUrl` would return a `string` directly. 
+
+#### Recmmended changes you can make
+
+```
+// Before
+const dataUrl = viewer.camera.getSnapshotDataUrl();
+
+// After
+const dataUrl = await viewer.camera.getSnapshotDataUrl();
+```
+
+
+
 ### v7 to v8
 
 <p class="heading-link-container">
