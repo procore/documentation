@@ -141,7 +141,7 @@ window.addEventListener('message', (event) => {
     const resource_id = obj.context.id;
   }});
 
-window.parent.postMessage({ type: 'initialize' }, '*');
+window.parent.postMessage({ type: 'initialize' }, 'https://example.com/my-side-panel-app');
 ```
 
 ## Additional postMessage Events
