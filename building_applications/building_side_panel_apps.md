@@ -147,7 +147,7 @@ window.parent.postMessage({ type: 'initialize' }, 'https://example.com/my-side-p
 In the example above we have set the value for the `targetOrigin` parameter of the `postMessage` method to `https://example.com/my-side-panel-app`.
 The `targetOrigin` parameter in this method specifies the origin of the window that should receive the message.
 It is important that you always provide a specific, fully-qualified URI in the `targetOrigin` parameter to ensure the best security.
-For more information, see the [postMessage() method documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage).
+For additional information, see the [postMessage() method documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage).
 
 ## Additional postMessage Events
 
