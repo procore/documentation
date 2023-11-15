@@ -1195,6 +1195,18 @@ Fires when the camera field of view has been changed. Returns a number in degree
 
 ---
 
+### globalBoundingBoxInitialized
+
+<p class="heading-link-container"><a class="heading-link" href="#globalboundingboxinitialized"></a></p>
+
+Fires when the global bounding box of the model has been determined.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| bbox | BoundingBox | `{ min: { x: Number, y: Number, z: Number }, max: { x: Number, y: Number, z: Number } }` |
+
 ### hideUpdated
 
 <p class="heading-link-container"><a class="heading-link" href="#hideupdated"></a></p>
