@@ -2094,6 +2094,81 @@ Model
 
 ---
 
+### Toggle Section Box Display
+
+<p class="heading-link-container"><a class="heading-link" href="#toggle-section-box-display"></a></p>
+
+```js
+toggleSectionBoxDisplay(enable);
+```
+
+#### Description
+
+Sets the on/off status of the section box display.
+
+The section box display is the UI widget that allows users to interactively set the section box.
+
+When turned on it will take the size of the existing section box that is clipping the model (e.g. from a call to [`model.setSectionBox`](#set-section-box)). If there is no section box set it will error. If the section box is set while the display is toggled on, the display will also change size to match the section box.
+
+The section box display can be configured through the [`model.configureSectionBoxDisplay`](#configure-section-box-display) method.
+
+#### Parameters
+
+| Field Name | Required | Type    | Description                                     |
+| ---------- | -------- | ------- | ----------------------------------------------- |
+| enable     | true     | boolean | on/off status to set the section box display to |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Configure Section Box Display
+
+<p class="heading-link-container"><a class="heading-link" href="#configure-section-box-display"></a></p>
+
+```js
+configureSectionBoxDisplay(config);
+```
+
+#### Description
+
+Configures how the section box display (controlled by [`model.toggleSectionBoxDisplay`](#toggle-section-box-display)) will appear.
+
+When the section box display is enabled, calling `configureSectionBoxDisplay` will take effect immediately. When the section box display is not enabled, the configuration changes will apply the next time the section box display is enabled.
+
+#### Parameters
+
+| Field Name | Required | Type    | Description                                     |
+| ---------- | -------- | ------- | ----------------------------------------------- |
+| config     | false    | Object  | Configuration object to change the behavior of the section box display. If called with no config argument, it will revert to the default config. |
+
+##### config
+
+| Field Name | Required | Type    | Description                                     |
+| ---------- | -------- | ------- | ----------------------------------------------- |
+| dropdown   | false    | boolean | Determines whether the section tool dropdown appears. Defaults to true. |
+| hidePlanes | false    | boolean | Determines whether the planes of the section box display are shown. When they are hidden, the arrows still show. Defaults to false. |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Add Section Plane
 
 <p class="heading-link-container"><a class="heading-link" href="#add-section-plane"></a></p>
