@@ -2039,7 +2039,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#set-section-box"></a></p>
 
 ```js
-setSectionBox(minXYZ, maxXYZ, rotation);
+setSectionBox(minXYZ, maxXYZ, rotation, showCoachmark);
 ```
 
 #### Description
@@ -2048,11 +2048,12 @@ Sets section box given an XYZ max and min and rotation(optional);
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                         |
-| ---------- | -------- | ------ | ----------------------------------- |
-| minXYZ     | true     | Object | { x: Number, y: Number, z: Number } |
-| maxXYZ     | true     | Object | { x: Number, y: Number, z: Number } |
-| rotation   | false    | Object | { x: Number, y: Number, z: Number } |
+| Field Name    | Required | Type    | Description                         |
+| ------------- | -------- | ------- | ----------------------------------- |
+| minXYZ        | true     | Object  | { x: Number, y: Number, z: Number } |
+| maxXYZ        | true     | Object  | { x: Number, y: Number, z: Number } |
+| rotation      | false    | Object  | { x: Number, y: Number, z: Number } |
+| showCoachmark | false    | boolean | Determines whether the Sectioning Applied coachmark is shown. Defaults to true. |
 
 ##### Returns
 
