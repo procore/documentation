@@ -1467,6 +1467,37 @@ Fires when a single click occurs in the webviewer container element. This event 
 
 ---
 
+### sectionBoxDisplayConfigured
+
+<p class="heading-link-container"><a class="heading-link" href="#sectionboxdisplayconfigured"></a></p>
+
+Fires when the section box display is configured (e.g. via [`model.configureSectionBoxDisplay`](#configure-section-box-display)).
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| current | SectionBoxDisplayConfiguration | The configuration that has now taken effect. See [`model.configureSectionBoxDisplay`](#configure-section-box-display)'s params for shape of configuration. |
+| previous | SectionBoxDisplayConfiguration | The configuration before the change that fired this event. See [`model.configureSectionBoxDisplay`](#configure-section-box-display)'s params for shape of configuration. |
+| enabled | boolean | Whether the section box display is enabled or not |
+
+---
+
+### sectionBoxDisplayToggled
+
+<p class="heading-link-container"><a class="heading-link" href="#sectionboxdisplaytoggled"></a></p>
+
+Fires when the section box display is toggled on or off (e.g. via [`model.toggleSectionBoxDisplay`](#toggle-section-box-display)).
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| configuration | SectionBoxDisplayConfiguration | The configuration that was used when the section box display was toggled on. See [`model.configureSectionBoxDisplay`](#configure-section-box-display)'s params for shape of configuration. |
+| value | boolean | Whether the section box display was enabled or disabled |
+
+---
+
 ### sectionBoxSet
 
 <p class="heading-link-container"><a class="heading-link" href="#sectionboxset"></a></p>
