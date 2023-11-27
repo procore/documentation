@@ -790,6 +790,92 @@ undefined
 
 Camera
 
+---
+
+### Set Markup
+
+<p class="heading-link-container"><a class="heading-link" href="#set-markup"></a></p>
+
+```js
+setMarkup(markupData, fov);
+```
+
+#### Description
+
+Draws various types of markup (ellipses, lines, arrows, and texts) on an SVG canvas based on the provided `markupData` and `fov` (field of view).
+
+The `markupData` is an object that contains arrays of different types of markup elements, each with their own properties.
+
+The `fov` is used to calculate the range of the x and y axes. The tangent of `fov` is used as a range for positive Y values. This is compared to the aspect ratio of the viewport to get a range for positive X values.
+
+Example:
+
+- `fov` is 45deg, tangent of 45 is 1, so positive Y will range from 0 to 1.
+- Viewport aspect ratio (determined from canvas width and height) is 2, so positive X will range from 0 to 2.
+- For a markup line that starts at (0.5, 1), the line will start exactly in the middle of the first quadrant (upper right).
+
+When called, any existing markup will first be cleared before the markup data is drawn.
+
+After markup drawing is complete, the [`markupDisplayed`](#markupdisplayed) event will be published.
+
+#### Parameters
+
+| Field Name  | Required | Type   | Description                                     |
+| ----------- | -------- | ------ | ----------------------------------------------- |
+| markupData  | true     | object | Data for the shapes and text to be drawn        |
+| fov         | true     | number | Field of view to calculate the range of axes    |
+
+#### MarkupData Object
+
+The `markupData` object contains arrays of different types of markup elements. Each type of markup element has its own properties:
+
+##### Ellipses
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| min_point     | object | Object with `x` and `y` properties              |
+| max_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the ellipse                        |
+
+##### Lines
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| start_point   | object | Object with `x` and `y` properties              |
+| end_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the line                           |
+
+##### Arrows
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| start_point   | object | Object with `x` and `y` properties              |
+| end_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the arrow                          |
+
+##### Texts
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| origin        | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| text          | string | Text content                                    |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Camera
+
+---
+
 ## DOM Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#dom-namespace"></a></p>
