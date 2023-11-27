@@ -827,7 +827,16 @@ After markup drawing is complete, the [`markupDisplayed`](#markupdisplayed) even
 
 #### MarkupData Object
 
-The `markupData` object contains arrays of different types of markup elements. Each type of markup element has its own properties:
+The `markupData` object contains arrays of different types of markup elements. 
+
+| Field Name | Required | Type       | Description                          |
+| ---------- | -------- | ---------- | ------------------------------------ |
+| ellipses   | false    | Ellipses[] | Array of ellipse objects to be drawn |
+| lines      | false    | Lines[]    | Array of lines objects to be drawn   |
+| arrows     | false    | Arrows[]   | Array of arrow objects to be drawn   |
+| text       | false    | Text[]     | Array of text objects to be drawn    |
+
+Each type of markup element has its own properties:
 
 ##### Ellipses
 
