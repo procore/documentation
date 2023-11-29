@@ -60,7 +60,7 @@ An example event object generated from a CREATE event is shown below:
   "api_version": "v2",
   "company_id": 6452,
   "event_type": "create",
-  "id": 11301387632,
+  "id": 5982324300946918154,
   "metadata": {
         "source_application_id": null,
         "source_company_id": 6452,
@@ -134,9 +134,9 @@ One approach to handling this scenario is to log each processed event, and then 
 
 ### Webhooks Retry/Backoff Behavior
 
-When a Webhook delivery fails, either because we could not connect to the destination URL, or because the destination returned a non-2XX response code, all future deliveries to that endpoint will be paused.
+When a Webhook delivery fails, due to a failure to establish a connection to the destination URL, the destination returning a non-2XX response code, or the request timing out (5 seconds), all future deliveries to that endpoint will be paused.
 The failing Webhook will then be retried using an exponential backoff scheme, starting with a 1 second interval and with a maximum interval of 1 hour.
-After 24 hours of retrying event delivery to that destination URL, the delivery queue will be flushed and all queued events will be marked as `failed`.
+After 12 hours of retrying event delivery to that destination URL, the delivery queue will be flushed and all queued events will be marked as `failed`.
 When the next new Webhook to be delivered is ready, it will attempt to deliver it from a fresh start, beginning a new retry cycle if the destination URL remains unavailable.
 If at any point during the retry cycle a successful delivery occurs, the system will resume sending events as normal and all retry counters will be reset.
 
