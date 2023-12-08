@@ -3811,11 +3811,11 @@ If you were using the payload from this event, you will need to update your code
   <a class="heading-link" href="#v8-to-v9"></a>
 </p>
 
-#### Changes to `camera.getSnapshot` amd  `camera.getSnapshotDataUrl` methods
+#### Changes to `camera.getSnapshot` and  `camera.getSnapshotDataUrl` methods
 
 These methods now return a Promise that resolves to a `void` and a `string` respectively. Previously these methods would run synchronously and `camera.getSnapshotDataUrl` would return a `string` directly.
 
-#### Recmmended changes you can make
+#### Recommended changes you can make
 
 ```
 // Before
