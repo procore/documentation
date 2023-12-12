@@ -3795,17 +3795,27 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v9 to v10
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v9-to-v10"></a>
+</p>
+
+The [`intersectPointClick`](#intersectpointclick) event's payload has changed to return "world coordinates".
+
+If you were using the payload from this event, you will need to update your code to be in the appropriate coordinate system. See [Migrating to World Coordinates](#migrating-to-world-coordinates)
+
 ### v8 to v9
 
 <p class="heading-link-container">
   <a class="heading-link" href="#v8-to-v9"></a>
 </p>
 
-#### Changes to `camera.getSnapshot` amd  `camera.getSnapshotDataUrl` methods
+#### Changes to `camera.getSnapshot` and  `camera.getSnapshotDataUrl` methods
 
-These methods now return a Promise that resolves to a `void` and a `string` respectively. Previously these methods would run synchronously and `camera.getSnapshotDataUrl` would return a `string` directly. 
+These methods now return a Promise that resolves to a `void` and a `string` respectively. Previously these methods would run synchronously and `camera.getSnapshotDataUrl` would return a `string` directly.
 
-#### Recmmended changes you can make
+#### Recommended changes you can make
 
 ```
 // Before
@@ -3815,8 +3825,6 @@ const dataUrl = viewer.camera.getSnapshotDataUrl();
 const dataUrl = await viewer.camera.getSnapshotDataUrl();
 ```
 
-
-
 ### v7 to v8
 
 <p class="heading-link-container">
@@ -3825,7 +3833,7 @@ const dataUrl = await viewer.camera.getSnapshotDataUrl();
 
 #### Coordinates Should Be Consistent with the Source File
 
-Several methods were returning/expecting to receive coordinates that were not consistent with the model coordinates from the source file. Prior to this change, to get the correct coordinates you would need to add the result of `model.getGlobalOffset` to them. This would affect models that are significantly offset from the origin, which we refer to as being in "world coordinates". As of this change, most instances of not returning "world coordinates" have been fixed.
+Several methods now return or expect to receive "world coordinates".
 
 The changed methods:
 
@@ -3838,7 +3846,7 @@ The changed methods:
 - `camera.setBcfCamera` took a second boolean argument that defaulted to receiving local coordinates. If you were passing `false` or nothing here it will no longer be consistent with the coordinates from other methods. If you were passing `true` then no change required.
 - `model.ModelToMapSpace` now expects a `point` parameter in world coordinates.
 
-If you were saving data returned from these, that data may now be inconsistent if there is a global offset (i.e. if `model.getGlobalOffset` is a non-zero vector) for that model. This can result in behavior where setting the camera position with `setPosition` may be very far away from the actual model. To migrate the old data you would need to translate by the `model.getGlobalOffset` to be in the correct coordinate system.
+If you were using these methods, you will need to update your code to be in the appropriate coordinate system. See [Migrating to World Coordinates](#migrating-to-world-coordinates)
 
 #### `model.getSections` Now Requires Format Parameter
 
@@ -4098,6 +4106,62 @@ camera.zoomExtents => camera.zoomToBoundingBox
 There were no actual API changes that necesitated a breaking change here but we did drastically change our rendering algorithm to reduce flashing and dropout. For larger models this may come at the expense of low framerates.
 
 I have the privilege of writing this migration guide from the future and can tell you that we've been able to make it even better without (as much) of a framerate hit for larger models in v6.0.1 and you should consider upgrading to that or later. v3 to v4 may also not have needed a breaking change in retrospect so you can safely go from v3 to v4 without your code breaking but know that rendering will behave and perform differently and hopefully mostly for the better on v4 (but again vastly better on v6).
+
+### Migrating to World Coordinates
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#migrating-to-world-coordinates"></a>
+</p>
+
+#### Context
+
+Historically, many methods and events returned and/or expected to receive coordinates that were not consistent with the model coordinates from the source file. To get the correct coordinates you would need to add/subtract the result of `model.getGlobalOffset` to them. This would affect models that are significantly offset from the origin, which we refer to as being in "world coordinates".
+
+We have since taken the stance that all coordinates returned or required as parameters to the Web Viewer should be consistent with the model coordinates from the source file. However, we will be updating them as we come across them so they may be shipped across multiple breaking changes.
+
+#### Migration Guide
+
+If you were saving data returned from a method or event payload that has changed, that data may now be inconsistent if there is a global offset (i.e. if `model.getGlobalOffset` is a non-zero vector) for that model. This can result in behavior where setting the camera position with `setPosition` may be very far away from the actual model. To migrate the old data you would need to translate by the `model.getGlobalOffset` to be in the correct coordinate system.
+
+For example, say you were on an old version of the Web Viewer in which `camera.getPosition/setPosition` did not operate on "world coordinates" and you were saving the camera positions with the following:
+
+```ts
+const cameraPosition = await viewer.camera.getPosition();
+
+postCameraPositionToServer(cameraPosition);
+```
+
+And then you wanted to load these saved positions to set the initial camera position:
+
+```ts
+const { x, y, z } = await getCameraPositionFromServer();
+
+viewer.camera.setPosition(x, y, z);
+```
+
+But then a new version of the Web Viewer is released that updates `camera.getPosition/setPosition` to be in "world coordinates". The values you have saved in your DB will now be incorrect when you pass them to `setPosition`.
+
+To fix this issue you would need to add the global offset (`model.getGlobalOffset`) to the position before calling `setPosition`:
+
+```ts
+const { x, y, z } = await getCameraPositionFromServer();
+const { offsetX, offsetY, offsetZ } = await viewer.model.getGlobalOffset();
+
+viewer.camera.setPosition(x + offsetX, y + offsetY, z + offsetZ);
+```
+
+Saving to the DB would also need to be updated to keep your DB values in a consistent coordinate system:
+
+```ts
+const { x, y, z } = await viewer.camera.getPosition();
+const { offsetX, offsetY, offsetZ } = await viewer.model.getGlobalOffset();
+
+postCameraPositionToServer({
+  x: x - offsetX,
+  y: y - offsetY,
+  z: z - offsetZ
+});
+```
 
 ## Legal Notice
 
