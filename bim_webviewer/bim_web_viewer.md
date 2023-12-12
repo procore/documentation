@@ -154,7 +154,6 @@ ProcoreBim.Cache.hasModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell'
 }).then(function (isCached) {
   console.log(isCached);
 });
@@ -3279,7 +3278,6 @@ ProcoreBim.Cache.hasModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell'
 }).then(function (isCached) {
   console.log(isCached);
 });
@@ -3318,7 +3316,6 @@ ProcoreBim.Cache.removeModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell'
 }).then(function (modelRemoved) {
   console.log(modelRemoved);
 });
@@ -3491,17 +3488,6 @@ Provided by a Procore service.
 ```
 
 URL to node binary.
-Provided by a Procore service.
-
-`cellUrl [string]` (required)
-
-```js
-{
-  cellUrl: 'https://foo.com/geometry/mesh';
-}
-```
-
-URL to mesh binary.
 Provided by a Procore service.
 
 `bcfCamera [Object]`
@@ -3746,7 +3732,6 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   meshUrl: String,
   meshnodeUrl: String,
   nodeUrl: String,
-  cellUrl: String
 }
 ```
 
