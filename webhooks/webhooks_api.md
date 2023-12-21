@@ -161,7 +161,7 @@ The following table describes the various attributes of the List Webhooks Delive
 ### Filtering the List Webhooks Deliveries Response
 
 Due to the potential large volume of webhooks deliveries your system might be required to consume, you may find it helpful to filter the response from the List Webhooks Deliveries call using the `filters[status]` query parameter.
-This query parameter lets you limit the response to 'any' (default), 'successful', or 'failing' webhooks deliveries.
+This query parameter lets you limit the response to 'any' (default), 'successful', 'discarded', or 'failing' webhooks deliveries.
 Here is the syntax for using the `filters[status]` query parameter.
 
 ```
@@ -169,7 +169,7 @@ https://api.procore.com/rest/v1.0/webhooks/hooks/<HOOK_ID>/deliveries?company_id
 
 where:  <HOOK_ID> is the ID for webhook hook
         <COMPANY_ID> is the ID for company (could also be <PROJECT_ID>)
-        <FILTER_VALUE> is the filter setting - either 'any', 'successful', or 'failing'
+        <FILTER_VALUE> is the filter setting - either 'any', successful', 'discarded', or 'failing'
 
 example:  curl -X GET https://api.procore.com/rest/v1.0/webhooks/hooks/12345/deliveries?
           company_id=987654&filter[status]=failing
