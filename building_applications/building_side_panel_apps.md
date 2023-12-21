@@ -93,11 +93,7 @@ The following sections list the currently supported Side Panel Views that can be
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/commitments/work_order_contracts/:id | commitments.work_order_contracts.detail |
-| /:project_id/project/commitments/work_order_contracts/:id/ssov | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/change_orders | commitments.work_order_contracts.detail |
-| /:project_id/project/commitments/work_order_contracts/:id/rfqs | commitments.work_order_contracts.detail |
-| /:project_id/project/commitments/work_order_contracts/:id/invoices | commitments.work_order_contracts.detail |
-| /:project_id/project/commitments/work_order_contracts/:id/payments | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/change_history | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/advanced_settings | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/edit | commitments.work_order_contracts.edit |
@@ -130,7 +126,6 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/<br>change_orders/commitment_contract_change_orders/new | commitments.commitment_contract_change_orders.new |
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/<br>change_orders/commitment_contract_change_orders/:id | commitments.commitment_contract_change_orders.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/<br>change_orders/commitment_contract_change_orders/:id/edit | commitments.commitment_contract_change_orders.edit |
-| /:project_id/project/commitments/purchase_order_contracts/:id/requisitions/:invoice_id | commitments.requisitions.detail |
 
 ### Contracts
 
