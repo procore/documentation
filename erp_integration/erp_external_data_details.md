@@ -10,7 +10,7 @@ section_title: ERP Integration
 
 Whether Procore Objects are exported from Procore or imported from an external system, every synced Procore Object has an associated External Data record.
 These External Data records map the Procore ID of the Procore Object to the Third-party ID of the Object in the external system, and they can also be used to store additional information related to the Object that integrators may find useful.
-Integrators can use the publicly accessible [**External Data API**](https://developers.procore.com/reference/rest/v1/external-data) to fetch and sync External Data records.
+Integrators can use the publicly accessible [**External Data API**](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0) to fetch and sync External Data records.
 
 ## Procore Type
 

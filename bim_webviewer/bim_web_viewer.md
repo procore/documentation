@@ -154,7 +154,6 @@ ProcoreBim.Cache.hasModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell'
 }).then(function (isCached) {
   console.log(isCached);
 });
@@ -790,6 +789,101 @@ undefined
 
 Camera
 
+---
+
+### Set Markup
+
+<p class="heading-link-container"><a class="heading-link" href="#set-markup"></a></p>
+
+```js
+setMarkup(markupData, fov);
+```
+
+#### Description
+
+Draws various types of markup (ellipses, lines, arrows, and texts) on an SVG canvas based on the provided `markupData` and `fov` (field of view).
+
+The `markupData` is an object that contains arrays of different types of markup elements, each with their own properties.
+
+The `fov` is used to calculate the range of the x and y axes. The tangent of `fov` is used as a range for positive Y values. This is compared to the aspect ratio of the viewport to get a range for positive X values.
+
+Example:
+
+- `fov` is 45deg, tangent of 45 is 1, so positive Y will range from 0 to 1.
+- Viewport aspect ratio (determined from canvas width and height) is 2, so positive X will range from 0 to 2.
+- For a markup line that starts at (0.5, 1), the line will start exactly in the middle of the first quadrant (upper right).
+
+When called, any existing markup will first be cleared before the markup data is drawn.
+
+After markup drawing is complete, the [`markupDisplayed`](#markupdisplayed) event will be published.
+
+#### Parameters
+
+| Field Name  | Required | Type   | Description                                     |
+| ----------- | -------- | ------ | ----------------------------------------------- |
+| markupData  | true     | object | Data for the shapes and text to be drawn        |
+| fov         | true     | number | Field of view to calculate the range of axes    |
+
+#### MarkupData Object
+
+The `markupData` object contains arrays of different types of markup elements. 
+
+| Field Name | Required | Type       | Description                          |
+| ---------- | -------- | ---------- | ------------------------------------ |
+| ellipses   | false    | Ellipses[] | Array of ellipse objects to be drawn |
+| lines      | false    | Lines[]    | Array of lines objects to be drawn   |
+| arrows     | false    | Arrows[]   | Array of arrow objects to be drawn   |
+| text       | false    | Text[]     | Array of text objects to be drawn    |
+
+Each type of markup element has its own properties:
+
+##### Ellipses
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| min_point     | object | Object with `x` and `y` properties              |
+| max_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the ellipse                        |
+
+##### Lines
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| start_point   | object | Object with `x` and `y` properties              |
+| end_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the line                           |
+
+##### Arrows
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| start_point   | object | Object with `x` and `y` properties              |
+| end_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the arrow                          |
+
+##### Texts
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| origin        | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| text          | string | Text content                                    |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Camera
+
+---
+
 ## DOM Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#dom-namespace"></a></p>
@@ -1195,6 +1289,18 @@ Fires when the camera field of view has been changed. Returns a number in degree
 
 ---
 
+### globalBoundingBoxInitialized
+
+<p class="heading-link-container"><a class="heading-link" href="#globalboundingboxinitialized"></a></p>
+
+Fires when the global bounding box of the model has been determined.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| bbox | BoundingBox | `{ min: { x: Number, y: Number, z: Number }, max: { x: Number, y: Number, z: Number } }` |
+
 ### hideUpdated
 
 <p class="heading-link-container"><a class="heading-link" href="#hideupdated"></a></p>
@@ -1452,6 +1558,37 @@ Fires when the selection set of objects has been updated. This event returns an 
 <p class="heading-link-container"><a class="heading-link" href="#singleclick"></a></p>
 
 Fires when a single click occurs in the webviewer container element. This event returns a `MouseEvent` object.
+
+---
+
+### sectionBoxDisplayConfigured
+
+<p class="heading-link-container"><a class="heading-link" href="#sectionboxdisplayconfigured"></a></p>
+
+Fires when the section box display is configured (e.g. via [`model.configureSectionBoxDisplay`](#configure-section-box-display)).
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| current | SectionBoxDisplayConfiguration | The configuration that has now taken effect. See [`model.configureSectionBoxDisplay`](#configure-section-box-display)'s params for shape of configuration. |
+| previous | SectionBoxDisplayConfiguration | The configuration before the change that fired this event. See [`model.configureSectionBoxDisplay`](#configure-section-box-display)'s params for shape of configuration. |
+| enabled | boolean | Whether the section box display is enabled or not |
+
+---
+
+### sectionBoxDisplayToggled
+
+<p class="heading-link-container"><a class="heading-link" href="#sectionboxdisplaytoggled"></a></p>
+
+Fires when the section box display is toggled on or off (e.g. via [`model.toggleSectionBoxDisplay`](#toggle-section-box-display)).
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| configuration | SectionBoxDisplayConfiguration | The configuration that was used when the section box display was toggled on. See [`model.configureSectionBoxDisplay`](#configure-section-box-display)'s params for shape of configuration. |
+| value | boolean | Whether the section box display was enabled or disabled |
 
 ---
 
@@ -2039,7 +2176,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#set-section-box"></a></p>
 
 ```js
-setSectionBox(minXYZ, maxXYZ, rotation);
+setSectionBox(minXYZ, maxXYZ, rotation, showCoachmark);
 ```
 
 #### Description
@@ -2048,11 +2185,12 @@ Sets section box given an XYZ max and min and rotation(optional);
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                         |
-| ---------- | -------- | ------ | ----------------------------------- |
-| minXYZ     | true     | Object | { x: Number, y: Number, z: Number } |
-| maxXYZ     | true     | Object | { x: Number, y: Number, z: Number } |
-| rotation   | false    | Object | { x: Number, y: Number, z: Number } |
+| Field Name    | Required | Type    | Description                         |
+| ------------- | -------- | ------- | ----------------------------------- |
+| minXYZ        | true     | Object  | { x: Number, y: Number, z: Number } |
+| maxXYZ        | true     | Object  | { x: Number, y: Number, z: Number } |
+| rotation      | false    | Object  | { x: Number, y: Number, z: Number } |
+| showCoachmark | false    | boolean | Determines whether the Sectioning Applied coachmark is shown. Defaults to true. |
 
 ##### Returns
 
@@ -2081,6 +2219,81 @@ Removes section box.
 #### Parameters
 
 None
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Toggle Section Box Display
+
+<p class="heading-link-container"><a class="heading-link" href="#toggle-section-box-display"></a></p>
+
+```js
+toggleSectionBoxDisplay(enable);
+```
+
+#### Description
+
+Sets the on/off status of the section box display.
+
+The section box display is the UI widget that allows users to interactively set the section box.
+
+When turned on it will take the size of the existing section box that is clipping the model (e.g. from a call to [`model.setSectionBox`](#set-section-box)). If there is no section box set it will error. If the section box is set while the display is toggled on, the display will also change size to match the section box.
+
+The section box display can be configured through the [`model.configureSectionBoxDisplay`](#configure-section-box-display) method.
+
+#### Parameters
+
+| Field Name | Required | Type    | Description                                     |
+| ---------- | -------- | ------- | ----------------------------------------------- |
+| enable     | true     | boolean | on/off status to set the section box display to |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Configure Section Box Display
+
+<p class="heading-link-container"><a class="heading-link" href="#configure-section-box-display"></a></p>
+
+```js
+configureSectionBoxDisplay(config);
+```
+
+#### Description
+
+Configures how the section box display (controlled by [`model.toggleSectionBoxDisplay`](#toggle-section-box-display)) will appear.
+
+When the section box display is enabled, calling `configureSectionBoxDisplay` will take effect immediately. When the section box display is not enabled, the configuration changes will apply the next time the section box display is enabled.
+
+#### Parameters
+
+| Field Name | Required | Type    | Description                                     |
+| ---------- | -------- | ------- | ----------------------------------------------- |
+| config     | false    | Object  | Configuration object to change the behavior of the section box display. If called with no config argument, it will revert to the default config. |
+
+##### config
+
+| Field Name | Required | Type    | Description                                     |
+| ---------- | -------- | ------- | ----------------------------------------------- |
+| dropdown   | false    | boolean | Determines whether the section tool dropdown appears. Defaults to true. |
+| hidePlanes | false    | boolean | Determines whether the planes of the section box display are shown. When they are hidden, the arrows still show. Defaults to false. |
 
 ##### Returns
 
@@ -3065,7 +3278,6 @@ ProcoreBim.Cache.hasModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell'
 }).then(function (isCached) {
   console.log(isCached);
 });
@@ -3104,7 +3316,6 @@ ProcoreBim.Cache.removeModel({
   meshUrl: 'samples/vortex.mesh',
   meshnodeUrl: 'samples/vortex.meshnode',
   nodeUrl: 'samples/vortex.node',
-  cellUrl: 'samples/vortex.cell'
 }).then(function (modelRemoved) {
   console.log(modelRemoved);
 });
@@ -3277,17 +3488,6 @@ Provided by a Procore service.
 ```
 
 URL to node binary.
-Provided by a Procore service.
-
-`cellUrl [string]` (required)
-
-```js
-{
-  cellUrl: 'https://foo.com/geometry/mesh';
-}
-```
-
-URL to mesh binary.
 Provided by a Procore service.
 
 `bcfCamera [Object]`
@@ -3532,7 +3732,6 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   meshUrl: String,
   meshnodeUrl: String,
   nodeUrl: String,
-  cellUrl: String
 }
 ```
 
@@ -3581,6 +3780,36 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v9 to v10
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v9-to-v10"></a>
+</p>
+
+The [`intersectPointClick`](#intersectpointclick) event's payload has changed to return "world coordinates".
+
+If you were using the payload from this event, you will need to update your code to be in the appropriate coordinate system. See [Migrating to World Coordinates](#migrating-to-world-coordinates)
+
+### v8 to v9
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v8-to-v9"></a>
+</p>
+
+#### Changes to `camera.getSnapshot` and  `camera.getSnapshotDataUrl` methods
+
+These methods now return a Promise that resolves to a `void` and a `string` respectively. Previously these methods would run synchronously and `camera.getSnapshotDataUrl` would return a `string` directly.
+
+#### Recommended changes you can make
+
+```
+// Before
+const dataUrl = viewer.camera.getSnapshotDataUrl();
+
+// After
+const dataUrl = await viewer.camera.getSnapshotDataUrl();
+```
+
 ### v7 to v8
 
 <p class="heading-link-container">
@@ -3589,7 +3818,7 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
 
 #### Coordinates Should Be Consistent with the Source File
 
-Several methods were returning/expecting to receive coordinates that were not consistent with the model coordinates from the source file. Prior to this change, to get the correct coordinates you would need to add the result of `model.getGlobalOffset` to them. This would affect models that are significantly offset from the origin, which we refer to as being in "world coordinates". As of this change, most instances of not returning "world coordinates" have been fixed.
+Several methods now return or expect to receive "world coordinates".
 
 The changed methods:
 
@@ -3602,7 +3831,7 @@ The changed methods:
 - `camera.setBcfCamera` took a second boolean argument that defaulted to receiving local coordinates. If you were passing `false` or nothing here it will no longer be consistent with the coordinates from other methods. If you were passing `true` then no change required.
 - `model.ModelToMapSpace` now expects a `point` parameter in world coordinates.
 
-If you were saving data returned from these, that data may now be inconsistent if there is a global offset (i.e. if `model.getGlobalOffset` is a non-zero vector) for that model. This can result in behavior where setting the camera position with `setPosition` may be very far away from the actual model. To migrate the old data you would need to translate by the `model.getGlobalOffset` to be in the correct coordinate system.
+If you were using these methods, you will need to update your code to be in the appropriate coordinate system. See [Migrating to World Coordinates](#migrating-to-world-coordinates)
 
 #### `model.getSections` Now Requires Format Parameter
 
@@ -3862,6 +4091,62 @@ camera.zoomExtents => camera.zoomToBoundingBox
 There were no actual API changes that necesitated a breaking change here but we did drastically change our rendering algorithm to reduce flashing and dropout. For larger models this may come at the expense of low framerates.
 
 I have the privilege of writing this migration guide from the future and can tell you that we've been able to make it even better without (as much) of a framerate hit for larger models in v6.0.1 and you should consider upgrading to that or later. v3 to v4 may also not have needed a breaking change in retrospect so you can safely go from v3 to v4 without your code breaking but know that rendering will behave and perform differently and hopefully mostly for the better on v4 (but again vastly better on v6).
+
+### Migrating to World Coordinates
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#migrating-to-world-coordinates"></a>
+</p>
+
+#### Context
+
+Historically, many methods and events returned and/or expected to receive coordinates that were not consistent with the model coordinates from the source file. To get the correct coordinates you would need to add/subtract the result of `model.getGlobalOffset` to them. This would affect models that are significantly offset from the origin, which we refer to as being in "world coordinates".
+
+We have since taken the stance that all coordinates returned or required as parameters to the Web Viewer should be consistent with the model coordinates from the source file. However, we will be updating them as we come across them so they may be shipped across multiple breaking changes.
+
+#### Migration Guide
+
+If you were saving data returned from a method or event payload that has changed, that data may now be inconsistent if there is a global offset (i.e. if `model.getGlobalOffset` is a non-zero vector) for that model. This can result in behavior where setting the camera position with `setPosition` may be very far away from the actual model. To migrate the old data you would need to translate by the `model.getGlobalOffset` to be in the correct coordinate system.
+
+For example, say you were on an old version of the Web Viewer in which `camera.getPosition/setPosition` did not operate on "world coordinates" and you were saving the camera positions with the following:
+
+```ts
+const cameraPosition = await viewer.camera.getPosition();
+
+postCameraPositionToServer(cameraPosition);
+```
+
+And then you wanted to load these saved positions to set the initial camera position:
+
+```ts
+const { x, y, z } = await getCameraPositionFromServer();
+
+viewer.camera.setPosition(x, y, z);
+```
+
+But then a new version of the Web Viewer is released that updates `camera.getPosition/setPosition` to be in "world coordinates". The values you have saved in your DB will now be incorrect when you pass them to `setPosition`.
+
+To fix this issue you would need to add the global offset (`model.getGlobalOffset`) to the position before calling `setPosition`:
+
+```ts
+const { x, y, z } = await getCameraPositionFromServer();
+const { offsetX, offsetY, offsetZ } = await viewer.model.getGlobalOffset();
+
+viewer.camera.setPosition(x + offsetX, y + offsetY, z + offsetZ);
+```
+
+Saving to the DB would also need to be updated to keep your DB values in a consistent coordinate system:
+
+```ts
+const { x, y, z } = await viewer.camera.getPosition();
+const { offsetX, offsetY, offsetZ } = await viewer.model.getGlobalOffset();
+
+postCameraPositionToServer({
+  x: x - offsetX,
+  y: y - offsetY,
+  z: z - offsetZ
+});
+```
 
 ## Legal Notice
 
