@@ -69,7 +69,6 @@ In the Budget Changes API, Budget Modifications are analogous to the `adjustment
     "description": "Project Engineer.Cost Type 1"
   },
   "description": "Foobar",
-  "comment": "Baz",
   "calculation_strategy": "manual",
   "quantity": 1,
   "type": "change_event",
@@ -79,6 +78,7 @@ In the Budget Changes API, Budget Modifications are analogous to the `adjustment
   "change_event_line_item_id": 78
 }
 ```
+>It's important to note that the first Adjustment Line Item is considered the Adjustment. All subsequent Adjustment Line Items function as Allocation Line Items for that Adjustment. The comments field is only available on the Adjustment ("id": 1), and is not available on Adjustment Allocation Line Items ("id": >1). Any comments directed to Adjustment Line Item 1 will be accepted. Any comment directed to subsequent Adjustment Line Items will be discarded.
 
 
 | Budget Modification Field | Description | Budget Change Adjustment Line Item Field | Description
@@ -89,7 +89,7 @@ In the Budget Changes API, Budget Modifications are analogous to the `adjustment
 | `to_budget_line_item_id` | ID of the Budget Line Item from which the Budget Modification is being credited | `wbs_code` | This attribute on Adjustment Line Items with type `change_event` indicates the WBS Code for which the Adjustment is being credited |
 | | The WBS Code of the `To` Budget Line Item is used to set the wbs_code_id of the Adjustment Line Item when migrating from Budget Modifications to Budget Changes | | |
 | `notes` | Field for entering information about a Budget Modification | `description` | Field for entering a custom description of an adjustment |
-| | | `comment` | Field for entering a comment about an adjustment |
+| | | `comment` | Field for entering a comment about an adjustment. Only available for adjustment line item ID 1. Comments directed to subsequent line item IDs will be discarded |
 | `transfer_amount` | Amount being transferred from one Budget Line Item to another | `amount` | Amount being withdrawn or credited for the Adjustment Line Item |
 | `updated_at` | Timestamp of when the Budget Modification was last updated | N/A | These fields are not present in Adjustment Line Item response object |
 | `created_at` | Creation timestamp for Budget Modification | | |
@@ -123,7 +123,6 @@ Once a company has migrated to Budget Changes from the Budget Modifications expe
       "adjustment_number": 5,
       "wbs_code_id": 56,
       "description": "Foobar",
-      "comment": "Baz",
       "calculation_strategy": "manual",
       "quantity": 1,
       "type": "change_event",
