@@ -41,7 +41,7 @@ section_title: Overview
 >
 >If you have questions regarding this change, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
->**File Link URL Schema Change** (06/28/2023)
+><a id="file-link-url-schema-change" />**File Link URL Schema Change** (06/28/2023)
 >
 >Starting June 30, 2024, the URL schema for file API responses and redirects will be changing.
 >Today, file links have the following structure: `https://storage.procore.com/…` and they redirect to `https://s3.amazonaws.com/…`.
@@ -122,7 +122,7 @@ section_title: Overview
 >If you have yet to incorporate the `Procore-Company-Id` request header into your integration designs, we encourage you to do so as soon as possible.
 >If you have questions regarding this requirement, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
->**Bearer Token to be Required for File Access Authorization** (06/10/2022)
+><a id="bearer-token-to-be-required-for-file-access-authorization" />**Bearer Token to be Required for File Access Authorization** (06/10/2022)
 >
 >Starting June 1, 2023 an authorization bearer token will be required in the request header for accessing any Procore file or document URL.
 >Today, an authorization token is not required to access a file directly from storage.procore.com, but it will be a requirement in the future in order to strengthen file access security.
