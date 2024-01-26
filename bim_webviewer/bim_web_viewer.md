@@ -1505,6 +1505,34 @@ Fires when objects are selected for measurement. This event returns a Meshnode I
 
 ---
 
+### projectSettingsUpdated
+
+<p class="heading-link-container"><a class="heading-link" href="#projectsettingsupdated"></a></p>
+
+Fires when the project settings have been updated.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| displayUnits | string | An abbreviated string name of the display units used. Possible values are `ftin` for Feet Inches, `mm` for Millimeters, and `m` for Meters. |
+
+---
+
+### projectSettingsLoaded
+
+<p class="heading-link-container"><a class="heading-link" href="#projectsettingsloaded"></a></p>
+
+Fires when the project settings have been loaded.
+
+#### Data Properties
+
+| Field Name | Type | Description |
+| - | - | - |
+| displayUnits | string | An abbreviated string name of the display units used. Possible values are `ftin` for Feet Inches, `mm` for Millimeters, and `m` for Meters. |
+
+---
+
 ### renderReady
 
 <p class="heading-link-container"><a class="heading-link" href="#renderready"></a></p>
