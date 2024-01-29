@@ -93,7 +93,11 @@ The following sections list the currently supported Side Panel Views that can be
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/commitments/work_order_contracts/:id | commitments.work_order_contracts.detail |
+| /:project_id/project/commitments/work_order_contracts/:id/ssov | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/change_orders | commitments.work_order_contracts.detail |
+| /:project_id/project/commitments/work_order_contracts/:id/request_for_quotes | commitments.work_order_contracts.detail |
+| /:project_id/project/commitments/work_order_contracts/:id/invoices | commitments.work_order_contracts.detail |
+| /:project_id/project/commitments/work_order_contracts/:id/payments | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/change_history | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/advanced_settings | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/edit | commitments.work_order_contracts.edit |
@@ -114,18 +118,21 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/purchase_order_contracts/:id/schedule_of_values | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/change_orders | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/requisitions | commitments.purchase_order_contracts.detail |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/requisitions/new | commitments.requisitions.new |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/requisitions/:id | commitments.requisitions.edit |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/admin/requisitions/:id/edit | commitments.requisitions.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/contract_payments | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/contract_payments/new | commitments.purchase_order_contracts.new |
 | /:project_id/project/commitments/purchase_order_contracts/:id/related_items | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/related_items/edit | commitments.purchase_order_contracts.edit |
 | /:project_id/project/commitments/purchase_order_contracts/:id/communications | commitments.purchase_order_contracts.detail |
-| /:project_id/project/commitments/purchase_order_contracts/:id/communications/new | ommitments.purchase_order_contracts.new |
+| /:project_id/project/commitments/purchase_order_contracts/:id/communications/new | commitments.purchase_order_contracts.new |
 | /:project_id/project/commitments/purchase_order_contracts/:id/change_history | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/advanced_settings | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/advanced_settings/edit | commitments.purchase_order_contracts.edit |
-| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/<br>change_orders/commitment_contract_change_orders/new | commitments.commitment_contract_change_orders.new |
-| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/<br>change_orders/commitment_contract_change_orders/:id | commitments.commitment_contract_change_orders.detail |
-| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/<br>change_orders/commitment_contract_change_orders/:id/edit | commitments.commitment_contract_change_orders.edit |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/new | commitments.commitment_contract_change_orders.new |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id | commitments.commitment_contract_change_orders.detail |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id/edit | commitments.commitment_contract_change_orders.edit |
 
 ### Contracts
 
@@ -140,21 +147,39 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/contracts/commitments/work_order_contracts/:id/change_history | commitments.work_order_contracts.detail |
 | /:project_id/project/contracts/commitments/work_order_contracts/:id/advanced_settings | commitments.work_order_contracts.detail |
 | /:project_id/project/contracts/commitments/work_order_contracts/:id/edit | commitments.work_order_contracts.edit |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/schedule_of_values | commitments.work_order_contracts.detail |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/billings_schedule_of_values | commitments.work_order_contracts.detail |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/billings_schedule_of_values/edit | commitments.work_order_contracts.edit |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/requisitions | commitments.work_order_contracts.detail |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/contract_payments | commitments.work_order_contracts.detail |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/contract_payments/new | commitments.work_order_contracts.new |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/related_items | commitments.work_order_contracts.detail |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/related_items/edit | commitments.work_order_contracts.edit |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/communications | commitments.work_order_contracts.detail |
+| /:project_id/project/contracts/commitments/work_order_contracts/:id/communications/new | commitments.work_order_contracts.new |
 | /:project_id/project/contracts/commitments/work_order_contracts/:id/change_history | commitments.work_order_contracts.detail |
 | /:project_id/project/contracts/commitments/work_order_contracts/:id/advanced_settings/edit | commitments.work_order_contracts.edit |
 | /:project_id/project/contracts/commitments/purchase_order_contracts/:id | commitments.purchase_order_contracts.detail |
 | /:project_id/project/contracts/commitments/purchase_order_contracts/:id/edit | commitments.purchase_order_contracts.edit |
+| /:project_id/project/contracts/commitments/purchase_order_contracts/:id/schedule_of_values | commitments.purchase_order_contracts.detail |
 | /:project_id/project/contracts/commitments/purchase_order_contracts/:id/change_orders | commitments.purchase_order_contracts.detail |
+| /:project_id/project/contracts/commitments/purchase_order_contracts/:id/requisitions | commitments.purchase_order_contracts.detail |
+| /:project_id/project/contracts/commitments/purchase_order_contracts/:id/contract_payments | commitments.purchase_order_contracts.detail |
+| /:project_id/project/contracts/commitments/purchase_order_contracts/:id/contract_payments/new | commitments.purchase_order_contracts.new |
+| /:project_id/project/contracts/commitments/purchase_order_contracts/:id/related_items | commitments.purchase_order_contracts.detail |
+| /:project_id/project/contracts/commitments/purchase_order_contracts/:id/related_items/edit | commitments.purchase_order_contracts.edit |
+| /:project_id/project/contracts/commitments/purchase_order_contracts/:id/communications | commitments.purchase_order_contracts.detail |
+| /:project_id/project/contracts/commitments/purchase_order_contracts/:id/communications/new | commitments.purchase_order_contracts.new |
 | /:project_id/project/contracts/commitments/purchase_order_contracts/:id/change_history | commitments.purchase_order_contracts.detail |
 | /:project_id/project/contracts/commitments/purchase_order_contracts/:id/advanced_settings | commitments.purchase_order_contracts.detail |
 | /:project_id/project/contracts/commitments/purchase_order_contracts/:id/advanced_settings/edit | commitments.purchase_order_contracts.edit |
 | /:project_id/project/contracts/commitments/purchase_order_contracts/:id/requisitions/:invoice_id | commitments.requisitions.detail |
+| /:project_id/project/contracts/prime_contracts/:prime_contract_id/invoices | prime_contracts.invoices.list |
 
 ### Prime Contracts
 
 | URL Path | View Key |
 | -------- | -------- |
-| /:project_id/project/contracts/prime_contracts/:prime_contract_id/invoices | prime_contracts.invoices.list
 | /:project_id/project/prime_contracts/:id | prime_contracts.detail |
 | /:project_id/project/prime_contracts/:id/edit | prime_contracts.detail |
 | /:project_id/project/prime_contracts/:id/schedule_of_values | prime_contracts.detail |
@@ -170,21 +195,22 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/prime_contracts/:id/markups | prime_contracts.detail |
 | /:project_id/project/prime_contracts/:id/advanced_settings | prime_contracts.detail |
 | /:project_id/project/prime_contracts/:id/advanced_settings/edit | prime_contracts.detail |
-| /:project_id/project/prime_contracts/:id/change_orders/potential_change_orders/:id | prime_contracts.change_orders.potential_change_orders.detail |
-| /:project_id/project/prime_contracts/:id/change_orders/potential_change_orders/<br>new_from_change_events_bulk_action | prime_contracts.change_orders.potential_change_orders.new |
+| /:project_id/project/prime_contracts/:id/change_orders/potential_change_orders<br />/new_from_change_events_bulk_action | prime_contracts.change_orders.potential_change_orders.new |
+| /:project_id/project/prime_contracts/:prime_contract_id/change_orders/change_order_packages/:id | prime_contracts.change_orders.detail |
+| /:project_id/project/prime_contracts/:prime_contract_id/change_orders/potential_change_orders/:id | prime_contracts.change_orders.potential_change_orders.detail |
+| /:project_id/project/prime_contracts/:prime_contract_id/change_orders/potential_change_orders/:id/edit | prime_contracts.change_orders.potential_change_orders.detail |
 | /:project_id/project/prime_contracts/:prime_contract_id/payment_applications/new | prime_contracts.payment_applications.new |
 | /:project_id/project/prime_contracts/:prime_contract_id/payment_applications/:id | prime_contracts.payment_applications.detail |
 | /:project_id/project/prime_contracts/:prime_contract_id/payment_applications/:id/edit | prime_contracts.payment_applications.edit |
-| /:project_id/project/prime_contracts/:contract_id/change_orders/<br>change_order_packages/:change_order_id | prime_contracts.change_orders.detail |
 
 ### Change Events
 
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/change_events/events | change_events.list |
-| /:project_id/project/change_events/events/:id | change_events.detail |
-| /:project_id/project/change_events/events/:id/edit | change_events.edit |
 | /:project_id/project/change_events/events/new | change_events.new |
+| /:project_id/project/change_events/events/:id | change_events.detail |
+| /:project_id/project/change_events/events/:id/edit | hange_events.edit |
 
 ### Budget
 
