@@ -5,7 +5,7 @@ layout: default
 section_title: Overview
 ---
 
->**Sunset of Traditional Service Accounts** (01/xx/2024)
+>**Sunset of Traditional Service Accounts** (01/29/2024)
 >
 >*All Traditional Service Accounts will sunset on December 31, 2024.*
 >
