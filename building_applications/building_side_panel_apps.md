@@ -180,7 +180,7 @@ The following sections list the currently supported Side Panel Views that can be
 
 | URL Path | View Key |
 | -------- | -------- |
-| /:project_id/project/prime_contracts/:id: | prime_contracts.detail |
+| /:project_id/project/prime_contracts/:id | prime_contracts.detail |
 | /:project_id/project/prime_contracts/:id/edit | prime_contracts.detail |
 | /:project_id/project/prime_contracts/:id/schedule_of_values | prime_contracts.detail |
 | /:project_id/project/prime_contracts/:id/change_orders | prime_contracts.detail |
@@ -264,7 +264,7 @@ The following sections list the currently supported Side Panel Views that can be
 
 | URL Path | View Key |
 | -------- | -------- |
-| /:project_id/project/calendar/all | chedule.calendar.task.list |
+| /:project_id/project/calendar/all | schedule.calendar.task.list |
 | /:project_id/project/calendar/month | schedule.calendar.month.list |
 | /:project_id/project/calendar | schedule.calendar.list |
 | /:project_id/project/calendar/lookaheads | schedule.calendar.lookaheads.list |
