@@ -3457,7 +3457,7 @@ setHotkeysEnabled(enabled);
 
 #### Description
 
-Allows you to enable or disable hotkeys. Hotkeys are keyboard shorcuts that will turn on/off tools. For example, pressing "X" will turn on the X-Ray mode when hotkeys are enabled. When disabled, the hotkeys will not work and pressing "X" will have no effect.
+Allows you to enable or disable hotkeys. For example, pressing "X" will turn on the X-Ray mode when hotkeys are enabled. When disabled, the hotkeys will not work and pressing "X" will have no effect.
 
 #### Parameters
 
