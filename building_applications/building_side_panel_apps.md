@@ -280,8 +280,9 @@ The information retrieved from a message event sent from the parent window inclu
 - Resource ID = event.data.context.id
 - View = event.data.context.view
 
-To access context data using the MessageEvent interface, add an event listener to your page and the postMessage method to initialize communication with the parent window.
+To access context data using the MessageEvent interface, add an event listener to your page and the `postMessage` method to initialize communication with the parent window.
 Here is some example code that demonstrates retrieving context data from the message event object.
+Note the use of conditional statements with the `postMessage` method to account for [Multiple Procore Regions]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
 
 ```javascript
 window.addEventListener('message', (event) => {
@@ -294,7 +295,8 @@ window.addEventListener('message', (event) => {
     const resource_id = obj.context.id;
   }});
 
-window.parent.postMessage({ type: 'initialize' }, 'https://example.com/my-side-panel-app');
+if (document.referrer === "https://us02.procore.com/") { window.parent.postMessage({ type: 'initialize' }, "https://us02.procore.com/"); }
+if (document.referrer === "https://app.procore.com/") { window.parent.postMessage({ type: 'initialize' }, "https://app.procore.com/"); }
 ```
 
 In the example above we have set the value for the `targetOrigin` parameter of the `postMessage` method to `https://example.com/my-side-panel-app`.
