@@ -3817,6 +3817,22 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v10 to v11
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v10-to-v11"></a>
+</p>
+
+The [`projectSettingsUpdated`](#projectsettingsupdated) and [`projectSettingsLoaded`](#projectsettingsloaded) events' payloads' `units` field has changed names to `displayUnits`.
+
+```ts
+// Old payload
+{ units: string }
+
+// New payload
+{ displayUnits: string }
+```
+
 ### v9 to v10
 
 <p class="heading-link-container">
