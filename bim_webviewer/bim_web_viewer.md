@@ -3419,6 +3419,34 @@ GUI
 
 ---
 
+### Set Toolbar Hidden
+
+<p class="heading-link-container"><a class="heading-link" href="#set-toolbar-hidden"></a></p>
+
+```js
+setToolbarHidden(hidden);
+```
+
+#### Description
+
+Allows you to set the visibility of the bottom toolbar.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| hidden | true | boolean | If true, the toolbar will be hidden. If false, the toolbar will be visible. Throws error if the toolbar is not enabled. |
+
+##### Returns
+
+void
+
+##### Namespace
+
+GUI
+
+---
+
 ## Options
 
 <p class="heading-link-container"><a class="heading-link" href="#options"></a></p>
