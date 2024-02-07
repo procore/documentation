@@ -3114,14 +3114,23 @@ setNavigationMode(mode);
 
 #### Description
 
-Sets the navigation mode. The following values for `mode` are: 0 for the default mode, 1 for fly, and 2 for orbit. 
+Sets the navigation mode. The navigation mode determines how the camera responds to mouse, keyboard, and wheel events.
 
+| `mode` Value | Description |
+| - | - |
+| 0 | Default |
+| 1 | Fly |
+| 2 | Orbit |
+| 3 | Measure |
+| 4 | Strafe |
+| 5 | Pan |
+| 6 | Survey |
 
 #### Parameters
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| mode | true | number | The following values for `mode` are: 0 for the default mode, 1 for fly, and 2 for orbit. |
+| mode | true | number | See above description |
 
 ##### Returns
 
