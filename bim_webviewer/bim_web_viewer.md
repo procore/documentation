@@ -3428,6 +3428,62 @@ GUI
 
 ---
 
+### Set Toolbar Hidden
+
+<p class="heading-link-container"><a class="heading-link" href="#set-toolbar-hidden"></a></p>
+
+```js
+setToolbarHidden(hidden);
+```
+
+#### Description
+
+Allows you to set the visibility of the bottom toolbar.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| hidden | true | boolean | If true, the toolbar will be hidden. If false, the toolbar will be visible. Throws error if the toolbar is not enabled. |
+
+##### Returns
+
+void
+
+##### Namespace
+
+GUI
+
+---
+
+### Set Hotkeys Enabled
+
+<p class="heading-link-container"><a class="heading-link" href="#set-hotkeys-enabled"></a></p>
+
+```js
+setHotkeysEnabled(enabled);
+```
+
+#### Description
+
+Allows you to enable or disable hotkeys. For example, pressing "X" will turn on the X-Ray mode when hotkeys are enabled. When disabled, the hotkeys will not work and pressing "X" will have no effect.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| enabled | true | boolean | If true, the hotkeys will be enabled. If false, the hotkeys will be disabled.|
+
+##### Returns
+
+void
+
+##### Namespace
+
+GUI
+
+---
+
 ## Options
 
 <p class="heading-link-container"><a class="heading-link" href="#options"></a></p>
