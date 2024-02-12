@@ -802,86 +802,7 @@ setMarkup(markupData, fov);
 
 #### Description
 
-Draws various types of markup (ellipses, lines, arrows, and texts) on an SVG canvas based on the provided `markupData` and `fov` (field of view).
-
-The `markupData` is an object that contains arrays of different types of markup elements, each with their own properties.
-
-The `fov` is used to calculate the range of the x and y axes. The tangent of `fov` is used as a range for positive Y values. This is compared to the aspect ratio of the viewport to get a range for positive X values.
-
-Example:
-
-- `fov` is 45deg, tangent of 45 is 1, so positive Y will range from 0 to 1.
-- Viewport aspect ratio (determined from canvas width and height) is 2, so positive X will range from 0 to 2.
-- For a markup line that starts at (0.5, 1), the line will start exactly in the middle of the first quadrant (upper right).
-
-When called, any existing markup will first be cleared before the markup data is drawn.
-
-After markup drawing is complete, the [`markupDisplayed`](#markupdisplayed) event will be published.
-
-#### Parameters
-
-| Field Name  | Required | Type   | Description                                     |
-| ----------- | -------- | ------ | ----------------------------------------------- |
-| markupData  | true     | object | Data for the shapes and text to be drawn        |
-| fov         | true     | number | Field of view to calculate the range of axes    |
-
-#### MarkupData Object
-
-The `markupData` object contains arrays of different types of markup elements.
-
-| Field Name | Required | Type       | Description                          |
-| ---------- | -------- | ---------- | ------------------------------------ |
-| ellipses   | false    | Ellipses[] | Array of ellipse objects to be drawn |
-| lines      | false    | Lines[]    | Array of lines objects to be drawn   |
-| arrows     | false    | Arrows[]   | Array of arrow objects to be drawn   |
-| text       | false    | Text[]     | Array of text objects to be drawn    |
-
-Each type of markup element has its own properties:
-
-##### Ellipses
-
-| Property Name | Type   | Description                                     |
-| ------------- | ------ | ----------------------------------------------- |
-| min_point     | object | Object with `x` and `y` properties              |
-| max_point     | object | Object with `x` and `y` properties              |
-| color         | object | Object with `r`, `g`, and `b` properties        |
-| thickness     | number | Thickness of the ellipse                        |
-
-##### Lines
-
-| Property Name | Type   | Description                                     |
-| ------------- | ------ | ----------------------------------------------- |
-| start_point   | object | Object with `x` and `y` properties              |
-| end_point     | object | Object with `x` and `y` properties              |
-| color         | object | Object with `r`, `g`, and `b` properties        |
-| thickness     | number | Thickness of the line                           |
-
-##### Arrows
-
-| Property Name | Type   | Description                                     |
-| ------------- | ------ | ----------------------------------------------- |
-| start_point   | object | Object with `x` and `y` properties              |
-| end_point     | object | Object with `x` and `y` properties              |
-| color         | object | Object with `r`, `g`, and `b` properties        |
-| thickness     | number | Thickness of the arrow                          |
-
-##### Texts
-
-| Property Name | Type   | Description                                     |
-| ------------- | ------ | ----------------------------------------------- |
-| origin        | object | Object with `x` and `y` properties              |
-| color         | object | Object with `r`, `g`, and `b` properties        |
-| text          | string | Text content                                    |
-
-##### Returns
-
-```js
-undefined
-```
-
-##### Namespace
-
-Camera
+This is a deprecated method. Use [`markup.setRedlines`](#set-redlines), which has the same signature.
 
 ---
 
@@ -3490,7 +3411,7 @@ Draws various types of markup (ellipses, lines, arrows, texts, and rects) on an 
 
 The `anchoredMarkupData` is an object that contains arrays of different types of markup elements, each with their own properties.
 
-Once `anchoredMarkupData` is drawn via a call to `drawAnchored`, the markup will be redrawn whenever the [`cameraUpdated` event](#cameraupdated) is fired. The anchored markup will continue drawing at its anchored position in the model until `markup.clear` is called. Unless you are updating the anchor positions, there is no reason to call `drawAnchored` multiple times.
+Once `anchoredMarkupData` is drawn via a call to `drawAnchored`, the markup will be redrawn whenever the [`cameraUpdated`](#cameraupdated) event is fired. The anchored markup will continue drawing at its anchored position in the model until [`markup.clear`](#clear) is called. Unless you are updating the anchor positions, there is no reason to call `drawAnchored` multiple times.
 
 #### Parameters
 
@@ -3664,6 +3585,99 @@ markup.drawAnchored({
   ],
 })
 ```
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Markup
+
+---
+
+### Set Redlines
+
+<p class="heading-link-container"><a class="heading-link" href="#set-redlines"></a></p>
+
+```js
+setRedlines(redlinesData, fov);
+```
+
+#### Description
+
+Draws various types of markup (ellipses, lines, arrows, and texts) on an SVG canvas based on the provided `redlinesData` and `fov` (field of view). This method is similar to [`markup.draw`](#draw), but is more specific to drawing red line markup from Navisworks.
+
+The `redlinesData` is an object that contains arrays of different types of markup elements, each with their own properties.
+
+The `fov` is used to calculate the range of the x and y axes. The tangent of `fov` is used as a range for positive Y values. This is compared to the aspect ratio of the viewport to get a range for positive X values.
+
+Example:
+
+- `fov` is 45deg, tangent of 45 is 1, so positive Y will range from 0 to 1.
+- Viewport aspect ratio (determined from canvas width and height) is 2, so positive X will range from 0 to 2.
+- For a markup line that starts at (0.5, 1), the line will start exactly in the middle of the first quadrant (upper right).
+
+When called, any existing markup will first be cleared before the markup data is drawn.
+
+After markup drawing is complete, the [`markupDisplayed`](#markupdisplayed) event will be published.
+
+#### Parameters
+
+| Field Name  | Required | Type   | Description                                     |
+| ----------- | -------- | ------ | ----------------------------------------------- |
+| redlinesData  | true     | object | Data for the shapes and text to be drawn        |
+| fov         | true     | number | Field of view to calculate the range of axes    |
+
+#### RedlinesData Object
+
+The `redlinesData` object contains arrays of different types of markup elements.
+
+| Field Name | Required | Type       | Description                          |
+| ---------- | -------- | ---------- | ------------------------------------ |
+| ellipses   | false    | Ellipses[] | Array of ellipse objects to be drawn |
+| lines      | false    | Lines[]    | Array of lines objects to be drawn   |
+| arrows     | false    | Arrows[]   | Array of arrow objects to be drawn   |
+| text       | false    | Text[]     | Array of text objects to be drawn    |
+
+Each type of markup element has its own properties:
+
+##### Ellipses
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| min_point     | object | Object with `x` and `y` properties              |
+| max_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the ellipse                        |
+
+##### Lines
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| start_point   | object | Object with `x` and `y` properties              |
+| end_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the line                           |
+
+##### Arrows
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| start_point   | object | Object with `x` and `y` properties              |
+| end_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the arrow                          |
+
+##### Texts
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| origin        | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| text          | string | Text content                                    |
 
 ##### Returns
 
