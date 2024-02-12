@@ -3486,11 +3486,11 @@ drawAnchored(anchoredMarkupData);
 
 #### Description
 
-Draws various types of markup (ellipses, lines, arrows, texts, and rects) on an SVG canvas based on the provided `markupData`
+Draws various types of markup (ellipses, lines, arrows, texts, and rects) on an SVG canvas based on the provided `anchoredMarkupData`
 
-The `markupData` is an object that contains arrays of different types of markup elements, each with their own properties.
+The `anchoredMarkupData` is an object that contains arrays of different types of markup elements, each with their own properties.
 
-Any existing markup will NOT be cleared. Subsequent draw calls will be drawn on top of previous ones. Use [`markup.clear`](#clear) to clear the screen before subsequent `markup.draw` calls if necessary.
+Once `anchoredMarkupData` is drawn via a call to `drawAnchored`, the markup will be redrawn whenever the [`cameraUpdated` event](#cameraupdated) is fired. The anchored markup will continue drawing at its anchored position in the model until `markup.clear` is called. Unless you are updating the anchor positions, there is no reason to call `drawAnchored` multiple times.
 
 #### Parameters
 
