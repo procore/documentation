@@ -109,6 +109,7 @@ ProcoreBim contains a mix of both static and non static methods and are generall
 | dom       | Helper methods to create extendable panels [Dom Namespace](#dom-namespace)                    |
 | events    | Event management system similar to Javascript Event API [Events Namespace](#events-namespace) |
 | model     | Webviewer model data retrieval and manipulation [Model Namespace](#model-namespace)           |
+| markup    | Webviewer markup manipulation [Markup Namespace](#markup-namespace)                           |
 | gui       | Webviewer GUI manipulation [GUI Namespace](#gui-namespace)                                    |
 | none      | Methods not grouped into a namespace                                                          |
 
@@ -801,86 +802,7 @@ setMarkup(markupData, fov);
 
 #### Description
 
-Draws various types of markup (ellipses, lines, arrows, and texts) on an SVG canvas based on the provided `markupData` and `fov` (field of view).
-
-The `markupData` is an object that contains arrays of different types of markup elements, each with their own properties.
-
-The `fov` is used to calculate the range of the x and y axes. The tangent of `fov` is used as a range for positive Y values. This is compared to the aspect ratio of the viewport to get a range for positive X values.
-
-Example:
-
-- `fov` is 45deg, tangent of 45 is 1, so positive Y will range from 0 to 1.
-- Viewport aspect ratio (determined from canvas width and height) is 2, so positive X will range from 0 to 2.
-- For a markup line that starts at (0.5, 1), the line will start exactly in the middle of the first quadrant (upper right).
-
-When called, any existing markup will first be cleared before the markup data is drawn.
-
-After markup drawing is complete, the [`markupDisplayed`](#markupdisplayed) event will be published.
-
-#### Parameters
-
-| Field Name  | Required | Type   | Description                                     |
-| ----------- | -------- | ------ | ----------------------------------------------- |
-| markupData  | true     | object | Data for the shapes and text to be drawn        |
-| fov         | true     | number | Field of view to calculate the range of axes    |
-
-#### MarkupData Object
-
-The `markupData` object contains arrays of different types of markup elements. 
-
-| Field Name | Required | Type       | Description                          |
-| ---------- | -------- | ---------- | ------------------------------------ |
-| ellipses   | false    | Ellipses[] | Array of ellipse objects to be drawn |
-| lines      | false    | Lines[]    | Array of lines objects to be drawn   |
-| arrows     | false    | Arrows[]   | Array of arrow objects to be drawn   |
-| text       | false    | Text[]     | Array of text objects to be drawn    |
-
-Each type of markup element has its own properties:
-
-##### Ellipses
-
-| Property Name | Type   | Description                                     |
-| ------------- | ------ | ----------------------------------------------- |
-| min_point     | object | Object with `x` and `y` properties              |
-| max_point     | object | Object with `x` and `y` properties              |
-| color         | object | Object with `r`, `g`, and `b` properties        |
-| thickness     | number | Thickness of the ellipse                        |
-
-##### Lines
-
-| Property Name | Type   | Description                                     |
-| ------------- | ------ | ----------------------------------------------- |
-| start_point   | object | Object with `x` and `y` properties              |
-| end_point     | object | Object with `x` and `y` properties              |
-| color         | object | Object with `r`, `g`, and `b` properties        |
-| thickness     | number | Thickness of the line                           |
-
-##### Arrows
-
-| Property Name | Type   | Description                                     |
-| ------------- | ------ | ----------------------------------------------- |
-| start_point   | object | Object with `x` and `y` properties              |
-| end_point     | object | Object with `x` and `y` properties              |
-| color         | object | Object with `r`, `g`, and `b` properties        |
-| thickness     | number | Thickness of the arrow                          |
-
-##### Texts
-
-| Property Name | Type   | Description                                     |
-| ------------- | ------ | ----------------------------------------------- |
-| origin        | object | Object with `x` and `y` properties              |
-| color         | object | Object with `r`, `g`, and `b` properties        |
-| text          | string | Text content                                    |
-
-##### Returns
-
-```js
-undefined
-```
-
-##### Namespace
-
-Camera
+This is a deprecated method. Use [`markup.setRedlines`](#set-redlines), which has the same signature.
 
 ---
 
@@ -1760,7 +1682,7 @@ Model
 
 ---
 
-## Get Meshnode from Object ID
+### Get Meshnode from Object ID
 
 <p class="heading-link-container"><a class="heading-link" href="#get-object-from-object-id"></a></p>
 
@@ -3285,6 +3207,498 @@ Promise<void>
 ##### Namespace
 
 Model
+
+## Markup Namespace
+
+<p class="heading-link-container"><a class="heading-link" href="#markup-namespace"></a></p>
+
+### Clear
+
+<p class="heading-link-container"><a class="heading-link" href="#clear"></a></p>
+
+```js
+clear();
+```
+
+#### Description
+
+Clears all drawn markup, e.g. from a `markup.draw` call.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Markup
+
+---
+
+### Draw
+
+<p class="heading-link-container"><a class="heading-link" href="#draw"></a></p>
+
+```js
+draw(markupData);
+```
+
+#### Description
+
+Draws various types of markup (ellipses, lines, arrows, texts, and rects) on an SVG canvas based on the provided `markupData`
+
+The `markupData` is an object that contains arrays of different types of markup elements, each with their own properties.
+
+Any existing markup will NOT be cleared. Subsequent draw calls will be drawn on top of previous ones. Use [`markup.clear`](#clear) to clear the screen before subsequent `markup.draw` calls if necessary.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| markupData  | true | MarkupData | Data for the shapes and text to be drawn |
+
+##### MarkupData
+
+The `markupData` object contains arrays of different types of markup elements.
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| ellipses | false | (BoxEllipses \| RadiusEllipses)[] | Array of ellipse objects to be drawn |
+| lines | false | Lines[] | Array of lines objects to be drawn |
+| arrows | false | Arrows[] | Array of arrow objects to be drawn |
+| texts | false | Text[] | Array of text objects to be drawn |
+| rects | false | Rect[] | Array of rect objects to be drawn |
+
+Each type of markup element has its own properties:
+
+##### Shared Properties
+
+These properties are shared by all shapes.
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| stroke | true | | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Stroke color of shape |
+| strokeWidth | true | | number | Width of stroke line in px |
+| zIndex | false | 0 | number | Shapes with a higher zIndex will be drawn on top of other shapes |
+
+##### Box Ellipses
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| min | true | | { x: number, y: number } | Top-left min point of box containing ellipse in px |
+| max | true | | { x: number, y: number } | Bottom-right max point of box containing ellipse in px |
+| fill | false | 'none' | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Fill color of shape |
+
+##### Radius Ellipses
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| center | true | | { x: number, y: number } | Center point of ellipse in px |
+| radius | true | | { x: number, y: number } | Radii of ellipse in px. For a circle x and y would be equal |
+| fill | false | 'none' | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Fill color of shape |
+
+##### Lines and Arrows
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| start | true | | { x: number, y: number } | Start point of line in px |
+| end | true | | { x: number, y: number } | End point of line in px |
+
+##### Texts
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| origin | true | | { x: number, y: number } | Bottom-left corner of where text will begin in px |
+| font | false | '21 px tahoma' | [CSSFont](https://developer.mozilla.org/en-US/docs/Web/CSS/font) | CSS font shorthand declaration to apply to the text |
+
+##### Rects
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| x | true | | number | x component of top-left corner of rectangle in px |
+| y | true | | number | y component of top-left corner of rectangle in px |
+| width | true | | number | Width of rectangle in px |
+| height | true | | number | Height of rectangle in px |
+| radius | false | { x: 0, y: 0 } | { x: number, y: number } | Corner-radius in px |
+| fill | false | 'none' | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Fill color of shape |
+
+##### Example Usage
+
+```js
+markup.draw({
+  ellipses: [
+    // Unfilled box ellipse
+    {
+      stroke: 'rgba(255, 0, 0, 0.5)',
+      min: { x: 257.47786244734874, y: 220 },
+      max: { x: 320, y: 302.52213755265126 },
+      strokeWidth: 3,
+    },
+    // Filled box ellipse
+    {
+      stroke: 'rgba(255, 0, 255, 1)',
+      fill: 'rgba(0, 255, 255, 0.5)',
+      min: { x: 257.47786244734874, y: 300 },
+      max: { x: 320, y: 362.52213755265126 },
+      strokeWidth: 3,
+    },
+    // Filled radius ellipse
+    {
+      stroke: 'chartreuse',
+      fill: 'dodgerblue',
+      radius: { x: 50, y: 50 },
+      center: { x: 50, y: 50 },
+      strokeWidth: 5,
+    },
+  ],
+  lines: [
+    {
+      stroke: 'rgba(0, 255, 0, 0.5)',
+      start: { x: 320, y: 240 },
+      end: { x: 632.6106877632562, y: 302.52213755265126 },
+      strokeWidth: 3,
+    },
+  ],
+  arrows: [
+    {
+      stroke: 'rgba(0, 0, 255, 0.5)',
+      start: { x: 320, y: 240 },
+      end: { x: 632.6106877632562, y: 177.47786244734877 },
+      strokeWidth: 3,
+    },
+  ],
+  texts: [
+    {
+      text: 'text',
+      origin: { x: 632.6106877632562, y: 240 },
+      fill: 'rgba(255, 255, 0, 0.5)',
+      font: '9px verdana',
+    },
+  ],
+  rects: [
+    {
+      x: 250,
+      y: 300,
+      width: 50,
+      height: 100,
+      radius: { x: 10, y: 10 },
+      fill: 'rgba(255, 0, 0, 0.5)',
+      stroke: 'rgba(0, 255, 0, 0.5)',
+    },
+  ],
+})
+```
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Markup
+
+---
+
+### Draw Anchored
+
+<p class="heading-link-container"><a class="heading-link" href="#draw-anchored"></a></p>
+
+```js
+drawAnchored(anchoredMarkupData);
+```
+
+#### Description
+
+Draws various types of markup (ellipses, lines, arrows, texts, and rects) on an SVG canvas based on the provided `anchoredMarkupData`
+
+The `anchoredMarkupData` is an object that contains arrays of different types of markup elements, each with their own properties.
+
+Once `anchoredMarkupData` is drawn via a call to `drawAnchored`, the markup will be redrawn whenever the [`cameraUpdated`](#cameraupdated) event is fired. The anchored markup will continue drawing at its anchored position in the model until [`markup.clear`](#clear) is called. Unless you are updating the anchor positions, there is no reason to call `drawAnchored` multiple times.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| anchoredMarkupData | true | AnchoredMarkupData | Data for the shapes and text to be drawn |
+
+##### AnchoredMarkupData
+
+The `anchoredMarkupData` object contains arrays of different types of markup elements.
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| ellipses | false | (AnchoredBoxEllipses \| AnchoredRadiusEllipses)[] | Array of ellipse objects to be drawn |
+| lines | false | AnchoredLines[] | Array of lines objects to be drawn |
+| arrows | false | AnchoredArrows[] | Array of arrow objects to be drawn |
+| texts | false | AnchoredText[] | Array of text objects to be drawn |
+| rects | false | AnchoredRect[] | Array of rect objects to be drawn |
+
+##### Shared Properties
+
+Anchored shapes share most properties with their unanchored counterparts used in [`markup.draw`](#draw), but replace properties that position the shape in px coordinates with `anchor` or `anchorStart/anchorEnd`.
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| stroke | true | | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Stroke color of shape |
+| strokeWidth | true | | number | Width of stroke line in px |
+| zIndex | false | 0 | number | Shapes with a higher zIndex will be drawn on top of other shapes. Anchor position has no effect on draw order. |
+
+##### Anchored Box Ellipses
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| anchor | true | | { x: number, y: number, z: number } | Position that shape will anchor to in model coordinates. Ellipses are anchored at their center. |
+| anchorOffset | false | { x: 0, y: 0 } | { x: number, y: number } | Offset in px from anchor position that shape will be drawn |
+| min | true | | { x: number, y: number } | Min point of box used to determine size of ellipse. Does not affect position. |
+| max | true | | { x: number, y: number } | Max point of box used to determine size of ellipse. Does not affect position. |
+| fill | false | 'none' | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Fill color of shape |
+
+##### Anchored Radius Ellipses
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| anchor | true | | { x: number, y: number, z: number } | Position that shape will anchor to in model coordinates. Ellipses are anchored at their center. |
+| anchorOffset | false | { x: 0, y: 0 } | { x: number, y: number } | Offset in px from anchor position that shape will be drawn |
+| radius | true | | { x: number, y: number } | Radii of ellipse in px. For a circle x and y would be equal |
+| fill | false | 'none' | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Fill color of shape |
+
+##### Anchored Lines and Anchored Arrows
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| anchorStart | true | | { x: number, y: number, z: number } | Position that start of shape will anchor to in model coordinates. |
+| anchorEnd | true | | { x: number, y: number, z: number } | Position that end of shape will anchor to in model coordinates. |
+
+##### Anchored Texts
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| anchor | true | | { x: number, y: number, z: number } | Position that shape will anchor to in model coordinates. Texts are anchored at their bottom-left corner. |
+| anchorOffset | false | { x: 0, y: 0 } | { x: number, y: number } | Offset in px from anchor position that shape will be drawn |
+| font | false | '21 px tahoma' | [CSSFont](https://developer.mozilla.org/en-US/docs/Web/CSS/font) | CSS font shorthand declaration to apply to the text |
+
+##### Anchored Rects
+
+| Property Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| anchor | true | | { x: number, y: number, z: number } | Position that shape will anchor to in model coordinates. Rects are anchored at their top-left corner. |
+| anchorOffset | false | { x: 0, y: 0 } | { x: number, y: number } | Offset in px from anchor position that shape will be drawn |
+| width | true | | number | Width of rectangle in px |
+| height | true | | number | Height of rectangle in px |
+| radius | false | { x: 0, y: 0 } | { x: number, y: number } | Corner-radius in px |
+| fill | false | 'none' | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Fill color of shape |
+
+##### Example Usage
+
+```js
+markup.drawAnchored({
+  ellipses: [
+    // Unfilled box ellipse with an anchor offset
+    {
+      stroke: 'rgba(255, 0, 0, 0.5)',
+      min: { x: 0, y: 0 },
+      max: { x: 50, y: 50 },
+      anchor: { x: 91, y: 8, z: 1 },
+      strokeWidth: 3,
+    },
+    // Filled box ellipse with an anchor offset
+    {
+      stroke: 'rgba(255, 0, 255, 1)',
+      fill: 'rgba(0, 255, 255, 0.5)',
+      min: { x: 0, y: 0 },
+      max: { x: 50, y: 50 },
+      anchor: { x: 91, y: 8, z: 1.5 },
+      strokeWidth: 3,
+    },
+    // Filled radius ellipse
+    {
+      stroke: 'chartreuse',
+      fill: 'dodgerblue',
+      radius: { x: 25, y: 25 },
+      anchor: { x: 91, y: 8, z: 2 },
+      strokeWidth: 5,
+    },
+    // zIndex'd ellipse on bottom
+    {
+      stroke: 'yellow',
+      fill: 'red',
+      radius: { x: 25, y: 25 },
+      anchor: { x: 91, y: 8, z: 3.5 },
+      anchorOffset: { x: -10, y: -10 },
+      strokeWidth: 5,
+      zIndex: 1,
+    },
+    // zIndex'd ellipse on top
+    {
+      stroke: 'magenta',
+      fill: 'blue',
+      radius: { x: 25, y: 25 },
+      anchor: { x: 91, y: 8, z: 3.5 },
+      anchorOffset: { x: 10, y: 10 },
+      strokeWidth: 5,
+      zIndex: 3,
+    },
+  ],
+  lines: [
+    {
+      stroke: 'rgba(0, 255, 0, 0.5)',
+      anchorStart: { x: 90.5, y: 7.5, z: 2 },
+      anchorEnd: { x: 91.5, y: 8.5, z: 2 },
+      strokeWidth: 3,
+    },
+  ],
+  arrows: [
+    {
+      stroke: 'rgba(0, 0, 255, 0.5)',
+      anchorStart: { x: 90.5, y: 8.5, z: 2 },
+      anchorEnd: { x: 91.5, y: 7.5, z: 2 },
+      strokeWidth: 3,
+    },
+  ],
+  texts: [
+    {
+      text: 'text',
+      anchor: { x: 91, y: 8, z: 2.5 },
+      anchorOffset: { x: 10, y: 10 },
+      fill: 'rgba(255, 255, 0, 0.5)',
+      font: '9px verdana',
+    },
+  ],
+  rects: [
+    {
+      anchor: { x: 91, y: 8, z: 3 },
+      width: 40,
+      height: 25,
+      radius: { x: 10, y: 10 },
+      fill: 'rgba(255, 0, 0, 0.5)',
+      stroke: 'rgba(0, 255, 0, 0.5)',
+    },
+    // zIndex'd rect in middle
+    {
+      anchor: { x: 91, y: 8, z: 3.5 },
+      width: 40,
+      height: 25,
+      radius: { x: 10, y: 10 },
+      fill: 'green',
+      stroke: 'cyan',
+      strokeWidth: 5,
+      zIndex: 2,
+    },
+  ],
+})
+```
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Markup
+
+---
+
+### Set Redlines
+
+<p class="heading-link-container"><a class="heading-link" href="#set-redlines"></a></p>
+
+```js
+setRedlines(redlinesData, fov);
+```
+
+#### Description
+
+Draws various types of markup (ellipses, lines, arrows, and texts) on an SVG canvas based on the provided `redlinesData` and `fov` (field of view). This method is similar to [`markup.draw`](#draw), but is more specific to drawing red line markup from Navisworks.
+
+The `redlinesData` is an object that contains arrays of different types of markup elements, each with their own properties.
+
+The `fov` is used to calculate the range of the x and y axes. The tangent of `fov` is used as a range for positive Y values. This is compared to the aspect ratio of the viewport to get a range for positive X values.
+
+Example:
+
+- `fov` is 45deg, tangent of 45 is 1, so positive Y will range from 0 to 1.
+- Viewport aspect ratio (determined from canvas width and height) is 2, so positive X will range from 0 to 2.
+- For a markup line that starts at (0.5, 1), the line will start exactly in the middle of the first quadrant (upper right).
+
+When called, any existing markup will first be cleared before the markup data is drawn.
+
+After markup drawing is complete, the [`markupDisplayed`](#markupdisplayed) event will be published.
+
+#### Parameters
+
+| Field Name  | Required | Type   | Description                                     |
+| ----------- | -------- | ------ | ----------------------------------------------- |
+| redlinesData  | true     | object | Data for the shapes and text to be drawn        |
+| fov         | true     | number | Field of view to calculate the range of axes    |
+
+#### RedlinesData Object
+
+The `redlinesData` object contains arrays of different types of markup elements.
+
+| Field Name | Required | Type       | Description                          |
+| ---------- | -------- | ---------- | ------------------------------------ |
+| ellipses   | false    | Ellipses[] | Array of ellipse objects to be drawn |
+| lines      | false    | Lines[]    | Array of lines objects to be drawn   |
+| arrows     | false    | Arrows[]   | Array of arrow objects to be drawn   |
+| text       | false    | Text[]     | Array of text objects to be drawn    |
+
+Each type of markup element has its own properties:
+
+##### Ellipses
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| min_point     | object | Object with `x` and `y` properties              |
+| max_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the ellipse                        |
+
+##### Lines
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| start_point   | object | Object with `x` and `y` properties              |
+| end_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the line                           |
+
+##### Arrows
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| start_point   | object | Object with `x` and `y` properties              |
+| end_point     | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| thickness     | number | Thickness of the arrow                          |
+
+##### Texts
+
+| Property Name | Type   | Description                                     |
+| ------------- | ------ | ----------------------------------------------- |
+| origin        | object | Object with `x` and `y` properties              |
+| color         | object | Object with `r`, `g`, and `b` properties        |
+| text          | string | Text content                                    |
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Markup
+
+---
 
 ## Cache Namespace
 
