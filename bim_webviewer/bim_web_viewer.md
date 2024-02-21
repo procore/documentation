@@ -4287,6 +4287,25 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v11 to v12
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v11-to-v12"></a>
+</p>
+
+#### Continuation of consistent world coordinates
+
+These methods now return model objects with `bbox` properties in world coordinates:
+- `model.getObject`
+- `model.getObjects`
+- `model.getRootObject`
+
+These events now return payloads with model objects with `bbox` properties in world coordinates:
+- `objectSingleClick`
+- `objectSelect`
+
+If you were using these methods or events, you will need to update your code to be in the appropriate coordinate system. See [Migrating to World Coordinates](#migrating-to-world-coordinates)
+
 ### v10 to v11
 
 <p class="heading-link-container">
