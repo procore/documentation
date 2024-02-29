@@ -3902,13 +3902,135 @@ GUI
 
 <p class="heading-link-container"><a class="heading-link" href="#options"></a></p>
 
-`accessToken [string]`
+### Required Options
+
+`parentElement`
+
+###### DOMElement
+
+DOM node to attach viewer to.
 
 ```js
 {
-  accessToken: '1234567890abdefghijkl',
+  parentElement: document.getElementById('myViewer');
 }
 ```
+
+---
+
+`projectId`
+
+###### number
+
+The id of the project the model has been published to.
+
+```js
+{
+  projectId: 25000;
+}
+```
+
+---
+
+
+`companyId`
+
+###### number
+
+The id of the company the model has been published to.
+
+```js
+{
+  companyId: 10;
+}
+```
+
+### Required Options for Model Revision
+If you are planning to use the Web Viewer SDK to view a model revision, you will need to provide the following options. These are models published to the Models Tool.
+
+`modelId`
+
+###### number
+
+ID of the associated BIM Model
+
+```js
+{
+  modelId: 999;
+}
+```
+---
+
+`modelRevisionId`
+
+###### number
+
+ID of the associated BIM Model Revision
+
+```js
+{
+  modelRevisionId: 888;
+}
+```
+---
+
+`meshUrl`
+
+###### string
+
+URL to mesh binary provided by a Procore service.
+
+```js
+{
+  meshUrl: 'https://foo.com/geometry/mesh';
+}
+```
+---
+
+`meshnodeUrl`
+
+###### string
+
+URL to mesh binary provided by a Procore service.
+
+```js
+{
+  meshnodeUrl: 'https://foo.com/geometry/meshnode';
+}
+```
+
+`nodeUrl`
+
+###### string
+
+URL to mesh binary provided by a Procore service.
+
+```js
+{
+  nodeUrl: 'https://foo.com/geometry/node';
+}
+```
+
+### Required Options for File Extraction
+If you are planning to use the Web Viewer SDK to view a model with a file extraction, you will need to provide the following options. For example, models uploaded to the Documents Tool can be viewed with a file extraction.
+
+`fileExtractionId`
+
+###### number
+
+ID of the file extraction associated to the model.
+
+```js
+{
+  fileExtractionId: 23;
+}
+```
+
+### Optional Options
+
+`accessToken`
+
+###### string
 
 OAuth access token used to authenticate requests to the Procore API made by the Web Viewer SDK on your behalf (e.g. fetching an object's properties). Specifically it adds an `Authorization` header with the provided token to each request. See [Making Your First API Call](/documentation/making-first-call) for details on retrieving an access token.
 
@@ -3918,13 +4040,17 @@ If this is not provided as an option, you will need to intercept the SDK's reque
 
 Additionally, the access token will eventually expire (in 24 hours currently for an implicitly granted token) and requests made by the SDK will fail. We don't yet have a way to notify of these errors and refresh the in-use access token. One workaround is to keep track of the expiration time for the access token (provided in the `expires_in` query param in the Implicit Grant flow) and re-instantiate the `ProcoreBim.Webviewer` with the new access token.
 
-`baseUrl [string]`
-
 ```js
 {
-  baseUrl: 'https://api.procore.com',
+  accessToken: '1234567890abdefghijkl',
 }
 ```
+
+---
+
+`baseUrl`
+
+###### string
 
 The `baseUrl` is a mechanism for determining which version of the Procore API you will hit.
 
@@ -3932,72 +4058,19 @@ For example, while developing a third-party Procore App, you may want to utilize
 
 Another example is if you want to avoid using the Implicit Grant flow you might set up a server at say `https://auth-proxy.myapp.com` and pass that in as the `baseUrl`. All SDK requests will then be made to your server which could add the `Authorization` header and make the actual request to the Procore API.
 
-`parentElement [Element]` (required)
-
 ```js
 {
-  parentElement: document.getElementById('myViewer');
+  baseUrl: 'https://api.procore.com',
 }
 ```
 
-DOM node to attach viewer to.
+---
 
-`modelId [string]` (required)
+`bcfCamera`
 
-```js
-{
-  modelId: '999-888-myModel';
-}
-```
+###### Object
 
-Used for caching.
-Must be unique to avoid cache collisions.
-
-`modelRevisionId [string]` (required)
-
-```js
-{
-  modelRevisionId: '999-888-myModel';
-}
-```
-
-Used for caching.
-Must be unique to avoid cache collisions.
-
-`meshUrl [string]` (required)
-
-```js
-{
-  meshUrl: 'https://foo.com/geometry/mesh';
-}
-```
-
-URL to mesh binary.
-Provided by a Procore service.
-
-`meshnodeUrl [string]` (required)
-
-```js
-{
-  meshnodeUrl: 'https://foo.com/geometry/meshnode';
-}
-```
-
-URL to meshnode binary.
-Provided by a Procore service.
-
-`nodeUrl [string]` (required)
-
-```js
-{
-  nodeUrl: 'https://foo.com/geometry/node';
-}
-```
-
-URL to node binary.
-Provided by a Procore service.
-
-`bcfCamera [Object]`
+Initializes the Webviewer with the camera.
 
 ```js
 {
@@ -4025,9 +4098,14 @@ Provided by a Procore service.
 }
 ```
 
-Initializes the Webviewer with the camera.
+--- 
 
-`min_boundary [Object]`
+`min_boundary`
+
+###### Object
+
+Defines the minimum boundary of the model.
+If `max_boundary` is also defined, both `min_boundary` and `max_boundary` are used to create a section box which will only render objects within that section box.
 
 ```js
 {
@@ -4040,10 +4118,14 @@ Initializes the Webviewer with the camera.
 
 ```
 
-Defines the minimum boundary of the model.
-If `max_boundary` is also defined, both `min_boundary` and `max_boundary` are used to create a section box which will only render objects within that section box.
+---
 
-`max_boundary [Object]`
+`max_boundary`
+
+###### Object
+
+Defines the maximum boundary of the model.
+If `min_boundary` is also defined, both `max_boundary` and `min_boundary` are used to create a section box which will only render objects within that section box.
 
 ```js
 {
@@ -4055,10 +4137,13 @@ If `max_boundary` is also defined, both `min_boundary` and `max_boundary` are us
 }
 ```
 
-Defines the maximum boundary of the model.
-If `min_boundary` is also defined, both `max_boundary` and `min_boundary` are used to create a section box which will only render objects within that section box.
+---
 
-`rotation [Object]`
+`rotation`
+
+###### Object
+
+If `min_boundary` and `max_boundary` are defined, then you can also set the rotation of the section box.
 
 ```js
 {
@@ -4070,9 +4155,13 @@ If `min_boundary` is also defined, both `max_boundary` and `min_boundary` are us
 }
 ```
 
-If `min_boundary` and `max_boundary` are defined, then you can also set the rotation of the section box.
+---
 
-`multiselect [boolean]`
+`multiselect`
+
+###### boolean
+
+Sets the object selection mode.
 
 ```js
 {
@@ -4080,9 +4169,11 @@ If `min_boundary` and `max_boundary` are defined, then you can also set the rota
 }
 ```
 
-Sets the object selection mode.
+---
 
-`tools [Array]`
+`tools`
+
+###### Array
 
 ```js
 [
@@ -4286,6 +4377,22 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
 <p class="heading-link-container">
   <a class="heading-link" href="#migration-guides"></a>
 </p>
+
+### v11 to v12
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v12-to-v13"></a>
+</p>
+
+The options object passed to the `ProcoreBim.Webviewer` constructor will now require a `projectId` and `companyId` field. `projectId` is used for many requests to the Procore API. `companyId` is used to set the `Procore-Company-Id` header to comply with requirements for Multiple Procore Regions, see https://developers.procore.com/notifications/67 for more info. If you were not passing these fields before, you will need to add them to your options object.
+
+```ts
+{
+  projectId: number;
+  companyId: number;
+}
+
+```ts
 
 ### v11 to v12
 
