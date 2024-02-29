@@ -3904,6 +3904,8 @@ GUI
 
 ### Required Options
 
+<p class="heading-link-container"><a class="heading-link" href="#required-options"></a></p>
+
 `parentElement`
 
 ##### DOMElement
@@ -3946,6 +3948,9 @@ The id of the company the model has been published to.
 ```
 
 ### Required Options for Model Revision
+
+<p class="heading-link-container"><a class="heading-link" href="#required-options-for-model-revision"></a></p>
+
 If you are planning to use the Web Viewer SDK to view a model revision, you will need to provide the following options. These are models published to the Models Tool.
 
 `modelId`
@@ -4012,6 +4017,9 @@ URL to mesh binary provided by a Procore service.
 ```
 
 ### Required Options for File Extraction
+
+<p class="heading-link-container"><a class="heading-link" href="#required-options-for-file-extraction"></a></p>
+
 If you are planning to use the Web Viewer SDK to view a model with a file extraction, you will need to provide the following options. For example, models uploaded to the Documents Tool can be viewed with a file extraction.
 
 `fileExtractionId`
@@ -4027,6 +4035,8 @@ ID of the file extraction associated to the model.
 ```
 
 ### Optional Options
+
+<p class="heading-link-container"><a class="heading-link" href="#optional-options"></a></p>
 
 `accessToken`
 
