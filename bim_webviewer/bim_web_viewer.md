@@ -3906,7 +3906,7 @@ GUI
 
 `parentElement`
 
-###### DOMElement
+##### DOMElement
 
 DOM node to attach viewer to.
 
@@ -3920,7 +3920,7 @@ DOM node to attach viewer to.
 
 `projectId`
 
-###### number
+##### number
 
 The id of the project the model has been published to.
 
@@ -3935,7 +3935,7 @@ The id of the project the model has been published to.
 
 `companyId`
 
-###### number
+##### number
 
 The id of the company the model has been published to.
 
@@ -3950,7 +3950,7 @@ If you are planning to use the Web Viewer SDK to view a model revision, you will
 
 `modelId`
 
-###### number
+##### number
 
 ID of the associated BIM Model
 
@@ -3963,7 +3963,7 @@ ID of the associated BIM Model
 
 `modelRevisionId`
 
-###### number
+##### number
 
 ID of the associated BIM Model Revision
 
@@ -3976,7 +3976,7 @@ ID of the associated BIM Model Revision
 
 `meshUrl`
 
-###### string
+##### string
 
 URL to mesh binary provided by a Procore service.
 
@@ -3989,7 +3989,7 @@ URL to mesh binary provided by a Procore service.
 
 `meshnodeUrl`
 
-###### string
+##### string
 
 URL to mesh binary provided by a Procore service.
 
@@ -4001,7 +4001,7 @@ URL to mesh binary provided by a Procore service.
 
 `nodeUrl`
 
-###### string
+##### string
 
 URL to mesh binary provided by a Procore service.
 
@@ -4016,7 +4016,7 @@ If you are planning to use the Web Viewer SDK to view a model with a file extrac
 
 `fileExtractionId`
 
-###### number
+##### number
 
 ID of the file extraction associated to the model.
 
@@ -4030,7 +4030,7 @@ ID of the file extraction associated to the model.
 
 `accessToken`
 
-###### string
+##### string
 
 OAuth access token used to authenticate requests to the Procore API made by the Web Viewer SDK on your behalf (e.g. fetching an object's properties). Specifically it adds an `Authorization` header with the provided token to each request. See [Making Your First API Call](/documentation/making-first-call) for details on retrieving an access token.
 
@@ -4050,7 +4050,7 @@ Additionally, the access token will eventually expire (in 24 hours currently for
 
 `baseUrl`
 
-###### string
+##### string
 
 The `baseUrl` is a mechanism for determining which version of the Procore API you will hit.
 
@@ -4068,7 +4068,7 @@ Another example is if you want to avoid using the Implicit Grant flow you might 
 
 `bcfCamera`
 
-###### Object
+##### Object
 
 Initializes the Webviewer with the camera.
 
@@ -4102,7 +4102,7 @@ Initializes the Webviewer with the camera.
 
 `min_boundary`
 
-###### Object
+##### Object
 
 Defines the minimum boundary of the model.
 If `max_boundary` is also defined, both `min_boundary` and `max_boundary` are used to create a section box which will only render objects within that section box.
@@ -4122,7 +4122,7 @@ If `max_boundary` is also defined, both `min_boundary` and `max_boundary` are us
 
 `max_boundary`
 
-###### Object
+##### Object
 
 Defines the maximum boundary of the model.
 If `min_boundary` is also defined, both `max_boundary` and `min_boundary` are used to create a section box which will only render objects within that section box.
@@ -4141,7 +4141,7 @@ If `min_boundary` is also defined, both `max_boundary` and `min_boundary` are us
 
 `rotation`
 
-###### Object
+##### Object
 
 If `min_boundary` and `max_boundary` are defined, then you can also set the rotation of the section box.
 
@@ -4159,7 +4159,7 @@ If `min_boundary` and `max_boundary` are defined, then you can also set the rota
 
 `multiselect`
 
-###### boolean
+##### boolean
 
 Sets the object selection mode.
 
@@ -4173,7 +4173,7 @@ Sets the object selection mode.
 
 `tools`
 
-###### Array
+##### Array
 
 ```js
 [
@@ -4378,7 +4378,7 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
-### v11 to v12
+### v12 to v13
 
 <p class="heading-link-container">
   <a class="heading-link" href="#v12-to-v13"></a>
@@ -4392,7 +4392,7 @@ The options object passed to the `ProcoreBim.Webviewer` constructor will now req
   companyId: number;
 }
 
-```ts
+```
 
 ### v11 to v12
 
