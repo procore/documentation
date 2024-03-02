@@ -4293,14 +4293,66 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#v11-to-v12"></a>
 </p>
 
+#### Change in Default Behavior of `model.toggleSectionBoxDisplay`
+
+The default behavior of [`model.toggleSectionBoxDisplay`](#toggle-section-box-display) has changed to set up the section box following the same logic as the "Section Box" toolbar button. This was to make implementing section box display easier by default while still allowing for customization if it's desired.
+
+Previously, calling [`model.toggleSectionBoxDisplay`](#toggle-section-box-display) would throw an error if called when there was no section box set (e.g. via [`model.setSectionBox`](#set-section-box)). So if you were using it before you were likely doing something like this:
+
+```ts
+model.setSectionBox(
+  { x: -1, y: -1, z: -1 },
+  { x: 1, y: 1, z: 1 },
+  { x: 0, y: 0, z: 0 },
+  false,
+);
+model.toggleSectionBoxDisplay(true)
+```
+
+This code will still run, but [`model.toggleSectionBoxDisplay`](#toggle-section-box-display) now will internally set the section box based on its own logic so the [`model.setSectionBox`](#set-section-box) will not do anything.
+
+If you'd like to stay in control of setting the section box then you can override this behavior globally using [`model.configureSectionBoxDisplay`](#configure-section-box-display)
+
+```ts
+// Calling this will tell all subsequent calls to model.toggleSectionBoxDisplay 
+// NOT to set the section box. It will result in the old behavior where it throws
+// an error if no section box is set.
+model.configureSectionBoxDisplay({ overrideSectionBoxSetup: true })
+
+model.setSectionBox(
+  { x: -1, y: -1, z: -1 },
+  { x: 1, y: 1, z: 1 },
+  { x: 0, y: 0, z: 0 },
+  false,
+);
+model.toggleSectionBoxDisplay(true)
+```
+
+Or you can override the behavior on a per call basis by passing an option argument to [`model.toggleSectionBoxDisplay`](#toggle-section-box-display)
+
+```ts
+model.setSectionBox(
+  { x: -1, y: -1, z: -1 },
+  { x: 1, y: 1, z: 1 },
+  { x: 0, y: 0, z: 0 },
+  false,
+);
+// This will tell model.toggleSectionBoxDisplay NOT to set the section box,
+// but just for this call. Other calls to model.toggleSectionBoxDisplay will 
+// be unaffected.
+model.toggleSectionBoxDisplay(true, { overrideSectionBoxSetup: true })
+```
+
 #### Continuation of consistent world coordinates
 
 These methods now return model objects with `bbox` properties in world coordinates:
+
 - `model.getObject`
 - `model.getObjects`
 - `model.getRootObject`
 
 These events now return payloads with model objects with `bbox` properties in world coordinates:
+
 - `objectSingleClick`
 - `objectSelect`
 
