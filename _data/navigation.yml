@@ -115,6 +115,8 @@
       url: /mpz-headers
     - title: Working with Documents
       url: /tutorial-documents
+    - title: Working with Secure File Access
+      url: /secure-file-access-tips
     - title: API Call Sequencing
       url: /api-call-sequencing
 

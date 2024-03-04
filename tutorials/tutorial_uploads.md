@@ -12,7 +12,7 @@ The Procore API supports the capability to post and store files directly in a we
 Using the Procore API to directly upload content to a storage service helps to streamline uploads and reduces upload latency.
 Uploading a file using the Procore API is generally a two-step process.
 The first step to storing files directly from your application to your file storage service is to create an upload at the company or project level using the [Create Upload (Company)](https://developers.procore.com/reference/rest/v1/company-uploads) or [Create Upload (Project)](https://developers.procore.com/reference/rest/v1/project-uploads) endpoints respectively.
-File uploads can be either segmented or non-sgemented.
+File uploads can be either segmented or non-segmented.
 The JSON block returned by these endpoints contains attributes that form the 'instructions' for uploading and storing files.
 Subsequent steps use these attributes to form a POST request to the file storage service.
 Once a file has been uploaded to a storage service you can use the Procore API to move the file into Procore and associate it with a resource.

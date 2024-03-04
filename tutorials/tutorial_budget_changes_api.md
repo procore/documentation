@@ -11,7 +11,7 @@ Budget Changes are a new feature in Procore Financials that replace the function
 
 Budget Changes represent changes to a Project's Budget that can be workflowed, created from Change Events, connected to existing Change Events, as well as integrated with an ERP system. For more detailed information on usage of the feature through the Procore Web Application, please visit [our support documentation on the Budget Changes feature](https://support.procore.com/product-releases/new-releases/budget-new-budget-changes-feature-for-change-management-in-project-financials).
 
-Once Budget Changes are enabled for a Company, Budget Modifications are no longer available. This means the behavior of the Rest API for Budget Modifications changes, too. Integrators will continue to be able to use `GET` requests for individual and collections of Budget Modifications, but will receive a `405 - Method Not Allowed` response. This response will include an `Allow` header, detailing that `GET` is the only acceptable method, along with a message explaining that the API is no longer available once a Company has migrated to Budget Changes. Along with this, the Budget Modifications API will be sunset in 2024.
+Once Budget Changes are enabled for a Company, Budget Modifications are no longer available. This means the behavior of the Rest API for Budget Modifications changes, too. Integrators will continue to be able to use `GET` requests for individual and collections of Budget Modifications, but will receive a `405 - Method Not Allowed` response. This response will include an `Allow` header, detailing that `GET` is the only acceptable method, along with a message explaining that the API is no longer available once a Company has migrated to Budget Changes. Along with this, the Budget Modifications API will be sunset in November of 2024.
 
 As this feature is meant to extend the functionality of Budget Modifications, it is useful to know how Budget Changes relate to Budget Modifications. All of the original features available for Budget Modifications are available for Budget Changes. However the APIs do not behave similarly. This document is intended to provide a detailed explanation of how the Budget Modifications API, its request params and responses, correlate to the Budget Changes API.
 
@@ -69,7 +69,6 @@ In the Budget Changes API, Budget Modifications are analogous to the `adjustment
     "description": "Project Engineer.Cost Type 1"
   },
   "description": "Foobar",
-  "comment": "Baz",
   "calculation_strategy": "manual",
   "quantity": 1,
   "type": "change_event",
@@ -79,6 +78,7 @@ In the Budget Changes API, Budget Modifications are analogous to the `adjustment
   "change_event_line_item_id": 78
 }
 ```
+>It's important to note that the first Adjustment Line Item is considered the Adjustment. All subsequent Adjustment Line Items function as Allocation Line Items for that Adjustment. The comments field is only available on the Adjustment ("id": 1), and is not available on Adjustment Allocation Line Items ("id": >1). Any comments directed to Adjustment Line Item 1 will be accepted. Any comment directed to subsequent Adjustment Line Items will be discarded.
 
 
 | Budget Modification Field | Description | Budget Change Adjustment Line Item Field | Description
@@ -89,7 +89,7 @@ In the Budget Changes API, Budget Modifications are analogous to the `adjustment
 | `to_budget_line_item_id` | ID of the Budget Line Item from which the Budget Modification is being credited | `wbs_code` | This attribute on Adjustment Line Items with type `change_event` indicates the WBS Code for which the Adjustment is being credited |
 | | The WBS Code of the `To` Budget Line Item is used to set the wbs_code_id of the Adjustment Line Item when migrating from Budget Modifications to Budget Changes | | |
 | `notes` | Field for entering information about a Budget Modification | `description` | Field for entering a custom description of an adjustment |
-| | | `comment` | Field for entering a comment about an adjustment |
+| | | `comment` | Field for entering a comment about an adjustment. Only available for adjustment line item ID 1. Comments directed to subsequent line item IDs will be discarded |
 | `transfer_amount` | Amount being transferred from one Budget Line Item to another | `amount` | Amount being withdrawn or credited for the Adjustment Line Item |
 | `updated_at` | Timestamp of when the Budget Modification was last updated | N/A | These fields are not present in Adjustment Line Item response object |
 | `created_at` | Creation timestamp for Budget Modification | | |
@@ -123,7 +123,6 @@ Once a company has migrated to Budget Changes from the Budget Modifications expe
       "adjustment_number": 5,
       "wbs_code_id": 56,
       "description": "Foobar",
-      "comment": "Baz",
       "calculation_strategy": "manual",
       "quantity": 1,
       "type": "change_event",
