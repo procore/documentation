@@ -12,13 +12,7 @@ section_title: Building Applications
 
 The following sections provide step-by-step instructions for creating a new data connection App that utilizes a [Devloper Managed Service Account (DMSA)]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %}).
 
-## Create an Application
-
-Open your browser and navigate to the Developer Portal landing page.
-1. Click **Sign In** to log in to your Developer Portal account.
-1. Navigate to the My Apps page and click **Create a New App**. The Create New App dialog displays.
-1. Enter an **App Name**. This will be the name you use to refer to your app internally within your organization.
-1. Click **Create**. A development sandbox is generated for your new app. You will receive an email notification when your new sandbox is ready.
+{% include create_application.md %}
 
 ## Define an App Manifest
 
