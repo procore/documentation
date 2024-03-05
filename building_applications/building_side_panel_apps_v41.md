@@ -1,5 +1,5 @@
 ---
-permalink: /building-side-panel-apps
+permalink: /building-side-panel-apps-v41
 title: Building Procore Side Panel Applications
 layout: default
 section_title: Building Applications
@@ -18,26 +18,13 @@ Developers use the application manifest to define the specific tools and views t
 Company administrators install side panel applications and create application configurations using the same installation flow as full screen embedded applications.
 This article outlines the steps for creating a new side panel application.
 
-{% include create_application.md %}
+## Create an Application
 
-## Add Side Panel Component
-
-The first step in configuring your new application is to add a component using the Configuration Builder.
-Note that only fullscreen embedded and side panel applications require components.
-If you are building a data connection application based on developer managed service accounts (DMSA), you do not need to add a component in the Configuration Builder.
-See Understanding App Types for additional information on components.
-Follow these steps to add a new side panel component.
-
-1. In the Configuration Builder, expand the Components section and click **Add Component**.
-2. Using the drop-down, select Side Panel for the component type.
-3. Provide a Description for the component in the available field.
-
-
-
-
-
-
-
+Open your browser and navigate to the Developer Portal landing page.
+1. Click **Sign In** to log in to your Developer Portal account.
+1. Navigate to the My Apps page and click **Create a New App**. The Create New App dialog displays.
+1. Enter an **App Name**. This will be the name you use to refer to your app internally within your organization.
+1. Click **Create**. A development sandbox is generated for your new app. You will receive an email notification when your new sandbox is ready.
 
 ## Define an App Manifest
 
@@ -114,9 +101,6 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/work_order_contracts/:id/billings_schedule_of_values | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/billings_schedule_of_values/edit | commitments.work_order_contracts.edit |
 | /:project_id/project/commitments/work_order_contracts/:id/requisitions | commitments.work_order_contracts.detail |
-| /:project_id/project/commitments/work_order_contracts/:id/requisitions/new | commitments.requisitions.new |
-| /:project_id/project/commitments/work_order_contracts/:work_order_contract_id/requisitions/:id | commitments.requisitions.detail |
-| /:project_id/project/commitments/work_order_contracts/:work_order_contract_id/admin/requisitions/:id/edit | commitments.requisitions.edit |
 | /:project_id/project/commitments/work_order_contracts/:id/contract_payments | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/contract_payments/new | commitments.work_order_contracts.new |
 | /:project_id/project/commitments/work_order_contracts/:id/related_items | commitments.work_order_contracts.detail |
@@ -125,17 +109,14 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/work_order_contracts/:id/communications/new | commitments.work_order_contracts.new |
 | /:project_id/project/commitments/work_order_contracts/:id/change_history | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/advanced_settings/edit | commitments.work_order_contracts.edit |
-| /:project_id/project/commitments/work_order_contracts/:id/change_orders/commitment_contract_change_orders<br />/new_from_change_events_bulk_action | commitments.commitment_contract_change_orders.new |
-| /:project_id/project/commitments/work_order_contracts/:work_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id | commitments.commitment_contract_change_orders.detail |
-| /:project_id/project/commitments/work_order_contracts/:work_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id/edit | commitments.commitment_contract_change_orders.edit |
 | /:project_id/project/commitments/purchase_order_contracts/:id | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/edit | commitments.purchase_order_contracts.edit |
 | /:project_id/project/commitments/purchase_order_contracts/:id/schedule_of_values | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/change_orders | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/requisitions | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/requisitions/new | commitments.requisitions.new |
-| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/requisitions/:id | commitments.requisitions.detail |
-| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/admin/requisitions/:id/edit | commitments.requisitions.edit |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/requisitions/:id | commitments.requisitions.edit |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/admin/requisitions/:id/edit | commitments.requisitions.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/contract_payments | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/contract_payments/new | commitments.purchase_order_contracts.new |
 | /:project_id/project/commitments/purchase_order_contracts/:id/related_items | commitments.purchase_order_contracts.detail |
@@ -148,22 +129,6 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/new | commitments.commitment_contract_change_orders.new |
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id | commitments.commitment_contract_change_orders.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id/edit | commitments.commitment_contract_change_orders.edit |
-
-### Commitments Beta
-
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments | commitments.contracts.list |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/create | commitments.work_order_contracts.new |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br /> | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/advanced_settings | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/change_orders | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/change_history | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/compliance | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/edit | commitments.work_order_contracts.edit |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/emails | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/invoices | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/payments | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/rfqs | commitments.work_order_contracts.detail |
-| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/ssov | commitments.work_order_contracts.detail |
 
 ### Contracts
 
@@ -337,7 +302,7 @@ For additional information, see the [postMessage() method documentation](https:/
 
 ## Additional postMessage Events
 
-Aside from the “setup” message event that is fired when your app is first started, there are additional events fired at different life cycles of the side panel app.
+Aside from the “setup” message event that is fired when your app is first started, there are additional events fired at different life cycles of the side panel app. 
 All of these events are fired as a postMessage from Procore to your app’s window.
 You can listen to  “message” events and filter for the data “type”.
 
