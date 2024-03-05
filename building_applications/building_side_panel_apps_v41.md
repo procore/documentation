@@ -1,5 +1,5 @@
 ---
-permalink: /building-side-panel-apps
+permalink: /building-side-panel-apps-v41
 title: Building Procore Side Panel Applications
 layout: default
 section_title: Building Applications
@@ -18,26 +18,13 @@ Developers use the application manifest to define the specific tools and views t
 Company administrators install side panel applications and create application configurations using the same installation flow as full screen embedded applications.
 This article outlines the steps for creating a new side panel application.
 
-{% include create_application.md %}
+## Create an Application
 
-## Add Side Panel Component
-
-The first step in configuring your new application is to add a component using the Configuration Builder.
-Note that only fullscreen embedded and side panel applications require components.
-If you are building a data connection application based on developer managed service accounts (DMSA), you do not need to add a component in the Configuration Builder.
-See Understanding App Types for additional information on components.
-Follow these steps to add a new side panel component.
-
-1. In the Configuration Builder, expand the Components section and click **Add Component**.
-2. Using the drop-down, select Side Panel for the component type.
-3. Provide a Description for the component in the available field.
-
-
-
-
-
-
-
+Open your browser and navigate to the Developer Portal landing page.
+1. Click **Sign In** to log in to your Developer Portal account.
+1. Navigate to the My Apps page and click **Create a New App**. The Create New App dialog displays.
+1. Enter an **App Name**. This will be the name you use to refer to your app internally within your organization.
+1. Click **Create**. A development sandbox is generated for your new app. You will receive an email notification when your new sandbox is ready.
 
 ## Define an App Manifest
 
