@@ -2187,7 +2187,7 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#toggle-section-box-display"></a></p>
 
 ```js
-toggleSectionBoxDisplay(enable);
+toggleSectionBoxDisplay(enable, options);
 ```
 
 #### Description
@@ -2196,15 +2196,53 @@ Sets the on/off status of the section box display.
 
 The section box display is the UI widget that allows users to interactively set the section box.
 
-When turned on it will take the size of the existing section box that is clipping the model (e.g. from a call to [`model.setSectionBox`](#set-section-box)). If there is no section box set it will error. If the section box is set while the display is toggled on, the display will also change size to match the section box.
+When turned on it will take the size of the first that is defined:
 
-The section box display can be configured through the [`model.configureSectionBoxDisplay`](#configure-section-box-display) method.
+- the size of the last set section box in this session (e.g. via a viewpoint or SDK methods such as [`model.setSectionBox`](#set-section-box))
+- the size of the last set section box display in this session (i.e. if the user has enabled the section box display at least once)
+- the global bounding box of the model
+
+When turned off it will clear all sections.
+
+If the section box is set while the display is toggled on, the display will also change size to match the section box.
+
+##### Overriding Section Box Setup
+
+If you'd like to use your own logic for applying/removing the actual section box, you can configure `model.toggleSectionBoxDisplay` to use the size of the currently applied section box with the `overrideSectionBoxSetup` option.
+
+This can also be configured for all calls with [`model.configureSectionBoxDisplay`](#configure-section-box-display).
+
+When `overrideSectionBoxSetup` is `true`, you must set a section box manually before calling `model.toggleSectionBoxDisplay`.
+
+```ts
+// Starting with no section applied
+model.clearSection();
+
+// BAD - throws error because no applied section box to take size of
+model.toggleSectionBoxDisplay(true, { overrideSectionBoxSetup: true });
+
+// GOOD - section box display takes size of applied section box
+model.setSectionBox({ x: 0, y: 0, z: 0 }, { x: 1, y: 1, z: 1 }, { x: 0, y: 0, z: 0 }, false);
+model.toggleSectionBoxDisplay(true, { overrideSectionBoxSetup: true });
+
+// GOOD - using global config
+model.configureSectionBoxDisplay({ overrideSectionBoxSetup: true });
+model.setSectionBox({ x: 0, y: 0, z: 0 }, { x: 1, y: 1, z: 1 }, { x: 0, y: 0, z: 0 }, false);
+model.toggleSectionBoxDisplay(true);
+```
 
 #### Parameters
 
-| Field Name | Required | Type    | Description                                     |
-| ---------- | -------- | ------- | ----------------------------------------------- |
-| enable     | true     | boolean | on/off status to set the section box display to |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `enable` | true | `boolean` | on/off status to set the section box display to |
+| `options` | false | `ToggleSectionBoxDisplayOptions` | Options that apply to a specific toggle call. Takes precedence over configuration from [`model.configureSectionBoxDisplay`](#configure-section-box-display) |
+
+##### `ToggleSectionBoxDisplayOptions`
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| `overrideSectionBoxSetup` | false | false | `boolean` | Determines if `toggleSectionBoxDisplay` should use existing applied section box or if it should set it via its own logic. |
 
 ##### Returns
 
@@ -2234,16 +2272,17 @@ When the section box display is enabled, calling `configureSectionBoxDisplay` wi
 
 #### Parameters
 
-| Field Name | Required | Type    | Description                                     |
-| ---------- | -------- | ------- | ----------------------------------------------- |
-| config     | false    | Object  | Configuration object to change the behavior of the section box display. If called with no config argument, it will revert to the default config. |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `config` | false | `ConfigureSectionBoxDisplayConfig` | Configuration object to change the behavior of the section box display. If called with no config argument, it will revert to the default config. |
 
-##### config
+##### `ConfigureSectionBoxDisplayConfig`
 
-| Field Name | Required | Type    | Description                                     |
-| ---------- | -------- | ------- | ----------------------------------------------- |
-| dropdown   | false    | boolean | Determines whether the section tool dropdown appears. Defaults to true. |
-| hidePlanes | false    | boolean | Determines whether the planes of the section box display are shown. When they are hidden, the arrows still show. Defaults to false. |
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| `dropdown` | false | true | boolean | Determines whether the section tool dropdown appears. Defaults to true. |
+| `hidePlanes` | false | false | boolean | Determines whether the planes of the section box display are shown. When they are hidden, the arrows still show. Defaults to false. |
+| `overrideSectionBoxSetup` | false | false | boolean | Determines if [`model.toggleSectionBoxDisplay`](#toggle-section-box-display) should use existing applied section box or if it should set it via its own logic. |
 
 ##### Returns
 
