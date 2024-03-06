@@ -2859,6 +2859,36 @@ Model
 
 ---
 
+### Get Number Of Objects Hidden
+
+<p class="heading-link-container"><a class="heading-link" href="#get-number-of-objects-hidden"></a></p>
+
+```js
+getNumObjectsHidden();
+```
+
+#### Description
+
+Retrieve the number of objects selected based on the `FirstObject` counting method.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+{
+  count: number
+}
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Select Objects
 
 <p class="heading-link-container"><a class="heading-link" href="#select-objects"></a></p>
@@ -3017,7 +3047,7 @@ getNumObjectsSelected(method);
 
 #### Description
 
-Retrieve the number of objects selected base on the count method. 
+Retrieve the number of objects selected based on the count method.
 
 #### Parameters
 
