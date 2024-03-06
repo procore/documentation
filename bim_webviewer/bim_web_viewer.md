@@ -2182,6 +2182,34 @@ Model
 
 ---
 
+### Reset Section Box
+
+<p class="heading-link-container"><a class="heading-link" href="#reset-section-box"></a></p>
+
+```js
+resetSectionBox();
+```
+
+#### Description
+
+Resets section box to global bounding box of model.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Toggle Section Box Display
 
 <p class="heading-link-container"><a class="heading-link" href="#toggle-section-box-display"></a></p>
