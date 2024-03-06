@@ -2579,38 +2579,6 @@ Model
 
 ---
 
-### Get Number Of Objects Selected
-
-<p class="heading-link-container"><a class="heading-link" href="#get-number-of-objects-selected"></a></p>
-
-```js
-getNumObjectsSelected(method);
-```
-
-#### Description
-
-Retrieve the number of objects selected base on the count method. 
-
-#### Parameters
-
-| Field Name | Required | Type | Description |
-| - | - | - | - |
-| method | false | string |  Method to count, can be the following: `FirstObject`, `Object`, or `Geometry`. Default value is `FirstObject` |
-
-##### Returns
-
-```js
-{
-  count: number
-}
-```
-
-##### Namespace
-
-Model
-
----
-
 ### Get Object
 
 <p class="heading-link-container"><a class="heading-link" href="#get-object"></a></p>
@@ -2653,7 +2621,6 @@ Returns a model object with the given id. Contains data such as bounding box, hi
 Model
 
 ---
-
 
 ### Get Objects
 
@@ -2774,7 +2741,6 @@ boolean
 Model
 
 ---
-
 
 ### Hide All Objects
 
@@ -3040,6 +3006,39 @@ number[]
 Model
 
 ---
+
+### Get Number Of Objects Selected
+
+<p class="heading-link-container"><a class="heading-link" href="#get-number-of-objects-selected"></a></p>
+
+```js
+getNumObjectsSelected(method);
+```
+
+#### Description
+
+Retrieve the number of objects selected base on the count method. 
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| method | false | string |  Method to count, can be the following: `FirstObject`, `Object`, or `Geometry`. Default value is `FirstObject` |
+
+##### Returns
+
+```js
+{
+  count: number
+}
+```
+
+##### Namespace
+
+Model
+
+---
+
 
 ### Set X Ray Mode
 
