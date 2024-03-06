@@ -2324,6 +2324,43 @@ Model
 
 ---
 
+### Get Section Box Display
+
+<p class="heading-link-container"><a class="heading-link" href="#get-section-box-display"></a></p>
+
+```ts
+getSectionBoxDisplay();
+```
+
+#### Description
+
+Gets the current section box display status.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```ts
+{
+  enabled: boolean,
+  configuration: ConfigureSectionBoxDisplayConfig,
+  bbox: {
+    min: { x: number, y: number, z: number },
+    max: { x: number, y: number, z: number },
+  },
+}
+```
+
+For `ConfigureSectionBoxDisplayConfig` schema, see [`model.configureSectionBoxDisplay`](#configure-section-box-display).
+
+##### Namespace
+
+Model
+
+---
+
 ### Add Section Plane
 
 <p class="heading-link-container"><a class="heading-link" href="#add-section-plane"></a></p>
