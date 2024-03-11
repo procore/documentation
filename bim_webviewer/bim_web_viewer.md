@@ -2182,6 +2182,34 @@ Model
 
 ---
 
+### Reset Section Box
+
+<p class="heading-link-container"><a class="heading-link" href="#reset-section-box"></a></p>
+
+```js
+resetSectionBox();
+```
+
+#### Description
+
+Resets section box to global bounding box of model.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Toggle Section Box Display
 
 <p class="heading-link-container"><a class="heading-link" href="#toggle-section-box-display"></a></p>
@@ -2289,6 +2317,43 @@ When the section box display is enabled, calling `configureSectionBoxDisplay` wi
 ```js
 undefined
 ```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Section Box Display
+
+<p class="heading-link-container"><a class="heading-link" href="#get-section-box-display"></a></p>
+
+```ts
+getSectionBoxDisplay();
+```
+
+#### Description
+
+Gets the current section box display status.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```ts
+{
+  enabled: boolean,
+  configuration: ConfigureSectionBoxDisplayConfig,
+  bbox: {
+    min: { x: number, y: number, z: number },
+    max: { x: number, y: number, z: number },
+  },
+}
+```
+
+For `ConfigureSectionBoxDisplayConfig` schema, see [`model.configureSectionBoxDisplay`](#configure-section-box-display).
 
 ##### Namespace
 
@@ -2551,38 +2616,6 @@ Model
 
 ---
 
-### Get Number Of Objects Selected
-
-<p class="heading-link-container"><a class="heading-link" href="#get-number-of-objects-selected"></a></p>
-
-```js
-getNumObjectsSelected(method);
-```
-
-#### Description
-
-Retrieve the number of objects selected base on the count method. 
-
-#### Parameters
-
-| Field Name | Required | Type | Description |
-| - | - | - | - |
-| method | false | string |  Method to count, can be the following: `FirstObject`, `Object`, or `Geometry`. Default value is `FirstObject` |
-
-##### Returns
-
-```js
-{
-  count: number
-}
-```
-
-##### Namespace
-
-Model
-
----
-
 ### Get Object
 
 <p class="heading-link-container"><a class="heading-link" href="#get-object"></a></p>
@@ -2625,7 +2658,6 @@ Returns a model object with the given id. Contains data such as bounding box, hi
 Model
 
 ---
-
 
 ### Get Objects
 
@@ -2747,7 +2779,6 @@ Model
 
 ---
 
-
 ### Hide All Objects
 
 <p class="heading-link-container"><a class="heading-link" href="#hide-all-objects"></a></p>
@@ -2857,6 +2888,36 @@ None
 
 ```js
 number[]
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Number Of Objects Hidden
+
+<p class="heading-link-container"><a class="heading-link" href="#get-number-of-objects-hidden"></a></p>
+
+```js
+getNumObjectsHidden();
+```
+
+#### Description
+
+Retrieve the number of objects selected based on the `FirstObject` counting method.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+{
+  count: number
+}
 ```
 
 ##### Namespace
@@ -3012,6 +3073,39 @@ number[]
 Model
 
 ---
+
+### Get Number Of Objects Selected
+
+<p class="heading-link-container"><a class="heading-link" href="#get-number-of-objects-selected"></a></p>
+
+```js
+getNumObjectsSelected(method);
+```
+
+#### Description
+
+Retrieve the number of objects selected based on the count method.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| method | false | string |  Method to count, can be the following: `FirstObject`, `Object`, or `Geometry`. Default value is `FirstObject` |
+
+##### Returns
+
+```js
+{
+  count: number
+}
+```
+
+##### Namespace
+
+Model
+
+---
+
 
 ### Set X Ray Mode
 
