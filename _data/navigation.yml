@@ -63,6 +63,8 @@
       url: /building-apps-create-new
     - title: Creating an App Manifest
       url: /building-apps-define-manifest
+    - title: Understanding URL Parameter Interpolation
+      url: /building-apps-url-parameter-interpolation
     - title: Building Procore Embedded (Fullscreen) Applications
       url: /building-embedded-fullscreen-apps  
     - title: Building Procore Side Panel Applications

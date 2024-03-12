@@ -1,5 +1,5 @@
 ---
-permalink: /oauth-keys
+permalink: /oauth-keys-v3x-legacy
 title: Managing OAuth Credentials and Redirect URIs
 layout: default
 section_title: OAuth 2.0 Authentication
@@ -25,16 +25,16 @@ The `http://localhost` redirect URI is registered by default when you create a n
 
 ## Managing Sandbox OAuth Credentials and Redirect URIs
 
-Using the OAuth Credentials section on the Manage App page you can view and manage the OAuth credentials and Redirect URIs for your sandbox.
+Using the Sandbox Account section on the App Settings page you can view and manage the OAuth credentials and Redirect URIs for your sandbox.
 Your sandbox Client ID and Client Secret is accessible in this section and you can reset the Client Secret as needed.
 You can also add, update, or delete Redirect URIs for your sandbox.
 
-![Sandbox Account screenshot]({{ site.baseurl }}/assets/guides/form-based-sandbox-oauth-creds.png)
+![Sandbox Account screenshot]({{ site.baseurl }}/assets/guides/sandbox-account-ui-section.png)
 
 ## Managing Production OAuth Credentials and Redirect URIs
 
-Using the OAuth Credentials section on the Manage App page you can view and manage the the OAuth credentials and Redirect URIs for your production environment.
+Using the App Credentials section on the App Settings page you can view and manage the the OAuth credentials and Redirect URIs for your production environment.
 Your production Client ID is accessible in this section and you can reset the Client Secret as needed.
-It is important to note that your production Client Secret is hidden from view in the OAuth Credentials section and only visible to you once when you initially obtain production credentials through the manifest promotion process.
+It is important to note that your production Client Secret is hidden from view in the App Credentials section and only visible to you once when you initially obtain production credentials through the manifest promotion process.
 
-![App Credentials screenshot]({{ site.baseurl }}/assets/guides/form-based-production-oauth-creds.png)
+![App Credentials screenshot]({{ site.baseurl }}/assets/guides/app-credentials-ui-section.png)

@@ -1,6 +1,6 @@
 ---
 permalink: /building-embedded-fullscreen-apps
-title: Building Procore Embedded (Fullscreen) Applications
+title: Building Procore Full Screen Applications
 layout: default
 section_title: Building Applications
 ---
@@ -8,50 +8,81 @@ section_title: Building Applications
 >**Note:** This article covers topics consistent with the App Manifest v4.1 format.
 >For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
 
-## Background
+## Overview
 
 With the Procore platform, developers have the capability to develop and deploy embedded Apps that display directly within the Procore user interface.
 This embedded functionality benefits the end user by enabling streamlined and more efficient workflows.
 With an embedded App, the user does not need to constantly switch between Procore and another application, resulting in a more unified and improved user experience.
 The behavior and settings for embedded applications are defined in the App manifest.
-This article convers the steps for building an embedded (fullscreen) application.
 
-## Create an Application
+This article provides details on the following steps for building a full screen (embedded) application:
 
-Open your browser and navigate to the Developer Portal landing page.
-1. Click **Sign In** to log in to your Developer Portal account.
-1. Navigate to the My Apps page and click **Create a New App**. The Create New App dialog displays.
-1. Enter an **App Name**. This will be the name you use to refer to your app internally within your organization.
-1. Click **Create**. A development sandbox is generated for your new app. You will receive an email notification when your new sandbox is ready.
+* [Create a New Application](#create-a-new-application)
+* [Add a Full Screen Component](#add-a-full-screen-component)
+  * [Specify Component Type and Description](#1-specify-component-type-and-description)
+  * [Define Application URL](#2-define-application-url)
+  * [Define Parameter Interpolation](#3-define-parameter-interpolation)
+  * [Save the New Component](#4-save-the-new-component)
+* [Define Setup Instructions and Post-Installation Notes](#define-setup-instructions)
+* [Save Manifest and Create Version](#save-manifest-and-create-version)
+* [Promote Updated Sandbox Manifest to Production](#promote-updated-sandbox-manifest-to-production)
 
-## Define an App Manifest
+<a name="create-a-new-application"></a>
+{% include create_application.md %}
 
-The following sections outline the steps for defining an app manifest for a fullscreen embedded app.
+## Add a Full Screen Component
 
-### Create New Sandbox Manifest Version
+The first step in configuring your new full screen embedded application is to add a _component_.
+Note that only full screen embedded and side panel applications require that components be defined.
+If you are building a data connection application based on developer managed service accounts (DMSA), you do not need to add a component in the Configuration Builder.
+See [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}) for additional information on application types and components.
+Follow these steps to add a new full screen component.
 
-Let’s start by creating a new version of our app manifest in the sandbox environment.
-1. In the Developer Portal, navigate to the Manage Manifests panel for your app.
-1. Make sure the Sandbox tab is selected.
-1. Click **Create New Version** to display the manifest editor. You can use the editor to add an embedded component to your manifest and modify it for your specific application. The editor provides built-in validation so that you are notified when the format of your manifest does not conform to the required structure.
+### 1. Specify Component Type and Description
 
-    ![create new manifest version]({{ site.baseurl }}/assets/guides/side-panel-create-new-manifest-version.png)
+* Navigate to the Configuration Builderon the Manage App page, expand the Components section and click **Add Component**.
+* Using the drop-down, select **Full Screen** for the component Type and enter a Description for the component.
 
-### Add a Fullscreen Embedded Component
+    ![Component Type and Description]({{ site.baseurl }}/assets/guides/form-based-component-type-desc-fields-fs.png)
 
-You can add a fullscreen embedded component to the manifest using the **Inject Component** button for the `embedded` component type.
+### 2. Define Application URL
 
-![Inject Embedded]({{ site.baseurl }}/assets/guides/inject-component-embedded.png)
+* In the URL field, specify the base web address for your application. (e.g., https://example.domain.com/)
 
-A new code block is added to the manifest where you can define the structure of your embedded component.
-For example:
+    ![Component URL]({{ site.baseurl }}/assets/guides/form-based-component-url-field.png)
 
-![Embedded Snippet]({{ site.baseurl }}/assets/guides/create-new-manifest-v4.1-fullscreen-snippet.png)
+### 3. Define Parameter Interpolation
 
-See [Creating an App Manifest]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_define_manifest.md %}) for more detailed information on App manifest format and structure.
-Once you have completed defining your manifest in the editor, click **Create** to save the new manifest version. 
+{% include url_parameter_interpolation.md %}
 
-## Promote App Manifest to Production
+* Add one or more custom URL Parameters to the component by clicking **Add Parameter**.
+
+  ![Component Add Param]({{ site.baseurl }}/assets/guides/form-based-component-add-param.png)
+
+* Define the Name, Key, and Description for the custom parameter.
+* Specify whether the parameter is required at time of installation.
+
+  ![Component Add Param Field]({{ site.baseurl }}/assets/guides/form-based-component-add-param-custom.png)
+
+* Click **Save Parameter**.
+
+### 4. Save the New Component
+
+* Once you have successfully created a new full screen component and defined the Type, Description, URL, and Parameter(s), click **Save Component**.
+
+  ![Component Save]({{ site.baseurl }}/assets/guides/form-based-component-save.png)
+
+<a name="define-setup-instructions"></a>
+{% include setup_instructions.md %}
+
+## Save Manifest and Create Version
+
+After completing the steps above, you're ready to save your app's configurations and set your first version number. 
+1. Click **Save** at the top of the page.
+2. The **Create Version** window appears. Enter a version number using the following syntax: **x.x.x.**
+Note: Your version number can only contain integers, and must consist of three (3) integers separated by a '.'. For example, '1.1.1'. Each new version you create must be a higher number than the previous version.
+
+## Promote Updated Sandbox Manifest to Production
 
 After you have successfully tested and validated your updated manifest in the development sandbox environment, you can promote it to the production environment.
 See [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for additional information.
