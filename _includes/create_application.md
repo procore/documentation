@@ -1,4 +1,4 @@
-## Create an Application
+## Create a New Application
 
 1. Open your browser and navigate to the Developer Portal landing page.
 1. Click **Sign In** to log in to your Developer Portal account.

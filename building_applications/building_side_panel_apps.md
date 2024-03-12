@@ -5,10 +5,10 @@ layout: default
 section_title: Building Applications
 ---
 
->**Note:** This article covers topics consistent with the App Manifest v4.1 format.
+>**Note:** This article covers topics consistent with the App Manifest v4.1 format and the form-based app creation UI experience.
 >For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
 
-## Background
+## Overview
 
 Procore has expanded the capabilities of the Procore platform to include a context-aware side panel experience in addition to the full screen embedded experience.
 Developers can now build applications that display in a side panel iframe located on the right side of the Procore user interface.
@@ -16,88 +16,73 @@ Procore users click a dock icon to launch the side panel experience.
 Side panel applications operate in the context of specific tools/views in Procore.
 Developers use the application manifest to define the specific tools and views their side panel application supports.
 Company administrators install side panel applications and create application configurations using the same installation flow as full screen embedded applications.
-This article outlines the steps for creating a new side panel application.
 
+This article provides details on the following steps for creating a new side panel application:
+
+* [Create a New Application](#create-a-new-application)
+* [Add a Side Panel Component](#add-a-side-panel-component)
+  * [Specify Component Type and Description](#1-specify-component-type-and-description)
+  * [Define Application URL](#2-define-application-url)
+  * [Define Parameter Interpolation](#3-define-parameter-interpolation)
+  * [Specify Supported Side Panel Views](#4-specify-supported-side-panel-views)
+  * [Save the New Component](#5-save-the-new-component)
+* [Define Setup Instructions and Post-Installation Notes](#define-setup-instructions)
+* [Promote Updated Sandbox Manifest to Production](#promote-updated-sandbox-manifest-to-production)
+* [Save Manifest and Create Version](#save-manifest-and-create-version)
+* [Using postMessage to Retrieve Procore Context](#using-postmessage-to-retrieve-procore-context)
+
+<a name="create-a-new-application"></a>
 {% include create_application.md %}
 
-## Add Side Panel Component
+## Add a Side Panel Component
 
-The first step in configuring your new application is to add a component using the Configuration Builder.
-Note that only fullscreen embedded and side panel applications require components.
+The first step in configuring your new side panel application is to add a _component_.
+Note that only fullscreen embedded and side panel applications require that components be defined.
 If you are building a data connection application based on developer managed service accounts (DMSA), you do not need to add a component in the Configuration Builder.
-See Understanding App Types for additional information on components.
+See [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}) for additional information on application types and components.
 Follow these steps to add a new side panel component.
 
-1. In the Configuration Builder, expand the Components section and click **Add Component**.
-2. Using the drop-down, select Side Panel for the component type.
-3. Provide a Description for the component in the available field.
+### 1. Specify Component Type and Description
 
+* Navigate to the Configuration Buidler on the Manage App page, expand the Components section and click **Add Component**.
+* Using the drop-down, select **Side Panel** for the component Type and enter a Description for the component.
 
+    ![Component Type and Description]({{ site.baseurl }}/assets/guides/form-based-component-type-desc-fields.png)
 
+### 2. Define Application URL
 
+* In the URL field, specify the base web address for your application. (e.g., https://example.domain.com/)
 
+    ![Component URL]({{ site.baseurl }}/assets/guides/form-based-component-url-field.png)
 
+### 3. Define Parameter Interpolation
 
+{% include url_parameter_interpolation.md %}
 
-## Define an App Manifest
+* Add one or more custom URL Parameters to the component by clicking **Add Parameter**.
 
-The following sections outline the steps for defining an app manifest for a fullscreen embedded app.
+  ![Component Add Param]({{ site.baseurl }}/assets/guides/form-based-component-add-param.png)
 
-### Create New Sandbox Manifest Version
+* Define the Name, Key, and Description for the custom parameter.
+* Specify whether the parameter is required at time of installation.
 
-Let’s start by creating a new version of our app manifest in the sandbox environment.
-1. In the Developer Portal, navigate to the Manage Manifests panel for your app.
-1. Make sure the Sandbox tab is selected.
-1. Click **Create New Version** to display the manifest editor. You can use the editor to add an embedded component to your manifest and modify it for your specific application. The editor provides built-in validation so that you are notified when the format of your manifest does not conform to the required structure.
+  ![Component Add Param Field]({{ site.baseurl }}/assets/guides/form-based-component-add-param-custom.png)
 
-    ![create new manifest version]({{ site.baseurl }}/assets/guides/side-panel-create-new-manifest-version.png)
+* Click **Save Parameter**.
 
-### Add a Side Panel Component
+### 4. Specify Supported Side Panel Views
 
-You can add a side panel component to the manifest using the **Inject Component** button for the `sidepanel` component type.
-
-![Inject SidePanel]({{ site.baseurl }}/assets/guides/inject-component-sidepanel.png)
-
-A new code block is added to the manifest where you can define the structure of your side panel component. For example:
-
-![Sidepanel Snippet]({{ site.baseurl }}/assets/guides/create-new-manifest-v4.1-sidepanel-snippet.png)
-
-The manifest objects and attributes for the side panel component are the same as for embedded components, with the addition of the `sidepanel:views` array.
-This is where you define which Procore application views your component supports.
-For example, `commitments.purchase_orders.detail` and `commitments.purchase_orders.edit`.
-Supported side panel views are discussed in the following section.
-
-## Working with Side Panel Views
-
-Using the ‘Views’ attribute, you can specify which tools, resources, and actions your application works with and from which page(s) it will be accessible.
-A dot notation is used to define each view as shown in the following example.
-
-```json
-{
-    "views": [
-        "change_events.new",
-        "change_events.detail",
-        "change_events.edit",
-        "change_events.list",
-        "change_events.all"
-    ]
-}
-```
-
-The last segment in the dot notation is the action type; detail, new, edit, list, or all.
-
-- new: matches the new or similar actions.
-- detail: matches against the show or similar actions.
-- edit: matches against the edit or similar actions.
-- list: matches against the index or similar actions.
-- all: matches against all actions.
-
+You can specify which tools, resources, and actions your application works with and from which page(s) it will be accessible.
 As some tools comprise more than one resource (e.g., commitments), this approach is both granular and flexible.
 For example, you might want your app to display only on the list page, but not on the detail page.
 
+* Open the **Views** drop-down and select one or more side panel Views.
+
+  ![Add Views]({{ site.baseurl }}/assets/guides/form-based-component-add-views.png)
+
 The following sections list the currently supported Side Panel Views that can be defined in the application manifest.
 
-### Commitments
+#### Commitments
 
 | URL Path | View Key |
 | -------- | -------- |
@@ -149,7 +134,7 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id | commitments.commitment_contract_change_orders.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id/edit | commitments.commitment_contract_change_orders.edit |
 
-### Commitments Beta
+#### Commitments Beta
 
 | /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments | commitments.contracts.list |
 | /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/create | commitments.work_order_contracts.new |
@@ -165,7 +150,7 @@ The following sections list the currently supported Side Panel Views that can be
 | /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/rfqs | commitments.work_order_contracts.detail |
 | /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/ssov | commitments.work_order_contracts.detail |
 
-### Contracts
+#### Contracts
 
 | URL Path | View Key |
 | -------- | -------- |
@@ -207,7 +192,7 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/contracts/commitments/purchase_order_contracts/:id/requisitions/:invoice_id | commitments.requisitions.detail |
 | /:project_id/project/contracts/prime_contracts/:prime_contract_id/invoices | prime_contracts.invoices.list |
 
-### Prime Contracts
+#### Prime Contracts
 
 | URL Path | View Key |
 | -------- | -------- |
@@ -234,7 +219,7 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/prime_contracts/:prime_contract_id/payment_applications/:id | prime_contracts.payment_applications.detail |
 | /:project_id/project/prime_contracts/:prime_contract_id/payment_applications/:id/edit | prime_contracts.payment_applications.edit |
 
-### Change Events
+#### Change Events
 
 | URL Path | View Key |
 | -------- | -------- |
@@ -243,7 +228,7 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/change_events/events/:id | change_events.detail |
 | /:project_id/project/change_events/events/:id/edit | hange_events.edit |
 
-### Budget
+#### Budget
 
 | URL Path | View Key |
 | -------- | -------- |
@@ -253,45 +238,45 @@ The following sections list the currently supported Side Panel Views that can be
 | /projects/:project_id/forecasting | budgeting.forecasting.detail |
 | /:project_id/project/budgeting/change_history | budgeting.change_history.list |
 
-### Submittal Logs
+#### Submittal Logs
 
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/submittal_logs/:id | submittal_logs.detail |
 
-### Project Directory
+#### Project Directory
 
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/directory/vendors/:id/edit | project_directory.vendors.edit |
 | /:project_id/project/directory/edit_person/:id | project_directory.person.edit |
 
-### Observations
+#### Observations
 
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/observations/items/:id/edit | observations.edit |
 | /:project_id/project/observations/items | observations.list |
 
-### RFIs
+#### RFIs
 
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/rfi/show/:id | rfi.detail |
 
-### Inspections
+#### Inspections
 
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/checklists/lists/:id | inspections.detail |
 
-### Correspondence
+#### Correspondence
 
 | URL Path | View Key |
 | -------- | -------- |
 | /:project_id/project/generic_tool/show/:id | correspondence.detail |
 
-### Schedule
+#### Schedule
 
 | URL Path | View Key |
 | -------- | -------- |
@@ -300,6 +285,27 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/calendar | schedule.calendar.list |
 | /:project_id/project/calendar/lookaheads | schedule.calendar.lookaheads.list |
 | /:project_id/project/calendar/tasks/:task_id | schedule.calendar.task.detail |
+
+### 5. Save the New Component
+
+* Once you have successfully created a new side panel component and defined the Type, Description, URL, Parameter(s), and View(s), click **Save Component**.
+
+  ![Component Save]({{ site.baseurl }}/assets/guides/form-based-component-save.png)
+
+<a name="define-setup-instructions"></a>
+{% include setup_instructions.md %}
+
+## Save Manifest and Create Version
+
+After completing the steps above, you're ready to save your app's configurations and set your first version number.
+1. Click **Save** at the top of the page.
+2. The **Create Version** window appears. Enter a version number using the following syntax: **x.x.x.**
+Note: Your version number can only contain integers, and must consist of three (3) integers separated by a '.'. For example, '1.1.1'. Each new version you create must be a higher number than the previous version.
+
+## Promote Updated Sandbox Manifest to Production
+
+After you have successfully tested and validated your updated manifest in the development sandbox environment, you can promote it to the production environment.
+See [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for additional information.
 
 ## Using postMessage to Retrieve Procore Context
 
@@ -335,7 +341,7 @@ The `targetOrigin` parameter in this method specifies the origin of the window t
 It is important that you always provide a specific, fully-qualified URI in the `targetOrigin` parameter to ensure the best security.
 For additional information, see the [postMessage() method documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage).
 
-## Additional postMessage Events
+### Additional postMessage Events
 
 Aside from the “setup” message event that is fired when your app is first started, there are additional events fired at different life cycles of the side panel app.
 All of these events are fired as a postMessage from Procore to your app’s window.
@@ -355,8 +361,3 @@ window.addEventListener('message', (event) => {
   }
 });
 ```
-
-## Promote Updated Sandbox Manifest to Production
-
-After you have successfully tested and validated your updated manifest in the development sandbox environment, you can promote it to the production environment.
-See [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for additional information.
