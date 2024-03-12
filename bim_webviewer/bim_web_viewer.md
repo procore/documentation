@@ -806,6 +806,73 @@ This is a deprecated method. Use [`markup.setRedlines`](#set-redlines), which ha
 
 ---
 
+### Set Pose
+
+<p class="heading-link-container"><a class="heading-link" href="#set-pose"></a></p>
+
+```js
+setPose(params);
+```
+
+#### Description
+
+Sets the position and orientation of a 3D camera based on a given pose.
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| params | true | object | An object containing the properties `pose` and `cameraUp`. |
+
+##### Params Object
+
+The `params` object has the following structure:
+
+| Name | Type |	Description |
+| pose | String or Object |	The pose to set for the camera. This can either be a string representing a predefined pose, or an object containing `position` and `lookAt` properties. |
+| cameraUp | Object (optional) | An object representing the up direction for the camera, with `x`,`y`, and `z` properties. If provided, the camera's rotation will be set to align with this vector and the current camera direction. |
+
+If `pose` is an object, it should have the following structure:
+
+| Name | Type |	Description |
+| position |	Object |	An object representing the position of the camera, with `x`, `y`, and `z` properties. |
+| lookAt	| Object |	An object representing the point that the camera should look at, with `x`, `y`, and `z` properties. |
+
+If pose is a string, it should be one of the following values: "top", "bottom", "front", "back", "left", "right"
+
+###### Example
+
+```javascript
+camera.setPose({
+  pose: {
+    position: { x: 1, y: 2, z: 3 },
+    lookAt: { x: 4, y: 5, z: 6 },
+  },
+  cameraUp: { x: 0, y: 1, z: 0 },
+});
+```
+
+In this example, the `setPose` method sets the camera's position to (1, 2, 3), sets the camera to look at the point (4, 5, 6), and sets the camera's up direction to point in the positive y-direction.
+
+```javascript
+camera.setPose({
+  pose: "top",
+});
+```
+In this example, the `setPose` method sets the camera to a predefined "top" pose.
+
+##### Returns
+
+```js
+undefined
+```
+
+##### Namespace
+
+Camera
+
+---
+
 ## DOM Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#dom-namespace"></a></p>
