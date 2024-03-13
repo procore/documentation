@@ -830,7 +830,7 @@ The `params` object has the following structure:
 
 | Name | Type |	Description |
 | pose | String or Object |	The pose to set for the camera. This can either be a string representing a predefined pose, or an object containing `position` and `lookAt` properties. |
-| cameraUp | Object (optional) | An object representing the up direction for the camera, with `x`,`y`, and `z` properties. If provided, the camera's rotation will be set to align with this vector and the current camera direction. |
+| cameraUp | Object (optional) | An object representing the up direction for the camera, with `x`,`y`, and `z` properties. If not already normalized, will be normalized for you and set the camera to this up direction. |
 
 If `pose` is an object, it should have the following structure:
 
@@ -859,7 +859,7 @@ camera.setPose({
   pose: "top",
 });
 ```
-In this example, the `setPose` method sets the camera to a predefined "top" pose.
+In this example, the `setPose` method sets the camera to a predefined "top" pose, which sets the position of the camera above the model and looks down at it.
 
 ##### Returns
 
