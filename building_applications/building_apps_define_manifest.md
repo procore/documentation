@@ -5,131 +5,53 @@ layout: default
 section_title: Building Applications
 ---
 
+>**Note:** This article covers topics consistent with the App Manifest v4.1 format.
+>For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
+
+## Overview
+
 In order to deploy an App on the Procore platform, you must create a manifest for your App on the Developer Portal.
-The manifest defines the various components that make up your App and specifies additional instructions that users can follow after they install it.
-The following sections cover App component types as well as manifest format and structure.
-You will need to understand these concepts in order to create a proper App manifest.
+The manifest is a JSON structure that defines the application type, relevant metadata, and specifies additional instructions that users can follow after installation.
+The manifest file can also define what permissions and access rights your App requires to interact with Procore.
 
-## App Component Types
+The Procore platform currently supports two manifest schema versions - v4.1 (current) and v3.x (legacy).
+The following sections cover the steps for creating a new (v4.1) manifest and understanding its format and structure.
+[Migrating an App Manifest from v3.x to v4.1]() desribes the differences between the legacy v3.x manifest structure and the new v4.1 structure, and covers the steps for converting a legacy manifest to v4.1.
 
-The Procore platform currently supports two App component types that you define in the App manifest.
+## Understanding URL Parameter Interpolation
 
-_Data connection_ components are used in Apps that read or write data to/from Procore using the available Procore API resources.
-Since this type of App requires authentication with the Procore API, the data connection component is used to define the properties and settings for a Developer Managed Service Account (DMSA) associated with the application.
-See [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %}) for additional information and steps for building a data connection App.
-A DMSA utilizes the client credentials OAuth 2.0 authorization grant type.
-For additional information on OAuth 2.0 authorization grant types, see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
-It is important to note that an App can only have one data connection component.
+_URL Parameter Interpolation_ is a method used in web development to insert variable data into a URL.
+In the context of a Procore integration application, it is used to add specific values to the URL that can then be used to request specifc data from the application server.
+This technique is often used in HTTP GET requests, where data is passed as parameters in the URL itself.
 
+Interpolation comes into play when these parameter values are dynamic - that is, they change based on user input or some other variable.
+Developers can use interpolation to insert these variable values into the URL.
+The Procore platform supports URL parameter interpolation for different sections of the URL, which you define in the App manifest using a double curly brace syntax.
+You can interpolate values for the URL subdomain, path paramters, and query parameters. 
 
-_Embedded_ components are used in Apps that launch in an iframe within the Procore user interface as an embedded experience.
-Embedded components are used to define the various attributes of an embedded experience App including the App name, the iframe source URL, and any custom fields required for the installation and configuration steps.
-If an embedded experience App also requires authentication with the Procore API, then the App manifest also needs to include a data connection component.
+**Subdomain**
+```{% raw %}
+https://{{subdomain}}.domain.com
+{% endraw %}```
 
-## App Manifest Format and Structure
+**Path Parameters**
+```{% raw %}
+https://example.domain.com/{{my_path1}}/{{my_path2}}
+{% endraw %}```
 
-The manifest format and structure adheres to the [JSON schema](https://json-schema.org/).
-Below is an example App manifest that helps to describe the various sections of the manifest.
+**Query Parameters**
+```{% raw %}
+?companyId={{procore.company.id}}&companyName={{procore.company.name}}&projectId={{procore.project.id}}&projectName={{procore.project.name}}&customField={{CustomField}}
+{% endraw %}```
 
-```
-{% raw %}
-{
-  "post_installation_instruction": {
-    "page": {
-      "url": "https://example.domain.com/install-page.html",
-      "label": "Post installation instruction page"
-    },
-    "notes": "these-are-post-installation-setup-notes"
-  },
-  "components": {
-    "oauth": {
-      "instances": [
-        {
-          "uid": "f2d0a86d600cdf3cdea581fee47e796e277138d3de1528ddbbbfbd9bdf086457",
-          "uuid": "f553a5d6-26e5-4eb0-b0a7-130f2f77jj90",
-          "grant_type": "authorization_code"
-        }
-      ]
-    },
-    "iframe": {
-      "instances": [
-        {
-          "name": "My Sample App",
-          "type": "sidepanel",
-          "uuid": "10e58965-49d2-4a3b-a5b1-aeeef0hn67des",
-          "views": [
-            "commitments.work_order_contracts.detail"
-          ],
-          "required": true,
-          "iframe_src": "https://{{subdomain}}.domain.com/{{my_path}}?procoreCompanyId={{procore.company.id}}&procoreProjectId={{procore.project.id}}&myCustomField={{myCustomField}}",
-          "description": "A sample app used for demonstration.",
-          "configuration": {
-            "schema": {
-              "type": "object",
-              "required": [
-                "myCustomField"
-              ],
-              "properties": {
-                "myCustomField": {
-                  "name": "My Custom Input Field",
-                  "type": "string",
-                  "description": "An example custom input field that can be included as a parameter in iframe_src."
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
-  }
-}
-{% endraw %}
-```
+The Procore platform provides the following builtin variables for use as query parameters.
 
-Let’s dive deeper into the example above to understand the various sections that make up the manifest.
+- `procore.company.id` - ID of the company where the App is installed.
+- `procore.company.name` - Name of the company where the App is installed.
+- `procore.project.id` - ID of the project in which the App has been configured.
+- `procore.project.name` - Name of the project in which the App has been configured.
 
-**app_manifest** - includes a single `id` field which is automatically generated using App information from the Developer Portal. You do not need to explicitly define this field in your manifest.
-
-**post_installation_instruction** - defines specific instructions that must be carried out by the Procore user tasked with installing and setting up the App for use by their organization.
-This information is displayed to the user at the time of installation, and later via the App Management page in the Procore Web user interface.
-Use the `notes` attribute to provide a textual description of any post-installation steps required to properly complete the setup of the App.
-Use the `page:url` attribute to specify a link to an external website or downloadable PDF that provides additional information about setting up the App.
-Use the `page:label` attribute to specify the label associated with the URL.
-
-**components** - specifies the various components that make up the App.
-
-_Data Connection_ components are defined by the `oauth` attribute. The details of each `oauth` instance are specified using the following parameters:
-
-- **uid** - a unique identifier automatically generated by the system. You do not need to specify a value for `uid`.
-- **uuid** - a unique identifier automatically generated by the system. You do not need to specify a value for `uuid`.
-- **grant_type** - defines the OAuth 2.0 authorization grant type for the App. Can be set to either `authorization_code` or `client_credentials`.
-  - Use `authorization_code` if your App uses the OAuth 2.0 Authorization Code Grant flow (as in the example above).
-    These Apps store the client secret in a safe and secure (i.e., server-side) location and do not expose it to end users.
-    See [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) and [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) for additional information.
-  - Use `client_credentials` if your App uses a Developer Managed Service Account to specify required tool permissions and permitted projects.
-    See [Using the OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) and [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %}) for additional information.
-
-_Embedded_ components are defined by the iframe attribute. The details of an `iframe` instance are specified using the following parameters:
-
-- **name** - a meaningful name for the `iframe` instance.
-- **type** - defines the embedded component type as either `fullscreen` or `sidepanel`.
-- **uuid** - a unique identifier for the instance which is automatically generated by the system. You do not need to specify a value for `uuid`.
-- **views** - defines the tools/views where a side panel application can be displayed.
-- **required** - a boolean value (true/false) that indicates whether the instance is required to properly configure the App in a project in Procore.
-- **description** - a short summary of the `iframe` instance.
-- **iframe_src** - defines the URL for your embedded App including any path/query parameters that are required for your App to function properly. In the example above, we see the following live-interpolated variables included to further define the behavior of the App.
-  - `procore.company.id` - ID of the company where the App is installed.
-  - `procore.company.name` - Name of the company where the App is installed.
-  - `procore.project.id` - ID of the project the App has been configured for.
-  - `procore.project.name` - Name of the project the App has been configured for.
-    Variables such as these can be included in your iframe_src definition to pass parameters or to define a part of the path by using curly-brace syntax as shown below.
-    `{% raw %}https://{{subdomain}}.domain.com/{{my_path}}?procoreCompanyId={{procore.company.id}}&procoreProjectId={{procore.project.id}}{% endraw %}`
-    Configurable fields are URI encoded before being interpolated for security. As a result, values assigned to these variables should not contain special characters.
-    For example: `"iframe_src": "{% raw %}https://my-domain.com/{{my_path}}{% endraw %}"` where `my_path` is set to `resource/id` will point to `https://my-domain.com/resource%2fid` rather than `https://my-domain.com/resource/id`, resulting in a 404 error.
-    This situation can be avoided by breaking the configurable field into two configurable fields. For example: `"iframe_src": "{% raw %}https://my-domain.com/{{resource}}/{{id}}{% endraw %}"`.
-  - `myCustomField` - Name of a custom field defined for your App. (see below)
-- **configuration** - defines the various properties, or _configurable fields_, Procore company administrators use to configure your App in a Procore project.
-  - **schema** - specifies which properties are considered mandatory when creating an App configuration in a project using the `required` attribute. The `properties` attribute is used to define the details of each configurable field, both required and optional. Referring to our example, we see that `myCustomField` is defined as `required`, with the `name`, `type`, and `description` for the field defined in the `properties` attribute. Configurable fields you define can be included in the `iframe_src` path.
+You can also define your own custom field variables for use as query parameters.
 
 ## Creating the Initial Sandbox Manifest Version
 
@@ -139,13 +61,71 @@ After you have successfully validated your manifest in the sandbox environment, 
 The following steps outline the process of creating the initial version of your App manifest.
 
 1. Log in to the Developer Portal, go to My Apps, then select the App you want to create a manifest for.
-1. Scroll down to the ‘Manage Manifests’ section, verify that the ‘Sandbox’ tab is selected, then click **Create New Version**.
-1. Enter a version number for the manifest. We recommend using '0.0.1' as an initial manifest version. 
+2. Scroll down to the ‘Manage Manifests’ section, verify that the ‘Sandbox’ tab is selected, then click **Create New Version** to display the manifest editor.
+You can use the editor to add embedded, side panel, and data connection components to your manifest and modify them for your specific application.
+The editor provides built-in validation so that you are notified when the format of your manifest does not conform to the required structure.
+3. Enter a version number for the manifest. We recommend using '0.0.1' as an initial manifest version. 
 
     ![Create New Version Semantic]({{ site.baseurl }}/assets/guides/create-new-version-semantic.png)
 
-1. The manifest editor displays a template to help you get started with the required structure and format for your manifest. In addition, there are 'helpers' for creating Data Connection and Embedded component code snippets that you can paste into your manifest. The editor provides built-in validation so that you are notified when the format of your manifest does not conform to the required structure.
-1. After you finish constructing your manifest in the editor, click **Create**.
+4. The manifest editor displays a template to help you get started.
+The manifest `schema_version` is shown along with a block for defining the `post_install_instruction` that must be carried out by the Procore user installing and setting up your application.
+This information is displayed to the user at the time of installation, and later via the App Management page in the Procore Web user interface.
+Use the `notes` attribute to provide a textual description of any post-installation steps required to properly complete the setup.
+Use the `page:url` attribute to specify a link to an external website or downloadable PDF that provides additional information about setting up your application.
+Use the `page:label` attribute to specify the label associated with the URL.
+
+    ![New Manifest Template]({{ site.baseurl }}/assets/guides/create-new-manifest-v4.1-install-instructions.png)
+
+5. Refer to the next sections for adding more components to the manifest.
+
+### Adding Embedded Fullscreen Components
+
+You can add a fullscreen embedded component to the manifest using the **Inject Component** button for the `embedded` component type.
+
+![Inject Embedded]({{ site.baseurl }}/assets/guides/inject-component-embedded.png)
+
+A new code block is added to the manifest where you can define the structure of your embedded (fullscreen) component.
+For example:
+
+![Embedded Snippet]({{ site.baseurl }}/assets/guides/create-new-manifest-v4.1-fullscreen-snippet.png)
+
+The manifest objects and attributes for embedded component are described below.
+
+| __Manifest Object/Attribute__ | __Description__ |
+| `desciption` | Used for entering a meaningful text description for the component. |
+| `source_url` | Defines the URL for the component and defines any parameter interpolation required for your application. |
+| `user_configuration:schema` | Defines the `properties` for the component and specifies which ones are required. |
+| `user_configuration:schema:properties` | Defines one or more property objects used for gathering user configuration input. The `name` and `description` attribute values are displayed to the user as configurable fields. |
+
+See [Building Procore Embedded (Fullscreen) Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %}) for additional information.
+
+### Adding Side Panel Components
+
+You can add a side panel component to the manifest using the **Inject Component** button for the `sidepanel` component type.
+
+![Inject SidePanel]({{ site.baseurl }}/assets/guides/inject-component-sidepanel.png)
+
+A new code block is added to the manifest where you can define the structure of your side panel component. For example:
+
+![Sidepanel Snippet]({{ site.baseurl }}/assets/guides/create-new-manifest-v4.1-sidepanel-snippet.png)
+
+The manifest objects and attributes for the side panel component are same as for the embedded component, with the addition of the `sidepanel:views` array.
+This is where you define which Procore application views your component supports.
+For example, `"commitments.purchase_orders.detail"` and `"commitments.purchase_orders.edit"`.
+See [Building Procore Side Panel Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %}) for additional information on supported views.
+
+### Adding Data Connection Components
+
+You can add a data connection component to the manifest using the **Open Builder** button under App Tool Permissions.
+
+![Permissions Snippet]({{ site.baseurl }}/assets/guides/create-new-manifest-v4.1-perm-builder.png)
+
+This launches the Permission Builder where you can specify the company level and project level tool access required for your application.
+
+![Permissions Builder UI]({{ site.baseurl }}/assets/guides/create-new-manifest-v4.1-perm-builder-ui.png)
+
+See [Building Procore Data Connection Applications with DMSA]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) for additional information.
 
 ## Creating New Manifest Versions
 
