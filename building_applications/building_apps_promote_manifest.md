@@ -23,8 +23,8 @@ The following diagram shows a simplified view of the manifest versioning model.<
 You can create new working sandbox versions of your manifest, and then promote specific versions to production as needed.
 After you are satisfied with the content in your manifest and you are ready to work with your App in a production environment, complete the following steps to promote the manifest.
 
-1. On the Manage App page, select the 'Configurations' section.
-2. Click **Promote to Production**
+1. On the Manage App page, select the 'Configuration Builder'.
+2. Click **Promote Version**
 
     ![Promote Button]({{ site.baseurl }}/assets/guides/form-based-promote.png)
 

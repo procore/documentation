@@ -20,11 +20,17 @@ The following sections cover the steps for creating a new (v4.1) manifest and un
 
 ## Creating the Initial Sandbox Manifest Version
 
-When you create a new application on the developer portal, the system first generates a sandbox environment for your new application, and then directs you to the Manage App page.
-Using the Configuration Builder on the Manage App page, you can define one or more components and specifiy other settings for your manifest depending on the type of application you are developing.
+When you create a new application on the developer portal, the system first generates a development sandbox environment for your new application, and then directs you to the Manage App page.
+
+>**Using Your Development Sandbox Environment:**
+>The development sandbox is your primary environment for learning about Procore and includes seed project data that can be used for testing purposes.
+>You can install new versions of your application manifest to your sandbox environment at any time using the Saandbox App Version Key.
+>See [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %}) for additional information.
+
+Using the Configuration Builder on the Manage App page, you can define one or more components and specify other settings for your manifest depending on the type of application you are developing.
 See [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}) for additional information.
 
-<<screenshot of Configuration Builder here>>
+![Initial Config Builder]({{ site.baseurl }}/assets/guides/form-based-initial-config-builder.png)
 
 Refer the following articles for step-by-step instructions for configuring the initial manifest version for your application:
 
@@ -42,3 +48,5 @@ After you have created the initial sandbox version of your App manifest, you can
 1. Enter a new version number following the semantic versioning scheme.
 1. Make changes to the manifest as needed and click **Create**.
 1. Repeat Steps 1-3 for each additional manifest version you want to create.
+
+{% include install_sandbox_version.md %}

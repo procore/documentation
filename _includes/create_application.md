@@ -1,7 +1,10 @@
 ## Create a New Application
 
-1. Open your browser and navigate to the Developer Portal landing page.
-1. Click **Sign In** to log in to your Developer Portal account.
+1. Open your browser, navigate to the [Developer Portal](https://developers.procore.com/) landing page and click **Sign In**.
+1. Click **Sign In with your Procore Account** and log in using your Procore account credentials.
+
+    ![Dev Portal Login Panel]({{ site.baseurl }}/assets/guides/dev-portal-login-panel.png)
+
 1. Navigate to the My Apps page and click **Create a New App**. The Create New App dialog displays.
 
     ![Create a New App]({{ site.baseurl }}/assets/guides/form-based-create-new-app.png)
