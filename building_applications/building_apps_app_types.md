@@ -37,13 +37,15 @@ See [Building Procore Data Connection Applications with DMSA]({{ site.url }}{{ s
 
 ## Embedded Apps
 
-Procore technology partners building Marketplace Apps as well as third-party developers building custom integrations have the capability to develop and deploy fullscreen embedded applications that display directly within the Procore user interface.
+Procore technology partners building Marketplace Apps as well as third-party developers building custom integrations have the capability to develop and deploy embedded applications that display directly within the Procore user interface.
 This embedded functionality benefits the end user by enabling streamlined and more efficient workflows.
 With an embedded App, the user does not need to constantly switch between Procore and another application, resulting in a more unified and improved user experience.
 The behavior and settings for embedded applications are defined in the App manifest.
 URL parameter interpolation is supported, giving developers the ability to design applications that can dynamically set values in the parameters of the URL address based on install configurations and user input.
 
-Applications developed and installed as fullscreen embedded applications occupy the entire window area within the Procore web user interface.
+### Full Screen Apps
+
+Applications developed and installed as full screen embedded applications occupy the entire window area within the Procore web user interface.
 fullscreen embedded applications are launched from the **Apps** menu drop-down.
 Here is an example of the full screen [Procore Integration for Google Sheets(TM)](https://marketplace.procore.com/apps/procore-integration-for-google-sheets) embedded application running in Procore.
 
@@ -51,12 +53,12 @@ Here is an example of the full screen [Procore Integration for Google Sheets(TM)
 
 See [Building Procore Embedded (Fullscreen) Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %}) for additional information.
 
-## Side Panel Apps
+### Side Panel Apps
 
-Developers can also build applications using the side panel experience.
-While fullscreen embedded applications occupy the entire Procore user interface window area, side panel appplications occupy just a portion of the display (400px fixed-width) along the right side of the window.
+Developers can also build applications using the Procore _Side Panel_ experience.
+While full screen embedded applications occupy the entire Procore user interface window area, side panel appplications occupy just a portion of the display (400px fixed-width) along the right side of the window.
 Because side panel applications are installed and configured for specific tools, developers are able to build powerful solutions tailored exactly for a given set of tools or workflows.
-Side panel applications are launched by clicking an icon located on the right-hand edge of the Procore web user interface.
+Side panel applications are launched by clicking an icon located in a dock on the right-hand edge of the Procore web user interface.
 Here is an example of a side panel application - in this case a contextual help embedded application - running within the Procore web user interface.
 
 ![Side Panel Example]({{ site.baseurl }}/assets/guides/side-panel-example.png)

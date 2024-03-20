@@ -33,7 +33,10 @@ The Procore platform provides the following built-in variables for use as query 
 * `procore.project.id` - ID of the project in which the App has been configured.
 * `procore.project.name` - Name of the project in which the App has been configured.
 
+When included as URL parameters for your embedded (full screen or side panel) application, these values can be used to determine which company and project a user is working in.
+The `procore.project.id` variable is commonly used in scenarios where data for the same Procore project lives in an external system and allows the embedded application to access the externally mapped/synced project.
+
 You can also define your own custom field variables for use as query parameters.
-Values for custom parameters can be set by the user at time of app installation allowing you further personalize your application.
-
-
+Custom field variables can be specified as required _or_ optional.
+Values for custom parameters are set by the user during installation allowing you further personalize your application.
+Custom parameters are extremely flexible and can be used for any number of purposes. Some common uses for custom parameters include entering an ID number for a specific device in a drone/site camera application, specifying a membership or subscription ID for an application, or defining the locale in which an application will be used.

@@ -1,8 +1,9 @@
 
 ## Define Setup Instructions and Post-Installation Notes
 
-You can define additional setup instructions and post-installation notes to help Procore Administrators to successfully install and set up your application within a Procore project.
-Instructions are displayed to the user at the time of installation, and later via the App Management feature in the Procore Admin tool.
+You can define additional setup instructions and post-installation notes to help Procore users successfully install and set up your application within a Procore project.
+Instructions are displayed to the user once an application is installed, and are accessible later from within the App Management feature in the Procore Admin tool.
+
 
 * Expand the Instructions and Post-Installation Notes section.
 * In the Instructions URL field, enter the web address for your company support site, or web-based installation steps for your application.

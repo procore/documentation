@@ -63,7 +63,7 @@ Follow these steps to add a new side panel component.
 
   ![Component Add Param]({{ site.baseurl }}/assets/guides/form-based-component-add-param.png)
 
-* Define the Name, Key, and Description for the custom parameter.
+* Define the Name, Type, Key, and Description for the custom parameter.
 * Specify whether the parameter is required at time of installation.
 
   ![Component Add Param Field]({{ site.baseurl }}/assets/guides/form-based-component-add-param-custom.png)
@@ -76,7 +76,8 @@ You can specify which tools, resources, and actions your application works with 
 As some tools comprise more than one resource (e.g., commitments), this approach is both granular and flexible.
 For example, you might want your app to display only on the list page, but not on the detail page.
 
-* Open the **Views** drop-down and select one or more side panel Views.
+* Use the **Side Panel Views** section to select one or more side panel Views for your application.
+Use the **Search Tools** field to find the tools/views you want to select.
 
   ![Add Views]({{ site.baseurl }}/assets/guides/form-based-component-add-views.png)
 
