@@ -4651,7 +4651,7 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#v13-to-v14"></a>
 </p>
 
-#### Type Declarations
+#### TypeScript Type Declarations
 
 The published package now includes TypeScript type declarations. If you are using TypeScript, you will now get type checking and autocompletion for the SDK.
 
