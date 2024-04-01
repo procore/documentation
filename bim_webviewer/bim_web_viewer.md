@@ -330,7 +330,9 @@ None
 ##### Returns
 
 ```js
-{x: Number, y: Number, z: Number}
+Promise<{
+  x: Number, y: Number, z: Number
+}>
 ```
 
 ##### Namespace
@@ -362,10 +364,10 @@ Sets the camera position.
 #### Returns
 
 ```js
-{
-  direction: {x: Number, y: Number, z: Number},
-  position: {x: Number, y: Number, z: Number}
-}
+Promise<{
+  position: {x: Number, y: Number, z: Number},
+  direction: {x: Number, y: Number, z: Number}
+}>
 ```
 
 ##### Namespace
@@ -393,7 +395,9 @@ None
 ##### Returns
 
 ```js
-{x: Number, y: Number, z: Number}
+Promise<{
+  x: Number, y: Number, z: Number
+}>
 ```
 
 ##### Namespace
@@ -421,10 +425,9 @@ None
 #### Returns
 
 ```js
-{
-  direction: {x: Number, y: Number, z: Number},
-  position: {x: Number, y: Number, z: Number}
-}
+Promise<{
+  x: Number, y: Number, z: Number
+}>
 ```
 
 ### Set Camera Look At
@@ -450,10 +453,10 @@ Sets the camera target.
 #### Returns
 
 ```js
-{
-  direction: {x: Number, y: Number, z: Number},
-  position: {x: Number, y: Number, z: Number}
-}
+Promise<{
+  position: {x: Number, y: Number, z: Number},
+  direction: {x: Number, y: Number, z: Number}
+}>
 ```
 
 ##### Namespace
@@ -485,7 +488,9 @@ Take position in world space and convert it to screen space
 ##### Returns
 
 ```js
-{x: Number, y: Number, z: Number}
+Promise<{
+  x: Number, y: Number, z: Number
+}>
 ```
 
 ##### Namespace
@@ -515,7 +520,7 @@ Force download the current render view into a png.
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -545,6 +550,10 @@ Returns a data url of an image produced by the current render view.
 ##### Returns
 
 The canvas as a base64-encoded image.
+
+```js
+Promise<string>
+```
 
 ##### Namespace
 
@@ -577,7 +586,15 @@ NOTE: You should always pass `true` for the `applyOffset` argument. If you pass 
 ##### Returns
 
 ```js
-undefined
+Promise<{
+  perspective_camera: {
+    camera_view_point:  {x: Number, y: Number, z: Number},
+    camera_direction:  {x: Number, y: Number, z: Number},
+    camera_up_vector:  {x: Number, y: Number, z: Number},
+    field_of_view: Number,
+    target_distance: Number
+  }
+}>
 ```
 
 ##### Namespace
@@ -604,7 +621,17 @@ None
 
 ##### Returns
 
-See [Perspective Camera](#perspective-camera-object)
+```js
+Promise<{
+  perspective_camera: {
+    camera_view_point:  {x: Number, y: Number, z: Number},
+    camera_direction:  {x: Number, y: Number, z: Number},
+    camera_up_vector:  {x: Number, y: Number, z: Number},
+    field_of_view: Number,
+    target_distance: Number
+  }
+}>
+```
 
 ##### Namespace
 
@@ -631,7 +658,7 @@ None
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -661,7 +688,7 @@ Moves camera from current position to fit the axis-aligned bounding box of the n
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -691,7 +718,7 @@ Moves camera to fit the specified axis-aligned bounding box.
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -719,7 +746,7 @@ None
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -751,7 +778,7 @@ None
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -783,7 +810,7 @@ Sets the camera with euler angles, yaw, pitch and roll
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -864,7 +891,7 @@ In this example, the `setPose` method sets the camera to a predefined "top" pose
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -963,7 +990,7 @@ The `callback` parameter is a third party defined function to be executed when t
 ##### Returns
 
 ```js
-undefined
+void
 ```
 
 ##### Namespace
@@ -994,7 +1021,7 @@ Removes a callback from an internal viewer event, if it is identical to a callba
 ##### Returns
 
 ```js
-undefined
+void
 ```
 
 ##### Namespace
@@ -1025,7 +1052,7 @@ Manually dispatches an event
 ##### Returns
 
 ```js
-undefined
+void
 ```
 
 ##### Namespace
@@ -1741,7 +1768,9 @@ Retrieves a JavaScript object that describes the object.
 
 ##### Returns
 
-See [Meshnode](#meshnode).
+```js
+Promise<any | null> 
+```
 
 ##### Namespace
 
@@ -1774,7 +1803,9 @@ Retrieves the Meshnode associated with an `objectId` or `null` if there is none.
 
 ##### Returns
 
-See [Meshnode](#meshnode).
+```js
+Promise<any>
+```
 
 ##### Namespace
 
@@ -1801,7 +1832,7 @@ None
 ##### Returns
 
 ```js
-Array[Number]
+Promise<number[]>
 ```
 
 ##### Namespace
@@ -1831,7 +1862,7 @@ Hides meshnode indices. Does not clear previous hiding(s).
 ##### Returns
 
 ```js
-Set(Number)
+Promise<void>
 ```
 
 ##### Namespace
@@ -1863,7 +1894,7 @@ Otherwise `false` is returned if at least one meshnode is not hidden.
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -1891,7 +1922,7 @@ None
 ##### Returns
 
 ```js
-undefined
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -1919,7 +1950,7 @@ None
 ##### Returns
 
 ```js
-Array[Number]
+Promise<number[]>
 ```
 
 ##### Namespace
@@ -1949,7 +1980,7 @@ Selects meshnode indices. Does not clear previous selection(s).
 ##### Returns
 
 ```js
-undefined
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -1981,7 +2012,7 @@ Otherwise `false` is returned if at least one meshnode index is not selected.
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -2009,7 +2040,7 @@ None
 ##### Returns
 
 ```js
-undefined
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -2182,6 +2213,10 @@ The `bcf` format will return an array of [BCF clipping plane](#bcf-clipping-plan
 
 The `autodesk` format will return an [Autodesk Section Data object](#autodesk-section-data). If no section is set it will return `null`.
 
+```js
+Promise<SectionDataProcoreFormat | SectionDataAutodeskFormat | null>
+```
+
 ##### Namespace
 
 Model
@@ -2212,7 +2247,7 @@ Sets section box given an XYZ max and min and rotation(optional);
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -2240,7 +2275,7 @@ None
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -2268,7 +2303,7 @@ None
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -2508,7 +2543,7 @@ None
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -2588,12 +2623,12 @@ Retrieve the model space point {x, y} relative to the planmap space point Note: 
 ##### Returns
 
 ```js
-{
-  x: Number,
-  y: Number,
-  dir_x: Number,
-  dir_y: Number
-};
+Promise<{
+  x?: number;
+  y?: number;
+  dir_x?: number;
+  dir_y?: number;
+}>
 ```
 
 ##### Namespace
@@ -2641,12 +2676,12 @@ Retrieve the planmap space point {x, y} relative to the model space point Note: 
 ##### Returns
 
 ```js
-{
-  x: Number,
-  y: Number,
-  dir_x: Number,
-  dir_y: Number
-};
+Promise<{
+  x?: number;
+  y?: number;
+  dir_x?: number;
+  dir_y?: number;
+}>
 ```
 
 ##### Namespace
@@ -2705,19 +2740,19 @@ Returns a model object with the given id. Contains data such as bounding box, hi
 ##### Returns
 
 ```js
-{
-  id: number, 
-  bbox: {
-    min: number[],
-    max: number[]
-  }, 
-  nodeType: number,
-  hidden: boolean,
-  selected: boolean,
-  partiallySelected: boolean,
-  parentId: number,
-  children: number[]
-}
+Promise<{
+    id: number, 
+    bbox: {
+      min: number[],
+      max: number[]
+    }, 
+    nodeType: number,
+    hidden: boolean,
+    selected: boolean,
+    partiallySelected: boolean,
+    parentId: number,
+    children: number[]
+}>
 ```
 
 ##### Namespace
@@ -2750,7 +2785,7 @@ If an id is not found, it will not be included in the returned array.
 ##### Returns
 
 ```js
-[
+Promise<[
   {
     id: number, 
     bbox: {
@@ -2764,7 +2799,7 @@ If an id is not found, it will not be included in the returned array.
     parentId: number,
     children: number[]
   }
-]
+]>
 ```
 
 ##### Namespace
@@ -2794,19 +2829,21 @@ Returns a model object which is the root of the model object tree. Contains data
 ##### Returns
 
 ```js
+Promise<
 {
-  id: number,
-  bbox: {
-    min: number[],
-    max: number[]
-  },
-  nodeType: number,
-  hidden: boolean,
-  selected: boolean,
-  partiallySelected: boolean,
-  parentId: undefined,
-  children: number[]
-}
+    id: number, 
+    bbox: {
+      min: number[],
+      max: number[]
+    }, 
+    nodeType: number,
+    hidden: boolean,
+    selected: boolean,
+    partiallySelected: boolean,
+    parentId: number,
+    children: number[]
+  } 
+  | undefined>
 ```
 
 ##### Namespace
@@ -2837,7 +2874,7 @@ Hides objects defined by the array of object ids.
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -2867,7 +2904,7 @@ Hides all objects.
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -2895,7 +2932,7 @@ None
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -2926,7 +2963,7 @@ Unhides objects defined by the array of object ids.
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -2954,7 +2991,7 @@ None
 ##### Returns
 
 ```js
-number[]
+Promise<number[]>
 ```
 
 ##### Namespace
@@ -2982,9 +3019,9 @@ None
 ##### Returns
 
 ```js
-{
-  count: number
-}
+Promise<{ 
+  count: number 
+}>
 ```
 
 ##### Namespace
@@ -3015,7 +3052,7 @@ Selects objects defined by the array of object ids.
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -3045,7 +3082,7 @@ Selects all objects.
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -3073,7 +3110,7 @@ None
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -3104,7 +3141,7 @@ Deselect objects defined by the array of object ids.
 ##### Returns
 
 ```js
-boolean
+Promise<boolean>
 ```
 
 ##### Namespace
@@ -3132,7 +3169,7 @@ None
 ##### Returns
 
 ```js
-number[]
+Promise<number[]>
 ```
 
 ##### Namespace
@@ -3162,9 +3199,9 @@ Retrieve the number of objects selected based on the count method.
 ##### Returns
 
 ```js
-{
-  count: number
-}
+Promise<{ 
+  count: number 
+}>
 ```
 
 ##### Namespace
@@ -3192,7 +3229,9 @@ None
 
 ##### Returns
 
-None
+```js
+void
+```
 
 ##### Namespace
 
@@ -3218,7 +3257,9 @@ None
 
 ##### Returns
 
-None
+```js
+void
+```
 
 ##### Namespace
 
@@ -3256,7 +3297,9 @@ Sets the navigation mode. The navigation mode determines how the camera responds
 
 ##### Returns
 
-None
+```js
+void
+```
 
 ##### Namespace
 
@@ -3284,7 +3327,9 @@ Enables or disables the measurement tool. Requires the Measurement Tool be enabl
 
 ##### Returns
 
-None
+```js
+void
+```
 
 ##### Namespace
 
@@ -3376,7 +3421,9 @@ The following methods now accept an optional parameter `objectTreeName`. If not 
 
 ##### Returns
 
+```js
 Promise<void>
+```
 
 ##### Namespace
 
@@ -3402,7 +3449,9 @@ None
 
 ##### Returns
 
+```js
 Promise<void>
+```
 
 ##### Namespace
 
@@ -3431,7 +3480,7 @@ None
 ##### Returns
 
 ```js
-undefined
+void
 ```
 
 ##### Namespace
@@ -3597,7 +3646,7 @@ markup.draw({
 ##### Returns
 
 ```js
-undefined
+void
 ```
 
 ##### Namespace
@@ -3798,7 +3847,7 @@ markup.drawAnchored({
 ##### Returns
 
 ```js
-undefined
+Promise<void>
 ```
 
 ##### Namespace
@@ -3891,7 +3940,7 @@ Each type of markup element has its own properties:
 ##### Returns
 
 ```js
-undefined
+void
 ```
 
 ##### Namespace
@@ -4006,7 +4055,9 @@ Retrieves a JavaScript object that describes the object.
 
 ##### Returns
 
+```js
 HTMLDivElement
+```
 
 ##### Namespace
 
@@ -4034,7 +4085,9 @@ Retrieves a JavaScript object that describes the object.
 
 ##### Returns
 
+```js
 void
+```
 
 ##### Namespace
 
@@ -4062,7 +4115,9 @@ Allows you to set the visibility of the bottom toolbar.
 
 ##### Returns
 
+```js
 void
+```
 
 ##### Namespace
 
@@ -4090,7 +4145,9 @@ Allows you to enable or disable hotkeys. For example, pressing "X" will turn on 
 
 ##### Returns
 
+```js
 void
+```
 
 ##### Namespace
 
@@ -4587,6 +4644,77 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
 <p class="heading-link-container">
   <a class="heading-link" href="#migration-guides"></a>
 </p>
+
+### v13 to v14
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v13-to-v14"></a>
+</p>
+
+The following methods now return promises that resolve to the returns previously documented.
+
+- `camera.getCameraDirection`
+- `camera.getPosition`
+- `camera.setPosition`
+- `camera.setLookAt`
+- `camera.getLookAt`
+- `camera.setBcfCamera`
+- `camera.getBcfCamera`
+- `camera.getScreenPosition`
+- `camera.setEulerAngles`
+- `camera.zoomToSelection`
+- `camera.zoomToObjects`
+- `camera.zoomToBoundingBox`
+- `camera.zoomToGlobal`
+- `model.getMeshnode`
+- `model.getMeshnodeFromObjectId`
+- `model.getHiddenMeshnodeIndices`
+- `model.addHiddenMeshnodeIndices`
+- `model.hasHiddenMeshnodeIndices`
+- `model.clearHiddenMeshnodeIndices`
+- `model.getSelectedMeshnodeIndices`
+- `model.addSelectedMeshnodeIndices`
+- `model.hasSelectedMeshnodeIndices`
+- `model.clearSelectedMeshnodeIndices`
+- `model.getSections`
+- `model.setSectionBox`
+- `model.resetSectionBox`
+- `model.removeSectionBox`
+- `model.clearSection`
+- `model.MapToModelSpace`
+- `model.ModelToMapSpace`
+- `model.getObject`
+- `model.getObjects`
+- `model.getNumObjectsHidden`
+- `model.getNumObjectsSelected`
+- `model.getRootObject`
+- `model.hideObjects`
+- `model.hideAllObjects`
+- `model.unhideAllObjects`
+- `model.unhideObjects`
+- `model.getHiddenObjects`
+- `model.selectObjects`
+- `model.selectAllObject`
+- `model.deselectAllObjects`
+- `model.deselectObjects`
+- `model.getSelectedObjects`
+
+
+If you were using these methods, you will need to update your code to handle the promises.
+
+```ts
+// Before
+const cameraDirection = viewer.camera.getCameraDirection();
+
+// After
+viewer.camera.getCameraDirection().then((cameraDirection) => {
+  // Use cameraDirection
+});
+```
+
+#### Type Declarations
+
+The published NPM package now includes the declared types for these methods, so you can see what to expect from method parameters and return values.
 
 ### v12 to v13
 
