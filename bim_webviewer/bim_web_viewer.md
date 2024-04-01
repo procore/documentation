@@ -1769,8 +1769,10 @@ Retrieves a JavaScript object that describes the object.
 ##### Returns
 
 ```js
-Promise<any | null> 
+Promise<Meshnode | null> 
 ```
+
+See [Meshnode](#meshnode).  
 
 ##### Namespace
 
@@ -1804,8 +1806,10 @@ Retrieves the Meshnode associated with an `objectId` or `null` if there is none.
 ##### Returns
 
 ```js
-Promise<any>
+Promise<Meshnode>
 ```
+
+See [Meshnode](#meshnode).
 
 ##### Namespace
 
