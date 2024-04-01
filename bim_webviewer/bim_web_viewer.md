@@ -4651,7 +4651,11 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#v13-to-v14"></a>
 </p>
 
-The following methods now return promises that resolve to the returns previously documented.
+#### Type Declarations
+
+The published package now includes TypeScript type declarations. If you are using TypeScript, you will now get type checking and autocompletion for the SDK.
+
+The following methods have had thier return types changed to return promises:
 
 - `camera.getCameraDirection`
 - `camera.getPosition`
@@ -4711,10 +4715,6 @@ viewer.camera.getCameraDirection().then((cameraDirection) => {
   // Use cameraDirection
 });
 ```
-
-#### Type Declarations
-
-The published NPM package now includes the declared types for these methods, so you can see what to expect from method parameters and return values.
 
 ### v12 to v13
 
