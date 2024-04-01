@@ -4660,6 +4660,9 @@ The following methods have had thier return types changed to return promises:
 - `camera.getCameraDirection`
 - `camera.getPosition`
 - `camera.setPosition`
+- `camera.getSnapshot`
+- `camera.getSnapshotDataUrl`
+- `camera.navToHomeView`
 - `camera.setLookAt`
 - `camera.getLookAt`
 - `camera.setBcfCamera`
@@ -4670,6 +4673,7 @@ The following methods have had thier return types changed to return promises:
 - `camera.zoomToObjects`
 - `camera.zoomToBoundingBox`
 - `camera.zoomToGlobal`
+- `camera.setPose`
 - `model.getMeshnode`
 - `model.getMeshnodeFromObjectId`
 - `model.getHiddenMeshnodeIndices`
