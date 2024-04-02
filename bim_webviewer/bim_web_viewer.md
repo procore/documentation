@@ -4659,70 +4659,7 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
 
 The published package now includes TypeScript type declarations. If you are using TypeScript, you will now get type checking and autocompletion for the SDK.
 
-The following methods have had thier return types changed to return promises:
-
-- `camera.getCameraDirection`
-- `camera.getPosition`
-- `camera.setPosition`
-- `camera.getSnapshot`
-- `camera.getSnapshotDataUrl`
-- `camera.navToHomeView`
-- `camera.setLookAt`
-- `camera.getLookAt`
-- `camera.setBcfCamera`
-- `camera.getBcfCamera`
-- `camera.getScreenPosition`
-- `camera.setEulerAngles`
-- `camera.zoomToSelection`
-- `camera.zoomToObjects`
-- `camera.zoomToBoundingBox`
-- `camera.zoomToGlobal`
-- `camera.setPose`
-- `model.getMeshnode`
-- `model.getMeshnodeFromObjectId`
-- `model.getHiddenMeshnodeIndices`
-- `model.addHiddenMeshnodeIndices`
-- `model.hasHiddenMeshnodeIndices`
-- `model.clearHiddenMeshnodeIndices`
-- `model.getSelectedMeshnodeIndices`
-- `model.addSelectedMeshnodeIndices`
-- `model.hasSelectedMeshnodeIndices`
-- `model.clearSelectedMeshnodeIndices`
-- `model.getSections`
-- `model.setSectionBox`
-- `model.resetSectionBox`
-- `model.removeSectionBox`
-- `model.clearSection`
-- `model.MapToModelSpace`
-- `model.ModelToMapSpace`
-- `model.getObject`
-- `model.getObjects`
-- `model.getNumObjectsHidden`
-- `model.getNumObjectsSelected`
-- `model.getRootObject`
-- `model.hideObjects`
-- `model.hideAllObjects`
-- `model.unhideAllObjects`
-- `model.unhideObjects`
-- `model.getHiddenObjects`
-- `model.selectObjects`
-- `model.selectAllObject`
-- `model.deselectAllObjects`
-- `model.deselectObjects`
-- `model.getSelectedObjects`
-
-
-If you were using these methods, you will need to update your code to handle the promises.
-
-```ts
-// Before
-const cameraDirection = viewer.camera.getCameraDirection();
-
-// After
-viewer.camera.getCameraDirection().then((cameraDirection) => {
-  // Use cameraDirection
-});
-```
+You may expierence some issues with the new type declarations if some code uses a type incorrectly. These will appear in the form of TypeScript errors at compile time and if not resolved, your application may not run correctly.
 
 ### v12 to v13
 
