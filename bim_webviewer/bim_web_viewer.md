@@ -522,7 +522,7 @@ Force download the current render view into a png.
 | Field Name | Required | Default | Type | Description |
 | - | - | - | - | - |
 | `color` | false | `'#ecf2f6'` | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Background color of snapshot |
-| `size` | false | Width and height of the Web Viewer canvas | `{ width: number; height: number }` | Requested size of snapshot. An image will be produced that is the maximum size available from the Web Viewer canvas that matches the aspect ratio of the requested size. This will NOT produce an image that is the requested size unless you happen to request the size be the exact dimensions of the Web Viewer canvas. |
+| `size` | false | Width and height of the Web Viewer canvas | `{ width: number; height: number }` | Requested size of snapshot. An image will be produced that is the maximum size available from the Web Viewer canvas that matches the aspect ratio of the requested size. This will NOT produce an image that is the requested size unless you happen to request the size be the exact dimensions of the Web Viewer canvas. For example, requesting a 100x100 image on a 1600x900 canvas will result in a 900x900 image. |
 
 ##### Returns
 
@@ -559,7 +559,7 @@ Returns a data url of an image produced by the current render view.
 | Field Name | Required | Default | Type | Description |
 | - | - | - | - | - |
 | `color` | false | `'#ecf2f6'` | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Background color of snapshot |
-| `size` | false | Width and height of the Web Viewer canvas | `{ width: number; height: number }` | Requested size of snapshot. An image will be produced that is the maximum size available from the Web Viewer canvas that matches the aspect ratio of the requested size. This will NOT produce an image that is the requested size unless you happen to request the size be the exact dimensions of the Web Viewer canvas. |
+| `size` | false | Width and height of the Web Viewer canvas | `{ width: number; height: number }` | Requested size of snapshot. An image will be produced that is the maximum size available from the Web Viewer canvas that matches the aspect ratio of the requested size. This will NOT produce an image that is the requested size unless you happen to request the size be the exact dimensions of the Web Viewer canvas. For example, requesting a 100x100 image on a 1600x900 canvas will result in a 900x900 image. |
 
 ##### Returns
 
