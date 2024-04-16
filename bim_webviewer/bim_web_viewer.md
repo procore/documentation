@@ -541,7 +541,7 @@ Camera
 <p class="heading-link-container"><a class="heading-link" href="#get-snapshot-data-url"></a></p>
 
 ```js
-getSnapshotDataUrl(params);
+getSnapshotDataUrl(options);
 ```
 
 #### Description
