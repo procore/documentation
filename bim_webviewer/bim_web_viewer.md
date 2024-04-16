@@ -504,7 +504,7 @@ Camera
 <p class="heading-link-container"><a class="heading-link" href="#get-snapshot"></a></p>
 
 ```js
-getSnapshot(color);
+getSnapshot(options);
 ```
 
 #### Description
@@ -513,9 +513,16 @@ Force download the current render view into a png.
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                                                                  |
-| ---------- | -------- | ------ | ---------------------------------------------------------------------------- |
-| color      | false    | String | Background css color, can use hex value ('#00ff00'), or color labels ('red') |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `options` | false | `GetSnapshotOptions` | Options to configure the snapshot |
+
+##### `GetSnapshotOptions`
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| `color` | false | `'#ecf2f6'` | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Background color of snapshot |
+| `size` | false | Width and height of the Web Viewer canvas | `{ width: number; height: number }` | Requested size of snapshot. An image will be produced that is the maximum size available from the Web Viewer canvas that matches the aspect ratio of the requested size. This will NOT produce an image that is the requested size unless you happen to request the size be the exact dimensions of the Web Viewer canvas. |
 
 ##### Returns
 
@@ -545,7 +552,14 @@ Returns a data url of an image produced by the current render view.
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| params | false | Object | A JavaScript object that can have the following keys: 'color': Background css color, can use hex value ('#00ff00'), or color labels ('red') |
+| `options` | false | `GetSnapshotDataUrlOptions` | Options to configure the snapshot |
+
+##### `GetSnapshotDataUrlOptions`
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| `color` | false | `'#ecf2f6'` | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Background color of snapshot |
+| `size` | false | Width and height of the Web Viewer canvas | `{ width: number; height: number }` | Requested size of snapshot. An image will be produced that is the maximum size available from the Web Viewer canvas that matches the aspect ratio of the requested size. This will NOT produce an image that is the requested size unless you happen to request the size be the exact dimensions of the Web Viewer canvas. |
 
 ##### Returns
 
