@@ -4657,7 +4657,7 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
 
 #### Convert `camera.getSnapshot` to Use Named Parameters
 
-`model.getSnapshot` now expects an optional params object instead of individual params. This aligns the signature to `model.getSnapshotDataUrl` which already takes an optional params object with the same options.
+[`model.getSnapshot`](#get-snapshot) now expects an optional params object instead of individual params. This aligns the signature to [`model.getSnapshotDataUrl`](#get-snapshot-data-url) which already takes an optional params object with the same options.
 
 It previously took one optional argument that set the background color of the snapshot. If you were using this functionality you will need to update it as follows:
 
