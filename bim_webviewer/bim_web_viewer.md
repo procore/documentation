@@ -4649,6 +4649,28 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v14 to v15
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v14-to-v15"></a>
+</p>
+
+#### Convert `camera.getSnapshot` to Use Named Parameters
+
+`model.getSnapshot` now expects an optional params object instead of individual params. This aligns the signature to `model.getSnapshotDataUrl` which already takes an optional params object with the same options.
+
+It previously took one optional argument that set the background color of the snapshot. If you were using this functionality you will need to update it as follows:
+
+```ts
+// OLD
+model.getSnapshot('#aabbcc');
+
+// NEW
+model.getSnapshot({ color: '#aabbcc' });
+```
+
+If you were calling `model.getSnapshot()` without arguments, no change is required.
+
 ### v13 to v14
 
 <p class="heading-link-container">
