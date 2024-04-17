@@ -3471,7 +3471,7 @@ getViewpoint();
 
 #### Description
 
-Gets the current state of the model as a [`Viewpoint`](#viewpoint), which can be used to create a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints#create-a-bim-viewpoint)
+Gets the current state of the model as a [`Viewpoint`](#viewpoint), which can be used to create a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints)
 
 Includes the following:
 
@@ -3506,7 +3506,7 @@ setViewpoint(viewpoint);
 
 #### Description
 
-Sets the current state of the model to match the [`Viewpoint`](#viewpoint), which can be gotten from endpoints that return a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints#show-bim-viewpoint)
+Sets the current state of the model to match the [`Viewpoint`](#viewpoint), which can be gotten from endpoints that return a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints)
 
 Includes the following:
 
