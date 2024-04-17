@@ -3461,6 +3461,77 @@ Promise<void>
 
 Model
 
+### Get Viewpoint
+
+<p class="heading-link-container"><a class="heading-link" href="#get-viewpoint"></a></p>
+
+```js
+getViewpoint();
+```
+
+#### Description
+
+Gets the current state of the model as a [`Viewpoint`](#viewpoint), which can be used to create a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints#create-a-bim-viewpoint)
+
+Includes the following:
+
+- applied sectioning
+- camera type and orientation
+
+Will currently always return empty redlines as the Web Viewer does not yet have a way to author them.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+Promise<Viewpoint>
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Set Viewpoint
+
+<p class="heading-link-container"><a class="heading-link" href="#set-viewpoint"></a></p>
+
+```js
+setViewpoint(viewpoint);
+```
+
+#### Description
+
+Sets the current state of the model to match the [`Viewpoint`](#viewpoint), which can be gotten from endpoints that return a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints#show-bim-viewpoint)
+
+Includes the following:
+
+- applied sectioning
+- camera type and orientation
+- redlines
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `viewpoint` | true | [`Viewpoint`](#viewpoint) | Viewpoint to apply to the model. |
+
+##### Returns
+
+```js
+Promise<void>
+```
+
+##### Namespace
+
+Model
+
+---
+
 ## Markup Namespace
 
 <p class="heading-link-container"><a class="heading-link" href="#markup-namespace"></a></p>
@@ -4587,6 +4658,20 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   }[] | null;
   Linked: boolean;
   Enabled: boolean;
+};
+```
+
+### Viewpoint
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#viewpoint"></a>
+</p>
+
+```ts
+{
+  camera_data: string; // JSON string
+  sections_data: string; // JSON string
+  redlines_data: string; // JSON string
 };
 ```
 
