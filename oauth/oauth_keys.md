@@ -9,7 +9,7 @@ section_title: OAuth 2.0 Authentication
 
 Once you have registered a new application on the Developer Portal you will work with two sets of OAuth credentials - one set for your _development sandbox_ and a separate set for the _production environment_.
 Initially during the development phase, you use the sandbox credentials to make API calls to your sandbox company account.
-Once you have promoted your sandbox application manifest to production and received approval from our App Validation team, you will have access to your production credentials.
+Once you have promoted your sandbox application manifest to production, you will have access to your production credentials.
 See [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for additional information.
 You will use your Client IDs, which are considered public information, to build login URLs or include in Javascript source.
 Your Client Secrets, on the other hand, must be kept confidential.

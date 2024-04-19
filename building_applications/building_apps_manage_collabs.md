@@ -27,13 +27,12 @@ To see which permissions are defined for each role, click **View Permission Deta
 You can add members to your development team and assign them to appropriate roles based on their function within your organization.
 
 1. On the Manage App page, select the 'Collaborators' section.
-1. Click **Add Another User**.
+1. Click **Invite Collaborator**.
 1. Enter the Email Address for the new team member, select the appropriate role (Admin or Developer), and click **Send Invitation**.
 
 ![Add team member]({{ site.baseurl }}/assets/guides/form-based-collab-add-new.png)
 
 An email is sent out to the new team member inviting them to join your development team.
-The list of team members is updated to include the new team member with a status of 'Pending Invitation'.
 After they accept the email invite and join the team, they have access to the App on the Developer Portal with the permissions defined by their assigned role.
 
 ## Giving Collaborators Access to Development Sandbox Environments

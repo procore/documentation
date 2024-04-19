@@ -65,12 +65,14 @@
       url: /building-apps-define-manifest
     - title: Understanding URL Parameter Interpolation
       url: /building-apps-url-parameter-interpolation
-    - title: Building Procore Embedded (Fullscreen) Applications
+    - title: Building Procore Embedded Full Screen Applications
       url: /building-embedded-fullscreen-apps  
-    - title: Building Procore Side Panel Applications
+    - title: Building Procore Embedded Side Panel Applications
       url: /building-side-panel-apps
     - title: Building Procore Data Connection Applications with DMSA
       url: /building-data-connection-apps
+    - title: Installing an App in the Development Sandbox
+      url: /building-apps-sandbox-install
     - title: Promoting a Sandbox Manifest to Production
       url: /building-apps-promote-manifest
     - title: Submitting a Production App Manifest for Review

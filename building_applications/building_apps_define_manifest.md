@@ -24,8 +24,8 @@ When you create a new application on the developer portal, the system first gene
 
 >**Using Your Development Sandbox Environment:**
 >The development sandbox is your primary environment for learning about Procore and includes seed project data that can be used for testing purposes.
->You can install new versions of your application manifest to your sandbox environment at any time using the Saandbox App Version Key.
->See [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %}) for additional information.
+>You can install new versions of your application manifest to your sandbox environment at any time using the Sandbox App Version Key.
+>See [Installing an Application in the Development Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_sandbox_install.md %}) for additional information.
 
 Using the Configuration Builder on the Manage App page, you can define one or more components and specify other settings for your manifest depending on the type of application you are developing.
 See [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}) for additional information.
@@ -42,11 +42,12 @@ Note that it is also possible to develop applications that combine all three app
 
 ## Creating New Manifest Versions
 
-After you have created the initial sandbox version of your App manifest, you can iterate through your development/test cycle and create subsequent versions as needed to address changes in your App. Complete the following steps to create additional manifest versions.
+After you have created the initial sandbox version of your App manifest, you can iterate through your development/test cycle and create subsequent versions as needed to address changes in your App.
+You can install and test your application changes in the sandbox development environment by following the steps outlined in [Installing an Application in the Development Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_sandbox_install.md %}).
+
+Complete the following steps to create additional manifest versions.
 
 1. In the 'Manage Manifests' section, click **Create New Version**. The editor displays the content from your last manifest version.
 1. Enter a new version number following the semantic versioning scheme.
 1. Make changes to the manifest as needed and click **Create**.
 1. Repeat Steps 1-3 for each additional manifest version you want to create.
-
-{% include install_sandbox_version.md %}

@@ -15,43 +15,43 @@ This article provides details on the following steps for creating a new data con
 
 * [Create a New Application](#create-a-new-application)
 * [Specify Tool Permissions Using Permission Builder](#specify-tool-permissions-using-permission-builder)
-* [Enter Instructions and Post-Installation Notes](#enter-instructions-and-post-installation-notes)
+* [Define Setup Instructions and Post-Installation Notes](#define-setup-instructions)
 * [Save Manifest and Create Version](#save-manifest-and-create-version)
 * [Promote Updated Sandbox Manifest to Production](#promote-updated-sandbox-manifest-to-production)
 
 <a name="create-a-new-application">
 {% include create_application.md %}
 
->**Note:** When creating a data connection app, you do not need to add any components. For this type of application, you will begin by congifuring permissions for your app.
+>**Note:** When creating a data connection application using DMSA, you do not need to add any components. For this type of application, you will begin by configuring tool permissions.
 
 ## Specify Tool Permissions Using Permission Builder
 
-Use the Permission Builder to specify the Company level and Project level tool permissions that are required to install and use your application.
+Use the Permission Builder to specify the Company level and Project level tool permissions that are required to install and use your application. Refer to the [User Permissions Matrix](https://support.procore.com/references/user-permissions-matrix-web) for additional information.
 
 1. Navigate to the Configuration Builder on the Manage App page.
 2. Expand the **Permissions** section of the page.
-3. Click **Edit** to open the permissions builder and select the appropriate permissions for your application.
+3. Click **Add Permissions** to open the permissions builder and select the appropriate permissions for your application.
 
     ![Permission Builder]({{ site.baseurl }}/assets/guides/form-based-manifest-dmsa-perms-builder.png)
 
 4. On the Company tab, define the required permission levels (Read Only, Standard, or Admin) for each Company level tool that is accessed by your app.
 5. Repeat the previous step on the Project tab to define Project level tool permissions.
-6. Click **Save**.
+6. Click **Save Permissions**.
 Your application is updated with the permissions you defined in the Permission Builder.
 
-## Enter Instructions and Post-Installation Notes
-
-Complete the required fields as follows:
-1. **Instructions URL**. Enter the URL where users can find instructions for your application.
-2. **Instructions Page Name**. Enter text that will appear as the label for your Instructions URL.
-3. **Post-Installation Notes**. Enter a text description of any post-installation steps required to properly complete setup of the app.
+<a name="define-setup-instructions"></a>
+{% include setup_instructions.md %}
 
 ## Save Manifest and Create Version
 
-After completing the steps above, you're ready to save your app's configurations and set your first version number. 
+After completing the steps above, you're ready to save your application configuration and set your first version number. 
 1. Click **Save** at the top of the page.
 2. The **Create Version** window appears. Enter a version number using the following syntax: **x.x.x.**
 Note: Your version number can only contain integers, and must consist of three (3) integers separated by a '.'. For example, '1.1.1'. Each new version you create must be a higher number than the previous version.
+
+## Test and Validate in Development Sandbox
+
+We recommend testing and validating each version of your application in the development sandbox environment. See [Installing an Application in the Development Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_sandbox_install.md %}) for additional information.
 
 ## Promote Updated Sandbox Manifest to Production
 

@@ -21,14 +21,14 @@ This article provides details on the following steps for creating a new side pan
 
 * [Create a New Application](#create-a-new-application)
 * [Add a Side Panel Component](#add-a-side-panel-component)
-  * [Specify Component Type and Description](#1-specify-component-type-and-description)
-  * [Define Application URL](#2-define-application-url)
-  * [Define Parameter Interpolation](#3-define-parameter-interpolation)
-  * [Specify Supported Side Panel Views](#4-specify-supported-side-panel-views)
-  * [Save the New Component](#5-save-the-new-component)
+  * [Specify Component Type and Application URL](#1-specify-component-type-and-application-url)
+  * [Define Parameter Interpolation](#2-define-parameter-interpolation)
+  * [Specify Supported Side Panel Views](#3-specify-supported-side-panel-views)
+  * [Save the New Component](#4-save-the-new-component)
 * [Define Setup Instructions and Post-Installation Notes](#define-setup-instructions)
 * [Promote Updated Sandbox Manifest to Production](#promote-updated-sandbox-manifest-to-production)
 * [Save Manifest and Create Version](#save-manifest-and-create-version)
+* [Test and Validate in Development Sandbox](#test-and-validate-in-development-sandbox)
 * [Using postMessage to Retrieve Procore Context](#using-postmessage-to-retrieve-procore-context)
 
 <a name="create-a-new-application"></a>
@@ -42,20 +42,15 @@ If you are building a data connection application based on developer managed ser
 See [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}) for additional information on application types and components.
 Follow these steps to add a new side panel component.
 
-### 1. Specify Component Type and Description
+### 1. Specify Component Type and Application URL
 
 * Navigate to the Configuration Buidler on the Manage App page, expand the Components section and click **Add Component**.
-* Using the drop-down, select **Side Panel** for the component Type and enter a Description for the component.
+* Using the drop-down, select **Side Panel** for the component Type.
+* In the URL field, specify the base web address for your application. (e.g., https://example.com/1234/12).
 
-    ![Component Type and Description]({{ site.baseurl }}/assets/guides/form-based-component-type-desc-fields.png)
+    ![Component Type and Description]({{ site.baseurl }}/assets/guides/form-based-component-type-url-fields.png)
 
-### 2. Define Application URL
-
-* In the URL field, specify the base web address for your application. (e.g., https://example.domain.com/)
-
-    ![Component URL]({{ site.baseurl }}/assets/guides/form-based-component-url-field.png)
-
-### 3. Define Parameter Interpolation
+### 2. Define Parameter Interpolation
 
 {% include url_parameter_interpolation.md %}
 
@@ -70,7 +65,7 @@ Follow these steps to add a new side panel component.
 
 * Click **Save Parameter**.
 
-### 4. Specify Supported Side Panel Views
+### 3. Specify Supported Side Panel Views
 
 You can specify which tools, resources, and actions your application works with and from which page(s) it will be accessible.
 As some tools comprise more than one resource (e.g., commitments), this approach is both granular and flexible.
@@ -287,7 +282,7 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/calendar/lookaheads | schedule.calendar.lookaheads.list |
 | /:project_id/project/calendar/tasks/:task_id | schedule.calendar.task.detail |
 
-### 5. Save the New Component
+### 4. Save the New Component
 
 * Once you have successfully created a new side panel component and defined the Type, Description, URL, Parameter(s), and View(s), click **Save Component**.
 
@@ -298,10 +293,14 @@ The following sections list the currently supported Side Panel Views that can be
 
 ## Save Manifest and Create Version
 
-After completing the steps above, you're ready to save your app's configurations and set your first version number.
+After completing the steps above, you're ready to save your application configuration and set your first version number.
 1. Click **Save** at the top of the page.
 2. The **Create Version** window appears. Enter a version number using the following syntax: **x.x.x.**
 Note: Your version number can only contain integers, and must consist of three (3) integers separated by a '.'. For example, '1.1.1'. Each new version you create must be a higher number than the previous version.
+
+## Test and Validate in Development Sandbox
+
+We recommend testing and validating each version of your application in the development sandbox environment. See [Installing an Application in the Development Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_sandbox_install.md %}) for additional information.
 
 ## Promote Updated Sandbox Manifest to Production
 
