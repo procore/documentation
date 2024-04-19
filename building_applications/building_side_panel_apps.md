@@ -119,8 +119,8 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/purchase_order_contracts/:id/change_orders | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/requisitions | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/requisitions/new | commitments.requisitions.new |
-| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/requisitions/:id | commitments.requisitions.edit |
-| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/admin/requisitions/:id/edit | commitments.requisitions.detail |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/requisitions/:id | commitments.requisitions.detail |
+| /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id/admin/requisitions/:id/edit | commitments.requisitions.edit |
 | /:project_id/project/commitments/purchase_order_contracts/:id/contract_payments | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/contract_payments/new | commitments.purchase_order_contracts.new |
 | /:project_id/project/commitments/purchase_order_contracts/:id/related_items | commitments.purchase_order_contracts.detail |
@@ -306,7 +306,7 @@ For additional information, see the [postMessage() method documentation](https:/
 
 ## Additional postMessage Events
 
-Aside from the “setup” message event that is fired when your app is first started, there are additional events fired at different life cycles of the side panel app. 
+Aside from the “setup” message event that is fired when your app is first started, there are additional events fired at different life cycles of the side panel app.
 All of these events are fired as a postMessage from Procore to your app’s window.
 You can listen to  “message” events and filter for the data “type”.
 
