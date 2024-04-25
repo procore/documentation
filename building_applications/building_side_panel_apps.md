@@ -105,6 +105,9 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/work_order_contracts/:id/billings_schedule_of_values | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/billings_schedule_of_values/edit | commitments.work_order_contracts.edit |
 | /:project_id/project/commitments/work_order_contracts/:id/requisitions | commitments.work_order_contracts.detail |
+| /:project_id/project/commitments/work_order_contracts/:id/requisitions/new | commitments.requisitions.new |
+| /:project_id/project/commitments/work_order_contracts/:work_order_contract_id/requisitions/:id | commitments.requisitions.detail |
+| /:project_id/project/commitments/work_order_contracts/:work_order_contract_id/admin/requisitions/:id/edit | commitments.requisitions.edit
 | /:project_id/project/commitments/work_order_contracts/:id/contract_payments | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/contract_payments/new | commitments.work_order_contracts.new |
 | /:project_id/project/commitments/work_order_contracts/:id/related_items | commitments.work_order_contracts.detail |
@@ -113,6 +116,9 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/work_order_contracts/:id/communications/new | commitments.work_order_contracts.new |
 | /:project_id/project/commitments/work_order_contracts/:id/change_history | commitments.work_order_contracts.detail |
 | /:project_id/project/commitments/work_order_contracts/:id/advanced_settings/edit | commitments.work_order_contracts.edit |
+| /:project_id/project/commitments/work_order_contracts/:id/change_orders/commitment_contract_change_orders<br />/new_from_change_events_bulk_action | commitments.commitment_contract_change_orders.new
+| /:project_id/project/commitments/work_order_contracts/:work_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id | commitments.commitment_contract_change_orders.detail |
+| /:project_id/project/commitments/work_order_contracts/:work_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id/edit | commitments.commitment_contract_change_orders.edit |
 | /:project_id/project/commitments/purchase_order_contracts/:id | commitments.purchase_order_contracts.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:id/edit | commitments.purchase_order_contracts.edit |
 | /:project_id/project/commitments/purchase_order_contracts/:id/schedule_of_values | commitments.purchase_order_contracts.detail |
