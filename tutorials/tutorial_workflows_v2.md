@@ -9,16 +9,13 @@ section_title: Guides and Tutorials
 
 (boilerplate explanation of the tool like V1's)
 
-A workflow is a Business Process Automation (BPA) solution that provides a company the ability to create customized approval processes that work with different Procore project tools.
-The Workflows tool was designed to streamline the user experience and to replace time-consuming and manual approval processes with an automated process, thus eliminating the need to manage approvals by email or collecting physical signatures from key stakeholders.
-
 ---
 
 ## Hierarchy of Workflows
 
 There are 3 main levels of a workflow: template, preset and instance.
 
-(image with diagram of templates and versions, presets, and instances, step occurrences and response occurrences to show a visual aid of relationships)
+![API Record Diagram]({{ site.baseurl }}/assets/guides/workflows-v2-api-records-diagram.png)
 
 ### Template
 
@@ -28,7 +25,7 @@ A version is one configuration of a template. Either draft, active (latest publi
 
 ### Preset
 
-A preset is another layer of configuration on top of the latest published version. A company-level Procore tool will have one preset for the company and a project-level tool can have any number of presets based on the number of projects assigned to the template.
+A preset is another layer of configuration on top of the latest published version. A company-level Procore tool will have one preset for the company and a project-level tool can have any number of presets based on the number of projects assigned to the template. The latest published version configuration and a preset or instance configuration (which gets copied from the preset when created) come together to create the full configuration (shown in the preset UI).
 
 When an instance is started, it copies the current configuration of the preset specified (or the default if none is specified).
 
