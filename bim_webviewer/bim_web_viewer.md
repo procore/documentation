@@ -504,7 +504,7 @@ Camera
 <p class="heading-link-container"><a class="heading-link" href="#get-snapshot"></a></p>
 
 ```js
-getSnapshot(color);
+getSnapshot(options);
 ```
 
 #### Description
@@ -513,9 +513,16 @@ Force download the current render view into a png.
 
 #### Parameters
 
-| Field Name | Required | Type   | Description                                                                  |
-| ---------- | -------- | ------ | ---------------------------------------------------------------------------- |
-| color      | false    | String | Background css color, can use hex value ('#00ff00'), or color labels ('red') |
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `options` | false | `GetSnapshotOptions` | Options to configure the snapshot |
+
+##### `GetSnapshotOptions`
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| `color` | false | `'#ecf2f6'` | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Background color of snapshot |
+| `aspectRatio` | false | Width and height of the Web Viewer canvas | `{ width: number; height: number }` | Requested aspect ratio of snapshot. An image will be produced that is the maximum size available from the Web Viewer canvas that matches the requested aspect ratio. This will NOT produce an image with these dimensions unless you happen to request an aspect ratio that is the same dimensions of the Web Viewer canvas. For example, requesting a 100x100 aspect ratio image on a 1600x900 canvas will result in a 900x900 image. |
 
 ##### Returns
 
@@ -534,7 +541,7 @@ Camera
 <p class="heading-link-container"><a class="heading-link" href="#get-snapshot-data-url"></a></p>
 
 ```js
-getSnapshotDataUrl(params);
+getSnapshotDataUrl(options);
 ```
 
 #### Description
@@ -545,7 +552,14 @@ Returns a data url of an image produced by the current render view.
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| params | false | Object | A JavaScript object that can have the following keys: 'color': Background css color, can use hex value ('#00ff00'), or color labels ('red') |
+| `options` | false | `GetSnapshotDataUrlOptions` | Options to configure the snapshot |
+
+##### `GetSnapshotDataUrlOptions`
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| `color` | false | `'#ecf2f6'` | [CSSColor](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | Background color of snapshot |
+| `aspectRatio` | false | Width and height of the Web Viewer canvas | `{ width: number; height: number }` | Requested aspect ratio of snapshot. An image will be produced that is the maximum size available from the Web Viewer canvas that matches the requested aspect ratio. This will NOT produce an image with these dimensions unless you happen to request an aspect ratio that is the same dimensions of the Web Viewer canvas. For example, requesting a 100x100 aspect ratio image on a 1600x900 canvas will result in a 900x900 image. |
 
 ##### Returns
 
@@ -4733,6 +4747,28 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
 <p class="heading-link-container">
   <a class="heading-link" href="#migration-guides"></a>
 </p>
+
+### v14 to v15
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v14-to-v15"></a>
+</p>
+
+#### Convert `camera.getSnapshot` to Use Named Parameters
+
+[`model.getSnapshot`](#get-snapshot) now expects an optional params object instead of individual params. This aligns the signature to [`model.getSnapshotDataUrl`](#get-snapshot-data-url) which already takes an optional params object with the same options.
+
+It previously took one optional argument that set the background color of the snapshot. If you were using this functionality you will need to update it as follows:
+
+```ts
+// OLD
+model.getSnapshot('#aabbcc');
+
+// NEW
+model.getSnapshot({ color: '#aabbcc' });
+```
+
+If you were calling `model.getSnapshot()` without arguments, no change is required.
 
 ### v13 to v14
 
