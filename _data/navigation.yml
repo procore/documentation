@@ -152,8 +152,10 @@
       url: /tutorial-user-permissions
     - title: Work Breakdown Structure
       url: /tutorial-wbs
-    - title: Workflows
+    - title: Workflows Legacy
       url: /tutorial-workflows
+    - title: Workflows
+      url: /tutorial-workflows-v2
 
 - title: Use Cases
   items:

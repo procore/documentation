@@ -1,6 +1,6 @@
 ---
 permalink: /tutorial-workflows
-title: Interacting with Workflows
+title: Interacting with Workflows (Legacy)
 layout: default
 section_title: Guides and Tutorials
 ---
