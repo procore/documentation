@@ -95,7 +95,7 @@ curl -F grant_type=authorization_code \
   -F client_secret=0b57e8d87e35370307ba5f98ad135bd155cabacea56d12344afe083e2eb04b54 \
   -F code=8957b84a67f6ae55ab79c9767836a0af30b7fb7e4c36b27412343728cce71ec7 \
   -F redirect_uri=urn:ietf:wg:oauth:2.0:oob \
-  -X POST https://api.procore.com/oauth/token
+  -X POST https://login.procore.com/oauth/token
 ```
 
 Here is an example cURL command for retrieving an access token using the client credentials grant type:
@@ -105,7 +105,7 @@ curl -F grant_type=client_credentials \
   -F client_id=db0d63cfa7ac3ceed7166081542216ec51e36941234e5e879105e36bd76dbf63 \
   -F client_secret=0b57e8d87e35370307ba5f98ad135bd155cabacea56d12344afe083e2eb04b54 \
   -F redirect_uri=urn:ietf:wg:oauth:2.0:oob \
-  -X POST https://api.procore.com/oauth/token
+  -X POST https://login.procore.com/oauth/token
 ```
 
 Examining this command we see that we use -F command flags to specify each of the required parameters as being form field data.
