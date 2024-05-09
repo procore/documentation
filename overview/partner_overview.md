@@ -49,4 +49,4 @@ Review the following topics for additional information:
 ### Additional Information
 
 - [Sign up to become a Procore Technical Partner](https://developers.procore.com/partner-signup) and let our Partnerships Team guide you through each step in your journey to developing and deploying a successful Procore integration.
-- Contact our API Support team at <apisupport@procore.com> with any questions you may have regarding the Partnerships Program.
+- Contact our team at <MarketplaceQA@procore.com> with any questions you may have regarding the Partnerships Program.
