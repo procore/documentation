@@ -12,6 +12,10 @@ Custom workflows can be created that define the responsible roles, groups, and c
 See [Self-Serve Workflows User Guide](https://support.procore.com/products/online/user-guide/company-level/workflows/tutorials/user-guide) for additional information on using the Workflows tool in Procore.
 Once the Workflows tool has been enabled and configured in an account, app developers are able to interact with the workflow objects to perform workflow activities via the Procore API.
 
+## Access
+
+Self-Serve Workflows endpoints are in closed beta. For inquiry and access, reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+
 ---
 
 ## Hierarchy of Workflows
