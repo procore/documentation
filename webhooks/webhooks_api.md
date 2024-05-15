@@ -12,7 +12,7 @@ Managing Webhooks using the API involves creating and manipulating _Hooks_ and _
 A Hook represents the relationship between a Company/Project and the Notification Endpoint you want to send webhook events to.
 Triggers belong to a Hook and represent Procore resources that will trigger webhook notifications when those resources are created, updated, or deleted (specified by the Trigger's Event Type).
 
-The Webhooks API endpoints allow you to configure Webhooks programmatically as well as examine webhooks deliveries.
+The Webhooks API endpoints allow you to configure Webhooks programmatically as well as examine webhook deliveries.
 These endpoints are documented in the following reference pages:
 
 - Webhooks Hooks - [Create](https://developers.procore.com/reference/rest/v1/hooks#create-webhooks-hook), [List](https://developers.procore.com/reference/rest/v1/hooks#list-webhooks-hooks), [Update](https://developers.procore.com/reference/rest/v1/hooks#update-webhooks-hook), [Delete](https://developers.procore.com/reference/rest/v1/hooks#delete-webhooks-hook)
@@ -83,7 +83,7 @@ Due to the large number of resources accessible through the Procore API, it can 
 To help simplify this task, we provide a [downloadable CSV file](https://developers.procore.com/assets/static/webhook-resources.csv) that lists the currently available resources grouped by product category and tool.
 Using this file, you can directly retrieve the available resource names you need without having to visit the Webhooks Configuration page in Procore to view the large resource list displayed there.
 It is important to note that the number of Procore resources accessible through the API is growing constantly.
-As a result, the contents of the CSV file available here may not always accurately reflect total number of resources currently available to you for configuring Webhooks.
+As a result, the contents of the CSV file available here may not always accurately reflect the total number of resources currently available to you for configuring Webhooks.
 Keep in mind that the contents of the CSV file are subject to change and we will strive to update this file on a regular basis.
 If you need assistance discovering resource names or working with the CSV file, please contact our API support team at <apisupport@procore.com>.
 
