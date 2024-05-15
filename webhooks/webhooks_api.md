@@ -130,15 +130,15 @@ Finally, ACME Integrators is working exclusively for Company B and has defined n
 As described in the previous section, Marketplace applications and system integrators use namespaces to isolate their Webhooks API calls from one another.
 When using the `namespace` parameter, there are a number of requirements and best practices to be considered:
 
-- Namespaces are string values restricted to lowercase a-z and dashes (-).
-- Uppercase letters, numbers, and special characters are not supported in namespaces.
+- Namespaces are string values restricted to lowercase a-z, digits 0-9, and dashes (-).
+- Uppercase letters and special characters are not supported in namespaces.
 - If no namespace is provided with a call, the default "procore" namespace is assumed.
 - We recommend the format <publisher name>-<application name> for defining namespaces.
 
 ## Webhooks Deliveries
 
 You can use the [List Webhooks Deliveries](https://developers.procore.com/reference/rest/v1/deliveries) API endpoint to return a list of the current webhooks events that Procore has delivered (or has attempted to deliver) to your notification server.
-This provides a convenient alternative to the Procore Web user interface for rertrieving information about webhooks event deliveries.
+This provides a convenient alternative to the Procore Web user interface for retrieving information about webhooks event deliveries.
 Include the `hook_id` path parameter to specify the webhooks hook you want to see deliveries for.
 Use the `project_id` or `company_id` query parameter to indicate whether you want to return project or company webhooks deliveries respectively.
 You can also use the `filter[status]` query parameter to specify whether you want to retrieve 'any' (all), 'successful', or 'failing' deliveries.
