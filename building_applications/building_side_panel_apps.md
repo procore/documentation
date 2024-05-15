@@ -42,10 +42,11 @@ If you are building a data connection application based on developer managed ser
 See [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}) for additional information on application types and components.
 Follow these steps to add a new side panel component.
 
-### 1. Specify Component Type and Application URL
+### 1. Specify Component Type, Description, and Application URL
 
 * Navigate to the Configuration Buidler on the Manage App page, expand the Components section and click **Add Component**.
 * Using the drop-down, select **Side Panel** for the component Type.
+* Enter a Description for the component.
 * In the URL field, specify the base web address for your application. (e.g., https://example.com/1234/12).
 
     ![Component Type and Description]({{ site.baseurl }}/assets/guides/form-based-component-type-url-fields.png)
@@ -58,7 +59,7 @@ Follow these steps to add a new side panel component.
 
   ![Component Add Param]({{ site.baseurl }}/assets/guides/form-based-component-add-param.png)
 
-* Define the Name, Type, Key, and Description for the custom parameter.
+* Define the Name, Key, and Description for the custom parameter.
 * Specify whether the parameter is required at time of installation.
 
   ![Component Add Param Field]({{ site.baseurl }}/assets/guides/form-based-component-add-param-custom.png)
@@ -71,8 +72,8 @@ You can specify which tools, resources, and actions your application works with 
 As some tools comprise more than one resource (e.g., commitments), this approach is both granular and flexible.
 For example, you might want your app to display only on the list page, but not on the detail page.
 
-* Use the **Side Panel Views** section to select one or more side panel Views for your application.
-Use the **Search Tools** field to find the tools/views you want to select.
+* Use the **Side Panel Views** drop-down list to select one or more side panel Views for your application.
+
 
   ![Add Views]({{ site.baseurl }}/assets/guides/form-based-component-add-views.png)
 

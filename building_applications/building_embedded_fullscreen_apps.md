@@ -38,10 +38,11 @@ If you are building a data connection application based on developer managed ser
 See [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}) for additional information on application types and components.
 Follow these steps to add a new full screen component.
 
-### 1. Specify Component Type and Application URL
+### 1. Specify Component Type, Description, and Application URL
 
 * Navigate to the Configuration Builder on the Manage App page, expand the Components section and click **Add Component**.
 * Using the drop-down, select **Full Screen** for the component Type.
+* Enter a Description for the component.
 * In the URL field, specify the base web address for your application. (e.g., https://example.com/1234/12).
 
     ![Component Type and App URL]({{ site.baseurl }}/assets/guides/form-based-component-type-url-fields-fs.png)
