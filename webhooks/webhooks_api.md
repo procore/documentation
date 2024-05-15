@@ -12,7 +12,7 @@ Managing Webhooks using the API involves creating and manipulating _Hooks_ and _
 A Hook represents the relationship between a Company/Project and the Notification Endpoint you want to send webhook events to.
 Triggers belong to a Hook and represent Procore resources that will trigger webhook notifications when those resources are created, updated, or deleted (specified by the Trigger's Event Type).
 
-The Webhooks API endpoints allow you to configure Webhooks programmatically as well as examine webhooks deliveries.
+The Webhooks API endpoints allow you to configure Webhooks programmatically as well as examine webhook deliveries.
 These endpoints are documented in the following reference pages:
 
 - Webhooks Hooks - [Create](https://developers.procore.com/reference/rest/v1/hooks#create-webhooks-hook), [List](https://developers.procore.com/reference/rest/v1/hooks#list-webhooks-hooks), [Update](https://developers.procore.com/reference/rest/v1/hooks#update-webhooks-hook), [Delete](https://developers.procore.com/reference/rest/v1/hooks#delete-webhooks-hook)
@@ -83,7 +83,7 @@ Due to the large number of resources accessible through the Procore API, it can 
 To help simplify this task, we provide a [downloadable CSV file](https://developers.procore.com/assets/static/webhook-resources.csv) that lists the currently available resources grouped by product category and tool.
 Using this file, you can directly retrieve the available resource names you need without having to visit the Webhooks Configuration page in Procore to view the large resource list displayed there.
 It is important to note that the number of Procore resources accessible through the API is growing constantly.
-As a result, the contents of the CSV file available here may not always accurately reflect total number of resources currently available to you for configuring Webhooks.
+As a result, the contents of the CSV file available here may not always accurately reflect the total number of resources currently available to you for configuring Webhooks.
 Keep in mind that the contents of the CSV file are subject to change and we will strive to update this file on a regular basis.
 If you need assistance discovering resource names or working with the CSV file, please contact our API support team at <apisupport@procore.com>.
 
@@ -130,15 +130,15 @@ Finally, ACME Integrators is working exclusively for Company B and has defined n
 As described in the previous section, Marketplace applications and system integrators use namespaces to isolate their Webhooks API calls from one another.
 When using the `namespace` parameter, there are a number of requirements and best practices to be considered:
 
-- Namespaces are string values restricted to lowercase a-z and dashes (-).
-- Uppercase letters, numbers, and special characters are not supported in namespaces.
+- Namespaces are string values restricted to lowercase a-z, digits 0-9, and dashes (-).
+- Uppercase letters and special characters are not supported in namespaces.
 - If no namespace is provided with a call, the default "procore" namespace is assumed.
 - We recommend the format <publisher name>-<application name> for defining namespaces.
 
 ## Webhooks Deliveries
 
 You can use the [List Webhooks Deliveries](https://developers.procore.com/reference/rest/v1/deliveries) API endpoint to return a list of the current webhooks events that Procore has delivered (or has attempted to deliver) to your notification server.
-This provides a convenient alternative to the Procore Web user interface for rertrieving information about webhooks event deliveries.
+This provides a convenient alternative to the Procore Web user interface for retrieving information about webhooks event deliveries.
 Include the `hook_id` path parameter to specify the webhooks hook you want to see deliveries for.
 Use the `project_id` or `company_id` query parameter to indicate whether you want to return project or company webhooks deliveries respectively.
 You can also use the `filter[status]` query parameter to specify whether you want to retrieve 'any' (all), 'successful', or 'failing' deliveries.
