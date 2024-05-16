@@ -3534,6 +3534,36 @@ Model
 
 ---
 
+### Get Visibility
+
+<p class="heading-link-container"><a class="heading-link" href="#get-visibility"></a></p>
+
+```js
+getVisibility();
+```
+
+#### Description
+
+Gets the current state of visibility of objects as a [`Visibility`](#visibility).
+
+`visibility` if a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to get a whole viewpoint use [`model.getViewpoint`](#set-viewpoint).
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+Promise<Visibility>
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Set Visibility
 
 <p class="heading-link-container"><a class="heading-link" href="#set-visibility"></a></p>
