@@ -3513,12 +3513,46 @@ Includes the following:
 - applied sectioning
 - camera type and orientation
 - redlines
+- current render mode
+- visibility of objects
 
 #### Parameters
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | `viewpoint` | true | [`Viewpoint`](#viewpoint) | Viewpoint to apply to the model. |
+
+##### Returns
+
+```js
+Promise<void>
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Set Visibility
+
+<p class="heading-link-container"><a class="heading-link" href="#set-visibility"></a></p>
+
+```js
+setVisibility(visibility);
+```
+
+#### Description
+
+Sets the visibility of objects to match the [`Visibility`](#visibility).
+
+`visibility` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to apply a whole viewpoint use [`model.setViewpoint`](#set-viewpoint).
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `visibility` | true | [`Visibility`](#visibility) | Visiblity to apply to the model. |
 
 ##### Returns
 
@@ -4672,7 +4706,104 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   camera_data: string; // JSON string
   sections_data: string; // JSON string
   redlines_data: string; // JSON string
+  visibility: Visibility;
+  render_mode: RenderMode;
 };
+```
+
+### Visibility
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#visibility"></a>
+</p>
+
+```ts
+{
+  default_visibility: boolean; 
+  exceptions: {
+    object_ids: number[];
+    object_ranges: [number, number][];
+  };
+};
+```
+
+This object is effectively representing a flat list of object ids that are hidden, but uses some strategies to reduce the JSON size of this list.
+
+`default_visibility` determines whether all objects are hidden or visible.
+
+`exceptions` determines which objects are not in the `default_visibility` state.
+
+`exceptions.object_ids` is a flat list of object ids.
+
+`exceptions.object_ranges` is a list of range objects where the first number is the object id at the start of the range and the second number is the number of items in the range.
+
+#### Examples
+
+#### Some Hidden with a Range
+
+```js
+{
+  default_visibility: false,
+  exceptions: {
+    object_ids: [],
+    object_ranges: [
+      [1, 3], // Expands to [1, 2, 3]
+      [1000, 2] // Expands to [1000, 1001]
+    ]
+  }
+}
+```
+
+##### All Hidden
+
+```js
+{
+  default_visibility: false,
+  exceptions: {
+    object_ids: [],
+    object_ranges: []
+  }
+}
+```
+
+Because `default_visibility` is `false`, all objects are hidden by default and because there are no `exceptions` we end with all objects hidden.
+
+##### Less than Half Hidden
+
+```js
+{
+  default_visibility: true,
+  exceptions: { // Represents objects that are hidden
+    object_ids: [ 7, 10, 13, 20, /* ... many more */ ]
+    object_ranges: [ [1, 3], [1000, 2], /* ... many more */ ]
+  }
+}
+```
+
+When less than ~half of objects are hidden, `default_visibility` is set to `true` and `exceptions` represents objects that are hidden.
+
+##### More than Half Hidden
+
+```js
+{
+  default_visibility: false,
+  exceptions: { // Represents objects that are visible
+    object_ids: [ 8, 11, 14, 21, /* ... many more */]
+    object_ranges: [ [4, 3], [1003, 2], /* ... many more */ ]
+  }
+}
+```
+
+When more than ~half of objects are hidden, `default_visibility` is set to `false` and `exceptions` represents objects that are visible.
+
+### Render Mode
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#render-mode"></a>
+</p>
+
+```ts
+'shaded' | 'xray'
 ```
 
 ### Urls Object
