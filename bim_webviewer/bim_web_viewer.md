@@ -4840,6 +4840,66 @@ When less than ~half of objects are hidden, `default_visibility` is set to `true
 
 When more than ~half of objects are hidden, `default_visibility` is set to `false` and `exceptions` represents objects that are visible.
 
+#### Code to Serialize/Deserialize Ranges
+
+We do not intend for external parties to _need_ to parse the ranges, but if you find yourself needing to here are some TS functions for converting from a flat list to a list of ranges and vice versa.
+
+```ts
+// Takes an array of numbers and extracts contiguous numbers into ranges.
+// Non-contiguous numbers are returned as ids. Each range is a tuple of
+// [startId, numberOfIdsInRange].
+// So [1, 2, 3, 5, 6, 7] would become [[1, 3], [5, 3]]
+export const rangify = (
+  numbers: number[]
+): { numbers: number[]; ranges: [number, number][] } => {
+  const sortedA = Array.from(numbers);
+  sortedA.sort((a, b) => a - b);
+  let numInRange = 0;
+  return sortedA.reduce<{ numbers: number[]; ranges: [number, number][] }>(
+    (acc, curr, i, orig) => {
+      if (numInRange > 0) {
+        numInRange -= 1;
+        return acc;
+      }
+      const next = orig[i + 1];
+      const delta = next - curr;
+      if (delta !== 1) {
+        acc.numbers.push(curr);
+      } else {
+        let j = i + 1;
+        while (j < orig.length - 1 && orig[j + 1] - orig[j] === 1) {
+          j += 1;
+        }
+        numInRange = j - i;
+        const range: [number, number] = [curr, numInRange + 1];
+        acc.ranges.push(range);
+      }
+      return acc;
+    },
+    {
+      numbers: [],
+      ranges: [],
+    }
+  );
+};
+
+// Takes a rangified object and returns an unsorted array of numbers.
+export const derangify = (rangified: {
+  numbers: number[];
+  ranges: [number, number][];
+}): number[] => {
+  const hiddenArray = [...rangified.numbers];
+  rangified.ranges.forEach((range) => {
+    const expandedRange = Array.from(
+      { length: range[1] },
+      (_, index) => range[0] + index
+    );
+    hiddenArray.push(...expandedRange);
+  });
+  return hiddenArray;
+};
+```
+
 ### Render Mode
 
 <p class="heading-link-container">
