@@ -3510,11 +3510,11 @@ Sets the current state of the model to match the [`Viewpoint`](#viewpoint), whic
 
 Includes the following:
 
-- applied sectioning
-- camera type and orientation
-- redlines
-- current render mode
-- visibility of objects
+- applied sectioning (similar to calling [`model.setSectionsData`](#set-sections-data)) [TODO UNDOCUMENTED]
+- camera type and orientation (similar to calling [`camera.setBcfCamera`](#set-camera-from-bcf-camera))
+- redlines (similar to calling [`markup.setRedlines`](#set-redlines))
+- current render mode (similar to calling [`model.setRenderMode`](#set-render-mode))
+- visibility of objects (similar to calling [`model.setVisibility`](#set-visibility))
 
 #### Parameters
 
