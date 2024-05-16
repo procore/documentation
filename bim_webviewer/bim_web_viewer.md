@@ -2542,6 +2542,38 @@ Model
 
 ---
 
+### Set Sections Data
+
+<p class="heading-link-container"><a class="heading-link" href="#set-sections-data"></a></p>
+
+```js
+setSectionsData(sectionsData, unit, showCoachmark);
+```
+
+#### Description
+
+Applies sectioning described by `sectionsData` using `unit` and showing a "Sectioning Applied" coachmark based on `showCoachmark`.
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| `sectionsData` | `true` | | [`SectionDataAutodeskFormat`](#autodesk-section-data) \| [`SectionDataProcoreFormat`](#bcf-clipping-plane) | The sectioning to apply. |
+| `unit` | `false` | `'ft'` | `string` | The unit of `sectionsData`. |
+| `showCoachmark` | `false` | `true` | `boolean` | Whether to show "Sectioning Applied" coachmark. |
+
+##### Returns
+
+```js
+Promise<true>
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Clear Sections
 
 <p class="heading-link-container"><a class="heading-link" href="#clear-sections"></a></p>
@@ -3524,7 +3556,7 @@ Sets the current state of the model to match the `viewpoint`, which can be gotte
 
 Includes the following:
 
-- applied sectioning (similar to calling [`model.setSectionsData`](#set-sections-data)) [TODO UNDOCUMENTED]
+- applied sectioning (similar to calling [`model.setSectionsData`](#set-sections-data))
 - camera type and orientation (similar to calling [`camera.setBcfCamera`](#set-camera-from-bcf-camera))
 - redlines (similar to calling [`markup.setRedlines`](#set-redlines))
 - current render mode (similar to calling [`model.setRenderMode`](#set-render-mode))
