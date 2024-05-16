@@ -3506,7 +3506,7 @@ setViewpoint(viewpoint);
 
 #### Description
 
-Sets the current state of the model to match the [`Viewpoint`](#viewpoint), which can be gotten from endpoints that return a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints)
+Sets the current state of the model to match the `viewpoint`, which can be gotten from endpoints that return a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints)
 
 Includes the following:
 
@@ -3546,7 +3546,7 @@ getVisibility();
 
 Gets the current state of visibility of objects as a [`Visibility`](#visibility).
 
-`visibility` if a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to get a whole viewpoint use [`model.getViewpoint`](#set-viewpoint).
+`visibility` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to get a whole viewpoint use [`model.getViewpoint`](#get-viewpoint).
 
 #### Parameters
 
@@ -3574,7 +3574,7 @@ setVisibility(visibility);
 
 #### Description
 
-Sets the visibility of objects to match the [`Visibility`](#visibility).
+Sets the visibility of objects to match the `visibility`.
 
 `visibility` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to apply a whole viewpoint use [`model.setViewpoint`](#set-viewpoint).
 
@@ -3583,6 +3583,68 @@ Sets the visibility of objects to match the [`Visibility`](#visibility).
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | `visibility` | true | [`Visibility`](#visibility) | Visiblity to apply to the model. |
+
+##### Returns
+
+```js
+Promise<void>
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Render Mode
+
+<p class="heading-link-container"><a class="heading-link" href="#get-render-mode"></a></p>
+
+```js
+getRenderMode();
+```
+
+#### Description
+
+Gets the current [`RenderMode`](#render-mode).
+
+`render_mode` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to get a whole viewpoint use [`model.getViewpoint`](#get-viewpoint).
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+Promise<RenderMode>
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Set Render Mode
+
+<p class="heading-link-container"><a class="heading-link" href="#set-render-mode"></a></p>
+
+```js
+setRenderMode(renderMode);
+```
+
+#### Description
+
+Sets the render mode to `renderMode`.
+
+`render_mode` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to apply a whole viewpoint use [`model.setViewpoint`](#set-viewpoint).
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `renderMode` | true | [`RenderMode`](#render-mode) | Render mode to apply to the model. |
 
 ##### Returns
 
