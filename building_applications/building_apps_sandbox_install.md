@@ -8,6 +8,10 @@ section_title: Building Applications
 
 Throughout the development lifecycle of your application, you can install new versions of your application in the development sandbox environment for testing and validation.
 The development sandbox provides an isolated area in which you can test your application changes without impacting your production environment. For additional detail on the development sandbox, see [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %}).
+
+The email you received when you created your application provides instructions for setting up your development sandbox account credentials.
+See [Log in to the Development Sandbox and Set Password]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %}) for addiitonal information.
+
 Use the following steps to install a new application version in your development sandbox.
 
 1. Log in to your development sandbox account. (https://sandbox.procore.com/)

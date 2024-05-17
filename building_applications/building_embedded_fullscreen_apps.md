@@ -42,7 +42,7 @@ Follow these steps to add a new full screen component.
 
 * Navigate to the Configuration Builder on the Manage App page, expand the Components section and click **Add Component**.
 * Using the drop-down, select **Full Screen** for the component Type.
-* Enter a Description for the component.
+* Enter a Description for the component. This is a custom description used solely as an identifier.
 * In the URL field, specify the base web address for your application. (e.g., https://example.com/1234/12).
 
     ![Component Type and App URL]({{ site.baseurl }}/assets/guides/form-based-component-type-url-fields-fs.png)
