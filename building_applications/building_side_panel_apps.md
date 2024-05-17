@@ -140,6 +140,22 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id | commitments.commitment_contract_change_orders.detail |
 | /:project_id/project/commitments/purchase_order_contracts/:purchase_order_contract_id<br />/change_orders/commitment_contract_change_orders/:id/edit | commitments.commitment_contract_change_orders.edit |
 
+### Commitments Beta
+
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments | commitments.contracts.list |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/create | commitments.work_order_contracts.new |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br /> | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/advanced_settings | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/change_orders | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/change_history | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/compliance | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/edit | commitments.work_order_contracts.edit |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/emails | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/invoices | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/payments | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/rfqs | commitments.work_order_contracts.detail |
+| /webclients/host/companies/:company_id/projects/:project_id/tools/contracts/commitments/work_order_contracts/:id<br />/ssov | commitments.work_order_contracts.detail |
+
 ### Contracts
 
 | URL Path | View Key |
