@@ -1,13 +1,20 @@
 ---
-permalink: /building-apps-promote-manifest
+permalink: /building-apps-promote-manifest-v3x-legacy
 title: Promoting a Sandbox Manifest to Production
 layout: default
 section_title: Building Applications
 
 ---
 
->**Note:** This article covers topics consistent with the App Manifest v4.1 format and the form-based app creation UI experience.
->For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
+## Creating Additional Sandbox Manifest Versions
+
+After you have created the initial sandbox version of your App manifest, you can iterate through your development/test cycle and create subsequent versions as needed to address changes in your App.
+Complete the following steps to create additional manifest versions.
+
+1. In the 'Manage Manifests' section, click **Create New Version**. The editor displays the content from your last manifest version.
+1. Enter a new version number following the semantic versioning scheme.
+1. Make changes to the manifest as needed and click **Create**.
+1. Repeat Steps 1-3 for each additional manifest version you want to create.
 
 ## Promoting a Manifest Version to Production
 
@@ -23,11 +30,12 @@ The following diagram shows a simplified view of the manifest versioning model.<
 You can create new working sandbox versions of your manifest, and then promote specific versions to production as needed.
 After you are satisfied with the content in your manifest and you are ready to work with your App in a production environment, complete the following steps to promote the manifest.
 
-1. On the Manage App page, select the 'Configuration Builder'.
-2. Click **Promote Version**
+1. In the 'Manage Manifests' section, click the 'Sandbox' tab.
+1. If needed, click **Show Old Versions** to display all available sandbox manifest versions.
+1. In the table of available sandbox manifest versions, locate the version you want to promote to production and click **Promote**.
 
-    ![Promote Button]({{ site.baseurl }}/assets/guides/form-based-promote.png)
+    ![Promote dialog]({{ site.baseurl }}/assets/guides/promote-manifest-dialog.png)
 
-3. Enter release notes for the new version and click **Promote**.
+1. Enter release notes for the new version and click **Promote**.
 
     ![Promote confirm dialog]({{ site.baseurl }}/assets/guides/promote-manifest-confirm.png)
