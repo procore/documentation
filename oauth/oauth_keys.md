@@ -21,7 +21,7 @@ Your Client Secrets, on the other hand, must be kept confidential.
 Once a user successfully authorizes your app to access their data in Procore, the Procore authorization server redirects them back to your app with either an authorization code or access token in the URL depending on the particular [OAuth 2.0 _grant type_]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) you have implemented.
 To ensure that the user's browser is directed back to the proper location, you are required to define one or more _Redirect URIs_ for your application.
 You can optionally manage two distinct sets of Redirect URIs for the sandbox and production environments, though this is not required.
-The `http://localhost` redirect URI is registered by default when you create a new application in the Developer Portal.
+The `http://localhost` redirect URI is registered by default when you create a new application in the Developer Portal. Please note that dynamic URIs are not supported at this time.
 
 ## Managing Sandbox OAuth Credentials and Redirect URIs
 
