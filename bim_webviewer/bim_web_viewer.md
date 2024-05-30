@@ -2542,6 +2542,38 @@ Model
 
 ---
 
+### Set Sections Data
+
+<p class="heading-link-container"><a class="heading-link" href="#set-sections-data"></a></p>
+
+```js
+setSectionsData(sectionsData, unit, showCoachmark);
+```
+
+#### Description
+
+Applies sectioning described by `sectionsData` using `unit` and showing a "Sectioning Applied" coachmark based on `showCoachmark`.
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| `sectionsData` | `true` | | [`SectionDataAutodeskFormat`](#autodesk-section-data) \| [`SectionDataProcoreFormat`](#bcf-clipping-plane) | The sectioning to apply. |
+| `unit` | `false` | `'ft'` | `string` | The unit of `sectionsData`. |
+| `showCoachmark` | `false` | `true` | `boolean` | Whether to show "Sectioning Applied" coachmark. |
+
+##### Returns
+
+```js
+Promise<true>
+```
+
+##### Namespace
+
+Model
+
+---
+
 ### Clear Sections
 
 <p class="heading-link-container"><a class="heading-link" href="#clear-sections"></a></p>
@@ -3520,19 +3552,145 @@ setViewpoint(viewpoint);
 
 #### Description
 
-Sets the current state of the model to match the [`Viewpoint`](#viewpoint), which can be gotten from endpoints that return a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints)
+Sets the current state of the model to match the `viewpoint`, which can be gotten from endpoints that return a [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints)
 
 Includes the following:
 
-- applied sectioning
-- camera type and orientation
-- redlines
+- applied sectioning (similar to calling [`model.setSectionsData`](#set-sections-data))
+- camera type and orientation (similar to calling [`camera.setBcfCamera`](#set-camera-from-bcf-camera))
+- redlines (similar to calling [`markup.setRedlines`](#set-redlines))
+- current render mode (similar to calling [`model.setRenderMode`](#set-render-mode))
+- visibility of objects (similar to calling [`model.setVisibility`](#set-visibility))
 
 #### Parameters
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | `viewpoint` | true | [`Viewpoint`](#viewpoint) | Viewpoint to apply to the model. |
+
+##### Returns
+
+```js
+Promise<void>
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Visibility
+
+<p class="heading-link-container"><a class="heading-link" href="#get-visibility"></a></p>
+
+```js
+getVisibility();
+```
+
+#### Description
+
+Gets the current state of visibility of objects as a [`Visibility`](#visibility).
+
+`visibility` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to get a whole viewpoint use [`model.getViewpoint`](#get-viewpoint).
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+Promise<Visibility>
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Set Visibility
+
+<p class="heading-link-container"><a class="heading-link" href="#set-visibility"></a></p>
+
+```js
+setVisibility(visibility);
+```
+
+#### Description
+
+Sets the visibility of objects to match the `visibility`.
+
+`visibility` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to apply a whole viewpoint use [`model.setViewpoint`](#set-viewpoint).
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `visibility` | true | [`Visibility`](#visibility) | Visiblity to apply to the model. |
+
+##### Returns
+
+```js
+Promise<void>
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Get Render Mode
+
+<p class="heading-link-container"><a class="heading-link" href="#get-render-mode"></a></p>
+
+```js
+getRenderMode();
+```
+
+#### Description
+
+Gets the current [`RenderMode`](#render-mode).
+
+`render_mode` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to get a whole viewpoint use [`model.getViewpoint`](#get-viewpoint).
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+Promise<RenderMode>
+```
+
+##### Namespace
+
+Model
+
+---
+
+### Set Render Mode
+
+<p class="heading-link-container"><a class="heading-link" href="#set-render-mode"></a></p>
+
+```js
+setRenderMode(renderMode);
+```
+
+#### Description
+
+Sets the render mode to `renderMode`.
+
+`render_mode` is a field on [BIM Viewpoint](https://developers.procore.com/reference/rest/v1/bim-viewpoints). If you want to apply a whole viewpoint use [`model.setViewpoint`](#set-viewpoint).
+
+#### Parameters
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| `renderMode` | true | [`RenderMode`](#render-mode) | Render mode to apply to the model. |
 
 ##### Returns
 
@@ -4686,7 +4844,164 @@ The one addition we've made is the `unit` field. If the `unit` is not present, w
   camera_data: string; // JSON string
   sections_data: string; // JSON string
   redlines_data: string; // JSON string
+  visibility: Visibility;
+  render_mode: RenderMode;
 };
+```
+
+### Visibility
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#visibility"></a>
+</p>
+
+```ts
+{
+  default_visibility: boolean; 
+  exceptions: {
+    object_ids: number[];
+    object_ranges: [number, number][];
+  };
+};
+```
+
+This object is effectively representing a flat list of object ids that are hidden, but uses some strategies to reduce the JSON size of this list.
+
+`default_visibility` determines whether all objects are hidden or visible.
+
+`exceptions` determines which objects are not in the `default_visibility` state.
+
+`exceptions.object_ids` is a flat list of object ids.
+
+`exceptions.object_ranges` is a list of range objects where the first number is the object id at the start of the range and the second number is the number of items in the range.
+
+#### Examples
+
+#### Some Hidden with a Range
+
+```js
+{
+  default_visibility: false,
+  exceptions: {
+    object_ids: [],
+    object_ranges: [
+      [1, 3], // Expands to [1, 2, 3]
+      [1000, 2] // Expands to [1000, 1001]
+    ]
+  }
+}
+```
+
+##### All Hidden
+
+```js
+{
+  default_visibility: false,
+  exceptions: {
+    object_ids: [],
+    object_ranges: []
+  }
+}
+```
+
+Because `default_visibility` is `false`, all objects are hidden by default and because there are no `exceptions` we end with all objects hidden.
+
+##### Less than Half Hidden
+
+```js
+{
+  default_visibility: true,
+  exceptions: { // Represents objects that are hidden
+    object_ids: [ 7, 10, 13, 20, /* ... many more */ ]
+    object_ranges: [ [1, 3], [1000, 2], /* ... many more */ ]
+  }
+}
+```
+
+When less than ~half of objects are hidden, `default_visibility` is set to `true` and `exceptions` represents objects that are hidden.
+
+##### More than Half Hidden
+
+```js
+{
+  default_visibility: false,
+  exceptions: { // Represents objects that are visible
+    object_ids: [ 8, 11, 14, 21, /* ... many more */]
+    object_ranges: [ [4, 3], [1003, 2], /* ... many more */ ]
+  }
+}
+```
+
+When more than ~half of objects are hidden, `default_visibility` is set to `false` and `exceptions` represents objects that are visible.
+
+#### Code to Serialize/Deserialize Ranges
+
+We do not intend for external parties to _need_ to parse the ranges, but if you find yourself needing to here are some TS functions for converting from a flat list to a list of ranges and vice versa.
+
+```ts
+// Takes an array of numbers and extracts contiguous numbers into ranges.
+// Non-contiguous numbers are returned as ids. Each range is a tuple of
+// [startId, numberOfIdsInRange].
+// So [1, 2, 3, 5, 6, 7] would become [[1, 3], [5, 3]]
+export const rangify = (
+  numbers: number[]
+): { numbers: number[]; ranges: [number, number][] } => {
+  const sortedA = Array.from(numbers);
+  sortedA.sort((a, b) => a - b);
+  let numInRange = 0;
+  return sortedA.reduce<{ numbers: number[]; ranges: [number, number][] }>(
+    (acc, curr, i, orig) => {
+      if (numInRange > 0) {
+        numInRange -= 1;
+        return acc;
+      }
+      const next = orig[i + 1];
+      const delta = next - curr;
+      if (delta !== 1) {
+        acc.numbers.push(curr);
+      } else {
+        let j = i + 1;
+        while (j < orig.length - 1 && orig[j + 1] - orig[j] === 1) {
+          j += 1;
+        }
+        numInRange = j - i;
+        const range: [number, number] = [curr, numInRange + 1];
+        acc.ranges.push(range);
+      }
+      return acc;
+    },
+    {
+      numbers: [],
+      ranges: [],
+    }
+  );
+};
+
+// Takes a rangified object and returns an unsorted array of numbers.
+export const derangify = (rangified: {
+  numbers: number[];
+  ranges: [number, number][];
+}): number[] => {
+  const hiddenArray = [...rangified.numbers];
+  rangified.ranges.forEach((range) => {
+    const expandedRange = Array.from(
+      { length: range[1] },
+      (_, index) => range[0] + index
+    );
+    hiddenArray.push(...expandedRange);
+  });
+  return hiddenArray;
+};
+```
+
+### Render Mode
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#render-mode"></a>
+</p>
+
+```ts
+'shaded' | 'xray'
 ```
 
 ### Urls Object
