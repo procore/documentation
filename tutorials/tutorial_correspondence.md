@@ -38,7 +38,7 @@ Here is a simplified class diagram showing the main resource objects and their r
 ![Correspondence Tool Objects]({{ site.baseurl }}/assets/guides/correspondence-tool-objects.png)
 
 The _Generic Tool_ superclass defines the attributes that make up a custom tool on the Procore platform.
-The _Correspondence Type_ object inherits from the Generic Tool class and is instantiated using the [Create Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool) endpoint.
+The _Correspondence Type_ object inherits from the Generic Tool class and is instantiated using the [Create Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool) endpoint.
 Each Correspondence Type must have at least one or more _Configurable Fieldsets_.
 The Correspondence Type Item object represents an individual correspondence within a project.
 A user in a project can be specified as an Assignee.
@@ -55,11 +55,11 @@ The endpoint names are linked to their corresponding reference pages.
 
 | Name                                                                                                                                  | Action | Endpoint URI                                   | Description                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------------------------------------------- | ---------------------------------------------------------------------------- |
-| [List Generic Tools](https://developers.procore.com/reference/rest/v1/correspondences#list-generic-tools)                             | GET    | /generic_tools                                 | Returns a list of all Correspondence Generic Tools in the specified Company. |
-| [Create Generic Tool \*](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool)                        | POST   | /generic_tools                                 | Create a new Correspondence Generic Tool in the specified Company.           |
-| [List Statuses for a Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences#list-statuses-for-a-generic-tool) | GET    | /generic_tools/{generic_tool_id}/statuses      | Returns a list of all Statuses for a Generic Tool.                           |
-| [Create Generic Tool Status](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool-status)             | POST   | /generic_tools/{generic_tool_id}/statuses      | Create a new Generic Tool Status for the specified Generic Tool.             |
-| [Delete Generic Tool Status](https://developers.procore.com/reference/rest/v1/correspondences#delete-generic-tool-status)             | DELETE | /generic_tools/{generic_tool_id}/statuses/{id} | Delete the specified Generic Tool Status.                                    |
+| [List Generic Tools](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-generic-tools)                             | GET    | /generic_tools                                 | Returns a list of all Correspondence Generic Tools in the specified Company. |
+| [Create Generic Tool \*](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool)                        | POST   | /generic_tools                                 | Create a new Correspondence Generic Tool in the specified Company.           |
+| [List Statuses for a Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-statuses-for-a-generic-tool) | GET    | /generic_tools/{generic_tool_id}/statuses      | Returns a list of all Statuses for a Generic Tool.                           |
+| [Create Generic Tool Status](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool-status)             | POST   | /generic_tools/{generic_tool_id}/statuses      | Create a new Generic Tool Status for the specified Generic Tool.             |
+| [Delete Generic Tool Status](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#delete-generic-tool-status)             | DELETE | /generic_tools/{generic_tool_id}/statuses/{id} | Delete the specified Generic Tool Status.                                    |
 
 - Details on working with the Create Generic Tool endpoint will be covered in a future revision of this guide.
 
@@ -67,22 +67,22 @@ The endpoint names are linked to their corresponding reference pages.
 
 | Name                                                                                                                                                      | Action | Endpoint URI                                                                                                | Description                                                                                              |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [List Generic Tool Items](https://developers.procore.com/reference/rest/v1/correspondences#list-generic-tool-items)                                       | GET    | /generic_tools/{generic_tool_id}/generic_tool_items                                                         | Returns a list of all Generic Tool Items in the specified Project and Generic Tool.                      |
-| [Create Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool-item)                                     | POST   | /generic_tools/{generic_tool_id}/generic_tool_items                                                         | Create a new Generic Tool Item in the specified Project and Generic Tool.                                |
-| [Batch Update Generic Tool Items](https://developers.procore.com/reference/rest/v1/correspondences#batch-update-generic-tool-items)                       | PATCH  | /generic_tools/{generic_tool_id}/generic_tool_items                                                         | Update all selected Generic Tool Items.                                                                  |
-| [List Statuses Available for a Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences#list-statuses-available-for-a-generic-tool) | GET    | /generic_tools/{generic_tool_id}/generic_tool_items/available_statuses                                      | Returns a list of all statuses in the specified Project and Generic Tool.                                |
-| [List Users With Access to a Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences#list-users-with-access-to-a-generic-tool)     | GET    | /generic_tools/{generic_tool_id}/generic_tool_items/available_read_users                                    | Returns a list of all Users in the specified Project and Generic Tool.                                   |
-| [Show Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences#show-generic-tool-item)                                         | GET    | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}                                  | Return details on a single Generic Tool Item.                                                            |
-| [Update Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences#update-generic-tool-item)                                     | PATCH  | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}                                  | Update attributes for the specified Generic Tool Item.                                                   |
-| [Delete Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences#delete-generic-tool-item)                                     | DELETE | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}                                  | Delete the specified Generic Tool Item.                                                                  |
-| [List Responses for a Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences#list-responses-for-a-generic-tool-item)         | GET    | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}/generic_tool_item_responses      | Returns a list of all Responses for a Generic Tool Item in the specified Project and Generic Tool.       |
-| [Create Generic Tool Item Response](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool-item-response)                   | POST   | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}/generic_tool_item_responses      | Create a new Response for a Generic Tool Item in the specified Project and Generic Tool.                 |
-| [Update Generic Tool Item Response](https://developers.procore.com/reference/rest/v1/correspondences#update-generic-tool-item-response)                   | PATCH  | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}/generic_tool_item_responses/{id} | Update a Generic Tool Item Response's attributes.                                                        |
-| [List Correspondence Type Items](https://developers.procore.com/reference/rest/v1/correspondences#list-correspondence-type-items)                         | GET    | /correspondence_type_items                                                                                  | Returns a list of all Correspondence Type Items in the specified Project.                                |
-| [Batch Update Correspondence Type Items](https://developers.procore.com/reference/rest/v1/correspondences#batch-update-correspondence-type-items)         | PATCH  | /correspondence_type_items                                                                                  | Update all specified Correspondence Type Items.                                                          |
-| [List Correspondence Type Permissions](https://developers.procore.com/reference/rest/v1/correspondences#list-correspondence-type-permissions)             | GET    | /correspondence_types/permissions                                                                           | Returns a list of all Correspondence Types Permissions for the requesting User in the specified Project. |
-| [List Correspondence Type Defaults](https://developers.procore.com/reference/rest/v1/correspondences#list-correspondence-type-defaults)                   | GET    | /correspondence_types/defaults                                                                              | Returns a list of all Correspondence Types Defaults for the specified Project.                           |
-| [List Correspondence Type Users](https://developers.procore.com/reference/rest/v1/correspondences#list-correspondence-type-users)                         | GET    | /correspondence_types/users                                                                                 | Returns a list of all Correspondence Types Users Availability for the specified Project.                 |
+| [List Generic Tool Items](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-generic-tool-items)                                       | GET    | /generic_tools/{generic_tool_id}/generic_tool_items                                                         | Returns a list of all Generic Tool Items in the specified Project and Generic Tool.                      |
+| [Create Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool-item)                                     | POST   | /generic_tools/{generic_tool_id}/generic_tool_items                                                         | Create a new Generic Tool Item in the specified Project and Generic Tool.                                |
+| [Batch Update Generic Tool Items](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#batch-update-generic-tool-items)                       | PATCH  | /generic_tools/{generic_tool_id}/generic_tool_items                                                         | Update all selected Generic Tool Items.                                                                  |
+| [List Statuses Available for a Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-statuses-available-for-a-generic-tool) | GET    | /generic_tools/{generic_tool_id}/generic_tool_items/available_statuses                                      | Returns a list of all statuses in the specified Project and Generic Tool.                                |
+| [List Users With Access to a Generic Tool](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-users-with-access-to-a-generic-tool)     | GET    | /generic_tools/{generic_tool_id}/generic_tool_items/available_read_users                                    | Returns a list of all Users in the specified Project and Generic Tool.                                   |
+| [Show Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#show-generic-tool-item)                                         | GET    | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}                                  | Return details on a single Generic Tool Item.                                                            |
+| [Update Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#update-generic-tool-item)                                     | PATCH  | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}                                  | Update attributes for the specified Generic Tool Item.                                                   |
+| [Delete Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#delete-generic-tool-item)                                     | DELETE | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}                                  | Delete the specified Generic Tool Item.                                                                  |
+| [List Responses for a Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-responses-for-a-generic-tool-item)         | GET    | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}/generic_tool_item_responses      | Returns a list of all Responses for a Generic Tool Item in the specified Project and Generic Tool.       |
+| [Create Generic Tool Item Response](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool-item-response)                   | POST   | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}/generic_tool_item_responses      | Create a new Response for a Generic Tool Item in the specified Project and Generic Tool.                 |
+| [Update Generic Tool Item Response](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#update-generic-tool-item-response)                   | PATCH  | /generic_tools/{generic_tool_id}/generic_tool_items/{generic_tool_item_id}/generic_tool_item_responses/{id} | Update a Generic Tool Item Response's attributes.                                                        |
+| [List Correspondence Type Items](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-items)                         | GET    | /correspondence_type_items                                                                                  | Returns a list of all Correspondence Type Items in the specified Project.                                |
+| [Batch Update Correspondence Type Items](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#batch-update-correspondence-type-items)         | PATCH  | /correspondence_type_items                                                                                  | Update all specified Correspondence Type Items.                                                          |
+| [List Correspondence Type Permissions](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-permissions)             | GET    | /correspondence_types/permissions                                                                           | Returns a list of all Correspondence Types Permissions for the requesting User in the specified Project. |
+| [List Correspondence Type Defaults](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-defaults)                   | GET    | /correspondence_types/defaults                                                                              | Returns a list of all Correspondence Types Defaults for the specified Project.                           |
+| [List Correspondence Type Users](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-users)                         | GET    | /correspondence_types/users                                                                                 | Returns a list of all Correspondence Types Users Availability for the specified Project.                 |
 
 ## Understanding Correspondence Tool Permissions
 
@@ -120,7 +120,7 @@ The tasks described assume the prerequisites described above have been satisfied
 ### Retrieve Existing Correspondence Types
 
 Identifying the existing Correspondence Types in a company is a good starting point for working with the Correspondence Tool API.
-We’ll use the [List Generic Tools](https://developers.procore.com/reference/rest/v1/correspondences#list-generic-tools) endpoint here to see what Correspondence Types are available in a specific company.
+We’ll use the [List Generic Tools](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-generic-tools) endpoint here to see what Correspondence Types are available in a specific company.
 
 ![List Generic Tools]({{ site.baseurl }}/assets/guides/list-generic-tools.png)
 
@@ -154,26 +154,29 @@ Because Correspondence workflows commonly happen at the project level, it is imp
 #### Using the Procore Web Application
 
 1.  In the Procore web application, open the project you want to work with.
-1.  From the Project Tools menu, choose Correspondence under Project Management.
+2.  From the Project Tools menu, choose Correspondence under Project Management.
 
     ![Correspondence menu item]({{ site.baseurl }}/assets/guides/corres-menu-item.png)
 
-1.  On the Correspondence page, open the **Create** menu and examine the list available Correspondence Types in the dropdown.
+3.  On the Correspondence page, open the **Create** menu and examine the list available Correspondence Types in the dropdown.
     If you find the type you want to work with in the dropdown list, that indicates it is supported in the current project.
+    
+    ![Create Correspondence]({{ site.baseurl }}/assets/guides/corres-create-menu.png)
 
-        ![Create Correspondence]({{ site.baseurl }}/assets/guides/corres-create-menu.png)
+
+        
 
 #### Using the Procore API
 
-1. Use the [List Generic Tools](https://developers.procore.com/reference/rest/v1/correspondences#list-generic-tools) endpoint to return all of the generic tools available in the specified company.
-1. Parse the response body to find the `title` for the Correspondence Type you want to work with and retrieve its [`id`](https://developers.procore.com/reference/rest/v1/configurable-field-sets#list-project-configurable-field-sets value.
-1. Use the [List Project Configurable Fieldsets](https://developers.procore.com/reference/rest/v1/configurable-field-sets#list-project-configurable-field-sets endpoint to return the fieldsets associated with your project.
-1. Iterate through the returned fieldsets and compare each `generic_tool_id` value with the `id` for your Correspondence Type. If you find a match, that indicates that your Correspondence Type is supported and accessible in the specified project.
+1. Use the [List Generic Tools](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-generic-tools) endpoint to return all of the generic tools available in the specified company.
+2. Parse the response body to find the `title` for the Correspondence Type you want to work with and retrieve its [`id`](https://developers.procore.com/reference/rest/v1/configurable-field-sets#list-project-configurable-field-sets value.
+3. Use the [List Project Configurable Fieldsets](https://developers.procore.com/reference/rest/v1/configurable-field-sets#list-project-configurable-field-sets endpoint to return the fieldsets associated with your project.
+4. Iterate through the returned fieldsets and compare each `generic_tool_id` value with the `id` for your Correspondence Type. If you find a match, that indicates that your Correspondence Type is supported and accessible in the specified project.
 
 ### Determine User ‘Availability’ for Correspondence Types
 
 It is important to understand which users assigned to a project have the ability to interact with the Correspondence Tool and with which Correspondence Types.
-The [List Correspondence Type Users](https://developers.procore.com/reference/rest/v1/correspondences#list-correspondence-type-users) endpoint returns a list of project users and identifies which Correspondence Types they can be associated with and in what capacity.
+The [List Correspondence Type Users](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-users) endpoint returns a list of project users and identifies which Correspondence Types they can be associated with and in what capacity.
 
 ![List Correspondence Type Users]({{ site.baseurl }}/assets/guides/list-corres-type-users.png)
 
@@ -306,7 +309,7 @@ Parsing the response from List Correspondence Type Permissions allows you to ide
 
 ### Create a New Correspondence Item
 
-Creating a new item in the Correspondence Tool is a common task accomplished using the [Create Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool-item) endpoint.
+Creating a new item in the Correspondence Tool is a common task accomplished using the [Create Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool-item) endpoint.
 We use the Project `id` and the Generic Tool `id` in the path to specify which Project and Correspondence Type we want to work with.
 
 ![Create Generic Tool Item]({{ site.baseurl }}/assets/guides/create-generic-tool-item.png)
@@ -336,12 +339,12 @@ For example:
 ```
 
 Note that this example uses only a subset of the available input attributes for creating a Correspondence.
-See the [Create Generic Tool Item ](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool-item) reference page for the complete list of all request body attributes.
+See the [Create Generic Tool Item ](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool-item) reference page for the complete list of all request body attributes.
 
 ### List Correspondence Items by Correspondence Type
 
 It is often useful to retrieve a list of existing Correspondence Items in a project filtered by a particular Correspondence Type.
-We can use `filters[generic_tool_id]` as a query parameter on the [List Correspondence Type Items](https://developers.procore.com/reference/rest/v1/correspondences#list-correspondence-type-items) call to achieve this.
+We can use `filters[generic_tool_id]` as a query parameter on the [List Correspondence Type Items](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-items) call to achieve this.
 
 ![List Correspondence Items Filtered]({{ site.baseurl }}/assets/guides/list-corres-items-filter.png)
 
@@ -357,7 +360,7 @@ We also used the `view=ids_only` query parameter to just return the `ids` of the
 
 ### Return Information on a Specific Correspondence Item
 
-Continuing with our example, let’s take one of the Correspondence Items we retrieved in the last step and use the [Show Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences#show-generic-tool-item) endpoint to see the details about the item.
+Continuing with our example, let’s take one of the Correspondence Items we retrieved in the last step and use the [Show Generic Tool Item](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#show-generic-tool-item) endpoint to see the details about the item.
 
 ![Show Generic Tool Item]({{ site.baseurl }}/assets/guides/show-generic-tool-item.png)
 
@@ -436,7 +439,7 @@ The Show Generic Tool Item endpoint returns detailed information about the speci
 
 ### Create a Response to a Correspondence Item
 
-Now that we have located an item to work with, we can generate a response using the [Create Generic Tool Item Response](https://developers.procore.com/reference/rest/v1/correspondences#create-generic-tool-item-response) endpoint.
+Now that we have located an item to work with, we can generate a response using the [Create Generic Tool Item Response](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool-item-response) endpoint.
 The example also shows the JSON request body.
 
 ![Create Item Response]({{ site.baseurl }}/assets/guides/create-corres-item-response.png)
@@ -447,7 +450,7 @@ See [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.base
 
 ### Perform Bulk Operations on Correspondence Items
 
-The [Batch Update Correspondence Type Items](https://developers.procore.com/reference/rest/v1/correspondences#batch-update-generic-tool-items) endpoint may be used to perform bulk operations on a set of Correspondence Items.
+The [Batch Update Correspondence Type Items](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#batch-update-generic-tool-items) endpoint may be used to perform bulk operations on a set of Correspondence Items.
 The request body defines updated field values for one or more items.
 
 ![Bulk Update Correspondence Items]({{ site.baseurl }}/assets/guides/batch-update-corres-items.png)
