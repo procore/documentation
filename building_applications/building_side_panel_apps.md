@@ -283,6 +283,23 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/calendar/lookaheads | schedule.calendar.lookaheads.list |
 | /:project_id/project/calendar/tasks/:task_id | schedule.calendar.task.detail |
 
+#### Incidents
+
+| URL Path | View Key |
+| -------- | -------- |
+| /:project_id/project/incidents | incidents.list |
+| /:project_id/project/incidents/configure_tab | incidents.list |
+| /:project_id/project/incidents/new | incidents.new |
+| /:project_id/project/incidents/records | incidents.list |
+| /:project_id/project/incidents/recycled | incidents.list |
+| /:project_id/project/incidents/:id | incidents.detail |
+| /:project_id/project/incidents/:id/change_history | incidents.detail |
+| /:project_id/project/incidents/:id/edit | incidents.edit |
+| /:project_id/project/incidents/:id/emails | incidents.detail |
+| /:project_id/project/incidents/:id/emails/new | incidents.detail |
+| /:project_id/project/incidents/:id/related_items | incidents.detail |
+| /:project_id/project/incidents/:id/related_items/edit | incidents.detail |
+
 ### 4. Save the New Component
 
 * Once you have successfully created a new side panel component and defined the Type, Description, URL, Parameter(s), and View(s), click **Save Component**.
