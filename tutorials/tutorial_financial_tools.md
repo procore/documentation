@@ -165,7 +165,7 @@ When an `origin_id` exists on a direct cost, the entire object is immutable.
 
 #### Commitments
 
-While this is not specifically an integration feature, it is important to understand this behaviour when integrating with Commitments.
+While this is not specifically an integration feature, it is important to understand this behavior when integrating with Commitments.
 
 If a Commitment (work order or purchase order) has a Status of Approved or Complete, the Contract Company and the Schedule of Values are not able to be modified in Procore.
 In addition, the Commitment cannot be deleted.
@@ -173,7 +173,7 @@ In addition, the Commitment cannot be deleted.
 In order for your teams to not allow for the Status field of a Commitment to be changed (which would in turn allow for modification of these fields), Procore’s Workflow tool to control who can move the Status field to different values.
 For more information about Workflow, please contact <support@procore.com>.
 
-There is a configuration option to turn this functionality on or off which can be found in the Company Admin > Cost Types Configuration page titled “Commitment Settings”.
+The configuration option to turn this functionality on or off can be found in the Company Admin Tool > Tool Settings > Contracts > Commitment Settings.
 
 #### Change Orders
 
