@@ -165,7 +165,7 @@ When an `origin_id` exists on a direct cost, the entire object is immutable.
 
 #### Commitments
 
-While this is not specifically an integration feature, it is important to understand this behaviour when integrating with Commitments.
+While this is not specifically an integration feature, it is important to understand this behavior when integrating with Commitments.
 
 If a Commitment (work order or purchase order) has a Status of Approved or Complete, the Contract Company and the Schedule of Values are not able to be modified in Procore.
 In addition, the Commitment cannot be deleted.
