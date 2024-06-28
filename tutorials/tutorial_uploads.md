@@ -45,7 +45,7 @@ First, we use the `split` command to divide the original source file into multip
 
 `split -b 6000000 test-video-file.mp4 file-segment`
 
-where `-b 60000000` specifies the number of bytes for the minimum segment size (at least 5MB as required), `test-video-file.mp4` is the name of the file to split, and `file-segment` is the prefix that will be used for naming the segments.
+where `-b 6000000` specifies the number of bytes for the minimum segment size (at least 5MB as required), `test-video-file.mp4` is the name of the file to split, and `file-segment` is the prefix that will be used for naming the segments.
 Running this command results in two file segments being created.
 
 `6000000 Mar 25 14:57 file-segmentaa`
