@@ -4438,7 +4438,6 @@ The id of the project the model has been published to.
 
 ---
 
-
 `companyId`
 
 ##### number
@@ -4468,6 +4467,7 @@ ID of the associated BIM Model
   modelId: 999;
 }
 ```
+
 ---
 
 `modelRevisionId`
@@ -4481,6 +4481,7 @@ ID of the associated BIM Model Revision
   modelRevisionId: 888;
 }
 ```
+
 ---
 
 `meshUrl`
@@ -4494,6 +4495,7 @@ URL to mesh binary provided by a Procore service.
   meshUrl: 'https://foo.com/geometry/mesh';
 }
 ```
+
 ---
 
 `meshnodeUrl`
@@ -4535,6 +4537,36 @@ ID of the file extraction associated to the model.
 ```js
 {
   fileExtractionId: 23;
+}
+```
+
+### Initializing with Resources
+
+<p class="heading-link-container"><a class="heading-link" href="#initializing-with-resources"></a></p>
+
+The Web Viewer can also be initialized with resource descriptors, which can take the form of either the [required options for model revision](#required-options-for-model-revision) or the [required options for file extraction](#required-options-for-file-extraction).
+
+Support is coming for passing multiple resources in to be able load multiple models.
+
+```js
+// File Extraction Initialization 
+{
+  resources: [
+    { fileExtractionId: 23 }
+  ],
+}
+
+// Model Revision Initialization
+{
+  resources: [
+    {
+      modelId: 888,
+      modelRevisionId: 999,
+      meshUrl: 'https://foo.com/geometry/mesh' 
+      meshnodeUrl: 'https://foo.com/geometry/meshnode' 
+      nodeUrl: 'https://foo.com/geometry/node' 
+    }
+  ],
 }
 ```
 
