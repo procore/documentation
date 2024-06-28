@@ -14,6 +14,7 @@ Data you create, update, or manipulate within a Monthly Sandbox environment will
 The monthly sandbox environment mimics the production environment approximately 24 hours prior to the swap that occurs during the morning to mid-afternoon (eastern time) on the first working day of each month.
 See the section on projected refresh dates below for more information.
 In order to ensure that changes you make in your production environment are present in the next month's monthly sandbox instance, we recommend making those production changes by the end of the last working day of the current month.
+Please note that access to a Monthly Sandbox environment requires opt-in from the Company Level Admin tool in the company’s corresponding Production environment. 
 The client_id and client_secret to use are in the **Production OAuth Credentials** section of the application’s configuration page.
 For authentication requests, you will want to use the base URL: <https://login-sandbox-monthly.procore.com>.
 For general API requests, you will want to use the base URL: <https://api-monthly.procore.com>.
