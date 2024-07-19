@@ -31,8 +31,8 @@ If you are brand new to OAuth 2.0, we recommend you review the official [OAuth 2
 - [OAuth 2.0 for Installed Applications]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %})
 - [Procore API Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %})
 
-### Procore OAuth 2.0 Postman Collection with cURL Examples
+[//]: ### Procore OAuth 2.0 Postman Collection with cURL Examples
 
-We've put together a helpful Postman collection of cURL examples for the Procore OAuth 2.0 Authentication endpoints that you can use while you build, test, and maintain your application.
-Simply [visit this link](https://documenter.getpostman.com/view/3996804/SW7bzS65) to view the collection and begin exploring the Procore OAuth 2.0 authentication endpoints.
-Each endpoint includes an explanation of its functionality along with a pre-formatted cURL example command that you can copy and paste as needed.
+[//]: We've put together a helpful Postman collection of cURL examples for the Procore OAuth 2.0 Authentication endpoints that you can use while you build, test, and maintain your application.
+[//]:Simply [visit this link](https://documenter.getpostman.com/view/3996804/SW7bzS65) to view the collection and begin exploring the Procore OAuth 2.0 authentication endpoints.
+[//]:Each endpoint includes an explanation of its functionality along with a pre-formatted cURL example command that you can copy and paste as needed.
