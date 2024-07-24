@@ -75,6 +75,7 @@ Each changelog entry includes the following information:
   - _Refinement_ - a change to how the endpoint is used or responds, not directly related to new features. For example, changes that make the endpoint more consistent or easier to use.
   - _Fix_ - a change to address a defect that is significant enough to note in the changelog.
   - _Deprecated_ - the resource endpoint is superseded by a newer version.
+  - _Sunset_ - the resource is no longer available on production.
 
 Clicking a changelog entry on the reference page displays a more detailed description that may include additional information such as:
 
