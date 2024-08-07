@@ -300,6 +300,21 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/incidents/:id/related_items | incidents.detail |
 | /:project_id/project/incidents/:id/related_items/edit | incidents.detail |
 
+#### Incidents
+
+| URL Path | View Key |
+| -------- | -------- |
+| /:project_id/project/specification_sections | specifications.list
+| /:project_id/project/specification_sections/configure_tab | specifications.list
+| /:project_id/project/specification_sections/new_bulk_edit | specifications.edit
+| /:project_id/project/specification_sections/all_revisions | specifications.list
+| /:project_id/project/specification_sections/deletion_log | specifications.list
+| /:project_id/project/specification_uploads/:id/review | specifications.edit
+| /:project_id/project/specification_section_revisions/:id/edit | specifications.edit
+| /:project_id/project/specification_section_revisions/:id | specifications.detail
+| /:project_id/project/specification_section_revisions/new_bulk_download | specifications.list
+
+
 ### 4. Save the New Component
 
 * Once you have successfully created a new side panel component and defined the Type, Description, URL, Parameter(s), and View(s), click **Save Component**.
