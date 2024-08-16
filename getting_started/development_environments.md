@@ -51,7 +51,7 @@ Here are the projected 2023-24 dates for the refresh of the monthly sandbox.
 | 2024 | June      | 06/03/2024 | Monday    |
 | 2024 | July      | 07/09/2024 | Tuesday   |
 | 2024 | August    | 08/01/2024 | Thursday  |
-| 2024 | September | 09/04/2024 | Wednesday |
+| 2024 | September | 09/04/2024 | Monday |
 | 2024 | October   | 10/01/2024 | Tuesday   |
 | 2024 | November  | 11/04/2024 | Monday    |
 | 2024 | December  | 12/02/2024 | Monday    |
