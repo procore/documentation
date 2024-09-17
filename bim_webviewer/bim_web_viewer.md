@@ -5095,6 +5095,16 @@ export const derangify = (rangified: {
   <a class="heading-link" href="#migration-guides"></a>
 </p>
 
+### v15 to v16
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v15-to-v16"></a>
+</p>
+
+#### Removal of `options.featureFlags.enableObjectTreeSearch`
+
+Object tree search is now always enabled and passing this option when instantiating `Webviewer` will be ignored.
+
 ### v14 to v15
 
 <p class="heading-link-container">
