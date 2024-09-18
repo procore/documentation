@@ -406,4 +406,4 @@ API Endpoints: [Draw Requests](https://developers.procore.com/rest/v1/draw-reque
 Procore's Project-level Direct Costs tool is designed to help you track all direct costs incurred (expenses and invoices) that are not associated with commitments, such as general conditions and self-performed work.
 See [Direct Costs](http://support.procore.com/products/online/user-guide/project-level/direct-costs) for additional infomation.
 
-API Endpoints: [Direct Costs](https://developers.procore.com/rest/v1/direct-costs)
+API Endpoints: [Direct Costs](https://developers.procore.com/reference/rest/v1/direct-costs)
