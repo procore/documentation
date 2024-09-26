@@ -6,7 +6,7 @@ section_title: ERP Integration
 
 ---
 
-## Context
+# Context
 
 For an ERP object to be imported into Procore, records must be staged in the ERP Integration tool where an accountant can review and approve records for import. 
 Integrators can use the publicly accessible [**Staged Records API**](https://developers.procore.com/reference/rest/v1/erp-staged-record).
@@ -233,3 +233,275 @@ During the Import process, the fields below will be translated from the Origin I
 |                                                  | `line_item_type_origin_id`       | `line_item_type_id`        | yes      |                                                                                   |
 |                                                  | `tax_code_origin_id`             | `tax_code_id`              | no       |                                                                                   |
 |                                                  | `commitment_line_item_origin_id` | `commitment_line_item_id`  | yes      | only applicable for line items that belong to item type `commitment_change_order` |
+
+## Supported Fields
+When a Staged Record is imported, we translate the `data` attributes to the appropriate Procore fields when creating a Procore Object. Below you find examples of the supported fields for each item type.
+
+- [Vendor](#vendor)
+- [Project](#project)
+- [Sub Job](#sub-job)
+- [Prime Contract](#prime-contract)
+- [Prime Contract Line Item](#prime-contract-line-item)
+- [Commitment](#commitment)
+- [Commitment Item](#commitment-item)
+- [Commitment Change Order](#commitment-change-order)
+- [Commitment Change Order Line Item](#commitment-change-order-line-item)
+
+### Vendor
+```
+{
+    item_type: 'vendor',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: null,
+    data: {
+        zip: '12345',
+        city: 'SD',
+        name: 'Infinite Loop',
+        notes: '',
+        address: 'abc',
+        website: 'google.com',
+        is_active: true,
+        fax_number: '1234567890',
+        state_code: 'CA',
+        bidding_cbe: false,
+        labor_union: '',
+        country_code: nil,
+        mobile_phone: '1234567890',
+        prequalified: false,
+        union_member: '1',
+        email_address: 'example@email.com',
+        bidding_mbe_8a: false,
+        business_phone: '1234567890',
+        license_number: 'dfg',
+        bidding_mbe_abe: false,
+        bidding_mbe_dbe: false,
+        bidding_mbe_hbe: false,
+        bidding_mbe_hub: false,
+        bidding_mbe_mbe: false,
+        bidding_mbe_sbe: false,
+        bidding_mbe_wbe: false,
+        vendor_group_id: 123,
+        abbreviated_name: 'abb',
+        bidding_mbe_aabe: false,
+        bidding_mbe_nabe: false,
+        authorized_bidder: 'xxx',
+        bidding_mbe_sdvosb: false,
+        non_union_prevailing_wage: false,
+        bidding_affirmative_action: false
+    }
+}
+```
+
+### Project
+```
+{
+    item_type: 'project',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: null,
+    data: {
+        accounting_project_number: 'Accounting #',
+        address: '123 CorePro Way',
+        city: 'Carpenteria',
+        country_code: 'US',
+        description: 'Staged Project Description',
+        estimated_completion_date: '2021-05-09',
+        customer_origin_id: 'customer_origin_id',
+        estimated_start_date: '2021-04-09',
+        estimated_value: 10000,
+        flag: 'Green',
+        image_id: 123,
+        from_project_template_id: 124,
+        name: 'Staged Project',
+        office_id: 125,
+        parent_job_id: 126,
+        phone: '123-456-7890',
+        program_id: 127,
+        project_number: '01',
+        project_bid_type_id: 128,
+        project_type_id: 129,
+        project_owner_type_id: 130,
+        project_region_id: nil,
+        public_notes: 'notes',
+        square_feet: 1000,
+        state_code: 'CA',
+        store_number: 131,
+        template: false,
+        warranty_end_date: '2021-04-09',
+        warranty_start_date: '2021-04-09',
+        zip: '12345',
+        department_ids: []
+    }
+}
+```
+
+### Sub Job
+```
+{
+    item_type: 'sub_job',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: null,
+    data: {
+        name: 'Sub Job 1',
+        code: 'SJ1',
+        project_id: 123,
+        project_origin_id: 'project_origin_id'
+    }
+}
+```
+
+### Prime Contract
+```
+{
+    item_type: 'prime_contract',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: null,
+    data: {
+        accounting_method: 'unit | amount',
+        actual_completion_date: '2021-04-18',
+        allow_markups: true,
+        contract_estimated_completion_date: '2021-04-09',
+        contract_start_date: '2021-01-01',
+        description: 'Prime Contract description',
+        exclusions: 'Exclude me.',
+        executed: true,
+        inclusions: 'Include me.',
+        number: 'PC5',
+        private: true,
+        project_id: 123,
+        project_origin_id: 'project_origin_id',
+        retainage_percent: 4.25,
+        signed_contract_received_date: '2021-04-30',
+        status: 'Approved',
+        title: 'Prime Contract 5'
+    }
+}
+```
+
+### Prime Contract Line Item
+```
+{
+    item_type: 'line_item',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: 'staged_prime_contract.id',
+    data: {
+        amount: 12.34,
+        description: 'Line Item description',
+        position: 1,
+        quantity: 5.6,
+        unit_cost: 7.89,
+        uom: 'Ea',
+        cost_code_id: 3,
+        cost_code_origin_id: 'cost_code_origin_id',
+        line_item_type_id: 4,
+        line_item_type_origin_id: 'line_item_type_origin_id',
+        tax_code_id: 2,
+        tax_code_origin_id: 'tax_code_origin_id'
+    }
+}
+```
+
+### Commitment
+```
+{
+    item_type: 'purchase_order_contract | work_order_contract',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: null,
+    data: {
+        description: 'desc',
+        executed: true,
+        number: 1,
+        private: false,
+        project_id: 123,
+        project_origin_id: 'project_origin_id',
+        retainage_percent: 0.0,
+        show_line_items_to_non_admins: false,
+        status: 'Approved',
+        title: 'Contract Title',
+        vendor_id: 345,
+        vendor_origin_id: 'vendor_origin_id',
+    }
+}
+```
+
+
+### Commitment Item
+```
+{
+    item_type: 'line_item',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: 'staged_commitment.id',
+    data: {
+        amount: 12.34,
+        description: 'Line Item description',
+        position: 1,
+        quantity: 5.6,
+        unit_cost: 7.89,
+        uom: 'Ea',
+        cost_code_id: 3,
+        cost_code_origin_id: 'cost_code_origin_id',
+        line_item_type_id: 4,
+        line_item_type_origin_id: 'line_item_type_origin_id',
+        tax_code_id: 2,
+        tax_code_origin_id: 'tax_code_origin_id'
+    }
+}
+```
+
+### Commitment Change Order
+```
+{
+    item_type: 'commitment_change_order',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: null,
+    status: 'staged',
+    data: {
+        commitment_origin_id: 123,
+        title: 'CCO title',
+        description: 'CCO description',
+        number: '100'
+    }
+}
+```
+
+### Commitment Change Order Line Item
+```
+{
+    item_type: 'line_item',
+    origin_id: 'origin_id',
+    origin_code: 'origin_code',
+    origin_data: { 'field' => 'data' },
+    parent_id: 'staged_commitment_change_order.id',
+    status: 'staged',
+    data: {
+        amount:                          1500,
+        commitment_line_item_id:         123,
+        commitment_line_item_origin_id:  'commitment_line_item_origin_id',
+        cost_code_id:                    222,
+        cost_code_origin_id:             'cost_code_origin_id',
+        description:                     'Line Item 1',
+        line_item_type_id:               333,
+        line_item_type_origin_id:        'line_item_type_origin_id',
+        quantity:                        2.0,
+        tax_code_id:                     234,
+        tax_code_origin_id:              'tax_code_origin_id',
+        unit_cost:                       15,
+        uom:                             'ea'
+    }
+}
+```
