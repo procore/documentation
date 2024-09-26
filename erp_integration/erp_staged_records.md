@@ -6,7 +6,7 @@ section_title: ERP Integration
 
 ---
 
-# Context
+## Context
 
 For an ERP object to be imported into Procore, records must be staged in the ERP Integration tool where an accountant can review and approve records for import. 
 Integrators can use the publicly accessible [**Staged Records API**](https://developers.procore.com/reference/rest/v1/erp-staged-record).
