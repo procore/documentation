@@ -4472,6 +4472,190 @@ GUI
 
 ---
 
+### Get Equivalent Unit for Display Unit
+
+<p class="heading-link-container"><a class="heading-link" href="#get-equivalent-unit-for-display-unit"></a></p>
+
+```js
+getEquivalentUnitForDisplayUnit(unit, displayUnit);
+```
+
+#### Description
+
+Returns a unit that matches the dimension of the provided unit in the display unit.
+
+```js
+const equivalentLengthUnit = gui.getEquivalentUnitForDisplayUnit('ft', 'm');
+
+console.log(equivalentLengthUnit); // => 'm'
+
+const equivalentAreaUnit = gui.getEquivalentUnitForDisplayUnit('yd²', 'm')
+
+console.log(equivalentAreaUnit); // => 'm²'
+```
+
+You might use this if you want to display a value in the display unit set by the user. For example:
+
+```js
+const { UOM } = ProcoreBim;
+const oneSquareFoot = 1;
+const { displayUnits } = viewer.gui.getSettings(); // For example, say it's set to 'm'
+
+console.log(displayUnits); // => 'm'
+
+const equivalentUnit = viewer.gui.getEquivalentUnitForDisplayUnit(
+  UOM.sqft,
+  displayUnits
+);
+
+console.log(equivalentUnit); // => 'm²'
+
+const convertedValue = viewer.gui.convertUnit(
+  oneSquareFoot,
+  UOM.sqft,
+  equivalentUnit
+);
+
+console.log(convertedValue); // => 0.09290304
+
+const formattedValue = viewer.gui.formatUnit(convertedValue, equivalentUnit);
+
+console.log(formattedValue); // => '0.0929 m²'
+```
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| unit | true | | [Uom](#uom) | The unit you need an equivalent unit for. |
+| displayUnit | true | | [DisplayUnit](#display-unit) | The display unit you're trying to represent the unit in. |
+
+##### Returns
+
+```js
+Uom
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Convert Unit
+
+<p class="heading-link-container"><a class="heading-link" href="#convert-unit"></a></p>
+
+```js
+convertUnit(value, fromUnit, toUnit);
+```
+
+#### Description
+
+Converts the value from one unit to another.
+
+```ts
+const oneFtInM = gui.convertUnit(1, 'ft', 'm');
+
+console.log(oneFtInM); // => 0.3048
+```
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| value | true | | number | The value to convert. |
+| fromUnit | true | | [Uom](#uom) | The unit of the value to convert from. |
+| toUnit | true | | [Uom](#uom) | The unit to convert to. |
+
+##### Returns
+
+```js
+number
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Format Unit
+
+<p class="heading-link-container"><a class="heading-link" href="#format-unit"></a></p>
+
+```js
+formatUnit(value, unit);
+```
+
+#### Description
+
+Formats the value with the unit.
+
+- Uses locale passed in to [`Webviewer` options](#options) to display correct thousands and decimals separators for the locale.
+- Rounds values to 4 decimal places and truncates trailing zeroes.
+
+```ts
+const viewerDeLocale = new Webviewer({ locale: 'de-DE', /* ... */ });
+const formattedDeLocale = viewerDeLocale.gui.formatUnit(1000.123456789, 'm');
+
+console.log(formattedDeLocale); // => '1.000,1235 m'
+
+const viewerDefaultLocale = new Webviewer({ locale: undefined, /* ... */ });
+const formattedDefaultLocale = viewerDefaultLocale.gui.formatUnit(1000.123456789, 'm');
+
+console.log(formattedDefaultLocale); // => '1,000.1235 m'
+```
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| value | true | | number | The value to include in the formatted ouptput. |
+| unit | true | | [Uom](#uom) | The unit to include in the formatted output. |
+
+##### Returns
+
+```js
+number
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Get Settings
+
+<p class="heading-link-container"><a class="heading-link" href="#get-settings"></a></p>
+
+```js
+getSettings();
+```
+
+#### Description
+
+Returns user settings.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+{
+  displayUnits: DisplayUnit
+}
+```
+
+##### Namespace
+
+GUI
+
+---
+
 ## Options
 
 <p class="heading-link-container"><a class="heading-link" href="#options"></a></p>
@@ -4817,6 +5001,22 @@ For example:
 
 See [Tools](#tools) for further information.
 
+---
+
+`locale`
+
+##### string
+
+```js
+{
+  locale: 'en-US'
+}
+```
+
+Locale to use for display language, number formatting, and other localization.
+
+Defaults to `'en'`.
+
 ## Objects
 
 <p class="heading-link-container"><a class="heading-link" href="#objects"></a></p>
@@ -5120,11 +5320,41 @@ export const derangify = (rangified: {
 }
 ```
 
-### Constants
+## Constants
 
 <p class="heading-link-container">
   <a class="heading-link" href="#constants"></a>
 </p>
+
+### Uom
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#uom"></a>
+</p>
+
+The `UOM` constant holds all valid unit of measure strings. The `Uom` type is a union of all these.
+
+```ts
+const candelasPerSquareMeter: Uom = UOM.cdsqm;
+
+console.log(candelasPerSquareMeter); // => "cd/m²"
+```
+
+### Display Unit
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#display-unit"></a>
+</p>
+
+Display units are the unit to display values in. It can be changed by the user in the Settings window. It can also be queried via [`gui.getSettings`](#get-settings).
+
+The `DISPLAY_UNIT` constant holds all possible display units. The `DisplayUnit` type is a union of all these.
+
+```ts
+const feetInches: DisplayUnit = DISPLAY_UNIT.FeetInches
+
+console.log(feetInches); // => "ftin"
+```
 
 ### Tools
 
