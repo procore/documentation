@@ -4342,6 +4342,76 @@ GUI
 
 ---
 
+### Show Coachmark
+
+<p class="heading-link-container"><a class="heading-link" href="#show-coachmark"></a></p>
+
+```js
+showCoachmark({
+  id,
+  label,
+  buttonLabel,
+  buttonOnClick,
+  tooltipMessage,
+});
+```
+
+#### Description
+
+Shows a custom coachmark in the Web Viewer.
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| id | true | | String | id of the coachmark that can be used to hide this same coachmark with [`hideCoachmark`](#hide-coachmark). Will also be used to set the id on the coachmark DOM element. |
+| label | true | | String | Text that appears in the coachmark. |
+| buttonLabel | true | | String | Text that appears in the coachmark button. |
+| buttonOnClick | true | | Function | Callback to be called when coachmark button is clicked. |
+| tooltipMessage | false | | String | Text to display in a tooltip for the coachmark. If not provided then the coachmark will not have a tooltip. |
+
+##### Returns
+
+```js
+void
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Hide Coachmark
+
+<p class="heading-link-container"><a class="heading-link" href="#hide-coachmark"></a></p>
+
+```js
+hideCoachmark(id);
+```
+
+#### Description
+
+Hides a custom coachmark in the Web Viewer.
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| id | true | | String | id of the coachmark to hide. Must match the id that was passed to [`showCoachmark`](#show-coachmark). |
+
+##### Returns
+
+```js
+void
+```
+
+##### Namespace
+
+GUI
+
+---
+
 ### Set Toolbar Hidden
 
 <p class="heading-link-container"><a class="heading-link" href="#set-toolbar-hidden"></a></p>
