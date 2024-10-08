@@ -7,10 +7,60 @@ section_title: Overview
 
 >**For the latest news and updates, see our [Announcements]({{ site.url }}{{ site.baseurl }}{% link overview/announcements.md %}) and [Notifications]({{ site.url }}/notifications) pages.**
 
-Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
+## Introduction
+Procore's open Application Programming Interface (API) and robust Developer Portal provide the underlying framework for developing innovative applications. Our RESTful APIs, built on OAuth 2.0 standards, ensure secure and scalable integrations. Key features include comprehensive documentation, rate limits, and consistent versioning, making it easier for developers to build seamless integrations.
+<br><br>
+<!-- For more details on rate limits, visit Rate Limits & Pagination. {{INSERT LINK}} -->
+
+***
+## Who Can Build Apps?
+Any developer can build on top of Procore using the provided REST API and app framework. Our framework is designed to function independently of your technology stack, including programming languages, frameworks, and infrastructure. Whether you are a seasoned developer or just starting, Procore provides the tools and support to help you succeed.
+<br><br>
+
+***
+## Who Can Use Your Procore Apps?
+Your Procore apps can be tailored for various audiences. Whether you aim to create private apps for internal use or public apps for the marketplace, the Procore Developer Portal provides the tools and support needed to achieve your goals.
+
+### Custom Apps
+You can build and install custom apps exclusively for your organization or specific customers. These apps enable you to create tailored functionalities, automate workflows, and integrate with other systems seamlessly. Custom apps also allow you to display external services directly within Procore without leaving your workspace.
+
+Each new app version comes with an 'App Version Key,' which you can use to install the integration, ensuring secure and direct access without the need for public listing.
+
+For detailed instructions on installing a custom app, visit [Install Custom App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app).
+
+### Marketplace Apps
+Creating public apps allows you to share your innovations with the entire Procore customer base. Public apps, like private ones, enhance workflows and bridge gaps for users. The key difference is that public apps are listed on the Procore App Marketplace, making them available for customers and prospects to discover and install.
+
+For detailed instructions on publishing your app to the Procore App Marketplace, visit [Listing Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/app_marketplace_listing_your_app.md %}).
+<br><br>
+
+***
+## How Can I Get An Procore Account For Testing?
+For both custom and marketplace apps, Procore automatically generates a 'Developer Sandbox' once you create an app. This sandbox serves as your primary testing environment, allowing you to develop, test, and refine your app before deployment.
+
+It's important to note that only the app creator is automatically added to the developer sandbox. For detailed instructions on adding additional individuals, visit [Add a User Account to the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-user-account-to-the-company-directory)
+<br><br>
+<!-- To learn more, visit [Test with Developer Sandbox](#). -->
+
+***
+## Where Can I Find The Procore APIs?
+Procore offers an extensive library of publicly accessible APIs covering nearly all our product solutions. This library can be downloaded as an OpenAPI Specification (OAS) file for convenience, allowing you to upload it into tools like Postman for seamless API testing.
+
+To view the Procore API documentation, click on **References** at the top of this page, then **REST API**.
+<br><br>
+
+***
+## How Do I Start Building?
+To get started building your app today, create a Developer Account by clicking the 'Sign Up' button in the top right-hand corner. Once you have successfully verified your account, simply click **Create App** and begin building your app through the 'Configuration Builder'.
+
+After creating your desired app type, click **Create Version**, which will save your app and provide you with an 'App Version Key' to be installed in your Developer Sandbox.
+
+<!-- To learn more about the different app types that Procore offers, visit [Available App Types](#). -->
+
+<!-- Procore's open Application Programming Interface (API) provides the underlying framework for developing applications and custom integrations between Procore and other software tools and technologies.
 You can expand the functionality of your Procore account by leveraging existing integrations available in our Marketplace, or by developing new applications and customized connections yourself using the Procore API.
 
-## Procore API
+<!-- ## Procore API
 
 If you intend to build your own applications (or hire someone to build them for you), the Procore API allows you to leverage Procore resources within the Procore cloud in a simple, programmatic way using conventional HTTP requests in a RESTful architecture.
 The Procore API endpoints are intuitive and powerful, enabling you to easily make calls to retrieve information or execute actions on the various resources in Procore.
@@ -55,4 +105,4 @@ Procore clients also manage the internal training needs for their users.
 
 Conversely, Procore technology partners take a different development path as their applications are intended for use by the Procore user community at-large, and therefore must adhere to more stringent standards when it comes to quality, performance, and security.
 In addition, since technology partners have the opportunity to publish their [Partner Integrations]({{ site.url }}{{ site.baseurl }}{% link overview/partner_overview.md %}) on the Procore Marketplace, they must submit their applications to Procore for approval.
-Finally, technology partners must provide adequate training materials and offer technical support services for their applications.
+Finally, technology partners must provide adequate training materials and offer technical support services for their applications. -->

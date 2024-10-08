@@ -56,11 +56,17 @@ body {
   }
 
   article h2 {
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 0.15px;
-    line-height: 32px;
+    line-height: 28px;
     padding: 10px 0px;
     margin: 0;
+  }
+
+  article h3 {
+    font-size: 16px;
+    letter-spacing: 0.15px;
+    line-height: 24px;
   }
 
   p {

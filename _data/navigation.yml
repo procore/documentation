@@ -8,10 +8,10 @@
       url: /new-rest-v2-version
     - title: Service Account Deprecation
       url: /service-account-deprecation
-    - title: Custom Integrations
-      url: /custom-overview
-    - title: Marketplace Integrations
-      url: /partner-overview
+    # - title: Custom Integrations
+    #   url: /custom-overview
+    # - title: Marketplace Integrations
+    #   url: /partner-overview
     - title: Developer Training
       url: /training
     - title: Developer Resources
@@ -85,8 +85,6 @@
       url: /building-apps-manage-collabs
     - title: Working with App Metrics
       url: /building-apps-metrics
-    - title: Maximizing Marketplace Conversion Rates
-      url: /building-apps-maximizing-conversion-rates
     - title: Procore Iframe Helper Library
       url: /building-apps-helper-library
     - title: Developer Managed Service Accounts
@@ -95,6 +93,8 @@
       url: /building-apps-legacy-v3x-manifest-format
     - title: Migrating an App Manifest from v3.x to v4.1
       url: /building-apps-v3x-v41-manifest-migration
+    # - title: Maximizing Conversation Rates
+    #   url: /building-apps-maximizing-conversion-rates
 
 - title: API Essentials
   items:
@@ -125,6 +125,17 @@
       url: /secure-file-access-tips
     - title: API Call Sequencing
       url: /api-call-sequencing
+
+- title: App Marketplace
+  items:
+    - title: Listing Your App
+      url: /app-marketplace-listing-your-app
+    - title: Marketplace Listing Guidelines
+      url: /app-marketplace-marketplace-listing-guidelines
+    # - title: Procore Marketplace Checklist
+      # url: /app-marketplace-procore-marketplace-checklist
+    - title: View App Metrics
+      url: /app-marketplace-view-app-metrics
 
 - title: Webhooks
   items:
