@@ -19,7 +19,7 @@ Any developer can build on top of Procore using the provided REST API and app fr
 
 ***
 ## Who Can Use Your Procore Apps?
-Your Procore apps can be tailored for various audiences. Whether you aim to create private apps for internal use or public apps for the marketplace, the Procore Developer Portal provides the tools and support needed to achieve your goals.
+Your Procore apps can be tailored for various audiences. Whether you aim to create private apps for internal use or public apps for the Procore Marketplace, the Procore Developer Portal provides the tools and support needed to achieve your goals.
 
 ### Custom Apps
 You can build and install custom apps exclusively for your organization or specific customers. These apps enable you to create tailored functionalities, automate workflows, and integrate with other systems seamlessly. Custom apps also allow you to display external services directly within Procore without leaving your workspace.
@@ -36,7 +36,7 @@ For detailed instructions on publishing your app to the Procore App Marketplace,
 
 ***
 ## How Can I Get An Procore Account For Testing?
-For both custom and marketplace apps, Procore automatically generates a 'Developer Sandbox' once you create an app. This sandbox serves as your primary testing environment, allowing you to develop, test, and refine your app before deployment.
+For both custom and Marketplace apps, Procore automatically generates a 'Developer Sandbox' once you create an app. This sandbox serves as your primary testing environment, allowing you to develop, test, and refine your app before deployment.
 
 It's important to note that only the app creator is automatically added to the developer sandbox. For detailed instructions on adding additional individuals, visit [Add a User Account to the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-user-account-to-the-company-directory)
 <br><br>
