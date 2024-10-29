@@ -19,7 +19,7 @@ There are three important response headers returned when making a request to the
 | ---------------------- | --------------------------------------------------------------------------------|
 | X-Rate-Limit-Limit     | The total number of requests per 60 minute window.                              |
 | X-Rate-Limit-Remaining | The number of requests you are allowed to make in the current 60 minute window. |
-| X-Rate-Limit-Reset     | The Unix timestamp for when the next window begins.                             |
+| X-Rate-Limit-Reset     | The Unix timestamp for when the next window begins. (in seconds)                |
 
 **Example:**
 
