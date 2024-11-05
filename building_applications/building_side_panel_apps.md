@@ -339,6 +339,7 @@ To access context data using the MessageEvent interface, add an event listener t
 Here is some example code that demonstrates retrieving context data from the message event object.
 Note the use of conditional statements with the `postMessage` method to account for [Multiple Procore Regions]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
 Be sure to account for all regions where your application needs to retrieve Procore context.
+Be aware that as new Procore regions become available, your `postMessage` code must be updated to support these new regions.
 
 ```javascript
 window.addEventListener('message', (event) => {
