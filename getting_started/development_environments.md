@@ -18,6 +18,7 @@ Please note that access to a Monthly Sandbox environment requires opt-in from th
 The client_id and client_secret to use are in the **Production OAuth Credentials** section of the application’s configuration page.
 For authentication requests, you will want to use the base URL: <https://login-sandbox-monthly.procore.com>.
 For general API requests, you will want to use the base URL: <https://api-monthly.procore.com>.
+
 - **Development Sandbox** - automatically generated for third-party developers in their Developer Portal account and includes seed project data that can be used for testing purposes.
 The Development Sandbox environment does not refresh with production data at any time.
 The client_id and client_secret to use are in the **Sandbox OAuth Credentials** section of the application’s configuration page.
@@ -36,25 +37,25 @@ For general API requests, you will want to use the base URL: <https://sandbox.pr
 
 ## Projected Monthly Sandbox Refresh Dates
 
-Here are the projected 2023-24 dates for the refresh of the monthly sandbox.
+Here are the projected 2024-25 dates for the refresh of the monthly sandbox.
 
 | Year | Month     | Date       | Day       |
 | ---- | --------- | ---------- | --------- |
-| 2023 | October   | 10/02/2023 | Monday    |
-| 2023 | November  | 11/01/2023 | Wednesday |
-| 2023 | December  | 12/04/2023 | Monday    |
-| 2024 | January   | 01/03/2024 | Wednesday |
-| 2024 | February  | 02/01/2024 | Thursday  |
-| 2024 | March     | 03/04/2024 | Monday    |
-| 2024 | April     | 04/01/2024 | Monday    |
-| 2024 | May       | 05/01/2024 | Wednesday |
-| 2024 | June      | 06/03/2024 | Monday    |
-| 2024 | July      | 07/09/2024 | Tuesday   |
-| 2024 | August    | 08/01/2024 | Thursday  |
-| 2024 | September | 09/04/2024 | Wednesday |
 | 2024 | October   | 10/01/2024 | Tuesday   |
 | 2024 | November  | 11/04/2024 | Monday    |
 | 2024 | December  | 12/02/2024 | Monday    |
+| 2025 | January   | 01/xx/2025 |  |
+| 2025 | February  | 02/xx/2025 |   |
+| 2025 | March     | 03/xx/2025 |     |
+| 2025 | April     | 04/xx/2025 |     |
+| 2025 | May       | 05/xx/2025 |  |
+| 2025 | June      | 06/xx/2025 |     |
+| 2025 | July      | 07/xx/2025 |    |
+| 2025 | August    | 08/xx/2025 |   |
+| 2025 | September | 09/xx/2025 |  |
+| 2025 | October   | 10/xx/2025 |    |
+| 2025 | November  | 11/xx/2025 |     |
+| 2025 | December  | 12/xx/2025 |     |
 
 ## Working with a Development Sandbox
 
