@@ -44,18 +44,18 @@ Here are the projected 2024-25 dates for the refresh of the monthly sandbox.
 | 2024 | October   | 10/01/2024 | Tuesday   |
 | 2024 | November  | 11/04/2024 | Monday    |
 | 2024 | December  | 12/02/2024 | Monday    |
-| 2025 | January   | 01/xx/2025 |  |
-| 2025 | February  | 02/xx/2025 |   |
-| 2025 | March     | 03/xx/2025 |     |
-| 2025 | April     | 04/xx/2025 |     |
-| 2025 | May       | 05/xx/2025 |  |
-| 2025 | June      | 06/xx/2025 |     |
-| 2025 | July      | 07/xx/2025 |    |
-| 2025 | August    | 08/xx/2025 |   |
-| 2025 | September | 09/xx/2025 |  |
-| 2025 | October   | 10/xx/2025 |    |
-| 2025 | November  | 11/xx/2025 |     |
-| 2025 | December  | 12/xx/2025 |     |
+| 2025 | January   | 01/06/2025 | Monday    |
+| 2025 | February  | 02/03/2025 | Monday    |
+| 2025 | March     | 03/03/2025 | Monday    |
+| 2025 | April     | 04/01/2025 | Tuesday   |
+| 2025 | May       | 05/01/2025 | Thursday  |
+| 2025 | June      | 06/02/2025 | Monday    |
+| 2025 | July      | 07/08/2025 | Tuesday   |
+| 2025 | August    | 08/04/2025 | Monday    |
+| 2025 | September | 09/03/2025 | Wednesday |
+| 2025 | October   | 10/01/2025 | Wednesday |
+| 2025 | November  | 11/03/2025 | Monday    |
+| 2025 | December  | 12/01/2025 | Monday    |
 
 ## Working with a Development Sandbox
 
