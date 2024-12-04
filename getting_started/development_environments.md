@@ -37,7 +37,7 @@ For general API requests, you will want to use the base URL: <https://sandbox.pr
 
 ## Projected Monthly Sandbox Refresh Dates
 
-Here are the projected 2024-25 dates for the refresh of the monthly sandbox.
+Here are the projected 2024-25 dates for the monthly sandbox refresh.
 
 | Year | Month     | Date       | Day       |
 | ---- | --------- | ---------- | --------- |
