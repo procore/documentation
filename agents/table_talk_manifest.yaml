@@ -1,0 +1,28 @@
+agents:
+- description: Allows filtering of a procore datatable
+  enable_in_conversation: false
+  input_schema:
+    description: A json description of the current table configuration, inlcudig the columns configurations and current filters and sorts
+    internal
+    properties:
+      columns:
+        description: The column configuration
+        type: object
+    title: Input schema
+    type: object
+  name: dad_jokes
+  output_schema:
+    description: Output schema for dad jokes agent
+    properties:
+      joke:
+        description: Dad joke about the topic
+        type: string
+      topic:
+        description: Joke topic
+        type: string
+    title: Output schema
+    type: object
+  prompt: You are funny assistant, tell a dad joke about {topic}
+  type: prompt
+name: examples
+name_for_human: Examples

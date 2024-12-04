@@ -225,6 +225,43 @@
     - title: Staged Records
       url: /erp-staged-records-details
 
+- title: Agents
+  section_title: Agents
+  items:
+    - title: Overview
+      url: /agents/overview
+    - title: Concepts
+      url: /agents/concepts
+      section: Agents
+    - title: Architecture
+      url: /agents/architecture
+      section: Agents
+    - title: Procore API Tool
+      url: /agents/declarative_tools/procore_api_tool
+      section: Agents
+    - title: "External Agents"
+      section: Agents
+      url: /agents/experimental/external_agents
+    - title: Tutorials
+      section: Agents
+      url: /agents/tutorials
+      items:
+        - title: Using Agents via API
+          url: /agents/tutorials/use_agent_via_api
+          section: Agents
+        - title: Using Agents via UI
+          url: /agents/tutorials/use_agent_via_ui
+          section: Agents
+        - title: Implementing Agent Actions
+          url: /agents/tutorials/implement_agent_actions
+          section: Agents
+        - title: Using Ephemeral Agents
+          url: /agents/tutorials/use_ephemeral_agent_api
+          section: Agents
+        - title: Using Agent Playground
+          url: /agents/tutorials/use_agent_playground
+          section: Agents          
+
 - title: Additional Resources
   items:
     - title: Developer Support

@@ -1,0 +1,878 @@
+{
+  "$defs": {
+    "ActionDefinition": {
+      "properties": {
+        "include_when": {
+          "title": "Include When",
+          "type": "string"
+        },
+        "action": {
+          "$ref": "#/$defs/AgentAction"
+        }
+      },
+      "required": [
+        "include_when",
+        "action"
+      ],
+      "title": "ActionDefinition",
+      "type": "object"
+    },
+    "AgentAction": {
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "id": {
+          "description": "The unique ID of action, this would be used by integrations to implement functionality",
+          "title": "Id",
+          "type": "string"
+        },
+        "tooltip": {
+          "description": "Human readable description, clients might decide to render as tooltip when button is active",
+          "title": "Tooltip",
+          "type": "string"
+        },
+        "disabled_tooltip": {
+          "description": "Human readable description, clients might decide to render as tooltip when button is disabled",
+          "title": "Disabled Tooltip",
+          "type": "string"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "action",
+          "description": "Interactive action, could be rendered to user as button",
+          "title": "Type"
+        },
+        "icon": {
+          "description": "Icon to be rendered by client",
+          "title": "Icon",
+          "type": "string"
+        },
+        "supported_urls": {
+          "description": "webpage url patterns where interactive action (button) should be active",
+          "items": {
+            "type": "string"
+          },
+          "title": "Supported Urls",
+          "type": "array"
+        },
+        "integration_event": {
+          "$ref": "#/$defs/IntegrationEvent"
+        }
+      },
+      "required": [
+        "title",
+        "id",
+        "integration_event"
+      ],
+      "title": "AgentAction",
+      "type": "object"
+    },
+    "AgentJSONProperty": {
+      "additionalProperties": true,
+      "description": "Represents a JSONSchema property for JSONSchema flavour for an agent input or output",
+      "properties": {
+        "description": {
+          "description": "Description of the property",
+          "title": "Description",
+          "type": "string"
+        },
+        "type": {
+          "default": "string",
+          "description": "JSONSchema Type of the property",
+          "examples": [
+            "string",
+            "number",
+            "list"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "item_type": {
+          "description": "For list type JSONSchema Type of the item",
+          "examples": [
+            "string",
+            "number"
+          ],
+          "title": "Item Type",
+          "type": "string"
+        },
+        "additionalProperties": {
+          "$ref": "#/$defs/DynamicField",
+          "description": "For object type additional properties"
+        }
+      },
+      "title": "AgentJSONProperty",
+      "type": "object"
+    },
+    "AgentJSONSchema": {
+      "additionalProperties": true,
+      "description": "Represents a JSONSchema subset for an agent input or output",
+      "properties": {
+        "title": {
+          "description": "Title of the schema",
+          "examples": [
+            "RFI Drafting Input"
+          ],
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the schema",
+          "examples": [
+            "Input schema for RFI drafting agent"
+          ],
+          "title": "Description",
+          "type": "string"
+        },
+        "type": {
+          "default": "object",
+          "description": "Type of the schema",
+          "examples": [
+            "object"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/AgentJSONProperty"
+          },
+          "examples": [
+            {
+              "assignees": {
+                "description": "Users or their Roles to be assigned to answer the RFI. The field can be empty.",
+                "type": "string"
+              },
+              "attachments": {
+                "description": "List of question attachments. The field can be empty",
+                "item_type": "string",
+                "type": "list"
+              },
+              "question": {
+                "description": "Question for which RFI is to be drafted",
+                "type": "string"
+              }
+            }
+          ],
+          "title": "Properties"
+        },
+        "required": {
+          "description": "List of required properties. This would be validated automatically by the Agent engine.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Required",
+          "type": "array"
+        }
+      },
+      "title": "AgentJSONSchema",
+      "type": "object"
+    },
+    "DeclarativeToolDefinition": {
+      "description": "Agent with a single prompt",
+      "properties": {
+        "name": {
+          "description": "Name of the tool, it is used to reference the declarative tool. This value should be URL-friendly, allowing lowercase letters, digits, \"-\" and \"_\".",
+          "examples": [
+            "get_project_metadata",
+            "procore_config_data"
+          ],
+          "pattern": "^[a-z0-9-_]+$",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "description": "Detailed description of what this tool is useful for. This will help the Conversation Agent decide when to invoke this tool.",
+          "examples": [
+            "Tool for extracting project metadata from the API call based on an authorized user. Use this tool when you need any project metadata."
+          ],
+          "title": "Description",
+          "type": "string"
+        },
+        "type": {
+          "const": "unknown",
+          "description": "Declarative tool type.",
+          "enum": [
+            "unknown"
+          ],
+          "examples": [
+            "procore_api",
+            "procore_api"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "tags": {
+          "description": "List of tags for the tool.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "type"
+      ],
+      "title": "DeclarativeToolDefinition",
+      "type": "object"
+    },
+    "DynamicField": {
+      "additionalProperties": true,
+      "description": "Allows extra fields",
+      "properties": {},
+      "title": "DynamicField",
+      "type": "object"
+    },
+    "ExperimentalExternalAgentDefinition": {
+      "additionalProperties": true,
+      "description": "Defines configuration of the external Agent",
+      "properties": {
+        "name": {
+          "description": "Name of the agent, it used to reference Agent. This value should URL friendly allowing lower case letters, digits, \"-\" and \"_\".",
+          "examples": [
+            "rfi_drafter"
+          ],
+          "pattern": "^[a-z0-9-_]+$",
+          "title": "Name",
+          "type": "string"
+        },
+        "enable_in_conversation": {
+          "default": false,
+          "description": "Enable the agent in the conversation. When true this agent will be added to the list of agents that could be automatically invoked in the conversation flow. __Important__: This could affect intent routing issues in Copilot and Copilot SidePanel. Please do not enable this without prior consulting with the Copilot Team.",
+          "title": "Enable In Conversation",
+          "type": "boolean"
+        },
+        "type": {
+          "const": "experimental_external_agent",
+          "enum": [
+            "experimental_external_agent"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "query_examples": {
+          "description": "Examples of the queries that the agent can answer in conversation flows",
+          "examples": [
+            "For this question, please draft an RFI",
+            "Create an RFI for for the following input: <question>",
+            "What RFI would look like for the following input: <question>"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Query Examples",
+          "type": "array"
+        },
+        "description": {
+          "description": "Description of the agent. This will be used by the Conversation Agent to help decide when to invoke this agent.",
+          "examples": [
+            "Drafts RFI fields based on input question and attachments"
+          ],
+          "title": "Description",
+          "type": "string"
+        },
+        "input_schema": {
+          "$ref": "#/$defs/AgentJSONSchema",
+          "description": "JSON Schema that defines input of the Agent. Fields of the input schema, could be use in prompt with {field_name} syntax. NOTE: Only first level of properties are supported."
+        },
+        "output_schema": {
+          "$ref": "#/$defs/AgentJSONSchema",
+          "description": "Optional JSON Schema for output for the agent. If not defined, Agent will respond with text"
+        },
+        "formatting_instructions": {
+          "description": "Optional formatting instructions for the output where we have a field and rules to be applied.",
+          "title": "Formatting Instructions",
+          "type": "string"
+        },
+        "max_request_size_kb": {
+          "default": 10,
+          "description": "Maximum request size in KB. The maximum available size is 100kb",
+          "title": "Max Request Size Kb",
+          "type": "integer"
+        },
+        "invoke_url": {
+          "description": "URL which accepts POST request with JSON body, with input and mata fields",
+          "title": "Invoke Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "description",
+        "input_schema",
+        "invoke_url"
+      ],
+      "title": "ExperimentalExternalAgentDefinition",
+      "type": "object"
+    },
+    "IntegrationEvent": {
+      "properties": {
+        "data": {
+          "description": "Integration event data in form of arbitrary dictionary. MFE to use this data",
+          "title": "Data",
+          "type": "object"
+        },
+        "metadata": {
+          "$ref": "#/$defs/Metadata"
+        }
+      },
+      "required": [
+        "data",
+        "metadata"
+      ],
+      "title": "IntegrationEvent",
+      "type": "object"
+    },
+    "ManualOpenApiSpec": {
+      "properties": {
+        "path": {
+          "description": "URL Path for request.",
+          "examples": [
+            "/rest/v1.1/companies/{company_id}/projects/{project_id}/search"
+          ],
+          "title": "Path",
+          "type": "string"
+        },
+        "method": {
+          "description": "HTTP method that will be used for request. The field is not a case sensitive.",
+          "examples": [
+            "GET",
+            "POST",
+            "get",
+            "post"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "api_schema": {
+          "description": "API schema.",
+          "title": "Api Schema",
+          "type": "object"
+        },
+        "parameters": {
+          "description": "Global route parameters.",
+          "items": {
+            "type": "object"
+          },
+          "title": "Parameters",
+          "type": "array"
+        }
+      },
+      "required": [
+        "path",
+        "method"
+      ],
+      "title": "ManualOpenApiSpec",
+      "type": "object"
+    },
+    "Metadata": {
+      "properties": {
+        "type": {
+          "description": "Identifier of the event type, so MFE can handle",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "Metadata",
+      "type": "object"
+    },
+    "OpenApiDefinition": {
+      "description": "Procore API tool OpenAPI definition",
+      "properties": {
+        "spec": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/ManualOpenApiSpec"
+            }
+          ],
+          "description": "OpenAPI specification file in either JSON or YAML format.",
+          "title": "Spec"
+        },
+        "selector": {
+          "$ref": "#/$defs/OpenApiSelector",
+          "description": "OpenAPI selector for the Procore API tool."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "title": "OpenApiDefinition",
+      "type": "object"
+    },
+    "OpenApiSelector": {
+      "description": "Procore API tool OpenAPI selector",
+      "properties": {
+        "operation_id": {
+          "description": "Operation ID ('operationId') for the OpenAPI selector.",
+          "examples": [
+            "getProjectMetadata",
+            "getProjectConfigData"
+          ],
+          "title": "Operation Id",
+          "type": "string"
+        },
+        "method": {
+          "description": "HTTP method for the OpenAPI selector.",
+          "examples": [
+            "GET",
+            "POST"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "path": {
+          "description": "Path for the OpenAPI selector.",
+          "examples": [
+            "/projects",
+            "/rest/v1.1/companies/{company_id}/projects/{project_id}/search"
+          ],
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "title": "OpenApiSelector",
+      "type": "object"
+    },
+    "ProcoreApiToolDefinition": {
+      "description": "Procore API tool definition",
+      "properties": {
+        "name": {
+          "description": "Name of the tool, it is used to reference the declarative tool. This value should be URL-friendly, allowing lowercase letters, digits, \"-\" and \"_\".",
+          "examples": [
+            "get_project_metadata",
+            "procore_config_data"
+          ],
+          "pattern": "^[a-z0-9-_]+$",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "description": "Detailed description of what this tool is useful for. This will help the Conversation Agent decide when to invoke this tool.",
+          "examples": [
+            "Tool for extracting project metadata from the API call based on an authorized user. Use this tool when you need any project metadata."
+          ],
+          "title": "Description",
+          "type": "string"
+        },
+        "type": {
+          "const": "procore_api",
+          "default": "procore_api",
+          "enum": [
+            "procore_api"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "tags": {
+          "description": "List of tags for the tool.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "openapi": {
+          "$ref": "#/$defs/OpenApiDefinition",
+          "description": "OpenAPI definition for the Procore API tool.",
+          "examples": []
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "openapi"
+      ],
+      "title": "ProcoreApiToolDefinition",
+      "type": "object"
+    },
+    "PromptAgentDefinition": {
+      "additionalProperties": true,
+      "description": "Defines configuration of the Prompt based Agent",
+      "properties": {
+        "name": {
+          "description": "Name of the agent, it used to reference Agent. This value should URL friendly allowing lower case letters, digits, \"-\" and \"_\".",
+          "examples": [
+            "rfi_drafter"
+          ],
+          "pattern": "^[a-z0-9-_]+$",
+          "title": "Name",
+          "type": "string"
+        },
+        "enable_in_conversation": {
+          "default": false,
+          "description": "Enable the agent in the conversation. When true this agent will be added to the list of agents that could be automatically invoked in the conversation flow. __Important__: This could affect intent routing issues in Copilot and Copilot SidePanel. Please do not enable this without prior consulting with the Copilot Team.",
+          "title": "Enable In Conversation",
+          "type": "boolean"
+        },
+        "type": {
+          "const": "prompt",
+          "enum": [
+            "prompt"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "query_examples": {
+          "description": "Examples of the queries that the agent can answer in conversation flows",
+          "examples": [
+            "For this question, please draft an RFI",
+            "Create an RFI for for the following input: <question>",
+            "What RFI would look like for the following input: <question>"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Query Examples",
+          "type": "array"
+        },
+        "description": {
+          "description": "Description of the agent. This will be used by the Conversation Agent to help decide when to invoke this agent.",
+          "examples": [
+            "Drafts RFI fields based on input question and attachments"
+          ],
+          "title": "Description",
+          "type": "string"
+        },
+        "input_schema": {
+          "$ref": "#/$defs/AgentJSONSchema",
+          "description": "JSON Schema that defines input of the Agent. Fields of the input schema, could be use in prompt with {field_name} syntax. NOTE: Only first level of properties are supported."
+        },
+        "output_schema": {
+          "$ref": "#/$defs/AgentJSONSchema",
+          "description": "Optional JSON Schema for output for the agent. If not defined, Agent will respond with text"
+        },
+        "formatting_instructions": {
+          "description": "Optional formatting instructions for the output where we have a field and rules to be applied.",
+          "title": "Formatting Instructions",
+          "type": "string"
+        },
+        "max_request_size_kb": {
+          "default": 10,
+          "description": "Maximum request size in KB. The maximum available size is 100kb",
+          "title": "Max Request Size Kb",
+          "type": "integer"
+        },
+        "prompt": {
+          "description": "LLM Prompt for the Agent. Agent uses this prompt as a system prompt. Input values could be referenced with {field_name} syntax.",
+          "examples": [
+            "Given user's input {question} and attachments, guess as much as possible output field values"
+          ],
+          "title": "Prompt",
+          "type": "string"
+        },
+        "tools": {
+          "description": "Reference to the Tools that the Agent uses to generate the output. Under the hood Agent uses ReAct pattern to orchestrate the tools.",
+          "examples": [
+            "support/support_pages",
+            {
+              "config": {
+                "item_type": "rfi"
+              },
+              "name": "search/get_relevant_documents"
+            }
+          ],
+          "items": {
+            "$ref": "#/$defs/ToolReference"
+          },
+          "title": "Tools",
+          "type": "array"
+        },
+        "actions": {
+          "description": "List of action used by the agent",
+          "items": {
+            "$ref": "#/$defs/ActionDefinition"
+          },
+          "title": "Actions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "description",
+        "input_schema",
+        "prompt"
+      ],
+      "title": "PromptAgentDefinition",
+      "type": "object"
+    },
+    "ToolReference": {
+      "description": "Reference to the Tool to be used by the Agent",
+      "properties": {
+        "name": {
+          "description": "Full name of the tool in the format `<namespace>/<tool_name>`",
+          "examples": [
+            "search/get_relevant_documents",
+            "example/project_metadata"
+          ],
+          "title": "Name",
+          "type": "string"
+        },
+        "config": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Extra configuration for the tool. Schema of the configuration is defined by the tool, please refer to the specific tool documentation for more information.",
+          "title": "Config"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "ToolReference",
+      "type": "object"
+    }
+  },
+  "description": "Manifest for a declarative definition of Agents, Tools, etc. It serves as a namespace for the agents and tools",
+  "examples": [
+    {
+      "agents": [
+        {
+          "description": "Tells potentially unfunny dad jokes for the given topic",
+          "enable_in_conversation": false,
+          "input_schema": {
+            "description": "Input schema for dad jokes agent",
+            "properties": {
+              "topic": {
+                "description": "Joke topic",
+                "type": "string"
+              }
+            },
+            "title": "Input schema",
+            "type": "object"
+          },
+          "name": "dad_jokes",
+          "output_schema": {
+            "description": "Output schema for dad jokes agent",
+            "properties": {
+              "topic": {
+                "description": "Joke topic",
+                "type": "string"
+              },
+              "joke": {
+                "description": "Dad joke about the topic",
+                "type": "string"
+              }
+            },
+            "title": "Output schema",
+            "type": "object"
+          },
+          "prompt": "You are funny assistant, tell a dad joke about {topic}",
+          "type": "prompt"
+        }
+      ],
+      "name": "examples",
+      "name_for_human": "Examples",
+      "tools": [
+        {
+          "description": "Tool for extracting project metadata from the API call based on authorized user. Use this tool when you need any project metadata.",
+          "name": "project_metadata_tool",
+          "openapi": {
+            "selector": {
+              "method": "get",
+              "operation_id": "getProjectMetadata",
+              "path": "/rest/v1.1/companies/{company_id}/projects/{project_id}/search"
+            },
+            "spec": "openapi.json"
+          },
+          "tags": [
+            "project_metadata_tool:procore_api"
+          ],
+          "type": "procore_api"
+        }
+      ]
+    },
+    {
+      "agents": [
+        {
+          "description": "Drafts RFI fields based on input question",
+          "enable_in_conversation": true,
+          "input_schema": {
+            "properties": {
+              "question": {
+                "description": "RFI question provided by user, if input does not contain RFI question, value must be empty",
+                "type": "string"
+              }
+            },
+            "required": [
+              "question"
+            ],
+            "type": "object"
+          },
+          "name": "rfi_drafter",
+          "output_schema": {
+            "properties": {
+              "draft_values": {
+                "description": "Best guess draft values based on the inputs and field schema",
+                "properties": {
+                  "subject": {
+                    "description": "Short, descriptive summary of user input question",
+                    "properties": {
+                      "value": {
+                        "description": "Draft value",
+                        "type": "string"
+                      },
+                      "confidence_score": {
+                        "description": "Confidence score from 0 to 1 for the field value",
+                        "type": "string"
+                      },
+                      "reason": {
+                        "description": "Reason for the field value and sources",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "question": {
+                    "description": "Field value",
+                    "properties": {
+                      "value": {
+                        "description": "Draft value",
+                        "type": "string"
+                      },
+                      "confidence_score": {
+                        "description": "Confidence score from 0 to 1 for the field value",
+                        "type": "string"
+                      },
+                      "reason": {
+                        "description": "Reason for the field value and sources",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "succeeded": {
+                "description": "Indicates that generation of subject was successful",
+                "type": "boolean"
+              },
+              "require_more_information": {
+                "description": "Indicates that more information is required to generate a subject",
+                "type": "boolean"
+              },
+              "summary": {
+                "description": "Summary of generation. Intended for user review. If task is impossible add reason here",
+                "type": "string"
+              },
+              "recommendations": {
+                "description": "Recommendations on how the RFI question could be improved",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "prompt": "You are a contractor working for a construction company.\n\n## Instructions\n- Based on question \"{question}\", please generate subject and question\n- Correct any grammar mistakes into user's input you found\n",
+          "type": "prompt"
+        }
+      ],
+      "metadata": {},
+      "name": "rfis",
+      "name_for_human": "RFI Agents"
+    }
+  ],
+  "properties": {
+    "name": {
+      "description": "Name of the manifest, it used as namespace for Agents, Tools, etc. This value should URL friendly allowing lower case letters, digits and \"-\".",
+      "examples": [
+        "rfis",
+        "core",
+        "search"
+      ],
+      "pattern": "^[a-z0-9-_]+$",
+      "title": "Name",
+      "type": "string"
+    },
+    "name_for_human": {
+      "description": "Optional readable name of the manifest",
+      "examples": [
+        "RFI Agents",
+        "Core Tools"
+      ],
+      "title": "Name For Human",
+      "type": "string"
+    },
+    "metadata": {
+      "description": "Arbitrary metadata for the manifest",
+      "title": "Metadata",
+      "type": "object"
+    },
+    "tools_definitions": {
+      "description": "List of declarative tools definitions. Each item is a subclass of DeclarativeToolDefinition.",
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "procore_api": "#/$defs/ProcoreApiToolDefinition",
+            "unknown": "#/$defs/DeclarativeToolDefinition"
+          },
+          "propertyName": "type"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ProcoreApiToolDefinition"
+          },
+          {
+            "$ref": "#/$defs/DeclarativeToolDefinition"
+          }
+        ]
+      },
+      "title": "Tools Definitions",
+      "type": "array"
+    },
+    "agents": {
+      "description": "List of declarative agents",
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "experimental_external_agent": "#/$defs/ExperimentalExternalAgentDefinition",
+            "prompt": "#/$defs/PromptAgentDefinition"
+          },
+          "propertyName": "type"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/PromptAgentDefinition"
+          },
+          {
+            "$ref": "#/$defs/ExperimentalExternalAgentDefinition"
+          }
+        ]
+      },
+      "title": "Agents",
+      "type": "array"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "title": "Manifest",
+  "type": "object",
+  "$id": "urn:procore:copilot:manifest",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}
