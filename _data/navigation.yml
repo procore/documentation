@@ -2,20 +2,33 @@
   items:
     - title: Introduction
       url: /introduction
-    - title: Announcements
-      url: /announcements
-    - title: New Rest V2 Version
-      url: /new-rest-v2-version
-    - title: Service Account Deprecation
-      url: /service-account-deprecation
     # - title: Custom Integrations
-    #   url: /custom-overview
+    #   url: /custom-overview - NEEDED FOR REDIRECT
     # - title: Marketplace Integrations
-    #   url: /partner-overview
-    - title: Developer Training
-      url: /training
-    - title: Developer Resources
-      url: /dev-resources
+    #   url: /partner-overview - NEEDED FOR REDIRECT
+    # - title: Developer Training
+    #   url: /training - NOT NEEDED
+    # - title: Developer Resources
+    #   url: /dev-resources - NEEDED FOR REDIRECT
+    - title: Quick Start Guide
+      url: /quick-start-guide
+    - title: Help & Learning Center
+      url: /help-and-learning-center
+    - title: FAQ
+      url: /faq # NEED TO UPDATE
+
+- title: Platform Concepts
+  items:
+    # - title: Procore Product Overview
+    #   url: /procore-product-overview  
+    - title: Overview
+      url: /object-model-overview
+    # - title: General Resources
+    #   url: /object-model-general
+    - title: Company-level Resources
+      url: /object-model-company
+    - title: Project-level Resources
+      url: /object-model-project
 
 - title: Getting Started
   items:
@@ -27,8 +40,6 @@
       url: /new-account
     - title: Sandbox Environments
       url: /development-environments
-    - title: Making Your First API Call
-      url: /making-first-call
 
 - title: OAuth 2.0 Authentication
   items:
@@ -77,16 +88,14 @@
       url: /building-apps-sandbox-install
     - title: Promoting a Sandbox Manifest to Production
       url: /building-apps-promote-manifest
-    - title: Submitting a Production App Manifest for Review
-      url: /building-apps-review-manifest
-    - title: Creating a Marketplace Listing and Submitting for Review
-      url: /building-apps-submit-marketplace
+    # - title: Submitting a Production App Manifest for Review
+    #   url: /building-apps-review-manifest - ACTION REQUIRED
+    # - title: Creating a Marketplace Listing and Submitting for Review
+    #   url: /building-apps-submit-marketplace - ACTION REQUIRED
     - title: Managing App Collaboration
       url: /building-apps-manage-collabs
-    - title: Working with App Metrics
-      url: /building-apps-metrics
-    - title: Procore Iframe Helper Library
-      url: /building-apps-helper-library
+    # - title: Working with App Metrics
+    #   url: /building-apps-metrics - NOT NEEDED
     - title: Developer Managed Service Accounts
       url: /developer-managed-service-accounts
     - title: App Manifest v3.x Legacy Format
@@ -94,7 +103,7 @@
     - title: Migrating an App Manifest from v3.x to v4.1
       url: /building-apps-v3x-v41-manifest-migration
     # - title: Maximizing Conversation Rates
-    #   url: /building-apps-maximizing-conversion-rates
+    #   url: /building-apps-maximizing-conversion-rates - NEEDED FOR REDIRECT
 
 - title: API Essentials
   items:
@@ -128,14 +137,24 @@
 
 - title: App Marketplace
   items:
-    - title: Listing Your App
-      url: /app-marketplace-listing-your-app
+    # - title: Marketplace Overview
+    #   url: /procore-marketplace-overview
+    - title: Procore Partner Overview
+      url: /procore-partner-overview
+    - title: Getting Started & Requirements
+      url: /marketplace-requirements 
+    # - title: Listing Your App - NOT NEEDED
+    #   url: /listing-your-app - NOT NEEDED
     - title: Marketplace Listing Guidelines
-      url: /app-marketplace-marketplace-listing-guidelines
-    # - title: Procore Marketplace Checklist
-      # url: /app-marketplace-procore-marketplace-checklist
+      url: /marketplace-listing-guidelines
+    - title: Marketplace Approval Checklist
+      url: /marketplace-checklist
+    - title: Update Your Marketplace App
+      url: /update-your-marketplace-app
+    - title: Market Your App
+      url: /market-your-app
     - title: View App Metrics
-      url: /app-marketplace-view-app-metrics
+      url: /view-app-metrics
 
 - title: Webhooks
   items:
@@ -143,17 +162,6 @@
       url: /webhooks
     - title: Using the Webhooks API
       url: /webhooks-api
-
-- title: Procore API Resource Guide
-  items:
-    - title: Overview
-      url: /object-model-overview
-    - title: General Resources
-      url: /object-model-general
-    - title: Company-level Resources
-      url: /object-model-company
-    - title: Project-level Resources
-      url: /object-model-project
 
 - title: Guides and Tutorials
   items:
@@ -209,41 +217,51 @@
     - title: Project Stages
       url: /tutorial-project-stages
 
-- title: BIM Web Viewer
-  items:
-    - title: BIM Web Viewer API
-      url: /bim-web-viewer
-    - title: Demo
-      url: /demo
-
-- title: Tools
+- title: Example Apps & SDKs
   items:
     - title: SDKs and Sample Applications
       url: /sdk
+    - title: Procore Iframe Helper
+      url: /procore-iframe-helper
+    # - title: BIM Web Viewer
+    # items:
+    - title: BIM Web Viewer API
+      url: /bim-web-viewer
+    - title: BIM Web Viewer Demo
+      url: /bim-web-viewer-demo
 
-- title: ERP Integration
-  items:
-    - title: Getting Started
-      url: /erp-intro
-    - title: Technical Guide
-      url: /erp-technical-guide
-    - title: Events Dictionary
-      url: /erp-events-dictionary
-    - title: External Data Details
-      url: /erp-external-data-details
-    - title: Metadata Details
-      url: /erp-metadata-details
-    - title: Staged Records
-      url: /erp-staged-records-details
+# - title: ERP Integration - EVERYTHING NEEDED BUT NOT INDEXED
+#   items:
+#     - title: Getting Started
+#       url: /erp-intro
+#     - title: Technical Guide
+#       url: /erp-technical-guide
+#     - title: Events Dictionary
+#       url: /erp-events-dictionary
+#     - title: External Data Details
+#       url: /erp-external-data-details
+#     - title: Metadata Details
+#       url: /erp-metadata-details
+#     - title: Staged Records
+#       url: /erp-staged-records-details
 
-- title: Additional Resources
+# - title: Additional Resources
+#   items:
+#     - title: Developer Support
+#       url: https://developers.procore.com/developer_support
+#       absolute: true
+#     - title: Technical Services
+#       url: /tech-services - NOT NEEDED
+#     - title: Submit Case Study
+#       url: /submit-case-study - NOT NEEDED
+    # - title: FAQ
+    #   url: /faq - NEED TO FIND A HOME
+
+- title: Announcements
   items:
-    - title: Developer Support
-      url: https://developers.procore.com/developer_support
-      absolute: true
-    - title: Technical Services
-      url: /tech-services
-    - title: Submit Case Study
-      url: /submit-case-study
-    - title: FAQ
-      url: /faq
+    - title: Overview
+      url: /overview
+    - title: New Rest V2 Version
+      url: /new-rest-v2-version
+    - title: Service Account Deprecation
+      url: /service-account-deprecation

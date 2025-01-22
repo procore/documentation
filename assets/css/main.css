@@ -38,17 +38,30 @@ body {
     margin: 0;
     -webkit-box-align: center;
     align-items: center;
-    border-bottom: 1px solid rgb(217, 217, 217);
     display: flex;
     flex: 1 1 auto;
-    height: 128px;
-    padding: 0px 48px;
+    height: 52px;
+    padding: 48px 48px 16px 48px;
     flex: 0 0 auto;
     font-size: 32px;
     font-weight: bold;
     line-height: 32px;
     margin-right: 16px;
   }
+
+  /* Title wrapper for border */
+.title-wrapper {
+  border-bottom: 1px solid rgb(217, 217, 217);  /* Moved border here */
+  padding-bottom: 30px;  /* Optional: adjust spacing */
+}
+
+.sub-header {
+    font-size: 18px;  /* Adjust the font size */
+    font-weight: normal;  /* Keep it lighter than the title */
+    line-height: 1.5;  /* Spacing for readability */
+    padding: 0px 48px; /* Same padding as the H1 for alignment */
+    color: #6A767C    ;  /* Adjust color if needed */
+}
 
   article main {
     flex: 1 1 auto;
@@ -69,11 +82,41 @@ body {
     line-height: 24px;
   }
 
+  summary {
+    /* font-size: 18px; */
+    letter-spacing: 0.25px;
+    padding: 10px 0px;
+    /* font-weight: bold; */
+  }
+
+  .collapseListTierOne {
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 0px;
+  }
+  /* NEED TO FIX THE CHILD TEXT INDENTION */
+
+  .collapseListTierTwo {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   p {
     letter-spacing: 0.25px;
     padding: 10px 0px;
     margin: 0;
   }
+
+  hr {
+    border: none;          /* Removes the default border */
+    border-top: 2px solid #3498db; /* Sets a custom color and thickness */
+    border-color: #D6DADC;
+}
 
   p img { max-width: 100%;}
 
@@ -155,4 +198,41 @@ body {
     transform: translate(-26px, -2px);
   }
 
- 
+  /* Container for the dropdown */
+  details {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Summary text aligned to the left */
+  summary {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    padding-right: 25px; /* Add padding for the caret */
+  }
+
+  /* Remove default caret */
+  summary::marker {
+    content: '';
+  }
+
+  /* Custom caret, default state */
+  summary::after {
+    /* content: '▼'; Custom caret symbol */
+    font-family: "Font Awesome 5 Free"; /* Specify FontAwesome */
+    content: "\f078"; /* FontAwesome chevron-down unicode */
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+  }
+
+  /* Rotate caret when details is open */
+  details[open] summary::after {
+    transform: translateY(-50%) rotate(180deg); /* Rotate caret when open */
+  }

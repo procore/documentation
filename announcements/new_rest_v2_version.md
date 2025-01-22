@@ -2,7 +2,7 @@
 permalink: /new-rest-v2-version
 title: New Rest V2 API Version
 layout: default
-section_title: Overview
+section_title: Announcements
 ---
 
 ## What is Procore’s Rest V2 API

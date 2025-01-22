@@ -1,78 +1,15 @@
 ---
-permalink: /app-marketplace-marketplace-listing-guidelines
+permalink: /marketplace-listing-guidelines
 title: Marketplace Listing Guidelines
+sub_header: Learn about the various fields accessible on your public Marketplace Listing and their requirements.
 layout: default
 section_title: App Marketplace
 ---
 
-<!-- 
-LIST OF FIELDS:
-
-To Include:
-    Section: App --
-        Name -
-        Tagline - 
-        Description - 
-        How it Works - 
-    Section: Pricing & Availability --
-        App Pricing (NEW) -
-    Section: Required Procore Tools
-        Map Types -
-    Section: Media --
-        Logo - 
-        Screenshots - 
-        Video - 
-    Section: Contact --
-        Contact Us - 
-        Learn How - 
-
-Not to Include:
-    Section: App
-        About Your Company
-    Section: Pricing & Availability
-        App Availability
-    Section: Integration Requirements
-        Requirement
-    Section: Support
-        Support Website Label
-        Support URL
-        Email
-
-    
-Might Want to Include:
-    Section: App
-        Category
-        Sold By vs Built By
-    Section: Features
-        Feature
-    Section: Links
-        Links
- -->
-
-<!-- Template -->
-<!-- #### Field Name
-##### Requirements: Ipsum text, ipsum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed ornare tortor. Curabitur blandit ipsum dictum, pulvinar purus nec, sodales arcu. Donec semper nulla vitae turpis ornare hendrerit. Donec eget egestas felis. Aliquam id mi efficitur, blandit ligula quis, porttitor ipsum. Donec eget sapien ligula. Proin sed tortor nibh. Sed porttitor elit a justo sagittis molestie. Maecenas ante felis, semper sed tempus et, faucibus vitae ipsum. Duis dapibus eget leo ac venenatis. Duis ultricies ut turpis molestie mollis. In non congue nisi. Fusce aliquam sem velit, nec faucibus velit vehicula eu. Morbi lacinia quam ut tempus congue.
-
-Ipsum List:
-- list item 1
-- list item 2
-- list item 3
-- list item 4
-
-##### Example Table
-| Approved App Name  | Rejected App Name |
-| :---------------- | :------ |
-| Python Hat        |   True   |
-| SQL Hat           |   True   |
-| Codecademy Tee    |  False   |
-| Codecademy Hoodie |  False   | -->
-
 ## Introduction
-Once your app is built and legal contracting is complete, the next step is submitting it to the marketplace. This process involves adding visuals, descriptions, and pricing, all of which must follow specific guidelines to ensure consistency and streamline the review.
+Once your app is built and legal contracting is complete, the next step is preparing your listing for the marketplace. This process involves adding visuals, descriptions, and pricing, all of which must follow specific guidelines to ensure consistency and streamline the review.
 
-You can access the Marketplace submission process through the left navigation menu inside your app, within the Procore Developer Portal.
+You can access the **Marketplace Listing** section through the left navigation menu inside your app, within the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>.
 
 This guide outlines the key fields, their requirements, and examples to help you meet the marketplace standards. Whether you're starting or ready to submit, you'll find everything needed to meet marketplace standards and create a high-quality user experience.
 
@@ -91,12 +28,13 @@ Consider the following guidelines when naming your app:
 - Must be unique and be different from any other App name on the Marketplace.
 - Must not include the word Procore anywhere in the name.
 - Must be a clear and intuitive name suitable for the Marketplace.
-- Procore makes the final determination on whether your proposed App name is acceptable.
+
+Procore makes the final determination on whether your proposed App name is acceptable.
 <br><br>
 
 | Example approved app names | Example rejected app names     |
 | ----------- | ---------------- |
-| ISV Developer Quickbooks Connector        | Quickbooks Connector by ISV Developer |
+| Quickbooks Connector by ISV Developer        | ISV Developer Quickbooks Connector |
 | Meeting Tracker        | Meeting Tracker for Procore |
 | Task Tracker Enhanced        | Procore integration with Task Tracker |
 | Quickbooks Online Connector        | Quickbooks Online |
@@ -105,7 +43,7 @@ Consider the following guidelines when naming your app:
 
 ### Tagline
 #### **Requirement:** 40 characters or less
-The tagline is one of the first introductions users have to your app, appearing in marketplace search results and app cards. It should briefly and concisely summarize your app's value and how it benefits users. Use action-based language with verbs like add, create, and visualize to grab attention. 
+The tagline is one of the first introductions users have to your app, appearing in marketplace search results and app cards. It should briefly and concisely summarize your app's value and how it benefits users. Use action-based language with verbs like **add**, **create**, and **visualize** to grab attention. 
 
 ### Integration Summary
 #### **Requirement:** 200 to 2,000 characters
@@ -118,7 +56,7 @@ The integration summary on your app's listing page allows you to highlight your 
 
 ### How it Works
 #### **Requirement:** 500 characters or less
-Procore customers often review the app to understand its technical functionality before installing or requesting more information. The 'How it Works' section should clearly explain how your app operates in Procore, so users know what to expect post-installation.
+Procore customers often review the app to understand its technical functionality before installing or requesting more information. The **How it Works** section should clearly explain how your app operates in Procore, so users know what to expect post-installation.
 <br><br>
 
 ***
@@ -128,9 +66,27 @@ Procore customers often review the app to understand its technical functionality
 Your app's pricing plan is an important part of the submission process, providing customers with clear details on what’s required to implement the integration. Here are two key pricing scenarios:
 
 1. Does the app require an additional subscription to another system?
-    - Example: The customer must have a Box subscription, but the integration itself is included with that subscription.
+    - **Example:** The customer must have a Box subscription, but the integration itself is included with that subscription.
 2. Is there a third-party connector needed for the integration, or is it included in the subscription?
-    - Example: The integration requires a connector to Zapier, which the customer must purchase separately.
+    - **Example:** The integration requires a connector to a middleware service, such as Boomi, which the customer must purchase separately.
+<br><br>
+
+***
+## Features
+#### **Requirement:** Each feature must be 200 characters or less, no special characters or emojis
+The **Features** section highlights the key functionalities of your app, emphasizing the value it delivers to end-users. Each feature should be clear, specific, and focused on tangible benefits of the integration.
+
+#### Best Practices for Writing Features
+- **Be Specific:** Clearly describe what the feature does and the problem it solves. Avoid vague statements like "Improves productivity."
+- **Focus on Benefits:** Highlight the value your feature adds to the user’s workflow.
+- **Avoid Jargon:** Use language that is easy to understand, even for non-technical users.
+- **Use Actionable Phrases:** Begin with verbs to make your features more engaging (e.g., "Sync," "Automate," "Track").
+
+#### Example Features
+- **Real-Time Data Sync:** Automatically sync project budgets between Procore and QuickBooks for up-to-date financial tracking.
+- **Automated Notifications:** Send instant alerts to team members when project changes are made, ensuring everyone stays updated.
+- **Custom Report Generation:** Generate tailored reports on project progress and financials in just a few clicks.
+- **Seamless Document Sharing:** Share files directly between Procore and Google Drive without leaving the app interface.
 <br><br>
 
 <!-- ***
@@ -203,14 +159,15 @@ There are two primary ways for customers to reach out to your team through the M
 ### 2. App Installation
 You can decide whether to allow customers to install your app directly from the Procore Marketplace.
 
-- **Allow Installations:** This option simplifies the process for customers and can drive faster adoption. We recommend enabling it whenever possible.
-- **Disallow Installations (NEW):** If your app requires significant setup, support, or training, you may choose to disable direct installations. This approach allows your team to manage the onboarding process more carefully.
+- **Allow Installations:** This option allows the user to install the app in their selected Procore Company Account, simplifying the process for customers and can drive faster adoption. We recommend enabling it whenever possible.
+- **Disallow Installations (NEW):** If your app requires significant setup, support, or training, you may choose to disable direct installations. 
+    - This approach allows your team to manage the onboarding process more carefully as the customer would need to reach out to your team directly to learn how to install the integration. This process would utilize the <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Custom App Install</a> workflow, where you would be responsible for providing the customer with the App Install Key.
 
 ![Marketplace Engagement Examples]({{ site.baseurl }}/assets/guides/app-marketplace-engagement-examples.png)
 <br><br>
 
 ***
-### Updates to guidelines and enforcement
+### Updates to Guidelines and Enforcement
 
 Procore Technologies reserves the right to revise the Developer Documentation in its discretion.
 

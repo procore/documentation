@@ -1,8 +1,8 @@
 ---
-permalink: /announcements
-title: Announcements
+permalink: /overview
+title: Overview
 layout: default
-section_title: Overview
+section_title: Announcements
 ---
 
 >**Sunset of Traditional Service Accounts** (01/29/2024)
@@ -16,7 +16,7 @@ Traditional Service Accounts were deprecated on December 9, 2021.
 >In accordance with this timeline, developers of data connection applications that currently use Traditional Service Accounts are required to update their applications to use Developer Managed Service Accounts, and customers will be required to install these updated applications before the sunset date.
 >All data connection applications not migrated by the sunset date will cease to function.
 >Any application listed on the Procore App Marketplace that is not using a supported method for accessing the Procore API will be removed by the sunset date.
->See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %}) and [Migrating Data Connection Applications to Use DMSAs](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/migrating-to-dmsa) for additional information.
+>See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link announcements/service_account_deprecation.md %}) and [Migrating Data Connection Applications to Use DMSAs](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/migrating-to-dmsa) for additional information.
 >If you have questions regarding this change, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
 >**OAuth access token expiration time reduced to 5400 seconds** (09/26/2023)
@@ -171,6 +171,6 @@ Traditional Service Accounts were deprecated on December 9, 2021.
 > All traditional service accounts will be sunset on a future date to be announced.
 > As a result of this deprecation, developers of data connection applications that currently use traditional service accounts are required to update their applications to use DMSAs, and customers will be required to install these updated applications before the sunset date.
 > See the following articles for information on Developer Managed Service Accounts and steps for migrating your projects from traditional service accounts.
-> - [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %})
+> - [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link announcements/service_account_deprecation.md %})
 > - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %})
 

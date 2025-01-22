@@ -9,10 +9,10 @@ section_title: Building Applications
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/documentation/app-marketplace-marketplace-listing-guidelines" />
+    <meta http-equiv="refresh" content="0; url=/documentation/marketplace-listing-guidelines" />
   </head>
   <body>
-    <p>If you are not redirected, <a href="/documentation/app-marketplace-marketplace-listing-guidelines">click here</a>.</p>
+    <p>If you are not redirected, <a href="/documentation/marketplace-listing-guidelines">click here</a>.</p>
   </body>
 </html>
 

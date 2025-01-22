@@ -2,8 +2,10 @@
 permalink: /vapid-deprecation
 title: Vapid API Deprecation
 layout: default
-section_title: Overview
+section_title: Announcements
 ---
+
+<!-- This is not even referenced anywhere? -->
 
 >**Vapid Sunset in Progress as of Feb 1, 2022**
 >

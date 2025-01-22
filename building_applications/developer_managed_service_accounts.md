@@ -11,7 +11,7 @@ section_title: Building Applications
 > Traditional Service Accounts were deprecated on December 9, 2021.
 > All traditional service accounts will be sunset on a future date to be announced.
 > As a result of this deprecation, developers of data connection applications that currently use traditional service accounts are required to update their applications to use DMSAs, and customers will be required to install these updated applications before the sunset date.
-> See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %}) for additional information.
+> See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link announcements/service_account_deprecation.md %}) for additional information.
 
 ## Background
 

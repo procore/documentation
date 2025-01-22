@@ -1,15 +1,15 @@
 ---
-permalink: /app-marketplace-view-app-metrics
+permalink: /view-app-metrics
 title: View App Metrics
+sub_header: Learn how to view your App's Marketplace metrics.
 layout: default
 section_title: App Marketplace
 
 ---
+>**It's important to note that App Metrics do not include personally identifiable information (e.g., names, email addresses).**
 
 ## Introduction
-Once your app is approved and published, it becomes visible to customers and prospects on the Procore Marketplace, where they can view your listing or install the app. These actions are tracked and made available to you through the App Metrics dashboard in the Procore Developer Portal, directly in your app.
-
-It's important to note that App Metrics do not include personally identifiable information (e.g., names, email addresses).
+Once your app is approved and published, it becomes visible to customers and prospects on the Procore Marketplace, where they can view your listing or install the app. These actions are tracked and made available to you through the App Metrics dashboard in the <a href="https://developers.procore.com/developers" target="blank">Procore Developer Portal</a>, directly in your app.
 <br><br>
 
 ***
@@ -37,8 +37,3 @@ Use conversion rate as an indicator rather than the sole measure of success. To 
 
 It's best practice to monitor how content updates impact conversion rates. Regularly refine your listing based on customer feedback to continuously improve your app's appeal.
 <br><br>
-
-<!-- ***
-#### Related Links
-- Procore Marketplace Guidelines
-- Update your Marketplace App -->

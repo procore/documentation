@@ -5,7 +5,17 @@ layout: default
 section_title: Overview
 ---
 
-## Background
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/procore-partner-overview" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/procore-partner-overview">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## Background
 
 The Procore API enables our technology partners to help Procore users enjoy a best in class experience, irrespective of what problem they are seeking to solve.
 When Procore technology partners integrate their solution with Procore, both parties win.
@@ -42,11 +52,11 @@ As you work toward publishing your application on the Marketplace, you will step
 
 Review the following topics for additional information:
 
-- [Marketplace Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_content_reqs.md %})
-- [Technical Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_tech_reqs.md %})
-- [Sales and Support Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_support_content_reqs.md %})
+- [Marketplace Requirements]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/partner_content_reqs.md %})
+- [Technical Requirements]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/partner_tech_reqs.md %})
+- [Sales and Support Requirements]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/partner_support_content_reqs.md %})
 
 ### Additional Information
 
 - [Sign up to become a Procore Technical Partner](https://developers.procore.com/partner-signup) and let our Partnerships Team guide you through each step in your journey to developing and deploying a successful Procore integration.
-- Contact our team at <MarketplaceQA@procore.com> with any questions you may have regarding the Partnerships Program.
+- Contact our team at <MarketplaceQA@procore.com> with any questions you may have regarding the Partnerships Program. -->
