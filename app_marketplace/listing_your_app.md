@@ -6,7 +6,17 @@ layout: default
 section_title: App Marketplace
 ---
 
-## Introduction
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/procore-partner-overview" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/procore-partner-overview">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## Introduction
 The Procore App Marketplace connects Procore customers with integrations that deliver real value by enhancing their workflows. Apps listed in the Marketplace are evaluated for quality, reliability, and usefulness. Customers seek integrations that:
 
 - **Increase Operational Efficiency** – Streamline processes within Procore to save time and effort.
@@ -21,7 +31,7 @@ While you can distribute apps outside of the Procore Marketplace, listing them h
 ***
 ## Before You Build
 ### Marketplace Eligibility Requirements
-<!-- To list your integration on the Procore App Marketplace, you must build an app using one of Procore's app types. Additionally, you must become a Procore Partner by completing the Partner Vetting Questionnaire and agree to Procore’s Partnership Framework Terms. -->
+To list your integration on the Procore App Marketplace, you must build an app using one of Procore's app types. Additionally, you must become a Procore Partner by completing the Partner Vetting Questionnaire and agree to Procore’s Partnership Framework Terms.
 To list your app on the Procore Marketplace, you must:
 
 - Build an app using one of Procore’s app types.
@@ -37,10 +47,10 @@ You can initiate Partner onboarding by creating an app through the Procore Devel
 - Are incomplete or lack active customer usage.
 - Cannot be installed through the Procore Marketplace.
 - Utilizes APIs that are not publicly documented.
-<!-- - Violate Procore’s policies or data privacy model. -->
+- Violate Procore’s policies or data privacy model.
 - Exist solely for searching Procore data outside the platform.
-<!-- - Only utilize 'Login with Procore' without additional functionality. -->
-<!-- - Lack perceived value or functionality. -->
+- Only utilize 'Login with Procore' without additional functionality.
+- Lack perceived value or functionality.
 - Display ads, push notifications or transmit viruses, files, or programs that harm or disrupt the Procore user's experience.
 - Use Procore data to train Large Language Models (LLMs).
 
@@ -56,9 +66,9 @@ For example, customers may want site photos automatically added to Procore, elim
 
 Although you can start developing and testing your app at any time, keep in mind that being accepted into the Partner Program is not guaranteed.
 
-<!-- ### App Submission Options:
+### App Submission Options:
 - **Marketplace Listing:** If your goal is to list your app on the Procore Marketplace, be prepared for the review and approval process, which often includes rounds of feedback.
-- **Private or Custom Apps:** If you don't plan to list your app publicly, you can still offer it to specific customers without joining the Technology Partner Program or having a public listing. -->
+- **Private or Custom Apps:** If you don't plan to list your app publicly, you can still offer it to specific customers without joining the Technology Partner Program or having a public listing.
 
 ### Plan for the Review Process
 After submitting your app for approval, expect feedback from our review team. Additional development may be required before your app is accepted. We recommend allowing extra time between submission and your planned launch date to accommodate potential revisions.
@@ -91,7 +101,7 @@ In this section, we’ll guide you through the submission process and outline th
 Before you submit your app for approval, ensure you've completed the following:
 
 - You are an approved Procore Partner and have completed the Partner Vetting Questionnaire, and agreed to Procore’s Partnership Terms.
-- Your app is functional, can be installed correctly, and works in all Procore environments. <!--LINK HERE TO PROCORE ENVIRONMENTS-->
+- Your app is functional, can be installed correctly, and works in all Procore environments. 
 - You have thoroughly tested the app, and we mean *tested*, including the installation, onboarding, and usage of all the app features.
 - The Marketplace Listing has been enabled by the Procore Marketplace team, and all required information has been completed by your team.
 - You are prepared to maintain and support your app to customers who choose to install it.
@@ -103,12 +113,12 @@ When submitting your app for review, ensure that all required sections of your M
 
 To submit your app for review, click **Submit for Review** in the Marketplace Listing tab of your app within the Procore Developer Portal. This action will notify the Procore Marketplace team that your app is ready for evaluation.
 
-<!-- Before submitting, carefully review your app listing to ensure all required information is complete. When submitting you app for approval for the first time and changes to app functionality, you’ll also need to include a video that highlights the following:
+Before submitting, carefully review your app listing to ensure all required information is complete. When submitting you app for approval for the first time and changes to app functionality, you’ll also need to include a video that highlights the following:
 
 1. How customers install and configure your app within your service.
 2. The app’s end-to-end functionality.
     - If your app creates data within Procore, demonstrate what the newly created data looks like for each integrated product.
-    - For apps utilizing embedded app types (Full Screen or Side Panel), show the user experience, including login and subsequent screens. -->
+    - For apps utilizing embedded app types (Full Screen or Side Panel), show the user experience, including login and subsequent screens.
 
 ### App Review Criteria
 Once your app is submitted, the Marketplace team will review it based on the following criteria:
@@ -139,7 +149,7 @@ To maintain your app's listing and provide continuous value to customers, you mu
 ### Enforcement Actions
 Procore may take enforcement actions if any of the following occurs:
 
-<!-- - Your app no longer meets Marketplace Eligibility Requirements. -->
+- Your app no longer meets Marketplace Eligibility Requirements.
 - We receive reports from mutual customers regarding issues such as:
     - Spammy or disruptive app behavior.
     - Broken or unexpected functionality.
@@ -152,4 +162,4 @@ Procore may take enforcement actions if any of the following occurs:
 
 Procore Technologies reserves the right to revise the Developer Documentation in its discretion.
 
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any application listing at any time.
+As described in the applicable terms and conditions, Procore may remove or decline the publication of any application listing at any time. -->

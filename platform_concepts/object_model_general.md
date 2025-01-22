@@ -6,7 +6,17 @@ section_title: Platform Concepts
 
 ---
 
-## Client Accounts (Companies)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/object-model-overview" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/object-model-overview">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## Client Accounts (Companies)
 
 Client Accounts, sometimes referred to as Companies, are the individual accounts used by one entity running one or more projects in Procore.
 If you have purchased Procore, you will most likely have access to only one account.
@@ -20,4 +30,4 @@ When working with the Procore API your application will access Procore on behalf
 Each user will need to authenticate with Procore to verify their identity and to give your application permission to use and access their data.
 Procore implements the OAuth 2.0 protocol.
 
-API Endpoints: [Authentication](https://developers.procore.com/reference/rest/v1/authentication)
+API Endpoints: [Authentication](https://developers.procore.com/reference/rest/v1/authentication) -->

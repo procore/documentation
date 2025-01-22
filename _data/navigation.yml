@@ -3,13 +3,13 @@
     - title: Introduction
       url: /introduction
     # - title: Custom Integrations
-    #   url: /custom-overview - NEEDED FOR REDIRECT
+    #   url: /custom-overview - Updated for Redirect
     # - title: Marketplace Integrations
-    #   url: /partner-overview - NEEDED FOR REDIRECT
+    #   url: /partner-overview - Updated for Redirect
     # - title: Developer Training
-    #   url: /training - NOT NEEDED
+    #   url: /training - Updated for Redirect
     # - title: Developer Resources
-    #   url: /dev-resources - NEEDED FOR REDIRECT
+    #   url: /dev-resources - Updated for Redirect
     - title: Quick Start Guide
       url: /quick-start-guide
     - title: Help & Learning Center
@@ -20,11 +20,11 @@
 - title: Platform Concepts
   items:
     # - title: Procore Product Overview
-    #   url: /procore-product-overview  
+    #   url: /procore-product-overview - WIP  
     - title: Overview
       url: /object-model-overview
     # - title: General Resources
-    #   url: /object-model-general
+    #   url: /object-model-general - Updated for Redirect
     - title: Company-level Resources
       url: /object-model-company
     - title: Project-level Resources
@@ -89,13 +89,13 @@
     - title: Promoting a Sandbox Manifest to Production
       url: /building-apps-promote-manifest
     # - title: Submitting a Production App Manifest for Review
-    #   url: /building-apps-review-manifest - ACTION REQUIRED
+    #   url: /building-apps-review-manifest - ACTION REQUIRED - Updated for Redirect
     # - title: Creating a Marketplace Listing and Submitting for Review
-    #   url: /building-apps-submit-marketplace - ACTION REQUIRED
+    #   url: /building-apps-submit-marketplace - ACTION REQUIRED - Updated for Redirect
     - title: Managing App Collaboration
       url: /building-apps-manage-collabs
     # - title: Working with App Metrics
-    #   url: /building-apps-metrics - NOT NEEDED
+    #   url: /building-apps-metrics - Updated for Redirect
     - title: Developer Managed Service Accounts
       url: /developer-managed-service-accounts
     - title: App Manifest v3.x Legacy Format
@@ -103,7 +103,7 @@
     - title: Migrating an App Manifest from v3.x to v4.1
       url: /building-apps-v3x-v41-manifest-migration
     # - title: Maximizing Conversation Rates
-    #   url: /building-apps-maximizing-conversion-rates - NEEDED FOR REDIRECT
+    #   url: /building-apps-maximizing-conversion-rates - Updated for Redirect
 
 - title: API Essentials
   items:
@@ -138,13 +138,13 @@
 - title: App Marketplace
   items:
     # - title: Marketplace Overview
-    #   url: /procore-marketplace-overview
+    #   url: /procore-marketplace-overview - NOT NEEDED 404 error
     - title: Procore Partner Overview
       url: /procore-partner-overview
     - title: Getting Started & Requirements
       url: /marketplace-requirements 
     # - title: Listing Your App - NOT NEEDED
-    #   url: /listing-your-app - NOT NEEDED
+    #   url: /listing-your-app - NOT NEEDED - REMOVE
     - title: Marketplace Listing Guidelines
       url: /marketplace-listing-guidelines
     - title: Marketplace Approval Checklist
@@ -251,11 +251,9 @@
 #       url: https://developers.procore.com/developer_support
 #       absolute: true
 #     - title: Technical Services
-#       url: /tech-services - NOT NEEDED
+#       url: /tech-services - Updated for Redirect
 #     - title: Submit Case Study
 #       url: /submit-case-study - NOT NEEDED
-    # - title: FAQ
-    #   url: /faq - NEED TO FIND A HOME
 
 - title: Announcements
   items:
