@@ -62,7 +62,7 @@ There are no fees to join the Procore Technology Partner Program at this time. W
 - [Getting Started & Requirements]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
 - [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %})
 - [Marketplace Approval Checklist]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %})
-- [Market Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/market_your_app.md %})
+<!-- - [Market Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/market_your_app.md %}) -->
 <br><br>
 
 ***

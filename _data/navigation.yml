@@ -151,8 +151,8 @@
       url: /marketplace-checklist
     - title: Update Your Marketplace App
       url: /update-your-marketplace-app
-    - title: Market Your App
-      url: /market-your-app
+    # - title: Market Your App - ADD BACK LATER
+    #   url: /market-your-app
     - title: View App Metrics
       url: /view-app-metrics
 
