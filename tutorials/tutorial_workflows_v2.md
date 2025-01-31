@@ -66,7 +66,7 @@ If the integration were to fail to progress the step for any reason, a workflow 
 Alternatively, each integration step could have a manager or other person as an assignee.
 That way if the integration failed, those other users would get notified as the step becomes overdue (if other methods of notifications for the integration fail).
 
-First, make a request to [get the current state](https://developers.procore.com/reference/rest/workflow-instances-project?version=latest#get-a-project-workflow-instance) of the instance (or, alternatively, get that info from an instance webhook).
+First, make a request to [get the current state](https://developers.procore.com/reference/rest/workflow-instances-project?version=latest#get-a-project-workflow-instance) of the instance.
 
 With the `current_step_occurrence_id` (from `current_step_occurrence.id`) and `selected_response_option_id` (from the `current_step_occurrence.available_responses`), the integration can respond to progress the instance using the [create response API](https://developers.procore.com/reference/rest/workflow-responses-project?version=latest#respond-to-an-instance).
 
