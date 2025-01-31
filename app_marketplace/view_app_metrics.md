@@ -15,7 +15,7 @@ Once your app is approved and published, it becomes visible to customers and pro
 ***
 ## Metrics
 ### Marketplace Views
-A Marketplace View is logged when a customer or prospect visits your app listing. The following data is tracked and displayed in your dashboard:
+A Marketplace View is logged when a customer or prospect visits your Marketplace Listing. The following data is tracked and displayed in your dashboard:
 
 - Total page views.
 - Page views over a specified time period.
@@ -31,9 +31,9 @@ An App Installation occurs when a customer installs your app from the Procore Ma
 
 ***
 ## Increasing Sales Conversation Rate
-Conversion Rate measures how effectively your listing content persuades prospective Procore customers to install your app. While other factors like direct sales engagement, customer referrals, or marketing efforts may influence a decision, the conversion rate specifically tracks visits to your app listing and subsequent installations.
+Conversion Rate measures how effectively your listing content persuades prospective Procore customers to install your app. While other factors like direct sales engagement, customer referrals, or marketing efforts may influence a decision, the conversion rate specifically tracks visits to your Marketplace Listing and subsequent installations.
 
 Use conversion rate as an indicator rather than the sole measure of success. To maximize conversions, ensure your listing content clearly communicates your app's value proposition to undecided customers.
 
-It's best practice to monitor how content updates impact conversion rates. Regularly refine your listing based on customer feedback to continuously improve your app's appeal.
+It's best practice to monitor how content updates impact conversion rates. Regularly refine your Marketplace Listing based on customer feedback to continuously improve your app's appeal.
 <br><br>

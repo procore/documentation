@@ -7,9 +7,9 @@ section_title: App Marketplace
 ---
 
 ## Introduction
-As your app evolves over time, you may need to update its functionality, content, marketplace listing, or app features. You can update these items anytime in your app through the <a href="https://developers.procore.com/developers" target="blank">Procore Developer Portal</a>.
+As your app evolves over time, you may need to update its functionality, content, Marketplace Listing, or app features. You can update these items anytime in your app through the <a href="https://developers.procore.com/developers" target="blank">Procore Developer Portal</a>.
 
-It's important to note that you need to submit these changes to be reviewed and approved by the Procore Marketplace team. Any changes to your source code does not need to be approved.
+It's important to note that you need to submit these changes to be reviewed and approved by the Procore Marketplace team. While changes to your source code itself do not require approval, any modifications that impact functionality or how your integration interacts with Procore must be reviewed.
 <br><br>
 
 ***
@@ -23,7 +23,7 @@ It's important to note that you must have access to the corresponding app and ha
 
 ***
 ## Update App Functionality
-If you wish to update your app's functionality or features, you can easily accomplish this within your app through the <a href="https://developers.procore.com/developers" target="blank">Procore Developer Portal</a>.
+If you wish to update your app's functionality or features, follow the steps below:
 <br><br>
 
 <details>

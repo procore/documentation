@@ -7,7 +7,7 @@ section_title: App Marketplace
 ---
 
 ## Introduction
-The Procore Technology Partner Program empowers partners to integrate their solutions with Procore, showcasing their applications on the Procore Marketplace. By becoming a partner, you join a community dedicated to advancing construction management through integrated, cloud-optimized solutions that enhance project workflows, increase efficiency, and scale businesses.
+The Procore Technology Partner Program empowers partners to integrate their solutions with Procore, showcasing their apps on the Procore Marketplace. By becoming a partner, you join a community dedicated to advancing construction management through integrated, cloud-optimized solutions that enhance project workflows, increase efficiency, and scale businesses.
 
 This page provides an overview of the benefits, requirements, and steps to join the program, helping you get started with listing your integration on the Procore Marketplace.
 <br><br>
@@ -17,15 +17,15 @@ This page provides an overview of the benefits, requirements, and steps to join 
 The Procore Technology Partner Program offers a variety of benefits to help you succeed and grow your business. By joining, you gain:
 
 - **Visibility on the Procore Marketplace:** Showcase your solution to a global audience of construction professionals, helping you drive awareness and adoption.
-- **Co-Marketing Opportunities:** Collaborate with Procore on joint marketing initiatives to amplify your app's reach and engage potential customers.
+- **Self-Service Marketing Opportunities:** Gain access to a catalog of self-service marketing offerings, enabling Partners to generate awareness and demand for their products & services alongside Procore.
 - **Trusted Partner Status:** Build credibility by aligning your brand with Procore and showcasing your compliance with industry-leading standards.
 <br><br>
 
 ***
 ## Program Requirements
-All prospective Technology Partners are expected to complete Procore’s vetting process ahead of contracting.
+All prospective partners are required to complete Procore’s review process in order to be eligible to participate in the Partner Program.
 
-Participation in the Partner Program is subject to compliance with this Program Guide, the Technology Partner Agreement, and the Partner Code of Conduct, which are available <a href="https://www.procore.com/partners/documents" target="_blank">here</a>. Partners that do not meet and maintain compliance with the relevant program requirements will be subject to a partnership review and possible change in program benefits, including removal from the Marketplace and/or loss of status as a Procore Technology Partner, per the Partner Agreement.
+Participation in the Partner Program is subject to compliance with the Program Guide, Procore Partner Agreement, API Terms of Use, and the Partner Code of Conduct, which are available <a href="https://www.procore.com/partners/documents" target="_blank">here</a>. Partners that do not meet and maintain compliance with the relevant program requirements will be subject to a partnership review and possible change in program benefits, including removal from the Marketplace and/or loss of status as a Procore Technology Partner, per the Partner Agreement.
 <br><br>
 
 ***
@@ -45,11 +45,11 @@ There are no fees to join the Procore Technology Partner Program at this time. W
     <br><br>
     In addition to the Developer Sandbox, leverage our self-service learning offerings through our <a href="{{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %}">Help & Learning Center</a>.
     <br><br>
-    <li><b>Submit Your Request for Partner Vetting</b></li>
-    Initiate the vetting process by selecting 'Become a Partner' within the Marketplace Listing tab in your app.
+    <li><b>Submit Your Request for Partner Review</b></li>
+    Initiate the review process by selecting 'Become a Partner' within the Marketplace Listing tab in your app.
     <br><br>
-    <li><b>Sign the Partnership Agreement</b></li>
-    After passing vetting, sign the Procore Partner Agreement sent to your email to officially join the program.
+    <li><b>Agree to the Partnership Agreement</b></li>
+    After passing review, sign or accept the Procore Partner Agreement sent to your email to officially join the program.
     <br><br>
     <li><b>Finalize & Publish Your App</b></li>
     Once approved as a partner, gather feedback from from a beta customer to finalize your initial app version, then submit your app to be published on the Procore Marketplace, making it accessible to thousands of potential users.
@@ -68,9 +68,9 @@ There are no fees to join the Procore Technology Partner Program at this time. W
 ***
 ### Updates to Guidelines and Enforcement
 
-Procore Technologies reserves the right to revise the Developer Documentation in its discretion.
+Procore Technologies reserves the right to revise the Developer Documentation at any time,  in its sole discretion.
 
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any application listing at any time.
+As described in the applicable terms and conditions, Procore may remove or decline the publication of anyMarketplace Listing at any time.
 
 <!-- All prospective partners are required to complete Procore’s vetting process before contracting. Participation in the Partner Program is contingent on adherence to the Program Guide, the applicable Procore Partner Agreement, and the Partner Code of Conduct, which are available <a href="https://www.procore.com/partners/documents" target="_blank">here</a>. -->
 

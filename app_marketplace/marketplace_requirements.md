@@ -21,10 +21,10 @@ The Procore App Marketplace connects Procore customers with integrations that en
 ### General Requirements
 Before pursuing app approval, and ultimately having your app published to the Procore Marketplace, you must meet the following minimum requirements:
 
-- You must pursue and complete Partner vetting and contracting.
+- You must complete Partner review and contracting.
 - Your app must be installable in a customer’s Procore account.
 - Your app must have at least one (1) beta customer before being published.
-- Your app must have a minimum of one (1) active customer using the integration within a 12-month period.
+- Your app must have a minimum of one (1) active customer using the integration within the prior 12-month period.
 - Demo, beta, and trial versions are not permitted on the Procore Marketplace. However, ongoing updates (e.g., version 1, version 2) are encouraged.
 - Your app must successfully pass functional testing with no significant bugs or issues.
 - You must test the onboarding process thoroughly, and provide step-by-step instructions for customers to set up and activate the integration.
@@ -32,18 +32,18 @@ Before pursuing app approval, and ultimately having your app published to the Pr
 For more details about the Partner Program and its requirements, visit <a href="https://www.procore.com/partners/documents" target="_blank">Procore's Partner Program Guide</a>.
 
 ### Apps That Will Not Be Listed
-In addition to the general requirements, Procore may refuse publishing, or remove existing apps, for the following reasons:
+In addition to the general requirements, Procore may refuse publishing, or remove existing apps, including, but not limited to the following reasons:
 
 - Are custom-built for a specific customer.
 - Are internal tools intended for your team’s use only.
 - Require customers to add a developer or partner team member to their Procore account for the integration to function.
 - Provide a low-quality or confusing experience for customers.
 - Use APIs that are not publicly documented.
-- Violate Procore’s policies or data privacy model.
+- Violate Procore’s agreements and/or policies.
 - Exist solely for searching Procore data outside the platform.
 - Only use "Login with Procore" without additional functionality.
 - Display ads, push notifications, or transmit malicious files.
-- Use Procore data to train Large Language Models (LLMs).
+- Use Procore data to train machine learning models, including Large Language Models (LLMs) and other AI models.
 <br><br>
 
 ***
@@ -59,8 +59,8 @@ Now that you have an idea of the minimum requirements to be listed on the Procor
 <ul>
     <li>Create and verify your <b>Developer Account</b> through the <a href="https://developers.procore.com/signup" target="_blank">Procore Developer Portal</a>.</li>
     <li>Create an app and add one of the available app types.</li>
-    <li>Invite additional collaborators to your app.</li>
-    <li>Access the automatically generated <b>Developer Sandbox</b>, which is your testing environment prior to deployment, and install your app using the <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install Custom App</a> flow to begin testing you app.</li>
+    <li>Invite additional team members to your app.</li>
+    <li>Access the automatically generated <b>Developer Sandbox</b>, which is your testing environment prior to deployment, and install your app using the <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install Custom App</a> flow to begin testing your app.</li>
 </ul>
 </details>
 
@@ -68,14 +68,14 @@ Now that you have an idea of the minimum requirements to be listed on the Procor
 <details>
 <summary class="collapseListTierOne">2. Gather Customer Feedback</summary>
 <p>
-    As you move towards publishing your app to the Procore Marketplace, gathering customer feedback becomes even more crucial. Running a pilot program with select customers can provide valuable insights into how your integration is used alongside Procore, ensuring it meets real-world needs.
+    As you move towards publishing your app to the Procore Marketplace, gathering customer feedback becomes even more crucial. Running a pilot program with select customers can provide valuable insights into how your integration is used alongside Procore and ensuring it meets real-world needs.
 
     While building, keep these key points in mind:
 </p>
 <ul>
     <li><b>Onboarding Experience:</b> Ensure that the integration is easy to onboard. Simplify the process as much as possible to reduce friction for your users.</li>
-    <li><b>Data Connector Considerations:</b> If your app includes a data connector, carefully understand the difference between User Level and Service Account Authentication. While your app can utilize both, pick the one that aligns with your users' needs as it will significantly impact the customer experience.</li>
-    <li><b>Customer Communication & Support:</b> Plan for customer support by creating 'Getting Started' guides or FAQs.</li>
+    <li><b>Data Connector Considerations:</b> If your app includes a data connector, carefully understand the difference between User Level and Service Account Authentication. While your app can utilize both, pick the one that aligns with your users' needs as it can significantly impact the customer experience.</li>
+    <li><b>Customer Communication & Support:</b> Create 'Getting Started' guides or FAQs to help inform prospective customers and guide existing customers.</li>
     <li><b>Handling Multiple Procore Company Accounts:</b> Keep in mind that Procore users may be part of multiple company accounts. Ensure your app is designed to work seamlessly across different Procore company accounts.</li>
     <li><b>Enterprise Needs:</b> Build with enterprise-level customers in mind. Consider their privacy needs, security concerns, and how easy it is to scale your solution across large organizations.</li>
 </ul>
@@ -88,8 +88,8 @@ Now that you have an idea of the minimum requirements to be listed on the Procor
     Once your app meets the minimum requirements and you are ready to support it, you can apply to become a Procore Partner directly within the <b>Marketplace Listing</b> section of your app. This process includes:
 </p>
 <ol>
-    <li>Completing and receiving approval for the <b>Procore Vetting Questionnaire</b>.</li>
-    <li>Signing the <b>Procore Framework Agreement</b>.</li>
+    <li>Completing and receiving approval for the <b>Procore Review Questionnaire</b>.</li>
+    <li>Signing the <b>Procore Framework Agreement</b> and <b>Technology Partner Addendum</b>.</li>
 </ol>
 <p>
     To learn more about the Partner Program, visit <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}">Procore Partner Overview</a>.
@@ -105,6 +105,7 @@ Now that you have an idea of the minimum requirements to be listed on the Procor
 <ul>
     <li>Submitting a demo video of your app.</li>
     <li>Completing the Marketplace Listing.</li>
+    <li>Incorporating feedback from the Procore Marketplace team.</li>
     <li>Updating your app to support Procore's production environment.</li>
 </ul>
 <p>
@@ -121,12 +122,12 @@ After your app is approved, you must continue to meet the following requirements
 ### Maintain Your Published App
 To maintain your app's listing and provide continuous value to customers, you must:
 
-- Respond promptly to inquiries and support requests.
+- Respond promptly to inquiries and support requests in accordance with Procore’s policies and agreements.
 - Keep your Marketplace Listing updated with accurate information, including app features, descriptions, and contact details.
 - Regularly update your app to align with Procore’s platform enhancements.
 - Ensure your app remains actively used by monitoring customer engagement.
 - Address bugs or issues promptly to maintain quality and reliability.
-- Add collaborators to your app’s management team to ensure consistent support.
+- Add additional team members to your app’s management team to ensure consistent support.
 
 ### Enforcement Actions
 Procore may take enforcement actions if your app fails to meet ongoing requirements, such as:
@@ -138,9 +139,6 @@ Procore may take enforcement actions if your app fails to meet ongoing requireme
 
 ***
 ### Updates to Guidelines and Enforcement
-Procore Technologies reserves the right to revise the Developer Documentation in its discretion.
+Procore Technologies reserves the right to modify the Developer Documentation at any time, in its sole discretion.
 
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any application listing at any time.
-
-
-
+As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace Listing at any time.

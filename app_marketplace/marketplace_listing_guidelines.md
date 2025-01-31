@@ -7,13 +7,13 @@ section_title: App Marketplace
 ---
 
 ## Introduction
-Once your app is built and legal contracting is complete, the next step is preparing your listing for the marketplace. This process involves adding visuals, descriptions, and pricing, all of which must follow specific guidelines to ensure consistency and streamline the review.
+Once your app is built and legal contracting is complete, the next step is preparing your listing for the Marketplace. This process involves adding visuals, descriptions, and pricing, all of which must follow specific guidelines to ensure consistency and streamline the review.
 
 You can access the **Marketplace Listing** section through the left navigation menu inside your app, within the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>.
 
-This guide outlines the key fields, their requirements, and examples to help you meet the marketplace standards. Whether you're starting or ready to submit, you'll find everything needed to meet marketplace standards and create a high-quality user experience.
+This guide outlines the key fields, their requirements, and examples to help you meet the Marketplace listing standards. Whether you're starting or ready to submit, you'll find everything needed to meet Marketplace listing standards and create a high-quality user experience.
 
-Listings are manually reviewed, and those not meeting the criteria may be rejected, so follow the guidelines closely for approval.
+Listings are manually reviewed, and those not meeting the criteria may be rejected, so follow the guidelines closely.
 <br><br>
 
 ***
@@ -25,11 +25,11 @@ A well-chosen app name is the first thing users notice and should clearly convey
 
 Consider the following guidelines when naming your app:
 - Must not infringe on a trademark or copyright for any other products or services.
-- Must be unique and be different from any other App name on the Marketplace.
+- Must be unique and be different from any other app name on the Marketplace.
 - Must not include the word Procore anywhere in the name.
 - Must be a clear and intuitive name suitable for the Marketplace.
 
-Procore makes the final determination on whether your proposed App name is acceptable.
+Procore makes the final determination on whether your proposed app name is acceptable.
 <br><br>
 
 | Example approved app names | Example rejected app names     |
@@ -43,11 +43,11 @@ Procore makes the final determination on whether your proposed App name is accep
 
 ### Tagline
 #### **Requirement:** 40 characters or less
-The tagline is one of the first introductions users have to your app, appearing in marketplace search results and app cards. It should briefly and concisely summarize your app's value and how it benefits users. Use action-based language with verbs like **add**, **create**, and **visualize** to grab attention. 
+The tagline is one of the first introductions users have to your app, appearing in Marketplace search results and app cards. It should briefly and concisely summarize your app's value and how it benefits users. Use action-based language with verbs like **add**, **create**, and **visualize** to grab attention. 
 
 ### Integration Summary
 #### **Requirement:** 200 to 2,000 characters
-The integration summary on your app's listing page allows you to highlight your app’s value by showcasing the problem it solves or the results it delivers. Here are some key points you should cover:
+The integration summary on your Marketplace Listing page allows you to highlight your app’s value by showcasing the problem it solves or the results it delivers. Here are some key points you should cover:
 
 - If your app connects with another service, offer a short explanation of that service for users who may be unfamiliar with it.
 - Clearly define the problem your app addresses to help users understand how it can be applied.
@@ -66,15 +66,15 @@ Procore customers often review the app to understand its technical functionality
 Your app's pricing plan is an important part of the submission process, providing customers with clear details on what’s required to implement the integration. Here are two key pricing scenarios:
 
 1. Does the app require an additional subscription to another system?
-    - **Example:** The customer must have a Box subscription, but the integration itself is included with that subscription.
+    - **Example:** The customer must have a Box subscription, which is the other service.
 2. Is there a third-party connector needed for the integration, or is it included in the subscription?
-    - **Example:** The integration requires a connector to a middleware service, such as Boomi, which the customer must purchase separately.
+    - **Example:** The app requires a subscription to a middleware service, such as Boomi, which the customer much purchase separately.
 <br><br>
 
 ***
 ## Features
 #### **Requirement:** Each feature must be 200 characters or less, no special characters or emojis
-The **Features** section highlights the key functionalities of your app, emphasizing the value it delivers to end-users. Each feature should be clear, specific, and focused on tangible benefits of the integration.
+The **Features** section highlights the key functionalities of your app, emphasizing the value it delivers to end-users. Each feature should be clear, specific, and focused on tangible benefits of the app.
 
 #### Best Practices for Writing Features
 - **Be Specific:** Clearly describe what the feature does and the problem it solves. Avoid vague statements like "Improves productivity."
@@ -109,7 +109,7 @@ This map visually represents how data flows between Procore and the external sys
 
 ### Logo
 #### **Requirement:** JPG or PNG, 200x200px 
-Your app icon is one of the first things users notice in the marketplace, so it should clearly represent your app’s identity. Make sure it's unique, eye-catching, and easy to understand.
+Your app icon is one of the first things users notice in the Marketplace, so it should clearly represent your app’s identity. Make sure it's unique, eye-catching, and easy to understand.
 
 Keep these guidelines in mind:
 
@@ -122,13 +122,13 @@ Keep these guidelines in mind:
 
 ### App Preview & Screenshots
 #### **Requirement:** 3 or more images in JPG or PNG format, 720x480px - 1920x1080px
-The images on your app’s marketplace listing are a powerful tool to showcase your app’s key features, benefits, and functionality. These visuals help users quickly grasp how your app works while reinforcing your brand.
+The images on your app’s Marketplace listing are a powerful tool to showcase your app’s key features, benefits, and functionality. These visuals help users quickly grasp how your app works while reinforcing your brand.
 
 Here are some tips for creating effective gallery images:
 
 - Use high-quality, focused screenshots that highlight core features and customer benefits.
 - Pair each image with brief, clear statements explaining how your app solves user pain points.
-- Keep each image focused on a single value proposition, and expand on these benefits in the app listing description.
+- Keep each image focused on a single value proposition, and expand on these benefits in the Marketplace listing description.
 - When showing your app’s interface, add concise text to help explain the context and how your app improves workflow.
 
 ![Marketplace Screenshot Examples]({{ site.baseurl }}/assets/guides/app-marketplace-screenshot-examples.png)
@@ -161,7 +161,7 @@ You can decide whether to allow customers to install your app directly from the 
 
 - **Allow Installations:** This option allows the user to install the app in their selected Procore Company Account, simplifying the process for customers and can drive faster adoption. We recommend enabling it whenever possible.
 - **Disallow Installations (NEW):** If your app requires significant setup, support, or training, you may choose to disable direct installations. 
-    - This approach allows your team to manage the onboarding process more carefully as the customer would need to reach out to your team directly to learn how to install the integration. This process would utilize the <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Custom App Install</a> workflow, where you would be responsible for providing the customer with the App Install Key.
+    - This approach allows your team to manage the onboarding process more carefully as the customer would need to reach out to your team directly to learn how to install the app. This process would utilize the <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Custom App Install</a> workflow, where you would be responsible for providing the customer with the App Install Key.
 
 ![Marketplace Engagement Examples]({{ site.baseurl }}/assets/guides/app-marketplace-engagement-examples.png)
 <br><br>
@@ -169,6 +169,6 @@ You can decide whether to allow customers to install your app directly from the 
 ***
 ### Updates to Guidelines and Enforcement
 
-Procore Technologies reserves the right to revise the Developer Documentation in its discretion.
+Procore Technologies reserves the right to revise the Developer Documentation at any time, in its sole discretion.
 
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any application listing at any time.
+As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace Listing at any time.

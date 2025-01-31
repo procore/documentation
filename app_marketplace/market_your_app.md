@@ -6,13 +6,13 @@ section_title: App Marketplace
 ---
 
 ## Introduction
-Partner integrations empower our mutual customers, driving further adoption. By leveraging our co-marketing opportunities, you can both promote your app and strengthen its integration within the Procore ecosystem, reaching more customers and demonstrating its value. 
+Partner integrations empower our mutual customers, driving further adoption. By leveraging our self-service marketing opportunities, you can both promote your app and strengthen its integration within the Procore ecosystem, allowing you to reach more customers and demonstrate its value. 
 
 We’ve designed these opportunities to help you maximize the impact of your apps and integrations built on our API, while streamlining the co-marketing process for self-service.
 <br><br>
 
 ***
-## Co-Marketing Opportunities
+## Marketing Opportunities
 There are two main channels when it comes to co-marketing opportunities with Procore, Press Releases and Social Media & Blog Posts. To understand more about each one, and the items that it supports, review the content below.
 
 
@@ -35,27 +35,27 @@ There are two main channels when it comes to co-marketing opportunities with Pro
 
 - **New Content or News Feature:** Share newly published articles, blogs, or news featuring your partnership with Procore. Focus on highlighting key themes, insights, or benefits that resonate with the construction industry. Use this opportunity to underscore how your collaboration with Procore helps users achieve their goals.
 
-To participate in any of these co-marketing activities, refer to the **Review Process** section of this guide to understand how, and when, to submit public facing materials mentioning Procore.
+To participate in any of these marketing activities, refer to the **Review Process** section of this guide to understand how, and when, to submit public facing materials mentioning Procore.
 <br><br>
 <!-- Additionally, refer to our Press Release and Best Practices for Blogs and Social Media Posts to prevent delays or rejections. -->
 
 ***
-## Co-Marketing Guidelines
+## Marketing Guidelines
 As detailed in the <a href="https://www.procore.com/partners/documents" target="blank">Procore Partner Agreement</a>, Partners are responsible for accurately representing Procore and the partnership in all public facing materials produced by the Partner, including but not limited to press releases, social media copy, blogs, and webinar content. This includes ensuring compliance with the <a href="https://brand.procore.com/design/logos/?_gl=1*13n0feh*_gcl_au*Mjk3NzY4NjQxLjE3Mjg1MTUwNzY.*_ga*NTEyMTM3NDQ1LjE3MjM4MzU1NDk.*_ga_DDN1X7BZGJ*MTcyODg1NjMxNi42LjEuMTcyODg1Nzk3NS45LjAuMA..*_ga_0W3CW2NEWP*MTcyODg1NjMxNi4xMC4xLjE3Mjg4NTc5NzUuOS4wLjA.#overview" target="blank">Brand Use Guidelines</a>, <a href="https://www.procore.com/legal/trademark#otnotice-section-785579e4-abc0-4846-850b-cfb5bf95ab45" target="blank">Trademark Use Guidelines</a>, as well as the additional guidelines outlined below.
 
 ### Review Process
-Partners are required to submit any public facing materials mentioning Procore for review to the Partner Programs & Experience team at <partnerprograms@procore.com>. Please include your desired launch timing for all public facing marketing collateral. Procore will aim to provide a response within 5 business days. Once approved, you are responsible for the logistics and costs of distribution, and announcement timing must be conducted in the approved window provided by Procore. 
+Partners are required to submit any public facing materials mentioning Procore for review to the Partner Programs & Experience team at <partnerprograms@procore.com>. Please include your desired launch timing for all public facing marketing collateral. Procore will aim to provide a response within 7-10 business days. Once approved, you are responsible for the logistics and costs of distribution, and announcement timing must be conducted in the approved window provided by Procore. 
 
-Please note that Procore does not make public announcements during its quarterly quiet periods, which typically take place two weeks prior to our quarterly earnings announcements. All requests for external communications during these timeframes will be delayed until the conclusion of the corresponding quiet period.
+Please note that Procore does not make public announcements during its quarterly quiet periods, which typically take place two weeks prior to our quarterly earnings announcements or during the quiet period around Groundbreak, Procore’s annual construction innovation event. All requests for external communications during these timeframes will be delayed until the conclusion of the corresponding quiet period.
 
 ### Enforcement Actions
-Partners that do not comply with Procore’s <a href="https://brand.procore.com/design/logos/?_gl=1*13n0feh*_gcl_au*Mjk3NzY4NjQxLjE3Mjg1MTUwNzY.*_ga*NTEyMTM3NDQ1LjE3MjM4MzU1NDk.*_ga_DDN1X7BZGJ*MTcyODg1NjMxNi42LjEuMTcyODg1Nzk3NS45LjAuMA..*_ga_0W3CW2NEWP*MTcyODg1NjMxNi4xMC4xLjE3Mjg4NTc5NzUuOS4wLjA.#overview" target="blank">Brand Use Guidelines</a> and/or <a href="https://www.procore.com/legal/trademark#otnotice-section-785579e4-abc0-4846-850b-cfb5bf95ab45" target="_blank">Trademark Usage Guidelines</a> will be subject to a partnership review and possible change in program benefits, including loss of status as a Procore Partner, per the Partner Agreement. 
+Partners that do not comply with Procore’s <a href="https://brand.procore.com/design/logos/?_gl=1*13n0feh*_gcl_au*Mjk3NzY4NjQxLjE3Mjg1MTUwNzY.*_ga*NTEyMTM3NDQ1LjE3MjM4MzU1NDk.*_ga_DDN1X7BZGJ*MTcyODg1NjMxNi42LjEuMTcyODg1Nzk3NS45LjAuMA..*_ga_0W3CW2NEWP*MTcyODg1NjMxNi4xMC4xLjE3Mjg4NTc5NzUuOS4wLjA.#overview" target="blank">Brand Use Guidelines</a>, <a href="https://www.procore.com/legal/trademark#otnotice-section-785579e4-abc0-4846-850b-cfb5bf95ab45" target="_blank">Trademark Usage Guidelines</a>,  and other applicable policies will be subject to a partnership review and possible change in program benefits, including loss of status as a Procore Partner, per the Partner Agreement. 
 
-Actions taken may include, without limitation, declining all citation requests from companies with active citation violations as well as cease and desist orders to remove content. If you have questions about what constitutes a violation, or you believe that you have found a violation, please contact us at <partnerprograms@procore.com>.
+Actions taken may include, without limitation, declining all citation requests from companies with active citation violations as well as demands to remove content. If you have questions about what constitutes a violation, or you believe that you have found a violation, please contact us at <partnerprograms@procore.com>.
 <br><br>
 
 ***
-## Co-Marketing Resources
+## Marketing Resources
 To help you get started, we’ve made several resources available to your marketing team, including:
 
 <ul>
@@ -73,6 +73,6 @@ We encourage you to use these resources to create co-branded content that aligns
 ***
 ### Updates to Guidelines and Enforcement
 
-Procore Technologies reserves the right to revise the Developer Documentation in its discretion.
+Procore Technologies reserves the right to revise the Developer Documentation at any time, in its sole discretion.
 
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any application listing or co-marketing opportunity at any time.
+As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace Listing or co-marketing opportunity at any time.
