@@ -58,7 +58,21 @@ This is how to determine which API endpoints should be used for the specific too
 
 ## Example Known Use Cases
 
-Workflow Instances 
+### Webhooks
+
+Instances fire a number of events that can be used as triggers for webhooks. This new event driven system for webhooks doesn't have a UI yet so this section has some info needed for creating a trigger.
+
+The `resource_name` is "Workflow Instance".
+
+The `event_type` can be one of:
+- "STARTED"
+- “CURRENT_STEP_ASSIGNEES_CHANGED”
+- “RESPONSE_RECEIVED”
+- “TRANSITIONED”
+- “ENDED”
+- “TERMINATED”
+- “RESTARTED”
+- “DELETED”
 
 ### Integration Driven Workflow
 
