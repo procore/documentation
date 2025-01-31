@@ -2740,17 +2740,20 @@ Model
 
 ---
 
-### Get Global Offset
+<!-- This is to keep links to the old method name working. -->
+<div id="get-global-offset"></div>
 
-<p class="heading-link-container"><a class="heading-link" href="#get-global-offset"></a></p>
+### Get Global Offset (Do Not Use)
+
+<p class="heading-link-container"><a class="heading-link" href="#get-global-offset-do-not-use"></a></p>
 
 ```js
-getGlobalOffset();
+getGlobalOffsetDoNotUse();
 ```
 
 #### Description
 
-Retrieves the global offset, if there is one.
+Retrieves the global offset, if there is one. See [migrating to world coordinates](#migrating-to-world-coordinates) for details on avoiding using this method.
 
 #### Parameters
 
@@ -2759,7 +2762,7 @@ None
 ##### Returns
 
 ```js
-{offsetX: Number, offsetY: Number, offsetZ: Number}
+{x: Number, y: Number, z: Number}
 ```
 
 ##### Namespace
@@ -4342,6 +4345,76 @@ GUI
 
 ---
 
+### Show Coachmark
+
+<p class="heading-link-container"><a class="heading-link" href="#show-coachmark"></a></p>
+
+```js
+showCoachmark({
+  id,
+  label,
+  buttonLabel,
+  buttonOnClick,
+  tooltipMessage,
+});
+```
+
+#### Description
+
+Shows a custom coachmark in the Web Viewer.
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| id | true | | String | id of the coachmark that can be used to hide this same coachmark with [`hideCoachmark`](#hide-coachmark). Will also be used to set the id on the coachmark DOM element. |
+| label | true | | String | Text that appears in the coachmark. |
+| buttonLabel | true | | String | Text that appears in the coachmark button. |
+| buttonOnClick | true | | Function | Callback to be called when coachmark button is clicked. |
+| tooltipMessage | false | | String | Text to display in a tooltip for the coachmark. If not provided then the coachmark will not have a tooltip. |
+
+##### Returns
+
+```js
+void
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Hide Coachmark
+
+<p class="heading-link-container"><a class="heading-link" href="#hide-coachmark"></a></p>
+
+```js
+hideCoachmark(id);
+```
+
+#### Description
+
+Hides a custom coachmark in the Web Viewer.
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| id | true | | String | id of the coachmark to hide. Must match the id that was passed to [`showCoachmark`](#show-coachmark). |
+
+##### Returns
+
+```js
+void
+```
+
+##### Namespace
+
+GUI
+
+---
+
 ### Set Toolbar Hidden
 
 <p class="heading-link-container"><a class="heading-link" href="#set-toolbar-hidden"></a></p>
@@ -4394,6 +4467,190 @@ Allows you to enable or disable hotkeys. For example, pressing "X" will turn on 
 
 ```js
 void
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Get Equivalent Unit for Display Unit
+
+<p class="heading-link-container"><a class="heading-link" href="#get-equivalent-unit-for-display-unit"></a></p>
+
+```js
+getEquivalentUnitForDisplayUnit(unit, displayUnit);
+```
+
+#### Description
+
+Returns a unit that matches the dimension of the provided unit in the display unit.
+
+```js
+const equivalentLengthUnit = gui.getEquivalentUnitForDisplayUnit('ft', 'm');
+
+console.log(equivalentLengthUnit); // => 'm'
+
+const equivalentAreaUnit = gui.getEquivalentUnitForDisplayUnit('yd²', 'm')
+
+console.log(equivalentAreaUnit); // => 'm²'
+```
+
+You might use this if you want to display a value in the display unit set by the user. For example:
+
+```js
+const { UOM } = ProcoreBim;
+const oneSquareFoot = 1;
+const { displayUnits } = viewer.gui.getSettings(); // For example, say it's set to 'm'
+
+console.log(displayUnits); // => 'm'
+
+const equivalentUnit = viewer.gui.getEquivalentUnitForDisplayUnit(
+  UOM.sqft,
+  displayUnits
+);
+
+console.log(equivalentUnit); // => 'm²'
+
+const convertedValue = viewer.gui.convertUnit(
+  oneSquareFoot,
+  UOM.sqft,
+  equivalentUnit
+);
+
+console.log(convertedValue); // => 0.09290304
+
+const formattedValue = viewer.gui.formatUnit(convertedValue, equivalentUnit);
+
+console.log(formattedValue); // => '0.0929 m²'
+```
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| unit | true | | [Uom](#uom) | The unit you need an equivalent unit for. |
+| displayUnit | true | | [DisplayUnit](#display-unit) | The display unit you're trying to represent the unit in. |
+
+##### Returns
+
+```js
+Uom
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Convert Unit
+
+<p class="heading-link-container"><a class="heading-link" href="#convert-unit"></a></p>
+
+```js
+convertUnit(value, fromUnit, toUnit);
+```
+
+#### Description
+
+Converts the value from one unit to another.
+
+```ts
+const oneFtInM = gui.convertUnit(1, 'ft', 'm');
+
+console.log(oneFtInM); // => 0.3048
+```
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| value | true | | number | The value to convert. |
+| fromUnit | true | | [Uom](#uom) | The unit of the value to convert from. |
+| toUnit | true | | [Uom](#uom) | The unit to convert to. |
+
+##### Returns
+
+```js
+number
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Format Unit
+
+<p class="heading-link-container"><a class="heading-link" href="#format-unit"></a></p>
+
+```js
+formatUnit(value, unit);
+```
+
+#### Description
+
+Formats the value with the unit.
+
+- Uses locale passed in to [`Webviewer` options](#options) to display correct thousands and decimals separators for the locale.
+- Rounds values to 4 decimal places and truncates trailing zeroes.
+
+```ts
+const viewerDeLocale = new Webviewer({ locale: 'de-DE', /* ... */ });
+const formattedDeLocale = viewerDeLocale.gui.formatUnit(1000.123456789, 'm');
+
+console.log(formattedDeLocale); // => '1.000,1235 m'
+
+const viewerDefaultLocale = new Webviewer({ locale: undefined, /* ... */ });
+const formattedDefaultLocale = viewerDefaultLocale.gui.formatUnit(1000.123456789, 'm');
+
+console.log(formattedDefaultLocale); // => '1,000.1235 m'
+```
+
+#### Parameters
+
+| Field Name | Required | Default | Type | Description |
+| - | - | - | - | - |
+| value | true | | number | The value to include in the formatted ouptput. |
+| unit | true | | [Uom](#uom) | The unit to include in the formatted output. |
+
+##### Returns
+
+```js
+number
+```
+
+##### Namespace
+
+GUI
+
+---
+
+### Get Settings
+
+<p class="heading-link-container"><a class="heading-link" href="#get-settings"></a></p>
+
+```js
+getSettings();
+```
+
+#### Description
+
+Returns user settings.
+
+#### Parameters
+
+None
+
+##### Returns
+
+```js
+{
+  displayUnits: DisplayUnit
+}
 ```
 
 ##### Namespace
@@ -4747,6 +5004,22 @@ For example:
 
 See [Tools](#tools) for further information.
 
+---
+
+`locale`
+
+##### string
+
+```js
+{
+  locale: 'en-US'
+}
+```
+
+Locale to use for display language, number formatting, and other localization.
+
+Defaults to `'en'`.
+
 ## Objects
 
 <p class="heading-link-container"><a class="heading-link" href="#objects"></a></p>
@@ -5050,11 +5323,41 @@ export const derangify = (rangified: {
 }
 ```
 
-### Constants
+## Constants
 
 <p class="heading-link-container">
   <a class="heading-link" href="#constants"></a>
 </p>
+
+### Uom
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#uom"></a>
+</p>
+
+The `UOM` constant holds all valid unit of measure strings. The `Uom` type is a union of all these.
+
+```ts
+const candelasPerSquareMeter: Uom = UOM.cdsqm;
+
+console.log(candelasPerSquareMeter); // => "cd/m²"
+```
+
+### Display Unit
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#display-unit"></a>
+</p>
+
+Display units are the unit to display values in. It can be changed by the user in the Settings window. It can also be queried via [`gui.getSettings`](#get-settings).
+
+The `DISPLAY_UNIT` constant holds all possible display units. The `DisplayUnit` type is a union of all these.
+
+```ts
+const feetInches: DisplayUnit = DISPLAY_UNIT.FeetInches
+
+console.log(feetInches); // => "ftin"
+```
 
 ### Tools
 
@@ -5094,6 +5397,38 @@ export const derangify = (rangified: {
 <p class="heading-link-container">
   <a class="heading-link" href="#migration-guides"></a>
 </p>
+
+### v16 to v17
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v16-to-v17"></a>
+</p>
+
+#### Change `models.getGlobalOffset` to `models.getGlobalOffsetDoNotUse`
+
+[`models.getGlobalOffset`](#get-global-offset) has been renamed to [`models.getGlobalOffsetDoNotUse`](#get-global-offset-do-not-use) and its return type has been modified:
+
+```ts
+// v16
+await models.getGlobalOffset()
+// => { offsetX: 0.1, offsetY: 0.2, offsetZ: 0.3 }
+
+// v17
+await models.getGlobalOffsetDoNotUse()
+// => { x: 0.1, y: 0.2, z: 0.3 }
+```
+
+See [migrating to world coordinates](#migrating-to-world-coordinates) for context and on how to avoid needing this method.
+
+### v15 to v16
+
+<p class="heading-link-container">
+  <a class="heading-link" href="#v15-to-v16"></a>
+</p>
+
+#### Removal of `options.featureFlags.enableObjectTreeSearch`
+
+Object tree search is now always enabled and passing this option when instantiating `Webviewer` will be ignored.
 
 ### v14 to v15
 
@@ -5552,13 +5887,17 @@ I have the privilege of writing this migration guide from the future and can tel
 
 #### Context
 
-Historically, many methods and events returned and/or expected to receive coordinates that were not consistent with the model coordinates from the source file. To get the correct coordinates you would need to add/subtract the result of `model.getGlobalOffset` to them. This would affect models that are significantly offset from the origin, which we refer to as being in "world coordinates".
+Historically, many methods and events returned and/or expected to receive coordinates that were not consistent with the model coordinates from the source file. To get the correct coordinates you would need to add/subtract the result of `model.getGlobalOffsetDoNotUse` to them. This would affect models that are significantly offset from the origin, which we refer to as being in "world coordinates".
 
 We have since taken the stance that all coordinates returned or required as parameters to the Web Viewer should be consistent with the model coordinates from the source file. However, we will be updating them as we come across them so they may be shipped across multiple breaking changes.
 
+#### Note for Versions Before v17
+
+Prior to v17, `model.getGlobalOffsetDoNotUse` was called `model.getGlobalOffset` and had a different return type. See [v16 to v17 migration guide](#v16-to-v17) for more details.
+
 #### Migration Guide
 
-If you were saving data returned from a method or event payload that has changed, that data may now be inconsistent if there is a global offset (i.e. if `model.getGlobalOffset` is a non-zero vector) for that model. This can result in behavior where setting the camera position with `setPosition` may be very far away from the actual model. To migrate the old data you would need to translate by the `model.getGlobalOffset` to be in the correct coordinate system.
+If you were saving data returned from a method or event payload that has changed, that data may now be inconsistent if there is a global offset (i.e. if `model.getGlobalOffsetDoNotUse` is a non-zero vector) for that model. This can result in behavior where setting the camera position with `setPosition` may be very far away from the actual model. To migrate the old data you would need to translate by the `model.getGlobalOffsetDoNotUse` to be in the correct coordinate system.
 
 For example, say you were on an old version of the Web Viewer in which `camera.getPosition/setPosition` did not operate on "world coordinates" and you were saving the camera positions with the following:
 
@@ -5578,25 +5917,25 @@ viewer.camera.setPosition(x, y, z);
 
 But then a new version of the Web Viewer is released that updates `camera.getPosition/setPosition` to be in "world coordinates". The values you have saved in your DB will now be incorrect when you pass them to `setPosition`.
 
-To fix this issue you would need to add the global offset (`model.getGlobalOffset`) to the position before calling `setPosition`:
+To fix this issue you would need to add the global offset (`model.getGlobalOffsetDoNotUse`) to the position before calling `setPosition`:
 
 ```ts
 const { x, y, z } = await getCameraPositionFromServer();
-const { offsetX, offsetY, offsetZ } = await viewer.model.getGlobalOffset();
+const offset = await viewer.model.getGlobalOffsetDoNotUse();
 
-viewer.camera.setPosition(x + offsetX, y + offsetY, z + offsetZ);
+viewer.camera.setPosition(x + offset.x, y + offset.y, z + offset.z);
 ```
 
 Saving to the DB would also need to be updated to keep your DB values in a consistent coordinate system:
 
 ```ts
 const { x, y, z } = await viewer.camera.getPosition();
-const { offsetX, offsetY, offsetZ } = await viewer.model.getGlobalOffset();
+const offset = await viewer.model.getGlobalOffsetDoNotUse();
 
 postCameraPositionToServer({
-  x: x - offsetX,
-  y: y - offsetY,
-  z: z - offsetZ
+  x: x - offset.x,
+  y: y - offset.y,
+  z: z - offset
 });
 ```
 

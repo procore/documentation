@@ -13,6 +13,9 @@ In the metadata, the root key **settings** contains two subkeys: **labels** and 
 ```
 "settings": {
   "labels": {...},
+  "configurations": {
+    "features": {...}
+  },
   "entities": {
     "entity_name": {
       "enabled": true,
@@ -42,6 +45,21 @@ The **labels** section allows the integrator to set an integration's naming info
 - **id_name** - This is used as a prefix for the code field (i.e. Sage ID).
 - **short_name** - This is a shorter version of the `name` field above that is used in various areas in the ERP tool (i.e. Sage).
 
+### Configurations
+Within the `configurations` section, the integrator can set various features for the integration. If you are not enabling the configuration, you do not need to include it in the metadata.
+
+```
+"configurations": {
+  "features": {
+    "custom_wbs_segments":  {
+        "enabled": false
+    }
+  }
+}
+```
+#### custom_wbs_segments
+When enabled, users will be able to create custom WBS segment types as well as segment items that belong to the custom segment.
+
 ### Entities
 
 Procore currently supports the following entities:
@@ -64,7 +82,7 @@ Procore currently supports the following entities:
 For each entity, Procore groups metadata configurations into three categories: **configs**, **tab**, and **rules**.
 The following sections explain each of these categories in order, using the **vendor** entity as an example.
 
-### Configs
+### Entity Configs
 
 Procore allows integrators to create and update vendors through the export and import actions.
 These actions can be enabled or disabled using the following metadata block.

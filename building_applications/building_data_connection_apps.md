@@ -22,32 +22,40 @@ This article provides details on the following steps for creating a new data con
 <a name="create-a-new-application">
 {% include create_application.md %}
 
->**Note:** When creating a data connection application using DMSA, you do not need to add any components. For this type of application, you will begin by configuring tool permissions.
+## Add a New Data Connector Component
 
-## Specify Tool Permissions Using Permission Builder
+Data connector components define how your app syncs data with Procore.
+Data connector components enable you to create, update, and read data from Procore to the connected platform through a Client ID and Client Secret.
+Select between User Level Authentication, Service Account Authentication, or both based on your app's functionality and security requirements.
 
-Use the Permission Builder to specify the Company level and Project level tool permissions that are required to install and use your application. Refer to the [User Permissions Matrix](https://support.procore.com/references/user-permissions-matrix-web) for additional information.
-
-1. Navigate to the Configuration Builder on the Manage App page.
-2. Expand the **Permissions** section of the page.
-3. Click **Add Permissions** to open the permissions builder and select the appropriate permissions for your application.
+1. Navigate to the Configuration Builder and expand the Data Connector Components section.
+2. Click **Add Components**.
+3. Choose a Component Type:
+    - User Level Authentication - The integration will interact on behalf of a user and limit the API response body based on their Procore permissions (OAuth 2.0 authorization code).
+    - Service Account Authentication - The integration will use a (DMSA) service account (OAuth 2.0 Client Credentials).
+4. Selecting the Service Account Authentication component type displays a permissions builder where you can define the company level and project level tool permissions required to install and use your integration. Refer to the [User Permissions Matrix](https://support.procore.com/references/user-permissions-matrix-web) for additional information.
 
     ![Permission Builder]({{ site.baseurl }}/assets/guides/form-based-manifest-dmsa-perms-builder.png)
 
 4. On the Company tab, define the required permission levels (Read Only, Standard, or Admin) for each Company level tool that is accessed by your app.
 5. Repeat the previous step on the Project tab to define Project level tool permissions.
-6. Click **Save Permissions**.
-Your application is updated with the permissions you defined in the Permission Builder.
+6. Click **Save Component**.
+Your data connector component is updated with the permissions you defined in the permissions builder.
 
 <a name="define-setup-instructions"></a>
 {% include setup_instructions.md %}
 
-## Save Manifest and Create Version
+## Create Intitial App Manifest Version
 
-After completing the steps above, you're ready to save your application configuration and set your first version number. 
-1. Click **Save** at the top of the page.
-2. The **Create Version** window appears. Enter a version number using the following syntax: **x.x.x.**
-Note: Your version number can only contain integers, and must consist of three (3) integers separated by a '.'. For example, '1.1.1'. Each new version you create must be a higher number than the previous version.
+After completing the steps above, you're ready to save your app configuration in the App Manifest and set the initial version number. 
+1. In the Configuration Builder, click **Create Version**.
+2. Enter a version number using the following syntax: **x.x.x.**
+For example, '1.1.1'.
+Each new version you create must be a higher number than the previous version.
+3. Click **Create**.
+The new version is saved with a status of `Ready for Testing`.
+
+[As you make ongoing changes to the app configuration during development, you can save these changes as new versions using the **Save Version** button.]
 
 ## Test and Validate in Development Sandbox
 
