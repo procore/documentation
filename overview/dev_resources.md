@@ -5,6 +5,16 @@ layout: default
 section_title: Overview
 ---
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/help-and-learning-center" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/help-and-learning-center">click here</a>.</p>
+  </body>
+</html>
+
 Here are some additional resources you will find useful as you learn to work with the Procore Connect API and progress through your development project.
 
 ## Procore API Reference

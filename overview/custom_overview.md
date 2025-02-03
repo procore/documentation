@@ -5,7 +5,17 @@ layout: default
 section_title: Overview
 ---
 
-Integrate your existing best-in-class applications with Procore’s construction management platform to increase productivity, maximize the ROI of existing solutions, and extract valuable insights.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/introduction" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/introduction">click here</a>.</p>
+  </body>
+</html>
+
+<!-- Integrate your existing best-in-class applications with Procore’s construction management platform to increase productivity, maximize the ROI of existing solutions, and extract valuable insights.
 In order to provide a superior solution for all aspects of construction management, the Procore API gives customers an integration toolkit and access to our public API to build custom integrations between Procore and other technologies used within the customer’s organizations.
 
 Procore is a cloud-based construction project management solution.
@@ -24,4 +34,4 @@ Procore provides a range of technical services to help you achieve your integrat
 Visit the [Technical Services]({{ site.url }}{{ site.baseurl }}{% link additional_resources/tech_services.md %}) page for additional information.
 
 Use our API to connect to Procore and exchange data with the applications you already use.
-[Start building today]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %})!
+[Start building today]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %})! -->

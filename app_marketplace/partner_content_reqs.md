@@ -5,7 +5,17 @@ layout: default
 section_title: Overview
 ---
 
-## Prerequisites
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/marketplace-listing-guidelines" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/marketplace-listing-guidelines">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## Prerequisites
 
 In order to list your integration on the Procore App Marketplace, you must first complete our [Partner Application](https://developers.procore.com/partner-signup).
 Our Partnerships team will work with you on completing a partnership agreement.
@@ -147,5 +157,5 @@ In addition to the App logo/icon you upload on the Developer Portal, you can sub
 
 ## See Also
 
-* [Sales and Support Requirements]({{ site.url }}{{ site.baseurl }}{% link overview/partner_support_content_reqs.md %})
-* [Maximizing Marketplace Conversion Rates]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_maximizing_conversion_rates.md %})
+* [Sales and Support Requirements]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/partner_support_content_reqs.md %})
+* [Maximizing Marketplace Conversion Rates]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_maximizing_conversion_rates.md %}) -->

@@ -5,7 +5,17 @@ layout: default
 section_title: Overview
 ---
 
-## "Build an Application in 15 Minutes" - Watch the Demo!
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/help-and-learning-center" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/help-and-learning-center">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## "Build an Application in 15 Minutes" - Watch the Demo!
 
 Join Megan Turner and Adam Wells from the Procore Ecosystem Team as they walk us through the developer experience and build an application on the Procore platform in less than 15 minutes!
 
@@ -37,4 +47,4 @@ If you do not yet have a Procore user login, you can still explore these trainin
 If you are brand new to Procore we highly recommend you explore the [Procore Certification](http://learn.procore.com/series/procore-certification) courses available for free on our learning management system.
 Each course contains role-specific training material that focuses on teaching you how to perform primary Procore related tasks.
 All courses are modular and can be completed across multiple user sessions.
-Completing the Procore Certification courses will provide you with a solid foundation of Procore product knowledge that you will find invaluable as you begin your Procore development activities.
+Completing the Procore Certification courses will provide you with a solid foundation of Procore product knowledge that you will find invaluable as you begin your Procore development activities. -->

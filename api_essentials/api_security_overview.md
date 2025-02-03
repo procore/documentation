@@ -35,7 +35,7 @@ Disconnecting the app in a specific company will not revoke tokens on behalf of 
 > Existing Traditional Service Accounts will continue to function until March 24, 2025.
 > As a result of this deprecation, developers of data connection applications that currently use traditional service accounts are required to update their applications to use Developer Managed Service Accounts (DMMSAs), and customers will be required to install these updated applications before the sunset date.
 > See the following articles for information on DMSAs and steps for migrating your projects from traditional service accounts.
-> - [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %})
+> - [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link announcements/service_account_deprecation.md %})
 > - [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link building_applications/developer_managed_service_accounts.md %})
 
 Service accounts, which are created and managed by company administrators using the Procore web application, can only be used to access API data within the company account in which they are created.

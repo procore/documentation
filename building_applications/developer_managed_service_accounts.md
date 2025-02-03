@@ -12,7 +12,7 @@ section_title: Building Applications
 > Beginning January 21, 2025, we will no longer allow the creation of new Traditional Service Accounts.
 > Existing Traditional Service Accounts will continue to function until March 24, 2025.
 > As a result of this deprecation, developers of data connection applications that currently use traditional service accounts are required to update their applications to use DMSAs, and customers will be required to install these updated applications before the sunset date.
-> See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %}) for additional information.
+> See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link announcements/service_account_deprecation.md %}) for additional information.
 
 ## Background
 

@@ -183,9 +183,3 @@ For additional information see [What is App Management?](https://support.procore
 
 Our [RESTful API Concepts]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}) guide includes a section that lists standard error codes you may encounter while working with the Procore API.
 If you need additional assistance with dealing with errors, please contact <apisupport@procore.com>.
-
-## Production Access
-
-**I'm ready to test my application against data in my production environment. How do I request production access?**
-
-Our guide to [Creating a New Application]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %}) outlines the steps for requesting production credentials (client_id and client_secret) for your application.

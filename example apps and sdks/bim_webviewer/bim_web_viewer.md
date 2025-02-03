@@ -2,7 +2,7 @@
 permalink: /bim-web-viewer
 title: 'Procore BIM Web Viewer: Integrator Documentation'
 layout: default
-section_title: BIM Web Viewer
+section_title: Example Apps & SDKs
 ---
 
 <!-- markdownlint-disable no-inline-html -->

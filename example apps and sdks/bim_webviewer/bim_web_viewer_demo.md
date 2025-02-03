@@ -1,8 +1,8 @@
 ---
-permalink: /demo
-title: 'Demo'
+permalink: /bim-web-viewer-demo
+title: BIM Web Viewer Demo
 layout: default
-section_title: BIM Web Viewer
+section_title: Example Apps & SDKs
 ---
 
 <!-- markdownlint-disable no-inline-html -->
