@@ -3,13 +3,13 @@
     - title: Introduction
       url: /introduction
     # - title: Custom Integrations
-    #   url: /custom-overview - Updated for Redirect
+    #   url: /custom-overview - Needed for Redirect
     # - title: Marketplace Integrations
-    #   url: /partner-overview - Updated for Redirect
+    #   url: /partner-overview - Needed for Redirect
     # - title: Developer Training
-    #   url: /training - Updated for Redirect
+    #   url: /training - Needed for Redirect
     # - title: Developer Resources
-    #   url: /dev-resources - Updated for Redirect
+    #   url: /dev-resources - Needed for Redirect
     - title: Quick Start Guide
       url: /quick-start-guide
     - title: Help & Learning Center
@@ -24,7 +24,7 @@
     - title: Overview
       url: /object-model-overview
     # - title: General Resources
-    #   url: /object-model-general - Updated for Redirect
+    #   url: /object-model-general - Needed for Redirect
     - title: Company-level Resources
       url: /object-model-company
     - title: Project-level Resources
@@ -40,6 +40,8 @@
       url: /new-account
     - title: Sandbox Environments
       url: /development-environments
+    # - title: Making First Call
+    #   url: /making_first_call - Needed for Redirect
 
 - title: OAuth 2.0 Authentication
   items:

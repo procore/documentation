@@ -7,7 +7,7 @@ section_title: overview
 ---
 
 ## Introduction
-This guide walks you through the process of creating and testing a basic app with Procore's API, using User-Level Authentication. By following these steps, you’ll install your app in a Sandbox environment, configure components, and generate an access token—all within 15 minutes.
+This guide walks you through the process of creating and testing a basic app with Procore's API, using **User-Level Authentication**. By following these steps, you’ll install your app in a Sandbox environment, configure components, and generate an access token—all within 15 minutes.
 <br><br>
 
 ***
@@ -54,7 +54,7 @@ This guide walks you through the process of creating and testing a basic app wit
   <ol>
     <li>In your app, select <b>OAuth Credentials</b> on the left hand side.</li>
     <li>Under <b>Sandbox OAuth Credentials</b>, click into the <b>Redirect URI</b> field.</li>
-    <li>In this field, paste the following text: <code>urn:ietf:wg:oauth:2.0:oob</code>.</li>
+    <li>In this field, paste the following text: <code>urn:ietf:wg:oauth:2.0:oob</code></li>
     <li>Click <b>Update</b> in the bottom right corner.</li>
   </ol>
 </p>
