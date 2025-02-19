@@ -33,7 +33,7 @@ Here is an example request body for creating a Webhooks Hook at the company leve
   "company_id":5358233,
   "hook":{
     "api_version":"v2",
-    "namespace":"procore",
+    "namespace":"your-company-name",
     "destination_url":"http://webhooks.mydomain.com",
     "destination_headers":{
       "Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzUxMiJ9"

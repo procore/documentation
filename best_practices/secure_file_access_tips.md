@@ -12,11 +12,11 @@ Below are a some valuable tips for working with secure file access and the Proco
 
 ## Handling URL Schema Changes
 
-As indicated in the ["File Link URL Schema Change"]({{ site.url }}{{ site.baseurl }}{% link overview/announcements.md %}#file-link-url-schema-change) announcement posted 06/28/2023, developers should not assume any particular hostnames for download links because they can change in future, both due to Procore backend changes as well as changes from our cloud service partner, Amazon Web Services.
+As indicated in the ["File Link URL Schema Change"]({{ site.url }}{{ site.baseurl }}{% link announcements/overview.md %}#file-link-url-schema-change) announcement posted 06/28/2023, developers should not assume any particular hostnames for download links because they can change in future, both due to Procore backend changes as well as changes from our cloud service partner, Amazon Web Services.
 
 ## Passing the Bearer Token for File Downloads
 
-As described in the ["Bearer Token to be Required for File Access Authorization"]({{ site.url }}{{ site.baseurl }}{% link overview/announcements.md %}#bearer-token-to-be-required-for-file-access-authorization) announcement posted 06/10/2022, we require developers to include the Procore Bearer Token for accessing any file or document URL.
+As described in the ["Bearer Token to be Required for File Access Authorization"]({{ site.url }}{{ site.baseurl }}{% link announcements/overview.md %}#bearer-token-to-be-required-for-file-access-authorization) announcement posted 06/10/2022, we require developers to include the Procore Bearer Token for accessing any file or document URL.
 One important detail is that files are not necessarily served directly by those URLs.
 For example, clients currently get redirected to our cloud service partner, Amazon Web Services, to actually fetch file content.
 It is therefore important to only include Procore Bearer Tokens in requests to Procore domains (*.procore.com) and not to include them in requests going elsewhere (also due to automatic redirection).

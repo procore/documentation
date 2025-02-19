@@ -1,12 +1,23 @@
 ---
 permalink: /building-apps-maximizing-conversion-rates
-title: Maximizing Marketplace Conversion Rates
+title: Procore Marketplace Guideline
 layout: default
 section_title: Building Applications
 
 ---
 
-## Introduction
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/marketplace-listing-guidelines" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/marketplace-listing-guidelines">click here</a>.</p>
+  </body>
+</html>
+
+
+<!-- ## Introduction
 
 ### In this article:
 
@@ -356,4 +367,4 @@ This can vary by the type or category of App.
 The content that may convert best may not be on your Listing currently, like a better video or value proposition.
 As you improve and update your Listing, the results of your efforts can be measured by conversion rate.
 
-Customers are visiting your Listing, so learn from the customers you have contact with what they found most valuable so you can always be maximizing your convertion rate!
+Customers are visiting your Listing, so learn from the customers you have contact with what they found most valuable so you can always be maximizing your convertion rate! -->

@@ -12,10 +12,6 @@ Custom workflows can be created that define the responsible roles, groups, and c
 See [Self-Serve Workflows User Guide](https://support.procore.com/products/online/user-guide/company-level/workflows/tutorials/user-guide) for additional information on using the Workflows tool in Procore.
 Once the Workflows tool has been enabled and configured in an account, app developers are able to interact with the workflow objects to perform workflow activities via the Procore API.
 
-## Access
-
-Self-Serve Workflows endpoints are in closed beta. For inquiry and access, reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
-
 ---
 
 ## Hierarchy of Workflows
@@ -53,19 +49,12 @@ Before starting out with our Workflows API, there are a few things to consider.
 
 ### Company and Project-Level Tools
 
-Using the [list template tool configurations API](https://developers.procore.com/reference/rest/v1/template-tool-configurations?version=1.0), a tool's "provider" can be determined as "Project" or "Company".
+Using the [list tools API](https://developers.procore.com/reference/rest/workflow-tools?version=latest#list-tools-enabled-for-workflows), a tool's "provider" can be determined as "Project" or "Company".
 This is how to determine which API endpoints should be used for the specific tool. Another way to tell, for the most part, is the context in which the tool is used when in Procore.
 
-### Update and Replace Fields
+### Webhooks
 
-There are a few fields where the field's value in the request will fully replace the existing field's value in our record.
-For example, for a preset's `responsible_group_memberships` array, you might expect a merge by only providing the group you want updated.
-That's not what will happen.
-You **must** provide the full shape of the original with any changes.
-
-Fields with this caveat will be noted.
-
----
+Workflow instances do emit events that can be used as triggers for webhooks. However, this event-based system is in closed beta. If you're interested in webhooks for instances, reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
 ## Example Known Use Cases
 
@@ -77,26 +66,17 @@ If the integration were to fail to progress the step for any reason, a workflow 
 Alternatively, each integration step could have a manager or other person as an assignee.
 That way if the integration failed, those other users would get notified as the step becomes overdue (if other methods of notifications for the integration fail).
 
-At the moment, there aren't any Workflow-specific webhooks.
-There are two workarounds for this limitation:
-* Use the item's create and update webhooks (for update, be aware that changes from step to step in a workflow with no status change will **not** cause a webhook to fire).
-* Poll for active instances that are associated to the specific tool and assignee of the integration using the [list instances API](https://developers.procore.com/reference/rest/v1/workflows-instances?version=1.0).
+First, make a request to [get the current state](https://developers.procore.com/reference/rest/workflow-instances-project?version=latest#get-a-project-workflow-instance) of the instance.
 
-With an instance, you'll be able to find the response occurrence for the integration user through the `current_step_occurrence` by filtering its list of `response_occurrences` to one assigned to the integration user.
-
-With a response occurrence ID and a response option ID (from the `available_responses` for that step), the integration can respond to progress the instance using the [update response occurrence API](https://developers.procore.com/reference/rest/v1/workflows-instances-response-occurrences?version=1.0#update-response-occurrence).
+With the `current_step_occurrence_id` (from `current_step_occurrence.id`) and `selected_response_option_id` (from the `current_step_occurrence.available_responses`), the integration can respond to progress the instance using the [create response API](https://developers.procore.com/reference/rest/workflow-responses-project?version=latest#respond-to-an-instance).
 
 ### Integration Assignee Management
 
 For large companies with complex org structures and approval processes, sometimes automated assignee management for workflow roles is needed.
 This could be driven by changes to teams in an HR system.
 
-In order to make a change like that, you'd need to gather which projects are assigned to the template using the [list templates API](https://developers.procore.com/reference/rest/v1/workflows-templates?version=1.0).
+In order to make a change like that, you'd need to gather which projects are assigned to the template using the [list templates API](https://developers.procore.com/reference/rest/workflow-templates?version=latest#list-workflow-templates).
 
-For each project, you'd find the related preset (using the template ID as a reference) with the [list templates presets API](https://developers.procore.com/reference/rest/v1/workflows-templates-presets?version=1.0).
+For each project, you'd find the related preset (using the template ID as a reference) with the [list presets API](https://developers.procore.com/reference/rest/workflow-presets-project?version=2.0#list-workflow-presets).
 
-Starting with a copy of the preset's `responsible_group_memberships`, make any changes needed by updating the user IDs in the `login_ids` array. There might be some empty groups that shouldn't be modified, those are "tool roles" that will be filled by the workflowed item's creator or other dynamic roles specific to the workflowed item.
-You can know which memberships should be updated by referring back to the version's `responsible_groups`.
-Only groups with the type `responsible_role` should be updated.
-
-Once the changes have been made, save the changes with the [update templates preset API](https://developers.procore.com/reference/rest/v1/workflows-templates-presets?version=1.0#update-workflows-template-preset).
+Get the current state of the preset and any `responsible_group_memberships` that need to be updated by [requesting the individual preset](https://developers.procore.com/reference/rest/workflow-presets-project?version=latest#get-workflow-preset) that needs to be changed. Build up an array of the `responsible_group_memberships` that need to be modified and save the changes with the [update assignees and workflow manager API](https://developers.procore.com/reference/rest/workflow-presets-project?version=latest#update-assignees-and-workflow-manager).

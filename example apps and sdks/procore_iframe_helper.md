@@ -1,6 +1,6 @@
 ---
-permalink: /building-apps-helper-library
-title: Procore Iframe Helper Library
+permalink: /procore-iframe-helper
+title: Procore Iframe Helper
 layout: default
 section_title: Building Applications
 ---

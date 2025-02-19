@@ -5,7 +5,17 @@ layout: default
 section_title: Overview
 ---
 
-## Primary Sales Contact Information
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/marketplace-requirements" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/marketplace-requirements">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## Primary Sales Contact Information
 
 The following information is needed regarding the primary sales contact for your App.
 This information will not be displayed on the Marketplace directly.
@@ -57,4 +67,4 @@ Provide a Support page on your corporate website that includes the following:
 * Describe What your integration does. (in-depth, and how to activate it)
 * Provide the version number of the integration and last date it was updated.
 * Test account (for the internal Procore QA team only). Must be capable of testing all functions of the integration.
-* Demo video is optional, screenshots are necessary.
+* Demo video is optional, screenshots are necessary. -->

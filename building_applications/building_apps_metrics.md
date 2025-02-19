@@ -6,7 +6,17 @@ section_title: Building Applications
 
 ---
 
-After you have deployed your App to a production environment and make it available on the [Procore Marketplace](https://marketplace.procore.com/), you can begin accessing metrics for the App directly from within the Developer Portal.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/view-app-metrics" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/view-app-metrics">click here</a>.</p>
+  </body>
+</html>
+
+<!-- After you have deployed your App to a production environment and make it available on the [Procore Marketplace](https://marketplace.procore.com/), you can begin accessing metrics for the App directly from within the Developer Portal.
 Analyzing your App metrics can help you gauge the level of engagement with your customers over time.
 
 ## Viewing App Engagement Over Time
@@ -40,4 +50,4 @@ In addition to viewing the App Engagement Report, you can download the data in c
 1. Click **View Metrics Report**.
 1. Click **Export CSV**. App engagement data for the time period starting from the initial deployment of the App to the current date is downloaded to your local machine.
 
-The CSV file can be subsequently loaded into an application such as Microsoft Excel or Google Sheets as needed for further filtering and processing.
+The CSV file can be subsequently loaded into an application such as Microsoft Excel or Google Sheets as needed for further filtering and processing. -->

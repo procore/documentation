@@ -6,7 +6,17 @@ section_title: Additional Resources
 
 ---
 
-> TECHNICAL SERVICES OFFERINGS
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/help-and-learning-center" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/help-and-learning-center">click here</a>.</p>
+  </body>
+</html>
+
+<!-- > TECHNICAL SERVICES OFFERINGS
 >
 > The following technical services offerings are only for Procore clients and prospects.
 > For Partner support, please see our [Technology Partners](https://developers.procore.com/partner) page.
@@ -32,4 +42,4 @@ The common services include:
 - Business Process Mapping and Consulting
 - Project Management and Ongoing Development Check-ins
 - Priority Developer Support
-- Custom support
+- Custom support -->

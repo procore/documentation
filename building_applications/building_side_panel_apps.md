@@ -283,6 +283,23 @@ The following sections list the currently supported Side Panel Views that can be
 | /:project_id/project/calendar/lookaheads | schedule.calendar.lookaheads.list |
 | /:project_id/project/calendar/tasks/:task_id | schedule.calendar.task.detail |
 
+#### Incidents
+
+| URL Path | View Key |
+| -------- | -------- |
+| /:project_id/project/incidents | incidents.list |
+| /:project_id/project/incidents/configure_tab | incidents.list |
+| /:project_id/project/incidents/new | incidents.new |
+| /:project_id/project/incidents/records | incidents.list |
+| /:project_id/project/incidents/recycled | incidents.list |
+| /:project_id/project/incidents/:id | incidents.detail |
+| /:project_id/project/incidents/:id/change_history | incidents.detail |
+| /:project_id/project/incidents/:id/edit | incidents.edit |
+| /:project_id/project/incidents/:id/emails | incidents.detail |
+| /:project_id/project/incidents/:id/emails/new | incidents.detail |
+| /:project_id/project/incidents/:id/related_items | incidents.detail |
+| /:project_id/project/incidents/:id/related_items/edit | incidents.detail |
+
 ### 4. Save the New Component
 
 * Once you have successfully created a new side panel component and defined the Type, Description, URL, Parameter(s), and View(s), click **Save Component**.
@@ -321,6 +338,8 @@ The information retrieved from a message event sent from the parent window inclu
 To access context data using the MessageEvent interface, add an event listener to your page and the `postMessage` method to initialize communication with the parent window.
 Here is some example code that demonstrates retrieving context data from the message event object.
 Note the use of conditional statements with the `postMessage` method to account for [Multiple Procore Regions]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %}).
+Be sure to account for all regions where your application needs to retrieve Procore context.
+Be aware that as new Procore regions become available, your `postMessage` code must be updated to support these new regions.
 
 ```javascript
 window.addEventListener('message', (event) => {
@@ -333,8 +352,9 @@ window.addEventListener('message', (event) => {
     const resource_id = obj.context.id;
   }});
 
-if (document.referrer === "https://us02.procore.com/") { window.parent.postMessage({ type: 'initialize' }, "https://us02.procore.com/"); }
 if (document.referrer === "https://app.procore.com/") { window.parent.postMessage({ type: 'initialize' }, "https://app.procore.com/"); }
+if (document.referrer === "https://us02.procore.com/") { window.parent.postMessage({ type: 'initialize' }, "https://us02.procore.com/"); }
+if (document.referrer === "https://uk01.procore.com/") { window.parent.postMessage({ type: 'initialize' }, "https://uk01.procore.com/"); }
 ```
 
 In the example above we have set the value for the `targetOrigin` parameter of the `postMessage` method to `https://example.com/my-side-panel-app`.

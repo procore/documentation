@@ -2,10 +2,21 @@
 permalink: /partner-tech-reqs
 title: Technical Requirements
 layout: default
-section_title: Overview
+section_title: App Marketplace
 ---
 
-## App Submittal and Technical Review
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/marketplace-requirements" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/marketplace-requirements">click here</a>.</p>
+  </body>
+</html>
+
+
+<!-- ## App Submittal and Technical Review
 
 The following conditions must be met in order to successfully complete the App Marketplace submittal and technical review process.
 
@@ -38,4 +49,4 @@ Demos, betas, and trial versions do not belong on the Marketplace.
 You must have detailed step-by-step instructions for setting up and activating the integration.
 * Confirm that data pushed to Procore from your App shows up correctly without requiring extra work for the user.
 * Once published to the Marketplace, your App must be capable of supporting a large number of users.
-* Your App must provide significant value to Procore customers and enhance their experience with the Procore platform.
+* Your App must provide significant value to Procore customers and enhance their experience with the Procore platform. -->

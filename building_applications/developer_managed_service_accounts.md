@@ -9,9 +9,10 @@ section_title: Building Applications
 >**Deprecation of Traditional Service Accounts**
 >
 > Traditional Service Accounts were deprecated on December 9, 2021.
-> All traditional service accounts will be sunset on a future date to be announced.
+> Beginning January 21, 2025, we will no longer allow the creation of new Traditional Service Accounts.
+> Existing Traditional Service Accounts will continue to function until March 24, 2025.
 > As a result of this deprecation, developers of data connection applications that currently use traditional service accounts are required to update their applications to use DMSAs, and customers will be required to install these updated applications before the sunset date.
-> See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %}) for additional information.
+> See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link announcements/service_account_deprecation.md %}) for additional information.
 
 ## Background
 
@@ -145,11 +146,29 @@ The App will only have access to the data in these permitted projects.
 After the App is installed, company administrators can use the App Management feature in Procore to add/remove permitted projects as needed.
 See [What is App Management?](https://support.procore.com/faq/what-is-app-management), [Add a Permitted Project to a Data Connection App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-permitted-project), and [Remove a Permitted Project from a Data Connection App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/remove-permitted-project).
 
->**Implications of Granting Directory Admin Permissions to Apps**
->
-> Company administrators are strongly cautioned against granting admin access to the Company level Directory tool to applications using DMSAs or traditional service accounts.
-> Applications with this highest level of access have the ability to make changes that can adversely affect all the tools across an entire project or all the projects across your organization's entire Procore company account.
-> While some applications may require this to function, we recommend thoroughly reviewing the need for the integration and understanding the impact prior to allowing.
+## Best Practices for DMSA Permissions Management
+
+Managing permissions for a Developer Managed Service Account (DMSA) involves careful consideration to ensure application functionality and account security.
+Below are best practices and important considerations for managing permissions effectively.
+
+1. **Use the Permissions Tab for Project Membership** - To manage DMSA project access, including adding or removing project memberships, utilize the Permissions tab within the app under App Management.
+This option is available to Company Administrators.
+
+2. **Permissions Reconfiguration on App Update or Reinstall** - Each time an app is updated or reinstalled, Company Administrators must reconfigure the list of permitted projects.
+Future projects requiring DMSA access must also be manually added to the permitted list.
+
+3. **Using the Directory Tool for Permissions Templates** - Some administrators use the Directory tool with a permissions template to streamline DMSA management:
+
+    - Enabling the “Add [DMSA user] to all new projects” checkbox can simplify permissions by automatically adding the DMSA user to future projects.
+    - **Important Note:** When an app is updated or reinstalled, permissions defined in the app’s manifest do not automatically transfer to the permissions template in the Directory tool, potentially affecting app functionality.
+This misalignment should be manually reconciled.
+
+4. **Avoid Manual Updates to DMSA Permissions** - Manually adjusting DMSA permissions within the Directory tool is generally discouraged, as it can lead to inconsistencies and complicate account management.
+
+5. **Limit DMSA Access to Company-Level Directory Tool** - Avoid granting admin-level access to the Company-level Directory tool for the DMSA user.
+This level of access permits changes across multiple projects and tools in your Procore account, which could impact your organization’s workflows.
+Only allow this level of access if absolutely necessary for the integration and ensure you thoroughly understand the implications.
+
 
 ## Common Questions About DMSAs
 

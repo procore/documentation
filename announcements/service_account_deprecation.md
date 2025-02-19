@@ -2,21 +2,21 @@
 permalink: /service-account-deprecation
 title: Deprecation of Traditional Service Accounts
 layout: default
-section_title: Overview
+section_title: Announcements
 ---
 
->**Sunset of Traditional Service Accounts** (01/29/2024)
+>**Sunset of Traditional Service Accounts** (updated 12/03/2024)
 >
->*All Traditional Service Accounts will sunset on December 31, 2024.*
+>*All Traditional Service Accounts will sunset on March 24, 2025.*
 >
-Traditional Service Accounts were deprecated on December 9, 2021.
->Beginning October 1, 2024, we will no longer allow the creation of new Traditional Service Accounts.
->Existing Traditional Service Accounts will continue to function until December 31, 2024.
+>Traditional Service Accounts were deprecated on December 9, 2021.
+>Beginning January 21, 2025, we will no longer allow the creation of new Traditional Service Accounts.
+>Existing Traditional Service Accounts will continue to function until March 24, 2025.
 >
 >In accordance with this timeline, developers of data connection applications that currently use Traditional Service Accounts are required to update their applications to use Developer Managed Service Accounts, and customers will be required to install these updated applications before the sunset date.
 >All data connection applications not migrated by the sunset date will cease to function.
 >Any application listed on the Procore App Marketplace that is not using a supported method for accessing the Procore API will be removed by the sunset date.
->See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link overview/service_account_deprecation.md %}) and [Migrating Data Connection Applications to Use DMSAs](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/migrating-to-dmsa) for additional information.
+>See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link announcements/service_account_deprecation.md %}) and [Migrating Data Connection Applications to Use DMSAs](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/migrating-to-dmsa) for additional information.
 >If you have questions regarding this change, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
 ## Migrating to Developer Managed Service Accounts
