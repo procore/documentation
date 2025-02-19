@@ -3379,7 +3379,12 @@ Enables or disables the measurement tool. The options parameter allows specifyin
 | - | - | - | - |
 | enable | true | boolean | True to enable the measurement tool. False to disable. |
 | options | false | object | Additional options for the measurement tool. |
-| options.measurementMode | false | string | Specifies the measurement mode. Can be point or object. |
+
+##### Options
+
+| Field Name | Required | Type | Description |
+| - | - | - | - |
+| measurementMode | false | string | Specifies the measurement mode. Can be point or object. |
 
 
 ##### Returns
