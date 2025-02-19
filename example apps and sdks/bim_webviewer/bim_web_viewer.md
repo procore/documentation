@@ -3370,7 +3370,7 @@ setMeasurement(enable, options = {});
 
 #### Description
 
-Enables or disables the measurement tool. The options parameter allows specifying the measurement mode. The measurementMode can either be point for Point to Point measurements or object for Shortest Distance measurements.
+Enables or disables the measurement tool. The options parameter allows specifying the measurement mode. The measurementMode can either be `point` for Point to Point measurements or `object` for Shortest Distance measurements.
 
 
 #### Parameters
@@ -3384,7 +3384,7 @@ Enables or disables the measurement tool. The options parameter allows specifyin
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
-| measurementMode | false | string | Specifies the measurement mode. Can be point or object. |
+| measurementMode | false | string | Specifies the measurement mode. Can be `point` or `object`. |
 
 
 ##### Returns
