@@ -3362,18 +3362,22 @@ Model
 <p class="heading-link-container"><a class="heading-link" href="#set-measurement"></a></p>
 
 ```js
-setMeasurement(enable);
+setMeasurement(enable, options = {});
 ```
 
 #### Description
 
-Enables or disables the measurement tool. Requires the Measurement Tool be enabled upon viewer initialization by adding `MEASUREMENT_SD` to the options tools array. 
+Enables or disables the measurement tool. The options parameter allows specifying the measurement mode. The measurementMode can either be point for Point to Point measurements or object for Shortest Distance measurements.
+
 
 #### Parameters
 
 | Field Name | Required | Type | Description |
 | - | - | - | - |
 | enable | true | boolean | True to enable the measurement tool. False to disable. |
+| options | false | object | Additional options for the measurement tool. |
+| options.measurementMode | false | string | Specifies the measurement mode. Can be point or object. |
+
 
 ##### Returns
 
