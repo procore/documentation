@@ -43,7 +43,7 @@ Here is an example request body for creating a Webhooks Hook at the company leve
 ```
 
 In the example above we are creating a Hook for the company associated with `"company_id":5358233`.
-In the `hook` object we specify "v2" for the api_version attribute, "procore" for the `namespace` attribute (see additional information on namespaces below), we use the `destination_url` attribute to define the URL for the Notification Endpoint, and the `destination_headers` attribute to include an Authorization Header.
+In the `hook` object we specify "v2" for the api_version attribute, "your-company-name" for the `namespace` attribute (see additional information on namespaces below), we use the `destination_url` attribute to define the URL for the Notification Endpoint, and the `destination_headers` attribute to include an Authorization Header.
 
 If we compare the example request body to what we see on the Company Webhooks page in the Procore Web user interface, we find that attributes of the `hook` object are exposed in the Endpoint Configuration section.
 See [Configure Company Webhooks](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/configure-company-webhooks) for additional information.
@@ -132,8 +132,7 @@ When using the `namespace` parameter, there are a number of requirements and bes
 
 - Namespaces are string values restricted to lowercase a-z, digits 0-9, and dashes (-).
 - Uppercase letters and special characters are not supported in namespaces.
-- If no namespace is provided with a call, the default "procore" namespace is assumed.
-- We recommend the format <publisher name>-<application name> for defining namespaces.
+- We recommend using the integration name as the <code>namespace</code> so it is isolated from other namespaces.
 
 ## Webhooks Deliveries
 
