@@ -68,7 +68,6 @@ A minor alteration was implemented in version 3.0 - the addition of a 'related_r
 ```
 
 ### Version v4.0
-Our webhook payload v4.0 has more significant changes - the schema has been simplified and some of the types of the keys have changed.  For example, ids are now all strings (including resource_id).  The event_type key has been renamed to reason and may include richer types of events beyond just create, update, and delete.  Additionally, hooks configured with the payload version v4.0 will support additional resource types not supported when using v2.0 or v3.0.  Migrating An example payload is provided:
 Webhook payload v4.0 has undergone significant changes, including a simplified schema and alterations to the types of certain keys. Notably, all IDs, including resource_id, are now strings. The event_type key has been renamed to "reason" and now encompasses a wider range of events beyond create, update, and delete. Furthermore, hooks configured with payload version v4.0 will support additional resource types that were not available in versions v2.0 or v3.0.  A sample payload is provided to assist with migration.
 
 ```
