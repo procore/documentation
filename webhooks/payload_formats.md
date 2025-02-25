@@ -82,4 +82,44 @@ Webhook payload v4.0 has undergone significant changes, including a simplified s
   "resource_id": "379913"
 }
 ```
+In the future, we may add an additional ```data``` object to store additional details or context relevant to the event.  Please plan accordingly as you write your code because these changes will be considered additive and non-breaking.  Here is a JSON schema for our webhooks v4.0 payloads:
 
+```
+json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "company_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "resource_type": {
+      "type": "string"
+    },
+    "resource_id": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": ["id", "timestamp", "reason", "company_id", "project_id", "user_id", "resource_type", "resource_id"]
+}
+``` 
