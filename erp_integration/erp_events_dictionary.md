@@ -376,6 +376,12 @@ There are no required actions. Optionally, the ERP Integration can sync data rel
       "origin_id": null,
       "origin_data": null,
       "origin_code": "JOB-EXP",
+      "custom_fields": {
+        "custom_field_1": {
+          "data_type": "datetime", 
+          "value": "2025-02-21T10:00:00Z"
+        }
+      },
       "erp_custom_fields": {},
       "address": "",
       "city": "",
@@ -918,8 +924,13 @@ There are no required actions. Optionally, the ERP integration might perform som
       "contract_id": 1,
       "contract_origin_id": "contract_origin_id",
       "created_at": "2021-03-02T22:26:28Z",
-      "custom_fields": null,
-      "erp_custom_fields": null,
+      "custom_fields": {
+        "custom_field_1": {
+          "data_type": "datetime", 
+          "value": "2025-02-21T10:00:00Z"
+        }
+      },
+      "erp_custom_fields": {},
       "formatted_payment_due": "$1,087.80",
       "invoice_number": "9348",
       "job_origin_id": "job_origin_id",
@@ -1125,12 +1136,18 @@ The integrator is responsible for pulling invoice payments from the ERP system a
       "contract_estimated_completion_date": null,
       "contract_start_date": null,
       "created_at": "2020-10-19T12:17:31-07:00",
+      "custom_fields": {
+        "custom_field_1": {
+            "data_type": "datetime", 
+            "value": "2025-02-21T10:00:00Z"
+        }
+      },
       "deleted_at": null,
       "delivery_date": null,
       "description": "",
       "draft_change_orders_amount": "0.0",
       "due_date": null,
-      "erp_custom_fields": null,
+      "erp_custom_fields": {},
       "exclusions": "",
       "executed": false,
       "execution_date": null,
@@ -1347,12 +1364,18 @@ The ERP Integration is expected to check the state of the commitment. If the com
       "contract_estimated_completion_date": null,
       "contract_start_date": null,
       "created_at": "2020-10-19T12:17:31-07:00",
+      "custom_fields": {
+        "custom_field_1": {
+          "data_type": "datetime", 
+          "value": "2025-02-21T10:00:00Z"
+        }
+      },
       "deleted_at": null,
       "delivery_date": null,
       "description": "",
       "draft_change_orders_amount": "0.0",
       "due_date": null,
-      "erp_custom_fields": null,
+      "erp_custom_fields": {},
       "exclusions": "",
       "executed": false,
       "execution_date": null,
@@ -1491,6 +1514,12 @@ The ERP Integration is expected to check the state of the commitment. If the com
       "paid_date": "2020-10-19T19:17:54Z",
       "reviewed_at": "2020-10-19T19:17:54Z",
       "description": "This is a description",
+      "custom_fields": {
+        "custom_field_2": {
+          "data_type": "datetime", 
+          "value": "2025-02-21T10:00:00Z"
+        }
+      },
       "erp_custom_fields": {}
     },
     "change_order_items": [
@@ -1911,7 +1940,7 @@ The integrator can use the Procore API to stage any new prime contracts or prime
 **Event Payload:**
 ```
 {
-  "request_name": "sync_prime_contracts",
+  "request_name": "create_prime_contract_change_order",
   "request_data": {
     "project": {
       "id": 48,
@@ -1935,6 +1964,12 @@ The integrator can use the Procore API to stage any new prime contracts or prime
       "contractor": {"id": null},
       "created_at": "2021-04-13T22:17:28Z",
       "created_by": {"id": 2, "login": "procore@procore.com", "name": "Customer Support"},
+      "custom_fields": {
+        "custom_field_1": {
+          "data_type": "datetime", 
+          "value": "2025-02-21T10:00:00Z"
+        }
+      },
       "deleted_at": null,
       "description": "Community Center",
       "draft_change_orders_amount": "0.0",
@@ -2030,6 +2065,12 @@ The integrator can use the Procore API to stage any new prime contracts or prime
       "id": 81,
       "contract_id": 76,
       "created_at": "2021-04-20T15:45:46Z",
+       "custom_fields": {
+        "custom_field_2": {
+          "data_type": "datetime", 
+          "value": "2025-02-21T10:00:00Z"
+        }
+      },
       "deleted_at": null,
       "description": "asdf",
       "due_date": null,
