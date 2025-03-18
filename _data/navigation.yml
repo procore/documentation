@@ -164,6 +164,8 @@
       url: /webhooks
     - title: Using the Webhooks API
       url: /webhooks-api
+    - title: Webhooks Payload Formats
+      url: /payload-formats
 
 - title: Guides and Tutorials
   items:
