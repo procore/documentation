@@ -1,6 +1,7 @@
 ---
 permalink: /building-apps-manage-collabs
 title: Managing App Collaboration
+sub_header: Learn how to manage your Procore developer app by inviting collaborators and transferring app ownership.
 layout: default
 section_title: Building Applications
 
@@ -9,48 +10,85 @@ section_title: Building Applications
 >**Note:** This article covers topics consistent with the App Manifest v4.1 format and the form-based app creation UI experience.
 >For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
 
-If you have a team of developers in your organization you can use the Collaborators feature to add team members and assign them to various roles.
-Each role (Owner, Administrator, and Developer) has a specific set of permissions that define what a team member can do based on their role.
+## Introduction
+If you're working with a team, the **Collaborators** feature allows you to manage access and responsibilities across your app. Each collaborator is assigned a role—Owner, Administrator, or Developer—which defines their permissions within the Developer Portal.
 
-To begin managing your team, log in to the Developer Portal, visit My Apps, choose the App you want to work in and select the 'Collaborators' section on the Manage App page.
-You will see each team member listed along with their current role assignment.
+To get started, log in to the [Procore Developer Portal](https://developers.procore.com/signin), go to **My Apps**, select your app, and navigate to the **Collaborators** section of the Manage App page. From here, you can view, add, or manage team members and their roles.
+
+Each role has a defined set of permissions for actions that can be taken by a team member. To see which permissions are defined for each role, click **View Permission Details**.
 
 ![Collabs modal]({{ site.baseurl }}/assets/guides/form-based-manage-collabs.png)
 
-Each role has a defined set of permissions for actions that can be taken by a team member.
-To see which permissions are defined for each role, click **View Permission Details**.
+***
+<details>
+    <summary class="collapseListTierOne">Collaborator Permission Overview</summary>
+    <p>
+    App Owners and Admins can invite team members to app and assign roles based on their responsibilities:
+        <ol>
+            <li>Open your app in the Developer Portal and go to the <b>Collaborators</b> section.</li>
+            <li>Click <b>Add Another User</b>.</li>
+            <li>Enter the team member’s email address, choose their role (<b>Admin</b> or <b>Developer</b>), and click <b>Send Invitation</b>.</li>
+        </ol>
+        Once added, the invited user will receive an email to confirm the additional. Once they accept, they gain access to the app with permissions aligned to their assigned role.
+    </p>
+</details>
 
-![Permission details]({{ site.baseurl }}/assets/guides/form-based-collab-permissions.png)
+***
+<details>
+    <summary class="collapseListTierOne">Adding Team Members</summary>
+    <p>
+    App Owners and Admins can invite team members to app and assign roles based on their responsibilities:
+        <ol>
+            <li>Open your app in the Developer Portal and go to the <b>Collaborators</b> section.</li>
+            <li>Click <b>Add Another User</b>.</li>
+            <li>Enter the team member’s email address, choose their role (<b>Admin</b> or <b>Developer</b>), and click <b>Send Invitation</b>.</li>
+        </ol>
+        Once added, the invited user will receive an email to confirm the additional. Once they accept, they gain access to the app with permissions aligned to their assigned role.
+    </p>
+</details>
 
-## Adding a Team Member
+***
+<details>
+    <summary class="collapseListTierOne">Removing Team Members</summary>
+    <p>
+    App Owners and Admins can remove collaborators from the app:
+        <ol>
+            <li>Open your app and go to the <b>Collaborators</b> section.</li>
+            <li>Click the three-dot menu (<b>⋮</b>) next to the desired collaborator.</li> 
+            <li>Select <b>Remove from Project</b> and confirm the action.</li>
+        </ol>
+        Once removed, the team member will no longer have access to the app in the Developer Portal.
+    </p>
+</details>
 
-You can add members to your development team and assign them to appropriate roles based on their function within your organization.
+***
+<details>
+    <summary class="collapseListTierOne">Changing App Ownership</summary>
+    <p>
+    App Owners can transfer ownership to another team member already added to the app:
+        <ol>
+            <li>Open your app and go to the <b>Collaborators</b> section.</li>
+            <li>Click the three-dot menu (<b>⋮</b>) next to the desired collaborator.</li> 
+            <li>Select <b>Transfer App Ownership</b> and confirm the action.</li>
+        </ol>
+        If the current App Owner is no longer with your organization, Procore can help reassign ownership. To initiate this process, email <a href="mailto:apisupport@procore.com">apisupport@procore.com</a>. Please note that specific criteria must be met before a transfer can be completed.
+    </p>
+</details>
 
-1. On the Manage App page, select the 'Collaborators' section.
-1. Click **Add Another User**.
-1. Enter the Email Address for the new team member, select the appropriate role (Admin or Developer), and click **Send Invitation**.
-
-![Add team member]({{ site.baseurl }}/assets/guides/form-based-collab-add-new.png)
-
-An email is sent out to the new team member inviting them to join your development team.
-After they accept the email invite and join the team, they have access to the App on the Developer Portal with the permissions defined by their assigned role.
-
+***
 ## Giving Collaborators Access to Development Sandbox Environments
 
-As an App owner you can provide your collaborators with access to the development sandbox using the following steps.
+As an App Owner, you can provide your collaborators with access to a development sandbox using the following steps:
 
-1. Log in to the sandbox company for your App and navigate to the Company Directory tool.
+1. Log in to the sandbox company for your app and navigate to the **Company Directory** tool.
 2. Click **Add User**.
-3. Fill out the Add User form with the required fields and click **Create**.
-4. On the Edit User page, set permissions and project settings for the new user as needed.
+3. Fill out the **Add User** form with the required fields and click **Create**.
+4. On the following page, set permissions and project settings for the new user as needed.
 5. Scroll to the bottom of the Edit User page and click **Save and Send Invitation to Procore**.
 
-Once your collaborator has accepted the invitation to the sandbox company, they can access resources in that company using the API and sandbox credentials.
-For additional information, see [Add a User Account to the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-user-account-to-the-company-directory) and [Edit a User Account in the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/edit-a-user-account-in-the-company-directory).
+Once your collaborator accepts the invitation to the sandbox company, they’ll be able to access resources using the API and sandbox credentials.
 
-## Additional Actions
+For additional information, see 
+- [Add a User Account to the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-user-account-to-the-company-directory)
+- [Edit a User Account in the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/edit-a-user-account-in-the-company-directory)
 
-In addition to adding new members to your development team, as an Owner or Admin you can perform other actions to help manage collaboration on your project.
-
-- You can transfer ownership of the App to one of the other team members.
-- You can remove a member from your development team.
