@@ -118,6 +118,68 @@ body {
     border-color: #D6DADC;
 }
 
+/* Partner Program Steps */
+.steps-container {
+  /* border: 1px solid #e5e7eb; */
+  /* border-radius: 8px; */
+  padding: 24px;
+  /* margin-bottom: 20px; */
+}
+
+.steps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.step-item {
+  flex: 1 1 45%;
+  min-width: 300px;
+  display: flex;
+  gap: 16px;
+}
+
+.step-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  background-color: #fff3e0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon-inner {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.step-icon-inner img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+  
+
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 8px;
+  /* color: #ff6f00; */
+}
+
+.step-description {
+  margin-top: 0;
+}
+
   p img { max-width: 100%;}
 
   code, pre {

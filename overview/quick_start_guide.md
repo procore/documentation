@@ -70,7 +70,7 @@ This guide walks you through the process of creating and testing a basic app wit
   <ol>
     <li>Log into your Developer Sandbox and select the corresponding Company</li>
     <li>Select <b>Company Tools</b> at the top, then click on the <b>Admin</b> tool.</li>
-    <li>On the right-hand side, click <b>App Management.</b>.</li>
+    <li>On the right-hand side, click <b>App Management</b>.</li>
     <li>Click <b>Install App</b> and choose <b>Install Custom App.</b></li>
     <li>Paste the previously copied App Version Key.</li>
     <li>Click <b>Install.</b></li>

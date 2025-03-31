@@ -20,7 +20,7 @@
 - title: Platform Concepts
   items:
     # - title: Procore Product Overview
-    #   url: /procore-product-overview - WIP  
+    #   url: /procore-product-overview
     - title: Overview
       url: /object-model-overview
     # - title: General Resources
@@ -141,7 +141,7 @@
   items:
     # - title: Marketplace Overview
     #   url: /procore-marketplace-overview - NOT NEEDED 404 error
-    - title: Procore Partner Overview
+    - title: Marketplace & Partner Overview
       url: /procore-partner-overview
     - title: Getting Started & Requirements
       url: /marketplace-requirements 
