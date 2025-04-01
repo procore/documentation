@@ -72,6 +72,7 @@ There are no fees to join the Procore Technology Partner Program at this time. W
       <div class="step-content">
         <h3 class="step-title">03. CUSTOMER TESTING</h3>
         <p class="step-description">Engage with mutual customers to test your app's features and gather feedback to finalize your initial app version.</p>
+        <p class="step-description">Review the requirements for listing your app on the Marketplace in <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}">Getting Started & Requirements</a>.</p>
       </div>
     </div>
     <!-- Step 4 -->
@@ -84,6 +85,7 @@ There are no fees to join the Procore Technology Partner Program at this time. W
       <div class="step-content">
         <h3 class="step-title">04. JOIN THE PARTNER PROGRAM</h3>
         <p class="step-description">Complete partner vetting and sign our Partnership Terms to become a Partner.</p>
+        <p class="step-description">Review how to apply to become a partner in <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}">Getting Started & Requirements</a>.</p>
       </div>
     </div>
     <!-- Step 5 -->
@@ -96,6 +98,7 @@ There are no fees to join the Procore Technology Partner Program at this time. W
       <div class="step-content">
         <h3 class="step-title">05. PREPARE YOUR LISTING</h3>
         <p class="step-description">Prepare your public-facing Marketplace listing to highlight your app's unique value.</p>
+        <p class="step-description">Follow the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a> to prepare your listing.</p>
       </div>
     </div>
     <!-- Step 6 -->
@@ -108,6 +111,7 @@ There are no fees to join the Procore Technology Partner Program at this time. W
       <div class="step-content">
         <h3 class="step-title">06. APP VALIDATION</h3>
         <p class="step-description">Ensure your app meets Procore's quality, security, and compliance standards through our validation process.</p>
+        <p class="step-description">Use the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %}" >Marketplace Checklist</a> to ensure your app meets all validation requirements.</p>
       </div>
     </div>
     <!-- Step 7 -->

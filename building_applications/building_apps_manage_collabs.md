@@ -21,17 +21,21 @@ Each role has a defined set of permissions for actions that can be taken by a te
 
 ***
 <details>
-    <summary class="collapseListTierOne">Collaborator Permission Overview</summary>
+  <summary class="collapseListTierOne">Collaborator Permission Overview</summary>
     <p>
-    App Owners and Admins can invite team members to app and assign roles based on their responsibilities:
-        <ol>
-            <li>Open your app in the Developer Portal and go to the <b>Collaborators</b> section.</li>
-            <li>Click <b>Add Another User</b>.</li>
-            <li>Enter the team member’s email address, choose their role (<b>Admin</b> or <b>Developer</b>), and click <b>Send Invitation</b>.</li>
-        </ol>
-        Once added, the invited user will receive an email to confirm the additional. Once they accept, they gain access to the app with permissions aligned to their assigned role.
+    Before inviting team members to collaborate on your app, it's important to understand the roles available and the actions each can perform within the Developer Portal. There are three collaborator roles:
     </p>
+    <ul>
+        <li><strong>Owner</strong> – Has full access to all app management capabilities, including inviting collaborators, editing app details, updating permissions, and transferring ownership.</li>
+        <li><strong>Admin</strong> – Can manage app details, versions, and permissions, but cannot transfer ownership or remove the current Owner.</li>
+        <li><strong>Developer</strong> – Can view app details and contribute to development, but cannot make changes to collaborator roles or publish to production.</li>
+    </ul>
+    <p>
+    Refer to the table below for a complete breakdown of permissions by role:
+    </p>
+    <img src="{{ site.baseurl }}/assets/guides/collab-permissions.png" alt="Collaborator Role Permissions Overview" style="max-width:50%; margin-top:1rem;" />
 </details>
+
 
 ***
 <details>
