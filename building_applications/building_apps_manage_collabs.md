@@ -36,7 +36,6 @@ Each role has a defined set of permissions for actions that can be taken by a te
     <img src="{{ site.baseurl }}/assets/guides/collab-permissions.png" alt="Collaborator Role Permissions Overview" style="max-width:50%; margin-top:1rem;" />
 </details>
 
-
 ***
 <details>
     <summary class="collapseListTierOne">Adding Team Members</summary>
@@ -48,8 +47,6 @@ Each role has a defined set of permissions for actions that can be taken by a te
             <li>Enter the team member’s email address, choose their role (<b>Admin</b> or <b>Developer</b>), and click <b>Send Invitation</b>.</li>
         </ol>
         Once added, the invited user will receive an email to confirm the additional. Once they accept, they gain access to the app with permissions aligned to their assigned role.
-    </p>
-</details>
 
 ***
 <details>
@@ -63,10 +60,9 @@ Each role has a defined set of permissions for actions that can be taken by a te
         </ol>
         Once removed, the team member will no longer have access to the app in the Developer Portal.
     </p>
-</details>
 
 ***
-<details>
+</details>
     <summary class="collapseListTierOne">Changing App Ownership</summary>
     <p>
     App Owners can transfer ownership to another team member already added to the app:
