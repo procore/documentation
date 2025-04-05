@@ -45,8 +45,13 @@ First, we use the `split` command to divide the original source file into multip
 
 `split -b 6000000 test-video-file.mp4 file-segment`
 
-where `-b 6000000` specifies the number of bytes for the minimum segment size (at least 5MB as required), `test-video-file.mp4` is the name of the file to split, and `file-segment` is the prefix that will be used for naming the segments.
-Running this command results in two file segments being created.
+`-b 6000000` specifies the segment size in bytes (6MB), which satisfies AWS's requirement that multipart upload segments be at least 5MB in size.
+
+`test-video-file.mp4` is the source file that will be divided into multiple segments.
+
+`file-segment` is the prefix for the output files, which will be named file-segmentaa, file-segmentab, etc.
+
+After executing the command, we can see that two segments have been created.
 
 `6000000 Mar 25 14:57 file-segmentaa`
 
@@ -250,7 +255,13 @@ A sample POST request to the [Create Upload](https://developers.procore.com/refe
 
 - Request Method: `POST`
 - Request URL: `https://api.procore.com/rest/v1.0/companies/{company_id}/uploads`
-- Request Body (optional): `{ "response_filename": "example.pdf", "response_content_type": "application/pdf" }`
+- Request Body (optional): 
+```
+{
+    "response_filename": "example.pdf",
+    "response_content_type": "application/pdf"
+}
+```
 
 Including the optional `response_filename` in the request body ensures that the storage service is aware of the filename for the upload in advance.
 Since files are often downloaded directly from the storage service, specifying the `response_filename` ensures that the file will save on an end user's device with a meaningful name and extension.
@@ -319,3 +330,178 @@ The following endpoints may also be used to move uploaded files into Procore dep
 - [Create Image](https://developers.procore.com/reference/rest/v1/images#create-image)
 - [Create Drawing Upload](https://developers.procore.com/reference/rest/v1/drawings#create-drawing-upload)
 - [Create Project File](https://developers.procore.com/reference/rest/v1/project-folders-and-files#create-project-file)
+
+
+## Using Upload UUID in API Requests
+
+This section provides examples of how to use the upload UUID when integrating with various Procore endpoints.
+
+### What is upload_id?
+The `upload_id` refers to a unique identifier (UUID) created during Procore's direct S3 upload process. 
+This identifier represents a file that has been uploaded directly to Amazon S3 storage, bypassing the older Network File System (NFS) upload method.
+
+When a file is uploaded via the direct S3 method:
+
+1. An upload record is created with a UUID
+2. The file is uploaded directly to S3 from the client
+3. The upload_id (UUID) can then be referenced in subsequent API calls to associate the file with specific Procore resources
+
+
+> IMPORTANT CONSIDERATIONS 
+> 
+> The system is designed to maintain compatibility with both new direct S3 uploads using upload_id 
+> and the legacy NFS approach, but the direct S3 method is strongly preferred for new implementations 
+> due to its superior performance characteristics.
+
+### Example-1: Using Upload UUID with Action Plans
+
+When creating a test record attachment in the Action Plans tool, you can reference your uploaded file using its UUID:
+ 
+- Request Method: `POST`
+- Request URL: `/rest/v1.0/projects/1/action_plans/plan_test_records`
+- Request Body:
+
+```
+{
+  "plan_test_record": {
+    "plan_item_id": 54,
+    "plan_test_record_request_id": 42,
+    "type": "attachment",
+    "payload": {
+      "attachment": {
+        "upload_id": "01JCXCY98883QK2N6X09SASR06"
+      }
+    }
+  }
+}
+```
+
+Response Body
+
+```
+{
+  "id": 128,
+  "created_at": "2025-02-28T09:12:13Z",
+  "payload": {
+    "attachment": {
+      "id": 540,
+      "content_type": null,
+      "name": "test_filename",
+      "thumbnail_url": null,
+      "url": "http://storage.procore.com/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JN2W87CCGXZBJFTW5YEDSP9R?companyId=2&projectId=1&sig=e947909ff7f84d3b279af3059f049339262d0eac9f1bfa7170702f1899a2560c",
+      "viewer_url": "/webclients/host/companies/2/projects/1/tools/document-viewer/prostore/540?item_id=128&item_type=ActionPlans::Plan::TestRecord&parent_id=6&plan_item_id=49&fullscreen"
+    }
+  },
+  "plan_id": 6,
+  "plan_item_id": 49,
+  "plan_test_record_request_id": 50,
+  "type": "attachment",
+  "updated_at": "2025-02-28T09:12:13Z"
+}
+```
+
+### Example-2: Using Upload UUID with Meeting Topics
+You can create and update Meeting Topics with file attachments by referencing the upload UUID:
+
+Creating a Meeting Topic with an attachment:
+
+- Request Method: `POST`
+- Request URL: `/rest/v1.1/projects/{project_id}/meeting_topics`
+- Request Body:
+
+```
+{
+    "meeting_id": 538,
+    "meeting_topic": {
+        "title": "Creating a meeting topic with upload_ids",
+        "description": "Fresh Create Meeting Topic with upload_ids",
+        "upload_ids": ["01JNNGH4ZPX76PVYJX10A0Y5N8"]
+    }
+}
+```
+
+- Response Body
+
+```
+{
+    "id": 535,
+    "number": "1.5",
+    "created_on": "2025-03-06",
+    "position": 5,
+    "due_date": null,
+    "priority": null,
+    "status": "Open",
+    "title": "Creating a meeting topic with upload_ids",
+    "minutes": null,
+    "description": "Fresh Create Meeting Topic with upload_ids",
+    "meeting_category": {
+        "id": 202,
+        "title": "Uncategorized Items"
+    },
+    "assignments": [],
+    "attachments": [
+        {
+            "id": 971407,
+            "filename": "test_filename",
+            "name": "test_filename",
+            "url": "https://pz01-procore-7fbab796.cse.procoretech-qa.com/fas/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JNNGH4ZPX76PVYJX10A0Y5N8?companyId=2&projectId=1&sig=564988041be708bfda9c52ccc0074809b18fb7f0c629a25d6798375b7223c618"
+        }
+    ]
+}
+```
+
+
+### Example-3 Updating a Meeting Topic with an attachment:
+
+- Request Method: `PATCH`
+- Request URL: `/rest/v1.1/projects/{project_id}/meeting_topics/{id}`
+- Request Body:
+
+```
+{
+    "meeting_id": 538,
+    "meeting_topic": {
+        "title": "Updating meeting topic with an upload_id",
+        "description": "Updated Description",
+        "upload_ids": ["01JNNDN3MVJ47BHA2NQR6R5F8C"]
+    }
+}
+```
+
+- Response Body
+
+```
+{
+    "id": 534,
+    "number": "1.4",
+    "created_on": "2025-03-06",
+    "position": 4,
+    "due_date": null,
+    "priority": null,
+    "status": "Open",
+    "title": "Updating as form data key value with an attachment",
+    "minutes": null,
+    "description": "Updated Description",
+    "meeting_category": {
+        "id": 202,
+        "title": "Uncategorized Items"
+    },
+    "assignments": [],
+    "attachments": [
+        {
+            "id": 971406,
+            "filename": "test_filename",
+            "name": "test_filename",
+            "url": "https://pz01-procore-7fbab796.cse.procoretech-qa.com/fas/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JNNDN3MVJ47BHA2NQR6R5F8C?companyId=2&projectId=1&sig=e0179fd949a9a0504f7859be2d23575d01f0dfcc0e4adf320413808581b9c90e"
+        }
+    ]
+}
+```
+
+## Migrating from Legacy Uploads
+If you're currently using the legacy direct upload approach, we strongly recommend migrating to the `upload_id` approach. The benefits include:
+
+- Improved upload performance and reliability
+- Reduced API request payload sizes
+- Better handling of large files
+- More consistent behavior across different Procore tools
