@@ -101,10 +101,3 @@ Once your collaborator accepts the invitation to the sandbox company, they’ll 
 For additional information, see 
 - [Add a User Account to the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-user-account-to-the-company-directory)
 - [Edit a User Account in the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/edit-a-user-account-in-the-company-directory)
-
-Once your collaborator accepts the invitation to the sandbox company, they’ll be able to access resources using the API and sandbox credentials.
-
-For additional information, see 
-- [Add a User Account to the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-user-account-to-the-company-directory)
-- [Edit a User Account in the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/edit-a-user-account-in-the-company-directory)
-
