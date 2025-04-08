@@ -56,7 +56,7 @@ Additionally, take into consideration how your app will handle rate limiting and
 
 ***
 <details>
-<summary class="collapseListTierOne">4. Your Marketplace Listing Is Complete</summary>
+<summary class="collapseListTierOne">4. Your Marketplace Listing is Complete</summary>
 <p>
     After becoming a Procore Partner, the Marketplace Team will enable your Marketplace Listing. When submitting your app, ensure that all required fields are completed as incomplete or misleading submissions will be rejected, causing a delay in the overall approval process. Key fields include:
 </p>
@@ -89,7 +89,7 @@ Additionally, take into consideration how your app will handle rate limiting and
 
 ***
 <details>
-<summary class="collapseListTierOne">6. App Information Is Accurate</summary>
+<summary class="collapseListTierOne">6. App Information is Accurate</summary>
 <p>
     While you can always update your Marketplace Listing at any time, ensure links, descriptions, functionality, and permissions are correctly reflected and are not misleading when submitting your app for approval.
     <br><br>
@@ -99,7 +99,7 @@ Additionally, take into consideration how your app will handle rate limiting and
 
 ***
 <details>
-<summary class="collapseListTierOne">7. You Are Supporting The Production Environment</summary>
+<summary class="collapseListTierOne">7. You Are Supporting the Production Environment</summary>
 <p>
 After testing in the Developer Sandbox, ensure your app is production-ready by updating specific items in the Procore Developer Portal or in your source code. This process can vary since each app is unique.
 </p>

@@ -34,7 +34,20 @@ There are no fees to join the Procore Technology Partner Program at this time. W
 <br><br>
 
 ***
-## Procore Tech Partner Journey: Step-by-Step Guide
+## How to Get Started
+Looking to list your app on the Procore Marketplace or become a Partner? You’re in the right place.
+
+To get started, register for an account in the Developer Portal and create your app. From there, you can apply to become a Procore Partner directly through your app’s Marketplace Listing section.
+
+<div class="cta-container">
+  <a href="https://developers.procore.com/signup" class="create-account-link" target="_blank">
+    Create Your Account
+    <img src="{{ '/assets/guides/sign-up-call-to-action.svg' | relative_url }}" alt="Create Account CTA" style="height: 1em; vertical-align: middle; margin-left: 0.4em;"/>
+  </a>
+</div>
+<br>
+
+### Procore Tech Partner Journey: Step-by-Step Overview
 
 <div class="steps-container">
   <div class="steps-grid">
@@ -51,7 +64,7 @@ There are no fees to join the Procore Technology Partner Program at this time. W
       </div>
     </div>
     <!-- Step 2 -->
-    <div class="step-item">
+     <div class="step-item">
       <div class="step-icon">
         <div class="step-icon-inner">
             <img src="{{ '/assets/guides/create-app.svg' | relative_url }}" alt="Create App Procore icon" />
@@ -59,23 +72,10 @@ There are no fees to join the Procore Technology Partner Program at this time. W
       </div>
       <div class="step-content">
         <h3 class="step-title">02. CREATE AN APP</h3>
-        <p class="step-description">Sign up for a Developer account to build your app and use the Procore Sandbox to test in a dedicated environment.</p>
+        <p class="step-description">Sign up for a Developer account, create your app, and perform testing with Procore’s Sandbox environment.</p>
       </div>
     </div>
     <!-- Step 3 -->
-    <div class="step-item">
-      <div class="step-icon">
-        <div class="step-icon-inner">
-            <img src="{{ '/assets/guides/customer-testing.svg' | relative_url }}" alt="Customer Testing Procore icon" />
-        </div>
-      </div>
-      <div class="step-content">
-        <h3 class="step-title">03. CUSTOMER TESTING</h3>
-        <p class="step-description">Engage with mutual customers to test your app's features and gather feedback to finalize your initial app version.</p>
-        <p class="step-description">Review the requirements for listing your app on the Marketplace in <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}">Getting Started & Requirements</a>.</p>
-      </div>
-    </div>
-    <!-- Step 4 -->
     <div class="step-item">
       <div class="step-icon">
         <div class="step-icon-inner">
@@ -83,9 +83,20 @@ There are no fees to join the Procore Technology Partner Program at this time. W
         </div>
       </div>
       <div class="step-content">
-        <h3 class="step-title">04. JOIN THE PARTNER PROGRAM</h3>
-        <p class="step-description">Complete partner vetting and sign our Partnership Terms to become a Partner.</p>
-        <p class="step-description">Review how to apply to become a partner in <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}">Getting Started & Requirements</a>.</p>
+        <h3 class="step-title">03. APPLY TO THE PARTNER PROGRAM</h3>
+        <p class="step-description">Start your application to become a Procore Partner directly from your app. Then, complete the vetting process and sign the Partnership Terms to join the program.</p>
+      </div>
+    </div>
+    <!-- Step 4 -->
+    <div class="step-item">
+      <div class="step-icon">
+        <div class="step-icon-inner">
+            <img src="{{ '/assets/guides/customer-testing.svg' | relative_url }}" alt="Customer Testing Procore icon" />
+        </div>
+      </div>
+      <div class="step-content">
+        <h3 class="step-title">04. CUSTOMER TESTING</h3>
+        <p class="step-description">Engage with mutual customers to test your app's features and gather feedback to finalize your initial app version.</p>
       </div>
     </div>
     <!-- Step 5 -->
@@ -97,8 +108,7 @@ There are no fees to join the Procore Technology Partner Program at this time. W
       </div>
       <div class="step-content">
         <h3 class="step-title">05. PREPARE YOUR LISTING</h3>
-        <p class="step-description">Prepare your public-facing Marketplace listing to highlight your app's unique value.</p>
-        <p class="step-description">Follow the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a> to prepare your listing.</p>
+        <p class="step-description">Once you're a verified Procore Partner, you'll gain access to your public Marketplace listing to showcase your app’s unique value.</p>
       </div>
     </div>
     <!-- Step 6 -->
@@ -111,7 +121,6 @@ There are no fees to join the Procore Technology Partner Program at this time. W
       <div class="step-content">
         <h3 class="step-title">06. APP VALIDATION</h3>
         <p class="step-description">Ensure your app meets Procore's quality, security, and compliance standards through our validation process.</p>
-        <p class="step-description">Use the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %}" >Marketplace Checklist</a> to ensure your app meets all validation requirements.</p>
       </div>
     </div>
     <!-- Step 7 -->
@@ -143,11 +152,18 @@ There are no fees to join the Procore Technology Partner Program at this time. W
 <br>
 
 ***
-## Explore These Resources to Get Started
-- <a href="https://www.procore.com/partners/documents" target="_blank">Technology Partner Agreement & Partner Code of Conduct<a>
+## Want to Review the Partner Agreement Before Building?
+
+We recommend reviewing our <a href="https://www.procore.com/partners/documents" target="_blank">Partner Agreement & Program Guide</a> early in your process so you know what to expect before you submit.
+<br><br>
+
+***
+### Additional Resources
+- [Help & Learning Center]({{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %})
 - [Getting Started & Requirements]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
 - [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %})
 - [Marketplace Approval Checklist]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %})
+- [Managing App Collaboration]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %})
 <!-- - [Market Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/market_your_app.md %}) -->
 <br><br>
 
@@ -157,7 +173,3 @@ There are no fees to join the Procore Technology Partner Program at this time. W
 Procore Technologies reserves the right to revise the Developer Documentation at any time,  in its sole discretion.
 
 As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace Listing at any time.
-
-<!-- All prospective partners are required to complete Procore’s vetting process before contracting. Participation in the Partner Program is contingent on adherence to the Program Guide, the applicable Procore Partner Agreement, and the Partner Code of Conduct, which are available <a href="https://www.procore.com/partners/documents" target="_blank">here</a>. -->
-
-<!-- Partners who fail to meet or maintain compliance with the relevant <a href="https://www.procore.com/partners/documents" target="_blank">Program Requirements</a> and [Marketplace Requirements]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}) may be subject to a partnership review and potential changes to program benefits, including the loss of Procore Partner status, as outlined in the Partner Agreement. Partner performance is reviewed at the start of each program year -->
