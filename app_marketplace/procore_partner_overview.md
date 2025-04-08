@@ -2,13 +2,17 @@
 permalink: /procore-partner-overview
 title: Marketplace & Partner Overview
 sub_header: Learn about listing an app on the Procore Marketplace, and steps to join the Procore Technology Partner Program.
+title: Marketplace & Partner Overview
+sub_header: Learn about listing an app on the Procore Marketplace, and steps to join the Procore Technology Partner Program.
 layout: default
 section_title: App Marketplace
 ---
 
 ## Introduction
 Listing an app on the Procore Marketplace is reserved for Procore Partners, who are required to join the Procore Technology Partner Program. By becoming a partner, you join a community dedicated to advancing construction management through integrated, cloud-optimized solutions that enhance project workflows, increase efficiency, and scale businesses.
+Listing an app on the Procore Marketplace is reserved for Procore Partners, who are required to join the Procore Technology Partner Program. By becoming a partner, you join a community dedicated to advancing construction management through integrated, cloud-optimized solutions that enhance project workflows, increase efficiency, and scale businesses.
 
+This page provides an overview of how to list an app on the Procore Marketplace, outlines the steps to join the Procore Partner Program, and highlights its benefits—helping you get started with listing your integration on the Marketplace.
 This page provides an overview of how to list an app on the Procore Marketplace, outlines the steps to join the Procore Partner Program, and highlights its benefits—helping you get started with listing your integration on the Marketplace.
 <br><br>
 
