@@ -332,7 +332,7 @@ The following endpoints may also be used to move uploaded files into Procore dep
 - [Create Project File](https://developers.procore.com/reference/rest/v1/project-folders-and-files#create-project-file)
 
 
-## Using Upload UUID in API Requests
+## Using upload id in API Requests
 
 This section provides examples of how to use the upload UUID when integrating with various Procore endpoints.
 
