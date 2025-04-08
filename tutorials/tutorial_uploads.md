@@ -347,11 +347,11 @@ When a file is uploaded via the direct S3 method:
 3. The upload_id (UUID) can then be referenced in subsequent API calls to associate the file with specific Procore resources
 
 
-> IMPORTANT CONSIDERATIONS 
-> 
-> The system is designed to maintain compatibility with both new direct S3 uploads using upload_id 
-> and the legacy NFS approach, but the direct S3 method is strongly preferred for new implementations 
-> due to its superior performance characteristics.
+> IMPORTANT CONSIDERATIONS
+>
+> The system is designed to maintain compatibility with both new direct uploads using upload_id
+> and the legacy approach, but the upload_id method is strongly preferred for new implementations
+> due to its superior performance and resilience characteristics.
 
 ### Example-1: Using Upload UUID with Action Plans
 
