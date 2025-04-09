@@ -45,13 +45,8 @@ First, we use the `split` command to divide the original source file into multip
 
 `split -b 6000000 test-video-file.mp4 file-segment`
 
-`-b 6000000` specifies the segment size in bytes (6MB), which satisfies AWS's requirement that multipart upload segments be at least 5MB in size.
-
-`test-video-file.mp4` is the source file that will be divided into multiple segments.
-
-`file-segment` is the prefix for the output files, which will be named file-segmentaa, file-segmentab, etc.
-
-After executing the command, we can see that two segments have been created.
+where `-b 6000000` specifies the number of bytes for the minimum segment size (at least 5MB as required), `test-video-file.mp4` is the name of the file to split, and `file-segment` is the prefix that will be used for naming the segments.
+Running this command results in two file segments being created.
 
 `6000000 Mar 25 14:57 file-segmentaa`
 
@@ -255,13 +250,7 @@ A sample POST request to the [Create Upload](https://developers.procore.com/refe
 
 - Request Method: `POST`
 - Request URL: `https://api.procore.com/rest/v1.0/companies/{company_id}/uploads`
-- Request Body (optional): 
-```
-{
-    "response_filename": "example.pdf",
-    "response_content_type": "application/pdf"
-}
-```
+- Request Body (optional): `{ "response_filename": "example.pdf", "response_content_type": "application/pdf" }`
 
 Including the optional `response_filename` in the request body ensures that the storage service is aware of the filename for the upload in advance.
 Since files are often downloaded directly from the storage service, specifying the `response_filename` ensures that the file will save on an end user's device with a meaningful name and extension.
