@@ -334,17 +334,17 @@ The following endpoints may also be used to move uploaded files into Procore dep
 
 ## Using upload id in API Requests
 
-This section provides examples of how to use the upload UUID when integrating with various Procore endpoints.
+This section provides examples of how to use the upload id when integrating with various Procore endpoints.
 
 ### What is upload_id?
-The `upload_id` refers to a unique identifier (UUID) created during Procore's direct S3 upload process. 
-This identifier represents a file that has been uploaded directly to Amazon S3 storage, bypassing the older Network File System (NFS) upload method.
+The `upload_id` refers to a unique identifier created during Procore's direct S3 upload process. 
+This identifier represents a file that has been uploaded directly to Amazon S3 storage.
 
 When a file is uploaded via the direct S3 method:
 
-1. An upload record is created with a UUID
+1. An upload record is created with a upload_id
 2. The file is uploaded directly to S3 from the client
-3. The upload_id (UUID) can then be referenced in subsequent API calls to associate the file with specific Procore resources
+3. The upload_id can then be referenced in subsequent API calls to associate the file with specific Procore resources
 
 
 > IMPORTANT CONSIDERATIONS
@@ -353,9 +353,9 @@ When a file is uploaded via the direct S3 method:
 > and the legacy approach, but the upload_id method is strongly preferred for new implementations
 > due to its superior performance and resilience characteristics.
 
-### Example-1: Using Upload UUID with Action Plans
+### Example-1: Using Upload id with Action Plans
 
-When creating a test record attachment in the Action Plans tool, you can reference your uploaded file using its UUID:
+When creating a test record attachment in the Action Plans tool, you can reference your uploaded file using its id:
  
 - Request Method: `POST`
 - Request URL: `/rest/v1.0/projects/1/action_plans/plan_test_records`
@@ -400,8 +400,8 @@ Response Body
 }
 ```
 
-### Example-2: Using Upload UUID with Meeting Topics
-You can create and update Meeting Topics with file attachments by referencing the upload UUID:
+### Example-2: Using Upload id with Meeting Topics
+You can create and update Meeting Topics with file attachments by referencing the upload id:
 
 Creating a Meeting Topic with an attachment:
 
