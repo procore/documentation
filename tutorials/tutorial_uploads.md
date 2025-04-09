@@ -358,7 +358,7 @@ When creating a test record attachment in the Action Plans tool, you can referen
     "type": "attachment",
     "payload": {
       "attachment": {
-        "upload_id": "01JCXCY98883QK2N6X09SASR06"
+        "upload_id": "01JN2W87CCGXZBJFTW5YEDSPRRR"
       }
     }
   }
@@ -377,7 +377,7 @@ Response Body
       "content_type": null,
       "name": "test_filename",
       "thumbnail_url": null,
-      "url": "http://storage.procore.com/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JN2W87CCGXZBJFTW5YEDSP9R?companyId=2&projectId=1&sig=e947909ff7f84d3b279af3059f049339262d0eac9f1bfa7170702f1899a2560c",
+      "url": "http://storage.procore.com/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JN2W87CCGXZBJFTW5YEDSPRRR?companyId=2&projectId=1&sig=e947909ff7f84d3b279af3059frd049339262d0eac9f1bfa7170702f1899a2560c",
       "viewer_url": "/webclients/host/companies/2/projects/1/tools/document-viewer/prostore/540?item_id=128&item_type=ActionPlans::Plan::TestRecord&parent_id=6&plan_item_id=49&fullscreen"
     }
   },
@@ -404,7 +404,7 @@ Creating a Meeting Topic with an attachment:
     "meeting_topic": {
         "title": "Creating a meeting topic with upload_ids",
         "description": "Fresh Create Meeting Topic with upload_ids",
-        "upload_ids": ["01JNNGH4ZPX76PVYJX10A0Y5N8"]
+        "upload_ids": ["01JNNGH4ZPX76PVYJX10A0Y5N9"]
     }
 }
 ```
@@ -433,7 +433,7 @@ Creating a Meeting Topic with an attachment:
             "id": 971407,
             "filename": "test_filename",
             "name": "test_filename",
-            "url": "https://pz01-procore-7fbab796.cse.procoretech-qa.com/fas/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JNNGH4ZPX76PVYJX10A0Y5N8?companyId=2&projectId=1&sig=564988041be708bfda9c52ccc0074809b18fb7f0c629a25d6798375b7223c618"
+            "url": "http://storage.procore.com/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JNNGH4ZPX76PVYJX10A0Y5N9?companyId=2&projectId=1&sig=564988041be708bfda9c52ccc0074809b18fb7f0c629a25d6798375b7223c618"
         }
     ]
 }
@@ -452,7 +452,7 @@ Creating a Meeting Topic with an attachment:
     "meeting_topic": {
         "title": "Updating meeting topic with an upload_id",
         "description": "Updated Description",
-        "upload_ids": ["01JNNDN3MVJ47BHA2NQR6R5F8C"]
+        "upload_ids": ["01JNNDN3MVJ57BHA2NQR6R5F8D"]
     }
 }
 ```
@@ -481,7 +481,7 @@ Creating a Meeting Topic with an attachment:
             "id": 971406,
             "filename": "test_filename",
             "name": "test_filename",
-            "url": "https://pz01-procore-7fbab796.cse.procoretech-qa.com/fas/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JNNDN3MVJ47BHA2NQR6R5F8C?companyId=2&projectId=1&sig=e0179fd949a9a0504f7859be2d23575d01f0dfcc0e4adf320413808581b9c90e"
+            "url": "http://storage.procore.com/api/v5/files/us-east-1/pro-core.com-staging/companies/2/01JNNDN3MVJ57BHA2NQR6R5F8D?companyId=2&projectId=1&sig=e0179fd949a9a0505f7859be2d23575d01f0dfcc0e4adf320413808581b9c90e"
         }
     ]
 }
