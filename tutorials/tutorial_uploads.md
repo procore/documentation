@@ -488,7 +488,7 @@ Creating a Meeting Topic with an attachment:
 ```
 
 ## Migrating from Legacy Uploads
-If you're currently using the legacy direct upload approach (via `attachments` or `data` attributes), we strongly recommend migrating to the `upload_id` approach. The benefits include:
+If you're currently using the legacy upload approach (via `attachments` or `data` attributes), we strongly recommend migrating to the `upload_id` approach. The benefits include:
 
 - Improved upload performance and reliability
 - Reduced API request payload sizes
