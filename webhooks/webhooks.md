@@ -36,11 +36,11 @@ The web service can then send a GET request back to the Procore API to gather in
 
 ## Setting Required Permissions for Webhooks
 
-When building applications that leverage the Webhooks feature, it is important to set the proper permissions in your data connection component.
-The required permission level for Webhooks is 'Standard'.
-Note that by default, the Webhooks permission is set to 'None' in a data connection component.
-In order for your application to function properly, you will need to use the Configuration Builder to set Webhooks permissions to 'Standard'.
-For more information on configuring permissions on data connection components using the Configuration Builder, see [Building Procore Data Connection Applications with DMSA](/documentation/).
+When building applications that leverage the Webhooks feature, it is important to set the proper permissions in your data connector component.
+The required permission level for Webhooks API is 'Standard'.
+Note that by default, the Webhooks API permission is set to 'None' in a data connector component.
+In order for your application to function properly, you will need to use the Configuration Builder to set the Webhooks API permission to 'Standard'.
+For more information on configuring permissions on data connector components using the Configuration Builder, see [Building Procore Data Connection Applications with DMSA](/documentation/).
 
 ## Using a Developer Managed Service Account (DMSA) with the Webhooks Feature
 
