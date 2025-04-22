@@ -34,12 +34,21 @@ The event object identifies the resource that changed, the type of change, a tim
 - For Creates and Updates, the Resource name and ID are contained in the event object.
 The web service can then send a GET request back to the Procore API to gather information about the specified resource that changed.
 
+## Setting Required Permissions for Webhooks
+
+When building applications that leverage the Webhooks feature, it is important to set the proper permissions in your data connection component.
+The required permission level for Webhooks is 'Standard'.
+Note that by default, the Webhooks permission is set to 'None' in a data connection component.
+In order for your application to function properly, you will need to use the Configuration Builder to set Webhooks permissions to 'Standard'.
+For more information on configuring permissions on data connection components using the Configuration Builder, see [Building Procore Data Connection Applications with DMSA](/documentation/).
+
 ## Using a Developer Managed Service Account (DMSA) with the Webhooks Feature
 
 We recommend using a Developer Managed Service Account (DMSA) for authenticating GET requests back to the Procore API when gathering information about resources that have changed.
 DMSAs are the preferred authentication method for data connection applications and allow you to specify the exact company and project level tool permissions that are required for your application to run properly on the Procore platform.
 Using a DMSA alleviates the scenario where an individual user authenticating through the authorization code grant type may not have adequate permissions to retrieve information for a changed resource.
-See [Developer Managed Service Accounts](/documentation/developer-managed-service-accounts) for additional information.
+See [Developer Managed Service Accounts](/documentation/building-data-connection-apps) for additional information.
+
 
 ## Webhook Payload Definition
 
