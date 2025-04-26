@@ -1,144 +1,133 @@
 ---
 permalink: /marketplace-requirements
-title: Getting Started & Requirements
-sub_header: Learn the requirements for listing your app on the Procore Marketplace and the steps to get started.
+title: Build & Prepare Your App
+sub_header: Build, test, and prepare your app for a successful listing on the Procore Marketplace.
 layout: default
 section_title: App Marketplace
 ---
 
 ## Introduction
-The Procore App Marketplace connects Procore customers with integrations that enhance their workflows and drive value. To be listed, apps must meet Procore's standards for quality, reliability, and utility. Below, we've highlighted a few insights on what customers look for in integrations:
-
-- **Increase Operational Efficiency** – Streamline processes to save time and effort within Procore.
-- **Create Visibility** – Ensure data, videos, or images are readily accessible when needed.
-- **Provide Accuracy** – Maintain up-to-date and accurate information within Procore.
-- **Introduce New Capabilities** – Deliver new abilities that enhance project outcomes.
-- **Mitigate Risk** – Reduce potential risks like safety concerns or reliability issues.
+Once you've signed up as a developer, it’s time to build a high-quality integration that delivers value to customers and meets Procore’s Marketplace standards. This page walks you through key development milestones, onboarding best practices, and the steps required to become a Procore Technology Partner.
 <br><br>
 
 ***
-## Marketplace Listing Requirements
+## 1. Understand the Developer Environment
+Before building, make sure to:
+- Review our API documentation to explore <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">available endpoints</a> and <a href="{{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}">app types</a>
+- Understand <a href="{{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}">OAuth 2.0 authentication flows</a> (User vs. Service Account)
+- Familiarize yourself with <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}">error handling</a> and <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limiting.md %}">rate limits</a>
+- Use your Developer Sandbox to test <a target="_blank" href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app">app installations</a> and simulate real-world usage
+- Invite <a href="{{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %}">collaborators</a> to your app via the Developer Portal
+<br><br>
+
+***
+## 2. Meet the Marketplace Requirements
+To be listed on the Procore Marketplace, your app must meet the following requirements. These ensure consistency, reliability, and a great experience for customers.
+
 ### General Requirements
-Before pursuing app approval, and ultimately having your app published to the Procore Marketplace, you must meet the following minimum requirements:
+- Be installable in a customer’s Procore account
+- Have at least one (1) beta customer prior to submission
+- Have at least one (1) active customer using the app within the past 12 months
+- Pass functional testing with no major bugs or blockers
+- Include step-by-step onboarding instructions
+- Provide clear support documentation or contact info
+- Maintain an accurate and up-to-date Marketplace listing
+- Be submitted as a production-ready app (no demo or trial-only apps)
+- Comply with all Partner Program terms, agreements, and conduct policies
 
-- You must complete Partner review and contracting.
-- Your app must be installable in a customer’s Procore account.
-- Your app must have at least one (1) beta customer before being published.
-- Your app must have a minimum of one (1) active customer using the integration within the prior 12-month period.
-- Demo, beta, and trial versions are not permitted on the Procore Marketplace. However, ongoing updates (e.g., version 1, version 2) are encouraged.
-- Your app must successfully pass functional testing with no significant bugs or issues.
-- You must test the onboarding process thoroughly, and provide step-by-step instructions for customers to set up and activate the integration.
-
-For more details about the Partner Program and its requirements, visit <a href="https://www.procore.com/partners/documents" target="_blank">Procore's Partner Program Guide</a>.
-
-### Apps That Will Not Be Listed
-In addition to the general requirements, Procore may refuse publishing, or remove existing apps, including, but not limited to the following reasons:
-
-- Are custom-built for a specific customer.
-- Are internal tools intended for your team’s use only.
-- Require customers to add a developer or partner team member to their Procore account for the integration to function.
-- Provide a low-quality or confusing experience for customers.
-- Use APIs that are not publicly documented.
-- Violate Procore’s agreements and/or policies.
-- Exist solely for searching Procore data outside the platform.
-- Only use "Login with Procore" without additional functionality.
-- Display ads, push notifications, or transmit malicious files.
-- Use Procore data to train machine learning models, including Large Language Models (LLMs) and other AI models.
+### Apps That Will Not Be Accepted
+- Are custom-built for a specific customer or internal use only
+- Require a developer or partner user to be added to a customer’s Procore account
+- Deliver a confusing or low-quality user experience
+- Use private or undocumented APIs
+- Only offer “Login with Procore” functionality with no added value
+- Exist solely to search or export Procore data
+- Include ads, push notifications, or any malicious behavior
+- Use Procore data to train AI/ML models (including LLMs)
 <br><br>
 
 ***
-## Steps to Success
-Now that you have an idea of the minimum requirements to be listed on the Procore Marketplace, let's walk through the steps to get started.
+## 3. Onboard and Test with Customers
+As your app nears completion, engage a beta customer to simulate a real-world installation and gather feedback.
+
+- Ensure onboarding is simple, intuitive, and well-documented
+- Choose the appropriate authentication method (User vs. Service Account)
+- Provide a “Getting Started” guide or FAQ to reduce support friction
+- Test behavior across multiple Procore company accounts (a common scenario)
+- Design with enterprise needs in mind—privacy, scalability, and security
 <br><br>
 
-<details>
-<summary class="collapseListTierOne">1. Build & Test Your App</summary>
-<p>
-    The first step to getting started on the Procore Marketplace is building an app. To get started on your app building journey, you will need to:
-</p>
-<ul>
-    <li>Create and verify your <b>Developer Account</b> through the <a href="https://developers.procore.com/signup" target="_blank">Procore Developer Portal</a>.</li>
-    <li>Create an app and add one of the available app types.</li>
-    <li>Invite additional team members to your app.</li>
-    <li>Access the automatically generated <b>Developer Sandbox</b>, which is your testing environment prior to deployment, and install your app using the <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install Custom App</a> flow to begin testing your app.</li>
-</ul>
-</details>
+***
+## Post-Approval Expectations
+Once your app is live on the Marketplace, it's important to maintain quality and stay engaged with customers.
+
+### Maintain Quality & Engagement
+- Respond to customer support requests promptly
+- Keep listing content accurate and up to date
+- Regularly update your app to support Procore platform changes
+- Fix bugs and technical issues in a timely manner
+- Monitor performance and user engagement using analytics
+
+### Enforcement Actions May Be Taken If:
+- Your app has ongoing issues or bugs that are not resolved
+- Customers report broken functionality or spammy behavior
+- Contact/support info in your listing is outdated or missing
+- Your app becomes inactive or no longer meets usage expectations
+
+
+Procore may remove or unlist apps that do not meet ongoing requirements.
+<br><br>
 
 ***
-<details>
-<summary class="collapseListTierOne">2. Gather Customer Feedback</summary>
-<p>
-    As you move towards publishing your app to the Procore Marketplace, gathering customer feedback becomes even more crucial. Running a pilot program with select customers can provide valuable insights into how your integration is used alongside Procore and ensuring it meets real-world needs.
+## Marketplace Readiness Checklist
+Before applying to become a Technology Partner, confirm:
 
-    While building, keep these key points in mind:
-</p>
-<ul>
-    <li><b>Onboarding Experience:</b> Ensure that the integration is easy to onboard. Simplify the process as much as possible to reduce friction for your users.</li>
-    <li><b>Data Connector Considerations:</b> If your app includes a data connector, carefully understand the difference between User Level and Service Account Authentication. While your app can utilize both, pick the one that aligns with your users' needs as it can significantly impact the customer experience.</li>
-    <li><b>Customer Communication & Support:</b> Create 'Getting Started' guides or FAQs to help inform prospective customers and guide existing customers.</li>
-    <li><b>Handling Multiple Procore Company Accounts:</b> Keep in mind that Procore users may be part of multiple company accounts. Ensure your app is designed to work seamlessly across different Procore company accounts.</li>
-    <li><b>Enterprise Needs:</b> Build with enterprise-level customers in mind. Consider their privacy needs, security concerns, and how easy it is to scale your solution across large organizations.</li>
-</ul>
-</details>
+<input type="checkbox"> Clear customer value is demonstrated<br>
+<input type="checkbox"> Intuitive and user-friendly experience<br>
+<input type="checkbox"> Security and data privacy measures are in place<br>
+<input type="checkbox"> Comprehensive support documentation created<br>
+<input type="checkbox"> Procore branding guidelines followed<br>
+<input type="checkbox"> Thorough application testing completed<br>
+<input type="checkbox"> Required listing assets (icons, screenshots, etc.) prepared<br>
+
+See the full [Marketplace Approval Checklist]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %}) for additional details.
 
 ***
-<details>
-<summary class="collapseListTierOne">3. Become a Procore Partner</summary>
-<p>
-    Once your app meets the minimum requirements and you are ready to support it, you can apply to become a Procore Partner directly within the <b>Marketplace Listing</b> section of your app. This process includes:
-</p>
-<ol>
-    <li>Completing and receiving approval for the <b>Procore Review Questionnaire</b>.</li>
-    <li>Signing the <b>Procore Framework Agreement</b> and <b>Technology Partner Addendum</b>.</li>
-</ol>
-<p>
-    To learn more about the Partner Program, visit <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}">Procore Partner Overview</a>.
-</p>
-</details>
-
-***
-<details>
-<summary class="collapseListTierOne">4. Pass App Validation</summary>
-<p>
-    After thoroughly testing your app and incorporating customer feedback, you’re ready to submit it for review by the Procore Marketplace team. This process includes submitting the following information:
-</p>
-<ul>
-    <li>Submitting a demo video of your app.</li>
-    <li>Completing the Marketplace Listing.</li>
-    <li>Incorporating feedback from the Procore Marketplace team.</li>
-    <li>Updating your app to support Procore's production environment.</li>
-</ul>
-<p>
-    To learn more about the app validation process, visit <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %}">Marketplace Approval Checklist</a>.
-</p>
-</details>
-
-***
-<div class="bulletedBreak"></div>
-
-## Post-Approval Requirements
-After your app is approved, you must continue to meet the following requirements to provide value to mutual and prospective customers.
- 
-### Maintain Your Published App
-To maintain your app's listing and provide continuous value to customers, you must:
-
-- Respond promptly to inquiries and support requests in accordance with Procore’s policies and agreements.
-- Keep your Marketplace Listing updated with accurate information, including app features, descriptions, and contact details.
-- Regularly update your app to align with Procore’s platform enhancements.
-- Ensure your app remains actively used by monitoring customer engagement.
-- Address bugs or issues promptly to maintain quality and reliability.
-- Add additional team members to your app’s management team to ensure consistent support.
-
-### Enforcement Actions
-Procore may take enforcement actions if your app fails to meet ongoing requirements, such as:
-
-- Reports of spammy, disruptive, or broken functionality.
-- Poor customer experience or unresolved support inquiries.
-- Inactive or broken website or support links in your Marketplace Listing.
+## Need Help?
+We’re here to support you at every step of your journey. Here’s how to get help:
+<br><br>
+<table>
+  <thead>
+    <tr>
+      <th>Type of Help</th>
+      <th>Contact</th>
+      <th>What They Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>API & Technical Support</strong></td>
+      <td><a href="https://developers.procore.com/developer_support">apisupport@procore.com</a></td>
+      <td>Issues with APIs, authentication, Sandbox, and app types</td>
+    </tr>
+    <tr>
+      <td><strong>Technology Partner Program</strong></td>
+      <td><a href="mailto:techprograms@procore.com">techprograms@procore.com</a></td>
+      <td>Questions about agreements, vetting, or intake process</td>
+    </tr>
+    <tr>
+      <td><strong>Marketplace QA</strong></td>
+      <td><a href="mailto:marketplaceqa@procore.com">marketplaceqa@procore.com</a></td>
+      <td>App review status, listing changes, and validation feedback</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+You can also explore our learning tools and support resources in the [Help & Learning Center]({{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %}).
 <br><br>
 
 ***
 ### Updates to Guidelines and Enforcement
 Procore Technologies reserves the right to modify the Developer Documentation at any time, in its sole discretion.
 
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace Listing at any time.
+As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace listing at any time.

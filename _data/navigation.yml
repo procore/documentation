@@ -139,24 +139,22 @@
 
 - title: App Marketplace
   items:
-    # - title: Marketplace Overview
-    #   url: /procore-marketplace-overview - NOT NEEDED 404 error
-    - title: Marketplace & Partner Overview
+    - title: App Marketplace & Technology Partner Overview
       url: /procore-partner-overview
-    - title: Getting Started & Requirements
+    - title: Build & Prepare Your App
       url: /marketplace-requirements 
-    # - title: Listing Your App - NOT NEEDED
-    #   url: /listing-your-app - NOT NEEDED - REMOVE
+    - title: Become a Technology Partner & Publish Your App
+      url: /listing-your-app
+    - title: Manage & Improve Your Marketplace App
+      url: /update-your-marketplace-app
     - title: Marketplace Listing Guidelines
       url: /marketplace-listing-guidelines
     - title: Marketplace Approval Checklist
       url: /marketplace-checklist
-    - title: Update Your Marketplace App
-      url: /update-your-marketplace-app
     # - title: Market Your App - ADD BACK LATER
     #   url: /market-your-app
-    - title: View App Metrics
-      url: /view-app-metrics
+    # - title: View App Metrics - NEEDED FOR REDIRECT
+    #   url: /view-app-metrics - NEEDED FOR REDIRECT
 
 - title: Webhooks
   items:

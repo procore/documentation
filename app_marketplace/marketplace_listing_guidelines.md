@@ -1,13 +1,13 @@
 ---
 permalink: /marketplace-listing-guidelines
 title: Marketplace Listing Guidelines
-sub_header: Learn about the various fields accessible on your public Marketplace Listing and their requirements.
+sub_header: Learn about the various fields accessible on your public Marketplace listing and their requirements.
 layout: default
 section_title: App Marketplace
 ---
 
 ## Introduction
-Once your app is built and legal contracting is complete, the next step is preparing your listing for the Marketplace. This process involves adding visuals, descriptions, and pricing, all of which must follow specific guidelines to ensure consistency and streamline the review.
+Once your app is built and Technology Partner contracting has been completed, the next step is preparing your listing for the Marketplace. This process involves adding visuals, descriptions, and pricing, all of which must follow specific guidelines to ensure consistency and streamline the review.
 
 You can access the **Marketplace Listing** section through the left navigation menu inside your app, within the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>.
 
@@ -171,4 +171,4 @@ You can decide whether to allow customers to install your app directly from the 
 
 Procore Technologies reserves the right to revise the Developer Documentation at any time, in its sole discretion.
 
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace Listing at any time.
+As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace listing at any time.

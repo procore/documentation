@@ -15,7 +15,7 @@ section_title: Overview
   </body>
 </html>
 
-Here are some additional resources you will find useful as you learn to work with the Procore Connect API and progress through your development project.
+<!-- Here are some additional resources you will find useful as you learn to work with the Procore Connect API and progress through your development project.
 
 ## Procore API Reference
 
@@ -34,4 +34,4 @@ It includes tutorials, FAQs, instructional videos, reference material, and other
 ## Technical Services
 
 As a Procore client or prospect, you may decide that a custom integration is desired in order to extend Procore and ensure your business workflows remain intact.
-Procore provides a range of [Technical Services]({{ site.url }}{{ site.baseurl }}{% link additional_resources/tech_services.md %}) to help you achieve your integration goals.
+Procore provides a range of [Technical Services]({{ site.url }}{{ site.baseurl }}{% link additional_resources/tech_services.md %}) to help you achieve your integration goals. -->
