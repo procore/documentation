@@ -96,17 +96,6 @@ To access this data, log in to the Developer Portal → Select your app → Clic
 ## Best Practices for Growth & Maintenance
 Proactive management is key to maximizing your app’s impact and long-term performance.
 
-1. **Regularly Monitor Metrics**
-2. **Collect and Act on User Feedback**
-3. **Stay Aligned with Platform Changes**
-4. **Communicate Updates to Users**
-5. **Provide Exceptional Support**
-<br><br>
-
-***
-## Best Practices for Growth & Maintenance
-Proactive management is key to maximizing your app’s impact and long-term performance.
-
 1. **Regularly Monitor Metrics**<br>
 Track engagement trends and installation patterns to stay ahead of changes.
 
