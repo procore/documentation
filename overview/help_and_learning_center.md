@@ -35,20 +35,3 @@ If you're looking for answers to common questions, check our [FAQ]({{ site.url }
 
 To contact our Developer Support team, <a href="https://developers.procore.com/developer_support" target="_blank">click here</a>.
 <br><br>
-
-***
-## Technical Services
-Whether you're building a businesses needing a custom integration for your businesses needs, or you are looking to publish an app to the Procore Marketplace, we offer Technical Services to support your integration from start to finish.
-
-Start with a free 30-minute consultation, where we’ll review your goals, provide an overview of using the Procore API, and outline next steps.
-
-Our optional ongoing services help ensure your integration is successful and can accelerate your project timeline. We remain involved throughout development, offering expertise to keep you on track.
-
-Key services include:
-- Requirements Mapping
-- Business Process Consulting
-- Project Management
-- Priority Developer Support
-
-To contact our Technical Services team, <a href="https://developers.procore.com/platform#custom-integration-signup-form" target="_blank">click here</a>.
-<br><br>

@@ -112,6 +112,10 @@ body {
     margin: 0;
   }
 
+  .details-bottom-spacing {
+    padding-bottom: 10px; /* Adjust as needed for visual balance */
+  }
+
   hr {
     border: none;          /* Removes the default border */
     border-top: 2px solid #3498db; /* Sets a custom color and thickness */
@@ -120,10 +124,7 @@ body {
 
 /* Partner Program Steps */
 .steps-container {
-  /* border: 1px solid #e5e7eb; */
-  /* border-radius: 8px; */
   padding: 24px;
-  /* margin-bottom: 20px; */
 }
 
 .steps-grid {
@@ -304,34 +305,24 @@ body {
     display: flex;
     align-items: center;
     margin-top: 1.5rem;
+    font-size: 16px;
   }
-
-  .create-account-link {
-    position: relative;
+  
+  /* Default State */
+  .create-account-button {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
-    color: #f97316;
-    font-weight: bold;
+    padding: var(--Component-spacing-12px, 12px) var(--component-spacing-24-px-standard, 24px);
+    border-radius: var(--radius-xs-4-px, 4px);
+    background: var(--buttons-links-conversion-default, #FF5200);
+    color: white;
+    font-weight: 600;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: background 0.2s ease;
   }
-
-  .create-account-link:hover {
-    color: #e05e2f; /* Slightly darker orange on hover */
-  }
-
-  .create-account-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transition: transform 0.2s ease;
-  }
-
-  .create-account-link:hover::after {
-    transform: scaleX(1);
+  
+  /* Hover State */
+  .create-account-button:hover {
+    background: var(--buttons-links-conversion-hover-e-14504, #E14504);
   }

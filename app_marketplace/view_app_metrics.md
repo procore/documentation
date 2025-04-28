@@ -6,7 +6,17 @@ layout: default
 section_title: App Marketplace
 
 ---
->**It's important to note that App Metrics do not include personally identifiable information (e.g., names, email addresses).**
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/update-your-marketplace-app" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/update-your-marketplace-app">click here</a>.</p>
+  </body>
+</html>
+
+<!-- >**It's important to note that App Metrics do not include personally identifiable information (e.g., names, email addresses).**
 
 ## Introduction
 Once your app is approved and published, it becomes visible to customers and prospects on the Procore Marketplace, where they can view your listing or install the app. These actions are tracked and made available to you through the App Metrics dashboard in the <a href="https://developers.procore.com/developers" target="blank">Procore Developer Portal</a>, directly in your app.
@@ -36,4 +46,4 @@ Conversion Rate measures how effectively your listing content persuades prospect
 Use conversion rate as an indicator rather than the sole measure of success. To maximize conversions, ensure your listing content clearly communicates your app's value proposition to undecided customers.
 
 It's best practice to monitor how content updates impact conversion rates. Regularly refine your Marketplace Listing based on customer feedback to continuously improve your app's appeal.
-<br><br>
+<br><br> -->
