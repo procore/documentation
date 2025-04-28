@@ -23,8 +23,8 @@
     <dl class="col_content">    
       {% for item in section.items %}
       <dd{% if item.url == page.url %} class="active"{% endif %}>
-        <!-- <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}"> -->
-          <a href="https://d40b-208-127-105-229.ngrok-free.app/documentation{{ item.url }}">
+        <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
+          <!-- <a href="https://b601-208-127-107-52.ngrok-free.app/documentation{{ item.url }}"> -->
           {{ item.title }}
         </a>
       </dd>

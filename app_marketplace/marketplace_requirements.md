@@ -24,7 +24,29 @@ Before building, make sure to:
 ## 2. Meet the Marketplace Requirements
 To be listed on the Procore Marketplace, your app must meet the following requirements. These ensure consistency, reliability, and a great experience for customers.
 
-### General Requirements
+### App Functionality
+- Your app must be installable in a customer's Procore account.
+- Your app must deliver clear and meaningful value to Procore customers.
+- Your app must be production-ready — demo-only or trial-only apps are not accepted.
+- Your app must pass functional testing with no major bugs or blockers.
+
+### Customer Validation
+- You must have at least one (1) beta customer prior to submission.
+- You must have at least one (1) active customer using the app within the past 12 months.
+
+### Onboarding & Support
+- You must provide clear, step-by-step onboarding instructions.
+- You must offer accessible support documentation or support contact information.
+- Your Marketplace listing must be accurate, complete, and regularly maintained.
+
+### Compliance & Conduct
+- You must comply with all Procore Partner Program terms, agreements, and conduct policies.
+- You must not use private or undocumented Procore APIs.
+- You must not use Procore data to train AI/ML models (including LLMs).
+- You must not include ads, push notifications, or malicious behaviors in your app.
+<br><br>
+
+<!-- ### General Requirements
 - Be installable in a customer’s Procore account
 - Have at least one (1) beta customer prior to submission
 - Have at least one (1) active customer using the app within the past 12 months
@@ -35,7 +57,7 @@ To be listed on the Procore Marketplace, your app must meet the following requir
 - Be submitted as a production-ready app (no demo or trial-only apps)
 - Comply with all Partner Program terms, agreements, and conduct policies
 
-### Apps That Will Not Be Accepted
+<!-- ### Apps That Will Not Be Accepted
 - Are custom-built for a specific customer or internal use only
 - Require a developer or partner user to be added to a customer’s Procore account
 - Deliver a confusing or low-quality user experience
@@ -43,8 +65,7 @@ To be listed on the Procore Marketplace, your app must meet the following requir
 - Only offer “Login with Procore” functionality with no added value
 - Exist solely to search or export Procore data
 - Include ads, push notifications, or any malicious behavior
-- Use Procore data to train AI/ML models (including LLMs)
-<br><br>
+- Use Procore data to train AI/ML models (including LLMs) -->
 
 ***
 ## 3. Onboard and Test with Customers
@@ -78,7 +99,7 @@ Once your app is live on the Marketplace, it's important to maintain quality and
 Procore may remove or unlist apps that do not meet ongoing requirements.
 <br><br>
 
-***
+<!-- ***
 ## Marketplace Readiness Checklist
 Before applying to become a Technology Partner, confirm:
 
@@ -90,7 +111,7 @@ Before applying to become a Technology Partner, confirm:
 <input type="checkbox"> Thorough application testing completed<br>
 <input type="checkbox"> Required listing assets (icons, screenshots, etc.) prepared<br>
 
-See the full [Marketplace Approval Checklist]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %}) for additional details.
+See the full [Marketplace Approval Checklist]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %}) for additional details. -->
 
 ***
 ## Need Help?
@@ -112,7 +133,7 @@ We’re here to support you at every step of your journey. Here’s how to get h
     </tr>
     <tr>
       <td><strong>Technology Partner Program</strong></td>
-      <td><a href="mailto:techprograms@procore.com">techprograms@procore.com</a></td>
+      <td><a href="mailto:techpartners@procore.com">techpartners@procore.com</a></td>
       <td>Questions about agreements, vetting, or intake process</td>
     </tr>
     <tr>

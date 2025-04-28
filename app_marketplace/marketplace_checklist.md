@@ -16,7 +16,7 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
 <p>
     To be eligible for listing, you must be an approved Procore Technology Partner. Upon completion of the vetting process, you will receive the signed <b>Procore Framework Agreement</b> and <b>Technology Partner Addendum</b> via email.
     <br><br>
-    If you're unsure of your partner status, contact <a href="mailto:techprograms@procore.com">techprograms@procore.com</a>. You can also apply to become a partner via the Marketplace Listing section of your app in the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>.
+    If you're unsure of your partner status, contact <a href="mailto:techpartners@procore.com">techpartners@procore.com</a>. You can also apply to become a partner via the Marketplace Listing section of your app in the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>.
 </p>
 </details>
 
@@ -140,7 +140,7 @@ Your app must be production-ready at submission.
 <p>
     When all steps are complete, submit your app via the <b>Marketplace Listing</b> tab in the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>. If the tab is not enabled, confirm your partner status and request activation in the Developer Portal.
     <br><br>
-    The Procore Marketplace Team will review your app against the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}" target="_blank">Marketplace Requirements</a>.
+    The Marketplace Team will review your app against the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}" target="_blank">Marketplace Requirements</a>.
 </p>
 </details>
 

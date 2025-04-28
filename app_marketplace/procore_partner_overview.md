@@ -29,9 +29,9 @@ Our integration process is **fully self-service**, allowing you to move at your 
   <div class="step-content">
     <h3 class="step-title">Step 1: Get Started & Build</h3>
     <p class="step-description">
-      - Create a <a target="_blank" href="https://developers.procore.com/signup">Developer Account</a>, then an app to access your Sandbox and start exploring integration opportunities.<br>
-      - Complete the optional <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScpoSRWPUKRYOm2po2wyyPoUUhXfBcXsv69lZgL1lG_vBsJOA/viewform?usp=dialog">Partner Intake Form</a> to share your integration goals with our team.<br>
-      - Start building and testing your app using Procore’s developer tools.
+      - <strong>Create a Developer Account:</strong> <a href="https://developers.procore.com/signup" target="_blank">Sign up</a> and create an app to access your Sandbox environment and start exploring integration opportunities.<br>
+      - <strong>Complete the Partner Intake Form:</strong> Optionally <a href="https://docs.google.com/forms/d/e/1FAIpQLScpoSRWPUKRYOm2po2wyyPoUUhXfBcXsv69lZgL1lG_vBsJOA/viewform?usp=dialog" target="_blank">share your integration goals</a> to help us better support you.<br>
+      - <strong>Start Building:</strong> Develop and test your app using Procore's Sandbox environment and customer input.
     </p>
   </div>
 </div>
@@ -45,9 +45,9 @@ Our integration process is **fully self-service**, allowing you to move at your 
   <div class="step-content">
     <h3 class="step-title">Step 2: Prepare for Partnership & Marketplace Listing</h3>
     <p class="step-description">
-      - Review the <a href="/marketplace-requirements">Marketplace Requirements</a> to ensure your app meets our standards.<br>
-      - Create support documentation and a smooth onboarding experience.<br>
-      - Engage at least one beta customer to validate your integration.
+      - <strong>Review Marketplace Requirements:</strong> Review the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}">Marketplace Requirements</a> to ensure your app meets our standards.<br>
+      - <strong>Create Support Documentation:</strong> Build clear onboarding instructions and support resources for customers.<br>
+      - <strong>Engage a Beta Customer:</strong> Test your app in a real-world scenario to validate installation and functionality.
     </p>
   </div>
 </div>
@@ -61,11 +61,9 @@ Our integration process is **fully self-service**, allowing you to move at your 
   <div class="step-content">
     <h3 class="step-title">Step 3: Apply to Become a Procore Technology Partner</h3>
     <p class="step-description">
-      Once your app is functional, apply directly from the <strong>Marketplace Listing</strong> section of your Developer Portal app.<br><br>
-      To apply, you’ll:<br><br>
-      1. Complete the vetting review process.<br>
-      2. Sign the Procore Framework Agreement and Technology Partner Addendum.<br>
-      3. Receive your countersigned agreements via email.
+      - <strong>Submit Your Partner Application:</strong> Apply directly from the Marketplace Listing section inside your Developer Portal app.<br>
+      - <strong>Sign Agreements:</strong> Complete the required vetting process, then sign the Procore Framework Agreement and Technology Partner Addendum.<br>
+      - <strong>Receive Confirmation:</strong> Get your countersigned agreements via email once your application is approved.
     </p>
   </div>
 </div>
@@ -79,10 +77,9 @@ Our integration process is **fully self-service**, allowing you to move at your 
   <div class="step-content">
     <h3 class="step-title">Step 4: List on Marketplace & Grow</h3>
     <p class="step-description">
-      Once you're approved as a Technology Partner, complete your Marketplace Listing and submit it for final validation.<br><br>
-      - Your listing becomes the public-facing page for your app on the Procore Marketplace.<br>
-      - Track marketplace traction and usage with analytics tools.<br>
-      - Keep your listing and integration updated based on platform changes and user feedback.
+      - <strong>Complete Your Marketplace Listing:</strong> Once approved as a Technology Partner, finalize your listing and submit it for final validation and publication.<br>
+      - <strong>Track Analytics:</strong> Monitor your app’s marketplace traffic, installations, and usage through the Developer Portal metrics dashboard.<br>
+      - <strong>Maintain and Improve:</strong> Keep your app and listing updated based on platform changes and customer feedback.
     </p>
   </div>
 </div>

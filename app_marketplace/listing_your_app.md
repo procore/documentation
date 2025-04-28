@@ -20,7 +20,7 @@ The Procore Technology Partner Program offers a variety of benefits to help you 
 - **Analytics Tools** – Track app installations and Marketplace traction
 - **Scaling Support** – Build apps that grow with Procore’s ecosystem
 
-To learn more about our Technology Partner Program, including benefits and partner tiers, view the <a target="_blank" href="https://www.procore.com/partners/documents">Partner Program Guide</a>.
+To learn more about our Technology Partner Program, including benefits and partner tiers, view the <a target="_blank" href="https://mkt-cdn.procore.com/downloads/guide/Procore_Partner_Program_Guide.pdf?_gl=1*1cwo3wj*_ga*MTIxOTY1MzQ4OC4xNzQ0MTQzMTUx*_ga_0W3CW2NEWP*MTc0NTg3MzE2Mi41MjMuMS4xNzQ1ODczMTY4LjU0LjAuMA..*_fplc*T044OU5NTThna1ByQmJncTBuaVYzcyUyRnR4U3dwVm8xUHpYQjJCYUdjNHZMalY5V2paU2F3WHhKQ2dVNGpabnNJZTNjVzNCTzlJa0wyQ21EM0k1ZktNaWNOSnElMkJtMlFUcGRJNkh1YW95TUVTcFV3cmV1JTJCSUklMkZtOEx0enVzMEElM0QlM0Q.*_gcl_au*OTE3MTQ0Mzg0LjE3NDQxNDMxNTE.*FPAU*OTE3MTQ0Mzg0LjE3NDQxNDMxNTE.*_ga_DDN1X7BZGJ*MTc0NTg3MzE2Mi4zMC4xLjE3NDU4NzMxNjguNTQuMC4w">Partner Program Guide</a>.
 <br><br>
 
 ***
@@ -35,6 +35,8 @@ To apply, you'll:
 3. Receive your signed agreements via email.
 
 Once submitted, our team will initiate the vetting process. Once the vetting process has been completed, we will review your application and contact you regarding the status of your application and next steps.
+
+To review the agreements in advance, see <a target="_blank" href="https://www.procore.com/partners/documents">Partner Program Guide & Terms</a>.
 <br><br>
 
 ***
@@ -43,12 +45,12 @@ Once you are approved as a Procore Technology Partner, you’ll gain access to f
 
 Your listing serves as the public-facing introduction to your app — making it a key driver of visibility, customer interest, and engagement. It’s important to clearly communicate what your app does, who it benefits, and why customers should install it.
 
-For full field explanations and requirements, see the [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}).
-
 A few quick best practices:
 - **App Title:** Keep it simple and searchable (e.g., “Box”, “OneDrive”).
 - **Video:** Keep it concise (1–3 minutes) and highlight how your app integrates with and enhances Procore workflows.
 - **Screenshots:** Use clear, high-quality images that showcase your app’s key features and customer benefits.
+
+For full field explanations and requirements, see the [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}).
 <br><br>
 
 ***
@@ -88,7 +90,7 @@ We’re here to support you at every step of your journey. Here’s how to get h
     </tr>
     <tr>
       <td><strong>Technology Partner Program</strong></td>
-      <td><a href="mailto:techprograms@procore.com">techprograms@procore.com</a></td>
+      <td><a href="mailto:techpartners@procore.com">techpartners@procore.com</a></td>
       <td>Questions about agreements, vetting, or intake process</td>
     </tr>
     <tr>
