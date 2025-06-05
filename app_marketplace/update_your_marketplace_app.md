@@ -7,94 +7,122 @@ section_title: App Marketplace
 ---
 
 ## Introduction
-Once your app is live on the Procore Marketplace, your journey doesn’t end—it evolves. Maintaining a high-quality app and continuously improving it based on platform updates, performance insights, and customer feedback is essential for long-term success.
+Launching your app on the Procore Marketplace is just the beginning, your journey evolves from there. Maintaining a high-quality app and continuously improving it based on platform updates, performance insights, and customer feedback is essential for long-term success.
 
 This guide covers how to manage updates to your app, view key metrics, and implement best practices to keep your app relevant and impactful.
 <br><br>
 
 ***
 
-## Update Your App
-You can update your app’s functionality, features, or Marketplace Listing at any time through the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>.
+## Manage Your App
+You can update your app’s functionality, features, or Marketplace Listing at any time through the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>. Note that some changes may require approval from the Marketplace team.
 
-> **Important:** If you're unable to access the app in the Developer Portal, see [Managing App Collaborators]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %}) to check your role or request access.
-
-### Marketplace Listing Updates
-Your app’s public-facing listing can be edited directly in the Developer Portal. Before making changes:
-- Make sure you have access to the app
-- Confirm you're assigned the Admin or Owner role
-
-If you don’t see the app after logging in, ask your internal team to invite you.
-
-### App Functionality Updates
-If you're modifying app features or behavior, follow the appropriate steps below.
+If you're unable to access the app in the Developer Portal, see [Managing App Collaborators]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %}) to check your role or request access.
 
 <details>
-<summary class="collapseListTierOne">Add API Routes</summary> 
-  <p>
-    To expand your app’s capabilities, integrate additional Procore API routes. Use the <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Overview</a> to identify endpoints for reading, writing, or updating data.
+<summary class="collapseListTierOne">Managing Your Marketplace Listing</summary>
+    Your Marketplace Listing serves as the public-facing introduction to your app. You can update it at any time through the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a> to reflect the latest branding, features, and value proposition.
+  <br><br>
 
-    If your app uses <b>Service Account Authentication</b>, be sure to update its tool permissions accordingly.
-  </p>
- </details>
+  <p><b>Access Requirements</b></p>
+  To make edits, you must:
+  <ul>
+    <li>Have access to the app in the Developer Portal</li>
+    <li>Be assigned the Admin or Owner role for the app</li>
+  </ul>
 
- ***
- <details>
- <summary class="collapseListTierOne">Update Embedded or Iframe Properties</summary>
-  <p>
-  If you're updating the embedded experience (e.g., iframe URL, added views, interpolation), follow these steps:
-  <ol> 
-    <li>Open your app in the Developer Portal.</li>
-    <li>Click the pencil icon next to the embedded component.</li>
-    <li>Update the required fields (URL, views, parameters).</li>
-    <li>Click <b>Save Component</b>, then <b>Save Version</b>.</li>
-    <li>Test via <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">custom app installation</a>.</li> <li>When ready, click <b>Promote Version</b>, then <b>Submit for Review</b>.</li>
-  </ol>
+  If you don’t see the app after logging in, check your role or request access by following the steps in <a href="{{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %}">Managing App Collaborators</a>.
+  <br><br>
+
+  <p><b>Best Practices</b></p>
+  A  A well-crafted listing helps attract the right audience and improve discoverability. For guidance on optimizing your listing content, see <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a>.
+</details>
+
+***
+<details>
+<summary class="collapseListTierOne">Managing Your App Functionality</summary>
+<p>
+You can update your app’s technical configuration through the Developer Portal. This includes enhancing functionality, updating embedded experiences, and configuring tool permissions.
+
+Here’s how to manage common updates:
+
+<p><b>Add or Update API Routes</b></p>
+To expand your app’s capabilities, integrate additional Procore API routes. Use the <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Overview</a> to identify endpoints for reading, writing, or updating data. If your app uses <b>Service Account Authentication</b>, be sure to update tool permissions accordingly.
+<br><br>
+
+<p><b>Update Embedded or Iframe Properties</b></p>
+To modify the embedded experience (e.g., iframe URL, added views, interpolation), follow these steps:
+<ol> 
+  <li>Open your app in the Developer Portal.</li>
+  <li>Click the pencil icon next to the embedded component.</li>
+  <li>Update the required fields (URL, views, parameters).</li>
+  <li>Click <b>Save Component</b>, then <b>Save Version</b>.</li>
+  <li>Test via <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">custom app installation</a>.</li>
+  <li>When ready, click <b>Promote Version</b>, then <b>Submit for Review</b>.</li>
+</ol>
+
+<p><b>Update App Tool Permissions</b></p>
+Tool access varies depending on your authentication type:
+<ul>
+  <li><b>User-Level Authentication:</b>
+    <ul>
+      <li>Permissions are tied to the end user and cannot be edited directly. Be sure to reflect any changes in your Marketplace Listing.</li>
+    </ul>
+  </li>
+  <li><b>Service Account Authentication:</b><br>
+    <ol>
+      <li>In the Developer Portal, select your app and click <b>Add Components</b> or <b>Edit Permissions</b>.</li>
+      <li>Update tool permissions as needed.</li>
+      <li>Click <b>Save Component</b> and then <b>Save Version</b>.</li>
+      <li>Test via custom app installation.</li>
+      <li>Click <b>Promote Version</b>, then <b>Submit for Review</b>.</li>
+    </ol>
+  </li>
+</ul>
+If your app uses Service Account Authentication, follow the principle of least privilege: request access only to the tools essential to your app’s functionality.
 </p>
 </details>
 
-***
+ ***
+
 <details>
-<summary class="collapseListTierOne">Update App Tool Permissions</summary>
+<summary class="collapseListTierOne">Managing Your App Metrics</summary>
 <p>
-  Tool access varies depending on your authentication type:
-  <ul>
-    <li><b>User-Level Authentication:</b>
-      <ul>
-        <li>Permissions are tied to the end user and cannot be edited directly. Be sure to reflect any changes in your Marketplace Listing.</li>
-      </ul>
-    </li>
-    <li><b>Service Account Authentication:</b><br>
-      <ol>
-        <li>In the Developer Portal, select your app and click <b>Add Components</b> or <b>Edit Permissions</b>.</li>
-        <li>Update tool permissions as needed.</li>
-        <li>Click <b>Save Component</b> and then <b>Save Version</b>.</li>
-        <li>Test via custom app installation.</li>
-        <li>Click <b>Promote Version</b>, then <b>Submit for Review</b>.</li>
-      </ol>
-    </li>
-  </ul>
-  Apps using Service Account Authentication must follow the principle of least privilege—only request access to tools essential to your app’s function.
-</p> 
+Understanding how your app is performing on the Procore Marketplace is key to making informed product decisions and improving user experience. The Developer Portal provides visibility into usage metrics without exposing any personally identifiable information (e.g., names, emails).
+
+<p><b>Where to Find Metrics</b></p>
+<p>To access your app's performance data:</p>
+<ol>
+  <li>Log in to the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a></li>
+  <li>Select your app</li>
+  <li>Click the <b>Metrics</b> tab</li>
+</ol>
+
+<p><b>What You Can Track</b></p>
+Key metrics include:
+<ul>
+  <li><b>Marketplace Views:</b> Total and time-filtered views of your app's public listing</li>
+  <li><b>Installations:</b> Number of company accounts that installed your app, along with install dates</li>
+  <li><b>Uninstalls:</b> Number of companies that removed your app, including when it occurred</li>
+</ul>
+</p>
 </details>
 ***
+<div class="details-bottom-spacing"></div>
 
-## View App Metrics
-Once published, your app’s performance data is available in the App Metrics section of the Developer Portal. These insights can help you measure adoption, track engagement, and identify opportunities for improvement.
+## Marketing & Growing Your App
+Publishing your app on the Procore Marketplace is just the first step toward scaling adoption and maximizing its impact. This section focuses on the different aspects of growing and maintaining your app, as well as some of the self-service marketing activities.
 
-> **Important:** App metrics do not include any personally identifiable information (e.g., names, emails).
+### Leverage Procore’s Marketing Guides
+To support your go-to-market and growth strategies, Procore provides a suite of self-service partner guides that offer actionable tactics and recommendations. Rather than duplicating this guidance, we encourage you to explore the full details in each guide below:
+- <b><a href="https://docs.google.com/document/d/1STqajJQ3n1w0lHtM5qyhxutHMqyKHOsbF7_aK0Urh30/edit?usp=sharing" target="_blank">Partner How-To: Promote My Application</a></b>: Tips for creating a compelling Marketplace listing, promoting your app across digital channels, and aligning with Procore’s marketing resources.
+- <b><a href="https://docs.google.com/document/d/1YtJXPrPcNW1drPU19jtJD2mPKHDcI5ugrzL7KpTvvS4/edit?usp=sharing" target="_blank">Partner How-To: Increase Integration Adoption & Usage</a></b>: Strategies for training your teams, enabling customer success, and building long-term usage momentum.
+- <b><a href="https://docs.google.com/document/d/1QiRnVVj5vYSYTcmAfzYCotqnHw9GFkYUL9UEyZ2XcYY/edit?usp=sharing" target="_blank">Partner How-To: Elevate My Integration</a></b>: Best practices for enhancing the technical quality, reliability, and user experience of your app.
 
-### Key Metrics
-- **Marketplace Views:** Total and time-based views of your public listing
-- **Installations:** Number of company accounts that installed your app, including dates
-- **Uninstalls:** Number and timing of uninstall events
+These resources are designed to help you grow efficiently and successfully within the Procore ecosystem. For questions, contact <a href="mailto:techpartners@procore.com">techpartners@procore.com</a>.
 
-To access this data, log in to the Developer Portal → Select your app → Click the Metrics tab.
-<br><br>
-
-***
-## Best Practices for Growth & Maintenance
-Proactive management is key to maximizing your app’s impact and long-term performance.
+### Best Practices for Growth & Maintenance
+Proactively managing your app ensures long-term success and sustained impact.
 
 1. **Regularly Monitor Metrics**<br>
 Track engagement trends and installation patterns to stay ahead of changes.
@@ -110,8 +138,8 @@ Release notes, listing updates, and in-app messaging help keep users informed.
 
 5. **Provide Exceptional Support**<br>
 Fast, helpful support builds trust and improves customer retention.
-<br><br>
 
+<!-- 
 ***
 ## Procore API Updates and Deprecation
 Stay informed about Procore API changes through Developer Portal announcements, newsletters, and release documentation. 
@@ -119,7 +147,7 @@ Stay informed about Procore API changes through Developer Portal announcements, 
 - Update your app proactively to maintain compatibility.
 - Review deprecation notices carefully to avoid service interruptions.
 - Take advantage of new platform capabilities as they become available.
-<br><br>
+<br><br> -->
 
 ***
 ### Additional Resources

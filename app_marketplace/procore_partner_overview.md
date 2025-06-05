@@ -47,7 +47,7 @@ Our integration process is **fully self-service**, allowing you to move at your 
     <p class="step-description">
       - <strong>Review Marketplace Requirements:</strong> Review the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}">Marketplace Requirements</a> to ensure your app meets our standards.<br>
       - <strong>Create Support Documentation:</strong> Build clear onboarding instructions and support resources for customers.<br>
-      - <strong>Engage a Beta Customer:</strong> Test your app in a real-world scenario to validate installation and functionality.
+      - <strong>Engage Beta Customers:</strong> Test your app in a real-world scenario to validate installation and functionality.
     </p>
   </div>
 </div>
@@ -62,7 +62,7 @@ Our integration process is **fully self-service**, allowing you to move at your 
     <h3 class="step-title">Step 3: Apply to Become a Procore Technology Partner</h3>
     <p class="step-description">
       - <strong>Submit Your Partner Application:</strong> Apply directly from the Marketplace Listing section inside your Developer Portal app.<br>
-      - <strong>Sign Agreements:</strong> Complete the required vetting process, then sign the Procore Framework Agreement and Technology Partner Addendum.<br>
+      - <strong>Sign Agreements:</strong> Complete the required vetting process, then sign the Procore Framework Agreement & Tech Partner Addendum.<br>
       - <strong>Receive Confirmation:</strong> Get your countersigned agreements via email once your application is approved.
     </p>
   </div>
@@ -100,11 +100,12 @@ The first step to becoming a Procore Technology Partner is creating your Develop
 
 ***
 ## Want to Review the Partner Agreement Before Building?
-We recommend reviewing our <a target="_blank" href="https://www.procore.com/partners/documents">Partner Program Guide & Terms</a> early in the journey so you know what to expect regarding fees, benefits, and partner tiering.
+We recommend reviewing our <a target="_blank" href="https://downloads.ctfassets.net/8pep15rt0kef/3cqMPZK5V9dt5VM9WvL4hA/9489b69ecdf426bd957f7fdb2ce541d6/Procore_Partner_Program_Guide.pdf">Partner Program Guide</a> & <a target="_blank" href="https://assets.ctfassets.net/8pep15rt0kef/3p5N8hUCPqxO2d7qIfym0B/05f433ed5d2d4a99d1a1eea8364c6895/partner-framework-agreement.pdf">Terms</a> early in your journey. The Program Guide outlines what to expect regarding partner tiers, benefits, and associated fees, while the Partner Agreements detail the legal terms you’ll need to agree to before listing your app on the Marketplace. Familiarizing yourself with both early on can help you plan your integration and go-to-market strategy more effectively.
 <br><br>
 
 ***
 ## Explore Our Resources <!-- UPDATE WHICH LINKS ARE AVAILABLE FOR NEXT STEPS -->
+- <a target="_blank" href="https://www.procore.com/partners/documents">Procore Partner Program Documents</a>
 - [Help & Learning Center]({{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %})
 - [Build & Prepare Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
 - [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %})

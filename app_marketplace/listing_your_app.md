@@ -36,7 +36,7 @@ To apply, you'll:
 
 Once submitted, our team will initiate the vetting process. Once the vetting process has been completed, we will review your application and contact you regarding the status of your application and next steps.
 
-To review the agreements in advance, see <a target="_blank" href="https://www.procore.com/partners/documents">Partner Program Guide & Terms</a>.
+To review the agreements and expectations in advance, see the <a target="_blank" href="https://assets.ctfassets.net/8pep15rt0kef/3p5N8hUCPqxO2d7qIfym0B/05f433ed5d2d4a99d1a1eea8364c6895/partner-framework-agreement.pdf">Framework Agreement & Tech Partner Addendum</a> and the <a target="_blank" href="https://assets.ctfassets.net/8pep15rt0kef/Owy2JJPZE8QDSaxL2QXAj/8896c4afe4136f9cd2f14111e29208ac/Procore_Partner_Code_of_Conduct.pdf">Partner Code of Conduct</a>.
 <br><br>
 
 ***
