@@ -50,7 +50,7 @@ Here are the projected 2024-25 dates for the monthly sandbox refresh.
 | 2025 | April     | 04/01/2025 | Tuesday   |
 | 2025 | May       | 05/06/2025 | Tuesday   |
 | 2025 | June      | 06/03/2025 | Tuesday   |
-| 2025 | July      | 07/01/2025 | Tuesday   |
+| 2025 | July      | 07/08/2025 | Tuesday   |
 | 2025 | August    | 08/05/2025 | Tuesday   |
 | 2025 | September | 09/02/2025 | Tuesday   |
 | 2025 | October   | 10/01/2025 | Wednesday |
