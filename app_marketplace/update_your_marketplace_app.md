@@ -35,7 +35,7 @@ If you're unable to access the app in the Developer Portal, see [Managing App Co
   <br><br>
 
   <p><b>Best Practices</b></p>
-  A  A well-crafted listing helps attract the right audience and improve discoverability. For guidance on optimizing your listing content, see <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a>.
+  A well-crafted listing helps attract the right audience and improve discoverability. For guidance on optimizing your listing content, see <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a>.
 </details>
 
 ***
@@ -115,9 +115,9 @@ Publishing your app on the Procore Marketplace is just the first step toward sca
 
 ### Leverage Procore’s Marketing Guides
 To support your go-to-market and growth strategies, Procore provides a suite of self-service partner guides that offer actionable tactics and recommendations. Rather than duplicating this guidance, we encourage you to explore the full details in each guide below:
-- <b><a href="https://docs.google.com/document/d/1STqajJQ3n1w0lHtM5qyhxutHMqyKHOsbF7_aK0Urh30/edit?usp=sharing" target="_blank">Partner How-To: Promote My Application</a></b>: Tips for creating a compelling Marketplace listing, promoting your app across digital channels, and aligning with Procore’s marketing resources.
-- <b><a href="https://docs.google.com/document/d/1YtJXPrPcNW1drPU19jtJD2mPKHDcI5ugrzL7KpTvvS4/edit?usp=sharing" target="_blank">Partner How-To: Increase Integration Adoption & Usage</a></b>: Strategies for training your teams, enabling customer success, and building long-term usage momentum.
-- <b><a href="https://docs.google.com/document/d/1QiRnVVj5vYSYTcmAfzYCotqnHw9GFkYUL9UEyZ2XcYY/edit?usp=sharing" target="_blank">Partner How-To: Elevate My Integration</a></b>: Best practices for enhancing the technical quality, reliability, and user experience of your app.
+- <b><a href="https://www.procore.com/cdn/downloads/partner-how-to-promote-my-application" target="_blank">Partner How-To: Promote My Application</a></b>: Tips for creating a compelling Marketplace listing, promoting your app across digital channels, and aligning with Procore’s marketing resources.
+- <b><a href="https://www.procore.com/cdn/downloads/partner-how-to-increase-integration-adoption-usage" target="_blank">Partner How-To: Increase Integration Adoption & Usage</a></b>: Strategies for training your teams, enabling customer success, and building long-term usage momentum.
+- <b><a href="https://www.procore.com/cdn/downloads/partner-how-to-elevate-my-integration" target="_blank">Partner How-To: Elevate My Integration</a></b>: Best practices for enhancing the technical quality, reliability, and user experience of your app.
 
 These resources are designed to help you grow efficiently and successfully within the Procore ecosystem. For questions, contact <a href="mailto:techpartners@procore.com">techpartners@procore.com</a>.
 
@@ -158,7 +158,4 @@ Stay informed about Procore API changes through Developer Portal announcements, 
 <br><br>
 
 ***
-### Updates to Guidelines and Enforcement
-Procore Technologies reserves the right to revise the Developer Documentation at any time.
-
-As outlined in our terms and conditions, Procore may remove or decline the publication of any Marketplace listing at its discretion.
+{% include app_marketplace_legal_disclaimer.md %}
