@@ -1,6 +1,7 @@
 ---
 permalink: /federal-zone-overview
 title: Procore Federal Environment Overview
+sub_header: Learn how the Federal Zone differs from Procore’s Commercial environment and what developers need to know.
 layout: default
 section_title: Platform Concepts
 
@@ -35,15 +36,25 @@ The **Federal Risk and Authorization Management Program (FedRAMP)** is a U.S. go
 | Developer Portal Access     | Request required for access                             | Open to registered users                  |
 | Environment Isolation       | Fully separate tenant and infrastructure                | Shared infrastructure                     |
 | Customer Base               | U.S. federal agencies and contractors (U.S. IPs only)   | Global usage                              |
-| App Portability             | Apps must be registered separately; not shareable       | Apps run only in the commercial environment |
-| Sandbox Availability        | Not available                                           | Available                                 |
+| Sandbox Availability        | Not available (no developer or monthly sandboxes)       | Available (developer and monthly sandboxes) |
 | Marketplace                 | Separate Federal Marketplace                            | Procore Marketplace                       |
 
 <div class="details-bottom-spacing"></div>
 
 ***
-## Additional Resources
+
+## Testing Recommendations
+The Federal Zone does not currently offer sandbox environments for testing purposes. This means Procore cannot provision developer or monthly sandbox accounts as it can in the Commercial environment.
+
+To validate your app for the Federal Zone, we recommend:
+- **Develop and test in the Commercial environment first**, using Procore’s available sandbox accounts. Once stable, conduct limited testing in the Federal Zone using production credentials in a tightly controlled staging scenario with non-sensitive sample data and restricted access.
+- **Swapping in the appropriate Federal environment configuration**: This includes the base API URL (`https://api.procoregov.com`), login endpoint (`https://login.procoregov.com`), and your Federal-specific client ID and client secret. These credentials are not interchangeable with those used in the Commercial environment.
+
+While this approach is not a perfect substitute for a full sandbox, it currently offers the best available method for replicating Federal Zone behavior.
+
+***
+### Additional Resources
 - <a target="_blank" href="https://www.fedramp.gov/">What Is FedRAMP?</a>
 - <a target="_blank" href="https://developers.procoregov.com/">Federal Developer Portal</a>
 - <a target="_blank" href="https://marketplace.procoregov.com/">Federal Marketplace</a>
-- For questions or support, contact <a href="mailto:techpartners@procore.com">MarketplaceQA@procore.com</a>.
+- For questions or support, contact <a href="mailto:marketplaceqa@procore.com">MarketplaceQA@procore.com</a>.

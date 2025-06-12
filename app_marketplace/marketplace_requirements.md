@@ -99,56 +99,8 @@ Once your app is live on the Marketplace, it's important to maintain quality and
 Procore may remove or unlist apps that do not meet ongoing requirements.
 <br><br>
 
-<!-- ***
-## Marketplace Readiness Checklist
-Before applying to become a Technology Partner, confirm:
-
-<input type="checkbox"> Clear customer value is demonstrated<br>
-<input type="checkbox"> Intuitive and user-friendly experience<br>
-<input type="checkbox"> Security and data privacy measures are in place<br>
-<input type="checkbox"> Comprehensive support documentation created<br>
-<input type="checkbox"> Procore branding guidelines followed<br>
-<input type="checkbox"> Thorough application testing completed<br>
-<input type="checkbox"> Required listing assets (icons, screenshots, etc.) prepared<br>
-
-See the full [Marketplace Approval Checklist]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %}) for additional details. -->
+***
+{% include need_help_section.md %}
 
 ***
-## Need Help?
-We’re here to support you at every step of your journey. Here’s how to get help:
-<br><br>
-<table>
-  <thead>
-    <tr>
-      <th>Type of Help</th>
-      <th>Contact</th>
-      <th>What They Support</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>API & Technical Support</strong></td>
-      <td><a href="https://developers.procore.com/developer_support">apisupport@procore.com</a></td>
-      <td>Issues with APIs, authentication, Sandbox, and app types</td>
-    </tr>
-    <tr>
-      <td><strong>Technology Partner Program</strong></td>
-      <td><a href="mailto:techpartners@procore.com">techpartners@procore.com</a></td>
-      <td>Questions about agreements, vetting, or intake process</td>
-    </tr>
-    <tr>
-      <td><strong>Marketplace QA</strong></td>
-      <td><a href="mailto:marketplaceqa@procore.com">marketplaceqa@procore.com</a></td>
-      <td>App review status, listing changes, and validation feedback</td>
-    </tr>
-  </tbody>
-</table>
-<br>
-You can also explore our learning tools and support resources in the [Help & Learning Center]({{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %}).
-<br><br>
-
-***
-### Updates to Guidelines and Enforcement
-Procore Technologies reserves the right to modify the Developer Documentation at any time, in its sole discretion.
-
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace listing at any time.
+{% include app_marketplace_legal_disclaimer.md %}

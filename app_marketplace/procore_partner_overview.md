@@ -112,8 +112,4 @@ We recommend reviewing our <a target="_blank" href="https://downloads.ctfassets.
 <br><br>
 
 ***
-### Updates to Guidelines and Enforcement
-
-Procore Technologies reserves the right to revise the Developer Documentation at any time,  in its sole discretion.
-
-As described in the applicable terms and conditions, Procore may remove or decline the publication of any Marketplace listing at any time.
+{% include app_marketplace_legal_disclaimer.md %}
