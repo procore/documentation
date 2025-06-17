@@ -105,6 +105,7 @@ We recommend reviewing our <a target="_blank" href="https://downloads.ctfassets.
 
 ***
 ## Explore Our Resources <!-- UPDATE WHICH LINKS ARE AVAILABLE FOR NEXT STEPS -->
+- <a target="_blank" href="https://docs.google.com/document/d/19kHjHF4z-5ajDs6B5o27FEupgKVN7vbN9ds0RKl45Wc/edit?tab=t.0#heading=h.l90ieu5n7004">Technology Program FAQs</a>
 - <a target="_blank" href="https://www.procore.com/partners/documents">Procore Partner Program Documents</a>
 - [Help & Learning Center]({{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %})
 - [Build & Prepare Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
