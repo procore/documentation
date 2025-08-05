@@ -11,7 +11,7 @@ section_title: Guides and Tutorials
 The Procore API supports the capability to post and store files directly in a web file storage service.
 Using the Procore API to directly upload content to a storage service helps to streamline uploads and reduces upload latency.
 Uploading a file using the Procore API is generally a two-step process.
-The first step to storing files directly from your application to your file storage service is to create an upload at the company or project level using the [Create Upload (Company)](https://developers.procore.com/reference/rest/v1/company-uploads) or [Create Upload (Project)](https://developers.procore.com/reference/rest/v1/project-uploads) endpoints respectively.
+The first step to storing files directly from your application to your file storage service is to create an upload at the company or project level using the [Create Upload (Company)](https://developers.procore.com/reference/rest/company-uploads?version=1.1#create-upload) or [Create Upload (Project)](https://developers.procore.com/reference/rest/project-uploads?version=1.1#create-upload) endpoints respectively.
 File uploads can be either segmented or non-segmented.
 The JSON block returned by these endpoints contains attributes that form the 'instructions' for uploading and storing files.
 Subsequent steps use these attributes to form a POST request to the file storage service.
@@ -24,8 +24,8 @@ The Procore API provides the following endpoints for creating Uploads at the com
 
 | Action                                                                                                          | Endpoint URI                                   | Description                                    |
 | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| [Create Upload (Company Level)](https://developers.procore.com/reference/rest/v1/company-uploads#create-upload) | POST /rest/v1.0/companies/{company_id}/uploads | Creates a new Upload in the specified Company. |
-| [Create Upload (Project Level)](https://developers.procore.com/reference/rest/v1/project-uploads#create-upload) | POST /rest/v1.0/projects/{project_id}/uploads  | Creates a new Upload in the specified Project. |
+| [Create Upload (Company Level)](https://developers.procore.com/reference/rest/company-uploads?version=1.1#create-upload) | POST /rest/v1.1/companies/{company_id}/uploads | Creates a new Upload in the specified Company. |
+| [Create Upload (Project Level)](https://developers.procore.com/reference/rest/project-uploads?version=1.1#create-upload) | POST /rest/v1.1/projects/{project_id}/uploads  | Creates a new Upload in the specified Project. |
 
 ## Segmented Direct File Uploads
 
@@ -59,10 +59,10 @@ The segments are named using the prefix we specified in the command - `file-segm
 ### Step 2 - Create a Segmented Upload
 
 To help illustrate the workflow for this example we use the Create Upload endpoint to create a new segmented upload at the company level.
-A sample POST request to the [Create Upload](https://developers.procore.com/reference/rest/v1/company-uploads) endpoint would take the following format:
+A sample POST request to the [Create Upload](https://developers.procore.com/reference/rest/company-uploads?version=1.1#create-upload) endpoint would take the following format:
 
 - Request Method: `POST`
-- Request URL: `https://api.procore.com/rest/v1.0/companies/{company_id}/uploads`
+- Request URL: `https://api.procore.com/rest/v1.1/companies/{company_id}/uploads`
 - Request Body: An array of file segment information with each segment containing `size` (in bytes), `sha256` (sha-256 hash), `md5` (optional md5 checksum).
 
 Note: There are a variety of command line tools available for checking the `sha256` hash and `md5` checksum values for files.
@@ -162,7 +162,7 @@ We use both the file’s `UUID` and the collection of file segment `eTags` to do
 **Request**
 
 - Request Method: `PATCH`
-- Request URL: `/rest/v1.0/companies/{company_id}/uploads/{uuid}`
+- Request URL: `/rest/v1.1/companies/{company_id}/uploads/{uuid}`
 - AUTH: Procore Bearer Token
 - Request Body: Array of file segment eTags values retrieved from the response headers in the previous step.
  
@@ -235,7 +235,7 @@ We use both the file’s `UUID` and the collection of file segment `eTags` to do
 Now that the binary file has been successfully uploaded to the storage provider, it needs to be associated with a Procore resource.
 This is done by using the relevant Procore endpoint to create an item, but instead of adding the binary file to the request we use the file’s UUID retrieved from the previous step.
 Here is an example of adding a company file to the Documents tool using the UUID.
-Including the optional `name` field is helpful as this allows you to specify the exact file name that will appear in the Documents tool.
+Including the `name` field is helpful as this allows you to specify the exact file name that will appear in the Documents tool.
 
 ![Associate File to Resource]({{ site.baseurl }}/assets/guides/file-associate-resource.png)
 
@@ -246,13 +246,13 @@ For smaller file uploads you can perform a non-segmented direct upload using the
 ### Step 1: Create an Upload
 
 To help illustrate the workflow for this example we use the Create Upload endpoint to create a new upload at the company level.
-A sample POST request to the [Create Upload](https://developers.procore.com/reference/rest/v1/company-uploads) endpoint would take the following format:
+A sample POST request to the [Create Upload](https://developers.procore.com/reference/rest/company-uploads?version=1.1#create-upload) endpoint would take the following format:
 
 - Request Method: `POST`
-- Request URL: `https://api.procore.com/rest/v1.0/companies/{company_id}/uploads`
-- Request Body (optional): `{ "response_filename": "example.pdf", "response_content_type": "application/pdf" }`
+- Request URL: `https://api.procore.com/rest/v1.1/companies/{company_id}/uploads`
+- Request Body : `{ "response_filename": "example.pdf", "response_content_type": "application/pdf" }`
 
-Including the optional `response_filename` in the request body ensures that the storage service is aware of the filename for the upload in advance.
+Including the `response_filename` in the request body ensures that the storage service is aware of the filename for the upload in advance.
 Since files are often downloaded directly from the storage service, specifying the `response_filename` ensures that the file will save on an end user's device with a meaningful name and extension.
 Similarly, specifying the `response_content_type` is helpful when you want to make sure the file extension is correct or if you want to 'force' a file content type that differs from the extension.
 
@@ -315,10 +315,10 @@ This example shows using the [Create Project File](https://developers.procore.co
 
 The following endpoints may also be used to move uploaded files into Procore depending on your use case.
 
-- [Create Company File](https://developers.procore.com/reference/rest/v1/company-folders-and-files#create-company-file)
-- [Create Image](https://developers.procore.com/reference/rest/v1/images#create-image)
-- [Create Drawing Upload](https://developers.procore.com/reference/rest/v1/drawings#create-drawing-upload)
-- [Create Project File](https://developers.procore.com/reference/rest/v1/project-folders-and-files#create-project-file)
+- [Create Company File](https://developers.procore.com/reference/rest/company-folders-and-files?version=latest#create-company-file)
+- [Create Image](https://developers.procore.com/reference/rest/images?version=latest#create-image)
+- [Create Drawing Upload](https://developers.procore.com/reference/rest/drawings?version=latest#create-drawing-upload)
+- [Create Project File](https://developers.procore.com/reference/rest/project-folders-and-files?version=latest#create-project-file)
 
 
 ## Using upload id in API Requests
