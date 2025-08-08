@@ -1,33 +1,54 @@
 ---
 permalink: /building-apps-promote-manifest
-title: Promoting a Sandbox Manifest to Production
+title: Managing App Versions & Update Notifications
+sub_header: Understand how versioning impacts your app’s lifecycle, and how updates are surfaced to Procore users.
 layout: default
 section_title: Building Applications
 
 ---
 
->**Note:** This article covers topics consistent with the App Manifest v4.1 format and the form-based app creation UI experience.
->For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
+## Introduction
+After creating an app, you can modify its components using the Configuration Builder. This page explains how to promote an app version to Production and how these updates are delivered to customers. Each saved set of changes creates a new App Version.
 
-## Promoting a Manifest Version to Production
+***
+## Versioning Your App
+When you are ready to release a new app version, promote it to Production and include release notes that describe what has changed. These notes appear to Procore Company Admins during the update process and—if your app is listed on the Marketplace—also appear on your Marketplace listing.
 
-When you are ready to release your new application version to production, you can promote the new manifest version and enter release notes that describe the changes being deployed.
-When a Procore company administrator installs the updated version of your application in their account, the release notes are displayed in a modal so they can review the changes and decide whether they want to proceed with the installation.
-Be sure to provide detailed and accurate information in your release notes.
-The following diagram shows a simplified view of the manifest versioning model.<sup>*</sup>
+Use clear and accurate release notes to help users understand what is new or changed.
 
-![App manifest diagram]({{ site.baseurl }}/assets/guides/manifest-promotion.png)
+### Semantic Versioning
+Procore apps use [semantic versioning](https://semver.org/) to track changes:
 
-<sup>*</sup>Version number objects in the diagram represent semantic (x.y.z) versions.
+`X.Y.Z`
+- **X** (Major): Breaking Changes.
+- **Y** (Minor): Backward-Compatible Feature Additions.
+- **Z** (Patch): Bug Fixes or Minor Improvements.
 
-You can create new working sandbox versions of your manifest, and then promote specific versions to production as needed.
-After you are satisfied with the content in your manifest and you are ready to work with your App in a production environment, complete the following steps to promote the manifest.
+**Versioning tips:**
+- Begin development with `v0.0.1`.
+- Use `v1.0.0` for your first public release.
+- Only increment the major version for breaking changes.
 
-1. On the Manage App page, select the 'Configuration Builder'.
-2. Click **Promote Version**
+![App Manifest promotion diagram]({{ site.baseurl }}/assets/guides/manifest-promotion.png)
 
-    ![Promote Button]({{ site.baseurl }}/assets/guides/form-based-promote.png)
+***
+## Promoting Your App & Notifying Users
+After promoting a version to Production, Procore notifies customers when an update is available. Company Admins will see an **"Update Available"** badge in the App Management section of the Company Admin Tool.
 
-3. Enter release notes for the new version and click **Promote**.
+> Important: Customer app settings—such as which projects the app is applied to—do not carry over automatically. Make sure to account for this when releasing updates.
 
-    ![Promote confirm dialog]({{ site.baseurl }}/assets/guides/promote-manifest-confirm.png)
+<!-- ![App Update Available]({{ site.baseurl }}/assets/guides/update-available-badge.png) -->
+
+### Promotion Steps
+
+1. Open the Configuration Builder on the Manage App page.
+2. Click **Promote Version**.
+3. Add release notes.
+4. Click **Promote**.
+
+- For custom apps, update notifications are sent automatically after promotion.
+- For Marketplace apps, updates must be approved before notifications are sent to customers.
+
+![App Update Available]({{ site.baseurl }}/assets/guides/update-available-badge.png)
+
+See [Update an Installed App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/update-installed-app) for more information.

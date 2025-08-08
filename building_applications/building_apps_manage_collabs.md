@@ -7,9 +7,6 @@ section_title: Building Applications
 
 ---
 
->**Note:** This article covers topics consistent with the App Manifest v4.1 format and the form-based app creation UI experience.
->For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
-
 ## Introduction
 If you're working with a team, the **Collaborators** feature allows you to manage access and responsibilities across your app. Each collaborator is assigned a role—Owner, Administrator, or Developer—which defines their permissions within the Developer Portal.
 

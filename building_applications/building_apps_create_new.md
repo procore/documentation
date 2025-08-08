@@ -1,40 +1,66 @@
 ---
 permalink: /building-apps-create-new
-title: Creating a New App
+title: Creating an App
+sub_header: Set up your account, build your first app, and configure your App Manifest to start developing in Procore.
 layout: default
 section_title: Building Applications
-
 ---
 
-Once you have registered your Developer Account you can create a new App in the Procore Developer Portal.
-The following steps show you how to properly navigate the Developer Portal and successfully create a new App.
+## Introduction
+Whether you're a Procore customer or a Technology Partner, you can use the Procore Developer Portal to build apps that embed external systems in Procore or interact directly with its API. This guide walks you through creating your Developer Portal account and building your first app.
+<br><br>
 
-1. Open your browser and navigate to the [Developer Portal](https://developers.procore.com/) landing page.
-1. Click **Sign In** to log in to your Developer Portal account.
-1. Navigate to the My Apps page and click **Create a New App**. The Create New App dialog displays.
-1. Enter an App Name. This will be the name you use to refer to your application internally within your organization.
-1. Click **Create**. You are presented with a new page for your App where you can configure a number of settings.
+***
+## 1. Create an Account
+Start by registering for a Procore Developer Portal account. Once registered, you can create your first app.
 
-## Uploading an Avatar for your App (optional)
+1. Open your browser and go to the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>.
+2. Click **Sign Up** and fill out the required fields: first name, last name, and email.
+3. Set and confirm your password.
+4. (Optional) Enter your company name.
+5. Complete the reCAPTCHA.
+6. Click **Create Free Account**, then check your inbox for a verification email.
+<br><br>
 
-You have the option to upload an image to be used as the publicly-displayed avatar for your application.
+***
+## 2. Create an App
+Follow these steps to create a new app in the Developer Portal:
 
-1. In the App Settings card, do one of the following:
-    Click Attach File or Drag and Drop, select an image file to upload and click Open.
-    On your computer, locate and select the image and drag it to the App Settings card.
-1. Click Update to save your changes.
+1. Go to the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a> and sign in to your account.
+2. Navigate to the **My Apps** page and click **Create a New App**.
+3. Enter an app name. The first name you choose is important, so label it carefully.
+4. Click **Create**.
 
-## Log in to the Development Sandbox and Set Password
+When you create a new app, a Developer Sandbox is automatically provisioned for building and testing with sample project data. You can access it by checking the **OAuth Credentials** section of your app or by following the link in the email sent to the app creator.
 
-As part of the App creation process, we generate a development sandbox for you to use while you build and test your new App.
-You will receive an email notifying you that your development sandbox is ready for use.
-You will need to log in and set a password for your new development sandbox using the following steps.
-(Note: the password link on the notification email expires after 24 hours.)
+For detailed instructions on installing your app in the Developer Sandbox, see <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install a Custom App</a>.
+<br><br>
 
-1. In the body of the notification email, click **Set My Sandbox Password**. You are redirected to the ‘Reset Password’ login page.
-1. Enter a new password for your sandbox account, adhering to the password requirements listed on the page.
-1. Re-enter your new password for confirmation and click **Set Password**.
-1. After your password has been successfully reset, click **Back to Login**.
-1. Log in to your development sandbox using your new sandbox account email and password.
-1. Select the company associated with your App and click **Continue**.
-1. Follow the on-screen directions for ‘Getting Started’.
+***
+## 3. App Manifest Overview
+After creating your app, use the Configuration Builder to choose the components you want to include. These components define your app’s functionality in Procore and make up the App Manifest. Each saved set of changes becomes a new app version.
+
+Based on the components you select, you can build:
+- [User Level Authentication Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps_auth.md %})
+- [Service Account Authentication Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %})
+- [Full Screen Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %})
+- [Side Panel Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %})
+
+You can also combine multiple app types in a single manifest.
+
+### Create New Manifest Versions
+After your initial version, you can continue iterating by creating new app versions:
+
+1. In the Configuration Builder, make any necessary changes, such as updating permissions or modifying components.
+2. Click **Save Version** and enter a version number.
+3. After saving, you'll receive a new Sandbox App Version Key. Use this key to install and test the new version in your Developer Sandbox.
+4. When you are satisfied with the updates, click **Promote Version** to move it to production.
+
+For more information on app versions, see [App Versioning and Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_versioning.md %}).
+<br><br>
+
+***
+## Explore Our Resources
+- [Managing App Collaborators]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %})
+- [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %})
+- [Managing App Versions & Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %})

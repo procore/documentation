@@ -5,7 +5,17 @@ layout: default
 section_title: Building Applications
 ---
 
->**Note:** This article covers topics consistent with the App Manifest v4.1 format.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/building-apps-create-new" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/building-apps-create-new">click here</a>.</p>
+  </body>
+</html>
+
+<!-- >**Note:** This article covers topics consistent with the App Manifest v4.1 format.
 >For information on the App Manifest v3.x (legacy) format, see [App Manifest v3.x Legacy Format]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_legacy_v3x_manifest_format.md %}) and [Migrating an App Manifest from v3.x to v4.1]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_v3x_to_v4.1_manifest_migration.md %}).
 
 ## Overview
@@ -134,4 +144,4 @@ After you have created the initial sandbox version of your App manifest, you can
 1. In the 'Manage Manifests' section, click **Create New Version**. The editor displays the content from your last manifest version.
 1. Enter a new version number following the semantic versioning scheme.
 1. Make changes to the manifest as needed and click **Create**.
-1. Repeat Steps 1-3 for each additional manifest version you want to create.
+1. Repeat Steps 1-3 for each additional manifest version you want to create. -->

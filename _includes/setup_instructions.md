@@ -1,14 +1,14 @@
-
 ## Define Setup Instructions and Post-Installation Notes
 
-You can define additional setup instructions and post-installation notes to help Procore users successfully install and set up your application within a Procore project.
-Setup instructions and post-installtion notes are a great way to let your users know that there may be addtional steps required for them to properly install and set up your application.
-For example, Procore users installing your application may need to go through a signup process, establish an account, or configure some settings on your platform before completing the application setup.
-Instructions are displayed to the user once an application is installed, and are accessible later from within the App Management feature in the Procore Admin tool.
+You must provide setup instructions and post-installation notes to help Procore users complete the installation and setup of your application within a Procore project.
 
-1. Expand the Instructions and Post-Installation Notes section.
-2. In the Instructions URL field, enter the web address for your company support site, or web-based installation steps for your application.
-3. In the Instructions Page Name field, enter the label you want to use for the hyperlink text for the Instructions URL you defined in step 2.
-4. In the Post-Installation Notes field, provide a textual description of any post-installation steps required to properly complete the setup of your application.
+Clear post-installation guidance is required to ensure users know exactly what to do after installing your app. For example, they may need to sign up for an external account, configure settings on your platform, or complete authentication steps before the app is ready to use.
 
-![Post Install Steps]({{ site.baseurl }}/assets/guides/form-based-post-install-steps.png)
+These instructions are shown to the user immediately after installation and remain accessible in the App Management section of the Procore Admin tool.
+
+Follow these steps to define setup instructions:
+
+1. Expand the **Instructions and Post-Installation Notes** section.
+2. In the **Instructions URL** field, enter a link to your company’s support site or a page with step-by-step setup instructions.
+3. In the **Instructions Page Name** field, enter the label you want to display as the hyperlink text for the Instructions URL.
+4. In the **Post-Installation Notes** field, add any additional details or reminders users need to complete setup successfully.

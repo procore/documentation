@@ -6,8 +6,18 @@ section_title: Building Applications
 
 ---
 
-Whether you are a Procore client or a Procore Technology partner, you can leverage the Procore API to build applications that interact directly with the data and resources available in Procore tools at both the company and project level.
-The following sections detail the steps for building applications, or Apps, using the Procore API and provide you with the information you need to be successful in your development efforts.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/building-apps-create-new" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/building-apps-create-new">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## Introduction
+Whether you are a Procore client or a Procore Technology partner, you can leverage the Procore API to build applications that interact directly with the data and resources available in Procore. The following sections detail the steps for building applications, or Apps, and provide you with the information you need to be successful in your development efforts.
 
 Before embarking on your App development journey, be sure to complete the following tasks:
 
@@ -26,4 +36,4 @@ Here are the high-level steps in the App development lifecycle:
 
 For Marketplace Apps, the following step must also be completed:
 
-- [Creating a Marketplace Listing and Submitting for Review]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_submit_marketplace.md %})
+- [Creating a Marketplace Listing and Submitting for Review]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_submit_marketplace.md %}) -->
