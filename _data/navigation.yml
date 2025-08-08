@@ -267,5 +267,5 @@
       url: /new-rest-v2-version
     - title: Service Account Deprecation
       url: /service-account-deprecation
-    - title: API Usage in Developer Portal
-      url: /api-activity-export
+    # - title: API Usage in Developer Portal
+    #   url: /api-activity-export
