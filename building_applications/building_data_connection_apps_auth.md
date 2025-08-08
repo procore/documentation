@@ -1,13 +1,13 @@
 ---
-permalink: /building-data-connection-apps
-title: Building Service Account Authentication Applications
+permalink: /building-data-connection-apps-auth
+title: Building User Level Authentication Applications
+sub_header: Learn how to build a data connection app using User Level Authentication (OAuth 2.0) to act on behalf of a Procore user.
 layout: default
 section_title: Building Applications
-sub_header: Learn how to build a data connection app using a Developer Managed Service Account (DMSA) for automated system-to-system data exchange.
 ---
 
 ## Introduction
-This guide provides step-by-step instructions for building a data connection app using Service Account Authentication (OAuth 2.0 Client Credentials). This method allows your integration to interact with the Procore API using system credentials—without requiring user login. These apps use Procore's Developer Managed Service Account (DMSA) model and are ideal for server-to-server communication.
+This guide provides step-by-step instructions for building a data connection app using User Level Authentication (OAuth 2.0 Authorization Code Flow). This method allows your integration to act on behalf of a specific user, enabling secure data exchange between Procore and an external platform using a Client ID and Client Secret.
 
 To get started, first [create a Developer Portal account and app]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %}).
 <br><br>
@@ -16,13 +16,9 @@ To get started, first [create a Developer Portal account and app]({{ site.url }}
 ## Add a New Data Connector Component
 1. In your Developer Portal app, expand the **Data Connector Components** section.
 2. Click **Add Components**.
-3. Select **Service Account Authentication** and **User Level Authentication**.
-   - This option uses a Developer Managed Service Account (DMSA) and the OAuth 2.0 Client Credentials Flow to allow system-level access.
-4. Use the **Permissions Builder** to define the required company- and project-level tool permissions your app needs.
-   - Refer to the [User Permissions Matrix](https://support.procore.com/references/user-permissions-matrix-web) for more details.
-5. Click **Save Component**.
-
-![Permission Builder]({{ site.baseurl }}/assets/guides/form-based-manifest-dmsa-perms-builder.png)
+3. Select **User Level Authentication**.
+   - This option uses OAuth 2.0 Authorization Code Flow to act on behalf of a user. API responses are limited by the user’s permissions in Procore.
+4. Click **Save Component**.
 <br><br>
 
 ***

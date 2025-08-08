@@ -6,7 +6,17 @@ section_title: Building Applications
 
 ---
 
-## Semantic Versioning
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/building-apps-promote-manifest" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/building-apps-promote-manifest">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## Semantic Versioning
 
 The applications and integrations you build on the Procore platform follow a _semantic_ version numbering scheme.
 Semantic versioning involves a set of rules that guide how version numbers are assigned and incremented.
@@ -38,4 +48,4 @@ The App Management listing for the application will dislplay an 'Update Availabl
 
 ![App Update Available]({{ site.baseurl }}/assets/guides/update-available-badge.png)
 
-See [Update an Installed App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/update-installed-app) for additional information.
+See [Update an Installed App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/update-installed-app) for additional information. -->

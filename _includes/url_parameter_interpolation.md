@@ -1,42 +1,72 @@
-_URL Parameter Interpolation_ is a method used in web development to insert variable data into a URL.
-In the context of a Procore integration application, it is used to add specific values to the URL that can then be used to request specific data from the application server.
-This technique is often used in HTTP GET requests, where data is passed as parameters in the URL itself.
+## Introduction
+_URL Parameter Interpolation_ lets you insert dynamic, context-specific values into a URL. In Procore embedded applications, this is how you make your app respond to the **current company** or **project context** without hardcoding values.
 
-Interpolation comes into play when these parameter values are dynamic - that is, they change based on user input or some other variable.
-Developers can use interpolation to insert these variable values into the URL.
-The Procore platform supports URL parameter interpolation for different sections of the URL, which you define when adding a component.
-You can interpolate values for the URL subdomain, path parameters, and query parameters.
-For example:
+This is commonly used in HTTP GET requests, where data is passed in the URL. Interpolation makes these values dynamic-changing based on the user's context or custom setup.
 
-**Subdomain**
+---
 
+## Where Interpolation Works in Procore
+You can use interpolation when defining a component in the Developer Portal in the following parts of a URL:
+- **Subdomain**
+- **Path parameters**
+- **Query parameters**
+
+This is most common in HTTP GET requests, where data is passed in the URL.
+
+---
+
+## Examples
+
+**Subdomain:** Pass a value into the subdomain dynamically.
 ```{% raw %}
 https://{{subdomain}}.domain.com
 ```{% endraw %}
 
-**Path Parameters**
-
-```{% raw %}    
+**Path Parameters:** Insert dynamic values directly into the path.
+```{% raw %}
 https://example.domain.com/{{my_path1}}/{{my_path2}}
 ```{% endraw %}
 
-**Query Parameters**
-
-```{% raw %}  
-?companyId={{procore.company.id}}&companyName={{procore.company.name}}&projectId={{procore.project.id}}&projectName={{procore.project.name}}&customField={{CustomField}}
+**Query Parameters:** Send company or project context (and more) as query string values.
+```{% raw %}
+?companyId={{procore.company.id}}&projectId={{procore.project.id}}&customField={{CustomField}}
 ```{% endraw %}
 
-The Procore platform provides the following built-in variables for use as query parameters.
+---
 
-* `procore.company.id` - ID of the company where the App is installed.
-* `procore.company.name` - Name of the company where the App is installed.
-* `procore.project.id` - ID of the project in which the App has been configured.
-* `procore.project.name` - Name of the project in which the App has been configured.
+## Built-in Variables
+Procore provides built-in variables you can use in query parameters to automatically pass context:
 
-When included as URL parameters for your embedded (full screen or side panel) application, these values can be used to determine which company and project a user is working in.
-The `procore.project.id` variable is commonly used in scenarios where data for the same Procore project lives in an external system and allows the embedded application to access the externally mapped/synced project.
+- `procore.company.id` – ID of the company where the app is installed
+- `procore.company.name` – Name of that company
+- `procore.project.id` – ID of the project where the app is used
+- `procore.project.name` – Name of that project
 
-You can also define your own custom field variables for use as query parameters.
-Custom field variables can be specified as required _or_ optional.
-Values for custom parameters are set by the user during installation allowing you further personalize your application.
-Custom parameters are extremely flexible and can be used for any number of purposes. Some common uses for custom parameters include entering an ID number for a specific device in a drone/site camera application, specifying a membership or subscription ID for an application, or defining the locale in which an application will be used.
+**Why use them?**  
+These variables save time and prevent mistakes. For example, use `procore.project.id` to fetch project-specific data from your system without asking the user to enter it.
+
+---
+
+## Custom Parameters
+You can also create your own parameters to meet specific needs. These are defined by the installer during app setup and can be required or optional.
+
+**Common use cases:**
+- Link to a device ID (e.g., drone, camera).
+- Pass a subscription or user ID.
+- Set a region or locale for the app.
+
+---
+
+## How to Add Custom URL Parameters
+
+1. In your component configuration, click **Add Parameter**.  
+   ![Component Add Param]({{ site.baseurl }}/assets/guides/form-based-component-add-param.png)
+
+2. Define the **Name**, **Type**, **Key**, and **Description**.  
+   ![Component Add Param Field]({{ site.baseurl }}/assets/guides/form-based-component-add-param-custom.png)
+
+3. Mark the parameter as **Required** (or leave it optional) for installation.
+
+4. Click **Save Parameter**.
+
+Once saved, your custom parameter can be used in the URL the same way as built-in variables—helping your app deliver the right data in the right context.

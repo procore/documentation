@@ -66,44 +66,46 @@
 
 - title: Building Applications
   items:
-    - title: Introduction
-      url: /building-apps-intro
+    # - title: Introduction
+      # url: /building-apps-intro
+    - title: Creating an App
+      url: /building-apps-create-new
+    # - title: Creating an App Manifest - NEEDED FOR REDIRECT
+    #   url: /building-apps-define-manifest
+    - title: Managing App Collaboration
+      url: /building-apps-manage-collabs
     - title: Understanding App Types
       url: /building-apps-app-types
     - title: App Installation Architecture
       url: /building-apps-install-arch
-    - title: App Versioning and Update Notification
-      url: /building-apps-versioning
-    - title: Creating a New App
-      url: /building-apps-create-new
-    - title: Creating an App Manifest
-      url: /building-apps-define-manifest
+    - title: Building User Level Auth. Apps
+      url: /building-data-connection-apps-auth
+    - title: Building Service Account Auth. Apps
+      url: /building-data-connection-apps
+    - title: Building Full Screen Embedded Apps
+      url: /building-embedded-fullscreen-apps  
+    - title: Building Side Panel Embedded Apps
+      url: /building-side-panel-apps
     - title: Understanding URL Parameter Interpolation
       url: /building-apps-url-parameter-interpolation
-    - title: Building Procore Embedded Full Screen Applications
-      url: /building-embedded-fullscreen-apps  
-    - title: Building Procore Embedded Side Panel Applications
-      url: /building-side-panel-apps
-    - title: Building Procore Data Connection Applications with DMSA
-      url: /building-data-connection-apps
-    - title: Installing an App in the Development Sandbox
-      url: /building-apps-sandbox-install
-    - title: Promoting a Sandbox Manifest to Production
+    # - title: Installing an App in the Development Sandbox
+    #   url: /building-apps-sandbox-install
+    - title: Managing App Versions & Update Notifications
       url: /building-apps-promote-manifest
+    # - title: App Versioning and Update Notification - NEEDED FOR REDIRECT
+    #   url: /building-apps-versioning
     # - title: Submitting a Production App Manifest for Review
     #   url: /building-apps-review-manifest - ACTION REQUIRED - Updated for Redirect
     # - title: Creating a Marketplace Listing and Submitting for Review
     #   url: /building-apps-submit-marketplace - ACTION REQUIRED - Updated for Redirect
-    - title: Managing App Collaboration
-      url: /building-apps-manage-collabs
     # - title: Working with App Metrics
     #   url: /building-apps-metrics - Updated for Redirect
     - title: Developer Managed Service Accounts
       url: /developer-managed-service-accounts
-    - title: App Manifest v3.x Legacy Format
-      url: /building-apps-legacy-v3x-manifest-format
-    - title: Migrating an App Manifest from v3.x to v4.1
-      url: /building-apps-v3x-v41-manifest-migration
+    # - title: App Manifest v3.x Legacy Format - NOT NEEDED ANYMORE
+    #   url: /building-apps-legacy-v3x-manifest-format
+    # - title: Migrating an App Manifest from v3.x to v4.1 - NOT NEEDED ANYMORE
+    #   url: /building-apps-v3x-v41-manifest-migration
     # - title: Maximizing Conversation Rates
     #   url: /building-apps-maximizing-conversion-rates - Updated for Redirect
 
@@ -265,3 +267,5 @@
       url: /new-rest-v2-version
     - title: Service Account Deprecation
       url: /service-account-deprecation
+    - title: API Usage in Developer Portal
+      url: /api-activity-export
