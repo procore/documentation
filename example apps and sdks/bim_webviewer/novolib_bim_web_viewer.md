@@ -53,6 +53,25 @@ This document describes the public SDK functions of the `WebViewer` class, organ
 
 ## Core Functions
 
+### <u>`Webviewer(container: HTMLElement, initOptions?: InitOptions)`</u>
+Creates a new WebViewer instance and attaches it to the specified container element.
+
+This constructor initializes the WebViewer with the provided options, sets up the rendering root, and patches the Mirage fetch if needed. The `initOptions` parameter allows you to specify authentication, scene ID, and beta feature flags.
+
+**Parameters:**
+- `container: HTMLElement` — The DOM element to mount the WebViewer into.
+- `initOptions?: InitOptions` — Optional configuration for authentication, scene ID, and beta features.
+
+**Example:**
+```typescript
+const container = document.getElementById("webviewer-container");
+const webviewer = new Webviewer(container, { auth, sceneId, enableBetaFeatures });
+```
+
+**Throws:** None
+
+---
+
 ### `start()`
 Initializes and starts the WebViewer instance.
 
@@ -71,7 +90,7 @@ webviewer.start();
 ```
 
 **Throws:**
-- Error - If initialization fails or required resources are missing.
+- None
 
 ---
 
@@ -88,17 +107,17 @@ webviewer.terminate();
 ```
 
 **Throws:**
-- Error - If termination fails or resources cannot be released.
+- None
+
 
 ---
-
 
 ## model Namespace
 
 ### `getSelectedObjects()`
-Returns the IDs of the objects that are currently highlighted in the scene.
+Returns the IDs of the objects that are currently selected in the scene.
 
-It checks the `highlighted` state and returns the array of IDs if available. If no objects are highlighted, it returns an empty array.
+It checks the state of the selection and returns the array of IDs if available. If no objects are selected, it returns an empty array.
 
 **Returns:** `ObjectId[]` — An array containing the IDs of the selected objects, or an empty array if none are selected.
 
@@ -108,14 +127,14 @@ const selectedObjects = webviewer.model.getSelectedObjects();
 console.log(selectedObjects); // Logs the IDs of the selected objects.
 ```
 
-**Throws:** No - Will return an empty array if no objects are selected.
+**Throws:** None
 
 ---
 
 ### `setXRayMode()`
 Changes the visibility of all objects to X-Ray mode, allowing for a transparent view of the objects in the scene.
 
-This is particularly useful for inspecting objects that may be obscured by others, or for visualizing the internal structure of complex objects.
+This is particularly useful for inspecting objects that others may obscure or for visualizing the internal structure of complex objects.
 
 **Returns:** `void`
 
@@ -124,7 +143,7 @@ This is particularly useful for inspecting objects that may be obscured by other
 webviewer.model.setXRayMode();
 ```
 
-**Throws:** No - Will log a warning if the rendering mode is not set correctly.
+**Throws:** None — Will log a warning if the rendering mode is not set correctly.
 
 ---
 
@@ -143,44 +162,57 @@ This function is typically used in scenarios where you want to switch back to a 
 webviewer.model.setNormalMode();
 ```
 
-**Throws:** No - Will log a warning if the rendering mode is not set correctly.
+**Throws:** None — Will log a warning if the rendering mode is not set correctly.
 
 ---
 
 ### `setObjectColor(paletteParams)`
 Sets the color override for the specified object IDs, based on palettes provided.
 
-This function allows you to set custom colors for objects in the scene, which can be used for highlighting, categorization, or other visual distinctions. The `paletteParams` parameter should be an array of objects, each containing a palette and an array of object IDs. Each palette object can contain properties for default, xray, and selected colors, each with a color, and opacity.
+This function allows you to set custom colors for objects in the scene, which can be used for highlighting, categorization, or other visual distinctions. The `paletteParams` parameter should be an array of objects, each containing a palette and an array of object IDs. Each palette object can contain properties for default, x—ray, and selected colors, each with a color, and opacity.
 
 **Parameters:**
 - `paletteParams: PaletteParams[]` — An array of objects containing color and object IDs.
+
+The `PaletteParams` type has two attributes:
+- `palette: Palette` — An object containing color definitions.
+- `objectIds: ObjectId[]` — An array of object IDs to apply the color to.
+
+The `Palette` type has the following properties:
+- `default?: Color` — The default color for the objects.
+- `xray?: Color` — The color for the objects in X-Ray mode.
+- `selected?: Color` — The color for the objects when selected.
+
+The `Color` type has the following properties:
+- `color: string` — A hex color string that starts with `#`, followed by exactly 6 (six) hexadecimal digits (e.g., "#FF0000").
+- `opacity: number` — A number between 0 and 1 representing the opacity of the color, with 0 being fully transparent and 1 being completely opaque.
 
 **Returns:** `void`
 
 **Example:**
 ```typescript
 const paletteParams = [{
-   palette: {
-       default: {color: "#FF0000", opacity: 0.75 },
-       xray: { color: "#00FF00", opacity: 1 },
-       selected: { color: "#0000FF", opacity: 1 }
-   },
-   objectIds: [1, 2, 3]
+    palette: {
+        default: {color: "#FF0000", opacity: 0.75 },
+        xray: { color: "#00FF00", opacity: 1 },
+        selected: { color: "#0000FF", opacity: 1 }
+    },
+    objectIds: [1, 2, 3]
 }];
 webviewer.model.setObjectColor(paletteParams);
 ```
 
 **Throws:**
-- Error - If a palette contains an unknown key.
-- Error - If a palette's color hex string is malformed.
-- Error - If a palette's opacity is not in the proper range [0, 1].
+- Error — If a palette contains an unknown key.
+- Error — If a palette's color hex string is malformed.
+- Error — If a palette's opacity is not in the proper range [0, 1].
 
 ---
 
 ### `clearObjectColor(objectIds)`
 Clears the color override for the specified object IDs.
 
-This function allows you to remove any custom color overrides that have been applied to objects in the scene. It is useful when you want to revert objects back to their default appearance or when you want to clear any temporary color changes made for highlighting or categorization purposes. The function takes an array of object IDs for which the color override should be cleared. It will remove the color overrides for those objects, allowing them to be rendered with their default colors or styles as defined in the scene configuration.
+This function allows you to remove any custom color overrides that have been applied to objects in the scene. It is useful when you want to revert objects to their default appearance or when you want to clear any temporary color changes made for highlighting or categorization purposes. The function takes an array of object IDs for which the color override should be cleared. It will remove the color overrides for those objects, allowing them to be rendered with their default colors or styles as defined in the scene configuration.
 
 **Parameters:**
 - `objectIds: ObjectId[]` — An array of object IDs for which to clear the color override.
@@ -193,7 +225,7 @@ const objectIds = [1, 2, 3];
 webviewer.model.clearObjectColor(objectIds);
 ```
 
-**Throws:** No
+**Throws:** None
 
 ---
 
@@ -209,14 +241,13 @@ This function is useful when you want to reset the visual appearance of all obje
 webviewer.model.clearAllObjectColor();
 ```
 
-**Throws:** No
+**Throws:** None
 
 ---
 
 ## camera Namespace
 
 ### `zoomToObjects(objectIds)`
-Zooms the camera to fit the bounding sphere of the specified objects.
 
 This function calculates the bounding sphere of the objects and sets the camera to zoom to that sphere.
 
@@ -232,8 +263,8 @@ await webviewer.camera.zoomToObjects(objectIds);
 ```
 
 **Throws:**
-- Error - If the explorer globals or abort controller is not initialized.
-- Error - If the bounding sphere enclosing all the objects specified by ID could not be calculated.
+- Error — If the explorer globals or abort controller is not initialized.
+- Error — If the bounding sphere enclosing all the objects specified by ID could not be calculated.
 
 ---
 
@@ -257,9 +288,8 @@ await webviewer.camera.navToHomeView();
 ## gui Namespace
 
 ### `addContextMenuItem({ label, id, onClick })`
-Adds a context menu item to the Procore UX flavor.
 
-This function allows you to add custom context menu items in the Procore UX flavor.
+This function allows you to add custom context menu items.
 
 **Parameters:**
 - `label: string` — The label for the context menu item.
@@ -280,8 +310,8 @@ webviewer.gui.addContextMenuItem({
 ```
 
 **Throws:**
-- Error - If the UX flavor is not Procore
-- Error - If the `dispatchProcoreStampMenuItems` is not defined.
+- Error — If the viewer is not parameterized correctly
+- Error — If the viewer is not fully initialized yet
 
 ---
 
@@ -301,7 +331,7 @@ webviewer.gui.removeContextMenuItems({ contextMenuItemIds: ["custom-action"] });
 ```
 
 **Throws:**
-- Error - If the UX flavor is not Procore
-- Error - If the `dispatchProcoreStampMenuItems` is not defined.
+- Error — If the viewer is not parameterized correctly
+- Error — If the viewer is not fully initialized yet
 
 ---
