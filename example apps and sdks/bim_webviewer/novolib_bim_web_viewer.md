@@ -36,21 +36,16 @@ The WebViewer class exposes the public SDK and its functions. The functions are 
 
 <p class="heading-link-container"><a class="heading-link" href="#webviewer-namespaces"></a></p>
 
-| Namespace | Description                                                                         |
-|-----------|-------------------------------------------------------------------------------------|
-| <_none_>  | Core functions of the SDK, not related to a particular namespace                    |
-| model     | Webviewer model data retrieval and manipulation [Model Namespace](#model-namespace) |
-| camera    | Webviewer camera retrieval and manipulation [Camera Namespace](#camera-namespace)   |
-| gui       | Webviewer GUI manipulation [GUI Namespace](#gui-namespace)                          |
-
-
-# WebViewer SDK API Reference
-
-This document describes the public SDK functions of the `WebViewer` class, organized by namespace: `model`, `camera`, and `gui`.
+| Namespace | Description                                                             |
+|-----------|-------------------------------------------------------------------------|
+| <_none_>  | **Core functions** of the SDK, not related to a particular namespace    |
+| model     | Webviewer model data retrieval and manipulation [Model Namespace](#model-namespace)  |
+| camera    | Webviewer camera retrieval and manipulation [Camera Namespace](#camera-namespace)     |
+| gui       | Webviewer GUI manipulation [GUI Namespace](#gui-namespace)                         |
 
 ---
 
-## Core Functions
+## The Core Functions
 
 ### <u>`Webviewer(container: HTMLElement, initOptions?: InitOptions)`</u>
 Creates a new WebViewer instance and attaches it to the specified container element.
@@ -111,7 +106,7 @@ webviewer.terminate();
 
 ---
 
-## model Namespace
+## The `model` Namespace
 
 ### `getSelectedObjects()`
 Returns the IDs of the objects that are currently selected in the scene.
@@ -244,7 +239,7 @@ webviewer.model.clearAllObjectColor();
 
 ---
 
-## camera Namespace
+## The `camera` Namespace
 
 ### `zoomToObjects(objectIds)`
 
@@ -284,7 +279,7 @@ await webviewer.camera.navToHomeView();
 
 ---
 
-## gui Namespace
+## The `gui` Namespace
 
 ### `addContextMenuItem({ label, id, onClick })`
 
