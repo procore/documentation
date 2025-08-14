@@ -43,7 +43,6 @@ The WebViewer class exposes the public SDK and its functions. The functions are 
 | camera    | Webviewer camera retrieval and manipulation [Camera Namespace](#camera-namespace)   |
 | gui       | Webviewer GUI manipulation [GUI Namespace](#gui-namespace)                          |
 
-Here is a Markdown file documenting the public functions in the `model`, `camera`, and `gui` namespaces of the `Webviewer` class.
 
 # WebViewer SDK API Reference
 
