@@ -1,6 +1,6 @@
 ---
 permalink: /novolib-bim-web-viewer
-title: 'Novolib BIM Web Viewer Doc for Procore Developer (Internal)'
+title: 'Novorender BIM Web Viewer API (Experimental)'
 layout: default
 section_title: Example Apps & SDKs
 ---

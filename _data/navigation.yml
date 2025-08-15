@@ -225,11 +225,11 @@
       url: /sdk
     - title: Procore Iframe Helper
       url: /procore-iframe-helper
-    - title: Legacy BIM Web Viewer API
+    - title: BIM Web Viewer API
       url: /bim-web-viewer
-    - title: Legacy BIM Web Viewer Demo
+    - title: BIM Web Viewer Demo
       url: /bim-web-viewer-demo
-    - title: Novorender Web Viewer API
+    - title: Novorender BIM Web Viewer API (Experimental)
       url: /novolib-bim-web-viewer
 
 # - title: ERP Integration - EVERYTHING NEEDED BUT NOT INDEXED
