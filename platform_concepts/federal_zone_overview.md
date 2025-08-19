@@ -51,6 +51,71 @@ To validate your app for the Federal Zone, we recommend:
 - **Swapping in the appropriate Federal environment configuration**: This includes the base API URL (`https://api.procoregov.com`), login endpoint (`https://login.procoregov.com`), and your Federal-specific client ID and client secret. These credentials are not interchangeable with those used in the Commercial environment.
 
 While this approach is not a perfect substitute for a full sandbox, it currently offers the best available method for replicating Federal Zone behavior.
+<br><br>
+
+***
+
+## How to Get Started as a FedRAMP Marketplace Partner
+
+> ⚠️ **Important:** The FedRAMP environment does not provide sandbox accounts. All development and testing must be done in outside of the Federal Zone before final validation.
+
+If you’d like to make your app available in Procore’s **Federal Zone**, you’ll need to follow a few steps to gain access to the **FedRAMP Developer Portal** and publish to the **Federal Marketplace**.
+
+***
+
+<details>
+<summary class="collapseListTierOne">Step 1: Request Access</summary>
+<p>
+    Send an email to <a href="mailto:MarketplaceQA@procore.com">MarketplaceQA@procore.com</a> with the following details:
+</p>
+<ul>
+    <li>Your company name</li>
+    <li>Confirmation of your intent to build for FedRAMP</li>
+    <li>Contact details for all collaborators who will need access</li>
+</ul>
+<p>
+    Additionally, to qualify for access, you must:
+</p>
+<ul>
+    <li>Already be a Procore Marketplace partner</li>
+    <li>Plan to list in the FedRAMP Marketplace</li>
+    <li>Provide proof of your FedRAMP status (such as an ATO – Authorization to Operate – or reference to your inclusion on the official FedRAMP Marketplace)</li>
+</ul>
+</details>
+
+***
+<details>
+<summary class="collapseListTierOne">Step 2: Accept Your Portal Invitation</summary>
+<p>
+    Once verified, you’ll receive an email invitation to the <strong>FedRAMP Developer Portal</strong>. Accept the invite, and you’ll be able to begin:
+</p>
+<ul>
+    <li>Building or adapting your app</li>
+    <li>Preparing your FedRAMP-specific Marketplace listing</li>
+</ul>
+</details>
+
+***
+<details>
+<summary class="collapseListTierOne">Step 3: Submit for Review</summary>
+<p>
+    When your app is ready, submit it for validation. Procore will review:
+</p>
+<ul>
+    <li>Functionality</li>
+    <li>FedRAMP compliance</li>
+    <li>Data handling practices</li>
+    <li>Your Marketplace listing and documentation</li>
+</ul>
+</details>
+
+***
+<details>
+<summary class="collapseListTierOne">Step 4: Publish to the Federal Marketplace</summary>
+<p>
+    After successful validation, your app will be listed in the <strong>Procore FedRAMP Marketplace</strong> for U.S. federal agencies and contractors.
+</p>
+</details>
 
 ***
 ### Additional Resources

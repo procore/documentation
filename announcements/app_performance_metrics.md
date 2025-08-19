@@ -27,7 +27,6 @@ Before this update, app performance data was limited and not universally availab
 1. **Open the Performance Metrics tab**  
    - In the Developer Portal, navigate to your app and click the **Performance Metrics** tab.
 2. **Request your API activity CSV**  
-   - Scroll to the **API Call Activity** section.  
    - Click **Generate CSV Export**.  
    - You’ll receive an email with your CSV file attached.  
 3. **Review your API activity**  
