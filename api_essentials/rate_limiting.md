@@ -1,27 +1,33 @@
 ---
 permalink: /rate-limiting
-title: RATE LIMITING
+title: Rate Limiting
+sub_header: Understanding and Managing Procore API Rate Limits
 layout: default
 section_title: API Essentials
 
 ---
+## Introduction
+Procore’s API has rate limits to ensure reliability. By controlling the number of API requests a single authentication token can make, we protect system performance and prevent misuse.
+<br><br>
 
-Usage of Procore's API is subject to rate limits.
-By limiting the number of API requests that can be issued from a unique authentication token, we are able to offer a more reliable service by protecting our own system infrastructure from being negatively affected by abusive users or applications that are not operating in accordance with our terms and conditions.
-
+***
 ## Procore Rate Limits
 
-Procore API rate limits to 3,600 requests per hour.
-The rate limit resets every hour.
+Procore’s API enforces multiple, simultaneous rate limits. The default limit is long-term (hourly), but additional short-term limits (such as burst or spike thresholds) may also apply. Because the specific limits can vary, your application should always check the response headers to determine the current quota and when it resets.
+
 There are three important response headers returned when making a request to the Procore API.
 
 | Header                 | Explanation                                                                     |
 | ---------------------- | --------------------------------------------------------------------------------|
-| X-Rate-Limit-Limit     | The total number of requests per 60 minute window.                              |
-| X-Rate-Limit-Remaining | The number of requests you are allowed to make in the current 60 minute window. |
-| X-Rate-Limit-Reset     | The Unix timestamp for when the next window begins. (in seconds)                |
+| X-Rate-Limit-Limit     | The total number of requests allowed in the current 60‑minute window.           |
+| X-Rate-Limit-Remaining | The number of requests you can still make in the current window.                 |
+| X-Rate-Limit-Reset     | The Unix timestamp (in seconds) when the next window begins.                     |
+
+These values reflect your current limits. They can change at any time, so your application should always read and adapt to them.
 
 **Example:**
+
+Here’s a sample response. Your actual values may vary depending on which limits are active.
 
 ```
 X-Rate-Limit-Limit: 3600
@@ -29,27 +35,33 @@ X-Rate-Limit-Remaining: 3599
 X-Rate-Limit-Reset: 1466182244
 ```
 
-When you exceed the rate limit, the client will receive a 429 status code. The rate limit headers will still be present. The response body will contain the following message.
+If you exceed a rate limit, you’ll receive a 429 status code. The headers will still be present, and the response body will include a message like this:
 
 ```
 You have surpassed the max number of requests for an hour. Please wait until your limit resets.
 ```
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
+***
 ## Tips For Working Within the Rate Limit
 
-The following tips will help you to code defensively and reduce the possibility of exceeding the rate limit.
-Some application features that you may want to provide are simply impossible in light of rate limiting, especially around the most current data available.
+Follow these practices to reduce the chance of hitting rate limits and to build resilient applications.
 
-- If you do not need all of the fields in the show response, fetch the entire collection of objects through the index action in one API event.
-- Cache results whenever possible. This is especially true when you are displaying data to the public (i.e. everyone sees the same output).
-- Use logging to see how many requests you are making.
-- If you are using a DMSA to make API requests, ensure that your calls include either the `Procore-Company-Id` header, or the `:company_id` parameter decipherable from the API request URL's path or query string parameters to ensure that each company DMSA has its own rate limit of 3600 requests per hour.
+- Always check the `X-Rate-Limit-*` headers and adjust dynamically.
+- Use index actions to fetch collections in one request instead of requesting individual objects.
+- Cache results whenever possible, especially for public or repeated data.
+- Log API usage to understand and optimize request patterns.
+- When using a DMSA, include either the `Procore-Company-Id` header or `:company_id` parameter so each company DMSA gets its own limit (3,600 requests per hour).
+<br><br>
 
+***
 ## Handling 429 Errors
 
-In the event your application makes a request that exceeds the rate limit, you will receive a response with the HTTP code 429, a body of "You have surpassed the max number of requests for an hour. Please wait until your limit resets.", and the three rate limit headers described above.
-The best practice for handling a 429 error response is to get the Unix timestamp value of the `X-Rate-Limit-Reset` header from the response and have your application sleep until that time.
-Otherwise, catch the error and fail gracefully in order to temporarily stop processing requests to Procore.
-Event-driven integrations utilizing webhooks should implement a database and a way to enqueue jobs, so that webhooks can be stored and processed later after your application’s rate limit has refreshed.
-You should not attempt to continue making requests to Procore until your rate limit has reset.
-Further attempts to make requests while your rate limit is exceeded is bad practice, and may cause your application to halt execution.
+If your application exceeds an active rate limit, Procore will return HTTP 429 with the headers and the following message: "You have surpassed the max number of requests for an hour. Please wait until your limit resets."
+
+Use the `X-Rate-Limit-Reset` timestamp to pause requests until the window resets. Otherwise, catch the error and fail gracefully.
+
+For webhook-driven integrations, enqueue events in a database and process them once your rate limit refreshes.
+
+Do not continue sending requests while over the limit—this may halt your application.
