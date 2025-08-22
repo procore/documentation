@@ -1,8 +1,20 @@
 ---
+permalink: /side-panel-view-keys
 title: Side Panel View Key Reference
 layout: default
 section_title: Building Applications
 ---
+
+<style>
+/* Keep wide tables from overflowing the content column */
+/* Use fixed layout so extremely long strings wrap instead of stretching columns */
+main table { width: 100%; table-layout: fixed; border-collapse: collapse; }
+main th, main td { word-break: break-word; overflow-wrap: anywhere; white-space: normal; }
+/* On narrow viewports, allow horizontal scroll as a fallback */
+@media (max-width: 1200px) {
+  main table { display: block; overflow-x: auto; }
+}
+</style>
 
 ## Introduction
 Side Panel View Keys determine where your embedded application can appear within the Procore user interface. Each view key corresponds to a specific tool or view (e.g., Documents, Daily Log, Prime Contracts).
@@ -164,7 +176,7 @@ Use this reference when selecting **Supported Side Panel Views** in the Develope
 | /:project_id/project/change_events/events | change_events.list |
 | /:project_id/project/change_events/events/new | change_events.new |
 | /:project_id/project/change_events/events/:id | change_events.detail |
-| /:project_id/project/change_events/events/:id/edit | hange_events.edit |
+| /:project_id/project/change_events/events/:id/edit | change_events.edit |
 
 
 #### Budget
