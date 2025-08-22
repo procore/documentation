@@ -41,7 +41,7 @@ To ensure platform stability, we manage API traffic in three primary ways. When 
 #### Hourly and Spike Limits (`429 Too Many Requests`)
 You will receive a `429 Too Many Requests` status code if you exceed either your **hourly request limit** or a shorter-term **spike limit** designed to prevent sudden bursts of traffic.
 
-While the response body for both may state, *"You have surpassed the max number of requests for an hour"*, this message can be triggered by either limit type.
+While the response body for both may state, *"You have surpassed the max number of requests for an hour. Please wait until your limit resets."*, this message can be triggered by either limit type.
 
 **Best Practice:** To properly handle a `429` response, your application should inspect the **`X-Rate-Limit-Reset`** header. This header contains a UTC epoch timestamp indicating the exact time when your request allowance will be reset. You should pause making requests until after this time.
 
