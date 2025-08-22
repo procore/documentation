@@ -35,11 +35,21 @@ X-Rate-Limit-Remaining: 3599
 X-Rate-Limit-Reset: 1466182244
 ```
 
-If you exceed a rate limit, you’ll receive a 429 status code. The headers will still be present, and the response body will include a message like this:
+### Types of Rate Limit Responses
+To ensure platform stability, we manage API traffic in three primary ways. When you are rate-limited, it's crucial to inspect the HTTP response code and headers to determine the correct course of action.
 
-```
-You have surpassed the max number of requests for an hour. Please wait until your limit resets.
-```
+#### Hourly and Spike Limits (`429 Too Many Requests`)
+You will receive a `429 Too Many Requests` status code if you exceed either your **hourly request limit** or a shorter-term **spike limit** designed to prevent sudden bursts of traffic.
+
+While the response body for both may state, *"You have surpassed the max number of requests for an hour"*, this message can be triggered by either limit type.
+
+**Best Practice:** To properly handle a `429` response, your application should inspect the **`X-Rate-Limit-Reset`** header. This header contains a UTC epoch timestamp indicating the exact time when your request allowance will be reset. You should pause making requests until after this time.
+
+#### Heavy Load Throttling (`503 Service Unavailable`)
+In rare instances when the Procore platform is experiencing exceptionally heavy load, we may temporarily throttle traffic to maintain overall system health. In these situations, you will receive a `503 Service Unavailable` response.
+
+This response indicates that while your request is valid, the service is currently unable to process it. To handle this, inspect the **`Retry-After`** header, which will specify the number of seconds you should wait before retrying the request.
+
 <div class="details-bottom-spacing"></div>
 <div class="details-bottom-spacing"></div>
 
