@@ -38,7 +38,7 @@ See [Metadata Template and Editing Guide]({{ site.url }}{{ site.baseurl }}{% lin
 Using Procore Webhooks System Integrators will need to prescribe a publicly accessible URL to which Procore can send event-based http requests.
 These requests from Procore notify the System Integrator that updates have been made in Procore, such as a state change, updated value or new object available for export out of Procore.
 The Integration must take action to retrieve all of the necessary information from Procore and act accordingly.
-See [Using Procore Webhooks]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}) for additional information.
+See [Using Procore Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}) for additional information.
 
 ERP event payloads being sent to the Notification Endpoint URL will include an ERP Request ID.
 System Integrators will need to respond to Procore with the ERP Request ID to retrieve more information surrounding the request.

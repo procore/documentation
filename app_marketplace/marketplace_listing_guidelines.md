@@ -6,7 +6,7 @@ layout: default
 section_title: App Marketplace
 ---
 
-## Introduction
+## Overview
 Once your app is built and Technology Partner contracting has been completed, the next step is preparing your listing for the Marketplace. This process involves adding visuals, descriptions, and pricing, all of which must follow specific guidelines to ensure consistency and streamline the review.
 
 You can access the **Marketplace Listing** section through the left navigation menu inside your app, within the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>.

@@ -2,7 +2,7 @@
 permalink: /development-environments
 title: Sandbox Environments
 layout: default
-section_title: Getting Started
+section_title: Platform Concepts
 ---
 
 ## Introduction

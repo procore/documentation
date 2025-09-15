@@ -23,12 +23,12 @@ Before embarking on your App development journey, be sure to complete the follow
 
 - [Set up your Developer Account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %}) on developers.procore.com.
 - Learn about [partner integrations]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/partner_overview.md %}) and [custom integrations]({{ site.url }}{{ site.baseurl }}{% link overview/custom_overview.md %}).
-- Learn about the [Procore Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %}).
+- Learn about the [Procore Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
 - Gain an understanding of [OAuth 2.0 Authentication]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}).
 
 Here are the high-level steps in the App development lifecycle:
 
-- [Selecting the Type of App to Build]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %})
+- [Selecting the Type of App to Build]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})
 - [Creating a New App]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %})
 - [Creating an App Manifest]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_define_manifest.md %})
 - [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %})

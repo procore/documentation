@@ -42,7 +42,7 @@ Let’s take a moment to break down the various components on the screen, focusi
 
 After you create an App on the Developer Portal you have access to a sandbox environment you can use for development.
 The development sandbox is pre-poulated with a company and test project.
-See [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %}) for additional information.
+See [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}) for additional information.
 
 ### Development Sandbox Credentials
 

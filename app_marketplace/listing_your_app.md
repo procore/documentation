@@ -6,7 +6,7 @@ layout: default
 section_title: App Marketplace
 ---
 
-## Introduction
+## Overview
 Congratulations on building your Procore app! This page outlines the process to become an official Procore Technology Partner and list your app on the Procore Marketplace.
 <br><br>
 

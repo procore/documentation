@@ -6,7 +6,7 @@ layout: default
 section_title: App Marketplace
 ---
 
-## Introduction
+## Overview
 Launching your app on the Procore Marketplace is just the beginning, your journey evolves from there. Maintaining a high-quality app and continuously improving it based on platform updates, performance insights, and customer feedback is essential for long-term success.
 
 This guide covers how to manage updates to your app, view key metrics, and implement best practices to keep your app relevant and impactful.

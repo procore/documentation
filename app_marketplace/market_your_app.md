@@ -5,7 +5,7 @@ layout: default
 section_title: App Marketplace
 ---
 
-## Introduction
+## Overview
 Partner integrations empower our mutual customers, driving further adoption. By leveraging our self-service marketing opportunities, you can both promote your app and strengthen its integration within the Procore ecosystem, allowing you to reach more customers and demonstrate its value. 
 
 We’ve designed these opportunities to help you maximize the impact of your apps and integrations built on our API, while streamlining the co-marketing process for self-service.

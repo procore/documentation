@@ -38,7 +38,7 @@ When you create a new application on the developer portal, the system first gene
 >See [Installing an Application in the Development Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_sandbox_install.md %}) for additional information.
 
 Using the Configuration Builder on the Manage App page, you can define one or more components and specify other settings for your manifest depending on the type of application you are developing.
-See [Understanding App Types]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_app_types.md %}) for additional information.
+See [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}) for additional information.
 
 ![Initial Config Builder]({{ site.baseurl }}/assets/guides/form-based-initial-config-builder.png)
 

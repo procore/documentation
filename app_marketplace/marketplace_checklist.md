@@ -6,7 +6,7 @@ layout: default
 section_title: App Marketplace
 ---
 
-## Introduction
+## Overview
 Before submitting your app for approval, review this Marketplace Approval Checklist to ensure your integration meets Procore's standards. This checklist outlines key submission requirements to help you avoid delays and improve your chances of a successful listing.
 <br><br>
 
@@ -167,7 +167,7 @@ To support this environment:
 - Provide your App Version Key to the customer for to perform a [custom app install](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app)
 - Adjust any hard-coded URLs accordingly
 
-For more details about the Monthly Sandbox, including the refresh schedule and additional guidelines, refer to the <a href="{{ site.url }}{{ site.baseurl }}{% link getting_started/development_environments.md %}">Sandbox Environments</a>.
+For more details about the Monthly Sandbox, including the refresh schedule and additional guidelines, refer to the <a href="{{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}">Sandbox Environments</a>.
 <br><br>
 
 ***

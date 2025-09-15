@@ -5,33 +5,48 @@ sub_header: Learn about our developer resources, how to get help, and where to l
 layout: default
 section_title: Overview
 ---
->**Check out our [FAQ]({{ site.url }}{{ site.baseurl }}{% link additional_resources/faq.md %}) page as we have documented our most asked questions to help you develop with the Procore platform.**
+> **Check our [FAQ]({{ site.url }}{{ site.baseurl }}{% link additional_resources/faq.md %}) for quick answers to common questions.**
 
 ## Introduction
-Whether you're building a custom app or an app for the Procore Marketplace, we’re here to make your development journey as seamless as possible. To support you, we’ve created a variety of resources designed to ensure your success. These include a mix of self-service tools, platform guides, direct technical support, and expert consultation to help you every step of the way.
+Here’s where to learn, find answers, and get help as you build on Procore. Use the resources below to get up to speed, solve problems, and connect with experts.
+<br><br>
+
+***
+## Get Help at a Glance
+- **FAQ:** Fast answers to common developer questions — [view the FAQ]({{ site.url }}{{ site.baseurl }}{% link additional_resources/faq.md %}).
+- **Support Site:** Product tutorials, videos, and how‑tos — <a href="https://support.procore.com/products/online/user-guide" target="_blank">Procore User Guide</a> and the <a href="https://support.procore.com/" target="_blank">Support Website</a>.
+- **Developer Community:** Ask questions and learn from peers — <a href="https://community.procore.com/s/group/0F92T000000XbGqSAK/procore-api-developers" target="_blank">Procore API Developers</a>.
+- **Developer Support:** Submit a ticket for technical help — <a href="https://developers.procore.com/developer_support" target="_blank">Contact Developer Support</a>.
 <br><br>
 
 ***
 ## Procore Certifications
-If you're new to Procore, we highly recommend exploring our free Procore Certification courses. These role-specific courses are designed to provide education on Procore products based on specific job roles. Each course focuses on key tasks and workflows within Procore, offering flexible, modular lessons that can be completed at your own pace. Whether you're building with Procore or utilizing its tools, earning Procore Certification will provide you with a strong foundation of product knowledge, making your development journey smoother and more informed.
+New to Procore? Start with our free, role‑based courses. You’ll learn product workflows in short, self‑paced modules that help you design better integrations and speak your users’ language.
 
-To access the Procore Certification website, visit <a href="https://learn.procore.com/" target="_blank">Procore Learning</a> and log in with your Procore Developer account credentials.
+Take courses at <a href="https://learn.procore.com/" target="_blank">Procore Learning</a> (sign in with your Procore Developer account).
 <br><br>
 
 ***
 ## Procore Support Site
-Our Procore Support Site is the primary source for all customer-facing documentation for Procore products. It includes tutorials, FAQs, instructional videos, reference material, and other valuable resources for learning and working with the various tools within Procore.
+The Support Site is the primary source for customer‑facing product documentation. It includes:
+- Tutorials and step‑by‑step guides
+- FAQs
+- Instructional videos
+- Reference material for Procore tools
 
-To learn more, visit <a href="https://support.procore.com/products/online/user-guide" target="_blank">Procore User Guide</a> and our <a href="https://support.procore.com/" target="_blank">Support Website</a>.
+Explore the <a href="https://support.procore.com/products/online/user-guide" target="_blank">Procore User Guide</a> and the <a href="https://support.procore.com/" target="_blank">Support Website</a>.
 <br><br>
 
 ***
 ## Developer Support
-If you've consulted our resources and still have questions or run into an issue, our dedicated Developer Support team is here to help. They can assist with both technical and non-technical queries related to app development, and API usage. 
+If you still have questions or run into an issue after checking the resources above, our Developer Support team can help with technical and non‑technical topics related to app development and API usage.
 
-For urgent matters, submit a support ticket through our system. For non-urgent inquiries or feedback, you may also engage with the <a href="https://community.procore.com/s/group/0F92T000000XbGqSAK/procore-api-developers" target="_blank">Procore Developer Community</a>. 
+**How to reach us**
+- Submit a ticket: <a href="https://developers.procore.com/developer_support" target="_blank">Contact Developer Support</a>
+- Ask the community (non‑urgent): <a href="https://community.procore.com/s/group/0F92T000000XbGqSAK/procore-api-developers" target="_blank">Procore API Developers</a>
 
-If you're looking for answers to common questions, check our [FAQ]({{ site.url }}{{ site.baseurl }}{% link additional_resources/faq.md %}).
-
-To contact our Developer Support team, <a href="https://developers.procore.com/developer_support" target="_blank">click here</a>.
+**Tips for faster resolution**
+- Describe what you were trying to do and what happened.
+- Include the relevant endpoint(s), request/response samples (with sensitive data removed), and the approximate time of the issue.
+- Share any error messages you saw.
 <br><br>

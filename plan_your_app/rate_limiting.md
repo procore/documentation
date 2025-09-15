@@ -3,7 +3,7 @@ permalink: /rate-limiting
 title: Rate Limiting
 sub_header: Understanding and Managing Procore API Rate Limits
 layout: default
-section_title: API Essentials
+section_title: Plan Your App
 
 ---
 ## Introduction
