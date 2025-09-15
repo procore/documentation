@@ -457,7 +457,7 @@ The request body defines updated field values for one or more items.
 
 ## Webhooks
 
-The Correspondence tool supports webhooks as described in [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}). Procore customers can configure Correspondence webhooks using the Project Admin tool as outlined in [Configure Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks).
+The Correspondence tool supports webhooks as described in [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}). Procore customers can configure Correspondence webhooks using the Project Admin tool as outlined in [Configure Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks).
 
 ## Further Reading
 

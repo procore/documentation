@@ -29,8 +29,27 @@
       url: /object-model-company
     - title: Project-level Resources
       url: /object-model-project
+    - title: Sandbox Environments
+      url: /development-environments
     - title: Federal Environment Overview
       url: /federal-zone-overview
+    - title: App Installation Architecture
+      url: /building-apps-install-arch
+
+- title: Plan Your App
+  items:
+    - title: Available App Types
+      url: /building-apps-app-types
+    - title: Introduction to Webhooks
+      url: /webhooks
+    - title: Using the Webhooks API
+      url: /webhooks-api
+    - title: Rate Limiting
+      url: /rate-limiting
+    - title: Pagination
+      url: /pagination
+    # - title: Webhooks Payload Formats - NEEDED FOR REDIRECT
+    #   url: /payload-formats - NEEDED FOR REDIRECT
 
 - title: Getting Started
   items:
@@ -40,8 +59,6 @@
       url: /rest-api-lifecycle
     - title: Registering a New Developer Account
       url: /new-account
-    - title: Sandbox Environments
-      url: /development-environments
     # - title: Making First Call
     #   url: /making_first_call - Needed for Redirect
 
@@ -76,10 +93,6 @@
     #   url: /building-apps-define-manifest
     - title: Managing App Collaboration
       url: /building-apps-manage-collabs
-    - title: Understanding App Types
-      url: /building-apps-app-types
-    - title: App Installation Architecture
-      url: /building-apps-install-arch
     - title: Building User Level Auth. Apps
       url: /building-data-connection-apps-auth
     - title: Building Service Account Auth. Apps
@@ -117,10 +130,6 @@
       url: /restful-api-concepts
     - title: API Security Overview
       url: /api-security-overview
-    - title: Rate Limiting
-      url: /rate-limiting
-    - title: Pagination
-      url: /pagination
     - title: Data Model Considerations
       url: /data-model-considerations
     - title: Transport Layer Security Requirements
@@ -155,19 +164,12 @@
       url: /marketplace-checklist
     - title: Marketplace Listing Guidelines
       url: /marketplace-listing-guidelines
+    - title: Procore Developer Policy
+      url: /marketplace-policy
     # - title: Market Your App - ADD BACK LATER
     #   url: /market-your-app
     # - title: View App Metrics - NEEDED FOR REDIRECT
     #   url: /view-app-metrics - NEEDED FOR REDIRECT
-
-- title: Webhooks
-  items:
-    - title: Introduction to Webhooks
-      url: /webhooks
-    - title: Using the Webhooks API
-      url: /webhooks-api
-    - title: Webhooks Payload Formats
-      url: /payload-formats
 
 - title: Guides and Tutorials
   items:

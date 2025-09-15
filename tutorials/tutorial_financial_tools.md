@@ -48,7 +48,7 @@ Developing an integration will require an application to be developed which will
 This application will use Procore’s REST webservices to read and write data with Procore, and will also need to connect to your ERP system in a manner that it allows.
 
 There are many different technical solutions, programming languages, etc which can be used to accomplish this, and since Procore’s REST API is technology agnostic, this choice can be made by your own development resources.
-Many clients choose to implement an on-premise architecture, however please be aware that to leverage the [API Webhooks]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}), your application will need to allow incoming connections from the public internet.
+Many clients choose to implement an on-premise architecture, however please be aware that to leverage the [API Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}), your application will need to allow incoming connections from the public internet.
 
 To evaluate the Procore API with your own technical resources, please start with our [free online training programs](https://developers.procore.com/documentation/training) and our public [API Reference](https://developers.procore.com/reference) documentation.
 
@@ -210,4 +210,4 @@ See the [Workflow API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutoria
 ### Webhooks
 
 The Webhooks feature allows third-party developers and integrators to specify one or more Procore API resources for which they want to be notified when Create, Update, or Delete actions occur.
-Please see the [Webhooks API]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}) guide for additional information.
+Please see the [Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) guide for additional information.

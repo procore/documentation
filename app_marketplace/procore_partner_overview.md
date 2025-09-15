@@ -6,7 +6,7 @@ layout: default
 section_title: App Marketplace
 ---
 
-## Introduction
+## Overview
 Welcome! The Procore Developer Portal is your starting point for building powerful integrations that connect with the Procore platform and provide value to construction teams worldwide.
 
 This section offers the resources, documentation, and tools you need to **start building your integration today**. After developing your app, you’ll have the opportunity to apply to the **Procore Technology Partner Program** and list your app on the **Procore Marketplace**.

@@ -5,7 +5,17 @@ layout: default
 section_title: Webhooks
 ---
 
-## Payload Format
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/webhooks" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/webhooks">click here</a>.</p>
+  </body>
+</html>
+
+<!-- ## Payload Format
 
 When creating and configuring a webhook, a user must select a payload format for event deliveries.  In the existing v1.0 versions of the webhooks APIs, this was referred to as api_version. However, in future versions of the API, it will be renamed to payload_version to more accurately reflect the impact this setting has. The payload version determines the schema used when delivering webhook events. The following sections provide a description of each version so that users can determine which option is best for their specific needs.
 
@@ -122,4 +132,4 @@ json
   },
   "required": ["id", "timestamp", "reason", "company_id", "project_id", "user_id", "resource_type", "resource_id"]
 }
-``` 
+```  -->

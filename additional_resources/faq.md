@@ -153,14 +153,14 @@ While it is certainly possible have more than one domain whitelisted for CORS, p
 **How do I get notified of changes to specific Procore resource objects?**
 
 Our Webhooks feature allows you to establish a system through which you can receive notifications for changes that occur to specific resources.
-Please visit our [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}) guides on the Developer Portal for additional information.
+Please visit our [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}) guides on the Developer Portal for additional information.
 
 ## Procore API Rate Limit
 
 **I am receiving a 429 status code error when making a call to the Procore API, what causes this?**
 
 You have exceeded the Procore API rate limit of 3600 requests per hour.
-See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limiting.md %}) guide for additional information and suggestions for resolving your issue.
+See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) guide for additional information and suggestions for resolving your issue.
 
 ## Multiple Procore Regions (MPR)
 

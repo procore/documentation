@@ -10,7 +10,7 @@ The Procore Iframe Helper Library is available for download on GitHub at: [proco
 
 For general information on building embedded Apps see:
 
-- [Understanding App Types]({{ site.url }}{{ site.baseurl }}/building-apps-app-types)
+- [Available App Types]({{ site.url }}{{ site.baseurl }}/building-apps-app-types)
 - [Creating a New App]({{ site.url }}{{ site.baseurl }}/building-apps-create-new)
 - [Creating an App Manifest]({{ site.url }}{{ site.baseurl }}/building-apps-define-manifest)
 

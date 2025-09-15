@@ -1,4 +1,8 @@
-### Updates to Guidelines and Enforcement
-Procore Technologies reserves the right to revise the Developer Documentation at any time.
+### Developer Policies
+By distributing your application through the <a href="https://marketplace.procore.com/" target="_blank">Procore App Marketplace</a>, you agree to abide by the following policies, and terms.
 
-As outlined in our terms and conditions, Procore may remove or decline the publication of any Marketplace listing at its discretion.
+- <a href="https://procore.pactsafe.io/legal.html?g=34945#contract-hymckkfc9" target="_blank">API Terms of Use</a>
+- Procore Developer Policy
+
+### Updates to Guidelines and Enforcement
+Procore Technologies reserves the right to revise the Developer Documentation at any time. We may remove or decline to publish any Marketplace listing at our discretion.
