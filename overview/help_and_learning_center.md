@@ -7,7 +7,7 @@ section_title: Overview
 ---
 > **Check our [FAQ]({{ site.url }}{{ site.baseurl }}{% link additional_resources/faq.md %}) for quick answers to common questions.**
 
-## Introduction
+## Overview
 Here’s where to learn, find answers, and get help as you build on Procore. Use the resources below to get up to speed, solve problems, and connect with experts.
 <br><br>
 

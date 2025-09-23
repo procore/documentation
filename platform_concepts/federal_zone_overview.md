@@ -8,7 +8,7 @@ section_title: Platform Concepts
 ---
 
 ## Overview
-The **Federal Zone** is a separate Procore environment for U.S. federal agencies and contractors that require heightened security, compliance, and data governance. It is distinct from Procore’s Commercial environment and is authorized under the Federal Risk and Authorization Management Program (FedRAMP).
+The **Federal Zone** is a separate Procore environment for U.S. federal agencies and contractors that require heightened security, compliance, and data governance. It is distinct from Procore’s Commercial environment and is designed to meet FedRAMP Moderate Compliance.
 
 This page explains how the Federal Zone differs from Commercial, what changes for developers, and how to request access and publish to the Federal Marketplace.
 

@@ -6,7 +6,7 @@ layout: default
 section_title: Overview
 ---
 
-## Introduction
+## Overview
 This guide walks you through creating and testing a basic app using **User‑level Authentication** in the Procore Developer Sandbox. You’ll create an app, add a data connector component, install it in your Sandbox company, obtain an access token, and make your first API calls.
 <br><br>
 
