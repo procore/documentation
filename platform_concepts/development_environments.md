@@ -26,7 +26,9 @@ Use Procore’s sandbox environments to explore and test without affecting produ
 - Use Sandbox OAuth credentials from the app’s configuration page.
 - Authentication base URL: https://login-sandbox.procore.com
 - API and browser base URL: https://sandbox.procore.com
+<br><br>
 
+***
 ## Sandbox Environment URL Details
 
 | Environment         | URL                                       | Description                                                                                            |
@@ -40,9 +42,6 @@ Use Procore’s sandbox environments to explore and test without affecting produ
 ## Projected Monthly Sandbox Refresh Dates
 
 Projected dates are provided for planning; exact timing can vary based on maintenance and operational needs.
-
-<details>
-  <summary><strong>View 2024–2025 Refresh Dates</strong></summary>
 
 | Year | Month     | Date       | Day       |
 | ---- | --------- | ---------- | --------- |
@@ -62,8 +61,10 @@ Projected dates are provided for planning; exact timing can vary based on mainte
 | 2025 | November  | 11/04/2025 | Tuesday   |
 | 2025 | December  | 12/02/2025 | Tuesday   |
 
-</details>
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
+***
 ## Working with a Development Sandbox
 
 When you create a new application in the Developer Portal, a Development Sandbox is generated in a few minutes. You will receive an email to set your sandbox password.
@@ -79,15 +80,6 @@ Once ready, you can:
 
 - For Development Sandbox API calls, the base URL must be `https://sandbox.procore.com` (for example, `https://sandbox.procore.com/rest/v1.0/me`).
 - Development Sandboxes cannot be “refreshed.” To start clean, delete and re‑generate the sandbox.
-
-<details>
-  <summary><strong>Legacy: Generate a Sandbox for Apps Created Before July 2019</strong></summary>
-
-- Sign in to the Developer Portal and go to **My Apps**.
-- Select the app that needs a sandbox.
-- In the **Sandbox Account** panel, select **Generate Sandbox**. A confirmation dialog appears.
-- Select **Generate Sandbox** again to confirm.
-</details>
 
 ### Default users
 
@@ -106,7 +98,9 @@ Each sandbox includes a project named **1234 – Sandbox Test Project** with see
 - Drawings: a basic set of plans
 - RFIs: one RFI
 - Submittals: one submittal
+<br><br>
 
+***
 ## Additional Considerations for Sandbox Environments
 
 - Each environment is independent. Data created in a sandbox does not affect production.
