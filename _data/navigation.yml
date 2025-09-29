@@ -224,6 +224,8 @@
       url: /tutorial-observations
     - title: Project Stages
       url: /tutorial-project-stages
+    - title: Contentful integration into Assist
+      url: /contenful-integration-in-assist
 
 - title: Example Apps & SDKs
   items:
