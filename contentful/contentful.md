@@ -1,5 +1,5 @@
 ---
-permalink: /contenful-integration-in-assist
+permalink: /contentful-integration-in-assist
 title: Contentful integration into Assist
 layout: default
 section_title: Contentful API Integration
