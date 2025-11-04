@@ -1,63 +1,116 @@
 ---
 permalink: /building-apps-install-arch
-title: App Installation Architecture
+title: App Install & Setup Overview
+sub_header: Understand installation, post-install notes, configurations, and permissions for data connector and embedded apps.
 layout: default
 section_title: Platform Concepts
 
 ---
 
-Before diving into the specifics of building an App, it is important to understand the architecture of App installation in Procore. The following diagram depicts how Apps are installed, configured, and launched in Procore.
+## Overview
+This page explains the full app installation and setup flow for a Procore company:
+1. **Install app** — from the Marketplace or as a Custom App.
+2. **View post‑installation notes** — review the developer’s instructions and links.
+3. **Finalize app setup** — complete configuration based on your app type:
+   - **Data connector apps**: connect from your external system; verify auth and permissions.
+   - **Embedded apps**: create a configuration in Procore and enable projects.
+<br><br>
 
-![Install Architecture]({{ site.baseurl }}/assets/guides/iframe-install-arch.png)
+***
+<details>
+  <summary class="collapseListH2">
+    Step 1. App Installation
+    <span class="collapseSubhead">All apps must be installed in the customer’s Procore company before they can run. Until installed, API requests that need company or project context return 4xx errors. If your app serves multiple customers, install it in <b>each</b> customer company you call.</span>
+  </summary>
+  <div markdown="1">
 
-The illustration above shows that Apps are installed at the company level in Procore and then configured at the project level.
-Procore company administrators first install an App for their entire company.
-Then, Procore company administrators or project users can create _App configurations_ and apply them to projects they want the App to be available in.
+<!-- Setup path chooser -->
+<div class="setup-paths-intro">
+  <strong>Choose your setup path:</strong> Your app can be a <span class="pill pill--dc">Data Connector</span>, an <span class="pill pill--emb">Embedded</span>, or <strong>both</strong>. Complete the steps that apply.
+  Jump to: <a href="#data-connector">Data Connector</a> · <a href="#embedded-apps">Embedded</a>
+</div>
 
-After a new App is installed in a company, it is listed under the **Installed Apps** tab on the App Management page in the Procore Company Admin tool.
-Subsequently, a Procore administrator or project user can **View** the App and use **Create New Configuration** on the **Configurations** tab to configure the App for use in one or more specific Projects.
-Procore end users are then able to launch the App at the Project level using the **Select an App** menu in the Procore navigation header.
-If a Procore administrator wants to suspend usage of the App across all Projects, they simply navigate to the **View** page for the App and click **Uninstall**.
-This moves the App to the **Uninstalled Apps** tab.
+  <h3>Typical Symptoms Before Installation</h3>
+  If the app isn’t installed in the Procore company, you may see:
+  - 401 Unauthorized or 403 Forbidden when calling company- or project‑scoped endpoints
+  - Inability to create embedded configurations in **App Management**
+  - The app not appearing in a project’s **Select an App** menu
+  - Successful user sign‑in but API calls still failing due to missing install
+  - Webhooks or background jobs receiving repeated 4xx responses
 
-To summarize, here are the high-level steps for installing an App in a Company:
+  **Caution:** If 401/403 responses persist, don’t keep calling the company until it works. Implement graceful backoff (for example, exponential backoff with jitter and a retry cap) or pause requests until installation is confirmed. This prevents unnecessary load and avoids repeated failures before the app is installed.
 
-1. As a Procore administrator, log in to Procore and go to the **Company Admin** tool.
-1. Under **Administrative Settings**, select **App Management**.
-1. Click **Install App**.
-1. If you want to install a custom App, choose **Install Custom App**. Otherwise, choose **Install from Marketplace**.
+  </div>
+</details>
 
-Here are the high-level steps for creating an App configuration and applying it to a project:
+***
+<details>
+  <summary class="collapseListH2">
+    Step 2. View Post‑Installation Notes
+    <span class="collapseSubhead">After install, Procore shows the developer‑provided post‑installation notes. Use these to tell installers what to do next in your product and in Procore.</span>
+  </summary>
+  <div markdown="1">
 
-1. As a Procore administrator, log in to Procore and go to the **Company Admin** tool.
-1. Under **Administrative Settings**, select **App Management**.
-1. Under **Installed Apps**, locate the App you want to create a configuration for and click **View**.
-1. From the **Configurations** tab, click **Create New Configuration**.
-1. Select one or more projects to apply the new App configuration to.
-1. Enter a **Title** for the new App configuration.
-1. Provide values for any **Configurable Fields** that may be required for the App.
-1. Click **Create**.
+  <h3>What the Installer Will See</h3>
+  1. **Instructions URL** — a link to step‑by‑step setup on the developer’s site.
+  2. **Instructions Page Name** — the label shown for that link.
+  3. **Post‑installation Notes** — any additional steps (for example, create an account, enter an API key, connect a project).
 
-Here is the End-User Flow:
+  Installers can reopen these notes anytime in **Company Admin** > **App Management** by selecting the app.
 
-1. As a Procore end user, log in to Procore and go to the Project you want to work in.
-1. In the navigation header, open the **Select an App** menu and choose the App you want to launch.
+  > **For developers:** Define these in the **Developer Portal** under **Instructions and Post‑Installation Notes** so installers know exactly what to do next.
 
-### App Management in Procore
+  ![Post Install Steps]({{ site.baseurl }}/assets/guides/app-install-instructions-final.png)
 
-The following Procore Support Site articles cover how Procore company administrators and project users work with the App Management feature.
+  </div>
+</details>
 
-- [What is App Management?](https://support.procore.com/faq/what-is-app-management)
-- [What are App Configurations and how do I work with them?](https://support.procore.com/faq/what-are-app-configurations)
-- [Install an App from the Marketplace](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-app-from-marketplace)
-- [Install a Custom App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app)
-- [Uninstall an App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/uninstall-app)
-- [Reinstall an App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/reinstall-an-app)
-- [Update an Installed App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/update-installed-app)
-- [Create an App Configuration and Apply it to Projects](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-app-configuration)
-- [View Projects with App Configurations](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-project-configs)
-- [Edit an App Configuration](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-app-configuration)
-- [Delete an App Configuration](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/delete-app-configuration)
-- [Create an App Configuration in a Project](https://support.procore.com/products/online/user-guide/project-level/home/tutorials/configure-app-in-project)
-- [Launch an Embedded App in a Project](https://support.procore.com/products/online/user-guide/project-level/home/tutorials/launch-embedded-app)
-- [View API Request Metrics](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-api-request-metrics)
+***
+<details>
+  <summary class="collapseListH2">
+    Step 3. Finalize App Setup
+    <span class="collapseSubhead">Installation enables access, but most apps still require setup. Follow the pattern for your app capabilities.</span>
+  </summary>
+  <div markdown="1">
+
+  <h3 id="data-connector"><strong>[DATA CONNECTOR]</strong> Configuration, Setup, and Permissions</h3>
+  Data connector apps exchange data via the API and are typically connected from the external system after the app is installed in Procore (for example, a **Connect to Procore** flow). Your authentication method influences the setup steps required.
+
+  <h4>User‑level OAuth (authorization code)</h4>
+  Access mirrors the signed‑in user’s company and project membership and permissions. Ensure the authorizing user is a member of the relevant projects and has the required permissions.
+
+  <h4>Service account (client credentials / DMSA)</h4>
+  Access is based on the service account user’s company and project membership and permissions. After installation, the service account is automatically generated in the customer’s **Company Directory**; the Procore customer may need to add it to each target project and assign a permission template based on the integration requirements.
+
+  <h4>Common errors and fixes — Data connector apps</h4>
+  - **401 Unauthorized** — App not installed, or token invalid/expired, or wrong grant. → Install the app or re‑authenticate.
+  - **403 Forbidden** — Principal lacks project membership or permissions. → Add the user or service account to the project or verify the permissions.
+  - **404 Not Found** — Resource is outside the authenticated principal’s access. → Verify IDs and membership.
+<div class="details-bottom-spacing"></div>
+
+***
+  <h3 id="embedded-apps"><strong>[EMBEDDED]</strong> Configuration and Setup (Side Panel, Full Screen)</h3>
+  Embedded apps run inside Procore and require a configuration that links the installed app to one or more projects.
+
+  <h4>Create a Configuration</h4>
+  1. Open **Company Admin** > **App Management**.
+  2. Under **Installed Apps**, select your app, then open the **Configurations** tab.
+  3. Select **Create Configuration**.
+  4. Enter a **Title** and complete any **Configurable fields** your app requires.
+  5. Select **Create**.
+
+  <h4>Common errors and fixes — Embedded apps</h4>
+  - **App not visible in project:** No configuration exists or it wasn’t applied to this project. → Create or apply a configuration and confirm projects are selected.
+  <div class="details-bottom-spacing"></div>
+
+  </div>
+</details>
+
+***
+## Related Articles
+- <a href="https://support.procore.com/faq/what-is-app-management" target="_blank">What is App Management?</a>
+- <a href="https://support.procore.com/faq/what-are-app-configurations" target="_blank">What are App Configurations and How Do I Work With Them?</a>
+- <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-app-from-marketplace" target="_blank">Install an App from the Marketplace</a>
+- <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install a Custom App</a>
+- <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-app-configuration" target="_blank">Create an App Configuration and Apply it to Projects</a>
+- <a href="https://support.procore.com/products/online/user-guide/project-level/home/tutorials/launch-embedded-app" target="_blank">Launch an Embedded App in a Project</a>
