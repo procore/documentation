@@ -21,20 +21,20 @@
   items:
     # - title: Procore Product Overview
     #   url: /procore-product-overview
-    - title: Overview
-      url: /object-model-overview
+    # - title: Overview
+    #   url: /object-model-overview
     # - title: General Resources
     #   url: /object-model-general - Needed for Redirect
-    - title: Company-level Resources
-      url: /object-model-company
-    - title: Project-level Resources
-      url: /object-model-project
+    # - title: Company-level Resources
+    #   url: /object-model-company
+    # - title: Project-level Resources
+    #   url: /object-model-project
+    - title: App Install & Setup Overview
+      url: /building-apps-install-arch
     - title: Sandbox Environments
       url: /development-environments
     - title: Federal Environment Overview
       url: /federal-zone-overview
-    - title: App Installation Architecture
-      url: /building-apps-install-arch
 
 - title: Plan Your App
   items:
