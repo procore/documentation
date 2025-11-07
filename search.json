@@ -1,13 +1,14 @@
 ---
-layout: null
+layout: none
 ---
 [
   {% for section in site.data.navigation %}
     {% for item in section.items %}
-      {
-        "title": {{ item.title | jsonify }},
-        "url": {{ item.url | relative_url | jsonify }}
-      }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
+        {
+        "title"    : "{{ item.title | escape }}",
+        "url"      : "{{ site.baseurl }}{{ item.url }}"
+        } {% unless forloop.last %},{% endunless %} 
     {% endfor %}
+    {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
