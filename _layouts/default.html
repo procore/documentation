@@ -47,6 +47,10 @@
         {{ page.title }}
         <!-- <p>{{ page.sub_header }}</p> Sub-header as H2 -->
         </h1>
+        <a href="mailto:documentation@procore.com?subject=Feedback: {{ page.title | uri_escape }}&body=Page URL: {{ site.url }}{{ site.baseurl }}{{ page.url | uri_escape }}" 
+           class="feedback-link">
+          <i class="fa-regular fa-comment"></i> Feedback
+        </a>
         <p class="sub-header">{{ page.sub_header }}</p> <!-- Sub-header as H2 -->
       </div>
     </header>

@@ -53,6 +53,33 @@ body {
 .title-wrapper {
   border-bottom: 1px solid rgb(217, 217, 217);  /* Moved border here */
   padding-bottom: 30px;  /* Optional: adjust spacing */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.feedback-link {
+  position: absolute;
+  top: 48px;
+  right: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.feedback-link:hover {
+  background-color: #f9f9f9;
+  border-color: #f47e42;
+}
+
+.feedback-link i {
+  font-size: 16px;
 }
 
 .sub-header {
