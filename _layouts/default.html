@@ -7,6 +7,12 @@
 
   <title>{{ page.title }}</title>
   <script>
+    // Expose Jekyll config to JavaScript for parent origin detection
+    window.JEKYLL_CONFIG = {
+      url: "{{ site.url }}",
+      baseurl: "{{ site.baseurl }}"
+    };
+    
     // Only set base target="_parent" if NOT in an iframe
     // This allows iframed pages to navigate within the iframe
     if (window.self === window.top) {
