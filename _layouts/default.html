@@ -4,23 +4,8 @@
   <meta name="description" content="Documentation for Procore developers" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-
   <title>{{ page.title }}</title>
-  <script>
-    // Expose Jekyll config to JavaScript for parent origin detection
-    window.JEKYLL_CONFIG = {
-      url: "{{ site.url }}",
-      baseurl: "{{ site.baseurl }}"
-    };
-    
-    // Only set base target="_parent" if NOT in an iframe
-    // This allows iframed pages to navigate within the iframe
-    if (window.self === window.top) {
-      var base = document.createElement('base');
-      base.target = '_parent';
-      document.head.appendChild(base);
-    }
-  </script>
+  <base target="_parent">
   <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/nav.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -38,7 +23,7 @@
     <dl class="col_content">    
       {% for item in section.items %}
       <dd{% if item.url == page.url %} class="active"{% endif %}>
-        <a href="{% if item.absolute == true %}{{ site.url }}{{ site.baseurl }}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">
+        <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
           <!-- <a href="https://b601-208-127-107-52.ngrok-free.app/documentation{{ item.url }}"> -->
           {{ item.title }}
         </a>
