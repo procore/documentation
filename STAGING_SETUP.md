@@ -43,4 +43,33 @@ When the `main` branch is merged or pushed, it will also automatically deploy to
 
 **Note**: This means `main` branch content will be available at `procore-staging.github.io/documentation/`, allowing you to test the latest production code in the staging environment before it goes to production.
 
+## Setup Requirements
+
+Before the workflow can deploy, you need to configure GitHub Pages in your repository:
+
+1. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Under "Source", select "GitHub Actions" (not "Deploy from a branch")
+   - This enables GitHub Actions to deploy to Pages
+
+2. **Verify Permissions**:
+   - The workflow requires `pages: write` permission (already included in the workflow)
+   - Make sure the repository allows GitHub Actions to write to Pages
+
+## Troubleshooting
+
+### Error: "Invalid deployment branch and no branch protection rules set in the environment"
+
+**Solution**: 
+- The workflow uses the default `github-pages` environment
+- Make sure GitHub Pages is enabled with "GitHub Actions" as the source (not branch-based)
+- Go to Settings → Pages → Source → Select "GitHub Actions"
+
+### Error: "Resource not accessible by integration"
+
+**Solution**:
+- Check that the repository has GitHub Actions enabled
+- Verify that the workflow has the correct permissions (`pages: write` is included)
+- Make sure the repository settings allow GitHub Actions to deploy to Pages
+
 
