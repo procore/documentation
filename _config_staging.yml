@@ -1,0 +1,11 @@
+# Staging configuration - extends _config.yml with staging-specific settings
+# Usage: bundle exec jekyll build --config _config.yml,_config_staging.yml
+# 
+# For subdomain deployment (e.g., procore-staging.github.io):
+# - Create a separate repository named "procore-staging" (or similar)
+# - Deploy from that repository's main branch
+# - GitHub Pages will automatically serve it at procore-staging.github.io
+
+baseurl: "/documentation"  # Same baseurl as production (subdomain handles staging)
+url: "https://procore-staging.github.io"  # Staging subdomain URL
+

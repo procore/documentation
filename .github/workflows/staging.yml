@@ -1,0 +1,66 @@
+name: Deploy Staging to GitHub Pages
+
+# This workflow deploys to procore-staging.github.io/documentation/
+#
+# Triggers:
+# 1. When any branch starting with "staging-" is pushed (e.g., staging-my-feature)
+#    → Deploys that feature branch's content to staging
+# 2. When main branch is merged/pushed
+#    → Deploys main branch's content to procore-staging.github.io
+#    → This keeps staging in sync with the latest main branch content
+#
+# Both scenarios deploy to the same staging subdomain: procore-staging.github.io
+
+on:
+  push:
+    branches:
+      - 'staging-*'  # Deploy when any branch starting with "staging-" is updated (e.g., staging-1, staging-feature)
+      - main         # Deploy main branch to procore-staging.github.io when main is merged/pushed
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-staging"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+      
+      - name: Build with Jekyll (Staging)
+        run: bundle exec jekyll build --config _config.yml,_config_staging.yml
+        env:
+          JEKYLL_ENV: staging
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    environment:
+      name: github-pages-staging
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
