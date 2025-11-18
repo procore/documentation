@@ -73,6 +73,20 @@
     },
   });
   
+  // Helper function to check if a link should be skipped during rewriting
+  function shouldSkipLink($link, originalHref) {
+    // Skip if already processed, missing href, or special protocol links
+    if ($link.data("original-href") || !originalHref) {
+      return true;
+    }
+
+    // Skip special protocol links (anchors, mailto, javascript, data, vbscript)
+    var specialProtocols = ["#", "mailto:", "javascript:", "data:", "vbscript:"];
+    return specialProtocols.some(function(protocol) {
+      return originalHref.startsWith(protocol);
+    });
+  }
+
   // Function to rewrite search result links for iframe display
   function rewriteSearchResultLinks() {
     if (window.self !== window.top) {
@@ -87,7 +101,7 @@
             var originalHref = $link.attr("href");
 
             // Skip if already processed or special links
-            if ($link.data("original-href") || !originalHref || originalHref.startsWith("#") || originalHref.startsWith("mailto:") || originalHref.startsWith("javascript:") || originalHref.startsWith("data:") || originalHref.startsWith("vbscript:")) {
+            if (shouldSkipLink($link, originalHref)) {
               return;
             }
 
@@ -123,7 +137,7 @@
             var originalHref = $link.attr("href");
 
             // Skip if already processed or special links
-            if ($link.data("original-href") || !originalHref || originalHref.startsWith("#") || originalHref.startsWith("mailto:") || originalHref.startsWith("javascript:") || originalHref.startsWith("data:") || originalHref.startsWith("vbscript:")) {
+            if (shouldSkipLink($link, originalHref)) {
               return;
             }
 
