@@ -108,6 +108,54 @@
     }
   }
 
+  // Function to rewrite navigation links for iframe display
+  function rewriteNavigationLinks() {
+    if (window.self !== window.top) {
+      try {
+        var parentOrigin = window.location.ancestorOrigins && window.location.ancestorOrigins.length > 0
+          ? window.location.ancestorOrigins[0]
+          : document.referrer ? new URL(document.referrer).origin : null;
+
+        if (parentOrigin) {
+          // Find all navigation links (nav a elements)
+          $("nav a").each(function() {
+            var $link = $(this);
+            var originalHref = $link.attr("href");
+
+            // Skip if already processed or special links
+            if ($link.data("original-href") || !originalHref || originalHref.startsWith("#") || originalHref.startsWith("mailto:") || originalHref.startsWith("javascript:") || originalHref.startsWith("data:") || originalHref.startsWith("vbscript:")) {
+              return;
+            }
+
+            // Extract path from href (handle both absolute and relative URLs)
+            var path = originalHref;
+            try {
+              // If it's an absolute URL, extract just the pathname
+              if (path.startsWith("http://") || path.startsWith("https://")) {
+                var url = new URL(path);
+                path = url.pathname + (url.search || "") + (url.hash || "");
+              }
+            } catch (e) {
+              // If URL parsing fails, treat as relative path
+              console.warn("Could not parse URL:", path, e);
+            }
+
+            // Ensure path starts with /
+            if (!path.startsWith("/")) {
+              path = "/" + path;
+            }
+
+            // Store original and set to parent origin for hover display
+            $link.data("original-href", originalHref);
+            $link.attr("href", parentOrigin + path);
+          });
+        }
+      } catch (err) {
+        console.warn("Could not rewrite navigation links:", err);
+      }
+    }
+  }
+
   // Use MutationObserver to rewrite search result links when they're added
   if (window.self !== window.top) {
     var resultsContainer = document.getElementById("results-container");
@@ -120,5 +168,10 @@
         subtree: true
       });
     }
+    
+    // Rewrite navigation links when page loads (nav is static HTML, so no need for MutationObserver)
+    $(document).ready(function() {
+      rewriteNavigationLinks();
+    });
   }
 })();
