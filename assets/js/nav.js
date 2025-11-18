@@ -72,25 +72,53 @@
       return value;
     },
   });
-  // Defensive: if a result link is absolute and points off-site, rewrite it to this host
-  $("#results-container").on("click", "a", function (e) {
-    var href = $(this).attr("href");
-    if (!href) return;
-    // Only act on absolute URLs
-    if (/^https?:\/\//i.test(href)) {
+  
+  // Function to rewrite search result links for iframe display
+  function rewriteSearchResultLinks() {
+    if (window.self !== window.top) {
       try {
-        var u = new URL(href);
-        if (u.origin !== window.location.origin) {
-          e.preventDefault();
-          var path = u.pathname;
-          if (!path.startsWith(basePath)) {
-            path = basePath.replace(/\/$/, "") + "/" + path.replace(/^\//, "");
-          }
-          window.location.href = path + (u.search || "") + (u.hash || "");
+        var parentOrigin = window.location.ancestorOrigins && window.location.ancestorOrigins.length > 0
+          ? window.location.ancestorOrigins[0]
+          : document.referrer ? new URL(document.referrer).origin : null;
+
+        if (parentOrigin) {
+          $("#results-container a").each(function() {
+            var $link = $(this);
+            var originalHref = $link.attr("href");
+
+            // Skip if already processed or special links
+            if ($link.data("original-href") || !originalHref || originalHref.startsWith("#") || originalHref.startsWith("mailto:") || originalHref.startsWith("javascript:") || originalHref.startsWith("data:") || originalHref.startsWith("vbscript:")) {
+              return;
+            }
+
+            // Get the path from the href
+            var path = originalHref;
+            if (!path.startsWith("/")) {
+              path = "/" + path;
+            }
+
+            // Store original and set to parent origin for hover display
+            $link.data("original-href", originalHref);
+            $link.attr("href", parentOrigin + path);
+          });
         }
       } catch (err) {
-        // ignore malformed URLs
+        console.warn("Could not rewrite search result links:", err);
       }
     }
-  });
+  }
+
+  // Use MutationObserver to rewrite search result links when they're added
+  if (window.self !== window.top) {
+    var resultsContainer = document.getElementById("results-container");
+    if (resultsContainer) {
+      var observer = new MutationObserver(function(mutations) {
+        rewriteSearchResultLinks();
+      });
+      observer.observe(resultsContainer, {
+        childList: true,
+        subtree: true
+      });
+    }
+  }
 })();
