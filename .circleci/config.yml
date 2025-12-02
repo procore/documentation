@@ -1,0 +1,58 @@
+version: 2.1
+
+orbs:
+  artifactory-publish: procore/artifactory-publish@2
+
+jobs:
+  build_and_publish:
+    docker:
+      - image: cimg/ruby:3.1
+    working_directory: ~/project
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - bundle-v1-{{ checksum "Gemfile.lock" }}
+            - bundle-v1-
+      - run:
+          name: Install dependencies
+          command: bundle install --path vendor/bundle
+      - save_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Collect documentation
+          command: ruby scripts/collect_all_docs.rb
+      - run:
+          name: Package documentation
+          command: |
+            VERSION="${CIRCLE_SHA1:0:7}"
+            tar -czvf developer-documentation-${VERSION}.tar.gz all_docs/
+      - artifactory-publish/jf-cli-install
+      - artifactory-publish/jf-cli-login
+      - run:
+          name: Upload documentation package to Artifactory
+          command: |
+            VERSION="${CIRCLE_SHA1:0:7}"
+            DOC_PACKAGE="developer-documentation-${VERSION}.tar.gz"
+            BUILD_NAME="${CIRCLE_PROJECT_REPONAME}"
+            BUILD_NUMBER="${CIRCLE_WORKFLOW_ID}"
+
+            jf rt upload \
+              "${DOC_PACKAGE}" \
+              "ecosystem-generic-local/developer-documentation/${DOC_PACKAGE}" \
+              --build-name="${BUILD_NAME}" \
+              --build-number="${BUILD_NUMBER}"
+
+            jf rt build-publish "${BUILD_NAME}" "${BUILD_NUMBER}"
+
+workflows:
+  build_and_publish:
+    jobs:
+      - build_and_publish:
+          context:
+            - artifactory-production
+          filters:
+            branches:
+              only: main
