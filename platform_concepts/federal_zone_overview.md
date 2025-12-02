@@ -52,7 +52,7 @@ While not a full substitute for a sandbox, this approach provides the closest mo
 
 ***
 
-## How to Get Started as a FedRAMP Marketplace Partner
+## How to Get Started as a Procore for Government Marketplace Partner
 
 > ⚠️ **Important:** The Federal Zone does not provide sandbox accounts. All development and most testing should occur outside the Federal Zone before final validation.
 
