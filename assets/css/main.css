@@ -51,9 +51,63 @@ body {
 
   /* Title wrapper for border */
 .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid rgb(217, 217, 217);  /* Moved border here */
   padding-bottom: 30px;  /* Optional: adjust spacing */
 }
+
+.feedback-card {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #fff5f0 100%);
+  border: 1px solid #ffd9c2;
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: right;
+  box-shadow: 0 1px 3px rgba(245, 125, 32, 0.1);
+  margin-right: 46px;
+  width: fit-content;
+}
+
+.feedback-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.feedback-text {
+  text-align: right;
+}
+
+.feedback-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.feedback-message {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.feedback-email-link {
+  color: #f57d20;
+  text-decoration: none;
+  border-bottom: 1px solid #f57d20;
+  font-weight: 500;
+}
+
+.feedback-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
 
 .sub-header {
     font-size: 18px;  /* Adjust the font size */
@@ -82,14 +136,11 @@ body {
     line-height: 24px;
   }
 
-  /* Summary text aligned to the left */
   summary {
-    display: block;               /* Keep header layout unchanged */
-    text-align: left;
-    width: 100%;
-    cursor: pointer;
-    position: relative;           /* Needed for absolute caret */
-    padding-right: 32px;          /* Reserve space so subhead never overlaps caret */
+    /* font-size: 18px; */
+    letter-spacing: 0.25px;
+    padding: 10px 0px;
+    /* font-weight: bold; */
   }
 
   .collapseListTierOne {
@@ -100,29 +151,6 @@ body {
     padding: 16px 0px;
   }
   /* NEED TO FIX THE CHILD TEXT INDENTION */
-
-  .collapseListH2 {
-    /* margin-left: 10px;
-    margin-right: 10px; */
-    font-size: 20px;
-    font-weight: bold;
-    padding: 16px 0px;
-  }
-  
-  .collapseListH2 .collapseSubhead {
-    display: block;
-    margin-top: 12px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.4;
-    /* color: #6b7280; */
-  }
-
-  /* Guarantee sub-header is on its own line and respects caret space */
-  summary .collapseSubhead {
-    display: block;
-    padding-right: 32px;        /* mirror summary padding-right to keep clear of caret */
-  }
 
   .collapseListTierTwo {
     font-size: 16px;
@@ -294,51 +322,36 @@ body {
   }
 
   /* Summary text aligned to the left */
-  /* Removed old summary rule, replaced above */
+  summary {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    padding-right: 25px; /* Add padding for the caret */
+  }
 
   /* Remove default caret */
   summary::marker {
     content: '';
   }
 
-  /* Custom caret, default state (always visible) */
+  /* Custom caret, default state */
   summary::after {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;             /* solid style */
-    content: "\f078";            /* chevron-down */
+    /* content: '▼'; Custom caret symbol */
+    font-family: "Font Awesome 5 Free"; /* Specify FontAwesome */
+    content: "\f078"; /* FontAwesome chevron-down unicode */
     font-size: 16px;
     position: absolute;
-    right: 0;                     /* Pin to the far right */
+    right: 0;
     top: 50%;
-    transform: translateY(-50%) rotate(0deg);
-    transition: transform 0.3s ease;
-    pointer-events: none;         /* Clicks still toggle summary */
+    transform: translateY(-50%);
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
   }
 
   /* Rotate caret when details is open */
   details[open] summary::after {
-    transform: translateY(-50%) rotate(180deg);
-  }
-
-  /* Align caret with the header line (not the combined header + subhead block) */
-  summary.collapseListH2::after {
-    top: 1.1em;                 /* relative to header font-size; avoids subhead overlap */
-    transform: rotate(0deg);
-  }
-
-  details[open] summary.collapseListH2::after {
-    top: 1.1em;
-    transform: rotate(180deg);
-  }
-
-  summary.collapseListTierOne::after {
-    top: 1em;                    /* smaller header size */
-    transform: rotate(0deg);
-  }
-
-  details[open] summary.collapseListTierOne::after {
-    top: 1em;
-    transform: rotate(180deg);
+    transform: translateY(-50%) rotate(180deg); /* Rotate caret when open */
   }
 
   /* Styling for Create Your Account CTA */
