@@ -68,6 +68,9 @@ body {
   box-shadow: 0 1px 3px rgba(245, 125, 32, 0.1);
   margin-right: 46px;
   width: fit-content;
+  flex-shrink: 0;
+  min-width: 180px;
+  margin-top: 8px;
 }
 
 .feedback-content {
