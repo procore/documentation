@@ -1,61 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="description" content="Documentation for Procore developers" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>{{ page.title }}</title>
-  <base target="_parent">
-  <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/nav.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-
-<body>
-
-<nav>
-<input type="text" id="search-input" placeholder="Search Articles...">
-<ul id="results-container"></ul>
-  {% for section in site.data.navigation %}
-  <dl class="collapsible">
-    <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger"><i class="icon fa-regular fa-square-plus"></i> {{ section.title }}</dt>
-    <dl class="col_content">    
-      {% for item in section.items %}
-      <dd{% if item.url == page.url %} class="active"{% endif %}>
-        <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
-          <!-- <a href="https://b601-208-127-107-52.ngrok-free.app/documentation{{ item.url }}"> -->
-          {{ item.title }}
-        </a>
-      </dd>
-    {% endfor %}</dl>
-
-  </dl>
-  {% endfor %}
-</nav>
-
-<article>
-  <section>
-    <header>
-      <div class="title-wrapper">
-        <h1>
-          <button class="hamburger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </button>
-        {{ page.title }}
-        <!-- <p>{{ page.sub_header }}</p> Sub-header as H2 -->
-        </h1>
-        <p class="sub-header">{{ page.sub_header }}</p> <!-- Sub-header as H2 -->
-      </div>
-    </header>
-    <main>
-      {{ content }}
-    </main>
-  </section>
-</article>
-<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-<script src="{{ 'assets/js/nav.js' | relative_url }}"></script>
-</body>
+  <head>
+    <meta name="description" content="Documentation for Procore developers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <base target="_parent">
+    <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/nav.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <nav>
+    <input type="text" id="search-input" placeholder="Search Articles...">
+    <ul id="results-container"></ul>
+      {% for section in site.data.navigation %}
+        <dl class="collapsible">
+          <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger"><i class="icon fa-regular fa-square-plus"></i> {{ section.title }}</dt>
+          <dl class="col_content">    
+            {% for item in section.items %}
+              <dd{% if item.url == page.url %} class="active"{% endif %}>
+              <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
+                <!-- <a href="https://b601-208-127-107-52.ngrok-free.app/documentation{{ item.url }}"> -->
+                {{ item.title }}
+              </a>
+              </dd>
+            {% endfor %}
+          </dl>
+        </dl>
+      {% endfor %}
+    </nav>
+    <article>
+      <section>
+        <header>
+          <div class="title-wrapper">
+            <div class="page-title-container">
+              <h1>
+                <!--<button class="hamburger"><div></div><div></div><div></div></button>-->
+                {{ page.title }}
+              </h1>
+              <p class="sub-header">{{ page.sub_header }}</p> <!-- Sub-header as H2 -->
+            </div>
+            <div class="feedback-card">
+              <div class="feedback-content">
+                <div class="feedback-text">
+                  <div class="feedback-title">We'd love your feedback!</div>
+                  <div class="feedback-message">Send us any feedback to</div>
+                  <div class="feedback-message">
+                    <a href="mailto:...">apisupport@procore.com</a>
+                  </div>
+                </div>
+                <svg class="feedback-icon" viewBox="0 0 24 24" fill="none" stroke="#f57d20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m2 7 10 7 10-7"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main>
+          {{ content }}
+        </main>
+      </section>
+    </article>
+    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+    <script src="{{ 'assets/js/nav.js' | relative_url }}"></script>
+  </body>
 </html>
