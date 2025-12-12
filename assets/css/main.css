@@ -168,6 +168,29 @@ body {
     margin-right: 20px;
   }
 
+  .collapseListH2 {
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    font-size: 20px;
+    font-weight: bold;
+    padding: 16px 0px;
+  }
+  
+  .collapseListH2 .collapseSubhead {
+    display: block;
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    /* color: #6b7280; */
+  }
+
+  /* Guarantee sub-header is on its own line and respects caret space */
+  summary .collapseSubhead {
+    display: block;
+    padding-right: 32px;        /* mirror summary padding-right to keep clear of caret */
+  }
+
   p {
     letter-spacing: 0.25px;
     padding: 10px 0px;
