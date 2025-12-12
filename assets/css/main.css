@@ -54,8 +54,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgb(217, 217, 217);  /* Moved border here */
-  padding-bottom: 30px;  /* Optional: adjust spacing */
+  border-bottom: 1px solid rgb(217, 217, 217);
+  padding-bottom: 30px;
 }
 
 .feedback-card {
