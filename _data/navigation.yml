@@ -253,6 +253,13 @@
 #     - title: Staged Records
 #       url: /erp-staged-records-details
 
+# - title: Document Management Integration - EVERYTHING NEEDED BUT NOT INDEXED
+#   items:
+#     - title: Getting Started
+#       url: /document-management-intro
+#     - title: Technical Guide
+#       url: /document-management-technical-guide
+
 # - title: Additional Resources
 #   items:
 #     - title: Developer Support
