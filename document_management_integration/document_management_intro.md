@@ -20,9 +20,9 @@ To get started with the Document Management API, ensure you have completed these
 - **Authentication** - Leverage Procore's OAuth 2.0 framework to authenticate requests. See [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) for additional information.
 - **Permissions** - [Permissions](https://v2.support.procore.com/faq-how-do-permissions-work-in-the-document-management-tool) control which users/services have access to the PDM tool and whether they can upload and submit documents. At the project level, your account must have 'Standard' or 'Admin' level permissions to the Document Management tool. At the tool level, your account must be part of one or more permission groups with 'Upload New Files' and 'Submit New Files' permissions enabled.
 - **Required Fields** - Familiarize yourself with the project's:
-  - Document [fields](https://procore-support-prototype-master.vercel.app/faq-what-are-the-different-fields-in-the-document-management-tool) and any [custom field](https://procore-support-prototype-master.vercel.app/product-manuals/document-management-project/tutorials/manage-custom-and-default-fields-and-fieldsets-for-the-document-management-tool) requirements
-  - Naming Standards: whether your project enforces a [naming standard](https://procore-support-prototype-master.vercel.app/product-manuals/document-management-project/tutorials/edit-the-naming-standard-for-the-document-management-tool). Naming standards can help ensure consistency across your projects and enables automatic metadata population during upload
-  - Revision setting: whether duplicate [revision](https://en-gb.support.procore.com/products/online/user-guide/project-level/document-management/tutorials/edit-upload-requirements-for-the-document-management-tool) identifiers are allowed.
+  - Document [fields](https://v2.support.procore.com/faq-what-are-the-different-fields-in-the-document-management-tool) and any [custom field](https://v2.support.procore.com/product-manuals/document-management-project/tutorials/manage-custom-and-default-fields-and-fieldsets-for-the-document-management-tool) requirements
+  - Naming Standards: whether your project enforces a [naming standard](https://v2.support.procore.com/product-manuals/document-management-project/tutorials/edit-the-naming-standard-for-the-document-management-tool). Naming standards can help ensure consistency across your projects and enables automatic metadata population during upload
+  - Revision setting: whether duplicate [revision](https://support.procore.com/products/online/user-guide/project-level/document-management/tutorials/edit-upload-requirements-for-the-document-management-tool) identifiers are allowed.
 
   For Document Revision submission, all metadata fields marked as required by your project must be populated. Required fields are determined by:
 
@@ -32,7 +32,7 @@ To get started with the Document Management API, ensure you have completed these
 
   Query the upload requirements endpoint to determine your specific metadata requirements.
 
-Detailed information on the Document Management tool can be found at [Procore Support: Document Management](https://procore-support-prototype-master.vercel.app/product-manuals/document-management-project).
+Detailed information on the Document Management tool can be found at [Procore Support: Document Management](https://v2.support.procore.com/product-manuals/document-management-project).
 
 ## Core Concepts
 
@@ -48,11 +48,11 @@ Let's define some key entities and understand the role each plays in Document Ma
 
 - **Document Container** - A set of related documents with common metadata. When a Document Upload is created, PDM calculates a match criteria from key metadata. Any upload that produces the same match criteria is routed into the same container, and every resulting Document Revision is placed into the same container. If metadata changes in a way that produces a new match criteria, the document is re-containerized into a different container.
 
-See [Document Management - Glossary](https://en-gb.support.procore.com/products/online/user-guide/project-level/document-management/glossary) for additional definitions.
+See [Document Management - Glossary](https://support.procore.com/products/online/user-guide/project-level/document-management/glossary) for additional definitions.
 
 ### Understanding Organization
 
-**Folderless organization** - Document Management [does not](https://procore-support-prototype-master.vercel.app/faq-does-the-document-management-tool-support-folders/) support a traditional folder hierarchy. Organization is driven by document attributes and metadata. You must design your integration around document metadata instead of a folder structure.
+**Folderless organization** - Document Management [does not](https://v2.support.procore.com/faq-does-the-document-management-tool-support-folders/) support a traditional folder hierarchy. Organization is driven by document attributes and metadata. You must design your integration around document metadata instead of a folder structure.
 
 **Version history grouping** - Document Revisions are automatically grouped into Document Containers based on their metadata. Each container maintains a version history chain with sequential version numbers. When you submit Document Revisions with the appropriate metadata, the system manages containerization and version numbering automatically. Providing consistent metadata values allows documents to be grouped correctly.
 
@@ -98,7 +98,7 @@ If your project enforces a naming standard and documents are named according to 
 - **Completion Status** - The `integrationStatuses.ML` field in the Document Upload response will change from `"in_progress"` to `"completed"` once ML analysis finishes. Check this status before submitting the Document Upload as a Document Revision to ensure ML-inferred metadata is included
 - **User-provided values take precedence** - If your integration provides values for any ML-processed fields when creating a Document Upload, those values will not be overridden by ML predictions
 - **Automatic application** - If no user values are provided for these fields, ML predictions will be automatically applied when available.
-- **Best practices** - For optimal results, refer to the [Procore Support: What data can be automatically populated FAQ](https://procore-support-prototype-master.vercel.app/faq-what-data-can-procore-automatically-populate-when-uploading-files-to-the-document-management-tool)
+- **Best practices** - For optimal results, refer to the [Procore Support: What data can be automatically populated FAQ](https://v2.support.procore.com/faq-what-data-can-procore-automatically-populate-when-uploading-files-to-the-document-management-tool)
 
 ## Integration Best Practices
 
