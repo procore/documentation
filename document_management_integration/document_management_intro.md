@@ -8,4 +8,124 @@ section_title: Document Management Integration
 
 ## Working with Document Management
 
-To be added.
+The Procore Document Management (PDM) system provides a platform for integrators to programmatically sync documents from external systems into Procore projects.
+Before you begin working with the various Document Management API endpoints, we recommend familiarizing yourself with the core concepts, architecture, and workflows outlined in this guide.
+
+### Prerequisites
+
+To get started with the Document Management API, ensure you have completed these steps:
+
+- **Account Setup** - Create a Procore [Developer Managed Service Account](https://developers.procore.com/documentation/developer-managed-service-accounts).
+- **Tool Setup** - Enable the Document Management tool at the project level for the Procore service account.
+- **Authentication** - Leverage Procore's OAuth 2.0 framework to authenticate requests. See [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) for additional information.
+- **Permissions** - [Permissions](https://v2.support.procore.com/faq-how-do-permissions-work-in-the-document-management-tool) control which users/services have access to the PDM tool and whether they can upload and submit documents. At the project level, your account must have 'Standard' or 'Admin' level permissions to the Document Management tool. At the tool level, your account must be part of one or more permission groups with 'Upload New Files' and 'Submit New Files' permissions enabled.
+- **Upload Requirements** - Familiarize yourself with the project's upload submission requirements:
+  - Document [fields](https://v2.support.procore.com/faq-what-are-the-different-fields-in-the-document-management-tool) and any [custom field](https://v2.support.procore.com/product-manuals/document-management-project/tutorials/manage-custom-and-default-fields-and-fieldsets-for-the-document-management-tool) requirements
+  - [Naming standards](https://v2.support.procore.com/product-manuals/document-management-project/tutorials/edit-the-naming-standard-for-the-document-management-tool) - whether your project enforces naming standards for consistency and automatic metadata population
+  - [Revision settings](https://support.procore.com/products/online/user-guide/project-level/document-management/tutorials/edit-upload-requirements-for-the-document-management-tool) - whether duplicate revision identifiers are allowed
+
+Detailed information on the Document Management tool can be found at [Procore Support: Document Management](https://v2.support.procore.com/product-manuals/document-management-project).
+
+## Core Concepts
+
+### Document Management Entities
+
+Let's define some key entities and understand the role each plays in Document Management.  
+- **Document Metadata** - A set of attributes that provide information about a document. Metadata provides context about a file and enables filtering, searching, and better organization. Metadata can include file-level attributes (Type, Discipline, Number, Status) that describe what the document is, project/company attributes (Location, Trade, Area, etc.) that describe where and how the document applies, and other custom fields. As an integrator, you add metadata when updating Document Uploads (after the upload is initialized). Additional metadata is also automatically populated via machine learning (ML) analysis of the file content and via naming standards configured by project administrators. See [Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}).  
+- **Document Upload** - A document submitted for upload to the Document Management tool. An Upload represents an intermediate stage before Document Revision creation. A Document Upload can be updated with additional metadata via the Document Upload Update API, then submitted to create a Document Revision. Each Document Upload is associated with a single Document Container.  
+- **Document Revision** - A versioned instance of a document created by submitting a Document Upload. The file content cannot be changed after creation (submit a new Upload to update the file), but metadata can be edited. Revisions are grouped into a version history chain based on the match criteria derived from key metadata.  
+- **Document Container** - A set of related documents with common metadata. When a Document Upload is created, PDM calculates a match criteria from key metadata. Any upload that produces the same match criteria is routed into the same container, and every resulting Document Revision is placed into the same container. If metadata changes in a way that produces a new match criteria, the document is re-containerized into a different container.
+
+See [Document Management - Glossary](https://support.procore.com/products/online/user-guide/project-level/document-management/glossary) for additional definitions.
+
+### Understanding Organization
+
+**Folderless organization** - Document Management [does not](https://v2.support.procore.com/faq-does-the-document-management-tool-support-folders/) support a traditional folder hierarchy. Organization is driven by document attributes and metadata. You must design your integration around document metadata instead of a folder structure.  
+**Version history grouping** - Document Revisions are automatically grouped into Document Containers based on their metadata. Each container maintains a version history chain with sequential version numbers. When you submit Document Revisions with the appropriate metadata, the system manages containerization and version numbering automatically. Providing consistent metadata values allows documents to be grouped correctly.
+
+## How Document Management Works
+The Procore Document Management (PDM) system is a metadata-driven platform that organizes project documents based on their attributes. It provides granular permission controls and uses ML to automate metadata detection.
+
+> The section below provides a high-level workflow overview.  
+For detailed step-by-step implementation instructions, see the [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}).  
+For all available API endpoints, see [Document Management API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %}).
+
+**Step 1: Initialize Document Upload** - Create a Document Upload by providing filename and mime type. The system returns a unique upload ID.
+
+**Step 2: Upload Binary File** - Use the [File Uploads API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}) to put the binary in storage. The Uploads API returns a file upload ID that identifies your file in storage.
+
+**Step 3: Prepare and Validate Document Upload** - Update the Document Upload with the file upload ID (from step 2) and enrich your metadata fields. During this phase, the system initiates asynchronous processing for ML analysis and naming standard extraction.
+Before submitting, verify the upload is ready:
+  - required fields are populated. Query the [Project Upload Requirements](https://developers.procore.com/reference/rest/project-upload-requirements?version=2.0) endpoint for upload rules and qualifiers
+  - ML has finished processing the file and `integrationStatuses.ML` has transitioned to `completed` for PDFs
+  - the Document Upload has `upload_status` of `COMPLETED`
+
+Note: the update API exposes a batch update endpoint for updating multiple uploads; batch updates may return HTTP 207 with partial success/failure results. See [Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}) for complete examples and error-handling patterns.
+
+**Step 4: Submit Document Upload** - Submit the completed Document Upload to create a Document Revision. The revision becomes the permanent, versioned record and is placed in the appropriate document container based on metadata matching. 
+
+Note: Submissions may fail due to workflow conflicts; the API provides conflict-resolution parameters to handle these cases. See [Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}) for complete examples and error-handling patterns.
+
+
+## Machine Learning (ML) and Automated Features
+
+The Document Management system includes features that can automatically enhance document metadata through the following mechanisms:
+
+### Automatic Data Entry from File Contents
+
+Procore uses ML algorithms to scan PDF file contents and recognize patterns to automatically populate the following fields for drawings and specifications:
+- **Type** - Predicted as Drawing, Specification, or Other based on content analysis
+- **Description** - For drawings, extracted from the title block on the drawing sheet
+- **Number** - For drawings, extracted from the drawing number field on the sheet
+- **Revision** - For drawings, extracted from the revision identifier on the sheet (left blank if special characters are detected)
+- **Date Authored** - For drawings, extracted from the date field on the sheet
+
+### Automatic Data Entry from Naming Standards
+
+If your project enforces a naming standard and documents are named according to that standard, Procore automatically extracts metadata fields based on the codes and identifiers in the filename. 
+
+### Key Points on ML Processing Behavior
+
+- **PDF-only** - ML predictions apply to PDF files
+- **Asynchronous Processing** - ML classification occurs asynchronously after a Document Upload is created, not during the API call itself. Your integration should not expect metadata to be populated immediately after creating an upload
+- **Completion Status** - The `integrationStatuses.ML` field in the Document Upload response will change from `"in_progress"` to `"completed"` once ML analysis finishes. Check this status before submitting the Document Upload as a Document Revision to ensure ML-inferred metadata is included
+- **User-provided values take precedence** - If your integration provides values for any ML-processed fields when creating a Document Upload, those values will not be overridden by ML predictions
+- **Automatic application** - If no user values are provided for these fields, ML predictions will be automatically applied when available.
+- **Best practices** - For optimal results, refer to the [Procore Support: What data can be automatically populated FAQ](https://v2.support.procore.com/faq-what-data-can-procore-automatically-populate-when-uploading-files-to-the-document-management-tool)
+
+## Integration Best Practices
+
+Consider the following recommendations when building your integration:
+
+### API Behavior and Constraints
+
+- **Plan for ML Processing Delays** - Do not assume metadata will be immediately available after creating a Document Upload. ML analysis is asynchronous and can take several seconds to complete.
+- **Query Upload Status Before Submission** - Before submitting Document Uploads to create Document Revisions, query the Document Upload `upload_status` to ensure it has transitioned from "INCOMPLETE" to "COMPLETED" state. This ensures your integration doesn't attempt to submit an upload before it is ready to be submitted.
+- **Use Batch Operations for Efficiency** - Batch endpoints (Create Document Upload Batch, Update Document Upload Batch, Create Document Revision Batch) are optimized for processing multiple documents efficiently.
+
+### Data Model and Naming Strategy
+
+- **Document Identification Strategy** - Documents are grouped into version histories based on the match criteria derived from key metadata (often including Name and Format). Submitting a new upload that produces the same match criteria typically creates a new revision in that chain. Plan your naming/metadata strategy carefully so documents group as expected.
+- **Use Document Revision IDs for References** - If your integration interfaces with other Procore domains or external systems, understand that Document Upload IDs are not stable identifiers. Use Document Revision IDs instead, which remain stable. Only reference Document Upload IDs during the upload stage.
+
+### Permissions and Access Control
+
+- **Verify Permissions Before Integration** - Ensure your service account has appropriate permission group assignments with both "Upload New Files" and "Submit New Files" permissions.
+- **Attribute-scoped Visibility** - Document visibility can be constrained by document attributes (e.g., Status = Approved). If your service account's permission group only grants access to certain attribute values, uploads with different values might not be immediately visible to your integration. Align the attributes you assign with the permission group's visibility rules or adjust permissions accordingly.
+- **Workflow Impact on Status Field** - If a project uses workflows, the Status field may be controlled by the workflow rather than your integration. Verify the project's workflow configuration to determine whether you can set Status values through API calls.
+
+### Error Handling and Edge Cases
+- **Handle Partial Success Responses** - Batch update operations return HTTP 207 (Multi-Status) with individual success/failure results for each item. Implement logic to parse partial results, identify failed items, and retry or log failures appropriately.
+- **Stale Data Conflicts** - Submission may fail with HTTP 422 if another process modified the upload after you retrieved it. Always use `upload_latest_event_id` for optimistic locking to detect and handle these conflicts.
+- **Post-Submission Corrections** - Document Revision metadata cannot currently be edited via API after Document Upload submission. Validate all metadata during the upload stage. For corrections to submitted revisions, use the Procore web interface.
+- **Plan for Document Unavailability** - Document Uploads can be deleted by users. Your integration should handle cases where a document that was previously available becomes unavailable.
+
+### Rate Limits
+
+- **API Rate Limits** - Usage of Procore's API is subject to rate limits. The rate limit resets every hour. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) to learn how to reduce the possibility of exceeding the rate limit.
+
+## Additional Resources  
+- [Document Management APIs]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})  
+- [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})  
+- [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %})   
+- [File Upload API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
