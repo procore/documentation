@@ -40,7 +40,7 @@ Note that the response body includes the new ID generated for the drawing object
 
 ## Create an Upload in the Project
 
-Now that we have our drawing object created, we can use the [Create Upload (Project)](https://developers.procore.com/reference/rest/v1/project-uploads) endpoint to facilitate the direct upload of our drawing file.
+Now that we have our drawing object created, we can use the [Create Project Upload](https://developers.procore.com/reference/rest/uploads?version=1.1#create-project-upload) endpoint to facilitate the direct upload of our drawing file.
 Though not required, we include the `response_filename` attribute in the request body which ensures that the storage service is aware of the filename for the upload in advance.
 Since files are often downloaded directly from the storage service, specifying the `response_filename` ensures that the file will save on an end user's device with a meaningful name and extension.
 Note that the filename you define for `response_filename` must include '.pdf' in the name.
