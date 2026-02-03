@@ -15,8 +15,7 @@ section_title: Announcements
 >
 >1. **Request a Presigned Upload URL**  
 >   Use one of the following endpoints to request a presigned S3 URL and receive a `uuid`:  
->   - [Company Uploads](https://developers.procore.com/reference/rest/company-uploads?version=latest)  
->   - [Project Uploads](https://developers.procore.com/reference/rest/project-uploads?version=latest)  
+>   - [Uploads](https://developers.procore.com/reference/rest/uploads?version=latest)
 >
 >2. **Upload the File**  
 >   Upload the file directly to S3 using the presigned URL.  

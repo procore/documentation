@@ -11,7 +11,7 @@ section_title: Guides and Tutorials
 The Procore API supports the capability to post and store files directly in a web file storage service.
 Using the Procore API to directly upload content to a storage service helps to streamline uploads and reduces upload latency.
 Uploading a file using the Procore API is generally a two-step process.
-The first step to storing files directly from your application to your file storage service is to create an upload at the company or project level using the [Create Upload (Company)](https://developers.procore.com/reference/rest/company-uploads?version=1.1#create-upload) or [Create Upload (Project)](https://developers.procore.com/reference/rest/project-uploads?version=1.1#create-upload) endpoints respectively.
+The first step to storing files directly from your application to your file storage service is to create an upload at the company or project level using the [Create Company Upload](https://developers.procore.com/reference/rest/uploads?version=1.1#create-company-upload) or [Create Project Upload](https://developers.procore.com/reference/rest/uploads?version=1.1#create-project-upload) endpoints respectively.
 File uploads can be either segmented or non-segmented.
 The JSON block returned by these endpoints contains attributes that form the 'instructions' for uploading and storing files.
 Subsequent steps use these attributes to form a POST request to the file storage service.
@@ -22,10 +22,10 @@ See [Moving an Uploaded File into Procore](#moving-an-uploaded-file-into-procore
 
 The Procore API provides the following endpoints for creating Uploads at the company and project levels.
 
-| Action                                                                                                          | Endpoint URI                                   | Description                                    |
-| --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| [Create Upload (Company Level)](https://developers.procore.com/reference/rest/company-uploads?version=1.1#create-upload) | POST /rest/v1.1/companies/{company_id}/uploads | Creates a new Upload in the specified Company. |
-| [Create Upload (Project Level)](https://developers.procore.com/reference/rest/project-uploads?version=1.1#create-upload) | POST /rest/v1.1/projects/{project_id}/uploads  | Creates a new Upload in the specified Project. |
+| Action                                                                                                                   | Endpoint URI                                   | Description                                    |
+|--------------------------------------------------------------------------------------------------------------------------| ---------------------------------------------- | ---------------------------------------------- |
+| [Create Upload (Company Level)](https://developers.procore.com/reference/rest/uploads?version=1.1#create-company-upload) | POST /rest/v1.1/companies/{company_id}/uploads | Creates a new Upload in the specified Company. |
+| [Create Upload (Project Level)](https://developers.procore.com/reference/rest/uploads?version=1.1#create-project-upload) | POST /rest/v1.1/projects/{project_id}/uploads  | Creates a new Upload in the specified Project. |
 
 ## Segmented Direct File Uploads
 
@@ -59,7 +59,7 @@ The segments are named using the prefix we specified in the command - `file-segm
 ### Step 2 - Create a Segmented Upload
 
 To help illustrate the workflow for this example we use the Create Upload endpoint to create a new segmented upload at the company level.
-A sample POST request to the [Create Upload](https://developers.procore.com/reference/rest/company-uploads?version=1.1#create-upload) endpoint would take the following format:
+A sample POST request to the [Create Company Upload](https://developers.procore.com/reference/rest/uploads?version=1.1#create-company-upload) endpoint would take the following format:
 
 - Request Method: `POST`
 - Request URL: `https://api.procore.com/rest/v1.1/companies/{company_id}/uploads`
@@ -246,7 +246,7 @@ For smaller file uploads you can perform a non-segmented direct upload using the
 ### Step 1: Create an Upload
 
 To help illustrate the workflow for this example we use the Create Upload endpoint to create a new upload at the company level.
-A sample POST request to the [Create Upload](https://developers.procore.com/reference/rest/company-uploads?version=1.1#create-upload) endpoint would take the following format:
+A sample POST request to the [Create Company Upload](https://developers.procore.com/reference/rest/uploads?version=1.1#create-company-upload) endpoint would take the following format:
 
 - Request Method: `POST`
 - Request URL: `https://api.procore.com/rest/v1.1/companies/{company_id}/uploads`
