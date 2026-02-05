@@ -19,26 +19,26 @@ This reference describes the metadata structure returned by **Document Upload** 
     {
       "id": "string",
       "name": "string",
-      "type": "string | lov_entry | lov_entries | reference | rich_text | timestamp",
+      "type": "string", // One of: string, lov_entry, lov_entries, reference, rich_text, timestamp, numeric
       "values": [
-        // For text-based types (string, rich_text, timestamp):
-        { "label": "string" }
+        // For text-based types (string, rich_text, timestamp, numeric):
+        { "label": "string" },
 
         // For lov_entry/lov_entries types:
-        { "id": "string", "code": "string", "label": "string", "active": boolean, "tags": ["string"] }
+        { "id": "string", "code": "string", "label": "string", "active": "boolean", "tags": ["string"] },
         
         // For reference type:
         { "id": "string", "code": "string", "label": "string" }
       ],
-      "variant": "string (optional - field subtype, e.g., 'computed', 'procore_user', 'procore_project')",
+      "variant": "string", // Optional - field subtype (e.g., computed, procore_user, procore_project)
       "label_source": "string",
-      "confidence_score": "number (optional - present when label_source is 'ML', range 0-1)",
+      "confidence_score": 0.95, // Optional - present when label_source is 'ML', range 0-1
       "label": "string",
       "description": "string"
     }
   ],
   "fileKey": "string",
-  "file_locked": boolean,
+  "file_locked": "boolean",
   "integrations": {
     "ml_processing": {
       "errors": [
@@ -227,7 +227,7 @@ To retrieve available custom fields for a project, use the [List Project Fields]
 
 ## Field Type Reference
 
-In the Document Upload and Document Revision API responses, each field object in the `fields` array includes a `type` property that determines its value format and structure.
+In the [Document Uploads](https://developers.procore.com/reference/rest/document-uploads?version=2.0) API response, each field object in the `fields` array includes a `type` property that determines its value format and structure.
 
 ### Field Type Overview
 
@@ -236,6 +236,7 @@ In the Document Upload and Document Revision API responses, each field object in
 | **string** | Text values (UTF-8 encoded) |
 | **rich_text** | Text with optional markup |
 | **timestamp** | Date and time in ISO 8601 UTC format |
+| **numeric** | String-encoded numeric values - integers or decimals (e.g., "42", "3.14") |
 | **lov_entry** | Single selection from project-configured list of values |
 | **lov_entries** | Multiple selections from project-configured list of values |
 | **reference** | Link to another entity such as users, locations, or workflows |
@@ -359,7 +360,7 @@ When metadata is populated in Document Management, each field includes a `label_
 | **SCRAPING_FAILED** | Filename scraping was attempted but failed for this field | Yes - can be set manually |
 | **ML** | Value populated by Machine Learning analysis | Yes - manual values override |
 | **ML_FAILED** | ML analysis was attempted but failed for this field | Yes - can be set manually |
-| **SYSTEM** | Value set by Document Management system automatically | No -system fields cannot be modified |
+| **SYSTEM** | Value set by Document Management system automatically | No - system fields cannot be modified |
 
 **Confidence Scores** (0.0 to 1.0) indicate how confident ML-based predictions are. Only present for `label_source: "ML"`; absent for other sources.
 
@@ -410,7 +411,7 @@ When a Document Upload is returned, it includes `integrationStatuses` indicating
 {
   "integrationStatuses": {
     "ML": "in_progress", // One of: in_progress, completed, error, not_applicable
-    "FILENAME_SCRAPING": "in_progress" | "completed" | "error" | "not_applicable"
+    "FILENAME_SCRAPING": "in_progress" // One of: in_progress, completed, error, not_applicable
   }
 }
 ```
@@ -425,7 +426,7 @@ Document Management can process 3D model files (BIM/Building Information Models)
 {
   "bim_processing": {
     "bim_file_extraction_id": "string or null",
-    "status": "not_applicable" | "not_started" | "pending" | "in_progress" | "ready" | "error",
+    "status": "not_applicable", // One of: not_applicable, not_started, pending, in_progress, ready, error
     "errors": []
   }
 }
@@ -434,7 +435,6 @@ Document Management can process 3D model files (BIM/Building Information Models)
 ***
 <details>
 <summary class="collapseListTierOne">Click to view an example of Document Upload API response</summary>
-
 <pre><code>{
   "id": "31OZMQFW8L1T82WOY8G7WH8TL",
   "fields": [
