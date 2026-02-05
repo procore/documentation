@@ -143,7 +143,7 @@ Standard fields available across all projects for document organization and clas
 | **placeholder_assignee** | reference | Assignee of the placeholder document. |
 | **placeholder_due_date** | timestamp | Due date of the placeholder document. |
 | **project** | reference | An abbreviation of the project's name. |
-| **project_stage** | lov_entry | The construction stage associated with the document. |
+| **project_stage** | reference | The construction stage associated with the document. |
 | **revision** | string | Letter, number, or combination of letters and numbers that identifies a specific version of the document. |
 | **status** | lov_entry | State of a document as it goes through a workflow. |
 | **type** | lov_entry | The category of the document. |
@@ -359,7 +359,7 @@ When metadata is populated in Document Management, each field includes a `label_
 | **SCRAPING_FAILED** | Filename scraping was attempted but failed for this field | Yes - can be set manually |
 | **ML** | Value populated by Machine Learning analysis | Yes - manual values override |
 | **ML_FAILED** | ML analysis was attempted but failed for this field | Yes - can be set manually |
-| **SYSTEM** | Value set by Document Management system automatically | Depends on field |
+| **SYSTEM** | Value set by Document Management system automatically | No -system fields cannot be modified |
 
 **Confidence Scores** (0.0 to 1.0) indicate how confident ML-based predictions are. Only present for `label_source: "ML"`; absent for other sources.
 
@@ -409,7 +409,7 @@ When a Document Upload is returned, it includes `integrationStatuses` indicating
 ```json
 {
   "integrationStatuses": {
-    "ML": "in_progress" | "completed" | "error" | "not_applicable",
+    "ML": "in_progress", // One of: in_progress, completed, error, not_applicable
     "FILENAME_SCRAPING": "in_progress" | "completed" | "error" | "not_applicable"
   }
 }
