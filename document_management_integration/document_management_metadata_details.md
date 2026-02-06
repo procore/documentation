@@ -19,20 +19,29 @@ This reference describes the metadata structure returned by **Document Upload** 
     {
       "id": "string",
       "name": "string",
-      "type": "string", // One of: string, lov_entry, lov_entries, reference, rich_text, timestamp, numeric
+      // One of: string, lov_entry, lov_entries, reference, rich_text, timestamp, numeric
+      "type": "string",
       "values": [
         // For text-based types (string, rich_text, timestamp, numeric):
         { "label": "string" },
 
         // For lov_entry/lov_entries types:
-        { "id": "string", "code": "string", "label": "string", "active": "boolean", "tags": ["string"] },
+        {
+          "id": "string",
+          "code": "string",
+          "label": "string",
+          "active": "boolean",
+          "tags": ["string"]
+        },
         
         // For reference type:
         { "id": "string", "code": "string", "label": "string" }
       ],
-      "variant": "string", // Optional - field subtype (e.g., computed, procore_user, procore_project)
+      // Optional - field subtype (e.g., computed, procore_user, procore_project)
+      "variant": "string",
       "label_source": "string",
-      "confidence_score": 0.95, // Optional - present when label_source is 'ML', range 0-1
+      // Optional - present when label_source is 'ML', range 0-1
+      "confidence_score": 0.95,
       "label": "string",
       "description": "string"
     }
@@ -223,7 +232,8 @@ Projects can define custom metadata fields specific to their organizational need
 - **Integrate with naming standards**: Some custom fields can be extracted from filenames
 - **Support workflows**: Can be used in workflow rules and permission groups
 
-To retrieve available custom fields for a project, use the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=latest) endpoint.
+To retrieve available fields for a project (including custom fields), use the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=latest) endpoint:
+The response includes both standard fields and project-level custom fields. **A field is identified as a custom field when `custom_field_definition_id` is present in the response.**
 
 ## Field Type Reference
 
