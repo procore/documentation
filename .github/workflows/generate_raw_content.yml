@@ -2,31 +2,33 @@ name: Generate Raw Content JSON
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
     branches: [main]
     paths:
       - "scripts/generate_raw_content.rb"
       - "content_catalog.json"
       - "**/*.md"
+  push:
+    branches: ["**"]
 
 jobs:
   generate-raw-content:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"
 
       - name: Generate raw_content.json
         run: ruby scripts/generate_raw_content.rb
 
-      - name: Upload artifact
+      - name: Upload raw_content artifact
         uses: actions/upload-artifact@v4
         with:
-          name: raw-content-json
+          name: raw-content-json-${{ github.run_number }}
           path: raw_content.json
+          if-no-files-found: error
+          retention-days: 7
