@@ -1,0 +1,32 @@
+name: Generate Raw Content JSON
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/generate_raw_content.rb"
+      - "content_catalog.json"
+      - "**/*.md"
+
+jobs:
+  generate-raw-content:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+
+      - name: Generate raw_content.json
+        run: ruby scripts/generate_raw_content.rb
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-content-json
+          path: raw_content.json
