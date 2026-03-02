@@ -2,7 +2,7 @@
 permalink: /faq
 title: FAQ
 layout: default
-section_title: Additional Resources
+section_title: Overview
 ---
 
 ## General Questions/Issues
@@ -43,7 +43,7 @@ To ensure that changes you make in your production environment are available in 
 
 **How long does my access token last?**
 
-Once obtained, your access token will last for 15 minutes.
+Once obtained, your access token will last for 90 minutes (5400 seconds).
 See [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}) for additional information.
 
 **How long does my refresh token last?**
@@ -54,7 +54,7 @@ See [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oaut
 **My access token isn’t working. Why not?**
 
 Please ensure that you are passing in your access token under the “Authorization” header in the format `"Bearer <token>"`.
-If it has been at least 15 minutes since you received your access token, make sure you have refreshed your token before passing it in.
+If it has been at least 90 minutes since you received your access token, make sure you have refreshed your token before passing it in.
 If you have followed the previous instructions and are still having issues authenticating, please contact us at <apisupport@procore.com> and we will be happy to help.
 
 **My refresh token is not working, or it says it is invalid. Why is that?**
@@ -65,14 +65,14 @@ There are a number of reasons why this might be the case as outlined in the foll
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
 | Refresh Token Invalid | Keep in mind that refresh tokens are for one-time use only. For security reasons, any call to [refresh an access token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token), successful or not, permanently invalidates the current refresh token. Therefore, if your application erroneously makes a "double-call", or does not properly store the returned access & refresh tokens, you will need to re-authenticate the user and retrieve all new tokens using the application's proper OAuth flow. |
 | Refresh Token Revoked | Keep in mind that if you use the [Revoke Token](https://developers.procore.com/reference/authentication#revoke-token) endpoint to revoke your access token, your refresh token will also be revoked. Under this scenario, you will need to have your user re-authorize access to your application by calling the [Grant App Authorization](https://developers.procore.com/reference/authentication#grant-app-authorization) endpoint.                                                                                                      |
-| Network Problems      | Note that on rare occasions you may experience network issues or other unforseen outages that could cause a call to be made but whose response is lost. In these cases, you would need to regenerate a fresh set of tokens.                                                                                                                                                                                                                                                                                                                |
+| Network Problems      | Note that on rare occasions you may experience network issues or other unforeseen outages that could cause a call to be made but whose response is lost. In these cases, you would need to regenerate a fresh set of tokens.                                                                                                                                                                                                                                                                                                                |
 
 **How can my installed application go through the OAuth flow without any user interaction?**
 
 While our [installed application configuration]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %}) does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
 Once you manually go through that step by logging in and getting an authorization code, you can then programmatically authenticate from that point forward without user intervention.
 After the initial App Authorization Grant, you can retrieve a pair of tokens: an access_token and refresh_token.
-The access_token is used to authenticate (passed in under the Authorization header as `Bearer <token>`), and it expires after 15 minutes.
+The access_token is used to authenticate (passed in under the Authorization header as `Bearer <token>`), and it expires after 90 minutes.
 The refresh_token, which corresponds to that access_token, will not expire until it is used to acquire a new pair of tokens.
 Using those two tokens, you can authenticate endlessly without any user input.
 
@@ -120,10 +120,7 @@ However, this is not something you should generally expect or rely on for Procor
 
 **What is the recommended method for testing my Procore API calls?**
 
-We currently do not provide a 'built-in' API Explorer in our Developer Portal.
-However, one application we highly recommend is [Postman](https://www.getpostman.com/).
-This application allows you to run and test Procore API endpoints.
-This is the tool of choice for our Developer Support team as well as our own in-house developers.
+We recommend using <a href="https://www.postman.com/" target="_blank">Postman</a> to test Procore API endpoints. You can download the OpenAPI (OAS) spec from the <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">Developer Portal API Reference</a> and import it directly into Postman to get pre-configured endpoints. <a href="https://curl.se/" target="_blank">cURL</a> is also a great option for quick command-line testing.
 
 ## Deprecation
 

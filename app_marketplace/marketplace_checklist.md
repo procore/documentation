@@ -69,7 +69,7 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
         <li>Clear onboarding instructions for customers</li>
         <li>Any customer-side requirements for setup or use</li>
     </ul>
-    Refer to the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketing Listing Guidelines</a> for formatting and submission details.
+    Refer to the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a> for formatting and submission details.
 </p>
 </details>
 

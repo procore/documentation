@@ -1,6 +1,6 @@
 ---
 permalink: /restful-api-concepts
-title: RESTful API CONCEPTS
+title: RESTful API Concepts
 layout: default
 section_title: API Essentials
 
@@ -23,7 +23,7 @@ Clients and servers exchange representations of resources by using a standardize
 >
 > Because all Procore API resources are protected by Secure Sockets Layer (SSL) encryption, any call you make to a Procore API resource must use the `HTTPS` scheme in the URL.
 > SSL establishes an encrypted link between the Procore resource server and your application.
-> This link ensures that all data passed between the resource server and your appplication remain private.
+> This link ensures that all data passed between the resource server and your application remains private.
 
 ## HTTP Resource Methods
 
@@ -150,7 +150,7 @@ In general, codes in the **2xx range indicate success**, codes in the **4xx indi
 **Server error status codes (5xx)**
 
 - **500 Internal Server Error** - The server encountered an error while processing your request and failed.
-- **502 Gateway Error** - The load balancer or web server had trouble connecting to the ACME app. Please try the request again.
+- **502 Gateway Error** - The load balancer or web server had trouble connecting to the backend service. Please try the request again.
 - **503 Service Unavailable** - The service is temporarily unavailable. Please try the request again.
 
 You can future proof your code by using the following status code ranges:

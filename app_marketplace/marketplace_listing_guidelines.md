@@ -68,7 +68,7 @@ Your app's pricing plan is an important part of the submission process, providin
 1. Does the app require an additional subscription to another system?
     - **Example:** The customer must have a Box subscription, which is the other service.
 2. Is there a third-party connector needed for the integration, or is it included in the subscription?
-    - **Example:** The app requires a subscription to a middleware service, such as Boomi, which the customer much purchase separately.
+    - **Example:** The app requires a subscription to a middleware service, such as Boomi, which the customer must purchase separately.
 <br><br>
 
 ***
