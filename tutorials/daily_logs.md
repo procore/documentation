@@ -1,8 +1,8 @@
 ---
 permalink: /daily-logs
-title: WORKING WITH DAILY LOGS
+title: Working with Daily Logs
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Field Tools"
 
 ---
 
@@ -64,37 +64,46 @@ Currently, locations are supported in the Manpower log, Equipment log, Quantity 
 #### Existing Location
 
 ```
-  "quantity_log":
-    [
+{
+  "quantity_log": [
+    {
       "location": {
         "id": 35426,
         "name": "Space 1"
       }
-    ]
+    }
+  ]
+}
 ```
 
 #### Existing Location
 
 ```
-  "quantity_log":
-    [
+{
+  "quantity_log": [
+    {
       "location": {
         "name": "Building 1",
         "id": 1
       }
-    ]
+    }
+  ]
+}
 ```
 
 #### Multi-tier Location
 
 ```
-  "quantity_log":
-    [
+{
+  "quantity_log": [
+    {
       "location": {
         "name": "Building 1>Apartment 404",
         "id": 2
       }
-    ]
+    }
+  ]
+}
 ```
 
 ## Working With Attachments
@@ -115,3 +124,10 @@ Some logs have attachment capabilities through the API with the following limita
 - Attachments are viewable on the web only for certain logs.
 
 See the individual Daily Log endpoint documentation pages for additional details.
+
+## See Also
+
+- [Incidents]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_incidents.md %})
+- [Observations]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_observations.md %})
+- [Timesheets & Timecards]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_field_prod.md %})
+- [Timecard Entries]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_timecard_entries.md %})

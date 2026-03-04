@@ -2,7 +2,7 @@
 permalink: /tutorial-workflows-v2
 title: Interacting with Workflows
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Project Management"
 ---
 
 ## Introduction
@@ -80,3 +80,11 @@ In order to make a change like that, you'd need to gather which projects are ass
 For each project, you'd find the related preset (using the template ID as a reference) with the [list presets API](https://developers.procore.com/reference/rest/workflow-presets-project?version=2.0#list-workflow-presets).
 
 Get the current state of the preset and any `responsible_group_memberships` that need to be updated by [requesting the individual preset](https://developers.procore.com/reference/rest/workflow-presets-project?version=latest#get-workflow-preset) that needs to be changed. Build up an array of the `responsible_group_memberships` that need to be modified and save the changes with the [update assignees and workflow manager API](https://developers.procore.com/reference/rest/workflow-presets-project?version=latest#update-assignees-and-workflow-manager).
+
+## See Also
+
+- [Working with the Correspondence Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_correspondence.md %})
+- [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
+- [Working with User Permissions and Permission Templates]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_user_permissions.md %})
+- [Work Breakdown Structure]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_wbs.md %})
+- [Interacting with Workflows (Legacy)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %})

@@ -11,13 +11,13 @@ section_title: Document Management Integration
 The Procore Document Management (PDM) system provides a platform for integrators to programmatically sync documents from external systems into Procore projects.
 Before you begin working with the various Document Management API endpoints, we recommend familiarizing yourself with the core concepts, architecture, and workflows outlined in this guide.
 
-### Prerequisites
+### Things to Consider
 
 To get started with the Document Management API, ensure you have completed these steps:
 
 - **Account Setup** - Create a Procore [Developer Managed Service Account](https://developers.procore.com/documentation/developer-managed-service-accounts).
 - **Tool Setup** - Enable the Document Management tool at the project level for the Procore service account.
-- **Authentication** - Leverage Procore's OAuth 2.0 framework to authenticate requests. See [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) for additional information.
+- **Authentication** - Leverage Procore's OAuth 2.0 framework to authenticate requests. See [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) for additional information.
 - **Permissions** - [Permissions](https://v2.support.procore.com/faq-how-do-permissions-work-in-the-document-management-tool) control which users/services have access to the PDM tool and whether they can upload and submit documents. At the project level, your account must have 'Standard' or 'Admin' level permissions to the Document Management tool. At the tool level, your account must be part of one or more permission groups with 'Upload New Files' and 'Submit New Files' permissions enabled.
 - **Upload Requirements** - Familiarize yourself with the project's upload submission requirements:
   - Document [fields](https://v2.support.procore.com/faq-what-are-the-different-fields-in-the-document-management-tool) and any [custom field](https://v2.support.procore.com/product-manuals/document-management-project/tutorials/manage-custom-and-default-fields-and-fieldsets-for-the-document-management-tool) requirements
@@ -124,7 +124,7 @@ Consider the following recommendations when building your integration:
 
 - **API Rate Limits** - Usage of Procore's API is subject to rate limits. The rate limit resets every hour. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) to learn how to reduce the possibility of exceeding the rate limit.
 
-## Additional Resources  
+## See Also
 - [Document Management APIs]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})  
 - [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})  
 - [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %})   

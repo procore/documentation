@@ -2,7 +2,7 @@
 permalink: /oauth-endpoints
 title: Procore API Authentication Endpoints
 layout: default
-section_title: OAuth 2.0 Authentication
+section_title: Reference
 ---
 
 ## Overview
@@ -10,15 +10,13 @@ section_title: OAuth 2.0 Authentication
 The Procore API provides a set of authentication endpoints you will use to implement the OAuth 2.0 protocol in your application.
 The following sections describe these endpoints along with their request parameters and special considerations.
 
-> PRODUCTION VS. MONTHLY/DEVELOPMENT SANDBOX ENVIRONMENTS
+> PRODUCTION VS. SANDBOX ENVIRONMENTS
 >
-> It is important to note that access/refresh tokens are not shared across production and sandbox environments. API calls you make to authenticate with Procore in your production and monthly sandbox environments must use a separate set of authentication keys (client ID and client secret) from those used for your development sandbox environment. In addition, each environment has its own unique base URL for making authentication calls:
+> Access/refresh tokens are not shared across production and sandbox environments. Use separate OAuth credentials (Client ID and Client Secret) for each environment. Each environment also has its own authentication base URL.
 >
-> - _Production_ - use the `https://login.procore.com/oauth` base URL.
-> - _Monthly Sandbox_ - use the `https://login-sandbox-monthly.procore.com/oauth` base URL.
-> - _Development Sandbox_ - use the `https://login-sandbox.procore.com` base URL.
+> For environment URLs and details, see [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
 >
-> Keep in mind that the examples presented below use the production authentication base URL, rather than the sandbox base URLs.
+> The examples below use the production authentication base URL (`https://login.procore.com`).
 
 ## Grant App Authorization ([/oauth/authorize](https://developers.procore.com/reference/authentication#grant-app-authorization))
 
@@ -97,8 +95,8 @@ Three request parameters are used with this endpoint as described in the followi
 | client_id     | Specifies the Client ID value you were issued when you registered your application on the Developer Portal.                                                                             |
 | client_secret | Specifies the Client Secret value you were issued when you registered your application on the Developer Portal. Note that client_secret is only required for confidential applications. |
 
-To further understand how the Revoke Token endpoint functions, we recommend becoming familier with how access to Connected Apps is revoked using the Procore Web user interface.
-See the [Revoke Access to Connected Apps](http://support.procore.com/products/online/user-guide/company-level/portfolio/tutorials/revoke-access-for-connected-apps) article on our Support Site for additional information.
+To further understand how the Revoke Token endpoint functions, we recommend becoming familiar with how access to Connected Apps is revoked using the Procore Web user interface.
+See the [Revoke Access to Connected Apps](https://support.procore.com/products/online/user-guide/company-level/portfolio/tutorials/revoke-access-for-connected-apps) article on our Support Site for additional information.
 
 cURL Example:
 

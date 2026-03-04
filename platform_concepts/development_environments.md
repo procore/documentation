@@ -101,3 +101,9 @@ Each sandbox includes a project named **1234 – Sandbox Test Project** with see
 - After you create an app, its Production credentials will propagate to the Monthly Sandbox.
 - Users created in Production will propagate to the Monthly Sandbox.
 - Do not reuse `authorization_code`, `access_token`, or `refresh_token` from Production in your Development Sandbox.
+
+## See Also
+
+- [App Installation Overview]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/building_apps_install_arch.md %})
+- [Handling Procore Regions]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %})
+- [Register a Developer Account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %})

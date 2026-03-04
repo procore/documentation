@@ -164,10 +164,18 @@ Many customers test integrations using the <b>Monthly Sandbox</b>, which uses di
 - API calls: <code>https://api-monthly.procore.com/</code>
 
 To support this environment:
-- Provide your App Version Key to the customer for to perform a [custom app install](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app)
+- Provide your App Version Key to the customer to perform a [custom app install](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app)
 - Adjust any hard-coded URLs accordingly
 
 For more details about the Monthly Sandbox, including the refresh schedule and additional guidelines, refer to the <a href="{{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}">Sandbox Environments</a>.
+<br><br>
+
+***
+## See Also
+- [Become a Technology Partner & Publish Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/listing_your_app.md %})
+- [Build & Prepare Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
+- [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %})
+- [Manage & Improve Your Marketplace App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/update_your_marketplace_app.md %})
 <br><br>
 
 ***

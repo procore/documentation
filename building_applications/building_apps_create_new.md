@@ -3,7 +3,7 @@ permalink: /building-apps-create-new
 title: Creating an App
 sub_header: Set up your account, build your first app, and configure your App Manifest to start developing in Procore.
 layout: default
-section_title: Building Applications
+section_title: Build Your App
 ---
 
 ## Introduction
@@ -41,8 +41,7 @@ For detailed instructions on installing your app in the Developer Sandbox, see <
 After creating your app, use the Configuration Builder to choose the components you want to include. These components define your app’s functionality in Procore and make up the App Manifest. Each saved set of changes becomes a new app version.
 
 Based on the components you select, you can build:
-- [User Level Authentication Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps_auth.md %})
-- [Service Account Authentication Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %})
+- [Data Connection Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
 - [Full Screen Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %})
 - [Side Panel Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %})
 
@@ -56,7 +55,7 @@ After your initial version, you can continue iterating by creating new app versi
 3. After saving, you'll receive a new Sandbox App Version Key. Use this key to install and test the new version in your Developer Sandbox.
 4. When you are satisfied with the updates, click **Promote Version** to move it to production.
 
-For more information on app versions, see [App Versioning and Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_versioning.md %}).
+For more information on app versions, see [App Versioning and Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
 <br><br>
 
 ***

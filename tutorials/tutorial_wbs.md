@@ -2,7 +2,7 @@
 permalink: /tutorial-wbs
 title: Work Breakdown Structure
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Project Management"
 
 ---
 
@@ -16,7 +16,7 @@ These segments were: cost code, cost type, and sub job (optional).
 With WBS, you can continue to use those three (3) segments and you can also create up to ten (10) custom segments to add to your budget code structure (pattern) at the company level.
 To learn more, see [What are segments?](https://support.procore.com/faq/what-are-segments) and [What custom segments should we create for our company's Work Breakdown Structure?](https://support.procore.com/faq/what-custom-segments-should-we-create-for-our-companys-work-breakdown-structure)
 
-## Prerequisites
+## Things to Consider
 
 Before working with the WBS endpoints, we suggest a thorough review of the following articles from our support site.
 
@@ -74,7 +74,7 @@ The `wbs_code` object has been added to the response body for  the following end
 
 ### Deprecated Endpoints
 
-With the release of [Work Breakdown Structure](https://developers.procore.com/documentation/tutorial-wbs), the following financial line item endpoints that utilize `cost_code`, `cost_type` and `sub_job` attributes will be deprecated on March 31, 2022.
+With the release of [Work Breakdown Structure](https://developers.procore.com/documentation/tutorial-wbs), the following financial line item endpoints that utilize `cost_code`, `cost_type` and `sub_job` attributes were deprecated on March 31, 2022.
 - [List Standard Cost Code Lists](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#list-standard-cost-code-lists) (replaced by [List Company WBS Segment Item Lists](https://developers.procore.com/reference/rest/v1/segment-item-lists?version=1.0#list-company-wbs-segment-item-lists))
 - [Delete Standard Cost Code](https://developers.procore.com/reference/rest/v1/cost-codes?version=1.0#delete-standard-cost-code) (replaced by [Delete Company Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#delete-company-segment-item))
 - [Delete Sub Job](https://developers.procore.com/reference/rest/v1/sub-jobs?version=1.0#delete-sub-job) (replaced by [Delete Project Segment Item](https://developers.procore.com/reference/rest/v1/segment-items?version=1.0#delete-project-segment-item))
@@ -223,7 +223,7 @@ This endpoint requires `company_id` and `segment_id` as path parameters.
 
 ```
 {
-  "code": P,
+  "code": "P",
   "name": "Planning"
 }
 ```
@@ -527,3 +527,11 @@ The `origin_id` is not currently available on Custom Segments or WBS Codes. This
 ## Additional Information
 
 If you require additional guidance on working with the Work Breakdown Structure endpoints, please reach out to our API Support team at <apisupport@procore.com> for assistance.
+
+## See Also
+
+- [Working with the Correspondence Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_correspondence.md %})
+- [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
+- [Working with User Permissions and Permission Templates]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_user_permissions.md %})
+- [Interacting with Workflows]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows_v2.md %})
+- [Interacting with Workflows (Legacy)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %})

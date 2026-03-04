@@ -2,7 +2,7 @@
 permalink: /building-apps-url-parameter-interpolation
 title: Understanding URL Parameter Interpolation
 layout: default
-section_title: Building Applications
+section_title: Reference
 
 ---
 

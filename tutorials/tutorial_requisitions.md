@@ -2,17 +2,17 @@
 permalink: /tutorial-requisitions
 title: Working with Subcontractor Invoices
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Financial Tools"
 
 ---
 
 > IMPORTANT: REQUISITIONS ARE NOW SUBCONTRACTOR INVOICES
 >
 > In July, 2018 Requisitions were renamed to Subcontractor Invoices in the Procore user interface.
-> Note, however, that the corresponding API endpoint URIs still use the requistion nomenclature.
+> Note, however, that the corresponding API endpoint URIs still use the requisition nomenclature.
 > For example, the endpoint URI for the List Subcontractor Invoices For Project action is still `/rest/v1.0/requisitions`.
-> In addition, related query parameter and response attribute names retain the requistion naming convention.
-> Pleas keep these aspects in mind as you work with the various Subcontractor Invoice API endpoints.
+> In addition, related query parameter and response attribute names retain the requisition naming convention.
+> Please keep these aspects in mind as you work with the various Subcontractor Invoice API endpoints.
 > For additional information, please review [What happened to Requisitions and Payment Applications?](https://support.procore.com/faq/what-happened-to-requisitions-and-payment-applications) and [Information About Subcontractor Invoices (Requisitions)](https://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/information-about-requisitions) on our [Support Site](http://support.procore.com/).
 
 ## Introduction
@@ -23,7 +23,7 @@ General contractors can configure billing period start and end dates, as well as
 They can invite subcontractors to complete invoices for the most recent billing period, or they can create invoices on behalf of the subcontractor.
 Once the subcontractor invoice has been approved, payment can be issued against the commitment.
 
-For addtional detail on subcontractor invoices and how they work in Procore, see [Information About Subcontractor Invoices](http://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/information-about-requisitions) on our [Support Site](http://support.procore.com/).
+For additional detail on subcontractor invoices and how they work in Procore, see [Information About Subcontractor Invoices](http://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/information-about-requisitions) on our [Support Site](http://support.procore.com/).
 
 ## Subcontractor Invoices API Endpoints
 
@@ -33,7 +33,7 @@ Clicking an endpoint title in the table takes you to the reference page for that
 
 | Endpoint                                                                                                                                                                                                                | Description                                                                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Create Subcontractor Invoice For Commitment](https://developers.procore.com/reference/rest/v1/requisitions-subcontractor-invoices#create-requisition-subcontractor-invoices-for-commitment)                            | Creates a new subcontrator invoice for the specified commitment.                                                                                                             |
+| [Create Subcontractor Invoice For Commitment](https://developers.procore.com/reference/rest/v1/requisitions-subcontractor-invoices#create-requisition-subcontractor-invoices-for-commitment)                            | Creates a new subcontractor invoice for the specified commitment.                                                                                                             |
 | [List Subcontractor Invoices For Project](https://developers.procore.com/reference/rest/v1/requisitions-subcontractor-invoices#list-requisitions-subcontractor-invoices-for-project)                                    | Lists existing subcontractor invoices for the specified project.                                                                                                             |
 | [Show Subcontractor Invoice](https://developers.procore.com/reference/rest/v1/requisitions-subcontractor-invoices#show-requisition-subcontractor-invoice)                                                               | Shows information for the specified subcontractor invoice.                                                                                                                   |
 | [Show Detail for Subcontractor Invoice](https://developers.procore.com/reference/rest/v1/requisitions-subcontractor-invoices#show-detail-for-requisition-subcontractor-invoice)                                         | Shows detailed information for the specified subcontractor invoice.                                                                                                          |
@@ -222,7 +222,7 @@ The outcome of the following workflow is a change order package including one or
     }
     ```
 
-## Additional Information
+## See Also
 
 We recommend the following articles on our [Support Site](http://support.procore.com/) to help you build your understanding of subcontractor invoices, how they are managed in Procore, and their relationship to commitments and change orders.
 
@@ -230,3 +230,8 @@ We recommend the following articles on our [Support Site](http://support.procore
 - [Commitments](https://support.procore.com/products/online/user-guide/project-level/commitments)
 - [Change Orders](https://support.procore.com/products/online/user-guide/project-level/change-orders)
 - [Commitment Change Order Tiers](https://support.procore.com/faq/what-are-the-different-change-order-tiers#Commitment_Change_Order_Tiers)
+
+- [Financial Tools Overview]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_financial_tools.md %})
+- [Budget Tools]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_line_items.md %})
+- [Budget Changes API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_changes_api.md %})
+- [Change Orders]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_change_orders.md %})

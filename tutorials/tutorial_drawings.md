@@ -2,7 +2,7 @@
 permalink: /tutorial-drawings
 title: Working with Drawings
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Documents & Files"
 
 ---
 
@@ -26,7 +26,7 @@ Before you begin working with the various Drawings tool endpoints we recommend f
 ### Drawing Resources
 
 Before working with the Drawings Tool endpoints we recommend familiarizing yourself with the various Drawings Tool resources and how they relate to one another.
-The following diagram illustrates the relationships between the entities that make of the architecture of the Drawiongs Tool.
+The following diagram illustrates the relationships between the entities that make of the architecture of the Drawings Tool.
 
 ![ER Diagram - Drawings]({{ site.baseurl }}/assets/guides/drawing-er-diag.svg)
 
@@ -39,7 +39,7 @@ Let's define these entities and gain an understanding of the role each one plays
 - **Drawing Revision** - A single, updated version of a Drawing having the same drawing number, in the same Drawing Set. A Drawing Revision is associated with a specific Drawing Area.
 - **Drawing Tile** - A graphical (avatar) representation of a Drawing used in the Procore UI. A Drawing Tile is associated with one (and only one) Drawing.
 
-### Configuring the Drawings Tool ###
+### Configuring the Drawings Tool
 
 
 Before working with the API endpoints for the Drawings Tool you will want to examine and possibly modify how the tool is configured for the project you are working in.
@@ -92,7 +92,7 @@ You can use the Permissions Table to manage/change user permissions for the Draw
 | [List Drawing Revisions](https://developers.procore.com/reference/rest/v1/drawings#list-drawing-revisions) | GET /rest/v1.0/projects/{project_id}/drawing_revisions                                     | Returns a list of all Drawing Revisions in the specified Project.                                                       |
 | [List Drawing Tiles](https://developers.procore.com/reference/rest/v1/drawings#list-drawing-tiles)         | GET /rest/v1.0/projects/{project_id}/drawing_revisions/{drawing_revision_id}/drawing_tiles | Lists the Drawing Tiles in the specified Project and Drawing Revision, along with the maximum Zoom Level and Tile Size. |
 
-## Using the API to Populate the Drawings Tool with Assets ##
+## Using the API to Populate the Drawings Tool with Assets
 
 
 The following sections describe in general terms the tasks for setting up and populating the Drawing Tool with drawing assets.
@@ -148,7 +148,7 @@ To accomplish this using the API, you will need to work through the following st
 
 1. Make a call to List Drawing Sets to retrieve all Drawing Sets in a specific Project.
 1. Iterate through each Drawing Set element in the JSON response block and locate the latest Drawing Set based on the value of the `updated_at` attribute.
-1. Now make a call to Create Drawing Upload and use the id of the lastest Drawing Set you located in Step 2 as the value for the required `drawing_set_id` body parameter.
+1. Now make a call to Create Drawing Upload and use the id of the latest Drawing Set you located in Step 2 as the value for the required `drawing_set_id` body parameter.
 
 ### Finding the Current Drawing Revisions
 
@@ -159,3 +159,11 @@ To accomplish this using the API, you will need to work through the following st
 1. Make a call to List Drawing Revisions to retrieve all Drawing Revisions in a specific Project.
 1. Iterate through each Drawing Revision element in the JSON response block and examine the value of the `current` attribute. If the value is `true`, store the `id` of that revision in an array.
 1. Call List Drawing Revisions again, this time using the array of ids you collected in Step 2 to construct a filter using the `id` query parameter (e.g., ?id[]=42&id[]=43...). This will return only the revisions where `current: true`.
+
+## See Also
+
+- [Working with the Documents Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_documents.md %})
+- [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %})
+- [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
+- [Working with Secure File Access]({{ site.url }}{{ site.baseurl }}{% link best_practices/secure_file_access_tips.md %})
+- [Working with Direct Drawing Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_direct_drawing_uploads.md %})

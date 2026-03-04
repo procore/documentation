@@ -22,7 +22,7 @@
             {% for item in section.items %}
               <dd{% if item.url == page.url %} class="active"{% endif %}>
               <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
-                <!-- <a href="https://b601-208-127-107-52.ngrok-free.app/documentation{{ item.url }}"> -->
+              <!-- <a href="https://04a3-134-238-186-21.ngrok-free.app/documentation{{ item.url }}"> -->
                 {{ item.title }}
               </a>
               </dd>
@@ -42,29 +42,42 @@
               </h1>
               <p class="sub-header">{{ page.sub_header }}</p> <!-- Sub-header as H2 -->
             </div>
-            <div class="feedback-card">
-              <div class="feedback-content">
-                <div class="feedback-text">
-                  <div class="feedback-title">We'd love your feedback!</div>
-                  <div class="feedback-message">Send us any feedback to</div>
-                  <div class="feedback-message">
-                    <a href="mailto:...">apisupport@procore.com</a>
-                  </div>
-                </div>
-                <svg class="feedback-icon" viewBox="0 0 24 24" fill="none" stroke="#f57d20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                  <path d="m2 7 10 7 10-7"></path>
-                </svg>
-              </div>
-            </div>
           </div>
         </header>
         <main>
           {{ content }}
+          <div class="helpful-widget" id="helpful-widget">
+            <span>Was this page helpful?</span>
+            <button onclick="submitFeedback('yes', this)" aria-label="Yes, this page was helpful">Yes</button>
+            <button onclick="submitFeedback('no', this)" aria-label="No, this page was not helpful">No</button>
+            <button onclick="openFeedbackForm()" aria-label="Submit detailed feedback">Tell us more</button>
+            <span class="helpful-thanks" id="helpful-thanks">Thanks for your feedback!</span>
+          </div>
         </main>
       </section>
     </article>
     <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
     <script src="{{ 'assets/js/nav.js' | relative_url }}"></script>
+    <script>
+      function submitFeedback(value, btn) {
+        var widget = document.getElementById('helpful-widget');
+        var thanks = document.getElementById('helpful-thanks');
+        var buttons = widget.querySelectorAll('button[onclick^="submitFeedback"]');
+        buttons.forEach(function(b) { b.classList.remove('selected'); b.disabled = true; });
+        btn.classList.add('selected');
+        thanks.style.display = 'inline';
+        var payload = { page: window.location.pathname, helpful: value, title: document.title };
+        fetch('https://script.google.com/macros/s/AKfycbyZBwlw1ESSILqL226loWwHhHKtSTSBQLaX6eTfAueGI9jLXOOsPw0j6-hHMbIoQ50/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
+        });
+      }
+      function openFeedbackForm() {
+        var pageUrl = encodeURIComponent(window.location.href);
+        window.open('https://docs.google.com/forms/d/e/1FAIpQLScaGQ8kEwcE-VfXLm9TVCIc9Rf-0j4HBdKSI3Q12TMgITS7KQ/viewform?usp=pp_url&entry.122610885=' + pageUrl, '_blank');
+      }
+    </script>
   </body>
 </html>

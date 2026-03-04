@@ -1,7 +1,13 @@
-- title: Overview
+- title: Introduction
   items:
-    - title: Introduction
+    - title: Overview
       url: /introduction
+    - title: Your First API Call
+      url: /quick-start-guide
+    - title: Help & Learning Center
+      url: /help-and-learning-center
+    - title: FAQ
+      url: /faq
     # - title: Custom Integrations
     #   url: /custom-overview - Needed for Redirect
     # - title: Marketplace Integrations
@@ -10,224 +16,181 @@
     #   url: /training - Needed for Redirect
     # - title: Developer Resources
     #   url: /dev-resources - Needed for Redirect
-    - title: Quick Start Guide
-      url: /quick-start-guide
-    - title: Help & Learning Center
-      url: /help-and-learning-center
-    - title: FAQ
-      url: /faq # NEED TO UPDATE
 
 - title: Platform Concepts
   items:
-    # - title: Procore Product Overview
-    #   url: /procore-product-overview
-    # - title: Overview
-    #   url: /object-model-overview
-    # - title: General Resources
-    #   url: /object-model-general - Needed for Redirect
-    # - title: Company-level Resources
-    #   url: /object-model-company
-    # - title: Project-level Resources
-    #   url: /object-model-project
-    - title: App Install & Setup Overview
-      url: /building-apps-install-arch
-    - title: Sandbox Environments
+    - title: Procore Environments
       url: /development-environments
+    - title: App Installation Overview
+      url: /building-apps-install-arch
+    - title: Handling Procore Regions
+      url: /tutorial-mpz
     - title: Federal Environment Overview
       url: /federal-zone-overview
+    - title: API Usage Guidelines
+      url: /api-usage-guidelines
 
 - title: Plan Your App
   items:
     - title: Available App Types
       url: /building-apps-app-types
-    - title: Introduction to Webhooks
+    - title: Choosing an Authentication Method
+      url: /oauth-choose-grant-type
+    - title: Rate Limiting
+      url: /rate-limiting
+    - title: Webhooks Overview
       url: /webhooks
     - title: Using the Webhooks API
       url: /webhooks-api
-    - title: Rate Limiting
-      url: /rate-limiting
-    - title: Pagination
-      url: /pagination
-    # - title: Webhooks Payload Formats - NEEDED FOR REDIRECT
-    #   url: /payload-formats - NEEDED FOR REDIRECT
+    - title: Developer Managed Service Accounts
+      url: /developer-managed-service-accounts
 
-- title: Getting Started
+- title: Build Your App
   items:
-    - title: Rest API Overview
-      url: /rest-api-overview
-    - title: API Lifecycle
-      url: /rest-api-lifecycle
-    - title: Registering a New Developer Account
-      url: /new-account
-    # - title: Making First Call
-    #   url: /making_first_call - Needed for Redirect
-
-- title: OAuth 2.0 Authentication
-  items:
-    - title: Introduction to OAuth 2.0
-      url: /oauth-introduction
-    - title: Understanding OAuth 2.0 Roles
-      url: /oauth-roles
-    - title: OAuth 2.0 Access Tokens
-      url: /oauth-access-tokens
-    - title: Managing OAuth Credentials and Redirect URIs
-      url: /oauth-keys
-    - title: Choosing an OAuth 2.0 Grant Type
-      url: /oauth-choose-grant-type
-    - title: OAuth 2.0 Authorization Code Grant
-      url: /oauth-auth-grant-flow
-    - title: Using the OAuth 2.0 Client Credentials Grant Type
-      url: /oauth-client-credentials
-    - title: OAuth 2.0 for Installed Applications
-      url: /oauth-installed-apps
-    - title: Procore API Authentication Endpoints
-      url: /oauth-endpoints
-
-- title: Building Applications
-  items:
-    # - title: Introduction
-      # url: /building-apps-intro
-    - title: Creating an App
+    # - title: Register a Developer Account
+    #   url: /new-account
+    - title: Create an App
       url: /building-apps-create-new
+    - title: Create a Data Connection App
+      url: /building-data-connection-apps
+    - title: Create a Full Screen Embedded App
+      url: /building-embedded-fullscreen-apps
+    - title: Create a Side Panel Embedded App
+      url: /building-side-panel-apps
+    - title: App Versioning & Production
+      url: /building-apps-promote-manifest
+    - title: Manage App Collaborators
+      url: /building-apps-manage-collabs
     # - title: Creating an App Manifest - NEEDED FOR REDIRECT
     #   url: /building-apps-define-manifest
-    - title: Managing App Collaboration
-      url: /building-apps-manage-collabs
-    - title: Building User Level Auth. Apps
-      url: /building-data-connection-apps-auth
-    - title: Building Service Account Auth. Apps
-      url: /building-data-connection-apps
-    - title: Building Full Screen Embedded Apps
-      url: /building-embedded-fullscreen-apps  
-    - title: Building Side Panel Embedded Apps
-      url: /building-side-panel-apps
-    - title: Understanding URL Parameter Interpolation
-      url: /building-apps-url-parameter-interpolation
-    # - title: Installing an App in the Development Sandbox
-    #   url: /building-apps-sandbox-install
-    - title: Managing App Versions & Update Notifications
-      url: /building-apps-promote-manifest
     # - title: App Versioning and Update Notification - NEEDED FOR REDIRECT
     #   url: /building-apps-versioning
     # - title: Submitting a Production App Manifest for Review
-    #   url: /building-apps-review-manifest - ACTION REQUIRED - Updated for Redirect
+    #   url: /building-apps-review-manifest - Redirect
     # - title: Creating a Marketplace Listing and Submitting for Review
-    #   url: /building-apps-submit-marketplace - ACTION REQUIRED - Updated for Redirect
+    #   url: /building-apps-submit-marketplace - Redirect
     # - title: Working with App Metrics
-    #   url: /building-apps-metrics - Updated for Redirect
-    - title: Developer Managed Service Accounts
-      url: /developer-managed-service-accounts
-    # - title: App Manifest v3.x Legacy Format - NOT NEEDED ANYMORE
-    #   url: /building-apps-legacy-v3x-manifest-format
-    # - title: Migrating an App Manifest from v3.x to v4.1 - NOT NEEDED ANYMORE
-    #   url: /building-apps-v3x-v41-manifest-migration
+    #   url: /building-apps-metrics - Redirect
     # - title: Maximizing Conversation Rates
-    #   url: /building-apps-maximizing-conversion-rates - Updated for Redirect
-
-- title: API Essentials
-  items:
-    - title: API Usage Guidelines
-      url: /api-usage-guidelines
-    - title: RESTful API Concepts
-      url: /restful-api-concepts
-    - title: API Security Overview
-      url: /api-security-overview
-    - title: Data Model Considerations
-      url: /data-model-considerations
-    - title: Transport Layer Security Requirements
-      url: /tls-reqs
-
-- title: Best Practices
-  items:
-    - title: Dates, Times & Time Zones
-      url: /date-time
-    - title: MPR Request Headers
-      url: /mpz-headers
-    - title: Working with Documents
-      url: /tutorial-documents
-    - title: Working with Secure File Access
-      url: /secure-file-access-tips
-    - title: API Call Sequencing
-      url: /api-call-sequencing
+    #   url: /building-apps-maximizing-conversion-rates - Redirect
 
 - title: App Marketplace
   items:
-    - title: App Marketplace & Technology Partner Overview
+    - title: Partner & Marketplace Overview
       url: /procore-partner-overview
     - title: Build & Prepare Your App
-      url: /marketplace-requirements 
-    - title: Become a Technology Partner & Publish Your App
+      url: /marketplace-requirements
+    - title: Become a Partner & Publish
       url: /listing-your-app
-    - title: Manage & Improve Your Marketplace App
+    - title: Manage & Improve Your App
       url: /update-your-marketplace-app
     - title: Marketplace Approval Checklist
       url: /marketplace-checklist
     - title: Marketplace Listing Guidelines
       url: /marketplace-listing-guidelines
-    - title: Procore Developer Policy
+    - title: Developer Policy
       url: /marketplace-policy
     # - title: Market Your App - ADD BACK LATER
     #   url: /market-your-app
     # - title: View App Metrics - NEEDED FOR REDIRECT
     #   url: /view-app-metrics - NEEDED FOR REDIRECT
 
-- title: Guides and Tutorials
+- title: "Product Guides: Financial Tools"
   items:
-    - title: Budget Changes APIs
-      url: /tutorial-budget-changes-api
-    - title: Configurable Fieldsets
-      url: /tutorial-config-fieldsets
-    - title: Correspondence
-      url: /tutorial-correspondence
-    - title: Direct File Uploads
-      url: /tutorial-uploads
-    - title: File Attachments and Image Uploads
-      url: /attachments
-    - title: Filtering and Sorting
-      url: /filtering-on-list-actions
-    - title: Multiple Procore Regions
-      url: /tutorial-mpz
-    - title: Sync Actions
-      url: /using-sync-actions
-    - title: Timesheets and Timecards
-      url: /tutorial-field-prod
-    - title: User Permissions
-      url: /tutorial-user-permissions
-    - title: Work Breakdown Structure
-      url: /tutorial-wbs
-    - title: Workflows Legacy
-      url: /tutorial-workflows
-    - title: Workflows
-      url: /tutorial-workflows-v2
-
-- title: Use Cases
-  items:
-    - title: Daily Logs
-      url: /daily-logs
-    - title: Financial Tools
+    - title: Financial Tools Overview
       url: /tutorial-financial-tools
-    - title: Budget Line Items
+    - title: Budget Tools
       url: /tutorial-budget-line-items
+    - title: Budget Changes API
+      url: /tutorial-budget-changes-api
     - title: Change Orders
       url: /tutorial-change-orders
     - title: Subcontractor Invoices
       url: /tutorial-requisitions
-    - title: Drawings
-      url: /tutorial-drawings
-    - title: Direct Drawing Uploads
-      url: /tutorial-direct-drawing-uploads
-    - title: Timecard Entries
-      url: /tutorial-timecard-entries
+
+- title: "Product Guides: Field Tools"
+  items:
+    - title: Daily Logs
+      url: /daily-logs
     - title: Incidents
       url: /tutorial-incidents
     - title: Observations
       url: /tutorial-observations
-    - title: Project Stages
-      url: /tutorial-project-stages
+    - title: Timesheets & Timecards
+      url: /tutorial-field-prod
+    - title: Timecard Entries
+      url: /tutorial-timecard-entries
+
+- title: "Product Guides: Documents & Files"
+  items:
+    - title: Working with Documents
+      url: /tutorial-documents
+    - title: File Attachments & Image Uploads
+      url: /attachments
+    - title: Direct File Uploads
+      url: /tutorial-uploads
+    - title: Secure File Access
+      url: /secure-file-access-tips
+    - title: Drawings
+      url: /tutorial-drawings
+    - title: Direct Drawing Uploads
+      url: /tutorial-direct-drawing-uploads
+
+- title: "Product Guides: Project Management"
+  items:
+    - title: Correspondence
+      url: /tutorial-correspondence
+    - title: Configurable Fieldsets
+      url: /tutorial-config-fieldsets
+    - title: Working with Users & Permissions
+      url: /tutorial-user-permissions
+    - title: Work Breakdown Structure
+      url: /tutorial-wbs
+    - title: Workflows
+      url: /tutorial-workflows-v2
+    - title: Workflows (Legacy)
+      url: /tutorial-workflows
+
+- title: Reference
+  items:
+    - title: Managing OAuth Credentials & Redirect URIs
+      url: /oauth-keys
+    - title: OAuth 2.0 Authorization Code Grant
+      url: /oauth-auth-grant-flow
+    - title: OAuth 2.0 Client Credentials Grant
+      url: /oauth-client-credentials
+    - title: Authentication Endpoints
+      url: /oauth-endpoints
+    - title: REST API Overview
+      url: /rest-api-overview
+    - title: OAuth for Installed Applications
+      url: /oauth-installed-apps
+    - title: API Lifecycle
+      url: /rest-api-lifecycle
+    - title: RESTful API Concepts
+      url: /restful-api-concepts
+    - title: Pagination
+      url: /pagination
+    - title: Filtering & Sorting
+      url: /filtering-on-list-actions
+    - title: URL Parameter Interpolation
+      url: /building-apps-url-parameter-interpolation
+    - title: Side Panel View Keys
+      url: /side-panel-view-keys
+    - title: Dates, Times & Time Zones
+      url: /date-time
+    - title: Country Codes
+      url: /country-codes
+    - title: Sync Actions
+      url: /using-sync-actions
+    - title: Error Code Reference
+      url: /error-reference
+    - title: Troubleshooting
+      url: /troubleshooting
 
 - title: Example Apps & SDKs
   items:
-    - title: SDKs and Sample Applications
+    - title: SDKs & Sample Applications
       url: /sdk
     - title: Procore Iframe Helper
       url: /procore-iframe-helper
@@ -235,10 +198,19 @@
       url: /bim-web-viewer
     - title: BIM Web Viewer Demo
       url: /bim-web-viewer-demo
-    - title: Novorender BIM Web Viewer API (Experimental)
+    - title: Novorender BIM Web Viewer (Experimental)
       url: /novolib-bim-web-viewer
 
-# - title: ERP Integration - EVERYTHING NEEDED BUT NOT INDEXED
+- title: Announcements
+  items:
+    - title: Overview
+      url: /overview
+    - title: New REST V2 Version
+      url: /new-rest-v2-version
+    - title: API Usage in Developer Portal
+      url: /api-activity-export
+
+# - title: ERP Integration
 #   items:
 #     - title: Getting Started
 #       url: /erp-intro
@@ -253,30 +225,9 @@
 #     - title: Staged Records
 #       url: /erp-staged-records-details
 
-# - title: Document Management Integration - EVERYTHING NEEDED BUT NOT INDEXED
+# - title: Document Management Integration
 #   items:
 #     - title: Getting Started
 #       url: /document-management-intro
 #     - title: Technical Guide
 #       url: /document-management-technical-guide
-
-# - title: Additional Resources
-#   items:
-#     - title: Developer Support
-#       url: https://developers.procore.com/developer_support
-#       absolute: true
-#     - title: Technical Services
-#       url: /tech-services - Updated for Redirect
-#     - title: Submit Case Study
-#       url: /submit-case-study - NOT NEEDED
-
-- title: Announcements
-  items:
-    - title: Overview
-      url: /overview
-    - title: New Rest V2 Version
-      url: /new-rest-v2-version
-    - title: Service Account Deprecation
-      url: /service-account-deprecation
-    - title: API Usage in Developer Portal
-      url: /api-activity-export

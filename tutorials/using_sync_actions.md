@@ -1,8 +1,8 @@
 ---
 permalink: /using-sync-actions
-title: USING SYNC ACTIONS
+title: Using Sync Actions
 layout: default
-section_title: Guides and Tutorials
+section_title: Reference
 
 ---
 
@@ -86,7 +86,7 @@ Note that the value for `origin_id` in each project is `null`.
       "flag": null,
       "id": 4,
       "latitude": null,
-      "logo_url": "http://ude:3000//assets/procore_logo_small.gif",
+      "logo_url": "http://localhost:3000/assets/procore_logo_small.gif",
       "longitude": null,
       "name": "New Project 1",
       "origin_data": null,
@@ -119,7 +119,7 @@ Note that the value for `origin_id` in each project is `null`.
       "flag": null,
       "id": 5,
       "latitude": null,
-      "logo_url": "http://ude:3000//assets/procore_logo_small.gif",
+      "logo_url": "http://localhost:3000/assets/procore_logo_small.gif",
       "longitude": null,
       "name": "New Project 2",
       "origin_data": null,
@@ -172,7 +172,7 @@ Since there is no match for id 0, an error is displayed.
   "entities": [
     {
       "id": 4,
-      "logo_url": "http://ude:3000//assets/procore_logo_small.gif",
+      "logo_url": "http://localhost:3000/assets/procore_logo_small.gif",
       "name": "Updated Project 1",
       "display_name": "Updated Project 1",
       "project_number": null,
@@ -249,7 +249,7 @@ The response to this request will look like this:
   "entities": [
     {
       "id": 6,
-      "logo_url": "http://ude:3000//assets/procore_logo_small.gif",
+      "logo_url": "http://localhost:3000/assets/procore_logo_small.gif",
       "name": "New Project ABC",
       "display_name": "New Project ABC",
       "project_number": null,
@@ -282,7 +282,7 @@ The response to this request will look like this:
     },
     {
       "id": 7,
-      "logo_url": "http://ude:3000//assets/procore_logo_small.gif",
+      "logo_url": "http://localhost:3000/assets/procore_logo_small.gif",
       "name": "New Project DEF",
       "display_name": "New Project DEF",
       "project_number": null,
@@ -342,7 +342,7 @@ Here is the response to this request:
   "entities": [
     {
       "id": 6,
-      "logo_url": "http://ude:3000//assets/procore_logo_small.gif",
+      "logo_url": "http://localhost:3000/assets/procore_logo_small.gif",
       "name": "Updated Project ABC",
       "display_name": "Updated Project ABC",
       "project_number": null,
@@ -375,7 +375,7 @@ Here is the response to this request:
     },
     {
       "id": 7,
-      "logo_url": "http://ude:3000//assets/procore_logo_small.gif",
+      "logo_url": "http://localhost:3000/assets/procore_logo_small.gif",
       "name": "Updated Project DEF",
       "display_name": "Updated Project DEF",
       "project_number": null,

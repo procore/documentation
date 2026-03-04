@@ -2,7 +2,7 @@
 permalink: /filtering-on-list-actions
 title: Filtering and Sorting on List Actions
 layout: default
-section_title: Guides and Tutorials
+section_title: Reference
 
 ---
 
@@ -36,7 +36,7 @@ You can string together multiple filters on a single List Action call as a logic
 Some filters return an array of attribute values and can be used with the following syntax:
 
 ```
-&filters[<ATTRIBUTE_NAME_A>][]=value_1&filters[ATTRIBUTE_NAME_A>][]=value_2
+&filters[<ATTRIBUTE_NAME_A>][]=value_1&filters[ATTRIBUTE_NAME_A][]=value_2
 
 ```
 
@@ -129,7 +129,7 @@ Use the following syntax for adding date range filtering to Daily Logs.
 To filter on a specific date, use the `log_date` query parameter with the following syntax...
 
 ```
-?log_Date=<yyyy-mm-dd>
+?log_date=<yyyy-mm-dd>
 ```
 
 For example...

@@ -3,19 +3,18 @@ permalink: /quick-start-guide
 title: Quick Start Guide
 sub_header: Learn how to build and test your first Procore app.
 layout: default
-section_title: Overview
+section_title: Introduction
 ---
 
 ## Overview
-This guide walks you through creating and testing a basic app using **User‑level Authentication** in the Procore Developer Sandbox. You'll create an app, add a data connector component, install it in your Sandbox company, obtain an access token, and make your first API calls.
+Make your first Procore API call; this guide walks you through a single, linear path: create an app, authenticate, and retrieve data from your Developer Sandbox.
 <br><br>
 
 ***
-## Steps to Make Your First API Call
-### Prerequisites
-1. A <a href="https://developers.procore.com/signup" target="_blank">Procore Developer Account</a> (email verified).
-2. Basic understanding of OAuth 2.0 (authorization code flow) and redirect URIs.
-3. An API client such as <a href="https://www.postman.com/" target="_blank">Postman</a> or <a href="https://curl.se/" target="_blank">cURL</a>.
+## Things to Consider
+- A Procore Developer Account (email verified) is required. See [Registering a New Developer Account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %}).
+- You should have a basic understanding of OAuth 2.0 (authorization code flow) and redirect URIs.
+- You will need an API client such as <a href="https://www.postman.com/" target="_blank">Postman</a> or <a href="https://curl.se/" target="_blank">cURL</a>.
 <br><br>
 
 <details>
@@ -148,13 +147,14 @@ This guide walks you through creating and testing a basic app using **User‑lev
   For more endpoints, see the <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Overview</a>.
 </p>
 </details>
-<br><br>
+<div class="details-bottom-spacing"></div>
 
 ***
-## You Just Made Your First Procore API Call
+## You just made your first Procore API call
 You've created an app, authenticated with OAuth 2.0, and retrieved real data from Procore. From here:
 
 - **Plan your integration:** [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})
 - **Explore the full API:** <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Reference</a>
 - **Set up webhooks:** [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %})
 - **Publish to the Marketplace:** [Technology Partner Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %})
+- **Run into an issue?** [Troubleshooting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/troubleshooting.md %})

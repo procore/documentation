@@ -3,7 +3,7 @@ permalink: /webhooks
 title: Introduction to Webhooks
 sub_header: Learn how Procore notifies your app in real time with webhooks.
 layout: default
-section_title: Webhooks
+section_title: Plan Your App
 
 ---
 
@@ -175,7 +175,8 @@ Design your service to be resilient:
 <br><br>
 
 ***
-## Additional Information
+## See Also
 
+- [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %})
 - [Configure Company Webhooks](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/configure-company-webhooks)
 - [Configure Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks)

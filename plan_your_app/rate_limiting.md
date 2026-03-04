@@ -39,16 +39,16 @@ Use the rate limit headers to pace requests without needing separate logic for t
 **Example: hourly limit headers**
 
 ```
-X-Rate-Limit-Limit: 3600
-X-Rate-Limit-Remaining: 3599
+X-Rate-Limit-Limit: 600
+X-Rate-Limit-Remaining: 589
 X-Rate-Limit-Reset: 1466182244
 ```
 
 **Example: spike limit headers**
 
 ```
-X-Rate-Limit-Limit: 100
-X-Rate-Limit-Remaining: 99
+X-Rate-Limit-Limit: 25
+X-Rate-Limit-Remaining: 24
 X-Rate-Limit-Reset: 1466182247
 ```
 <div class="details-bottom-spacing"></div>

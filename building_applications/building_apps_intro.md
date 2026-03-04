@@ -24,7 +24,7 @@ Before embarking on your App development journey, be sure to complete the follow
 - [Set up your Developer Account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %}) on developers.procore.com.
 - Learn about [partner integrations]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/partner_overview.md %}) and [custom integrations]({{ site.url }}{{ site.baseurl }}{% link overview/custom_overview.md %}).
 - Learn about the [Procore Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
-- Gain an understanding of [OAuth 2.0 Authentication]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}).
+- Gain an understanding of [OAuth 2.0 Authentication]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 
 Here are the high-level steps in the App development lifecycle:
 

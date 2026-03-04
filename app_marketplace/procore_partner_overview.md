@@ -17,7 +17,7 @@ Anyone can sign up, explore our APIs, and start building — the platform is **o
 You don't need to be a Technology Partner to start building. Our developer platform is **fully self-service**, allowing you to explore and build at your own pace.
 
 - **<a href="https://developers.procore.com/signup" target="_blank">Create a Developer Account</a>** to access the Developer Portal and your Sandbox environment
-- **Explore the APIs** to understand <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">available endpoints</a>, <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}">app types</a>, and the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link api_essentials/api_usage_guidelines.md %})
+- **Explore the APIs** to understand <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">available endpoints</a>, <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}">app types</a>, and the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %})
 - **Build and test** your app using the Developer Sandbox and real customer input
 
 Whether you're building a custom internal tool or evaluating a Marketplace integration, the tools and documentation are available to you now.
@@ -51,7 +51,7 @@ For developers and companies who want to list on the **Procore Marketplace**, th
   <div class="step-content">
     <h3 class="step-title">Step 2: Technical Feasibility</h3>
     <p class="step-description">
-      - <strong>Review Integration Requirements:</strong> Ensure your integration approach aligns with Procore's platform capabilities and <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/api_usage_guidelines.md %}">API Usage Guidelines</a>.<br>
+      - <strong>Review Integration Requirements:</strong> Ensure your integration approach aligns with Procore's platform capabilities and <a href="{{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}">API Usage Guidelines</a>.<br>
       - <strong>Validate Your Architecture:</strong> Confirm your app type, authentication method, and data handling approach meet Procore's standards.<br>
       - <strong>Engage with Procore:</strong> Work with our team to address any technical questions or constraints before you build.
     </p>
@@ -144,7 +144,7 @@ We recommend reviewing our <a target="_blank" href="https://downloads.ctfassets.
 - <a target="_blank" href="https://www.procore.com/partners/documents">Procore Partner Program Documents</a>
 - [Help & Learning Center]({{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %})
 - [Build & Prepare Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
-- [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link api_essentials/api_usage_guidelines.md %})
+- [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %})
 - [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %})
 <br><br>
 

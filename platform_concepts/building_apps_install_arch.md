@@ -114,3 +114,9 @@ This page explains the full app installation and setup flow for a Procore compan
 - <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install a Custom App</a>
 - <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-app-configuration" target="_blank">Create an App Configuration and Apply it to Projects</a>
 - <a href="https://support.procore.com/products/online/user-guide/project-level/home/tutorials/launch-embedded-app" target="_blank">Launch an Embedded App in a Project</a>
+
+## See Also
+
+- [Procore Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %})
+- [Create an App]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %})
+- [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})

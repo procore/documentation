@@ -2,7 +2,7 @@
 permalink: /tutorial-correspondence
 title: Working with the Correspondence Tool
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Project Management"
 ---
 
 ## Introduction
@@ -13,7 +13,7 @@ This allows each correspondence type to be treated like its own separate tool in
 This guide provides information on the various API resources related to the Correspondence Tool and presents examples of some common use cases and tasks you may encounter while working with these resources.
 For general information on the Correspondence Tool, see the [Correspondence](https://support.procore.com/products/online/user-guide/project-level/correspondence) article on the Procore Support Site.
 
-## Before You Begin
+## Things to Consider
 
 There are a number of requirements that need to be satisfied before you can work with Correspondence Tool API resources and endpoints used in the examples presented in this guide.
 
@@ -61,7 +61,7 @@ The endpoint names are linked to their corresponding reference pages.
 | [Create Generic Tool Status](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#create-generic-tool-status)             | POST   | /generic_tools/{generic_tool_id}/statuses      | Create a new Generic Tool Status for the specified Generic Tool.             |
 | [Delete Generic Tool Status](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#delete-generic-tool-status)             | DELETE | /generic_tools/{generic_tool_id}/statuses/{id} | Delete the specified Generic Tool Status.                                    |
 
-- Details on working with the Create Generic Tool endpoint will be covered in a future revision of this guide.
+- For details on the Create Generic Tool endpoint, see the [API Reference](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0).
 
 ### Project Level Endpoints (Base URL: /rest/v1.0/projects/{project_id})
 
@@ -169,11 +169,11 @@ Because Correspondence workflows commonly happen at the project level, it is imp
 #### Using the Procore API
 
 1. Use the [List Generic Tools](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-generic-tools) endpoint to return all of the generic tools available in the specified company.
-2. Parse the response body to find the `title` for the Correspondence Type you want to work with and retrieve its [`id`](https://developers.procore.com/reference/rest/v1/configurable-field-sets#list-project-configurable-field-sets value.
-3. Use the [List Project Configurable Fieldsets](https://developers.procore.com/reference/rest/v1/configurable-field-sets#list-project-configurable-field-sets endpoint to return the fieldsets associated with your project.
+2. Parse the response body to find the `title` for the Correspondence Type you want to work with and retrieve its `id` value.
+3. Use the [List Project Configurable Fieldsets](https://developers.procore.com/reference/rest/v1/configurable-field-sets#list-project-configurable-field-sets) endpoint to return the fieldsets associated with your project.
 4. Iterate through the returned fieldsets and compare each `generic_tool_id` value with the `id` for your Correspondence Type. If you find a match, that indicates that your Correspondence Type is supported and accessible in the specified project.
 
-### Determine User ‘Availability’ for Correspondence Types
+### Determine User 'Availability' for Correspondence Types
 
 It is important to understand which users assigned to a project have the ability to interact with the Correspondence Tool and with which Correspondence Types.
 The [List Correspondence Type Users](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-users) endpoint returns a list of project users and identifies which Correspondence Types they can be associated with and in what capacity.
@@ -397,7 +397,7 @@ Example JSON response:
     },
   "locale": null,
   "login": "architect@example.com",
-  "name": " architect"
+  "name": "architect"
   },
   "custom_fields": {},
   "description": "Ready for review/approval on console finishes.",
@@ -463,3 +463,11 @@ The Correspondence tool supports webhooks as described in [Introduction to Webho
 
 - [Procore Support Articles - Correspondence Tool](https://support.procore.com/products/online/user-guide/project-level/correspondence)
 - [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
+
+## See Also
+
+- [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
+- [Working with User Permissions and Permission Templates]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_user_permissions.md %})
+- [Work Breakdown Structure]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_wbs.md %})
+- [Interacting with Workflows]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows_v2.md %})
+- [Interacting with Workflows (Legacy)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %})

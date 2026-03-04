@@ -1,8 +1,9 @@
 ---
 permalink: /rest-api-lifecycle
 title: API Lifecycle
+sub_header: Understand the stages of Active, Deprecated, and Sunset for Procore APIs.
 layout: default
-section_title: Getting Started
+section_title: Reference
 ---
 
 ## API Lifecycle Phases
@@ -26,3 +27,9 @@ This table provides additional information on how the Rest API product is manage
 ## Support
 
 Please reach out to <apisupport@procore.com> if you have any questions regarding the API lifecycle.
+
+## See Also
+
+- [REST API Overview]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_overview.md %})
+- [RESTful API Concepts]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %})
+- [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %})

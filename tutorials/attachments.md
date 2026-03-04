@@ -2,7 +2,7 @@
 permalink: /attachments
 title: Working with File Attachments and Image Uploads
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Documents & Files"
 
 ---
 
@@ -55,3 +55,11 @@ Note that the **form-data** option is selected in the request builder.
 Request parameters are entered with a key format of `image[<field-name>]`.
 This example includes the two required parameters `image[image_category_id]` and `image[data]`.
 Postman provides a convenient **Choose Files** button that allows you to select files from your local computer to use as images for test purposes.
+
+## See Also
+
+- [Working with the Documents Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_documents.md %})
+- [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
+- [Working with Secure File Access]({{ site.url }}{{ site.baseurl }}{% link best_practices/secure_file_access_tips.md %})
+- [Working with Drawings]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_drawings.md %})
+- [Working with Direct Drawing Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_direct_drawing_uploads.md %})

@@ -3,7 +3,7 @@ permalink: /building-apps-manage-collabs
 title: Managing App Collaboration
 sub_header: Learn how to manage your Procore developer app by inviting collaborators and transferring app ownership.
 layout: default
-section_title: Building Applications
+section_title: Build Your App
 
 ---
 
@@ -79,7 +79,6 @@ Each role has a defined set of permissions for actions that can be taken by a te
 ***
 ## Giving Collaborators Access to Development Sandbox Environments
 
-As an App Owner, you can provide your collaborators with access to a development sandbox using the following steps:
 As an App Owner, you can provide your collaborators with access to a development sandbox using the following steps:
 
 1. Log in to the sandbox company for your app and navigate to the **Company Directory** tool.

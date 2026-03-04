@@ -2,7 +2,7 @@
 permalink: /tutorial-budget-line-items
 title: Working with Budget Line Items
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Financial Tools"
 
 ---
 
@@ -93,14 +93,14 @@ You can use the Update Budget Line Item (PATCH /rest/v1.0/budget_line_items/{id}
 Here is a cURL example of a call to Update Budget Line Item.
 
 ```
-curl  -X PATCH https://api.procore.com/rest/v1.0/budget_line_items/7868294 /
-      -d '{"project_id": 123456, /
-      "budget_line_item": {"cost_code_id": 12345, "line_item_type_id": 12345, "original_budget_amount": 10000, "direct_costs": 2450.35}}'
+curl  -X PATCH https://api.procore.com/rest/v1.0/budget_line_items/7868294 \
+     -d '{"project_id": 123456, \
+     "budget_line_item": {"cost_code_id": 12345, "line_item_type_id": 12345, "original_budget_amount": 10000, "direct_costs": 2450.35}}'
 ```
 
 ## Common Budget Line Item Workflow
 
-The following sections present a commom workflow you may encounter while integrating with the Procore Budget tool.
+The following sections present a common workflow you may encounter while integrating with the Procore Budget tool.
 We use screenshots from Postman to help illustrate each step.
 
 ### Step 1: Return All Budget Views Available on a Specific Project
@@ -165,3 +165,10 @@ After submitting the properly formatted request body, a 200 OK response is retur
 Notice that the line item type object has been updated with the new information.
 We have successfully updated a budget line item!
 For more information on which fields on a budget line item can be updated, please consult our [Update Budget Line Item](https://developers.procore.com/reference/rest/v1/budget-line-items#update-budget-line-item) endpoint documentation.
+
+## See Also
+
+- [Financial Tools Overview]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_financial_tools.md %})
+- [Budget Changes API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_changes_api.md %})
+- [Change Orders]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_change_orders.md %})
+- [Subcontractor Invoices]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_requisitions.md %})

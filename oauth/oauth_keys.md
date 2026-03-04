@@ -2,7 +2,7 @@
 permalink: /oauth-keys
 title: Managing OAuth Credentials and Redirect URIs
 layout: default
-section_title: OAuth 2.0 Authentication
+section_title: Reference
 ---
 
 ## Background
@@ -33,7 +33,7 @@ You can also add, update, or delete Redirect URIs for your sandbox.
 
 ## Managing Production OAuth Credentials and Redirect URIs
 
-Using the OAuth Credentials section on the Manage App page you can view and manage the the OAuth credentials and Redirect URIs for your production environment.
+Using the OAuth Credentials section on the Manage App page you can view and manage the OAuth credentials and Redirect URIs for your production environment.
 Your production Client ID is accessible in this section and you can reset the Client Secret as needed.
 It is important to note that your production Client Secret is hidden from view in the OAuth Credentials section and only visible to you once when you initially obtain production credentials through the manifest promotion process.
 

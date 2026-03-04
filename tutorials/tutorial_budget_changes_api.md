@@ -2,7 +2,7 @@
 permalink: /tutorial-budget-changes-api
 title: Upgrading from Budget Modifications API to the Budget Changes API
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Financial Tools"
 
 ---
 
@@ -273,3 +273,10 @@ The Budget Changes API behaves almost exactly the same way, with the Budget Chan
 ```
 DELETE /rest/v1.0/projects/{project_id}/budget_changes/{id}
 ```
+
+## See Also
+
+- [Financial Tools Overview]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_financial_tools.md %})
+- [Budget Tools]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_line_items.md %})
+- [Change Orders]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_change_orders.md %})
+- [Subcontractor Invoices]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_requisitions.md %})

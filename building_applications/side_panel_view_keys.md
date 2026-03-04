@@ -2,7 +2,7 @@
 permalink: /side-panel-view-keys
 title: Side Panel View Key Reference
 layout: default
-section_title: Building Applications
+section_title: Reference
 ---
 
 <style>
@@ -272,3 +272,8 @@ Use this reference when selecting **Supported Side Panel Views** in the Develope
 | /:project_id/project/incidents/:id/related_items/edit | incidents.detail |
 
 ***
+
+## See Also
+
+- [Create a Side Panel Embedded App]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %})
+- [URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %})

@@ -49,7 +49,7 @@ Following completion of an export from Procore, the integrator will call back to
 
 When calling into Procore to create objects, eg ERP Import, System Integrators will leverage Procore’s OAuth 2.0 framework to authenticate requests on behalf of a Service Account.
 To do so, System Integrators will need to leverage the Service Account’s Client ID and Client Secret to obtain OAuth access tokens, which can then be used to authenticate subsequent requests on behalf of the Service Account.
-See [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) for additional information.
+See [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) for additional information.
 
 ## Accounting Integration Workflows
 

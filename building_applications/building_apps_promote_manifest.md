@@ -3,7 +3,7 @@ permalink: /building-apps-promote-manifest
 title: Managing App Versions & Update Notifications
 sub_header: Understand how versioning impacts your app’s lifecycle, and how updates are surfaced to Procore users.
 layout: default
-section_title: Building Applications
+section_title: Build Your App
 
 ---
 

@@ -3,7 +3,7 @@ permalink: /webhooks-api
 title: Using the Webhooks API
 sub_header: Quick start to creating hooks, adding triggers, and monitoring deliveries.
 layout: default
-section_title: Webhooks
+section_title: Plan Your App
 ---
 
 ## Overview
@@ -14,7 +14,7 @@ This guide is a quick start with light best practices. It intentionally avoids U
 <br><br>
 
 ***
-## Before You Start
+## Things to Consider
 
 - You have API access and a valid access token.
 - Decide your scope: **company** (`company_id`) or **project** (`project_id`). Use one or the other per request.
@@ -154,3 +154,11 @@ In order to ensure that you do not receive multiple notifications, it is recomme
 - Seeing loops? Filter out events initiated by your service account or app using event metadata.
 - Many failures? Inspect delivery `response_status` and `response_error`, confirm your endpoint returns `2xx` on success, and that secrets/URLs are correct.
 - Wrong data? Double‑check `resource_name` values and your `api_version`.
+<br><br>
+
+***
+## See Also
+
+- [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %})
+- [Configure Company Webhooks](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/configure-company-webhooks)
+- [Configure Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks)

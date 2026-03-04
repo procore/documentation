@@ -1,11 +1,12 @@
 ---
 permalink: /faq
 title: FAQ
+sub_header: Answers to common questions about the Procore Developer Platform, APIs, and integrations.
 layout: default
-section_title: Overview
+section_title: Introduction
 ---
 
-## General Questions/Issues
+## General Questions
 
 **What are the hours for API Support?**
 
@@ -26,30 +27,30 @@ Please email <apisupport@procore.com> and we will assist you as soon as we can.
 **How do I learn more about a particular Procore tool or product line?**
 
 The [Procore Support Site](https://support.procore.com/) contains comprehensive documentation and instructional content covering all Procore tools and product lines.
-We also recommend visting [learn.procore.com](https://learn.procore.com/) to access video-based content and certification curricula.
+We also recommend visiting [learn.procore.com](https://learn.procore.com/) to access video-based content and certification curricula.
 
 **How do I learn about the various user permissions in Procore?**
 
 The [Procore Support Site](https://support.procore.com/) includes a reference page with a comprehensive breakdown of all user actions and the specific user permission(s) (Read-only, Standard, and/or Admin) that are required to perform a given action.
 
-## Development Environments
+## Development environments
 
 **What time does the monthly sandbox restore?**
 
-The monthly sandbox is restored on or about the 2nd day of each month.
-To ensure that changes you make in your production environment are available in the next monthly restore, we recommend including these changes by the 20th of the month.
+The monthly sandbox is refreshed on the first working day of each month (morning to mid‑afternoon ET).
+To ensure that changes you make in your production environment are available in the next monthly refresh, we recommend including those changes by the end of the last working day of the current month.
 
-## OAuth 2.0 Authentication
+## OAuth 2.0 authentication
 
 **How long does my access token last?**
 
 Once obtained, your access token will last for 90 minutes (5400 seconds).
-See [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}) for additional information.
+See [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) for additional information on token behavior.
 
 **How long does my refresh token last?**
 
 Your refresh token will last indefinitely until it is used.
-See [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}) for additional information.
+See [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) for additional information on token behavior.
 
 **My access token isn’t working. Why not?**
 
@@ -76,11 +77,11 @@ The access_token is used to authenticate (passed in under the Authorization head
 The refresh_token, which corresponds to that access_token, will not expire until it is used to acquire a new pair of tokens.
 Using those two tokens, you can authenticate endlessly without any user input.
 
-In other words, after getting your first pair of tokens, your program would use the access_token for up to 15 minutes, after which that token would expire.
+In other words, after getting your first pair of tokens, your program would use the access_token for up to 90 minutes, after which that token would expire.
 After that token expires, the next time your program wanted to access our API it would use the refresh_token received with the now-expired access_token to [refresh the access token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token) and get a new pair of tokens.
 Once it makes that call, your old refresh_token would expire since it has now been used and you would have a new access_token and refresh_token.
 Then, your program would use that new access_token until it expires, and the cycle would repeat again.
-Alternately, you can elect to design your application to use a [service account](https://support.procore.com/faq/what-is-a-service-account) and the [OAuth 2.0 Client Credentials Grant Type](({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %})) which requires no end-user interaction.
+Alternately, you can elect to design your application to use a [service account](https://support.procore.com/faq/what-is-a-service-account) and the [OAuth 2.0 Client Credentials Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) which requires no end-user interaction.
 
 **Why does my browser take me back to an integration page when I open a new browser tab and type in https://app.procore.com?**
 
@@ -94,7 +95,7 @@ If this occurs, the following workaround will resolve the issue.
 
 - Users should explicitly navigate to “https://login.procore.com” anytime they want to access the Procore web application while simultaneously working with an integrated web application.
 
-## IP Whitelisting
+## IP whitelisting
 
 **Does Procore publish a list of IP addresses for whitelisting purposes?**
 
@@ -129,7 +130,7 @@ We recommend using <a href="https://www.postman.com/" target="_blank">Postman</a
 As you browse through our Procore API documentation you may see deprecation warning banners on some of our endpoint reference pages.
 Please see our [API Lifecycle guide]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %}) for information on our API deprecation policy.
 
-## Cross-Origin Resource Sharing (CORS)
+## Cross-origin resource sharing (CORS)
 
 **Does the Procore API support Cross-Origin Resource Sharing (CORS)?**
 
@@ -152,7 +153,7 @@ While it is certainly possible have more than one domain whitelisted for CORS, p
 Our Webhooks feature allows you to establish a system through which you can receive notifications for changes that occur to specific resources.
 Please visit our [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}) guides on the Developer Portal for additional information.
 
-## Procore API Rate Limit
+## Procore API rate limit
 
 **I am receiving a 429 status code error when making a call to the Procore API, what causes this?**
 
@@ -163,9 +164,9 @@ See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/ra
 
 **I’m passing in the Procore Company ID header as required. Do I also need to pass in the query parameter with the company ID in it?**
 
-Yes. If the endpoint you are working with normally requires a `company_id` as either a path or query parameter, you still need to include it in your call, regardless of MPZ header requirements.
+Yes. If the endpoint you are working with normally requires a `company_id` as either a path or query parameter, you still need to include it in your call, regardless of MPR header requirements.
 
-## App Management
+## App management
 
 **I’ve suddenly started getting a 403 forbidden error with the message "App is not connected to this company". Why is this?**
 
@@ -174,9 +175,18 @@ As a result, your application is no longer able to access data in that company.
 To resolve this issue, use the App Management page in Procore Web to reconnect your application to that company.
 For additional information see [What is App Management?](https://support.procore.com/faq/what-is-app-management).
 
-## Error Codes
+## Error codes
 
 **I'm receiving a particular error code. What does it mean?**
 
 Our [RESTful API Concepts]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}) guide includes a section that lists standard error codes you may encounter while working with the Procore API.
 If you need additional assistance with dealing with errors, please contact <apisupport@procore.com>.
+<br><br>
+
+***
+## See Also
+
+- [Quick Start Guide]({{ site.url }}{{ site.baseurl }}{% link overview/quick_start_guide.md %})
+- [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})
+- [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+- [Help & Learning Center]({{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %})

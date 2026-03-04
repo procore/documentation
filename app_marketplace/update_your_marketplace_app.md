@@ -150,7 +150,7 @@ Stay informed about Procore API changes through Developer Portal announcements, 
 <br><br> -->
 
 ***
-### Additional Resources
+## See Also
 - [Build & Prepare Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
 - [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %})
 - [Marketplace Approval Checklist]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %})

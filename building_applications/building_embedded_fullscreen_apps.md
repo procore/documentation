@@ -3,7 +3,7 @@ permalink: /building-embedded-fullscreen-apps
 title: Building Full Screen Embedded Applications
 sub_header: Learn how to build and configure a full screen embedded application in the Procore Developer Portal.
 layout: default
-section_title: Building Applications
+section_title: Build Your App
 ---
 
 ## Introduction

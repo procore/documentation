@@ -2,7 +2,7 @@
 permalink: /tutorial-incidents
 title: Working with Incidents
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Field Tools"
 
 ---
 
@@ -56,11 +56,11 @@ This appropriately accounts for the eight-hour time difference between PST and U
 ```
 
 Now let's assume we do _not_ know the exact local time of the event.
-In this scenario, the value for `event_date` must be specified as 12:00am (midnight) local time on the date the event occured, converted to UTC.
+In this scenario, the value for `event_date` must be specified as 12:00am (midnight) local time on the date the event occurred, converted to UTC.
 So, using our example, the payload would be as follows:
 
 ```
-"event_date": "2018-10-31T08:0:00.000Z",
+"event_date": "2018-10-31T08:00:00.000Z",
 "time_unknown": true
 ```
 
@@ -74,3 +74,10 @@ You cannot set an `affected_body_part` without having a corresponding `afflictio
 Additionally, the JSON response body from a Create or Update Injury operation includes a single `afflictions` object that contains the `affliction_type_id` and `affected_body_part` combination if they are not null.
 Though this construct is deprecated, it has not been removed from the response body as our Procore mobile applications continue to rely on it.
 For your own App designs, simply ignore this object and just work with the top-level `affliction_type_id` and `affected_body_part` directly.
+
+## See Also
+
+- [Daily Logs]({{ site.url }}{{ site.baseurl }}{% link tutorials/daily_logs.md %})
+- [Observations]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_observations.md %})
+- [Timesheets & Timecards]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_field_prod.md %})
+- [Timecard Entries]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_timecard_entries.md %})
