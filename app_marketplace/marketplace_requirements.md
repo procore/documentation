@@ -14,6 +14,7 @@ Once you've signed up as a developer, it’s time to build a high-quality integr
 ## 1. Understand the Developer Environment
 Before building, make sure to:
 - Review our API documentation to explore <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">available endpoints</a> and <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}">app types</a>
+- Review the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link api_essentials/api_usage_guidelines.md %}) to understand how Procore's APIs are designed to be used
 - Understand <a href="{{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}">OAuth 2.0 authentication flows</a> (User vs. Service Account)
 - Familiarize yourself with <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}">error handling</a> and <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}">rate limits</a>
 - Use your Developer Sandbox to test <a target="_blank" href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app">app installations</a> and simulate real-world usage
@@ -39,10 +40,14 @@ To be listed on the Procore Marketplace, your app must meet the following requir
 - You must offer accessible support documentation or support contact information.
 - Your Marketplace listing must be accurate, complete, and regularly maintained.
 
+### API Usage & Compliance
+- You must use Procore's REST APIs for their intended transactional purpose — creating, reading, updating, and deleting records as part of your app's core integration. See the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link api_essentials/api_usage_guidelines.md %}) for details.
+- You must not use Procore APIs for large-scale data extraction, bulk export, or data harvesting beyond your app's core functionality.
+- You must not use Procore data to train, fine-tune, or benchmark AI/ML models (including LLMs).
+- You must not use private or undocumented Procore APIs.
+
 ### Compliance & Conduct
 - You must comply with all Procore Partner Program terms, agreements, and conduct policies.
-- You must not use private or undocumented Procore APIs.
-- You must not use Procore data to train AI/ML models (including LLMs).
 - You must not include ads, push notifications, or malicious behaviors in your app.
 <br><br>
 

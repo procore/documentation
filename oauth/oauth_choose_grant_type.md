@@ -14,7 +14,7 @@ Let’s outline the OAuth 2.0 grant types supported by the Procore API.
 
 ## Authorization Code Grant (Web Server Applications)
 
->**Note:** It is important to keep in mind that when you create any new application on the developer portal, OAuth 2.0 credentials for the Authorization Code grant type are provided automatically by the system. You do not need to explicitly select or specify this grant type in your application configuration.
+>**Note:** It is important to keep in mind that when you create any new application on the Developer Portal, OAuth 2.0 credentials for the Authorization Code grant type are provided automatically by the system. You do not need to explicitly select or specify this grant type in your application configuration.
 
 If you are developing a web server-based solution, then you will want to implement the Authorization Code grant type.
 Web server applications are written in a server-side language where the source code of the application is not visible to the public.

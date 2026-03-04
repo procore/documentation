@@ -5,22 +5,32 @@ layout: default
 section_title: OAuth 2.0 Authentication
 ---
 
-When working with the Procore API your application will access Procore on behalf of your users.
-Each user will need to authenticate with Procore to verify their identity and to give your application permission to use and access their data.
+## What is OAuth 2.0?
+OAuth 2.0 is a protocol that allows third-party applications to authenticate with APIs without storing or transmitting user passwords. Instead, your application uses a **Client ID** and **Client Secret** (unique to your app) to request access on behalf of a user.
 
-OAuth 2.0 is a protocol that allows third-party applications to authenticate with APIs.
-OAuth 2.0 facilitates two main actions - obtaining an access token through user authorization, and using that access token to make API requests.
-At the end of a successful OAuth 2.0 exchange, an access token that lasts for 1.5 hours is returned to your application.
-You will need to submit this token with each Procore API request in order to properly identify your application and access end-user data in a secure manner.
+## Key Facts
 
-Because the Procore API supports the OAuth 2.0 protocol, your application does not need to store or transmit user account names or passwords, but instead relies on application credentials in the form of a Client ID and Client Secret that are unique to your application.
-The OAuth 2.0 protocol uses these credentials as part of an authorization step in which the user chooses to allow (or deny) your application access their data in Procore.
-Access granted to your application may be revoked at any point by the end user.
-The result is a more secure API for Procore end users.
+- **Access tokens** last for **90 minutes** (5400 seconds)
+- **Refresh tokens** last indefinitely until used
+- Your app never handles user passwords — only tokens
+- Users can **revoke access** to your app at any time
+- Every Procore API request requires a valid access token in the `Authorization` header
 
-If you are brand new to OAuth 2.0, we recommend you review the official [OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749), as well as [OAuth 2.0 Simplified](http://aaronparecki.com/oauth-2-simplified/) by Aaron Pareki to help you come up to speed with the OAuth 2.0 protocol.
+## How Procore Uses OAuth 2.0
+When working with the Procore API, your application accesses Procore on behalf of your users. Each user authenticates with Procore to verify their identity and grant your application permission to use their data.
 
-### Explore OAuth 2.0 Documentation for the Procore API
+OAuth 2.0 facilitates two main actions:
+1. **Obtaining an access token** through user authorization
+2. **Using that access token** to make API requests
+
+Your application credentials (Client ID and Client Secret) are used as part of an authorization step in which the user chooses to allow or deny your application access to their data in Procore.
+
+## New to OAuth 2.0?
+If you're unfamiliar with the protocol, these resources will help:
+- [OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749) — The official spec
+- [OAuth 2.0 Simplified](http://aaronparecki.com/oauth-2-simplified/) by Aaron Parecki — A practical, readable guide
+
+## Explore OAuth 2.0 Documentation for the Procore API
 
 - [Understanding OAuth 2.0 Roles]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_roles.md %})
 - [OAuth 2.0 Access Tokens]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %})

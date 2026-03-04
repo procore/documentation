@@ -126,6 +126,8 @@
 
 - title: API Essentials
   items:
+    - title: API Usage Guidelines
+      url: /api-usage-guidelines
     - title: RESTful API Concepts
       url: /restful-api-concepts
     - title: API Security Overview
@@ -137,10 +139,8 @@
 
 - title: Best Practices
   items:
-    - title: Dates and Times
+    - title: Dates, Times & Time Zones
       url: /date-time
-    - title: Working with Time Zones
-      url: /tutorial-timezones
     - title: MPR Request Headers
       url: /mpz-headers
     - title: Working with Documents

@@ -44,8 +44,8 @@ The version will be saved with the status **Ready for Testing**. As you continue
 
 ***
 ## Test and Validate in the Development Sandbox
-Test and validate each version of your app in your Development Sandbox before releasing it to production.  
-See [Installing an Application in the Development Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_sandbox_install.md %}) for step-by-step instructions.
+Test and validate each version of your app in your Development Sandbox before releasing it to production.
+For details on setting up your sandbox, see the [Quick Start Guide]({{ site.url }}{{ site.baseurl }}{% link overview/quick_start_guide.md %}).
 <br><br>
 
 ***
