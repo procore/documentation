@@ -29,7 +29,7 @@ Move data between Procore and other systems (for example, accounting, ERP, docum
 
 ![Data Connection Architecture]({{ site.baseurl }}/assets/guides/data-connection-diag.png)
 
-See also: [Building User Level Auth. Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps_auth.md %}) and [Building Service Account Auth. Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
+See also: [Building Data Connection Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
 <br><br>
 
 ***

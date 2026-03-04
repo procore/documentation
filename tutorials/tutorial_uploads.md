@@ -2,7 +2,7 @@
 permalink: /tutorial-uploads
 title: Working with Direct File Uploads
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Documents & Files"
 
 ---
 
@@ -494,3 +494,11 @@ If you're currently using the legacy upload approach (via `attachments` or `data
 - Reduced API request payload sizes
 - Better handling of large files
 - More consistent behavior across different Procore tools
+
+## See Also
+
+- [Working with the Documents Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_documents.md %})
+- [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %})
+- [Working with Secure File Access]({{ site.url }}{{ site.baseurl }}{% link best_practices/secure_file_access_tips.md %})
+- [Working with Drawings]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_drawings.md %})
+- [Working with Direct Drawing Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_direct_drawing_uploads.md %})

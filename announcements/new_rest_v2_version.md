@@ -37,7 +37,7 @@ As indicated above, most of the URL paths for Rest V2 API are scoped to company 
 
 For Procore's Rest V2 APIs, there are two noticeable changes in the JSON response body: **data envelope** and **ids formatted as strings**.
 
-For **data envelope**, meaning the JSON object has a top level "data" key that contains the the main payload of the API response.
+For **data envelope**, meaning the JSON object has a top level "data" key that contains the main payload of the API response.
 For **ids formatted as strings**, meaning the ids attributes are strings.
 
 ```

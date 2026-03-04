@@ -2,7 +2,7 @@
 permalink: /tutorial-user-permissions
 title: Working with User Permissions and Permission Templates
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Project Management"
 
 ---
 
@@ -56,3 +56,11 @@ A successful request will be indicated by a `201 Created` HTTP response code.
 You can confirm the change of the permission template by making a request to the [List Project Users](https://developers.procore.com/reference/rest/v1/project-users#list-project-users) endpoint, finding the object associated with the user whose permission template you were updating, and noticing the new permission template `ID` and `name` values.
 
 ![User Permissions - 04]({{ site.baseurl }}/assets/guides/user-permissions-04.png)
+
+## See Also
+
+- [Working with the Correspondence Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_correspondence.md %})
+- [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
+- [Work Breakdown Structure]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_wbs.md %})
+- [Interacting with Workflows]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows_v2.md %})
+- [Interacting with Workflows (Legacy)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %})

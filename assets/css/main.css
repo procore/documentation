@@ -411,3 +411,47 @@ body {
   .create-account-button:hover {
     background: var(--buttons-links-conversion-hover-e-14504, #E14504);
   }
+
+  /* Was This Helpful Widget */
+  .helpful-widget {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    margin-top: 32px;
+    border-top: 1px solid #d6dadc;
+  }
+
+  .helpful-widget span {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .helpful-widget button {
+    padding: 6px 16px;
+    border: 1px solid #d6dadc;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+    transition: all 0.2s;
+  }
+
+  .helpful-widget button:hover {
+    border-color: #f47e42;
+    color: #f47e42;
+  }
+
+  .helpful-widget button.selected {
+    background: #fff3e0;
+    border-color: #f47e42;
+    color: #f47e42;
+    font-weight: 600;
+  }
+
+  .helpful-thanks {
+    font-size: 13px;
+    color: #f47e42;
+    display: none;
+  }

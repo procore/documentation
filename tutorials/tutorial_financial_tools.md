@@ -2,7 +2,7 @@
 permalink: /tutorial-financial-tools
 title: Integrating with Procore Financial Tools
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Financial Tools"
 
 ---
 
@@ -150,7 +150,7 @@ The `origin_id` field is accessible only by the API.
 Please note that only one integration can use the origin_id field for an object at this time, otherwise a conflict will occur that will cause errors with the existing integration.
 It is advised to review the existing data for the existence of `origin_id` prior to your development efforts.
 
-### Record Locking
+### Record locking
 
 It is often the case that when a financial transaction is approved and completed in an ERP system, it is not allowed to be modified.
 These feature of Procore allow for control of immutable data, which is usually a rule that is enforced by your ERP system that Procore is integrating with, and therefore the same control should be followed in Procore.
@@ -188,7 +188,7 @@ When an `origin_id` exists on an insurance record, the following fields are read
 
 #### Subcontractor Invoices
 
-When an `origin_id` exists on a Subcontrctor Invoice, the entire object is immutable.
+When an `origin_id` exists on a Subcontractor Invoice, the entire object is immutable.
 In such cases, you will see a notice in the detail view of a locked Subcontractor Invoice stating "The invoice is not editable because it has been synced with ERP".
 
 #### Payment Applications
@@ -211,3 +211,10 @@ See the [Workflow API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutoria
 
 The Webhooks feature allows third-party developers and integrators to specify one or more Procore API resources for which they want to be notified when Create, Update, or Delete actions occur.
 Please see the [Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) guide for additional information.
+
+## See Also
+
+- [Budget Tools]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_line_items.md %})
+- [Budget Changes API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_changes_api.md %})
+- [Change Orders]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_change_orders.md %})
+- [Subcontractor Invoices]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_requisitions.md %})

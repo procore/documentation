@@ -2,7 +2,7 @@
 permalink: /tutorial-config-fieldsets
 title: Working with Configurable Fieldsets
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Project Management"
 
 ---
 
@@ -96,3 +96,11 @@ When updating a multi select custom field for a record, make sure that the value
     }
 }
 ```
+
+## See Also
+
+- [Working with the Correspondence Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_correspondence.md %})
+- [Working with User Permissions and Permission Templates]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_user_permissions.md %})
+- [Work Breakdown Structure]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_wbs.md %})
+- [Interacting with Workflows]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows_v2.md %})
+- [Interacting with Workflows (Legacy)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %})

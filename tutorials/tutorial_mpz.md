@@ -1,8 +1,8 @@
 ---
 permalink: /tutorial-mpz
-title: Working with Multiple Procore Regions (MPR)
+title: Handling Procore Regions
 layout: default
-section_title: Guides and Tutorials
+section_title: Platform Concepts
 
 ---
 
@@ -54,42 +54,22 @@ _Note_: The following Procore API endpoints _do not_ require a request header co
 The exception to this rule is when you are using Service Accounts with the OAuth 2.0 Client Credentials grant type.
 See [Using Service Accounts with MPR]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}#using-service-accounts-with-mpz) for additional information.
 
-## Actions Required / Timeline
+## Requirements
 
-- To continue serving existing Procore customers, you will need to make the above described changes by June 30, 2019, beyond which your apps and integrations may not work.
-- To onboard new Procore customers, you will need to make these changes by October 31, 2018.
+All applications accessing the Procore API must be MPR-compliant. The `Procore-Company-Id` request header is required on all API calls (with the exception of the endpoints listed above). Applications that do not include this header will not be able to access data for Procore customers.
+
+## Resource ID Value Size
+
+With the introduction of Multiple Procore Regions (MPR), the size of resource ID values in any new Procore region may exceed what can be stored in a 32-bit integer.
+Ensure that you store ID values using a data type capable of storing 64-bit integers or larger, such as `BigInt`, `int64_t`, or `long long` depending on your coding language/framework.
 
 ## Frequently Asked Questions
-
-### Do I need to make all these changes to my application immediately?
-
-_Answer_: No.
-Though we plan to complete the infrastructure changes for MPR by October 31, 2018, non-compliant applications will continue to function as expected for existing Procore Customers until June 30, 2019.
-However, you will not be able to access data from _new_ Procore customers.
-
-### What happens if I never make these changes to my application?
-
-_Answer_: It depends on your particular scenario:
-
-| Developer Persona / Scenario                    | MPR Impact                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Existing Procore Customer w/ custom integration | Assuming the customer is in the US01 Region (the default region), they will not experience any adverse effects until June 30, 2019 unless they are requested to migrate to a different region prior to that time.                                                                                                                                                                                                                                    |
-| New Procore Customer w/ custom integration      | New customers would not be able to access their company data without implementing the `Procore-Company-Id` request header field, and adopting the new API gateway domain (api.procore.com) and the new Authentication gateway (login.procore.com).                                                                                                                                                                                         |
-| System Integrator                               | Integrations built by system integrators will continue to work for existing Procore users in the US01 Region until June 30, 2019. However, they will not be able to build integrations for new users without implementing the `Procore-Company-Id` request header field, and adopting the new API gateway domain (api.procore.com) and the new Authentication gateway (login.procore.com).                                                       |
-| Procore Technology Partner                      | Marketplace Apps built by Procore Technology Partners will continue to work for their existing Procore users in the US01 Region until June 30, 2019. However, their integrations will not support any new Procore users who are placed in a region other than US01 until the `Procore-Company-Id` request header field is implemented and the new API gateway (api.procore.com) and the new Authentication gateway (login.procore.com) is adopted. |
 
 ### Will the MPR architecture changes impact my sandbox environments?
 
 _Answer_: Yes.
-There are several changes to be aware of with respect to how you will interact with your monthly and development sandbox environments:
-
-- When making API calls to the Procore authentication server, you must use the following base URLs depending on the environment:
-    - _Monthly Sandbox_ - use the `https://login-sandbox-monthly.procore.com/oauth` base URL.
-    - _Development Sandbox_ - use the `https://login-sandbox.procore.com/oauth` base URL.
-- When making API calls to Procore resources, you must use the following base URLs depending on the environment:
-    - _Monthly Sandbox_ - use the `https://api-monthly.procore.com` base URL.
-    - _Development Sandbox_ - use the `https://sandbox.procore.com` base URL.
-- When making API calls to a sandbox environment, you must include the `Procore-Company-Id` request header as described above.
+Sandbox environments also require MPR-compliant API calls, including the `Procore-Company-Id` request header.
+For sandbox environment URLs and setup details, see [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
 
 ## Need Additional Information?
 

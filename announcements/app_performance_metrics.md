@@ -3,7 +3,7 @@ permalink: /api-activity-export
 title: Export API Activity for Your App
 sub_header: Learn how to generate a 30-day summary of your app’s API usage to monitor behavior, debug issues, and improve performance.
 layout: default
-section_title: App Management & Monitoring
+section_title: Announcements
 ---
 
 ## Introduction

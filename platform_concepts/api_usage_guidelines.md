@@ -3,7 +3,7 @@ permalink: /api-usage-guidelines
 title: API Usage Guidelines
 sub_header: Understand how Procore's APIs are designed to be used — and what's coming next.
 layout: default
-section_title: API Essentials
+section_title: Platform Concepts
 ---
 
 ## Overview
@@ -17,7 +17,14 @@ Procore is developing a new generation of **Agentic APIs**, purpose-built to pow
 With Agentic APIs, partners and developers will be able to build intelligent solutions that go beyond simple data transactions — enabling AI-powered insights, semantic retrieval, and deep analytics without the need for specialized infrastructure or external data storage.
 
 **Timeline:** General Availability is planned for Late Q1 2026. Stay tuned to our [Announcements]({{ site.url }}{{ site.baseurl }}{% link announcements/overview.md %}) page for updates.
-<br><br>
+
+<div class="cta-container">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdk_neam_tY1x8jiFG0QniwcYGR9urGNZ1MnZl_Ie81pfereg/viewform" class="create-account-button" target="_blank">
+    Sign Up for Agentic API Updates
+  </a>
+</div>
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
 ***
 ## Procore's REST APIs: Designed for Transactional Use
@@ -52,7 +59,9 @@ As Procore's API ecosystem expands, choosing the right tool for the job ensures 
 | Powering AI agents and intelligent workflows | Agentic APIs (coming Late Q1 2026) |
 | Building RAG or semantic retrieval solutions | Agentic APIs (coming Late Q1 2026) |
 | Advanced analytics across large datasets | Agentic APIs (coming Late Q1 2026) |
-<br><br>
+
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
 ***
 ## Best Practices for API Usage
@@ -65,7 +74,7 @@ To maintain platform performance and stay in compliance:
 <br><br>
 
 ***
-## Related Resources
+## See Also
 - <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Reference</a>
 - [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})
 - [Procore Developer Policy]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %})

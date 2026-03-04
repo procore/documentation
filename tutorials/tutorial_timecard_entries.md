@@ -2,7 +2,7 @@
 permalink: /tutorial-timecard-entries
 title: Working with Timecard Entries
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Field Tools"
 
 ---
 
@@ -91,3 +91,10 @@ See the following Procore Support Site articles to learn more about creating and
 
 - [What are Procore's standard budget views?](https://support.procore.com/faq/what-are-procores-standard-budget-views)
 - [Set Up a New Budget View](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/set-up-a-new-budget-view)
+
+## See Also
+
+- [Daily Logs]({{ site.url }}{{ site.baseurl }}{% link tutorials/daily_logs.md %})
+- [Incidents]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_incidents.md %})
+- [Observations]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_observations.md %})
+- [Timesheets & Timecards]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_field_prod.md %})

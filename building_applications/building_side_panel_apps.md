@@ -3,7 +3,7 @@ permalink: /building-side-panel-apps
 title: Building Side Panel Embedded Applications
 sub_header: Learn how to build an embedded application that displays in the right-hand side panel of Procore’s UI.
 layout: default
-section_title: Building Applications
+section_title: Build Your App
 ---
 
 ## Introduction

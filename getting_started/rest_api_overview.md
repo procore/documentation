@@ -1,8 +1,9 @@
 ---
 permalink: /rest-api-overview
 title: REST API Overview
+sub_header: Learn about Procore's REST API versioning, URL structure, and how to make API calls.
 layout: default
-section_title: Getting Started
+section_title: Reference
 ---
 
 ## Introduction
@@ -54,7 +55,7 @@ _example_: https://api.procore.com/rest/v1.2/projects
 
 ## REST API Changelog
 
-With the release of REST API v1.0 comes the introduction of our new changelog feature.
+The REST API includes a changelog feature.
 Use the changelog to stay up to date on changes our development teams make to REST API resources.
 Changelog entries for individual resource endpoints are viewable in the reference documentation.
 Each endpoint has its own list of changes, and only displays changes relevant to the version of the resource you are currently viewing.

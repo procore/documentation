@@ -2,7 +2,7 @@
 permalink: /oauth-installed-apps
 title: OAuth 2.0 for Installed Applications
 layout: default
-section_title: OAuth 2.0 Authentication
+section_title: References
 ---
 
 ## Overview
@@ -13,10 +13,7 @@ This value signals to the Procore Authorization Server that the authorization co
 
 > PRODUCTION VS. SANDBOX ENVIRONMENTS
 >
-> It is important to note that access/refresh tokens are not shared across production and sandbox environments.
-> API calls you make to Procore resoures in your production environment must use a separate set of authentication keys (client ID and client secret) from those used for your sandbox environment.
-> In addition, API calls to production must use the https://api.procore.com base URL, while calls to your sandbox must use the https://sandbox.procore.com base URL.
-> Keep in mind that the examples presented below use the production base URL, rather than the sandbox base URL.
+> Access/refresh tokens are not shared across environments. Use separate OAuth credentials for production and sandbox. See [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}) for environment-specific base URLs. The examples below use the production base URL.
 
 The flow for installed applications is similar to the OAuth 2.0 Web Server flow except for a few differences which are explained below:
 
@@ -49,14 +46,14 @@ After successfully logging in, the Procore Authorization Server returns the auth
 
 ![OAuth code]({{ site.baseurl }}/assets/guides/oauth-code.png)
 
-Note that this authorization code is set to expire in 10 minutes.
+Note that this authorization code expires quickly. See [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}) for details.
 Once you were able to grab the authorization code, you need to use the authorization code in your application and exchange them for access tokens.
 
 ## Step 3: Getting the Access Token
 
 Once your application has completed the steps outlined in the section above and received an authorization code, you will now need to exchange the authorization code for an access token from Procore.
 
-To get the access token you make a POST request to the token endpoint with the following parameters:
+To get the access token you make a POST request to the token endpoint with the following parameters. For the complete endpoint reference, see [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}).
 
 | Parameter     |  Description                                                                                                                                                                                                                                                                                            |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

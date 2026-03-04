@@ -2,7 +2,7 @@
 permalink: /tutorial-field-prod
 title: Field Productivity
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Field Tools"
 
 ---
 
@@ -44,7 +44,7 @@ Timesheets offer the most advanced time tracking functionality in the Procore we
 > TIME ENTRY SETTINGS
 >
 > Timesheets are configured for time entry at the project level using either Total Hours or Start Time and Stop Time.
-> It is important to note that when you create timecard entries for a timesheet using the API, you must use paramters consistent with the time entry setting for the particular timesheet you are working with.
+> It is important to note that when you create timecard entries for a timesheet using the API, you must use parameters consistent with the time entry setting for the particular timesheet you are working with.
 > For example, if the timesheet is configured for Total Hours time entry then you would simply use the `hours` parameter.
 > Alternately, if the timesheet is configured to use Start Time and Stop Time, you would use the `time_in`, `time_out`, and `lunch_time` parameters.
 > Under this scenario, `time_in` and `time_out` are passed as ISO8601-compliant strings and `lunch_time` is passed as the number of minutes spent for a lunch break.
@@ -104,7 +104,7 @@ Running this call returns a JSON response similar to the following:
 }
 ```
 
-### 2. Create a Timecard Entry in a Timesheet ###
+### 2. Create a timecard entry in a timesheet
 
 
 Use the [Create Timecard Entry](https://developers.procore.com/reference/rest/v1/timecard-entries#create-timecard-entry) endpoint (POST /rest/v1.0/projects/{project_id}/timecard_entries) to create an entry (or entries) for each employee.
@@ -205,7 +205,7 @@ The Timecard Entry you created will now show up in the associated timesheet view
 ### 3. Update a Timecard Entry
 
 Use the [Update Timecard Entry](https://developers.procore.com/reference/rest/v1/timecard-entries#update-timecard-entry) endpoint (UPDATE /rest/v1.0/projects/{project_id}/timecard_entries/{id}) to update an existing Timecard Entry.
-One possile scenario is updating the duration of work for an existing Timecard Entry.
+One possible scenario is updating the duration of work for an existing Timecard Entry.
 Here is a cURL example illustrating this action:
 
 ```
@@ -381,3 +381,10 @@ Running this call returns a JSON response similar to the following:
 ```
 
 The Timesheet you updated will now show up as `approved` when viewed in the Timesheets tool in Procore, or via the [List All Timesheets](https://developers.procore.com/reference/rest/v1/timesheets#list-all-timesheets) endpoint (GET /rest/v1.0/projects/{project_id}/timesheets).
+
+## See Also
+
+- [Daily Logs]({{ site.url }}{{ site.baseurl }}{% link tutorials/daily_logs.md %})
+- [Incidents]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_incidents.md %})
+- [Observations]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_observations.md %})
+- [Timecard Entries]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_timecard_entries.md %})

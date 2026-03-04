@@ -2,13 +2,13 @@
 permalink: /secure-file-access-tips
 title: Working with Secure File Access
 layout: default
-section_title: Best Practices
+section_title: "Product Guides: Documents & Files"
 
 ---
 
 ## Overview
 
-Below are a some valuable tips for working with secure file access and the Procore API.
+Below are some valuable tips for working with secure file access and the Procore API.
 
 ## Handling URL Schema Changes
 
@@ -53,7 +53,7 @@ For example, the response for `GET /rest/v1.0/folders` contains this url under `
     }
     ```
 
-2. `bearerTokenValue` is a valid Procore [OAuth 2.0 Access Token]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_access_tokens.md %}).
+2. `bearerTokenValue` is a valid Procore OAuth 2.0 access token.
 
 ### Complete Listing
 
@@ -133,4 +133,12 @@ public class DownloaderApp {
 
 ## Testing Your Integration
 
-We are currently working on enabling this new functionality in Monthly and Developer Sandboxes where you will be able to test your integrations.
+This functionality is available in Monthly and Developer Sandboxes.
+
+## See Also
+
+- [Working with the Documents Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_documents.md %})
+- [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %})
+- [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
+- [Working with Drawings]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_drawings.md %})
+- [Working with Direct Drawing Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_direct_drawing_uploads.md %})

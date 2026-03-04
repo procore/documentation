@@ -2,7 +2,7 @@
 permalink: /date-time
 title: Dates, Times & Time Zones
 layout: default
-section_title: Best Practices
+section_title: Reference
 
 ---
 
@@ -20,9 +20,9 @@ The various symbol elements of the ISO 8601 timestamp format are described in th
 | Symbol | Description |
 | ------ | ------------------------------------------------------------ |
 | YYYY   | four-digit year identifier (e.g., 2018)                      |
-| MM     | two-digit month indentifier (e.g., 10)                       |
+| MM     | two-digit month identifier (e.g., 10)                       |
 | DD     | two-digit date identifier (e.g., 25)                         |
-| T      | delimeter between the date and time portion of the timestamp |
+| T      | delimiter between the date and time portion of the timestamp |
 | HH:    | two-digit hour identifier (e.g., 16)                         |
 | MM:    | two-digit minute identifier (e.g., 47)                       |
 | SS     | two-digit seconds identifier (e.g., 35)                      |

@@ -3,7 +3,7 @@ permalink: /pagination
 title: Using Pagination
 sub_header: Use per_page and page to control results and performance.
 layout: default
-section_title: Plan Your App
+section_title: Reference
 
 ---
 
@@ -28,7 +28,7 @@ Choose a `per_page` value that balances performance and payload size. We recomme
 curl -i -H "Authorization: Bearer <ACCESS_TOKEN>" \
   "https://api.procore.com/rest/v1.0/punch_items?project_id=14406&per_page=5&page=3"
 ```
-<div class="plan_your_app/rate_limiting"></div>
+See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) for information on API rate limits.
 
 ***
 ## Use Link headers to navigate

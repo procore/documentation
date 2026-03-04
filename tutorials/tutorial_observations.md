@@ -2,7 +2,7 @@
 permalink: /tutorial-observations
 title: Working with Observations
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Field Tools"
 
 ---
 
@@ -120,9 +120,9 @@ Once an observation is created it can be updated with additional detail using th
 - Retrieve the `id` for the observation you want to update by making a call to List Observation Items (GET /rest/v1.0/observations/items) and parsing the JSON response.
 - Patch the existing observation (PATCH /rest/v1.0/observations/items/{id}) including the `id` as a path parameter with updated field values in the request body.
 
-### Adding Response Logs to an Observation
+### Adding response logs to an observation
 
-During the course of an obversation’s lifecycle, there may be the need to add comments, or _response logs_.
+During the course of an observation’s lifecycle, there may be the need to add comments, or _response logs_.
 
 - Retrieve the `id` for the observation you want to add a response log to by making a call to List Observation Items (GET /rest/v1.0/observations/items) and parsing the JSON response.
 - Create the new response log (POST /rest/v1.0/observations/items/{item_id}/response_logs) including the `item_id` as a path parameter and the response log content in the request body.
@@ -162,11 +162,13 @@ Once the work has been reviewed for completeness, the final step in the observat
 You can add an attachment to an observation item following the process outlined in [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %}).
 Here is a Postman example showing a POST call to the [Create Observation Item](https://developers.procore.com/reference/rest/v1/observations#create-observation-item) endpoint with an included attachment.
 
-![Obseervation Attachment]({{ site.baseurl }}/assets/guides/observation-attachment-example.png)
+![Observation Attachment]({{ site.baseurl }}/assets/guides/observation-attachment-example.png)
 
-## Additional Information
-
-For additional information on using the Observations tool, refer to the following resources.
+## See Also
 
 - [Procore Support Site Articles](https://support.procore.com/products/online/user-guide/project-level/observations)
 - [Procore Training Courses](https://learn.procore.com/series/procore-certification/procore-certification-project-manager-quality-and-safety)
+- [Daily Logs]({{ site.url }}{{ site.baseurl }}{% link tutorials/daily_logs.md %})
+- [Incidents]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_incidents.md %})
+- [Timesheets & Timecards]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_field_prod.md %})
+- [Timecard Entries]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_timecard_entries.md %})

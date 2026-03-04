@@ -2,7 +2,7 @@
 permalink: /tutorial-direct-drawing-uploads
 title: Working with Direct Drawing Uploads
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Documents & Files"
 
 ---
 
@@ -32,35 +32,22 @@ The [List Drawing Areas](https://developers.procore.com/reference/rest/v1/drawin
 With the drawing area ID, we can now create the drawing object using the [Create Drawing](https://developers.procore.com/reference/rest/v1/drawings#create-drawing) endpoint.
 The drawing object will act as a placeholder for our new drawing.
 Note that the ID for the drawing area is a required path parameter for this call.
-In the request body, `drawing:number` and `drawing_decipline:name` are required fields.
+In the request body, `drawing:number` and `drawing_discipline:name` are required fields.
 
 ![create-drawing-resp]({{ site.baseurl }}/assets/guides/create-drawing-resp.png)
 
 Note that the response body includes the new ID generated for the drawing object.
 
-## Create an Upload in the Project
+## Create an Upload and Upload the File
 
-Now that we have our drawing object created, we can use the [Create Project Upload](https://developers.procore.com/reference/rest/uploads?version=1.1#create-project-upload) endpoint to facilitate the direct upload of our drawing file.
-Though not required, we include the `response_filename` attribute in the request body which ensures that the storage service is aware of the filename for the upload in advance.
-Since files are often downloaded directly from the storage service, specifying the `response_filename` ensures that the file will save on an end user's device with a meaningful name and extension.
-Note that the filename you define for `response_filename` must include '.pdf' in the name.
-Similarly, specifying the `response_content_type` attribute is helpful when you want to make sure the file extension is correct or if you want to 'force' a file content type that differs from the extension.
+Use the direct upload flow to upload your drawing file to the storage service. This involves two steps:
 
-![create-upload-project]({{ site.baseurl }}/assets/guides/create-upload-project.png)
+1. **Create a project upload** using the [Create Project Upload](https://developers.procore.com/reference/rest/uploads?version=1.1#create-project-upload) endpoint to get a presigned URL and `uuid`.
+2. **Upload the file** to the storage service using the presigned URL and fields from the response.
 
-The response body in the example includes three properties that we'll use as 'instructions' for performing a direct file upload in the next step.
+For detailed instructions on these steps, see [Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}).
 
-- `uuid` - a unique identifier referencing the upload.
-- `url` - the uniform resource locator (URL) used to POST the file upload. In this example, the URL points to Procore's AWS S3 storage area.
-- `fields` - required attributes that must be included with the file upload in the next step.
-
-## Upload the File to the Storage Service
-
-With the upload created, the next step is to construct a POST request to the storage service (AWS S3 for this example) that includes the file we want to upload along with the `uuid`, `url` and `fields` retrieved in the previous step as form data.
-
-![post-file-upload]({{ site.baseurl }}/assets/guides/post-file-upload.png)
-
-An HTTP status code 204 is returned when the POST is successful.
+The `uuid` returned from the upload will be used in the next step to associate the file with a drawing.
 
 ## Create Drawing Upload
 
@@ -108,3 +95,11 @@ When we log in to Procore, navigate to the Drawings tool in our project and sele
 ## Further Reading
 
 Refer to Working with [Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}) for general information on creating file uploads using the Procore API.
+
+## See Also
+
+- [Working with the Documents Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_documents.md %})
+- [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %})
+- [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
+- [Working with Secure File Access]({{ site.url }}{{ site.baseurl }}{% link best_practices/secure_file_access_tips.md %})
+- [Working with Drawings]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_drawings.md %})

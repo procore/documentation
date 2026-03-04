@@ -2,7 +2,7 @@
 permalink: /restful-api-concepts
 title: RESTful API Concepts
 layout: default
-section_title: API Essentials
+section_title: Reference
 
 ---
 
@@ -37,7 +37,7 @@ Similar to other RESTful APIs, Procore API supports the following set of standar
 | PATCH     | Update  | Partial update of existing resources. For example, if you wanted to change the status of an RFI, you would perform a PATCH call where you could update just the status of the RFI or change other supported parameters. |
 | DELETE    | Delete  | Delete resources. Use the DELETE call to remove an existing resource.       |
 
-To learn more about HTTP verbs as RESTful methods, see... [HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html).
+To learn more about HTTP verbs as RESTful methods, see... [HTTP Methods for RESTful Services](https://www.restapitutorial.com/lessons/httpmethods.html).
 
 ## API Requests and Responses
 
@@ -56,7 +56,7 @@ The format type, query parameters, and any other required fields are contained w
     "address": "500 Construction Way",
     "city": "Carpinteria",
     "zip": "93013",
-    "department_ids": [1,2,],
+    "department_ids": [1,2],
     "project_number": "A-1",
     "estimated_start_date": "2015-05-15",
     "estimated_completion_date": "2015-05-31"
@@ -145,7 +145,7 @@ In general, codes in the **2xx range indicate success**, codes in the **4xx indi
 - **406 Not Acceptable** - The request contains references to non-existent fields.
 - **409 Conflict** - The request attempts to create a duplicate and conflicts with the current state of the server.
 - **422 Unprocessable Entity** - The structure, syntax, etc of the API call was correct, but due to business logic the server is unable to process the request.
-- **429 Limit Exceeded** - Too many requests in a given amount of time (see [Rate Limiting](https://developers.procore.com/documentation/rate-limiting)).
+- **429 Limit Exceeded** - Too many requests in a given amount of time (see [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})).
 
 **Server error status codes (5xx)**
 
@@ -158,3 +158,9 @@ You can future proof your code by using the following status code ranges:
 - 200–299 as success
 - 400–499 as client request errors
 - 500–599 as server errors
+
+## Globally Unique User IDs
+
+When a new user is added to Procore, the integer ID assigned to that user has global scope and is unique across all company accounts and projects.
+A user can be a member of multiple Procore company accounts by virtue of their unique email address.
+As you add that user to project-level directories within a company, the `user_id` value remains the same across those projects — it is inherited from the company-level directory.

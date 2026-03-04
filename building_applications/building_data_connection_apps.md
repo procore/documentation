@@ -1,28 +1,55 @@
 ---
 permalink: /building-data-connection-apps
-title: Building Service Account Authentication Applications
+title: Building Data Connection Applications
 layout: default
-section_title: Building Applications
-sub_header: Learn how to build a data connection app using a Developer Managed Service Account (DMSA) for automated system-to-system data exchange.
+section_title: Build Your App
+sub_header: Learn how to build a data connection app using either User Level Authentication or Service Account Authentication.
 ---
 
 ## Introduction
-This guide provides step-by-step instructions for building a data connection app using Service Account Authentication (OAuth 2.0 Client Credentials). This method allows your integration to interact with the Procore API using system credentials—without requiring user login. These apps use Procore's Developer Managed Service Account (DMSA) model and are ideal for server-to-server communication.
+
+Data connection apps enable secure data exchange between Procore and external platforms. Procore supports two authentication methods for data connection apps:
+
+- **User Level Authentication** — Uses OAuth 2.0 Authorization Code Flow to act on behalf of a specific user. API responses are limited by that user's permissions in Procore.
+- **Service Account Authentication** — Uses a Developer Managed Service Account (DMSA) and the OAuth 2.0 Client Credentials Flow for automated, system-to-system communication without requiring user login.
 
 To get started, first [create a Developer Portal account and app]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %}).
 <br><br>
 
 ***
-## Add a New Data Connector Component
+## Choose an Authentication Method
+
+| | User Level Authentication | Service Account Authentication |
+| --- | --- | --- |
+| **OAuth Flow** | Authorization Code | Client Credentials |
+| **Acts as** | A specific Procore user | A generic service account user |
+| **Permissions** | Inherited from the logged-in user | Defined by the developer via Permissions Builder |
+| **Best for** | Apps that need user context | Server-to-server data sync |
+
+For help choosing, see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
+<br><br>
+
+***
+## Add a Data Connector Component
+
+### User Level Authentication
+
+1. In your Developer Portal app, expand the **Data Connector Components** section.
+2. Click **Add Components**.
+3. Select **User Level Authentication**.
+   - This option uses OAuth 2.0 Authorization Code Flow to act on behalf of a user.
+4. Click **Save Component**.
+
+### Service Account Authentication
+
 1. In your Developer Portal app, expand the **Data Connector Components** section.
 2. Click **Add Components**.
 3. Select **Service Account Authentication** and **User Level Authentication**.
-   - This option uses a Developer Managed Service Account (DMSA) and the OAuth 2.0 Client Credentials Flow to allow system-level access.
+   - This option uses a Developer Managed Service Account (DMSA) and the OAuth 2.0 Client Credentials Flow for system-level access.
 4. Use the **Permissions Builder** to define the required company- and project-level tool permissions your app needs.
    - Refer to the [User Permissions Matrix](https://support.procore.com/references/user-permissions-matrix-web) for more details.
 5. Click **Save Component**.
-
-![Permission Builder]({{ site.baseurl }}/assets/guides/form-based-manifest-dmsa-perms-builder.png)
+<!-- ![Permission Builder]({{ site.baseurl }}/assets/guides/form-based-manifest-dmsa-perms-builder.png) -->
 <br><br>
 
 ***
@@ -32,6 +59,7 @@ To get started, first [create a Developer Portal account and app]({{ site.url }}
 
 ***
 ## Create the Initial App Manifest Version
+
 After configuring your component, you're ready to save your first app version.
 
 1. In the Configuration Builder, click **Create Version**.
@@ -50,5 +78,4 @@ For details on setting up your sandbox, see the [Quick Start Guide]({{ site.url 
 
 ***
 ## Promote the Updated Sandbox Manifest to Production
-Once you're satisfied with testing, promote your sandbox version to production.  
-See [Managing App Versions & Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) to learn how.
+Once you're satisfied with testing, promote your sandbox version to production. See [Managing App Versions & Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) to learn how.

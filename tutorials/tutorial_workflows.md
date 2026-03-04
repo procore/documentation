@@ -2,7 +2,7 @@
 permalink: /tutorial-workflows
 title: Interacting with Workflows (Legacy)
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Project Management"
 ---
 
 ## Introduction
@@ -16,7 +16,7 @@ The Workflows tool was designed to streamline the user experience and to replace
 ## Things to Consider
 
 - It is important to note that once a workflow has been applied to an object (such as a Subcontract or Purchase Order), you will not be able to update the status field directly using the API for that object. Instead, you will need to use the Workflow API in order to adjust the status field.
-- Currenty, there is no way to programmatically determine if a workflow has been applied to a given object. Your Procore administrator in conjunction with your Procore point-of-contact should be able to identify for you which objects in your account have workflows applied.
+- Currently, there is no way to programmatically determine if a workflow has been applied to a given object. Your Procore administrator in conjunction with your Procore point-of-contact should be able to identify for you which objects in your account have workflows applied.
 
 ## Workflow API Endpoints
 
@@ -130,7 +130,7 @@ The following table lists the required parameters for the [Create Workflow Activ
 | workflow_user_role_id | Body  | ID of the user role associated with the activity.           |
 | performed_by_id       | Body  | The login information for the user performing the activity. |
 
-In addition to the parameters listed above, there are optional parameters for including comments and attachements to the activity history.
+In addition to the parameters listed above, there are optional parameters for including comments and attachments to the activity history.
 See the [Create Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow#create-workflow-activity-history) reference page for more information.
 
 A sample POST request to the [Create Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow#create-workflow-activity-history) endpoint would take the following format:
@@ -220,3 +220,11 @@ This example shows that both the Submit for Approval (`"id": 1586809`) and Appro
 ## Additional Information
 
 If you require additional guidance on working with the Workflows API, please reach out to our Technical Services team at <apisupport@procore.com> for assistance.
+
+## See Also
+
+- [Working with the Correspondence Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_correspondence.md %})
+- [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
+- [Working with User Permissions and Permission Templates]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_user_permissions.md %})
+- [Work Breakdown Structure]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_wbs.md %})
+- [Interacting with Workflows]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows_v2.md %})

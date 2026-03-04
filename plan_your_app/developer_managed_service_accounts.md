@@ -1,18 +1,10 @@
 ---
 permalink: /developer-managed-service-accounts
 title: Developer Managed Service Accounts
+sub_header: Learn how DMSAs provide secure, automated API access without traditional service accounts.
 layout: default
-section_title: Building Applications
-
+section_title: Plan Your App
 ---
-
->**Deprecation of Traditional Service Accounts**
->
-> Traditional Service Accounts were deprecated on December 9, 2021.
-> Beginning January 21, 2025, we will no longer allow the creation of new Traditional Service Accounts.
-> Existing Traditional Service Accounts will continue to function until March 18, 2025.
-> As a result of this deprecation, developers of data connection applications that currently use traditional service accounts are required to update their applications to use DMSAs, and customers will be required to install these updated applications before the sunset date.
-> See [Deprecation of Traditional Service Accounts]({{ site.url }}{{ site.baseurl }}{% link announcements/service_account_deprecation.md %}) for additional information.
 
 ## Background
 
@@ -113,7 +105,7 @@ Here are some of the primary differences between DMSAs and traditional service a
             </td>
             <td>
             <ul>
-                <li>Project access and must be configured and managed manually by the company administrator.</li>
+                <li>Project access must be configured and managed manually by the company administrator.</li>
             </ul>
             </td>
         </tr>
@@ -179,11 +171,11 @@ The backend for your integration needs to change in the following ways.
 - Required tool permissions for the application must be specified using the Permissions Builder.
 - Calls to the Procore API must use the DMSA `client_id` and `client_secret` for authorization and authentication.
 - Must include the `Procore-Company-Id` request header when making calls to the `/rest/v1.0/me` or `/rest/v1.0/companies` endpoints.
-See [Using Developer Managed Service Accounts with MPR]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials#using-developer-managed-service-accounts-with-mpz) for additional information.
+See [Using Developer Managed Service Accounts with MPR]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials#using-developer-managed-service-accounts-with-mpr) for additional information.
 
 ### How do we see which companies have the App installed?
 
-Installation metrics are captured and available for viewing and downloading from your application page on the Procore Developer Portal. See [Working with App Metrics]({{ site.url }}{{ site.baseurl }}/building-apps-metrics) for additional information.
+Installation metrics are captured and available for viewing and downloading from your application page on the Procore Developer Portal. See [Manage & Improve Your Marketplace App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/update_your_marketplace_app.md %}) for additional information.
 In addition, the following steps can be used to retrieve the list of company accounts in which your DMSA application has been installed.
 
 1. Use the DMSA production client ID and client secret to obtain an API access token.
@@ -191,9 +183,7 @@ In addition, the following steps can be used to retrieve the list of company acc
 
 ### How do I make sure users don’t access the wrong company’s data?
 
-The same DMSA credentials created for your data connection application can also be used with the [Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}/oauth-client-credentials).
-In this case, the access token you receive is for a specific logged in user, rather than for the DMSA Directory user.
-Before showing a user any specific company data or allowing them to trigger actions using your DMSA app, first have them sign in using the authorization code grant flow and check that they are a user on the correct company using the [List Companies](https://developers.procore.com/reference/rest/v1/companies?version=1.0) endpoint. See [Handling Multiple Companies]({{ site.url }}{{ site.baseurl }}/api-call-sequencing#handling-multiple-companies) for additional information.
+The same DMSA credentials can also be used with the Authorization Code Grant Flow to authenticate a specific user. Before showing company data, have the user sign in and verify they belong to the correct company. To prevent this, prompt the user to choose a company using the [List Companies](https://developers.procore.com/reference/rest/v1/companies#list-companies) endpoint, then scope all requests to that company.
 
 ### How is API authentication handled on the Procore platform?
 
@@ -229,7 +219,7 @@ You can make two separate calls to the [List Projects](https://developers.procor
   "client_secret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 }
 ```
-- Make a GET call to the [List Projects](https://developers.procore.com/reference/rest/v1/projects?version=1.1) endpoint using the retreived access token for authorization.
+- Make a GET call to the [List Projects](https://developers.procore.com/reference/rest/v1/projects?version=1.1) endpoint using the retrieved access token for authorization.
 
 **For the Logged in User:**
 

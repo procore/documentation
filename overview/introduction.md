@@ -3,7 +3,7 @@ permalink: /introduction
 title: Introduction
 sub_header: Build on Procore with secure APIs and an app framework.
 layout: default
-section_title: Overview
+section_title: Introduction
 ---
 
 > **For the latest news and updates, see our [Announcements]({{ site.url }}{{ site.baseurl }}{% link announcements/overview.md %}) and [Notifications]({{ site.url }}/notifications) pages.**
@@ -11,7 +11,7 @@ section_title: Overview
 ## Overview
 Procore's Developer Platform lets you build integrations and apps with secure, RESTful APIs (OAuth 2.0). You get consistent versioning, clear rate limits, and comprehensive documentation — so you can ship reliable solutions in any tech stack.
 
-Our REST APIs are designed for transactional integrations — creating, reading, updating, and deleting records as part of your app's core functionality. For AI-driven use cases, new **Agentic APIs** are coming soon. See the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link api_essentials/api_usage_guidelines.md %}) for details.
+Our REST APIs are designed for transactional integrations — creating, reading, updating, and deleting records as part of your app's core functionality. For AI-driven use cases, new **Agentic APIs** are coming soon. See the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) for details.
 <br><br>
 
 ***
@@ -30,11 +30,11 @@ To publish, see [Procore Partner Overview]({{ site.url }}{{ site.baseurl }}{% li
 
 ***
 ## Get Started in 3 Steps
-1. **Create a Developer Account.** Sign up and verify: <a href="https://developers.procore.com/signup" target="_blank">developers.procore.com/signup</a>.
+1. **Create a Developer Account.** [Register a new account]({{ site.url }}{{ site.baseurl }}{% link getting_started/new_account.md %}) and verify your email.
 2. **Create your app.** In the Developer Portal, select **Create App** and set up your components.
 3. **Create a version and install.** Select **Create Version** to generate an **App Version Key**, then <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">install a custom app</a> in your company.
 
-Want a hands-on path? See the [Quick Start Guide]({{ site.url }}{{ site.baseurl }}{% link overview/quick_start_guide.md %}).
+For a hands-on walkthrough, see the [Quick Start Guide]({{ site.url }}{{ site.baseurl }}{% link overview/quick_start_guide.md %}).
 <br><br>
 
 ***
@@ -55,10 +55,12 @@ See the <a href="https://developers.procore.com/reference/rest/docs/rest-api-ove
 ## Start Here
 - **Make your first API call:** [Quick Start Guide]({{ site.url }}{{ site.baseurl }}{% link overview/quick_start_guide.md %})
 - **Choose your app type:** [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})
-- **Set up authentication:** [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %})
+- **Set up authentication:** [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+- **Publish to the Marketplace:** [Technology Partner Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %})
 
 ## Go Deeper
-- Understand API usage: [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link api_essentials/api_usage_guidelines.md %})
-- Plan for pagination: [Using Pagination]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/pagination.md %})
-- Receive change events: [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %})
-- Publish to the Marketplace: [Technology Partner Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %})
+- **Understand API usage:** [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %})
+- **Plan for pagination:** [Using Pagination]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/pagination.md %})
+- **Receive change events:** [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %})
+- **Look up error codes:** [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %})
+- **Browse the API:** <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Reference</a>

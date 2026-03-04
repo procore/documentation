@@ -115,8 +115,10 @@ If you want your app available in the **Federal Zone**, follow these steps to ga
 
 ***
 
-### Additional Resources
+## See Also
 - <a target="_blank" href="https://www.fedramp.gov/">What is FedRAMP?</a>
 - <a target="_blank" href="https://developers.procoregov.com/">Federal Developer Portal</a>
 - <a target="_blank" href="https://marketplace.procoregov.com/">Federal Marketplace</a>
 - For questions or support, contact <a href="mailto:marketplaceqa@procore.com">marketplaceqa@procore.com</a>.
+- [Handling Procore Regions]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %})
+- [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})

@@ -62,7 +62,7 @@ Procore customers often review the app to understand its technical functionality
 ***
 ## Pricing & Availability
 
-### App Pricing (NEW)
+### App Pricing
 Your app's pricing plan is an important part of the submission process, providing customers with clear details on what’s required to implement the integration. Here are two key pricing scenarios:
 
 1. Does the app require an additional subscription to another system?

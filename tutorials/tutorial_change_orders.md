@@ -2,7 +2,7 @@
 permalink: /tutorial-change-orders
 title: Working with Change Orders
 layout: default
-section_title: Guides and Tutorials
+section_title: "Product Guides: Financial Tools"
 
 ---
 
@@ -15,7 +15,7 @@ In construction management, _change orders_ represent the specific details of ne
 ## Understanding Change Order Tiers
 
 In order to work effectively with the Change Orders API, you'll need a solid understanding of how Change Order Tiers work in Procore.
-Before, exploring the various Change Order API resources and endpoints, we recommend reading [What are the different change order tiers?](http://support.procore.com/faq/what-are-the-different-change-order-tiers) on the Procore Support site.
+Before, exploring the various Change Order API resources and endpoints, we recommend reading [What are the different change order tiers?](https://support.procore.com/faq/what-are-the-different-change-order-tiers) on the Procore Support site.
 
 ## Single-Tier Change Order Behavior - Procore Web vs. API
 
@@ -27,3 +27,27 @@ To help illustrate this relationship, work through the following steps.
 1. Use the Create Change Order Package endpoint ([POST /rest/v1.0/change_order_packages](https://developers.procore.com/reference/rest/v1/change-order-packages#create-change-order-package)) to create a new Change Order Package.
 1. Make a call to the List Change Order Packages endpoint ([GET /rest/v1.0/change_order_packages](https://developers.procore.com/reference/rest/v1/change-order-packages#list-change-order-packages)) and examine the response to verify that the Change Order Package created in the previous step exists.
 1. Make a call to the List Potential Change Orders endpoint ([GET /rest/v1.0/potential_change_orders](https://developers.procore.com/reference/rest/v1/potential-change-orders#list-potential-change-orders)) to verify that indeed an associated Potential Change Order has also been created.
+
+## Multi-Tier Change Order Behavior
+
+Procore supports two-tier and three-tier Change Order configurations, which add additional layers of approval and tracking:
+
+- **Two-Tier:** Change Order Requests flow into Change Order Packages. Use the [Change Order Requests](https://developers.procore.com/reference/rest/v1/change-order-requests) endpoints alongside [Change Order Packages](https://developers.procore.com/reference/rest/v1/change-order-packages).
+- **Three-Tier:** Potential Change Orders roll up into Change Order Requests, which then roll up into Change Order Packages. All three endpoint groups are used together.
+
+The tier configuration is set at the project level and determines which endpoints and workflows are available. For more details on tier configurations, see [What are the different change order tiers?](https://support.procore.com/faq/what-are-the-different-change-order-tiers) on the Procore Support site.
+
+## Key Endpoints
+
+| Resource | List | Create | Show | Update |
+| --- | --- | --- | --- | --- |
+| Change Order Packages | [GET](https://developers.procore.com/reference/rest/v1/change-order-packages#list-change-order-packages) | [POST](https://developers.procore.com/reference/rest/v1/change-order-packages#create-change-order-package) | [GET](https://developers.procore.com/reference/rest/v1/change-order-packages#show-change-order-package) | [PATCH](https://developers.procore.com/reference/rest/v1/change-order-packages#update-change-order-package) |
+| Change Order Requests | [GET](https://developers.procore.com/reference/rest/v1/change-order-requests#list-change-order-requests) | [POST](https://developers.procore.com/reference/rest/v1/change-order-requests#create-change-order-request) | [GET](https://developers.procore.com/reference/rest/v1/change-order-requests#show-change-order-request) | [PATCH](https://developers.procore.com/reference/rest/v1/change-order-requests#update-change-order-request) |
+| Potential Change Orders | [GET](https://developers.procore.com/reference/rest/v1/potential-change-orders#list-potential-change-orders) | [POST](https://developers.procore.com/reference/rest/v1/potential-change-orders#create-potential-change-order) | [GET](https://developers.procore.com/reference/rest/v1/potential-change-orders#show-potential-change-order) | [PATCH](https://developers.procore.com/reference/rest/v1/potential-change-orders#update-potential-change-order) |
+
+## See Also
+
+- [Financial Tools Overview]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_financial_tools.md %})
+- [Budget Tools]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_line_items.md %})
+- [Budget Changes API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_changes_api.md %})
+- [Subcontractor Invoices]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_requisitions.md %})
