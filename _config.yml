@@ -25,6 +25,12 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/documentation" # the subpath of your site, e.g. /blog
 url: "https://developers.procore.com" # the base hostname & protocol for your site, e.g. http://example.com
 
+# Base URL of the dev-portal API that powers documentation search.
+# Override at build/serve time with the DEV_PORTAL_BASE_URL environment variable:
+#   DEV_PORTAL_BASE_URL=http://localhost:3001 bundle exec jekyll serve --port 4005
+# In production (GitHub Pages / CI) this default is used automatically.
+dev_portal_base_url: "https://developers.procore.com"
+
 # Build settings
 theme: minima
 plugins:
