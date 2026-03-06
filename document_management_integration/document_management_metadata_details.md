@@ -344,6 +344,31 @@ All metadata fields follow a consistent structure in Document Upload and Documen
 }
 ```
 
+### Constructing the Fields Array for API Requests
+
+When initializing or updating documents using the Document Uploads API (POST or PATCH requests), you will pass your metadata values inside the `fields` array. This array acts as a map, linking a specific project field's ID to the value you want to apply.
+
+Because Procore supports diverse field types — ranging from open text to strict dropdown lists — the format of the value you provide depends entirely on the field's data type. For example, text fields accept literal strings, whereas List of Values (LOV) fields require you to pass specific Procore value IDs.
+
+Use the following structuring rules and reference table to correctly construct your `fields` array payloads.
+
+**Structuring Rules**
+
+- **Always wrap values in an array**, even for single-value fields.
+- **Text-type fields** (`string` / `numeric` / `timestamp`): Use literal values directly.
+- **Select-type fields** (`lov_entry` / `lov_entries`): You cannot pass literal text. You must use the value IDs retrieved from the [List Project Metadata Values](https://developers.procore.com/reference/rest/document-management-fields?version=2.0#list-document-management-project-field-values) endpoint.
+- **For `lov_entries` multi-select**: Pass multiple value IDs inside the single `values` array, e.g., `"values": ["ID_1", "ID_2"]`.
+
+**Quick Reference: How to Structure Field Values**
+
+| Field Type | From: List Fields | From: List Field Values | Fields Array Entry Example |
+| --- | --- | --- | --- |
+| `lov_entry` (single select) | `{ "id": "01JDXMPK09...", "name": "type", "type": "lov_entry" }` | `{ "id": "01JDXMPK0H...", "code": "DRW", "label": "Drawing" }` | `{ "id": "01JDXMPK09...", "values": ["01JDXMPK0H..."] }` |
+| `lov_entries` (multi-select) | `{ "id": "01JDXMPK0K...", "name": "disciplines", "type": "lov_entries" }` | `{ "id": "01JDXMPK0H...", "label": "Structural" }`, `{ "id": "01JDXMPK0I...", "label": "Electrical" }` | `{ "id": "01JDXMPK0K...", "values": ["01JDXMPK0H...", "01JDXMPK0I..."] }` |
+| `string` | `{ "id": "01JDXMPK0B...", "name": "revision", "type": "string" }` | — | `{ "id": "01JDXMPK0B...", "values": ["Rev A"] }` |
+| `numeric` | `{ "id": "01JDXMPK0C...", "name": "page_count", "type": "numeric" }` | — | `{ "id": "01JDXMPK0C...", "values": ["42"] }` |
+| `timestamp` | `{ "id": "01JDXMPK06...", "name": "date_authored", "type": "timestamp" }` | — | `{ "id": "01JDXMPK06...", "values": ["2025-12-15T14:30:00Z"] }` |
+
 ### Querying Project Fields
 
 To identify which fields are configured for a specific project, query the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=latest#list-project-fields) endpoint.
@@ -1008,5 +1033,3 @@ Document Management can process 3D model files (BIM/Building Information Models)
 }
 </code></pre>
 </details>
-
-***
