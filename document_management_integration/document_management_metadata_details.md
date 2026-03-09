@@ -346,26 +346,30 @@ All metadata fields follow a consistent structure in Document Upload and Documen
 
 ### Constructing the Fields Array for API Requests
 
-When initializing or updating documents using the Document Uploads API (POST or PATCH requests), you will pass your metadata values inside the `fields` array. This array acts as a map, linking a specific project field's ID to the value you want to apply.
+When updating documents using the Document Uploads API PATCH request, you will pass your metadata values inside the `fields` array. This array acts as a map, linking a specific project field's ID to the value you want to apply.
 
-Because Procore supports diverse field types — ranging from open text to strict dropdown lists — the format of the value you provide depends entirely on the field's data type. For example, text fields accept literal strings, whereas List of Values (LOV) fields require you to pass specific Procore value IDs.
+Because Procore supports diverse field types — ranging from open text to strict dropdown lists — the format of the value you provide depends on the field's data type. For example, text fields accept literal strings, whereas List of Values (LOV) fields require you to pass specific Procore value IDs.
 
 Use the following structuring rules and reference table to correctly construct your `fields` array payloads.
 
 **Structuring Rules**
 
 - **Always wrap values in an array**, even for single-value fields.
-- **Text-type fields** (`string` / `numeric` / `timestamp`): Use literal values directly.
-- **Select-type fields** (`lov_entry` / `lov_entries`): You cannot pass literal text. You must use the value IDs retrieved from the [List Project Metadata Values](https://developers.procore.com/reference/rest/document-management-fields?version=2.0#list-document-management-project-field-values) endpoint.
+- **Lookup fields** (`lov_entry` / `lov_entries` / `reference`): You cannot supply your own values. You must first retrieve valid IDs from the field's values endpoint, then pass the chosen ID(s) in the `values` array.
 - **For `lov_entries` multi-select**: Pass multiple value IDs inside the single `values` array, e.g., `"values": ["ID_1", "ID_2"]`.
+- **Direct fields** (`string` / `rich_text` / `numeric` / `timestamp`): Pass your values directly — no ID lookup required.
 
 **Quick Reference: How to Structure Field Values**
 
 | Field Type | From: List Fields | From: List Field Values | Fields Array Entry Example |
 | --- | --- | --- | --- |
+| **LOOKUP FIELDS — retrieve valid IDs before writing** | | | |
 | `lov_entry` (single select) | `{ "id": "01JDXMPK09...", "name": "type", "type": "lov_entry" }` | `{ "id": "01JDXMPK0H...", "code": "DRW", "label": "Drawing" }` | `{ "id": "01JDXMPK09...", "values": ["01JDXMPK0H..."] }` |
 | `lov_entries` (multi-select) | `{ "id": "01JDXMPK0K...", "name": "disciplines", "type": "lov_entries" }` | `{ "id": "01JDXMPK0H...", "label": "Structural" }`, `{ "id": "01JDXMPK0I...", "label": "Electrical" }` | `{ "id": "01JDXMPK0K...", "values": ["01JDXMPK0H...", "01JDXMPK0I..."] }` |
+| `reference` (entity link) | `{ "id": "01JDXMPK07...", "name": "location", "type": "reference" }` | `{ "id": "120667", "label": "Alderaan", "code": "__", "active": true, "tags": [] }` | `{ "id": "01JDXMPK07...", "values": ["120667"] }` |
+| **DIRECT FIELDS — pass values as-is** | | | |
 | `string` | `{ "id": "01JDXMPK0B...", "name": "revision", "type": "string" }` | — | `{ "id": "01JDXMPK0B...", "values": ["Rev A"] }` |
+| `rich_text` | `{ "id": "01JDXMPK0Z...", "name": "description", "type": "rich_text" }` | — | `{ "id": "01JDXMPK0Z...", "values": ["<p>Design review notes</p>"] }` |
 | `numeric` | `{ "id": "01JDXMPK0C...", "name": "page_count", "type": "numeric" }` | — | `{ "id": "01JDXMPK0C...", "values": ["42"] }` |
 | `timestamp` | `{ "id": "01JDXMPK06...", "name": "date_authored", "type": "timestamp" }` | — | `{ "id": "01JDXMPK06...", "values": ["2025-12-15T14:30:00Z"] }` |
 
