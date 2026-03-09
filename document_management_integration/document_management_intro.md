@@ -52,7 +52,7 @@ For all available API endpoints, see [Document Management API Endpoints]({{ site
 
 **Step 1: Initialize Document Upload** - Create a Document Upload by providing filename and mime type. The system returns a unique upload ID.
 
-**Step 2: Upload Binary File** - Use the [File Uploads API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}) to put the binary in storage. The Uploads API returns a file upload ID that identifies your file in storage.
+**Step 2: Upload Binary File** - Use the Unified Uploads API *(documentation coming soon)* to put the binary in storage. The Uploads API returns a file upload ID that identifies your file in storage.
 
 **Step 3: Prepare and Validate Document Upload** - Update the Document Upload with the file upload ID (from step 2) and enrich your metadata fields. During this phase, the system initiates asynchronous processing for ML analysis and naming standard extraction.
 Before submitting, verify the upload is ready:

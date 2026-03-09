@@ -30,62 +30,14 @@ Replace `{company_id}` and `{project_id}` with your actual Procore company and p
 | 2 | `.../fields` | GET | Fetch available project fields and their IDs |
 | 3 | `.../fields/{field_id_or_name}/values` | GET | Fetch field value IDs for dropdown list field types |
 | 4 | `.../document_uploads` | POST | Initialize document upload records |
-| 5 | `/rest/v1.1/projects/{project_id}/uploads` | POST, PUT, PATCH | Upload binary file to Procore storage — **uses the V1.1 Direct File Uploads API, not the V2 Document Management base path above** |
+| 5 | `/rest/v1.1/projects/{project_id}/uploads` | POST, PUT, PATCH | Upload binary file to Procore storage using the **V2.1 Unified Uploads API** |
 | 6 | `.../document_uploads` | PATCH | Associate the uploaded file, set metadata, mark upload as COMPLETED |
-| 7 | `.../document_uploads/{document_upload_id}` | GET | Retrieve `latest_event_id` (required for submission) and optionally review Machine Learning (ML)  populated fields before submitting |
+| 7 | `.../document_uploads/{document_upload_id}` | GET | Retrieve `latest_event_id` (required for submission) and optionally review Machine Learning (ML)  populated fields |
 | 8 | `.../document_revisions` | POST | Submit uploads to create document revisions |
 
-> **Flexible workflow:** The steps listed above present one approach for uploading and submitting documents to the Document Management tool. The workflow is not the only path to a working integration. The steps can be rearranged based on your specific integration needs and depending on when your binary file and metadata are available. We recommend reading through the full guide first and reviewing the [Integration Patterns](#integration-patterns) below to choose the path that best fits your use case.
-
----
-
-## Integration Patterns
-
-The standard workflow described above (Steps 1–8) is the most comprehensive path, but not every step is required in every scenario. The binary file upload (Step 5) can happen at any point — before or after Steps 1–4. Steps 4–8 can be sequenced in different ways depending on when your metadata and binary files become available.
-
-Prerequisites (Steps 1–3): Before choosing and executing one of the upload scenarios below, you will need to understand your project's upload requirements and gather the required field data.
-* Execute Steps 1–3: Regardless of your chosen pattern, you will need to fetch your project's upload requirements (Step 1), project fields (Step 2), and metadata values (Step 3).
-* Structure Your Metadata Fields: All scenarios require you to submit metadata, whether it is during the initial creation or a subsequent update. For exact JSON payload examples and rules on formatting this data, see [Constructing the Fields Array for API Requests]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}#constructing-the-fields-array-for-api-requests).
-
-
-### Scenario A — Asynchronous Metadata 
-
-Best when your integration collects metadata separately from the file.
-
-**Sequence:**
-1. Create Document Uploads (Step 4)
-2. Upload Binary File to Storage (Step 5)
-3. Update Document Uploads with metadata, `file_upload_id`, and `upload_status: "COMPLETED"` (Step 6)
-4. Retrieve `latest_event_id` (Step 7)
-5. Submit as Revision (Step 8)
-
-Between the Create Document Uploads request (Step 4) and the Update Document Uploads request (Step 6), the upload has `upload_status: INCOMPLETE` and is not visible in document upload list or show endpoints.
-
-### Scenario B — Complete Metadata Available Upfront
-
-Best when all metadata is known immediately at creation time.
-
-**Sequence:**
-1. Create Document Uploads with metadata included (Step 4)
-2. Upload Binary File to Storage (Step 5)
-3. Update Document Uploads with `file_upload_id` and `upload_status: "COMPLETED"` — no metadata changes needed (Step 6)
-4. Retrieve `latest_event_id` (Step 7)
-5. Submit as Revision (Step 8)
-
-Between the Create Document Uploads request (Step 4) and the Update Document Uploads request (Step 6), the upload has `upload_status: INCOMPLETE` and is not visible in document upload list or show endpoints.
-
-### Scenario C — File Already in Storage
-
-Best when the binary file is already available. Upload the binary file first via the Direct File Uploads API, then include the resulting `file_upload_id` and all required metadata in your initial Create Document Uploads POST. This allows you to skip the Update Document Uploads request entirely.
-
-**Sequence:**
-1. Upload Binary File to Storage (Step 5)
-2. Create Document Uploads with metadata and `file_upload_id` included (Step 4)
-3. *(Skip Step 6 entirely)*
-4. Retrieve `latest_event_id` (Step 7)
-5. Submit as Revision (Step 8)
-
-Including `file_upload_id` in the Create Document Uploads POST automatically links the binary and sets `upload_status` to `COMPLETED` — no INCOMPLETE window exists and the upload is immediately visible in list and show results.
+> **Flexible file upload ordering:** Step 5 (binary file upload) does not depend on Step 4. You can perform them in either order, as long as both are complete before Step 6:
+> - **Record first (Steps 4 → 5):** Create the document upload record first, then upload the file to storage.
+> - **File first (Steps 5 → 4):** Upload the file to storage first, then create the document upload record.
 
 ---
 
@@ -100,7 +52,7 @@ These are independent project-level lookups that can be called in any order. Sin
 
 ### Step 1: Fetch Upload Requirements
 
-This endpoint returns all configured upload requirements for the project and it can be used to determine which fields must be populated before a document upload can be submitted as a revision. A project can have multiple upload requirements: a **default rule** that applies to all uploads, and optional **conditional rules** that apply based on a document's field values. For example, drawings may require different metadata than other document types. 
+This endpoint returns all configured upload requirements for the project and can be used to determine which fields must be populated before a document upload can be submitted as a revision. A project can have multiple upload requirements: a **default rule** that applies to all uploads, and optional **conditional rules** that apply based on a document's field values. For example, drawings may require different metadata than other document types. 
 
 **Request** — [List Project Upload Requirements](https://developers.procore.com/reference/rest/project-upload-requirements?version=2.0#list-project-upload-requirements)
 
@@ -121,7 +73,7 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
         "fields": [
           { "id": "01JDXMPK03FD0EF8R1HKTRM93X", "name": "discipline", "label": "Discipline", "type": "lov_entry"  },
           { "id": "01JDXMPK04FD0DE7Q0GJSQK82Y", "name": "number",     "label": "Number",     "type": "string"    },
-          { "id": "01JDXMPK09FD0892J5BDMJD37D", "name": "type",       "label": "Type",       "type": "lov_entry" },
+          { "id": "01JDXMPK09FD0892J5BDMJD37D", "name": "type",       "label": "Type",       "type": "lov_entry" }
         ],
         "updated_at": "2025-01-01T00:00:00.000Z"
       },
@@ -167,13 +119,13 @@ The API response is an array of requirement objects. Each object defines a set o
 
 - **`allow_duplicate_revisions`** — If `false`, submitting a document with a revision value that already exists in its container will fail with a `DUPLICATE_REVISION` error.
 
-> **Note:** Always ensure all fields in `fields_required_by_project` and `additional_required_fields` for your applicable requirement are populated before submitting document uploads.
+> **Field IDs are available throughout this response:** Every field object in this response — across `naming_standard.fields`, `rule_qualifiers[].field`, `additional_required_fields`, and `fields_required_by_project` — includes the field `id` along with its full metadata (`name`, `label`, `type`, `description`, `active`, `readonly`, etc.). If you only need to populate required fields, you can use those IDs directly and skip Step 2. Proceed to Step 2 only if you need to discover optional fields not listed in any of these arrays.
 
 ---
 
 ### Step 2: Fetch Project Fields
 
-Before you can populate metadata on a document upload, you need to know which fields are available for the project and what their IDs are.
+This endpoint returns every user-settable field configured for the project, including optional fields not listed in upload requirements. Skip this step if you only need to populate required fields — their IDs are already in the Step 1 response.
 
 **Request** — [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0)
 
@@ -229,17 +181,17 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
 }</code></pre>
 </details>
 
-The response lists every user-settable field configured for the project. Save the ID of each field that appears in the `fields_required_by_project` and `additional_required_fields` arrays of the requirement object that matches your document's metadata (i.e., the one whose `rule_qualifiers` all match your values, or the default if none match). You will use these field IDs when populating document upload metadata.
+Based on the matching requirement object (the one whose `rule_qualifiers` all match your document's metadata, or the default if none match), save the field IDs you intend to use. This includes required fields from `fields_required_by_project` and `additional_required_fields`, but you can also save IDs from `naming_standard.fields`, `rule_qualifiers[].field`, or any optional fields returned by Step 2 that you plan to populate. You will use these IDs when setting metadata on document uploads.
 
-The response excludes system-only fields (`file_format`, `assigned_workflow_template`) that are not user-settable. Fields with `readonly: true` cannot be set by the integrator, and fields with `active: false` or `visible: false` should generally be ignored. For a full reference of standard and system fields, field types, and value structures, see [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}).
+The response excludes system-only fields (`file_format`, `assigned_workflow_template`) that are not user-settable. Fields with `readonly: true` cannot be set through the API, and fields with `active: false` or `visible: false` should generally be ignored. For a full reference of standard and system fields, field types, and value structures, see [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}).
 
-> **Note on ML Auto-Population:** For PDF files, Procore may automatically populate some required fields via machine learning. When planning which fields to supply manually, account for this. See [ML and Automated Features]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %}#machine-learning-ml-and-automated-features) in the Overview for the full list of fields, precedence rules, and limitations.
+> **Note on ML Auto-Population:** For PDF files, Procore may automatically populate some required fields via machine learning. When planning which fields to supply manually, account for this. See [ML and Automated Features]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %}#machine-learning-ml-and-automated-features) for the full list of fields, precedence rules, and limitations.
 
 ---
 
 ### Step 3: Fetch Values for Dropdown Fields
 
-For any required field with type `lov_entry` (single select) or `lov_entries` (multi-select), you must fetch the available metadata values to obtain valid value IDs.
+This endpoint returns the available metadata values for a given field and is a required step for any field with type `lov_entry` (single select) or `lov_entries` (multi-select) that you plan to populate. The response provides value IDs that you will supply when setting field values on a document upload.
 
 **Request** — [List Project Metadata Values](https://developers.procore.com/reference/rest/project-metadata-values?version=2.0)
 
@@ -292,7 +244,7 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
 
 Save the ID of each value you intend to use — you will pass these IDs in the `values` array when creating or updating document uploads. Only values with `active: true` can be used; inactive values will be rejected.
 
-Make one request per field — the endpoint only accepts a single field at a time. Repeat this call for each `lov_entry` or `lov_entries` field you intend to populate, whether required or optional (e.g., `type`, `status`, `discipline`).
+Make one request per field as the endpoint only accepts a single field at a time. Repeat this call for each `lov_entry` or `lov_entries` field you intend to populate.
 
 Use the `keyword` query parameter to filter results by value name without fetching the entire list. For example, if you only need the location value for "Floor 3", add `?keyword=Floor%203` to the request instead of paginating through all locations. This is useful for large value lists where you know the specific value you need.
 
@@ -300,11 +252,9 @@ Use the `keyword` query parameter to filter results by value name without fetchi
 
 ## Steps 4–8: Upload and Submit Documents
 
-These steps are performed for each batch of documents you upload. The exact ordering depends on your [workflow pattern](#integration-patterns).
-
 ### Step 4: Create Document Uploads
 
-Initialize a temporary staging record for your document. In the Procore architecture, a **Document Upload** is an intermediate object — it holds your metadata and file reference, but it does not become a permanent project record until it is formally submitted as a revision in Step 8. This request creates that staging record and returns the `id` you will use to link your binary file and metadata in the steps that follow.
+Initialize a document upload. In the Procore architecture, a **Document Upload** is an intermediate object — it holds your metadata and file reference, but it does not become a permanent project record until it is formally submitted as a revision in Step 8. This request creates the document upload record and returns the `id` you will use to link your binary file and metadata in the steps that follow.
 
 **Request** — [Bulk Create Document Uploads](https://developers.procore.com/reference/rest/document-uploads?version=2.0#bulk-create-document-uploads)
 
@@ -314,53 +264,18 @@ POST /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management
 
 **Request Body**
 
-**Example 1: Minimal request (metadata set in the Update Document Uploads request, Step 6)**
-
 <details>
-<summary class="collapseListTierOne">View minimal request</summary>
-<pre><code>{
-  "uploads": [
-    {
-      "file_name": "A101-Floor-Plan.pdf",
-      "mime_type": "application/pdf"
-    },
-    {
-      "file_name": "A102-Elevation.pdf",
-      "mime_type": "application/pdf"
-    }
-  ]
-}</code></pre>
-</details>
-
-**Example 2: With metadata included upfront (Scenario B)**
-
-If all required metadata is available before creating uploads, include the `fields` array:
-
-<details>
-<summary class="collapseListTierOne">View request with metadata</summary>
+<summary class="collapseListTierOne">View example request</summary>
 <pre><code>{
   "uploads": [
     {
       "file_name": "A101-Floor-Plan.pdf",
       "mime_type": "application/pdf",
-      "fields": [
-        {
-          "id": "01JDXMPK09FD0892J5BDMJD37D",
-          "values": ["01JDXMPK0HMV0N14A7S3C95V9N"]
-        },
-        {
-          "id": "01JDXMPK0CFD0569F2Y8HEA04G",
-          "values": ["01JDXMPK0ZMV0655R3BMMQ1DD4"]
-        },
-        {
-          "id": "01JDXMPK0BFD0670G3Z9JFB15F",
-          "values": ["Rev A"]
-        },
-        {
-          "id": "01JDXMPK0AFD0781H4ACKGC26E",
-          "values": ["Floor Plan Level 1"]
-        }
-      ]
+      "file_locked": true
+    },
+    {
+      "file_name": "A102-Elevation.pdf",
+      "mime_type": "application/pdf"
     }
   ]
 }</code></pre>
@@ -371,8 +286,6 @@ If all required metadata is available before creating uploads, include the `fiel
 | `file_name` | string | Yes | The filename of the document. Including the file extension is recommended. |
 | `mime_type` | string | Yes | The MIME type of the file |
 | `file_locked` | boolean | No | Whether to lock the file from edits. Default is `false`. |
-| `file_upload_id` | string | No | UUID of a file already uploaded to Procore storage. Links the binary at creation time and automatically sets `upload_status` to `COMPLETED`. All uploads in the batch must either all include `file_upload_id` or none should; mixing is not allowed. |
-| `fields` | array | No | Metadata fields that can be set at creation or update. See [Constructing the Fields Array for API Requests]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}#constructing-the-fields-array-for-api-requests) for the expected format. Any fields omitted from a subsequent update are preserved. |
 
 <details>
 <summary class="collapseListTierOne">View Example Response (HTTP 201)</summary>
@@ -380,7 +293,7 @@ If all required metadata is available before creating uploads, include the `fiel
   "data": [
     {
       "id": "01JDXMPK0MTP0H41D4PYZ62R6R",
-      "file_locked": false
+      "file_locked": true
     },
     {
       "id": "01JDXMPK0NTP0G50E3NYY51Q5S",
@@ -390,31 +303,29 @@ If all required metadata is available before creating uploads, include the `fiel
 }</code></pre>
 </details>
 
-A successful request returns HTTP `201 Created` with a `data` array containing one object per upload. Each object contains only two fields: `id` (the document upload ID) and `file_locked`. Save all `id` values — you will pass them in the Update Document Uploads request (Step 6) and the Submit Document Revisions request (Step 8). The endpoint does not return an upload URL; file content is uploaded separately via the Binary File Upload. Note that uploads created without a `file_upload_id` start with `upload_status: INCOMPLETE` and won't appear in list or show results until Step 6 is complete.
+A successful request returns HTTP `201 Created` with a `data` array containing one object per upload. Each object contains only two fields: `id` (the document upload ID) and `file_locked`. Save all `id` values — you will pass them in the Update Document Uploads request (Step 6) and the Submit Document Revisions request (Step 8). All uploads start with `upload_status: INCOMPLETE` and won't appear in list or show endpoints until Step 6 is complete.
 
-> **Batch failures:** Any validation error causes the entire batch to fail with a 4xx status code — no uploads are created. This differs from the Update Document Uploads endpoint, which returns HTTP `207` and supports partial success. For error codes and resolution steps, see [Error Reference](#error-reference).
+> **Webhooks:** A `Document Upload.Created` event fires for each upload created in this request. Subscribe to this event if you want to be notified when uploads are initialized. See [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}) for setup details.
 
-> **Timeouts and retries:** This endpoint is not idempotent. If your request times out before the response arrives, the uploads may have already been created server-side. In that case, you will have no IDs to patch — the records are orphaned and will not affect subsequent operations. To avoid duplicating records, do not retry a POST unless you are certain no response was received.
+> **Batch failures:** Validation errors cause the entire batch to fail with a 4xx status code and no uploads are created. This differs from the Update Document Uploads endpoint, which returns HTTP `207` and supports partial success. For error codes and resolution steps, see [Error Reference](#error-reference).
+
+> **Timeouts and retries:** This endpoint is not idempotent. If your request times out, uploads may have already been created server-side but no IDs would have been returned. In that case, issue a fresh POST with the same payload to obtain new IDs. Any orphaned records from the timed-out request remain `INCOMPLETE`, are excluded from list and show endpoint results, and cannot be submitted as revisions.
 
 ---
 
 ### Step 5: Upload the Binary File
 
-Push your binary file to Procore's core storage service. Because file storage and document metadata are handled by separate microservices, this step requires you to step outside the V2 Document Management endpoints and use the V1.1 Direct File Uploads API. The sole purpose of this step is to get your file into Procore's storage and obtain a `uuid` — referred to as `file_upload_id` in subsequent steps. This ID is the critical link between your physical file and the staging record you created in Step 4.
+Push your binary file to Procore's storage service. Because file storage and document metadata are handled by separate microservices, this step requires you to step outside the V2 Document Management endpoints and use the V2.1 Unified Uploads API. The purpose of this step is to get your file into Procore's storage and obtain the `upload_id` field from the response, which is referred to as `file_upload_id` in subsequent steps. This ID is the critical link between your binary file and the document upload record you created in Step 4.
 
-For full request/response details, authentication requirements, and multipart form mechanics, see the [Direct File Uploads guide]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}). File size limits are enforced at this layer — check that guide before uploading large files.
+For full request/response details, authentication requirements, and multipart uploads, see the Unified Uploads API *(documentation coming soon)*.
 
-> **Sequencing:** The binary file upload has no dependency on the Create Document Uploads request — you can upload the file before or after initializing document upload records.
+> **Sequencing:** The binary file upload has no dependency on the Create Document Uploads request. You can upload your files before or after initializing document upload records.
 
 ---
 
 ### Step 6: Update Document Uploads
 
-Assemble your final payload and trigger backend validation. This step is where you combine your physical file and your metadata into a complete package. By setting `upload_status` to `COMPLETED`, you signal to Procore that the staging record is ready for validation (such as verifying the file exists in storage) and asynchronous Machine Learning analysis. This single PATCH request combines three actions:
-
-- Linking the binary file via `file_upload_id`
-- Setting all required metadata fields
-- Transitioning `upload_status` to `COMPLETED`
+This step is where you provide the `file_upload_id` returned from the binary file upload, populate required and optional metadata fields, and set `upload_status` to `COMPLETED`. This signals to Procore that the document upload is ready for storage verification and asynchronous Machine Learning analysis.
 
 **Request** — [Bulk Update Document Uploads](https://developers.procore.com/reference/rest/document-uploads?version=2.0#bulk-update-document-uploads)
 
@@ -422,12 +333,8 @@ Assemble your final payload and trigger backend validation. This step is where y
 PATCH /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/document_uploads
 ```
 
-**Request Body Examples**
-
-**Example 1: Update a single upload with all metadata**
-
 <details>
-<summary class="collapseListTierOne">View single upload update</summary>
+<summary class="collapseListTierOne">Update a single upload</summary>
 <pre><code>{
   "update_params": [
     {
@@ -457,10 +364,8 @@ PATCH /rest/v2.0/companies/{company_id}/projects/{project_id}/document_managemen
 }</code></pre>
 </details>
 
-**Example 2: Bulk update of multiple uploads (mixed success/failure)**
-
 <details>
-<summary class="collapseListTierOne">View bulk update request</summary>
+<summary class="collapseListTierOne">Bulk update of multiple uploads</summary>
 <pre><code>{
   "update_params": [
     {
@@ -501,9 +406,9 @@ PATCH /rest/v2.0/companies/{company_id}/projects/{project_id}/document_managemen
 
 | Top-level Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `update_params` | array | Yes | Array of update objects, one per document upload to modify. Each object must include `id`. |
+| `update_params` | array | Yes | Array of update objects, one per document upload to modify. Each object must include an `id`. |
 | `update_all_document_uploads` | boolean | No | If `true`, all document uploads matching any filter params will be updated. Default is `false`. |
-| `only_update_empty_fields` | boolean | No | If `true`, only empty fields are updated — existing values including ML-populated ones are preserved. Default is `false`. |
+| `only_update_empty_fields` | boolean | No | If `true`, only empty fields are updated and existing values including ML-populated ones are preserved. Default is `false`. |
 
 **Fields within each `update_params` item:**
 The `update_params` array contains one object per document upload to modify.
@@ -511,7 +416,7 @@ The `update_params` array contains one object per document upload to modify.
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `id` | string | Yes | The document upload ID returned from the create step. |
-| `file_upload_id` | string | No | The file upload UUID from the file upload step. Links the binary to the document upload record. |
+| `file_upload_id` | string | No | The `upload_id` returned by the Unified Uploads API. Links the binary file to this document upload record. |
 | `upload_status` | string | No | Upload status of the document. Allowed values: `INCOMPLETE`, `COMPLETED`, `PLACEHOLDER`. Set to `COMPLETED` to trigger server-side verification that the file exists in storage. |
 | `file_locked` | boolean | No | Whether to lock the file from edits. |
 | `fields` | array | No | Array of field update objects. See [Constructing the Fields Array for API Requests]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}#constructing-the-fields-array-for-api-requests) for payload structure and examples. |
@@ -520,7 +425,11 @@ The `update_params` array contains one object per document upload to modify.
 
 **Response**
 
-The endpoint always returns HTTP 207 (Multi-Status) with `success` and `failed` arrays. Items in `success` contain only `id`. The `failed` array is populated only when `upload_status: "COMPLETED"` is set but Procore cannot confirm the file in storage — each failed entry includes `id`, `code`, and `message`. All other errors (type mismatches, invalid IDs, permission failures) fail the entire request with a 4xx.
+When the request body is valid and updates are processed, the endpoint returns HTTP 207 (Multi-Status) with `success` and `failed` arrays. Items in `success` contain only `id`. The `failed` array is populated only when `upload_status: "COMPLETED"` is set but Procore cannot confirm individual files in storage — each failed entry includes `id`, `code` (a numeric error code from the storage service), and `message` (human-readable; do not parse programmatically).
+
+Request body validation errors fail the entire request with a 4xx before any updates are applied.
+
+Certain server-side conditions will cause the entire request to fail with HTTP 500.
 
 <details>
 <summary class="collapseListTierOne">View example response (HTTP 207, partial success)</summary>
@@ -534,40 +443,40 @@ The endpoint always returns HTTP 207 (Multi-Status) with `success` and `failed` 
     "failed": [
       {
         "id": "01JDXMPK0NTP0G50E3NYY51Q5S",
-        "code": "FILE_KEY_MISMATCH",
-        "message": "File keys mismatch"
+        "code": 404,
+        "message": "File not found in storage"
       }
     ]
   }
 }</code></pre>
 </details>
 
-> **Retrying:** PATCH updates are safe to retry — reapplying the same values overwrites existing ones without creating duplicates. For items in `failed`, fix the file storage issue and re-PATCH only those upload IDs with the correct `file_upload_id`. For whole-request 4xx failures (caused by type mismatches, invalid IDs, missing required fields, or permission errors), no update would have been made and you can fix the request body and retry the full request.
+> **Webhooks:** A `Document Upload.Completed` event fires when `upload_status` transitions to `COMPLETED`. Subscribe to this event if you want to be notified as soon as an upload is ready for Step 7. Note that this event fires on status transition, not when ML processing finishes — there is no webhook for ML completion. See [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}) for setup details.
+
+> **Retrying:** PATCH updates are safe to retry — reapplying the same values overwrites existing ones without creating duplicates. For items in `failed`, re-PATCH only those upload IDs. For 4xx and 500 failures, no updates were applied and the full request can be retried after addressing the error. See the [Error Reference](#error-reference) for resolution steps.
 
 ---
 
 ### Step 7: Retrieve Latest Event ID and Review Metadata
 
-Perform a final pre-flight check and retrieve your submission token. Before you permanently submit the document, you must retrieve the `latest_event_id`, which Procore requires for optimistic locking to prevent concurrent modification errors. This GET request also gives you a final opportunity to review the complete state of your upload, verify that all required fields are present, and capture any data automatically populated by Procore's Machine Learning.
+Use this step to review the complete state of your upload, verify that all required fields are present, and capture any data automatically populated by Procore's Machine Learning. This is where you will also retrieve the `latest_event_id`.
 
 **1. Retrieve `latest_event_id`**
 
-The show response includes `latest_event_id` for every upload. Save this value — you must pass it as `upload_latest_event_id` when submitting in Step 8. If you don't need ML-enriched metadata, grab this ID and proceed immediately.
+The show response includes `latest_event_id` for every upload. Save this value — you must pass it as `upload_latest_event_id` when submitting in Step 8. If you don't need ML-enriched metadata, grab this ID and proceed to step 8.
 
 **2. Check async processing status**
 
-Two background processes may auto-populate fields after `upload_status` is `COMPLETED`:
+Two background processes may auto-populate fields after `upload_status` is set to `COMPLETED`:
 
-- **ML** (PDF files only) — Procore analyzes file content and may populate fields such as Type, Description, Number, Revision, and Date Authored. Check `integrationStatuses.ML` — once it reaches `completed` or `error`, ML processing is finished. For non-PDF files, this field will be absent or `"not_applicable"`.
-- **Filename scraping** — Procore attempts to extract metadata from the filename. Check `integrationStatuses.FILENAME_SCRAPING` — present on every upload, but only produces meaningful metadata when the project has a naming standard configured.
+- **ML** (PDF files only) — Procore analyzes file content and may populate fields such as Type, Description, Number, Revision, and Date Authored. Check `integrationStatuses.ML` — once it reaches `completed` or `error`, ML processing is finished. For details on which fields ML populates, precedence rules, and limitations, see [ML and Automated Features]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %}#machine-learning-ml-and-automated-features).
+- **Filename scraping** — Procore attempts to extract metadata from the filename when the project has a naming standard configured. Check `integrationStatuses.FILENAME_SCRAPING` to determine the status of filename scraping.
 
-If you intend to use ML- or filename-scraped values before submitting, wait until both statuses have changed from `"in_progress"` before proceeding.
-
-> **Note on webhooks:** The `Document Upload.Completed` event fires when `upload_status` transitions to `COMPLETED` (Step 6), not when ML finishes. Subscribe to this event if you want to be notified as soon as an upload is ready for this step. See [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}) for setup details.
+If you intend to use ML or filename-scraped values before submitting, wait until both statuses have changed from `"in_progress"` before proceeding.
 
 **3. Verify all required metadata**
 
-Inspect the `fields` array to confirm all required fields are populated — by you or by ML — before proceeding. Submission in Step 8 permanently consumes the upload record, and developers can use this step to catch missing fields.
+Inspect the `fields` array to confirm all required fields are populated, either by you or by ML, before proceeding. Note that `permissions.allowed_actions` in the response does not reflect the user's full permission set and can be ignored here.
 
 **Request** — [Show Document Upload](https://developers.procore.com/reference/rest/document-uploads?version=2.0#show-document-upload)
 
@@ -594,7 +503,7 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
             "tags": []
           }
         ],
-        "label_source": "manual",
+        "label_source": "MANUAL",
         "label": "Type",
         "description": "The document type"
       },
@@ -603,7 +512,7 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
         "name": "revision",
         "type": "string",
         "values": [{ "label": "Rev A" }],
-        "label_source": "manual",
+        "label_source": "MANUAL",
         "label": "Revision",
         "description": "The document revision identifier"
       }
@@ -621,18 +530,11 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
 }</code></pre>
 </details>
 
-**Key response fields:**
-
-- **`latest_event_id`** — Save this value. Pass it as `upload_latest_event_id` when submitting in the next step.
-- **`integrationStatuses.ML`** — For PDF files, transitions from `"in_progress"` to `"completed"` (or `"error"`) once ML analysis finishes. This transition has no associated webhook — it occurs asynchronously after `upload_status` is `COMPLETED`. For details on which fields ML populates, precedence rules, and limitations, see [ML and Automated Features]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %}#machine-learning-ml-and-automated-features) in the Overview.
-- **`integrationStatuses.FILENAME_SCRAPING`** — Indicates whether metadata extraction from the filename has completed. Present on every upload, but only produces meaningful metadata when the project has a naming standard configured.
-- **`permissions.allowed_actions`** — Does not reflect the user's full permission set. Upload and submit permissions are governed by project-level tool access. This field can be ignored during the upload workflow.
-
 ---
 
 ### Step 8: Submit Document Uploads as Revisions
 
-Convert your temporary staging record into a permanent project record. Once a document upload has `upload_status: COMPLETED`, all required metadata fields populated, and a `latest_event_id` retrieved, it is ready for final submission. This POST request consumes your temporary upload ID and creates a permanent, versioned **Document Revision**. Procore will automatically place this new revision into the correct Document Container based on the metadata matching criteria.
+Convert your document upload into a permanent project record. Once a document upload has `upload_status: COMPLETED`, all required metadata fields populated, and a `latest_event_id` retrieved, it is ready for final submission. Submitted document uploads get removed from the uploads list and are no longer retrievable. This POST request consumes your temporary upload ID and creates a versioned Document Revision. Procore will automatically place this new revision into the correct Document Container based on the metadata matching criteria.
 
 **Request** — [Create Document Revisions](https://developers.procore.com/reference/rest/document-revisions?version=2.0)
 
@@ -661,33 +563,16 @@ POST /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management
 | --- | --- | --- | --- |
 | `uploads` | array | Yes | Array of uploads to submit |
 | `uploads[].id` | string | Yes | The document upload ID |
-| `uploads[].upload_latest_event_id` | string | Yes | The `latest_event_id` value retrieved from the Get Document Upload request. |
+| `uploads[].upload_latest_event_id` | string | Yes | The `latest_event_id` value retrieved from the Show Document Upload request. |
 | `uploads[].termination_reason` | string | Conditional | Required when `terminated_revision_status_id` is provided. Reason for terminating existing revision workflows (e.g., `"Superseded"`). See [Handling Workflow Conflicts](#handling-workflow-conflicts). |
 | `uploads[].terminated_revision_status_id` | string | Conditional | Required when `termination_reason` is provided. The metadata value ID of the status to set on terminated revisions. |
 
 <details>
-<summary class="collapseListTierOne">View Example Response (HTTP 201)</summary>
-<pre><code>{
-  "data": {
-    "ids": [
-      "01JDXMPK0TRV0BA5K8GSSY6J0Y",
-      "01JDXMPK0VRV0A94M7FRRX5H9Z"
-    ],
-    "failureIds": [],
-    "failures": []
-  }
-}</code></pre>
-</details>
-**`ids`** — The created document revision IDs. These are stable, permanent identifiers — use them (not upload IDs) for any subsequent references or integrations.
-
-**`failures`** — Array of per-item failures that occurred during processing. Check this array even on a 201 response. Each entry contains `upload_id`, `reason_code`, and `message`. `failureIds` is also present but deprecated — use `failures` instead.
-
-<details>
-<summary class="collapseListTierOne">View example response with failures</summary>
+<summary class="collapseListTierOne">View example response (HTTP 201, partial success)</summary>
 <pre><code>{
   "data": {
     "ids": ["01JDXMPK0TRV0BA5K8GSSY6J0Y"],
-    "failureIds": ["01JDXMPK0NTP0G50E3NYY51Q5S"],
+    "failureIds": [],
     "failures": [
       {
         "upload_id": "01JDXMPK0NTP0G50E3NYY51Q5S",
@@ -699,26 +584,104 @@ POST /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management
 }</code></pre>
 </details>
 
-**Resource state after submission:** Submitted uploads are permanently consumed — removed from the uploads list and no longer retrievable. The documents now exist as revisions within document containers, which the system creates automatically based on metadata matching criteria.
+**`ids`** — The created document revision IDs. These are stable, permanent identifiers — use them (not upload IDs) for any subsequent references or integrations.
 
-> **Retrying:** Consumed upload IDs return HTTP `404` with `reason_code: "UPLOAD_NOT_FOUND"` on any subsequent POST or GET. For partial failures, retry only the failed upload IDs — the successful ones are gone and cannot be resubmitted.
+**`failures`** — Array of per-item failures that occurred during processing. Check this array even on a 201 response. Each entry contains `upload_id`, `reason_code`, and `message`. `failureIds` is also present but deprecated, use `failures` instead.
+
+> **Retrying:** Consumed upload IDs return HTTP `404` with `reason_code: "UPLOAD_NOT_FOUND"` on any subsequent POST or GET. For partial failures, retry only the failed upload IDs. Uploads that have been successfully submitted cannot be resubmitted.
 
 ---
 
-## Handling Workflow Conflicts
+## Error Reference
 
-When submitting document uploads, you may encounter a `WORKFLOW_CONFLICT` error. This occurs when the target document container already has revisions with active workflows, and creating a new revision requires terminating those workflows.
+Use the `reason_code` to drive your error-handling logic, as it provides a stable, machine-readable identifier. Treat the `message` field as human-readable context that should not be parsed programmatically. 4xx errors share the following response structure:
 
-### When Workflow Conflicts Occur
+<details>
+<summary class="collapseListTierOne">View example error response</summary>
+<pre><code>{
+  "error": {
+    "code": "BAD_REQUEST",
+    "message": "Bad Request",
+    "details": [
+      {
+        "reason_code": "INVALID_PROPERTY",
+        "message": "uploads.0.file_name must be a string"
+      }
+    ]
+  }
+}</code></pre>
+</details>
 
-The system detects a conflict when:
-1. The upload's metadata matches an existing document container (based on match criteria).
-2. That container has existing revisions with active workflows.
-3. The project has the `preventConcurrentRevisionWorkflows` setting enabled.
+### Standard API Errors
 
-### Resolving Workflow Conflicts
+The following errors apply to all Document Management API endpoints. Build a global handler for these in your integration rather than repeating the logic per step.
 
-When a `WORKFLOW_CONFLICT` error is returned, the response includes details about the conflicting workflows:
+| HTTP Status | Reason Code | Description | Resolution |
+| --- | --- | --- | --- |
+| 401 | `INVALID_TOKEN` | Authentication token is missing, invalid, or expired. | Provide a valid OAuth 2.0 access token. See [Authentication]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) for details. |
+| 403 | `FORBIDDEN` | The service account lacks permissions for the requested action. | Ensure the service account has the "Upload New Files" and "Submit New Files" permissions in the project's Document Management tool. |
+| 429 | `TOO_MANY_REQUESTS` | The integration has exceeded Procore's API rate limit. | Inspect the `Retry-After` header in the response, pause your upload loop, and retry after the specified number of seconds. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) for details. |
+| 500 | `INTERNAL_SERVER_ERROR` | The server encountered an unexpected error. | Retry the request after a short delay. |
+
+### Endpoint-Specific Errors
+
+The following tables list payload and business-logic validation errors specific to each step.
+
+#### Create Document Uploads (Step 4)
+
+These errors reject the entire initialization batch.
+
+| HTTP Status | Reason Code | Description | Resolution |
+| --- | --- | --- | --- |
+| 400 | `INVALID_PROPERTY` | Request body failed schema validation. | Review the `details` array in the error response for the specific field and constraint that failed. |
+| 404 | `NOT_FOUND` | The project's naming standard configuration could not be found. | Verify the project is correctly configured in the Document Management tool. |
+
+#### Update Document Uploads (Step 6)
+
+Step 6 has three failure modes: request-level failures (4xx) that reject the entire batch before any updates are applied; item-level failures that appear in the failed array of an otherwise successful HTTP 207 response when Procore cannot verify an individual file in storage; and server-side failures (500) that fail the entire request. Handle all three in your integration.
+
+**Request-level failures (4xx):**
+
+| HTTP Status | Reason Code | Description | Resolution |
+| --- | --- | --- | --- |
+| 400 | `INVALID_PROPERTY` | Request body failed schema validation. | Review the `details` array in the error response for the specific field and constraint that failed. |
+
+**Item-level failures (in `failed` array of HTTP 207):**
+
+The `failed` array is populated when `upload_status: "COMPLETED"` is set but Procore's storage service cannot verify an individual file. Each entry contains `id` (the document upload ID), `code` (a numeric error code from the storage service — do not parse as a named reason code), and `message` (a human-readable description — do not parse programmatically). Uploads not listed in `failed` were updated successfully.
+
+To resolve: fix the underlying storage issue (re-upload the file if necessary), then re-PATCH only the failed upload IDs with a corrected `file_upload_id`.
+
+**Server-side failures (500):**
+
+| HTTP Status | Description | Resolution |
+| --- | --- | --- |
+| 500 | `file_upload_id` is already linked to another upload; `upload_status: "COMPLETED"` was set with no file linked; or storage verification failed. | Use the `upload_id` from the response in the Binary File upload step. Always provide `file_upload_id` when setting `upload_status: "COMPLETED"`. For other server failures, retry after a short delay. |
+
+> **Note on non-existent IDs:** If an id in update_params is a valid ULID but does not correspond to an existing upload, the API returns HTTP 207 but the entry is silently dropped — it will not appear in either the success or failed arrays and no error is raised. If all submitted IDs are non-existent, the response will be { "data": { "success": [], "failed": [] } }. Always cross-check the IDs in success against your request to detect any that were dropped.
+
+#### Submit Document Uploads (Step 8)
+
+Step 8 has two distinct failure modes: **request-level failures** (4xx) that reject the entire request before any uploads are processed, and **item-level failures** that appear in the `failures` array of an otherwise successful HTTP 201 response. Handle both in your integration.
+
+**Request-level failures (4xx):**
+
+> **Note:** 422 responses use a `VALIDATION_ERROR` wrapper. The reason codes below appear as `reason_code` values inside the `details` array, and multiple errors can be returned in the same response.
+
+| HTTP Status | Reason Code | Description | Resolution |
+| --- | --- | --- | --- |
+| 400 | `INVALID_PROPERTY` | Request body failed schema validation — e.g., a required field is missing or has an invalid format (such as `id` not being a valid ULID). | Review the `details` array in the error response for the specific field and constraint that failed. |
+| 422 | `UPLOAD_NOT_FOUND` | The upload ID does not exist, has been deleted, or was already successfully submitted (consumed uploads are removed from the uploads list). | Verify the upload ID is correct. |
+| 422 | `FILE_KEY_MISMATCH` | The upload has no associated binary file in storage. | Ensure you completed the Binary File Upload (Step 5) and the Update Document Uploads request (Step 6) using the resulting `file_upload_id` and `upload_status: "COMPLETED"`. |
+| 422 | `INVALID_INPUT` | One or more required metadata fields are not populated. | Return to your Update Document Uploads request (Step 6) and populate all required fields identified in your List Project Upload Requirements response (Step 1). |
+| 422 | `DUPLICATE_REVISION` | The revision value already exists in the target container and duplicate revisions are not allowed. | Change the `revision` field value to a unique value, or verify `allow_duplicate_revisions` in upload requirements. |
+| 422 | `PERMISSION_DENIED` | The current user lacks permission to submit this upload. | Verify the service account has "Submit New Files" permission in the project's Document Management tool. |
+| 422 | `WORKFLOW_CONFLICT_INSUFFICIENT_PERMISSION` | User lacks permission to terminate existing workflows. | Contact a project admin or workflow manager to submit the document, or escalate permissions. |
+| 422 | `WORKFLOW_CONFLICT` | Existing revisions in the target container have active workflows and the project is configured to prevent concurrent revision workflows. | Re-submit with `termination_reason` and `terminated_revision_status_id` added to each conflicting upload. See resolution details below. |
+
+**Resolving `WORKFLOW_CONFLICT`:**
+
+The error response includes details about the conflicting revisions:
 
 <details>
 <summary class="collapseListTierOne">View workflow conflict error response</summary>
@@ -756,10 +719,8 @@ When a `WORKFLOW_CONFLICT` error is returned, the response includes details abou
 }</code></pre>
 </details>
 
-One approach to resolving this error is to re-submit the same request with the `termination_reason` and `terminated_revision_status_id` parameters added to the upload with the workflow conflict:
-
 <details>
-<summary class="collapseListTierOne">View resolution request with termination parameters</summary>
+<summary class="collapseListTierOne">View resolution request</summary>
 <pre><code>{
   "uploads": [
     {
@@ -773,83 +734,22 @@ One approach to resolving this error is to re-submit the same request with the `
 </details>
 
 - **`termination_reason`** — A human-readable reason for terminating the existing workflows (e.g., `"Superseded"`, `"Replaced by new revision"`).
-- **`terminated_revision_status_id`** — The metadata value ID representing the status to apply to the terminated revisions. To find valid status IDs, call the [metadata values endpoint](#step-3-fetch-values-for-dropdown-fields) for the `status` field:
+- **`terminated_revision_status_id`** — The metadata value ID of the status to apply to the terminated revisions. To find valid status IDs, call the [metadata values endpoint](#step-3-fetch-values-for-dropdown-fields) for the `status` field: `GET .../fields/status/values`
 
-  ```
-  GET .../fields/status/values
-  ```
-
-> **Note:** Your account must have sufficient permissions (project admin or workflow manager) to terminate workflows. If you lack permission, the error will return with reason code `WORKFLOW_CONFLICT_INSUFFICIENT_PERMISSION`.
-
----
-
-## Error Reference
-
-Use the `reason_code` to drive your error-handling logic, as it provides a stable, machine-readable identifier. Treat the `message` field as human-readable context that should not be parsed programmatically. 4xx errors share the following response structure:
-
-<details>
-<summary class="collapseListTierOne">View example error response</summary>
-<pre><code>{
-  "error": {
-    "code": "BAD_REQUEST",
-    "message": "Bad Request",
-    "details": [
-      {
-        "reason_code": "INVALID_PROPERTY",
-        "message": "uploads.0.file_name must be a string"
-      }
-    ]
-  }
-}</code></pre>
-</details>
-
-### Create Document Uploads (Step 4)
-
-| HTTP Status | Reason Code | Description | Resolution |
-| --- | --- | --- | --- |
-| 400 | `INVALID_PROPERTY` | The `uploads` key is missing from the request body or is not an array (e.g., the body uses a different key name). The `source` field in the error response will be `"uploads"`. | Ensure the top-level request body contains an `uploads` key whose value is an array. |
-| 400 | `INVALID_PROPERTY` | `file_name` or `mime_type` is the wrong type or absent. | Ensure both fields are present in each upload object and are strings. |
-| 400 | `INVALID_PROPERTY` | Some uploads in the batch include `file_upload_id` while others do not. | All uploads in a single request must either all include `file_upload_id` or none should. Split into separate requests if mixing upload flows. |
-| 400 | `INVALID_PROPERTY` | A `file_upload_id` references a file that does not exist or is inaccessible. | Verify the `file_upload_id` is correct. The file may have expired or been deleted. Re-upload using the standard file upload flow (Steps 5 and 6). |
-| 400 | `INVALID_PROPERTY` | A `file_upload_id` belongs to a different company or project than the one in the request URL. | Ensure the `file_upload_id` was created in the same company and project context as the request. Create a new file upload in the correct context if needed. |
-| 400 | `INVALID_PROPERTY` | A field ID or value ID is not valid for the project. | Verify all field IDs match those returned by the List Project Fields request and all value IDs match those returned by the List Project Metadata Values request for the correct field. |
-| 401 | `UNAUTHORIZED` | Authentication token is missing, invalid, or expired. | Provide a valid OAuth 2.0 access token. See [Authentication]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) for details. |
-| 403 | `FORBIDDEN` | Current user or service account lacks the "Upload New Files" permission in the Document Management tool. | Contact your project admin to grant the service account access to the Document Management tool and assign it to a permission group with the "Upload New Files" permission enabled. |
-| 429 | `TOO_MANY_REQUESTS` | The integration has exceeded Procore's API rate limit. | Inspect the `Retry-After` header in the response and retry the batch after the specified number of seconds. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) for details. |
-| 500 | `INTERNAL_SERVER_ERROR` | The server encountered an unexpected error. | Retry the request after a short delay. If the error persists, contact Procore support. |
-
-### Submit Document Uploads (Step 8)
-
-Step 8 has two distinct failure modes: **request-level failures** (4xx) that reject the entire request before any uploads are processed, and **item-level failures** that appear in the `failures` array of an otherwise successful HTTP 201 response. Handle both in your integration.
-
-**Request-level failures (4xx):**
-
-| HTTP Status | Reason Code | Description | Resolution |
-| --- | --- | --- | --- |
-| 404 | `UPLOAD_NOT_FOUND` | The specified upload ID does not exist, has been deleted, or has already been successfully submitted (consumed uploads are removed from the uploads list). | Verify the upload ID is correct. If the upload was already submitted, retrieve its revision ID from the original submission response — do not re-submit it. |
-| 422 | `FILE_KEY_MISMATCH` | The upload has no associated file in storage. | Ensure you successfully completed the Binary File Upload and the Update Document Uploads request using the resulting `file_upload_id` and `upload_status: "COMPLETED"`. |
-| 403 | `PERMISSION_DENIED` | The current user lacks permission to submit this upload. | Verify the service account has "Submit New Files" permission in the project's Document Management tool. Non-admin users can only submit their own uploads. |
-| 400 | `REQUIRED_FIELD_MISSING` | One or more required metadata fields are not populated. | Return to your Update Document Uploads request and populate all required fields identified in your List Project Upload Requirements response. |
-| 400 | `INVALID_INPUT` | Invalid field or workflow configuration on the upload. | Check that all field values are valid (correct IDs, active values). |
-| 400 | `HAS_ERRORS` | The upload has workflow validation errors. | Review workflow configuration and resolve any assignment issues. |
-| 400 | `DUPLICATE_REVISION` | The revision value already exists in the target container and duplicate revisions are not allowed. | Change the `revision` field value to a unique value, or verify `allow_duplicate_revisions` in upload requirements. |
-| 400 | `WORKFLOW_CONFLICT` | Existing revisions in the target container have active workflows. | Provide `termination_reason` and `terminated_revision_status_id` to resolve. See [Handling Workflow Conflicts](#handling-workflow-conflicts). |
-| 403 | `WORKFLOW_CONFLICT_INSUFFICIENT_PERMISSION` | User cannot terminate existing workflows. | Contact a project admin or workflow manager to submit the document, or escalate permissions. |
-| 400 | `BAD_REQUEST` | General validation failure. | Review the error `message` for specific details. |
-| 429 | `TOO_MANY_REQUESTS` | The integration has exceeded Procore's API rate limit. | Inspect the `Retry-After` header in the response, pause your upload loop, and retry the batch after the specified number of seconds. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) for details. |
+> **Note:** Terminating workflows requires project admin or workflow manager permissions. If your account lacks these permissions, the error returns `WORKFLOW_CONFLICT_INSUFFICIENT_PERMISSION`.
 
 **Item-level failures (in `failures` array of HTTP 201):**
 
 | Reason Code | Description | Resolution |
 | --- | --- | --- |
 | `CONCURRENCY_CONFLICT` | The upload was modified between your last read and submission. | Re-fetch the upload to get the current `latest_event_id` and retry submission with the updated value. |
-| `UNKNOWN_FAILURE` | An unexpected server-side error occurred during processing of this upload. | Retry the submission for this upload ID. If the error persists, contact Procore support. |
+| `UNKNOWN_FAILURE` | An unexpected server-side error occurred during processing of this upload. | Retry the submission for this upload ID. |
 
 ---
 
 ## Complete Example: End-to-End Workflow
 
-Below is a condensed end-to-end example showing the full sequence of API calls to upload a single PDF document and submit it as a revision. **This example follows [Scenario A](#scenario-a--asynchronous-metadata)** — metadata is applied after the binary file is uploaded. If you are using Scenario B or C, the sequence will differ slightly; refer to the [Integration Patterns](#integration-patterns) section for those paths.
+Below is a condensed end-to-end example showing the full sequence of API calls to upload a single PDF document and submit it as a revision. Response examples in this walkthrough show only the values extracted for use in subsequent steps, not the full API response. 
 
 <details markdown="1">
 <summary class="collapseListTierOne">View full example</summary>
@@ -860,7 +760,7 @@ Below is a condensed end-to-end example showing the full sequence of API calls t
 GET /rest/v2.0/companies/8089/projects/2305/document_management/upload_requirements
 ```
 
-Response shows `fields_required_by_project`: [`name`, `type`, `status`, `revision`], `additional_required_fields`: [].
+Response includes `fields_required_by_project`: [`name`, `type`, `status`, `revision`], `additional_required_fields`: []. These are the fields you must populate in Step 6.
 
 **2. Get project fields — `GET .../fields`**
 
@@ -897,77 +797,82 @@ POST /rest/v2.0/companies/8089/projects/2305/document_management/document_upload
 ```
 
 Response (HTTP 201):
-```
+```json
 {
   "data": [
-    { "id": "01JDXMPK0MTP0H41D4PYZ62R6R", "file_locked": false } // ← save this document upload ID — used in Steps 6, 7, and 8
+    { "id": "01JDXMPK0MTP0H41D4PYZ62R6R", "file_locked": false }
   ]
 }
 ```
 
-**5. Upload the binary file — `POST /rest/v1.1/projects/{id}/uploads`**
+Save the `id` value (`01JDXMPK0MTP0H41D4PYZ62R6R`) — this is your document upload ID, used in Steps 6, 7, and 8.
+
+**5. Upload the binary file — `POST /rest/v2.1/companies/{companyId}/projects/{projectId}/uploads`**
 
 ```
-POST /rest/v1.1/projects/2305/uploads
+POST /rest/v2.1/companies/8089/projects/2305/uploads
 
 {
-  "response_filename": "A101-Floor-Plan.pdf",
-  "response_content_type": "application/pdf"
+  "file_name": "document.pdf",
+  "file_size": 2048576,
+  "content_type": "application/pdf"
 }
 ```
 
 Response:
-```
+```json
 {
-  "uuid": "01JDXMPK0PFK0F69F2MXX40P4T", // ← save this — becomes file_upload_id in Step 6
-  "url": "https://s3.amazonaws.com/procore-uploads/...",
-  "fields": {
-    "key": "uploads/2305/01JDXMPK0PFK0F69F2MXX40P4T/A101-Floor-Plan.pdf",
-    "policy": "...",
-    "signature": "..."
+  "data": {
+    "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
+    "status": "ready",
+    "file_name": "document.pdf",
+    "file_size": 2048576,
+    "content_type": "application/pdf",
+    "part_size": 2048576,
+    "total_parts": 1,
+    "upload_expires_at": "2026-01-09T10:30:00Z",
+    "segments": [
+      {
+        "url": "https://storage.procore.com/.../uploads/up_1234567890abcdef?signature=...",
+        "url_expires_at": "2026-01-08T11:30:00Z",
+        "headers": { "Content-Type": "application/pdf", "Content-Length": "2048576" }
+      }
+    ]
   }
 }
 ```
 
-Then POST the file binary to the storage URL with the returned `fields` as multipart form data. Note the `uuid` (`01JDXMPK0PFK0F69F2MXX40P4T`) — this is your **`file_upload_id`**.
+Save the `upload_id` value (`01JDXMPK0PFK0F69F2MXX40P4T`) — this becomes your `file_upload_id` in Step 6.
 
 **6. Update the document upload — `PATCH .../document_uploads`**
 
-```
+Fields used from previous steps:
+- `id`: document upload ID from Step 4 (`01JDXMPK0MTP0H41D4PYZ62R6R`)
+- `file_upload_id`: `upload_id` from Step 5 (`01JDXMPK0PFK0F69F2MXX40P4T`)
+- `type` field ID and `Drawing` value ID from Steps 2 and 3
+- `status`, `revision`, `name` field IDs from Step 2; `Open` value ID from Step 3
+
+```json
 PATCH /rest/v2.0/companies/8089/projects/2305/document_management/document_uploads
 
 {
   "update_params": [
     {
-      "id": "01JDXMPK0MTP0H41D4PYZ62R6R",                // ← document upload ID from Step 4 response
-      "file_upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",    // ← uuid from Step 5 response
+      "id": "01JDXMPK0MTP0H41D4PYZ62R6R",
+      "file_upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
       "upload_status": "COMPLETED",
       "fields": [
-        {
-          "id": "01JDXMPK09FD0892J5BDMJD37D",           // ← "type" field ID from Step 2 response
-          "values": ["01JDXMPK0HMV0N14A7S3C95V9N"]      // ← "Drawing" value ID from Step 3 response
-        },
-        {
-          "id": "01JDXMPK0CFD0569F2Y8HEA04G",           // ← "status" field ID from Step 2 response
-          "values": ["01JDXMPK0ZMV0655R3BMMQ1DD4"]      // ← "Open" value ID from Step 3 response
-        },
-        {
-          "id": "01JDXMPK0BFD0670G3Z9JFB15F",          // ← "revision" field ID from Step 2 response
-          "values": ["Rev A"]
-        },
-        {
-          "id": "01JDXMPK0AFD0781H4ACKGC26E",          // ← "name" field ID from Step 2 response
-          "values": ["Floor Plan Level 1"]
-        }
+        { "id": "01JDXMPK09FD0892J5BDMJD37D", "values": ["01JDXMPK0HMV0N14A7S3C95V9N"] },
+        { "id": "01JDXMPK0CFD0569F2Y8HEA04G", "values": ["01JDXMPK0ZMV0655R3BMMQ1DD4"] },
+        { "id": "01JDXMPK0BFD0670G3Z9JFB15F", "values": ["Rev A"] },
+        { "id": "01JDXMPK0AFD0781H4ACKGC26E", "values": ["Floor Plan Level 1"] }
       ]
     }
-  ],
-  "update_all_document_uploads": false,
-  "only_update_empty_fields": false
+  ]
 }
 ```
 
-Response (HTTP 207 — Success):
+Response (HTTP 207):
 ```json
 {
   "data": {
@@ -979,17 +884,18 @@ Response (HTTP 207 — Success):
 }
 ```
 
+Verify your upload ID appears in `success` and `failed` is empty before proceeding. If the ID appears in `failed`, resolve the issue and re-PATCH before continuing.
+
 **7. Get latest event ID — `GET .../document_uploads/{id}`**
 
-Call the show endpoint to retrieve `latest_event_id`. For PDF files, you can also inspect `integrationStatuses.ML` to see whether ML field auto-population has completed and review any ML-populated fields before submitting.
+Call the show endpoint to retrieve `latest_event_id`. For PDF files, also check `integrationStatuses.ML` — if it is still `"in_progress"` and you want to use ML-populated fields, wait until it reaches `"completed"` or `"error"` before submitting.
 
 ```
 GET /rest/v2.0/companies/8089/projects/2305/document_management/document_uploads/01JDXMPK0MTP0H41D4PYZ62R6R
-// ← document upload ID from Step 4 response
 ```
 
 Response:
-```
+```json
 {
   "data": {
     "id": "01JDXMPK0MTP0H41D4PYZ62R6R",
@@ -998,24 +904,33 @@ Response:
       "ML": "completed",
       "FILENAME_SCRAPING": "completed"
     },
-    "latest_event_id": "01JDXMPK0REV0D87H0JVVZ8M2W", // ← save this — used as upload_latest_event_id in Step 8
-    "fields": [...]
+    "latest_event_id": "01JDXMPK0REV0D87H0JVVZ8M2W",
+    "fields": [
+      { "id": "01JDXMPK09FD0892J5BDMJD37D", "name": "type", "values": [{ "label": "Drawing" }], "label_source": "MANUAL" },
+      { "id": "01JDXMPK0BFD0670G3Z9JFB15F", "name": "revision", "values": [{ "label": "Rev A" }], "label_source": "MANUAL" },
+      { "id": "01JDXMPK0AFD0781H4ACKGC26E", "name": "name", "values": [{ "label": "Floor Plan Level 1" }], "label_source": "MANUAL" },
+      { "id": "01JDXMPK0CFD0569F2Y8HEA04G", "name": "status", "values": [{ "label": "Open" }], "label_source": "MANUAL" }
+    ]
   }
 }
 ```
 
-Capture the `latest_event_id` (`01JDXMPK0REV0D87H0JVVZ8M2W`) — you'll need it for Step 8.
+Save the `latest_event_id` (`01JDXMPK0REV0D87H0JVVZ8M2W`) — required for Step 8. Confirm all required fields are present in the `fields` array before submitting.
 
 **8. Submit the upload as a revision — `POST .../document_revisions`**
 
-```
+Fields used from previous steps:
+- `id`: document upload ID from Step 4 (`01JDXMPK0MTP0H41D4PYZ62R6R`)
+- `upload_latest_event_id`: `latest_event_id` from Step 7 (`01JDXMPK0REV0D87H0JVVZ8M2W`)
+
+```json
 POST /rest/v2.0/companies/8089/projects/2305/document_management/document_revisions
 
 {
   "uploads": [
     {
-      "id": "01JDXMPK0MTP0H41D4PYZ62R6R",                    // ← document upload ID from Step 4 response
-      "upload_latest_event_id": "01JDXMPK0REV0D87H0JVVZ8M2W" // ← latest_event_id from Step 7 response
+      "id": "01JDXMPK0MTP0H41D4PYZ62R6R",
+      "upload_latest_event_id": "01JDXMPK0REV0D87H0JVVZ8M2W"
     }
   ]
 }
@@ -1026,13 +941,12 @@ Response (HTTP 201):
 {
   "data": {
     "ids": ["01JDXMPK0TRV0BA5K8GSSY6J0Y"],
-    "failureIds": [],
     "failures": []
   }
 }
 ```
 
-The document is now a permanent revision (`01JDXMPK0TRV0BA5K8GSSY6J0Y`) in the system.
+Check the `failures` array even on a 201 response. If empty, the document is now a permanent revision — use the revision ID (`01JDXMPK0TRV0BA5K8GSSY6J0Y`) for any subsequent references.
 
 </details>
 
@@ -1043,7 +957,7 @@ The document is now a permanent revision (`01JDXMPK0TRV0BA5K8GSSY6J0Y`) in the s
 - [Document Management Integration Overview]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %})
 - [Document Management API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})
 - [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})
-- [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
+- Working with Unified Uploads *(documentation coming soon)*
 - [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})
 - [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %})
 - [Procore Support: Document Management](https://v2.support.procore.com/product-manuals/document-management-project)
