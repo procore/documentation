@@ -26,6 +26,8 @@ Whether you're building a custom internal tool or evaluating a Marketplace integ
 ***
 ## The Technology Partner Journey
 For developers and companies who want to list on the **Procore Marketplace**, the Technology Partner journey ensures that published apps meet the highest standards of quality, security, and customer value. Procore uses a **"Verify then Trust"** model — only trusted partners and developers can promote their apps to production and list on the Marketplace.
+
+Not sure which verification path is right for you? See [Verification & Production Access]({{ site.url }}{{ site.baseurl }}{% link overview/verification_and_production_access.md %}) for a comparison of the Marketplace Partner and Private Developer paths.
 <br><br>
 <div class="step-item">
   <div class="step-icon">
