@@ -41,6 +41,8 @@ After promoting a version to Production, Procore notifies customers when an upda
 
 ### Promotion Steps
 
+> **Before you can promote to production,** your organization must be verified. If you see a **Become a Verified Developer** prompt instead of production options, complete the verification process first. See [Verification & Production Access]({{ site.url }}{{ site.baseurl }}{% link overview/verification_and_production_access.md %}) for the two available paths.
+
 1. Open the Configuration Builder on the Manage App page.
 2. Click **Promote Version**.
 3. Add release notes.

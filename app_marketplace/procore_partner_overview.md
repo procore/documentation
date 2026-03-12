@@ -26,6 +26,8 @@ Whether you're building a custom internal tool or evaluating a Marketplace integ
 ***
 ## The Technology Partner Journey
 For developers and companies who want to list on the **Procore Marketplace**, the Technology Partner journey ensures that published apps meet the highest standards of quality, security, and customer value. Procore uses a **"Verify then Trust"** model — only trusted partners and developers can promote their apps to production and list on the Marketplace.
+
+Not sure which verification path is right for you? See [Verification & Production Access]({{ site.url }}{{ site.baseurl }}{% link overview/verification_and_production_access.md %}) for a comparison of the Marketplace Partner and Private Developer paths.
 <br><br>
 <div class="step-item">
   <div class="step-icon">
@@ -115,7 +117,7 @@ We believe in an open ecosystem. While the public Marketplace is reserved for ce
 
 <!-- **For existing partners:** Later in FY26, Procore will introduce a recertification process to validate that current Marketplace listings meet updated standards. This process will be streamlined to recognize the operational history of existing partners. -->
 
-Off-marketplace integrations are subject to Procore's <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}">Developer Policy</a> and <a href="https://www.procore.com/legal/api-terms-and-conditions" target="_blank">API Terms of Use</a>. Contact <a href="mailto:techpartners@procore.com">techpartners@procore.com</a> to discuss your use case.
+Off-marketplace integrations are subject to Procore's <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}">Developer Policy</a> and <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a>. Contact <a href="mailto:techpartners@procore.com">techpartners@procore.com</a> to discuss your use case.
 <br><br>
 
 ***

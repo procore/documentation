@@ -44,7 +44,7 @@ Procore's transactional REST APIs are **not intended for**:
 - Scraping, harvesting, or creating copies of Procore data outside the scope of your application's purpose
 - High-volume data retrieval to power non-complementary analytics or intelligence solutions
 
-These activities can impact platform stability, degrade performance for customers, and violate Procore's <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}">Developer Policy</a> and <a href="https://www.procore.com/legal/api-terms-and-conditions" target="_blank">API Terms of Use</a>.
+These activities can impact platform stability, degrade performance for customers, and violate Procore's <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}">Developer Policy</a> and <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a>.
 <br><br>
 
 ***
@@ -78,7 +78,7 @@ To maintain platform performance and stay in compliance:
 - <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Reference</a>
 - [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})
 - [Procore Developer Policy]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %})
-- <a href="https://www.procore.com/legal/api-terms-and-conditions" target="_blank">API Terms of Use</a>
+- <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a>
 - [Announcements]({{ site.url }}{{ site.baseurl }}{% link announcements/overview.md %})
 <br><br>
 

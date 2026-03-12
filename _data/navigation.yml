@@ -2,6 +2,8 @@
   items:
     - title: Overview
       url: /introduction
+    - title: Verification & Production Access
+      url: /verification-and-production-access
     - title: Your First API Call
       url: /quick-start-guide
     - title: Help & Learning Center
