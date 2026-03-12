@@ -15,7 +15,9 @@ When you sign up for the Developer Portal, your account starts as **Unverified**
 Moving an app to production requires two distinct steps:
 
 1. **Verify your organization** — Choose the verification path that matches your intentions. This is a one-time step per organization.
-2. **Request production credentials per app** — After your organization is verified, each app you want to promote to production requires its own approval. This ensures every app meets Procore's API Terms of Use and Terms of Service before production credentials are issued.
+2. **Request production credentials per app** — After your organization is verified, each app you want to promote to production requires its own approval. This ensures every app meets Procore's <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a> and <a href="https://procore.pactsafe.io/legal.html#contract-syqj4fbct" target="_blank">User Terms of Service</a> before production credentials are issued.
+
+If your organization is an active Procore customer, verification through the paths below may not be required — your account may already have production access configured.
 <br><br>
 
 ***
@@ -40,8 +42,12 @@ The Private Developer path is for consultants and independent developers buildin
 
 **Best for:**
 - Consultants creating a custom integration for a specific client
-- Developers building tools for internal use within one organization
-- 1:1 app deployments not intended for broader distribution
+- In-house developers building a proprietary integration exclusively for their own company's use
+- App deployments not intended for broader distribution
+
+**Requirements:**
+- Business email address (no personal email providers)
+- Description of your intended app use cases
 
 As a verified Private Developer, you can:
 - Create apps
@@ -52,7 +58,7 @@ You cannot:
 - Access Marketplace listing tools
 - Distribute your app through the Procore Marketplace
 
-**To get verified:** Select **Verify as a Private Developer** from the Developer Portal. You will receive an email notification when your application is approved.
+**To get verified:** Select **Apply to Become Verified (Private Developer)** from the Developer Portal. You will receive an email notification when your application is approved.
 <br><br>
 
 ***
@@ -62,8 +68,13 @@ The Marketplace Partner path is for organizations building apps for commercial d
 
 **Best for:**
 - ISVs building apps to distribute to multiple Procore customers
-- Organizations that want to list and market an integration publicly
-- Partners seeking customer trust through a reviewed, publicly listed app
+- Partners who want to publish and market an integration in the Marketplace
+- Organizations that need listing eligibility and a review process for customer trust
+
+**Requirements:**
+- Valid business email address (no personal email providers)
+- Complete technical feasibility
+- Sign a Partnership Agreement
 
 As a verified Marketplace Partner, you can:
 - Create apps
@@ -71,11 +82,11 @@ As a verified Marketplace Partner, you can:
 - Request production credential access for each app you build
 - Access Marketplace listing tools to create and manage your listing
 
-**To get verified:** Select **Apply to Become a Marketplace Partner** from the Developer Portal. Most applications are reviewed within 5–10 business days. You will receive an email notification with next steps when your review is complete. See the [Partner & Marketplace Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}) for requirements and listing details.
+**To get verified:** Select **Apply to Become a Marketplace Partner** from the Developer Portal. You will receive an email notification with next steps when your review is complete. See the [Partner & Marketplace Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}) for requirements and listing details.
 <br><br>
 
 ***
-## Getting to production
+## Getting to Production
 
 Reaching production requires clearing two gates, regardless of which verification path you take.
 
@@ -83,11 +94,13 @@ Reaching production requires clearing two gates, regardless of which verificatio
 
 If your account is Unverified, the **Become a Verified Developer** prompt replaces production options in your app dashboard. Complete the verification process to establish who you are and how you intend to use your app. Once approved, your account transitions to either Private Developer or Marketplace Partner.
 
-This step happens once per organization.
+> **A business email address is required for verification.** Personal email addresses (such as Gmail, Yahoo, or Outlook.com) are not accepted. Your Developer Portal account must be associated with a company or organization domain before verification can be completed.
+
+This step happens once per organization. An app's production access is determined by the verification status of its **owner** — not its collaborators. This is one reason app ownership matters: even if collaborators are added to an app, the owner's verification status governs what production options are available.
 
 ### Step 2: Request production credentials per app
 
-After your organization is verified, each app requires its own **Request Production Credential Access** submission. Procore reviews every request to confirm the app complies with the [API Terms of Use]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}) and Terms of Service before production credentials are issued.
+After your organization is verified, each app requires its own **Request Production Credential Access** submission. Procore reviews every request to confirm the app complies with the <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a> and <a href="https://procore.pactsafe.io/legal.html#contract-syqj4fbct" target="_blank">User Terms of Service</a> before production credentials are issued.
 
 Until your request is submitted and approved, your app cannot be installed in any customer's production environment. You can continue building and testing in the Developer Sandbox while your request is under review.
 
