@@ -31,7 +31,6 @@ With Agentic APIs, partners and developers will be able to build intelligent sol
 Procore's existing REST APIs are designed for **transactional use cases** — creating, reading, updating, and deleting individual records within the Procore platform. These APIs power the day-to-day operations that keep construction projects moving.
 
 ### Common transactional use cases
-- Syncing project data between Procore and an external system
 - Creating or updating records such as RFIs, submittals, or daily logs
 - Reading project details, user information, or financial data
 - Automating workflows triggered by changes in Procore
@@ -54,7 +53,6 @@ As Procore's API ecosystem expands, choosing the right tool for the job ensures 
 | Use Case | Recommended API |
 |----------|----------------|
 | CRUD operations on individual records | REST APIs (available now) |
-| Syncing data between Procore and external systems | REST APIs (available now) |
 | Receiving real-time change notifications | <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}">Webhooks</a> (available now) |
 | Powering AI agents and intelligent workflows | Agentic APIs (coming Late Q1 2026) |
 | Building RAG or semantic retrieval solutions | Agentic APIs (coming Late Q1 2026) |
