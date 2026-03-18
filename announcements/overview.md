@@ -19,7 +19,7 @@ Procore is developing a new generation of **Agentic APIs**, purpose-built on our
 As we introduce these new capabilities, we want to ensure all developers understand how Procore's existing REST APIs are designed to be used. Our REST APIs are built for **transactional use cases** — creating, reading, updating, and deleting individual records. They are not intended for large-scale data extraction or building AI/ML solutions.
 
 ### What You Need to Know:
-- **REST APIs** are for transactional integrations (CRUD operations, syncing data, automating workflows).
+- **REST APIs** are for transactional integrations (CRUD operations, automating workflows).
 - **Agentic APIs** (coming soon) are for AI-driven intelligence, RAG, and advanced analytics.
 - Large-scale data extraction and AI/ML training using REST APIs is not permitted under Procore's [Developer Policy]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}).
 
