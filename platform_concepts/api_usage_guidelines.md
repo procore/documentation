@@ -40,7 +40,7 @@ Procore's existing REST APIs are designed for **transactional use cases** — cr
 Procore's transactional REST APIs are **not intended for**:
 - Large-scale data extraction or bulk export for purposes outside of your app's core integration
 - Building datasets for training, fine-tuning, or benchmarking AI/ML models (including LLMs)
-- Scraping, harvesting, or creating copies of Procore data outside the scope of your application's purpose
+- Scraping, harvesting, or creating copies of Procore data
 - High-volume data retrieval to power non-complementary analytics or intelligence solutions
 
 These activities can impact platform stability, degrade performance for customers, and violate Procore's <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}">Developer Policy</a> and <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a>.
