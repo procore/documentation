@@ -50,7 +50,7 @@ These activities can impact platform stability, degrade performance for customer
 ## Choosing the Right API for Your Use Case
 As Procore's API ecosystem expands, choosing the right tool for the job ensures the best experience for you and your customers.
 
-| Use Case | Recommended API |
+| Use Case | Required API |
 |----------|----------------|
 | CRUD operations on individual records | REST APIs (available now) |
 | Receiving real-time change notifications | <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}">Webhooks</a> (available now) |
