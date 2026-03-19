@@ -14,6 +14,7 @@ Whether you are uploading a small document or a multi-gigabyte video, the API co
 1. **POST** — Create an upload and receive presigned URL(s)
 2. **PUT** — Upload file content (one or more parts) to the presigned URL(s)
 3. **PATCH** — Complete the upload by submitting the ETag(s) returned from each PUT
+4. **GET** — Poll the upload status until it is `available`
 
 This four-step workflow replaces the v1.1 upload process with a simpler, more predictable interface.
 There is no need to construct form-data payloads or manage AWS policy fields — the API returns presigned URLs that accept a simple binary PUT.
@@ -160,7 +161,38 @@ curl -X PATCH 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects
 }
 ```
 
-### Step 5 — Associate the File with a Procore Resource
+### Step 5 — Poll Until Available (GET)
+
+After completing the upload, poll the upload status until it transitions to `available`.
+The file is not ready for use in Procore until this status is reached.
+
+**Request**
+
+```
+curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000001' \
+  --header 'Authorization: Bearer {access_token}'
+```
+
+**Response (200 OK)**
+
+```
+{
+  "data": {
+    "upload_id": "01JEXAMPLE00000000000000001",
+    "file_name": "report.pdf",
+    "sanitized_file_name": "report.pdf",
+    "content_type": "application/pdf",
+    "file_size": 2097152,
+    "status": "available",
+    "custom_metadata": {},
+    "segments": []
+  }
+}
+```
+
+Once `status` is `available`, the file can be associated with a Procore resource.
+
+### Step 6 — Associate the File with a Procore Resource
 
 Use the `upload_id` to associate the uploaded file with a Procore resource.
 See [Using upload_id in API Requests]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}#using-upload-id-in-api-requests) for examples with Action Plans, Meeting Topics, and other tools.
@@ -340,7 +372,35 @@ curl -X PATCH 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects
 }
 ```
 
-### Step 5 — Associate the File with a Procore Resource
+### Step 5 — Poll Until Available (GET)
+
+Poll the upload status until it transitions to `available`.
+
+**Request**
+
+```
+curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000002' \
+  --header 'Authorization: Bearer {access_token}'
+```
+
+**Response (200 OK)**
+
+```
+{
+  "data": {
+    "upload_id": "01JEXAMPLE00000000000000002",
+    "file_name": "test-video.mp4",
+    "sanitized_file_name": "test-video.mp4",
+    "content_type": "video/mp4",
+    "file_size": 8829449,
+    "status": "available",
+    "custom_metadata": {},
+    "segments": []
+  }
+}
+```
+
+### Step 6 — Associate the File with a Procore Resource
 
 Use the `upload_id` to attach the file to a Procore resource, as described in [Using upload_id in API Requests]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}#using-upload-id-in-api-requests).
 
