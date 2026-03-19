@@ -19,6 +19,9 @@ Whether you are uploading a small document or a multi-gigabyte video, the API co
 This four-step workflow replaces the v1.1 upload process with a simpler, more predictable interface.
 There is no need to construct form-data payloads or manage AWS policy fields — the API returns presigned URLs that accept a simple binary PUT.
 
+The Unified Upload API is designed to work consistently across all Procore tools — the same upload workflow applies whether you are attaching files to Documents, RFIs, Submittals, Drawings, or any other tool.
+It is also built with multi-cloud support in mind, so as Procore expands to additional cloud storage providers in the future, your integration code will continue to work without changes.
+
 > **Key Principle:** Files 100 MB or smaller can be uploaded as a single part.
 > Files larger than 100 MB must be split into multiple parts (each part can be at most 100 MB, minimum 5 MB except for the last part).
 > In both cases the API contract is identical — the only difference is the number of segments.
