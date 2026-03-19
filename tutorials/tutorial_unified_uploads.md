@@ -15,7 +15,7 @@ Whether you are uploading a small document or a multi-gigabyte video, the API co
 2. **PUT** — Upload file content (one or more parts) to the presigned URL(s)
 3. **PATCH** — Complete the upload by submitting the ETag(s) returned from each PUT
 
-This three-step workflow replaces the v1.1 upload process with a simpler, more predictable interface.
+This four-step workflow replaces the v1.1 upload process with a simpler, more predictable interface.
 There is no need to construct form-data payloads or manage AWS policy fields — the API returns presigned URLs that accept a simple binary PUT.
 
 > **Key Principle:** Files 100 MB or smaller can be uploaded as a single part.
