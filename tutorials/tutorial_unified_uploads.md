@@ -34,8 +34,6 @@ All endpoints are scoped to a company and project:
 |---|---|---|
 | Create Upload | POST | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads` |
 | Get Upload Status | GET | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
-| Get Upload URL | GET | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}/url` |
-| Get Part URL | GET | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}/parts/{part_number}/url` |
 | Complete Upload | PATCH | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
 
 ## Example 1: Small File Upload (Single Part)
@@ -409,13 +407,9 @@ Use the `upload_id` to attach the file to a Procore resource, as described in [U
 
 ---
 
-## Retrieving Upload Information (GET Endpoints)
+## Checking Upload Status (GET)
 
-The API provides three GET endpoints for checking upload status and refreshing presigned URLs.
-
-### Get Upload Status
-
-Use this endpoint to check the current status of an upload, or to poll until the file is fully processed and available.
+Use the Get Upload Status endpoint to check the current state of an upload, or to poll until the file is fully processed and available.
 
 **Request**
 
@@ -446,65 +440,6 @@ Upload status values include:
 - `receiving` — Parts are being uploaded (partial ETags submitted)
 - `complete` — All parts uploaded and ETags submitted
 - `available` — File is fully processed and available for use in Procore
-
-### Get Upload URL (Non-Segmented)
-
-Retrieve or refresh the presigned URL for a non-segmented (single-part) upload.
-This is useful when the original presigned URL from the POST response has expired.
-
-**Request**
-
-```
-curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}/url' \
-  --header 'Authorization: Bearer {access_token}'
-```
-
-**Response (200 OK)**
-
-```
-{
-  "data": {
-    "upload_id": "01JEXAMPLE00000000000000001",
-    "upload_url": "https://s3.amazonaws.com/pro-core.com/companies/123/01JEXAMPLE00000000000000001?...",
-    "headers": {
-      "Content-Type": "application/pdf",
-      "Content-Length": "2097152",
-      "x-amz-content-sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "content-md5": "1B2M2Y8AsgTpgAmY7PhCfg=="
-    }
-  }
-}
-```
-
-### Get Part URL (Segmented)
-
-Retrieve or refresh the presigned URL for a specific part in a multi-part upload.
-Part numbers are 1-indexed.
-
-**Request**
-
-```
-curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}/parts/1/url' \
-  --header 'Authorization: Bearer {access_token}'
-```
-
-**Response (200 OK)**
-
-```
-{
-  "data": {
-    "upload_id": "01JEXAMPLE00000000000000002",
-    "part_number": "1",
-    "upload_url": "https://s3.amazonaws.com/pro-core.com/companies/123/01JEXAMPLE00000000000000002?partNumber=1&...",
-    "headers": {
-      "Content-Type": "video/mp4",
-      "Content-Length": "6000000",
-      "x-amz-content-sha256": "b2a6304fdd19da95f8750573f5fd33e0ad71c3a41b1b6daaf4621fd9af913952",
-      "content-md5": "ZfoBY1ehgnLOCG/0aUumGg=="
-    }
-  }
-}
-```
 
 ---
 
