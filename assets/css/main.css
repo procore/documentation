@@ -307,6 +307,11 @@ body {
     background-color: #fef6f6;
   }
 
+  blockquote.blockquote-callout {
+    border-left-color: #646261;
+    background-color: #F6F8FA;
+  }
+
   /* Heading Links */
   .heading-link-container {
     padding: 10px 0;
