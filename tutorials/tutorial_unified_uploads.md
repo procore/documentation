@@ -61,7 +61,7 @@ md5 report.pdf
 ### Step 2 — Create the Upload (POST)
 
 Send a POST request to create the upload.
-For a single-part upload you do not need to provide `part_size` or `segments`.
+For a single-part upload, set `part_size` equal to `file_size`. The `segments` array is not required for single-part uploads.
 
 **Request**
 
@@ -72,6 +72,7 @@ curl -X POST 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/
   --data '{
     "file_name": "report.pdf",
     "file_size": 2097152,
+    "part_size": 2097152,
     "content_type": "application/pdf",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "md5": "d41d8cd98f00b204e9800998ecf8427e"
