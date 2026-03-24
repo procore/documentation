@@ -1,6 +1,6 @@
 ---
 permalink: /tutorial-unified-uploads
-title: Working with the Unified Upload API (v2.1)
+title: Working with the Unified Uploads
 layout: default
 section_title: "Product Guides: Documents & Files"
 
@@ -40,7 +40,7 @@ It is also built with multi-cloud support in mind, so as Procore expands to addi
 
 ## Endpoints
 
-All endpoints are scoped to a company and project:
+All endpoints are scoped to a project:
 
 | Action | Method | Endpoint URI |
 |---|---|---|
@@ -202,10 +202,33 @@ curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{
 
 Once `status` is `available`, the file can be associated with a Procore resource.
 
-### Step 6 — Associate the File with a Procore Resource
+### Step 6 — Associate the File with a PDM Document
 
-Use the `upload_id` to associate the uploaded file with a Procore resource.
-See [Using upload_id in API Requests]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}#using-upload-id-in-api-requests) for examples with Action Plans, Meeting Topics, and other tools.
+Use the `upload_id` (returned as `file_upload_id`) to associate the uploaded file with a PDM document upload.
+
+**Request**
+
+```
+curl -X PATCH 'https://api.procore.com/rest/v1.4/companies/{company_id}/projects/{project_id}/collaborative_documents/document_uploads' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer {access_token}' \
+  --data '{
+    "document_upload_ids": ["{document_upload_id}"],
+    "update_params": [
+      {
+        "id": "{document_upload_id}",
+        "fields": [],
+        "upload_status": "COMPLETED",
+        "file_upload_id": "{upload_id_from_unified_upload}"
+      }
+    ]
+  }'
+```
+
+The `document_upload_id` is the ID from the PDM document upload batch create endpoint.
+The `file_upload_id` is the `upload_id` returned by the Unified Upload API in Step 2.
+
+For associating files with other Procore tools (Action Plans, Meeting Topics, etc.), see [Using upload_id in API Requests]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}#using-upload-id-in-api-requests).
 
 ---
 
@@ -398,9 +421,12 @@ curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{
 }
 ```
 
-### Step 6 — Associate the File with a Procore Resource
+### Step 6 — Associate the File with a PDM Document
 
-Use the `upload_id` to attach the file to a Procore resource, as described in [Using upload_id in API Requests]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}#using-upload-id-in-api-requests).
+Associate the uploaded file with a PDM document upload using the same PATCH request as in Example 1, Step 6.
+Use the `upload_id` from this upload (`01JEXAMPLE00000000000000002`) as the `file_upload_id`.
+
+For associating files with other Procore tools, see [Using upload_id in API Requests]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}#using-upload-id-in-api-requests).
 
 ---
 
@@ -452,33 +478,10 @@ Upload status values include:
 - **Uploads expire.** Uploads must be completed and associated with a Procore resource within the expiration window or they will be automatically deleted.
 - **The authenticated user owns the upload.** Only the user who created the upload can complete it and use it in subsequent API requests.
 
-## Migrating from v1.1 Uploads
-
-If you are currently using the v1.1 Upload API, here are the key differences in v2.1:
-
-| Aspect | v1.1 | v2.1 |
-|---|---|---|
-| Create upload | POST with `segments[]` (checksums only) | POST with `file_name`, `file_size`, `content_type`, `segments[]` |
-| Upload file data | POST form-data with policy fields **or** PUT to presigned URLs | PUT binary data to presigned URLs (always) |
-| Complete upload | PATCH with `segments[].etag` | PATCH with `part_etags[]` (flat array) |
-| Non-segmented uploads | POST form-data with `url` + `fields` | PUT binary data to presigned URL (same as segmented) |
-| Response format | Flat JSON (`uuid`, `segments`, `status`) | JSON:API wrapper (`data.upload_id`, `data.segments`, `data.status`) |
-| URL refresh | Not available | GET `/url` and GET `/parts/{n}/url` endpoints |
-| Upload status | Not available | GET `/{upload_id}` endpoint |
 
 ## Coming Soon
 
 The following capabilities are planned for upcoming releases of the Unified Upload API:
-
 - **Malware scan status** — Fields indicating whether the uploaded file has been scanned and the scan result
 - **Checksum verification status** — Fields confirming whether server-side checksum verification passed
 - **Extended analytics and client metadata** — Additional fields for richer upload telemetry and client identification
-
-## See Also
-
-- [Working with Direct File Uploads (v1.1)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
-- [Working with Documents]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_documents.md %})
-- [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %})
-- [Working with Secure File Access]({{ site.url }}{{ site.baseurl }}{% link best_practices/secure_file_access_tips.md %})
-- [Working with Drawings]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_drawings.md %})
-- [Working with Direct Drawing Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_direct_drawing_uploads.md %})
