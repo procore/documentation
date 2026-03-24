@@ -16,10 +16,12 @@ Whether you are uploading a small document or a multi-gigabyte video, the API co
 3. **PATCH** — Complete the upload by submitting the ETag(s) returned from each PUT
 4. **GET** — Poll the upload status until it is `available`
 
-This four-step workflow replaces the v1.1 upload process with a simpler, more predictable interface.
-There is no need to construct form-data payloads or manage cloud-specific policy fields — the API returns presigned URLs that accept a simple binary PUT.
+This four-step workflow replaces the v1.0 and v1.1 upload process with a simpler, more predictable interface.
+There is no need to construct form-data payloads or manage cloud-specific policy fields.
+The API returns presigned URLs that accept a simple binary PUT.
 
-The Unified Upload API is designed to work consistently across all Procore tools — the same upload workflow applies whether you are attaching files to Documents, RFIs, Submittals, Drawings, or any other tool.
+The Unified Upload API is designed to work consistently across all Procore tools.
+The existing upload workflow applies attaching files to Procore Document Management (PDM).
 It is also built with multi-cloud support in mind, so as Procore expands to additional cloud storage providers in the future, your integration code will continue to work without changes.
 
 > **Key Principle:** Files 100 MB or smaller can be uploaded as a single part.
