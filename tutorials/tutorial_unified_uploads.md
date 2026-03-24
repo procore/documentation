@@ -24,9 +24,14 @@ The Unified Upload API is designed to work consistently across all Procore tools
 The existing upload workflow applies attaching files to Procore Document Management (PDM).
 It is also built with multi-cloud support in mind, so as Procore expands to additional cloud storage providers in the future, your integration code will continue to work without changes.
 
-> **Key Principle:** Files 100 MB or smaller can be uploaded as a single part.
-> Files larger than 100 MB must be split into multiple parts (each part can be at most 100 MB, minimum 5 MB except for the last part).
-> In both cases the API contract is identical — the only difference is the number of segments.
+### Key New Feature Highlights
+
+- **Size Agnostic Upload:** The Files Platform provides a size-agnostic upload experience, removing the need for client-side branching logic based on file size. To ensure consistency and reliability, all uploads should be treated as "Segmented" (Multipart) regardless of the total file size.
+- **Strict File Size Thresholds:** The system enforces a strict maximum of 100 MB upper limit for each segmented upload.
+- **Checksum Verification:** Segment-level validation will be performed using a mandatory SHA-256 checksum, with an optional MD5 check available for additional verification.
+- **24-Hour PDM Tool Association Timeline:** Files uploaded via the Unified Uploads API must be associated with a PDM tool within 24 hours of upload initialization. If a file is not associated within this timeframe, it will be permanently and automatically deleted from cloud storage with no recovery possible.
+- **Status-Driven Interface:** The API relies on a status field (e.g., `in_progress`, `completed`, `available`). Clients should always check that a file's status is `available` before attempting to download it, which indicates all processing and checksum verifications are finished.
+- **Standardized ETags:** For uploads, you must explicitly signal completion using an array of `part_etags`.
 
 > **Important — Treat URLs and headers as opaque.**
 > The presigned `url` and `headers` returned in each segment must be copied in their entirety and used exactly as provided in your PUT request.
