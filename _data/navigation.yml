@@ -131,7 +131,7 @@
       url: /attachments
     - title: Direct File Uploads
       url: /tutorial-uploads
-    - title: Unified Upload API (v2.1)
+    - title: Unified Uploads
       url: /tutorial-unified-uploads
     - title: Secure File Access
       url: /secure-file-access-tips
