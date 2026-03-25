@@ -471,7 +471,7 @@ Upload status values include:
 
 - **File parts have a 100 MB maximum size.** Files larger than 100 MB must be split into multiple parts. Each part can be at most 100 MB, with a minimum of 5 MB (except the last part, which can be smaller).
 - **Maximum of 10,000 parts per upload.** A single upload cannot exceed 10,000 parts. For very large files, increase your part size accordingly to stay within this limit.
-- **Presigned URLs expire.** The `url_expires_at` field indicates when the presigned URL becomes invalid. If a URL expires before you complete the PUT, create a new upload to obtain fresh presigned URLs.
+- **Presigned URLs expire.** The `url_expires_at` field indicates when the presigned URL becomes invalid. If a URL expires before you complete the PUT, call the GET upload status endpoint to obtain fresh presigned URLs for the remaining segments.
 - **Copy URLs and headers exactly as returned.** The `url` and `headers` from each segment are opaque. Copy them in their entirety into your PUT request without adding, removing, or modifying any values. Do not parse or make assumptions about the URL structure or header names — they are subject to change without notice.
 - **Do not include your access token in PUT requests.** The presigned URL is pre-authenticated. Including an Authorization header in the PUT will cause an error.
 - **ETag order matters.** When completing a multi-part upload, the `part_etags` array must be in the same order as the `segments` returned by the POST response.
