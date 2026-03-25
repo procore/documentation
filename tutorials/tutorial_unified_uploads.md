@@ -76,7 +76,7 @@ For a single-part upload, set `part_size` equal to `file_size`. The `segments` a
 ```
 curl -X POST 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer {access_token}' \
+  --header 'Authorization: Bearer ${access_token}' \
   --data '{
     "file_name": "report.pdf",
     "file_size": 2097152,
@@ -154,7 +154,7 @@ Notify Procore that the upload is complete by submitting the ETag.
 ```
 curl -X PATCH 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000001' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer {access_token}' \
+  --header 'Authorization: Bearer ${access_token}' \
   --data '{
     "part_etags": ["d41d8cd98f00b204e9800998ecf8427e"]
   }'
@@ -180,7 +180,7 @@ The file is not ready for use in Procore until this status is reached.
 
 ```
 curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000001' \
-  --header 'Authorization: Bearer {access_token}'
+  --header 'Authorization: Bearer ${access_token}'
 ```
 
 **Response (200 OK)**
@@ -211,7 +211,7 @@ Use the `upload_id` (returned as `file_upload_id`) to associate the uploaded fil
 ```
 curl -X PATCH 'https://api.procore.com/rest/v1.4/companies/{company_id}/projects/{project_id}/collaborative_documents/document_uploads' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer {access_token}' \
+  --header 'Authorization: Bearer ${access_token}' \
   --data '{
     "document_upload_ids": ["{document_upload_id}"],
     "update_params": [
@@ -284,7 +284,7 @@ Provide `part_size` and a `segments` array with per-part checksums.
 ```
 curl -X POST 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer {access_token}' \
+  --header 'Authorization: Bearer ${access_token}' \
   --data '{
     "file_name": "test-video.mp4",
     "file_size": 8829449,
@@ -373,7 +373,7 @@ Submit all ETags in the same order as the segments from the POST response.
 ```
 curl -X PATCH 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000002' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer {access_token}' \
+  --header 'Authorization: Bearer ${access_token}' \
   --data '{
     "part_etags": [
       "65fa016357a18272ce086ff4694ba61a",
@@ -401,7 +401,7 @@ Poll the upload status until it transitions to `available`.
 
 ```
 curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000002' \
-  --header 'Authorization: Bearer {access_token}'
+  --header 'Authorization: Bearer ${access_token}'
 ```
 
 **Response (200 OK)**
@@ -438,7 +438,7 @@ Use the Get Upload Status endpoint to check the current state of an upload, or t
 
 ```
 curl -X GET 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}' \
-  --header 'Authorization: Bearer {access_token}'
+  --header 'Authorization: Bearer ${access_token}'
 ```
 
 **Response (200 OK)**
