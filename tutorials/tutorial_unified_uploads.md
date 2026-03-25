@@ -88,7 +88,7 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "segments": [
      {
-            "size":  122,
+            "size":  2097152,
             "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "md5": "d41d8cd98f00b204e9800998ecf8427e"
         }
