@@ -77,14 +77,21 @@ For a single-part upload, set `part_size` equal to `file_size`. The `segments` a
 curl -X POST 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads' \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer ${access_token}' \
+  --header 'Procore-Company-Id: {company_id}' \
   --data '{
-    "file_name": "report.pdf",
-    "file_size": 2097152,
-    "part_size": 2097152,
-    "content_type": "application/pdf",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "md5": "d41d8cd98f00b204e9800998ecf8427e"
-  }'
+  "file_name": "document.pdf",
+  "file_size":  122,
+  "content_type": "application/pdf",
+  "sha256": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae",
+  "segments": [
+     {
+            "size":  122,
+            "sha256": "3df27883d1c0ebea13fb1879684b0b6db81f18cacb78602a61626f2ff60382a2",
+            "md5": "88916dda1121b0dccacaac783c1bd13e"
+        }
+  ]
+}'
+
 ```
 
 **Response (201 Created)**
@@ -93,9 +100,8 @@ curl -X POST 'https://api.procore.com/rest/v2.1/companies/{company_id}/projects/
 {
   "data": {
     "upload_id": "01JEXAMPLE00000000000000001",
-    "file_name": "report.pdf",
-    "file_size": 2097152,
-    "part_size": 2097152,
+    "file_name": "document.pdf",
+    "file_size": 122,
     "total_parts": 1,
     "content_type": "application/pdf",
     "upload_expires_at": 1773900000,
@@ -132,7 +138,7 @@ Copy both values exactly as provided — do not modify the URL or headers.
 ```
 curl -X PUT '{segment_url_from_response}' \
   --header 'Content-Length: 2097152' \
-  --data-binary '@report.pdf'
+  --data-binary '@document.pdf'
 ```
 
 **Response**
