@@ -82,15 +82,15 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
   --header 'Authorization: Bearer ${access_token}' \
   --header 'Procore-Company-Id: {company_id}' \
   --data '{
-  "file_name": "document.pdf",
-  "file_size":  122,
+  "file_name": "report.pdf",
+  "file_size":  2097152,
   "content_type": "application/pdf",
-  "sha256": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "segments": [
      {
             "size":  122,
-            "sha256": "3df27883d1c0ebea13fb1879684b0b6db81f18cacb78602a61626f2ff60382a2",
-            "md5": "88916dda1121b0dccacaac783c1bd13e"
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "md5": "d41d8cd98f00b204e9800998ecf8427e"
         }
   ]
 }'
@@ -103,8 +103,8 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
 {
   "data": {
     "upload_id": "01JEXAMPLE00000000000000001",
-    "file_name": "document.pdf",
-    "file_size": 122,
+    "file_name": "report.pdf",
+    "file_size": 2097152,
     "total_parts": 1,
     "content_type": "application/pdf",
     "upload_expires_at": 1773900000,
@@ -141,7 +141,7 @@ Copy both values exactly as provided — do not modify the URL or headers.
 ```
 curl -X PUT '{segment_url_from_response}' \
   --header 'Content-Length: 2097152' \
-  --data-binary '@document.pdf'
+  --data-binary '@report.pdf'
 ```
 
 **Response**
@@ -203,8 +203,7 @@ curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projec
     "content_type": "application/pdf",
     "file_size": 2097152,
     "status": "available",
-    "custom_metadata": {},
-    "segments": []
+    "custom_metadata": {}
   }
 }
 ```
@@ -234,8 +233,6 @@ curl -X PATCH 'https://sandbox.procore.com/rest/v2.0/companies/{company_id}/proj
 
 The `document_upload_id` is the ID from the PDM document upload batch create endpoint.
 The `file_upload_id` is the `upload_id` returned by the Unified Upload API in Step 2.
-
-For associating files with other Procore tools (Action Plans, Meeting Topics, etc.), see [Using upload_id in API Requests]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}#using-upload-id-in-api-requests).
 
 ---
 
@@ -322,7 +319,6 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
     "upload_id": "01JEXAMPLE00000000000000002",
     "file_name": "test-video.mp4",
     "file_size": 8829449,
-    "part_size": 6000000,
     "total_parts": 2,
     "content_type": "video/mp4",
     "upload_expires_at": 1773900000,
