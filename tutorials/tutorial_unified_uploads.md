@@ -46,8 +46,8 @@ All endpoints are scoped to a project:
 |---|---|---|
 | Create Upload | POST | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads` |
 | Upload File Content | PUT | Presigned URL returned in the `segments[].url` field of the POST response |
-| Get Upload Status | GET | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
 | Complete Upload | PATCH | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
+| Get Upload Status | GET | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
 
 ## Example 1: Small File Upload (Single Part)
 
