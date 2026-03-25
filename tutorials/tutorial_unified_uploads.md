@@ -55,10 +55,13 @@ This example uploads a 2 MB PDF as a single part.
 
 ### Step 1 — Compute File Hashes
 
-Compute the SHA-256 and MD5 hashes for the file.
+Determine the file size and compute the SHA-256 and MD5 hashes.
 These values are included in the create-upload request so that Procore can verify data integrity.
 
 ```
+wc -c < report.pdf
+# 2097152
+
 shasum -a 256 report.pdf
 # e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 
@@ -429,8 +432,6 @@ curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projec
 
 Associate the uploaded file with a PDM document upload using the same PATCH request as in Example 1, Step 6.
 Use the `upload_id` from this upload (`01JEXAMPLE00000000000000002`) as the `file_upload_id`.
-
-For associating files with other Procore tools, see [Using upload_id in API Requests]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}#using-upload-id-in-api-requests).
 
 ---
 
