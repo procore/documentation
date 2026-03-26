@@ -42,7 +42,8 @@ If you need to process more than 100 documents, it is recommended to split them 
 ---
 
 All request and response examples in this guide are condensed for readability and focus on essential fields. For complete schemas, all available fields, and HTTP status codes, follow the endpoint links throughout each step.  
-List endpoints are paginated with a default page size of 10 and a maximum of 100. Use `page` and `per_page` query parameters to navigate the list endpoints. The response includes a `Total` header with the total record count and a `Link` header with `next`/`prev`/`first`/`last` page URLs.
+
+List endpoints are paginated with a default page size of 10 and a maximum of 100. Use `page` and `per_page` query parameters to navigate the list endpoints. The response includes a `Total` header with the total record count and a `Link` header with page URLs. The `Link` header is always present, but its content is conditional: when all results fit on a single page, it is empty. Otherwise, will include `next/prev/first/last` page URLs.
 
 ## Steps 1–3: Gather Project Configuration
 
@@ -111,7 +112,7 @@ The API response is an array of requirement objects. Each object defines a set o
   1. **Conditional rules** — Requirements where `rule_qualifiers` contains one or more entries. If your document's metadata values match all qualifiers in a requirement, that requirement applies. If multiple conditional rules match, the one with the most matching qualifiers takes priority.
   2. **Default rule** — The requirement where `rule_qualifiers` is an empty array (`[]`). This is the catch-all that applies when no conditional rule matches your document's metadata.
 
-- **`fields_required_by_project`** & **`additional_required_fields`** — Together, these arrays define the complete list of fields you must populate. `fields_required_by_project` always contains the baseline fields (Name, Type, Status, Revision). `additional_required_fields` contains extra fields specific to the matched requirement (e.g., drawings may strictly require `date_authored`).
+- **`fields_required_by_project`** and **`additional_required_fields`** — Together, these arrays define the complete list of fields you must populate. `fields_required_by_project` always contains the baseline fields (Name, Type, Status, Revision). `additional_required_fields` contains extra fields specific to the matched requirement (e.g., drawings may strictly require `date_authored`).
 
 - **`naming_standard`** — If present, the project enforces a naming standard. Procore will automatically attempt to extract metadata from filenames.
 
@@ -503,8 +504,8 @@ The `update_params` array contains one object per document upload to modify.
 **Response**
 
 When the request body is valid and updates are processed, the endpoint returns HTTP 207 (Multi-Status) with `success` and `failed` arrays. Items in `success` contain only `id`. The `failed` array is populated only when `upload_status: "COMPLETED"` is set but Procore cannot confirm individual files in storage — each failed entry includes `id`, `code` (a numeric error code from the storage service), and `message` (human-readable; do not parse programmatically).  
-PATCH updates are safe to retry since reapplying the same values overwrites existing ones without creating duplicates. For items in the failed array, re-PATCH only those upload IDs. For 4xx and 500 failures, no updates were applied and the full request can be retried after addressing the error.  
-See the [Error Reference](#error-reference) for resolution steps.
+
+PATCH updates are safe to retry since reapplying the same values overwrites existing ones without creating duplicates. For items in the failed array, re-PATCH only those upload IDs. For 4xx and 500 failures, no updates were applied and the full request can be retried after addressing the error. See the [Error Reference](#error-reference) for resolution steps.
 
 
 <details>
@@ -757,10 +758,9 @@ Step 8 has two distinct failure modes: **request-level failures** (4xx) that rej
 | 422 | `WORKFLOW_CONFLICT` | Existing revisions in the target container have active workflows and the project is configured to prevent concurrent revision workflows. | Re-submit with `termination_reason` and `terminated_revision_status_id` added to each conflicting upload. |
 
 **Resolving `WORKFLOW_CONFLICT`:**
-When submitting uploads that may supersede or close out existing document revision workflows, you can optionally terminate those workflows as part of the submission. To terminate existing workflows safely, always send the latest `upload_latest_event_id` for each upload and provide:  
-**`termination_reason`** a human-readable reason for terminating the existing workflows (e.g., `"Superseded"`, `"Replaced by new revision"`)
-
-**`terminated_revision_status_id`** metadata value ID of the status to apply to the terminated revisions. To find valid status IDs, call the [metadata values endpoint](#step-3-fetch-values-for-dropdown-fields) for the `status` field: `GET .../fields/status/values`
+When submitting uploads that may supersede or close out existing document revision workflows, you can optionally terminate those workflows as part of the submission. To terminate existing workflows safely, always send the latest `upload_latest_event_id` for each upload and provide:
+- **`termination_reason`** a human-readable reason for terminating the existing workflows (e.g., `"Superseded"`, `"Replaced by new revision"`)
+- **`terminated_revision_status_id`** metadata value ID of the status to apply to the terminated revisions. To find valid status IDs, call the [metadata values endpoint](#step-3-fetch-values-for-dropdown-fields) for the `status` field: `GET .../fields/status/values`
 
 
 Terminating workflows requires project admin or workflow manager permissions. If your account lacks these permissions, the error returns `WORKFLOW_CONFLICT_INSUFFICIENT_PERMISSION`.
