@@ -118,7 +118,7 @@ This reference describes the metadata structure returned by **Document Upload** 
   "upload_requested_at": "string",
   "document_container_id": "string",
   "position_within_container": "string",
-  "latestEventId": "string",
+  "latest_event_id": "string",
   "download_url": "string",
   "upload_completed_at": "string"
 }
@@ -178,7 +178,7 @@ System-generated fields are automatically populated and cannot be directly modif
 | **integrationStatuses** | object | Status of active integrations. | Set at creation, updates during processing |
 | **integrations** | object | Detailed integration information. | Set at creation, updates during processing |
 | **item_content** | lov_entry | Indicates whether the item is a Document or a Placeholder. | Set at creation |
-| **latestEventId** | string | Event ID for optimistic concurrency control. | Updated on each state change |
+| **latest_event_id** | string | Event ID for optimistic concurrency control. | Updated on each state change |
 | **matchCriteria** | string | Identifier generated based on naming standard and file format used for grouping documents into containers. | Set at creation, updates on metadata change |
 | **original_filename** | string | Original file name of a document at the time of upload. | Set at creation |
 | **position_within_container** | string | Sort position within the document container. | Set when containerized |
@@ -1037,6 +1037,7 @@ Document Management can process 3D model files (BIM/Building Information Models)
   "upload_requested_at": "2000-01-01T00:00:00.000Z",
   "document_container_id": null,
   "position_within_container": "aaa....",
+  "latest_event_id": "01KMK7NJXX9A3JE83QYZEZTEHM",
   "download_url": "https://app.procore.com/rest/v1.0/companies/0/projects/0/collaborative_documents/document_uploads/31OZMQFW8L1T82WOY8G7WH8TL/download",
   "upload_completed_at": "2000-01-01T00:00:01.000Z"
 }
