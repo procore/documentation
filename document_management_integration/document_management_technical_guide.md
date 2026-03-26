@@ -339,7 +339,7 @@ Content-Type: application/json
 <summary class="collapseListTierOne">View Example Response (HTTP 201)</summary>
 <pre><code>{
   "data": {
-    "upload_id": "up_1234567890abcdef",
+    "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
     "status": "ready",
     "segments": [
       {
@@ -391,7 +391,7 @@ Content-Type: application/json
 <summary class="collapseListTierOne">View Example Response (PATCH complete, HTTP 200)</summary>
 <pre><code>{
   "data": {
-    "upload_id": "up_1234567890abcdef",
+    "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
     "status": "complete"
   }
 }</code></pre>
@@ -417,7 +417,7 @@ PATCH /rest/v2.0/companies/{company_id}/projects/{project_id}/document_managemen
   "update_params": [
     {
       "id": "01JDXMPK0MTP0H41D4PYZ62R6R",
-      "file_upload_id": "up_pFK0F69F2MXX40P4T",
+      "file_upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
       "upload_status": "COMPLETED",
       "fields": [
         {
@@ -448,7 +448,7 @@ PATCH /rest/v2.0/companies/{company_id}/projects/{project_id}/document_managemen
   "update_params": [
     {
       "id": "01JDXMPK0MTP0H41D4PYZ62R6R",
-      "file_upload_id": "up_pFK0F69F2MXX40P4T",
+      "file_upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
       "upload_status": "COMPLETED",
       "fields": [
         {
@@ -895,6 +895,14 @@ POST /rest/v2.1/companies/8089/projects/2305/uploads
   "file_name": "document.pdf",
   "file_size": 2048576,
   "content_type": "application/pdf"
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "segments": [
+     {
+            "size":  2097152,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "md5": "d41d8cd98f00b204e9800998ecf8427e"
+      }
+  ]
 }
 ```
 
@@ -902,12 +910,12 @@ Response (201 Created):
 ```json
 {
   "data": {
-    "upload_id": "up_pFK0F69F2MXX40P4T",
+    "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
     "status": "ready",
     "segments": [
       {
         "url": "https://storage.procore.com/...?signature=...",
-        "url_expires_at": "2026-01-08T11:30:00Z",
+        "url_expires_at": "url_expires_at": 1736418600,
         "headers": { "Content-Type": "application/pdf", "Content-Length": "2048576" }
       }
     ]
@@ -918,20 +926,20 @@ Response (201 Created):
 PUT the file bytes to `segments[0].url` using exactly the headers returned. Capture the `ETag` from the PUT response header, then complete the upload:
 
 ```
-PATCH /rest/v2.1/companies/8089/projects/2305/uploads/up_pFK0F69F2MXX40P4T
+PATCH /rest/v2.1/companies/8089/projects/2305/uploads/01JDXMPK0PFK0F69F2MXX40P4T
 
 { "part_etags": ["4368a24e796f1ad94d40bed08c2d0292"] }
 ```
 
-Response: `{ "data": { "upload_id": "up_pFK0F69F2MXX40P4T", "status": "complete" } }`
+Response: `{ "data": { "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T", "status": "complete" } }`
 
-Save `upload_id` (`up_pFK0F69F2MXX40P4T`) — this becomes your `file_upload_id` in Step 6.
+Save `upload_id` (`01JDXMPK0PFK0F69F2MXX40P4T`) — this becomes your `file_upload_id` in Step 6.
 
 **6. Update the document upload — `PATCH .../document_uploads`**
 
 Fields used from previous steps:
 - `id`: document upload ID from Step 4 (`01JDXMPK0MTP0H41D4PYZ62R6R`)
-- `file_upload_id`: `upload_id` from Step 5 (`up_pFK0F69F2MXX40P4T`)
+- `file_upload_id`: `upload_id` from Step 5 (`01JDXMPK0PFK0F69F2MXX40P4T`)
 - `type` field ID and `Drawing` value ID from Steps 2 and 3
 - `status`, `revision`, `name` field IDs from Step 2; `Open` value ID from Step 3
 
@@ -942,7 +950,7 @@ PATCH /rest/v2.0/companies/8089/projects/2305/document_management/document_uploa
   "update_params": [
     {
       "id": "01JDXMPK0MTP0H41D4PYZ62R6R",
-      "file_upload_id": "up_pFK0F69F2MXX40P4T",
+      "file_upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
       "upload_status": "COMPLETED",
       "fields": [
         { "id": "01JDXMPK09FD0892J5BDMJD37D", "values": ["01JDXMPK0HMV0N14A7S3C95V9N"] },
