@@ -128,4 +128,4 @@ Consider the following recommendations when building your integration:
 - [Document Management APIs]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})  
 - [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})  
 - [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %})   
-- [File Upload API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
+- [Unified Upload API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_unified_uploads.md %})
