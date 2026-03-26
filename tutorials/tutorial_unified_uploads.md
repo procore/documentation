@@ -1,5 +1,5 @@
 ---
-permalink: /tutorial-unified-uploads
+permalink: /tutorial-unified-file-uploads
 title: Working with the Unified File Uploads
 layout: default
 section_title: "Product Guides: Documents & Files"

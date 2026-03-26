@@ -132,7 +132,7 @@
     - title: Direct File Uploads
       url: /tutorial-uploads
     # - title: Unified Uploads
-    #   url: /tutorial-unified-uploads //disabled until GA release
+    #   url: /tutorial-unified-file-uploads //disabled until GA release
     - title: Secure File Access
       url: /secure-file-access-tips
     - title: Drawings
