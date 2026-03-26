@@ -1,6 +1,6 @@
 ---
 permalink: /tutorial-unified-uploads
-title: Working with the Unified Uploads
+title: Working with the Unified File Uploads
 layout: default
 section_title: "Product Guides: Documents & Files"
 
@@ -8,7 +8,7 @@ section_title: "Product Guides: Documents & Files"
 
 ## Introduction
 
-The Unified Upload API (v2.1) provides a single, consistent workflow for uploading files of any size to Procore.
+The Unified File Upload API (v2.1) provides a single, consistent workflow for uploading files of any size to Procore.
 Whether you are uploading a small document or a multi-gigabyte video, the API contract is the same:
 
 1. **POST** — Create an upload and receive presigned URL(s)
@@ -20,7 +20,7 @@ This four-step workflow replaces the v1.0 and v1.1 upload process with a simpler
 There is no need to construct form-data payloads or manage cloud-specific policy fields.
 The API returns presigned URLs that accept a simple binary PUT.
 
-The Unified Upload API is designed to work consistently across all Procore tools.
+The Unified File Upload API is designed to work consistently across all Procore tools.
 The existing upload workflow applies attaching files to Procore Document Management (PDM).
 It is also built with multi-cloud support in mind, so as Procore expands to additional cloud storage providers in the future, your integration code will continue to work without changes.
 
@@ -29,7 +29,7 @@ It is also built with multi-cloud support in mind, so as Procore expands to addi
 - **Size Agnostic Upload:** The Files Platform provides a size-agnostic upload experience, removing the need for client-side branching logic based on file size. To ensure consistency and reliability, all uploads should be treated as "Segmented" (Multipart) regardless of the total file size.
 - **Strict File Size Thresholds:** The system enforces a strict maximum of 100 MB upper limit for each segmented upload.
 - **Checksum Verification:** Segment-level validation will be performed using a mandatory SHA-256 checksum, with an optional MD5 check available for additional verification.
-- **24-Hour PDM Tool Association Timeline:** Files uploaded via the Unified Uploads API must be associated with a PDM tool within 24 hours of upload initialization. If a file is not associated within this timeframe, it will be permanently and automatically deleted from cloud storage with no recovery possible.
+- **24-Hour PDM Tool Association Timeline:** Files uploaded via the Unified File Uploads API must be associated with a PDM tool within 24 hours of upload initialization. If a file is not associated within this timeframe, it will be permanently and automatically deleted from cloud storage with no recovery possible.
 - **Status-Driven Interface:** The API relies on a status field (e.g., `in_progress`, `completed`, `available`). Clients should always check that a file's status is `available` before attempting to download it, which indicates all processing and checksum verifications are finished.
 - **Standardized ETags:** For uploads, you must explicitly signal completion using an array of `part_etags`.
 
@@ -231,7 +231,7 @@ curl -X PATCH 'https://sandbox.procore.com/rest/v2.0/companies/{company_id}/proj
 ```
 
 The `document_upload_id` is the ID from the PDM document upload batch create endpoint.
-The `file_upload_id` is the `upload_id` returned by the Unified Upload API in Step 2.
+The `file_upload_id` is the `upload_id` returned by the Unified File Upload API in Step 2.
 
 ---
 
@@ -480,7 +480,7 @@ Upload status values include:
 
 ## Coming Soon
 
-The following capabilities are planned for upcoming releases of the Unified Upload API:
+The following capabilities are planned for upcoming releases of the Unified File Upload API:
 - **Malware scan status** — Fields indicating whether the uploaded file has been scanned and the scan result
 - **Checksum verification status** — Fields confirming whether server-side checksum verification passed
 - **Extended analytics and client metadata** — Additional fields for richer upload telemetry and client identification
