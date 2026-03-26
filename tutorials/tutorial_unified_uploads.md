@@ -8,7 +8,7 @@ section_title: "Product Guides: Documents & Files"
 
 ## Introduction
 
-The Unified File Upload API (v2.1) provides a single, consistent workflow for uploading files of any size to Procore.
+The Unified File Upload API provides a single, consistent workflow for uploading files of any size to Procore.
 Whether you are uploading a small document or a multi-gigabyte video, the API contract is the same:
 
 1. **POST** — Create an upload and receive presigned URL(s)
@@ -26,7 +26,7 @@ It is also built with multi-cloud support in mind, so as Procore expands to addi
 
 ### Key New Feature Highlights
 
-- **Size Agnostic Upload:** The Files Platform provides a size-agnostic upload experience, removing the need for client-side branching logic based on file size. To ensure consistency and reliability, all uploads should be treated as "Segmented" (Multipart) regardless of the total file size.
+- **Size Agnostic Upload:** The API provides a size-agnostic upload experience, removing the need for client-side branching logic based on file size. To ensure consistency and reliability, all uploads should be treated as "Segmented" (Multipart) regardless of the total file size.
 - **Strict File Size Thresholds:** The system enforces a strict maximum of 100 MB upper limit for each segmented upload.
 - **Checksum Verification:** Segment-level validation will be performed using a mandatory SHA-256 checksum, with an optional MD5 check available for additional verification.
 - **24-Hour PDM Tool Association Timeline:** Files uploaded via the Unified File Uploads API must be associated with a PDM tool within 24 hours of upload initialization. If a file is not associated within this timeframe, it will be permanently and automatically deleted from cloud storage with no recovery possible.
@@ -44,10 +44,10 @@ All endpoints are scoped to a project:
 
 | Action | Method | Endpoint URI |
 |---|---|---|
-| Create Upload | POST | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads` |
+| [Create Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#create-unified-upload) | POST | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads` |
 | Upload File Content | PUT | Presigned URL returned in the `segments[].url` field of the POST response |
-| Complete Upload | PATCH | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
-| Get Upload Status | GET | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
+| [Complete Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#complete-unified-upload) | PATCH | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
+| [Get Upload Status](https://developers.procore.com/reference/rest/uploads?version=2.1#get-unified-upload-status) | GET | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
 
 ## Example 1: Small File Upload (Single Part)
 
