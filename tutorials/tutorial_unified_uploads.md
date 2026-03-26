@@ -71,15 +71,14 @@ md5 report.pdf
 
 ### Step 2 — Create the Upload (POST)
 
-Send a POST request to create the upload.
-For a single-part upload, set `part_size` equal to `file_size`. The `segments` array is not required for single-part uploads.
+Send a POST request to create the upload.Note: "file_size" & "size" should be in bytes
 
 **Request**
 
 ```
 curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer ${access_token}' \
+  --header 'Authorization: Bearer "${access_token}"' \
   --header 'Procore-Company-Id: {company_id}' \
   --data '{
   "file_name": "report.pdf",
@@ -163,7 +162,7 @@ Notify Procore that the upload is complete by submitting the ETag.
 ```
 curl -X PATCH 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000001' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer ${access_token}' \
+  --header 'Authorization: Bearer "${access_token}"' \
   --data '{
     "part_etags": ["d41d8cd98f00b204e9800998ecf8427e"]
   }'
@@ -189,7 +188,7 @@ The file is not ready for use in Procore until this status is reached.
 
 ```
 curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000001' \
-  --header 'Authorization: Bearer ${access_token}'
+  --header 'Authorization: Bearer "${access_token}"'
 ```
 
 **Response (200 OK)**
@@ -219,7 +218,7 @@ Use the `upload_id` (returned as `file_upload_id`) to associate the uploaded fil
 ```
 curl -X PATCH 'https://sandbox.procore.com/rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/document_uploads' \
   --header 'Content-Type: application/json' \
-  --header "Authorization: Bearer ${access_token}" \
+  --header 'Authorization: Bearer "${access_token}"' \
   --data '{
     "update_params": [
       {
@@ -281,21 +280,20 @@ md5 test-video.mp4
 
 ### Step 2 — Create the Upload (POST)
 
-Provide `part_size` and a `segments` array with per-part checksums.
+Provide a `segments` array with per-part checksums.
 
 **Request**
 
 ```
 curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer ${access_token}' \
+  --header 'Authorization: Bearer "${access_token}"' \
   --data '{
     "file_name": "test-video.mp4",
     "file_size": 8829449,
     "content_type": "video/mp4",
     "sha256": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
     "md5": "f1e2d3c4b5a6f1e2d3c4b5a6f1e2d3c4",
-    "part_size": 6000000,
     "segments": [
       {
         "size": 6000000,
@@ -376,7 +374,7 @@ Submit all ETags in the same order as the segments from the POST response.
 ```
 curl -X PATCH 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000002' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer ${access_token}' \
+  --header 'Authorization: Bearer "${access_token}"' \
   --data '{
     "part_etags": [
       "65fa016357a18272ce086ff4694ba61a",
@@ -404,7 +402,7 @@ Poll the upload status until it transitions to `available`.
 
 ```
 curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000002' \
-  --header 'Authorization: Bearer ${access_token}'
+  --header 'Authorization: Bearer "${access_token}"'
 ```
 
 **Response (200 OK)**
@@ -439,7 +437,7 @@ Use the Get Upload Status endpoint to check the current state of an upload, or t
 
 ```
 curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}' \
-  --header 'Authorization: Bearer ${access_token}'
+  --header 'Authorization: Bearer "${access_token}"'
 ```
 
 **Response (200 OK)**
