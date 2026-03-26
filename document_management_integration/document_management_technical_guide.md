@@ -127,7 +127,7 @@ Every requirement object in this response includes the field `id`. If you only n
 This endpoint returns every user-settable field configured for the project, including optional fields not listed in upload requirements.  
 Skip this step if you only need to populate required fields — their IDs are already in the Step 1 response.
 
-**Request** — [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0)
+**Request** — [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0#list-project-fields)
 
 ```
 GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/fields
@@ -193,7 +193,7 @@ The response excludes system-only fields (`file_format`, `assigned_workflow_temp
 
 This endpoint returns the available metadata values for a given field and is a required step for any field with type `lov_entry` (single select) or `lov_entries` (multi-select) that you plan to populate. The response provides value IDs that you will supply when setting field values on a document upload.
 
-**Request** — [List Project Metadata Values](https://developers.procore.com/reference/rest/project-metadata-values?version=2.0)
+**Request** — [List Project Metadata Values](https://developers.procore.com/reference/rest/project-metadata-values?version=2.0#list-project-metadata-values)
 
 ```
 GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/fields/{field_id_or_name}/values
@@ -552,7 +552,7 @@ Two background processes may auto-populate fields after `upload_status` is set t
 
 **3. Verify all required metadata**
 
-Inspect the `fields` array to confirm all required fields are populated, either by you or by ML, before proceeding. The `fields` array in the show response is returned in full and a single API call gives you the complete set of fields for the document upload. This is distinct from the separate [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0) endpoint (`GET .../fields`) covered in Step 2, which is paginated and lists available field definitions for the project.  
+Inspect the `fields` array to confirm all required fields are populated, either by you or by ML, before proceeding. The `fields` array in the show response is returned in full and a single API call gives you the complete set of fields for the document upload. This is distinct from the separate [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0#list-project-fields) endpoint (`GET .../fields`) covered in Step 2, which is paginated and lists available field definitions for the project.  
 
 Note that `permissions.allowed_actions` in the response does not reflect the user's full permission set and can be ignored here.
 
@@ -614,7 +614,7 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
 
 Convert your document upload into a permanent project record. Once a document upload has `upload_status: COMPLETED`, all required metadata fields populated, and a `latest_event_id` retrieved, it is ready for final submission. Submitted document uploads get removed from the uploads list and are no longer retrievable. This POST request consumes your temporary upload ID and creates a versioned Document Revision. Procore will automatically place this new revision into the correct Document Container based on the metadata matching criteria.
 
-**Request** — [Create Document Revisions](https://developers.procore.com/reference/rest/document-revisions?version=2.0)
+**Request** — [Create Document Revisions](https://developers.procore.com/reference/rest/document-revisions?version=2.0#bulk-create-document-revisions)
 
 ```
 POST /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/document_revisions

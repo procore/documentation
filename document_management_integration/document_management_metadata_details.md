@@ -232,12 +232,12 @@ Projects can define custom metadata fields specific to their organizational need
 - **Integrate with naming standards**: Some custom fields can be extracted from filenames
 - **Support workflows**: Can be used in workflow rules and permission groups
 
-To retrieve available fields for a project (including custom fields), use the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=latest) endpoint:
+To retrieve available fields for a project (including custom fields), use the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0#list-project-fields) endpoint:
 The response includes both standard fields and project-level custom fields. **A field is identified as a custom field when `custom_field_definition_id` is present in the response.**
 
 ## Field Type Reference
 
-In the [Document Uploads](https://developers.procore.com/reference/rest/document-uploads?version=2.0) API response, each field object in the `fields` array includes a `type` property that determines its value format and structure.
+In the [Document Uploads](https://developers.procore.com/reference/rest/document-uploads?version=2.0#show-document-upload) API response, each field object in the `fields` array includes a `type` property that determines its value format and structure.
 
 ### Field Type Overview
 
@@ -380,7 +380,7 @@ Use the following structuring rules and reference table to correctly construct y
 
 ### Querying Project Fields
 
-To identify which fields are configured for a specific project, query the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=latest#list-project-fields) endpoint.
+To identify which fields are configured for a specific project, query the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0#list-project-fields) endpoint.
 
 ## Metadata Population Sources
 
