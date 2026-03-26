@@ -887,7 +887,6 @@ Save the `id` value (`01JDXMPK0MTP0H41D4PYZ62R6R`) — this is your document upl
 **5. Upload the binary file (POST → PUT → PATCH)**
 
 > **Note:** The V2.1 Unified Uploads API reference is **not yet published**. The examples below reflect the designed contract and are marked as preliminary.
-{: .blockquote-callout}
 
 ```
 POST /rest/v2.1/companies/8089/projects/2305/uploads
