@@ -317,85 +317,7 @@ A successful request returns HTTP `201 Created` with a `data` array containing o
 
 ### Step 5: Upload the Binary File
 
-Push your binary file to Procore's storage service using the **V2.1 Unified Uploads API**. As file storage and document metadata are handled by separate services, this step requires you to step outside the V2 Document Management endpoints. The file upload flow includes: **POST** to initialize the upload session and receive presigned URLs, **PUT** to push bytes directly to storage, then **PATCH** to complete. The `upload_id` returned by POST is what you pass as `file_upload_id` in Step 6.
-
-> **Documentation in progress:** The V2.1 Unified Uploads API reference is not yet published. The examples below reflect the designed API contract.
-
-**1. Initialize the upload (POST)**
-
-```
-POST /rest/v2.1/companies/{company_id}/projects/{project_id}/uploads
-Authorization: Bearer <access_token>
-Content-Type: application/json
-
-{
-  "file_name": "document.pdf",
-  "file_size": 2048576,
-  "content_type": "application/pdf"
-}
-```
-
-<details>
-<summary class="collapseListTierOne">View Example Response (HTTP 201)</summary>
-<pre><code>{
-  "data": {
-    "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
-    "status": "ready",
-    "segments": [
-      {
-        "url": "https://storage.procore.com/...?signature=...",
-        "url_expires_at": "2026-01-09T11:30:00Z",
-        "headers": { "Content-Type": "application/pdf", "Content-Length": "2048576" }
-      }
-    ]
-  }
-}</code></pre>
-</details>
-
-Save `data.upload_id`, which you will set as the `file_upload_id` in Step 6. For multi-part uploads, `segments` contains one entry per part; for single-part it has one entry.
-
-**2. PUT bytes to each segment URL**
-
-For each segment, send the raw binary file bytes to `segments[n].url`. Use **exactly** the headers from `segments[n].headers` — do not add or remove any. Each successful PUT response includes an `ETag` header; capture all ETags in order.
-
-```
-PUT <segments[0].url>
-Content-Type: application/pdf
-Content-Length: 2048576
-
-<binary file data>
-```
-
-<details>
-<summary class="collapseListTierOne">View Example Response (PUT to segment URL, HTTP 200)</summary>
-<pre><code>HTTP 200 OK
-
-ETag: "4368a24e796f1ad94d40bed08c2d0292"</code></pre>
-</details>
-
-**3. Complete the upload (PATCH)**
-
-Required for all uploads. Send the ETags captured from step 2 as `part_etags` (one per segment, in order). This triggers checksum validation and makes the file available for tool association.
-
-```
-PATCH /rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}
-Authorization: Bearer <access_token>
-Content-Type: application/json
-
-{
-  "part_etags": ["4368a24e796f1ad94d40bed08c2d0292"]
-}
-```
-
-<details>
-<summary class="collapseListTierOne">View Example Response (PATCH complete, HTTP 200)</summary>
-<pre><code>{
-  "data": {
-    "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
-    "status": "complete"
-  }
-}</code></pre>
-</details>
+Push your binary file to Procore's storage service using the **V2.1 Unified Uploads API**. As file storage and document metadata are handled by separate services, this step requires you to step outside the V2 Document Management endpoints. For the complete request and response flow, see the [Unified Uploads API Guide](https://developers.procore.com/documentation/tutorial-unified-uploads). The flow consists of a **POST** to initialize the upload session and receive presigned URLs, a **PUT** to push bytes directly to storage, then a **PATCH** to complete. Save `data.upload_id` from the POST response — this becomes your `file_upload_id` in Step 6.
 
 > **Sequencing:** The binary file upload has no dependency on the Create Document Uploads request. You can perform Steps 4 and 5 in either order, as long as both are complete before Step 6.
 
@@ -884,56 +806,9 @@ Response (HTTP 201):
 
 Save the `id` value (`01JDXMPK0MTP0H41D4PYZ62R6R`) — this is your document upload ID, used in Steps 6, 7, and 8.
 
-**5. Upload the binary file (POST → PUT → PATCH)**
+**5. Upload the binary file to Procore storage**
 
-> **Note:** The V2.1 Unified Uploads API reference is **not yet published**. The examples below reflect the designed contract and are marked as preliminary.
-
-```
-POST /rest/v2.1/companies/8089/projects/2305/uploads
-
-{
-  "file_name": "document.pdf",
-  "file_size": 2048576,
-  "content_type": "application/pdf"
-  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "segments": [
-     {
-            "size":  2097152,
-            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "md5": "d41d8cd98f00b204e9800998ecf8427e"
-      }
-  ]
-}
-```
-
-Response (201 Created):
-```json
-{
-  "data": {
-    "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T",
-    "status": "ready",
-    "segments": [
-      {
-        "url": "https://storage.procore.com/...?signature=...",
-        "url_expires_at": "url_expires_at": 1736418600,
-        "headers": { "Content-Type": "application/pdf", "Content-Length": "2048576" }
-      }
-    ]
-  }
-}
-```
-
-PUT the file bytes to `segments[0].url` using exactly the headers returned. Capture the `ETag` from the PUT response header, then complete the upload:
-
-```
-PATCH /rest/v2.1/companies/8089/projects/2305/uploads/01JDXMPK0PFK0F69F2MXX40P4T
-
-{ "part_etags": ["4368a24e796f1ad94d40bed08c2d0292"] }
-```
-
-Response: `{ "data": { "upload_id": "01JDXMPK0PFK0F69F2MXX40P4T", "status": "complete" } }`
-
-Save `upload_id` (`01JDXMPK0PFK0F69F2MXX40P4T`) — this becomes your `file_upload_id` in Step 6.
+Follow the [Unified Uploads API Guide](https://developers.procore.com/documentation/tutorial-unified-uploads) for the complete request and response flow — POST to initialize the session, PUT the binary file to the presigned segment URLs, then PATCH to complete. Save `data.upload_id` from the POST response (`01JDXMPK0PFK0F69F2MXX40P4T`) — this becomes your `file_upload_id` in Step 6.
 
 **6. Update the document upload — `PATCH .../document_uploads`**
 
