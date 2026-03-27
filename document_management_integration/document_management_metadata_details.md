@@ -118,7 +118,7 @@ This reference describes the metadata structure returned by **Document Upload** 
   "upload_requested_at": "string",
   "document_container_id": "string",
   "position_within_container": "string",
-  "latestEventId": "string",
+  "latest_event_id": "string",
   "download_url": "string",
   "upload_completed_at": "string"
 }
@@ -178,7 +178,7 @@ System-generated fields are automatically populated and cannot be directly modif
 | **integrationStatuses** | object | Status of active integrations. | Set at creation, updates during processing |
 | **integrations** | object | Detailed integration information. | Set at creation, updates during processing |
 | **item_content** | lov_entry | Indicates whether the item is a Document or a Placeholder. | Set at creation |
-| **latestEventId** | string | Event ID for optimistic concurrency control. | Updated on each state change |
+| **latest_event_id** | string | Event ID for optimistic concurrency control. | Updated on each state change |
 | **matchCriteria** | string | Identifier generated based on naming standard and file format used for grouping documents into containers. | Set at creation, updates on metadata change |
 | **original_filename** | string | Original file name of a document at the time of upload. | Set at creation |
 | **position_within_container** | string | Sort position within the document container. | Set when containerized |
@@ -232,12 +232,12 @@ Projects can define custom metadata fields specific to their organizational need
 - **Integrate with naming standards**: Some custom fields can be extracted from filenames
 - **Support workflows**: Can be used in workflow rules and permission groups
 
-To retrieve available fields for a project (including custom fields), use the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=latest) endpoint:
+To retrieve available fields for a project (including custom fields), use the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0#list-project-fields) endpoint:
 The response includes both standard fields and project-level custom fields. **A field is identified as a custom field when `custom_field_definition_id` is present in the response.**
 
 ## Field Type Reference
 
-In the [Document Uploads](https://developers.procore.com/reference/rest/document-uploads?version=2.0) API response, each field object in the `fields` array includes a `type` property that determines its value format and structure.
+In the [Document Uploads](https://developers.procore.com/reference/rest/document-uploads?version=2.0#show-document-upload) API response, each field object in the `fields` array includes a `type` property that determines its value format and structure.
 
 ### Field Type Overview
 
@@ -344,9 +344,43 @@ All metadata fields follow a consistent structure in Document Upload and Documen
 }
 ```
 
+### Constructing the Fields Array for API Requests
+
+When updating documents using the Document Uploads API PATCH request, you will pass your metadata values inside the `fields` array. This array acts as a map, linking a specific project field's ID to the value you want to apply.
+
+Because Procore supports diverse field types — ranging from open text to strict dropdown lists — the format of the value you provide depends on the field's data type. For example, text fields accept literal strings, whereas List of Values (LOV) fields require you to pass specific Procore value ID(s).
+
+Use the following structuring rules and reference table to correctly construct your `fields` array payloads.
+
+**Structuring Rules**
+
+- **Always wrap values in an array**, even for single-value fields.
+- **Lookup fields** (`lov_entry` / `lov_entries` / `reference`): You cannot supply your own values. You must first retrieve valid ID(s) from the field's values endpoint, then pass the chosen ID(s) in the `values` array.
+- **For `lov_entries` multi-select**: Pass multiple value IDs inside the single `values` array, e.g., `"values": ["ID_1", "ID_2"]`.
+- **Direct fields** (`string` / `rich_text` / `numeric` / `timestamp`): Pass your values directly — no ID lookup required.
+
+**Field Value Payload Examples**
+
+**LOOKUP FIELDS — retrieve valid IDs prior to PATCH request**
+
+| Field Type | From: List Fields | From: List Field Values | Fields Array Entry Example |
+| --- | --- | --- | --- |
+| `lov_entry` (single select) | `{ "id": "01JDXMPK09...", "name": "type", "type": "lov_entry" }` | `{ "id": "01JDXMPK0H...", "code": "DRW", "label": "Drawing" }` | `{ "id": "01JDXMPK09...", "values": ["01JDXMPK0H..."] }` |
+| `lov_entries` (multi-select) | `{ "id": "01JDXMPK0K...", "name": "disciplines", "type": "lov_entries" }` | `{ "id": "01JDXMPK0H...", "label": "Structural" }`, `{ "id": "01JDXMPK0I...", "label": "Electrical" }` | `{ "id": "01JDXMPK0K...", "values": ["01JDXMPK0H...", "01JDXMPK0I..."] }` |
+| `reference` (entity link) | `{ "id": "01JDXMPK07...", "name": "location", "type": "reference" }` | `{ "id": "120667", "label": "Alderaan", "code": "__", "active": true, "tags": [] }` | `{ "id": "01JDXMPK07...", "values": ["120667"] }` |
+
+**DIRECT FIELDS — pass literal values directly (no ID lookup required)**
+
+| Field Type | From: List Fields | From: List Field Values | Fields Array Entry Example |
+| --- | --- | --- | --- |
+| `string` | `{ "id": "01JDXMPK0B...", "name": "revision", "type": "string" }` | — | `{ "id": "01JDXMPK0B...", "values": ["Rev A"] }` |
+| `rich_text` | `{ "id": "01JDXMPK0Z...", "name": "description", "type": "rich_text" }` | — | `{ "id": "01JDXMPK0Z...", "values": ["<p>Design review notes</p>"] }` |
+| `numeric` | `{ "id": "01JDXMPK0C...", "name": "page_count", "type": "numeric" }` | — | `{ "id": "01JDXMPK0C...", "values": ["42"] }` |
+| `timestamp` | `{ "id": "01JDXMPK06...", "name": "date_authored", "type": "timestamp" }` | — | `{ "id": "01JDXMPK06...", "values": ["2025-12-15T14:30:00Z"] }` |
+
 ### Querying Project Fields
 
-To identify which fields are configured for a specific project, query the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=latest#list-project-fields) endpoint.
+To identify which fields are configured for a specific project, query the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0#list-project-fields) endpoint.
 
 ## Metadata Population Sources
 
@@ -1003,10 +1037,9 @@ Document Management can process 3D model files (BIM/Building Information Models)
   "upload_requested_at": "2000-01-01T00:00:00.000Z",
   "document_container_id": null,
   "position_within_container": "aaa....",
+  "latest_event_id": "01KMK7NJXX9A3JE83QYZEZTEHM",
   "download_url": "https://app.procore.com/rest/v1.0/companies/0/projects/0/collaborative_documents/document_uploads/31OZMQFW8L1T82WOY8G7WH8TL/download",
   "upload_completed_at": "2000-01-01T00:00:01.000Z"
 }
 </code></pre>
 </details>
-
-***
