@@ -52,7 +52,7 @@ For all available API endpoints, see [Document Management API Endpoints]({{ site
 
 **Step 1: Initialize Document Upload** - Create a Document Upload by providing filename and mime type. The system returns a unique upload ID.
 
-**Step 2: Upload Binary File** - Use the [V2.1 Unified Uploads API Guide](https://developers.procore.com/documentation/tutorial-unified-uploads) to put the binary in storage. The response includes a file upload ID (`upload_id`) that identifies your file in storage for the next step.
+**Step 2: Upload Binary File** - Use the [V2.1 Unified File Upload API Guide](https://developers.procore.com/documentation/tutorial-unified-file-uploads) to put the binary in storage. The response includes a file upload ID (`upload_id`) that identifies your file in storage for the next step.
 
 **Step 3: Prepare and Validate Document Upload** - Update the Document Upload with the file upload ID (from step 2) and enrich your metadata fields. During this phase, the system initiates asynchronous processing for ML analysis and naming standard extraction.
 Before submitting, verify the upload is ready:

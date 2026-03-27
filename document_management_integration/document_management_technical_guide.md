@@ -30,7 +30,7 @@ Replace `{company_id}` and `{project_id}` with your actual Procore company and p
 | 2 | `.../fields` | GET | Fetch available project fields and their IDs |
 | 3 | `.../fields/{field_id_or_name}/values` | GET | Fetch field value IDs for dropdown list field types |
 | 4 | `.../document_uploads` | POST | Initialize document upload records |
-| 5 | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads` | POST, PUT, PATCH | Upload binary file to Procore storage using the **V2.1 Unified Uploads API** |
+| 5 | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads` | POST, PUT, PATCH | Upload binary file to Procore storage using the **V2.1 Unified File Upload API** |
 | 6 | `.../document_uploads` | PATCH | Associate the uploaded file, set metadata, mark upload as COMPLETED |
 | 7 | `.../document_uploads/{document_upload_id}` | GET | Retrieve `latest_event_id` (required for submission) and optionally review Machine Learning (ML)  populated fields |
 | 8 | `.../document_revisions` | POST | Submit uploads to create document revisions |
@@ -317,7 +317,7 @@ A successful request returns HTTP `201 Created` with a `data` array containing o
 
 ### Step 5: Upload the Binary File
 
-Push your binary file to Procore's storage service using the **V2.1 Unified Uploads API**. As file storage and document metadata are handled by separate services, this step requires you to step outside the V2 Document Management endpoints. For the complete request and response flow, see the [Unified Uploads API Guide](https://developers.procore.com/documentation/tutorial-unified-uploads). The flow consists of a **POST** to initialize the upload session and receive presigned URLs, a **PUT** to push bytes directly to storage, then a **PATCH** to complete. Save `data.upload_id` from the POST response — this becomes your `file_upload_id` in Step 6.
+Push your binary file to Procore's storage service using the **V2.1 Unified File Upload API**. As file storage and document metadata are handled by separate services, this step requires you to step outside the V2 Document Management endpoints. For the complete request and response flow, see the [Unified File Upload API Guide](https://developers.procore.com/documentation/tutorial-unified-file-uploads). The flow consists of a **POST** to initialize the upload session and receive presigned URLs, a **PUT** to push bytes directly to storage, then a **PATCH** to complete. Save `data.upload_id` from the POST response — this becomes your `file_upload_id` in Step 6.
 
 > **Sequencing:** The binary file upload has no dependency on the Create Document Uploads request. You can perform Steps 4 and 5 in either order, as long as both are complete before Step 6.
 
@@ -416,7 +416,7 @@ The `update_params` array contains one object per document upload to modify.
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `id` | string | Yes | The document upload ID returned from the create step. |
-| `file_upload_id` | string | No | The `upload_id` returned by the Unified Uploads API. Links the binary file to the document upload record. |
+| `file_upload_id` | string | No | The `upload_id` returned by the Unified File Upload API. Links the binary file to the document upload record. |
 | `upload_status` | string | No | Upload status of the document. Allowed values: `INCOMPLETE`, `COMPLETED`, `PLACEHOLDER`. Set to `COMPLETED` to trigger server-side verification that the file exists in storage. |
 | `file_locked` | boolean | No | Whether to lock the file from edits. |
 | `fields` | array | No | Array of field update objects. See [Constructing the Fields Array for API Requests]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}#constructing-the-fields-array-for-api-requests) for payload structure and examples. |
@@ -808,7 +808,7 @@ Save the `id` value (`01JDXMPK0MTP0H41D4PYZ62R6R`) — this is your document upl
 
 **5. Upload the binary file to Procore storage**
 
-Follow the [Unified Uploads API Guide](https://developers.procore.com/documentation/tutorial-unified-uploads) for the complete request and response flow — POST to initialize the session, PUT the binary file to the presigned segment URLs, then PATCH to complete. Save `data.upload_id` from the POST response (`01JDXMPK0PFK0F69F2MXX40P4T`) — this becomes your `file_upload_id` in Step 6.
+Follow the [Unified File Upload API Guide](https://developers.procore.com/documentation/tutorial-unified-file-uploads) for the complete request and response flow — POST to initialize the session, PUT the binary file to the presigned segment URLs, then PATCH to complete. Save `data.upload_id` from the POST response (`01JDXMPK0PFK0F69F2MXX40P4T`) — this becomes your `file_upload_id` in Step 6.
 
 **6. Update the document upload — `PATCH .../document_uploads`**
 
