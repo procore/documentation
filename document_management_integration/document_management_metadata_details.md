@@ -203,14 +203,16 @@ Placeholder fields enable creation of document uploads for files that are expect
 
 ### Workflow Fields
 
-Workflow-controlled fields track document review and approval processes. All fields in this table are managed by the **workflow engine** and cannot be edited via API.
+Workflow-controlled fields track document review and approval processes. These fields are **managed by the workflow engine**, but several can also be set directly via the Document Upload PATCH API. The table below indicates each field's editability.
+
+> **Note:** While the API accepts values for editable workflow fields, setting them manually may conflict with the workflow engine's own updates. Use caution when overriding workflow-managed values. In most integration scenarios, `assigned_workflow` is the only workflow field you need to set — the workflow engine populates the remaining fields automatically based on the configured workflow template.
+
+**Editable workflow fields:**
 
 | Name | Type | Description | Lifecycle |
 |---|---|---|---|
 | **assigned_workflow** | reference | Workflow that is selected and assigned for the document. | Set when workflow assigned |
-| **in_active_workflow** | lov_entry | Indicates whether the document is currently in an active workflow. | Set when workflow starts/ends |
 | **workflow_assignees** | reference | Assignee(s) responsible for responding to workflow steps. | Set by workflow configuration |
-| **workflow_completion_date** | timestamp | Timestamp when a document reached an end step in the last workflow completed. | Set when workflow completes |
 | **workflow_current_step** | string | Current step in the workflow process. | Updated as workflow progresses |
 | **workflow_current_step_assignees** | reference | Assignee(s) currently responsible for responding to the workflow step. | Set by workflow configuration |
 | **workflow_manager** | reference | Person assigned as manager of the workflow template the document is in. | Set when workflow initiated |
@@ -218,6 +220,13 @@ Workflow-controlled fields track document review and approval processes. All fie
 | **workflow_status** | reference | Current status of the workflow. | Updated by workflow actions |
 | **workflow_step_due_date** | timestamp | Due date for current workflow step. | Set by workflow rules |
 | **workflow_template_version** | reference | Version of the workflow template assigned. | Set when workflow assigned |
+
+**Read-only workflow fields** (cannot be edited via API):
+
+| Name | Type | Description | Lifecycle |
+|---|---|---|---|
+| **in_active_workflow** | lov_entry | Indicates whether the document is currently in an active workflow. | Set when workflow starts/ends |
+| **workflow_completion_date** | timestamp | Timestamp when a document reached an end step in the last workflow completed. | Set when workflow completes |
 
 ## Custom Fields
 
@@ -352,8 +361,11 @@ Use the following structuring rules and reference table to correctly construct y
 **Structuring Rules**
 
 - **Always wrap values in an array**, even for single-value fields.
-- **Lookup fields** (`lov_entry` / `lov_entries` / `reference`): You cannot supply your own values. You must first retrieve valid ID(s) from the field's values endpoint, then pass the chosen ID(s) in the `values` array.
-  - **Note:** The values endpoint does not return data for `reference` fields with a user-type variant (`procore_user`, `procore_tool_user`, or `procore_users`) — e.g., `authored_by`, `uploaded_by`, `placeholder_assignee`, `placeholder_created_by`. Use the List Project Users endpoint to retrieve valid user IDs instead. See [Step 3: Fetch Values for Dropdown Fields]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}#step-3-fetch-values-for-dropdown-fields) for details and workaround instructions.
+
+- **Lookup fields** (`lov_entry` / `lov_entries` / `reference`, excluding user-type `reference` variants): You cannot supply your own values. For supported lookup types, you must first retrieve valid ID(s) from the field's values endpoint, then pass the chosen ID(s) in the `values` array.
+
+  - **Note (user-type `reference` variants):** The values endpoint does not return data for `reference` fields with a user-type variant (`procore_user`, `procore_tool_user`, or `procore_users`) — e.g., `authored_by`, `uploaded_by`, `placeholder_assignee`, `placeholder_created_by`. For these fields, the List Project Users endpoint is the primary lookup source for valid user IDs; the field values endpoint cannot be used. See [Step 3: Fetch Values for Dropdown Fields]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}#step-3-fetch-values-for-dropdown-fields) for details and workaround instructions.
+
 - **For `lov_entries` multi-select**: Pass multiple value IDs inside the single `values` array, e.g., `"values": ["ID_1", "ID_2"]`.
 - **Direct fields** (`string` / `rich_text` / `numeric` / `timestamp`): Pass your values directly — no ID lookup required.
 

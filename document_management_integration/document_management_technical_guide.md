@@ -191,7 +191,9 @@ The response excludes system-only fields (`file_format`, `assigned_workflow_temp
 
 ### Step 3: Fetch Values for Dropdown Fields
 
-This endpoint returns the available metadata values for a given field and is a required step for any field with type `lov_entry` (single select) or `lov_entries` (multi-select) that you plan to populate. The response provides value IDs that you will supply when setting field values on a document upload.
+This endpoint returns the available metadata values for a given field and is a required step for any field with type `lov_entry` (single select), `lov_entries` (multi-select), or `reference` that you plan to populate. The response provides value IDs that you will supply when setting field values on a document upload.
+
+> Note that for `reference` fields with a user-type variant of `procore_user`, `procore_tool_user`, or `procore_users`, this endpoint returns an empty response. See [Known Limitation: User-Type Reference Fields](#known-limitation-user-type-reference-fields) below for a workaround.
 
 **Request** — [List Project Metadata Values](https://developers.procore.com/reference/rest/project-metadata-values?version=2.0#list-project-metadata-values)
 
@@ -244,9 +246,9 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
 
 Save the ID of each value you intend to use — you will pass these IDs in the `values` array when creating or updating document uploads. Only values with `active: true` can be used; inactive values will be rejected.
 
-Make one request per field as the endpoint only accepts a single field at a time. Repeat this call for each `lov_entry` or `lov_entries` field you intend to populate.
-
 Use the `keyword` query parameter to filter results by value name without fetching the entire list. For example, if you only need the location value for "Floor 3", add `?keyword=Floor%203` to the request instead of paginating through all locations. This is useful for large value lists where you know the specific value you need.
+
+Make one request per field as the endpoint only accepts a single field at a time. Repeat this call for each `lov_entry`, `lov_entries`, or non-user-type `reference` field you intend to populate. For `reference` fields with a user-type variant, skip this endpoint and use the workaround described below.
 
 #### Known Limitation: User-Type Reference Fields
 
@@ -260,9 +262,9 @@ Use the `keyword` query parameter to filter results by value name without fetchi
 - `placeholder_created_by`
 - Custom fields configured with a user-type reference variant (`procore_user`, `procore_tool_user`, or `procore_users`)
 
-Other standard fields with a user-type variant — `updated_by` and the workflow user fields — are system-managed and not settable via the API, so this limitation does not apply to them in practice. See [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}#system-fields) for the full breakdown of editable vs. system-generated fields.
+Workflow user fields (`workflow_assignees`, `workflow_current_step_assignees`, `workflow_manager`, `workflow_pending_assignees`) are editable via the API, but it is recommended for these fields to be managed by the workflow engine and not directly by integrators. See [Workflow Fields]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}#workflow-fields) for details.
 
-**Practical impact:** For most integrations this limitation has no practical effect. `authored_by` and `uploaded_by` automatically default to the authenticated user creating the upload, so you only need the workaround below if your integration overrides these fields with a different user, sets `placeholder_assignee` or `placeholder_created_by`, or populates a custom field that uses a user-type variant.
+**Practical impact:** For most integrations, this limitation has no practical effect. `authored_by` and `uploaded_by` automatically default to the authenticated user creating the upload, and workflow user fields should be managed by the workflow engine rather than by integrators. You only need the workaround below if your integration needs to override these fields with a different user, set `placeholder_assignee` or `placeholder_created_by`, or populate a custom field that uses a user-type variant.
 
 **Workaround**: Use the Procore project users endpoint to retrieve valid user IDs for these fields instead of the document management field values endpoint. For the complete endpoint reference, see [List Project Users](https://developers.procore.com/reference/rest/project-users?version=1.0#list-project-users).
 ```
