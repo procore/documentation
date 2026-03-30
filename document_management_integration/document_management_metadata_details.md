@@ -356,6 +356,7 @@ Use the following structuring rules and reference table to correctly construct y
 
 - **Always wrap values in an array**, even for single-value fields.
 - **Lookup fields** (`lov_entry` / `lov_entries` / `reference`): You cannot supply your own values. You must first retrieve valid ID(s) from the field's values endpoint, then pass the chosen ID(s) in the `values` array.
+  - **Note:** The values endpoint does not return data for `reference` fields with a user-type variant (`procore_user`, `procore_tool_user`, or `procore_users`) — e.g., `authored_by`, `uploaded_by`, `placeholder_assignee`. Use the List Project Users endpoint to retrieve valid user IDs instead. See [Step 3: Fetch Values for Dropdown Fields]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}) for details and workaround instructions.
 - **For `lov_entries` multi-select**: Pass multiple value IDs inside the single `values` array, e.g., `"values": ["ID_1", "ID_2"]`.
 - **Direct fields** (`string` / `rich_text` / `numeric` / `timestamp`): Pass your values directly — no ID lookup required.
 
