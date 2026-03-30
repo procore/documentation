@@ -253,16 +253,16 @@ Use the `keyword` query parameter to filter results by value name without fetchi
 > The values endpoint returns `{ "data": [] }` for all `reference` fields with a user-type variant (`procore_user`, `procore_tool_user`, or `procore_users`). This is a known API limitation — the empty response does not mean that no valid values exist for these fields.
 
 **Affected user-settable fields:**
+
 - `authored_by`
 - `uploaded_by`
-- `updated_by`
 - `placeholder_assignee`
 - `placeholder_created_by`
 - Custom fields configured with a user-type reference variant (`procore_user`, `procore_tool_user`, or `procore_users`)
 
-Other standard fields with a user-type variant — such as the workflow user fields (`workflow_assignees`, `workflow_current_step_assignees`, `workflow_manager`, `workflow_pending_assignees`) — are managed by the workflow engine and not settable via the API, so this limitation does not apply to them in practice.
+Other standard fields with a user-type variant — `updated_by` and the workflow user fields — are system-managed and not settable via the API, so this limitation does not apply to them in practice. See [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %}#system-fields) for the full breakdown of editable vs. system-generated fields.
 
-**Practical impact:** For most integrations this limitation will have no practical effect. `authored_by`, `uploaded_by`, and `updated_by` automatically default to the authenticated user creating or updating the upload. You only need to address this limitation if your integration needs to override these fields with a different user, set `placeholder_assignee` or `placeholder_created_by`, or populate a custom field that uses a user-type variant.
+**Practical impact:** For most integrations this limitation has no practical effect. `authored_by` and `uploaded_by` automatically default to the authenticated user creating the upload, so you only need the workaround below if your integration overrides these fields with a different user, sets `placeholder_assignee` or `placeholder_created_by`, or populates a custom field that uses a user-type variant.
 
 **Workaround**: Use the Procore project users endpoint to retrieve valid user IDs for these fields instead of the document management field values endpoint. For the complete endpoint reference, see [List Project Users](https://developers.procore.com/reference/rest/project-users?version=1.0#list-project-users).
 ```
