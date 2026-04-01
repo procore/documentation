@@ -87,31 +87,31 @@ This reference describes the metadata structure returned by **Document Upload** 
       ]
     }
   },
-  "matchCriteria": "string",
+  "match_criteria": "string",
   "upload_status": "string",
-  "integrationStatuses": {
-    "ML": "string",
-    "FILENAME_SCRAPING": "string",
-    "integrationResponse": {
-      "type_ML": {
-        "valueId": "string",
-        "valueName": "string"
+  "integration_statuses": {
+    "ml": "string",
+    "filename_scraping": "string",
+    "integration_response": {
+      "type_ml": {
+        "value_id": "string",
+        "value_name": "string"
       },
-      "number_ML": {
-        "valueId": "string",
-        "valueName": "string"
+      "number_ml": {
+        "value_id": "string",
+        "value_name": "string"
       },
-      "description_ML": {
-        "valueId": "string",
-        "valueName": "string"
+      "description_ml": {
+        "value_id": "string",
+        "value_name": "string"
       },
       "number_scraping": {
-        "valueId": "string",
-        "valueName": "string"
+        "value_id": "string",
+        "value_name": "string"
       },
-      "date_authored_ML": {
-        "valueId": "string",
-        "valueName": "string"
+      "date_authored_ml": {
+        "value_id": "string",
+        "value_name": "string"
       }
     }
   },
@@ -177,11 +177,11 @@ System-generated fields are automatically populated and cannot be directly modif
 | **file_key** | string | File upload ID returned by the file upload API. | Set on file upload |
 | **format** | string | File format/type derived from MIME type. | Set on file upload |
 | **id** | string | Unique identifier assigned at upload creation. Use this ID for update operations. | Set at creation |
-| **integrationStatuses** | object | Status of active integrations. | Set at creation, updates during processing |
+| **integration_statuses** | object | Status of active integrations. | Set at creation, updates during processing |
 | **integrations** | object | Detailed integration information. | Set at creation, updates during processing |
 | **item_content** | lov_entry | Indicates whether the item is a Document or a Placeholder. | Set at creation |
 | **latest_event_id** | string | Event ID for optimistic concurrency control. | Updated on each state change |
-| **matchCriteria** | string | Identifier generated based on naming standard and file format used for grouping documents into containers. | Set at creation, updates on metadata change |
+| **match_criteria** | string | Identifier generated based on naming standard and file format used for grouping documents into containers. | Set at creation, updates on metadata change |
 | **original_filename** | string | Original file name of a document at the time of upload. | Set at creation |
 | **position_within_container** | string | Sort position within the document container. | Set when containerized |
 | **recycled_at** | timestamp | Timestamp when the document was moved to the Recycle Bin. | Set on recycling |
@@ -459,18 +459,18 @@ Here's how a single upload response might display different value sources:
 
 ### Integration Status Monitoring
 
-When a Document Upload is returned, it includes `integrationStatuses` indicating the state of automated processing:
+When a Document Upload is returned, it includes `integration_statuses` indicating the state of automated processing:
 
 ```json
 {
-  "integrationStatuses": {
-    "ML": "in_progress", // One of: in_progress, completed, error, not_applicable
-    "FILENAME_SCRAPING": "in_progress" // One of: in_progress, completed, error, not_applicable
+  "integration_statuses": {
+    "ml": "in_progress", // One of: in_progress, completed, error, not_applicable
+    "filename_scraping": "in_progress" // One of: in_progress, completed, error, not_applicable
   }
 }
 ```
 
-Before submitting a Document Upload as a Document Revision, verify that integrations have completed: check that `integrationStatuses.ML` and `integrationStatuses.FILENAME_SCRAPING` (if applicable) have transitioned to either `completed`, `error`, or `not_applicable`.
+Before submitting a Document Upload as a Document Revision, verify that integrations have completed: check that `integration_statuses.ml` and `integration_statuses.filename_scraping` (if applicable) have transitioned to either `completed`, `error`, or `not_applicable`.
 
 ### BIM Processing Integration
 
@@ -1016,31 +1016,31 @@ Document Management can process 3D model files (BIM/Building Information Models)
       ]
     }
   },
-  "matchCriteria": "TEST4-SP-I-17|application/pdf",
+  "match_criteria": "TEST4-SP-I-17|application/pdf",
   "upload_status": "COMPLETED",
-  "integrationStatuses": {
-      "ML": "completed",
-      "FILENAME_SCRAPING": "completed",
-      "integrationResponse": {
-          "type_ML": {
-              "valueId": "YU0H5NUOLP7TA1VLNBQAZIHMG",
-              "valueName": "Drawing"
+  "integration_statuses": {
+      "ml": "completed",
+      "filename_scraping": "completed",
+      "integration_response": {
+          "type_ml": {
+              "value_id": "YU0H5NUOLP7TA1VLNBQAZIHMG",
+              "value_name": "Drawing"
           },
-          "number_ML": {
-              "valueId": "MP000",
-              "valueName": "MP000"
+          "number_ml": {
+              "value_id": "MP000",
+              "value_name": "MP000"
           },
-          "description_ML": {
-              "valueId": "MECHANICAL PIPE SCHEDULE",
-              "valueName": "MECHANICAL PIPE SCHEDULE"
+          "description_ml": {
+              "value_id": "MECHANICAL PIPE SCHEDULE",
+              "value_name": "MECHANICAL PIPE SCHEDULE"
           },
           "number_scraping": {
-              "valueId": "I",
-              "valueName": "I"
+              "value_id": "I",
+              "value_name": "I"
           },
-          "date_authored_ML": {
-            "valueId": "2000-01-01T00:00:00.000Z",
-            "valueName": "2000-01-01T00:00:00.000Z"
+          "date_authored_ml": {
+            "value_id": "2000-01-01T00:00:00.000Z",
+            "value_name": "2000-01-01T00:00:00.000Z"
           }
       }
   },
