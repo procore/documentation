@@ -543,8 +543,8 @@ The show response includes `latest_event_id` for every upload. Save this value �
 
 Two background processes may auto-populate fields after `upload_status` is set to `COMPLETED`:
 
-- **ML** (PDF files only) — Procore analyzes file content and may populate fields such as Type, Description, Number, Revision, and Date Authored. Check `integrationStatuses.ML` — once it reaches `completed` or `error`, ML processing is finished. There is no webhook for ML completion; you can poll the show endpoint to detect ML status. ML typically finishes within 10–30 seconds. It is recommended that you start polling 5 seconds after setting upload_status to COMPLETED, then repeat every 5–10 seconds. Stop when both integrationStatuses.ML and integrationStatuses.FILENAME_SCRAPING report completed or error, or after 3 minutes — whichever comes first. If the timeout is reached, proceed with patching metadata fields manually. For details on which fields ML populates, precedence rules, and limitations, see [ML and Automated Features]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %}#machine-learning-ml-and-automated-features).
-- **Filename scraping** — Procore attempts to extract metadata from the filename when the project has a naming standard configured. Check `integrationStatuses.FILENAME_SCRAPING` to determine the status of filename scraping.
+- **ML** (PDF files only) — Procore analyzes file content and may populate fields such as Type, Description, Number, Revision, and Date Authored. Check `integration_statuses.ml` — once it reaches `completed` or `error`, ML processing is finished. There is no webhook for ML completion; you can poll the show endpoint to detect ML status. ML typically finishes within 10–30 seconds. It is recommended that you start polling 5 seconds after setting upload_status to COMPLETED, then repeat every 5–10 seconds. Stop when both `integration_statuses.ml` and `integration_statuses.filename_scraping` report completed or error, or after 3 minutes — whichever comes first. If the timeout is reached, proceed with patching metadata fields manually. For details on which fields ML populates, precedence rules, and limitations, see [ML and Automated Features]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %}#machine-learning-ml-and-automated-features).
+- **Filename scraping** — Procore attempts to extract metadata from the filename when the project has a naming standard configured. Check `integration_statuses.filename_scraping` to determine the status of filename scraping.
 
 
 **3. Verify all required metadata**
@@ -593,9 +593,9 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
       }
     ],
     "upload_status": "COMPLETED",
-    "integrationStatuses": {
-      "ML": "completed",
-      "FILENAME_SCRAPING": "completed"
+    "integration_statuses": {
+      "ml": "completed",
+      "filename_scraping": "completed"
     },
     "latest_event_id": "01JDXMPK0REV0D87H0JVVZ8M2W",
     "permissions": {
@@ -931,7 +931,7 @@ Verify your upload ID appears in `success` and `failed` is empty before proceedi
 
 **7. Get latest event ID — `GET .../document_uploads/{id}`**
 
-Call the show endpoint to retrieve `latest_event_id`. For PDF files, also check `integrationStatuses.ML` — if it is still `"in_progress"` and you want to use ML-populated fields, wait until it reaches `"completed"` or `"error"` before submitting.
+Call the show endpoint to retrieve `latest_event_id`. For PDF files, also check `integration_statuses.ml` — if it is still `"in_progress"` and you want to use ML-populated fields, wait until it reaches `"completed"` or `"error"` before submitting.
 
 ```
 GET /rest/v2.0/companies/8089/projects/2305/document_management/document_uploads/01JDXMPK0MTP0H41D4PYZ62R6R
@@ -943,9 +943,9 @@ Response:
   "data": {
     "id": "01JDXMPK0MTP0H41D4PYZ62R6R",
     "upload_status": "COMPLETED",
-    "integrationStatuses": {
-      "ML": "completed",
-      "FILENAME_SCRAPING": "completed"
+    "integration_statuses": {
+      "ml": "completed",
+      "filename_scraping": "completed"
     },
     "latest_event_id": "01JDXMPK0REV0D87H0JVVZ8M2W",
     "fields": [

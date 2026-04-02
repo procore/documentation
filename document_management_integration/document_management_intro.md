@@ -57,7 +57,7 @@ For all available API endpoints, see [Document Management API Endpoints]({{ site
 **Step 3: Prepare and Validate Document Upload** - Update the Document Upload with the file upload ID (from step 2) and enrich your metadata fields. During this phase, the system initiates asynchronous processing for ML analysis and naming standard extraction.
 Before submitting, verify the upload is ready:
   - required fields are populated. Query the [Project Upload Requirements](https://developers.procore.com/reference/rest/project-upload-requirements?version=2.0) endpoint for upload rules and qualifiers
-  - ML has finished processing the file and `integrationStatuses.ML` has transitioned to `completed` for PDFs
+  - ML has finished processing the file and `integration_statuses.ml` has transitioned to `completed` for PDFs
   - the Document Upload has `upload_status` of `COMPLETED`
 
 Note: the update API exposes a batch update endpoint for updating multiple uploads; batch updates may return HTTP 207 with partial success/failure results. See [Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}) for complete examples and error-handling patterns.
@@ -88,7 +88,7 @@ If your project enforces a naming standard and documents are named according to 
 
 - **PDF-only** - ML predictions apply to PDF files
 - **Asynchronous Processing** - ML classification occurs asynchronously after a Document Upload is created, not during the API call itself. Your integration should not expect metadata to be populated immediately after creating an upload
-- **Completion Status** - The `integrationStatuses.ML` field in the Document Upload response will change from `"in_progress"` to `"completed"` once ML analysis finishes. Check this status before submitting the Document Upload as a Document Revision to ensure ML-inferred metadata is included
+- **Completion Status** - The `integration_statuses.ml` field in the Document Upload response will change from `"in_progress"` to `"completed"` once ML analysis finishes. Check this status before submitting the Document Upload as a Document Revision to ensure ML-inferred metadata is included
 - **User-provided values take precedence** - If your integration provides values for any ML-processed fields when creating a Document Upload, those values will not be overridden by ML predictions
 - **Automatic application** - If no user values are provided for these fields, ML predictions will be automatically applied when available.
 - **Best practices** - For optimal results, refer to the [Procore Support: What data can be automatically populated FAQ](https://v2.support.procore.com/faq-what-data-can-procore-automatically-populate-when-uploading-files-to-the-document-management-tool)
