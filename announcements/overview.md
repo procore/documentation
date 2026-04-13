@@ -11,6 +11,24 @@ This page tracks significant changes to the Procore Developer Platform, includin
 <br><br>
 
 ***
+## April 2026 — Project Directory Webhook Update Triggers Deprecated
+**Category:** Deprecation
+
+We are deprecating the `update` event type on the **Project Users** and **Project Vendors** webhook triggers. These triggers cause a fanout issue — a single contact edit in the Directory tool can generate hundreds or thousands of duplicate webhook events across projects.
+
+**Hard cutoff: June 30, 2026.** After this date, these triggers will stop delivering `update` events permanently. The `create` and `delete` event types on these triggers are not affected. All Company Directory webhook triggers are not affected.
+
+### What you need to do:
+1. **Check your subscriptions.** Review whether your app subscribes to `Project Users` or `Project Vendors` with the `update` event type.
+2. **Migrate to Company Directory webhooks.** Subscribe to `Company Users` → `update` and `Company Vendors` → `update` instead. One event per change, no fanout.
+3. **Test before the cutoff.** Validate your integration with Company Directory events in a sandbox environment.
+
+For the full migration guide, see [Deprecation: Project Directory Update Webhooks]({{ site.url }}{{ site.baseurl }}{% link announcements/webhook_fanout_migration.md %}).
+
+If you have questions, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+<br><br>
+
+***
 ## March 2026 — Agentic APIs and API Usage Guidelines
 **Category:** New Feature
 
