@@ -207,8 +207,10 @@
 
 - title: Announcements
   items:
-    - title: Overview
+    - title: Changelog
       url: /overview
+    - title: "Deprecation: Project Directory Update Webhooks"
+      url: /webhook-fanout-migration
     - title: New REST V2 Version
       url: /new-rest-v2-version
     - title: API Usage in Developer Portal
