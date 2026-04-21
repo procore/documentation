@@ -209,6 +209,8 @@
   items:
     - title: Changelog
       url: /overview
+    - title: Agentic APIs
+      url: /agentic-apis
     - title: "Deprecation: Project Directory Update Webhooks"
       url: /webhook-fanout-migration
     - title: New REST V2 Version

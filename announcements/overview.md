@@ -29,21 +29,23 @@ If you have questions, please reach out to [apisupport@procore.com](mailto:apisu
 <br><br>
 
 ***
-## March 2026 — Agentic APIs and API Usage Guidelines
+## March 2026 — Agentic APIs Now in Design Partner Pilot
 **Category:** New Feature
 
-Procore is developing a new generation of **Agentic APIs**, purpose-built on our Datagrid infrastructure to power AI agents, RAG solutions, and advanced analytics. General Availability is planned for **Late Q1 2026**.
+Procore's **Agentic APIs** are now available in a Design Partner pilot. Built on Datagrid infrastructure, they are designed for AI agents, Retrieval-Augmented Generation (RAG), and semantic search across unstructured Procore data. General availability is in development.
 
-As we introduce these new capabilities, we want to ensure all developers understand how Procore's existing REST APIs are designed to be used. Our REST APIs are built for **transactional use cases** — creating, reading, updating, and deleting individual records. They are not intended for large-scale data extraction or building AI/ML solutions.
+Agentic APIs serve use cases that transactional REST APIs are not designed for — including autonomous agent workflows, deep semantic search, and large-scale data analysis.
 
-### What You Need to Know:
-- **REST APIs** are for transactional integrations (CRUD operations, automating workflows).
-- **Agentic APIs** (coming soon) are for AI-driven intelligence, RAG, and advanced analytics.
-- Large-scale data extraction and AI/ML training using REST APIs is not permitted under Procore's [Developer Policy]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}).
+For full details and to apply, see [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}).
 
-To learn more, see [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}).
+If you have questions, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
+<br><br>
 
-Interested in building with Agentic APIs? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdk_neam_tY1x8jiFG0QniwcYGR9urGNZ1MnZl_Ie81pfereg/viewform" target="_blank">Sign up for early access and technical updates</a>.
+***
+## March 2026 — API Usage Guidelines Published
+**Category:** Policy
+
+Procore has published [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) to clarify how REST APIs are designed to be used. REST APIs are built for transactional integrations — CRUD operations and workflow automation. Large-scale data extraction and AI/ML training using REST APIs is not permitted under the [Developer Policy]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}).
 
 If you have questions, please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 <br><br>
@@ -56,7 +58,7 @@ As of **November 1, 2025**, Procore updated its file upload process to improve s
 
 This change replaced the legacy single-call upload method. Uploads that do not use the new flow may experience **increased latency**.
 
-### What You Need to Do:
+### What you need to do:
 Update your integration to use the new upload flow:
 
 1. **Request a Presigned Upload URL** — Use the [Uploads](https://developers.procore.com/reference/rest/uploads?version=latest) endpoint to request a presigned S3 URL and receive a `uuid`.
