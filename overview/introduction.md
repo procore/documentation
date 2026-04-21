@@ -11,7 +11,7 @@ section_title: Introduction
 ## Overview
 Procore's Developer Platform lets you build integrations and apps with secure, RESTful APIs (OAuth 2.0). You get consistent versioning, clear rate limits, and comprehensive documentation — so you can ship reliable solutions in any tech stack.
 
-Our REST APIs are designed for transactional integrations — creating, reading, updating, and deleting records as part of your app's core functionality. For AI-driven use cases, new **Agentic APIs** are coming soon. See the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) for details.
+Our REST APIs are designed for transactional integrations — creating, reading, updating, and deleting records as part of your app's core functionality. For AI agents, semantic search, and Retrieval-Augmented Generation (RAG), see [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}), now in a Design Partner pilot. The [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) explain which API to pick for your use case.
 <br><br>
 
 ***
