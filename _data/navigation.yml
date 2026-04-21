@@ -209,6 +209,8 @@
   items:
     - title: Overview
       url: /overview
+    - title: Agentic APIs
+      url: /agentic-apis
     - title: New REST V2 Version
       url: /new-rest-v2-version
     - title: API Usage in Developer Portal
