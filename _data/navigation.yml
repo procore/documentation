@@ -21,7 +21,7 @@
 
 - title: Platform Concepts
   items:
-    - title: Procore Environments
+    - title: Procore Sandboxes
       url: /development-environments
     - title: App Installation Overview
       url: /building-apps-install-arch
