@@ -13,9 +13,9 @@ In this guide we describe how to properly format your request body to successful
 
 ## Content-Type Considerations
 
-In order to work with file attachments or image uploads, you must use the `multipart/form-data` Content-Type when making a request.
+Many attachment and image endpoints use the `multipart/form-data` Content-Type when making a request.
 The Content-Type is used to specify the media type of the resource.
-It is important to note that the entire request body must be defined as `multipart/form-data`.
+For endpoints that accept direct file-content upload, the entire request body must be defined as `multipart/form-data`.
 In POST requests, the client tells the server what type of data is actually being sent.
 In a POST request resulting from an HTML form submission, the Content-Type of the request is specified by the `enctype` attribute on the `<form>` element.
   Here is an example HTML code snippet for a form that includes both text data and file data fields.
@@ -27,6 +27,17 @@ In a POST request resulting from an HTML form submission, the Content-Type of th
   <button type="submit">Submit</button>
 </form>
 ```
+
+### Endpoint-specific behavior matters
+
+Not all endpoints in the Attachments area accept direct multipart file-content upload in the same request.
+
+For example, `POST /rest/v1.0/attachments` is documented as an association flow:
+
+1. Create an Upload and complete the file upload using the Uploads API.
+2. Call `POST /rest/v1.0/attachments` with the resulting ProstoreFile ID(s) in the `id` query parameter.
+
+Always verify the specific endpoint reference before choosing multipart request-body upload or ID-based association flow.
 
 ## A File Attachment Example Using Postman
 
