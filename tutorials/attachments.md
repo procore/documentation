@@ -24,7 +24,7 @@ Use the Uploads guide for complete request/response details:
 
 - [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
 
-![Direct Upload to Storage Service]({{ site.baseurl }}/assets/guides/attachments-direct-upload-step1.png)
+![Direct File Upload]({{ site.baseurl }}/assets/guides/postman-direct-file-upload.png)
 
 ### Step 2 - Associate the Uploaded File to the Target Resource
 
