@@ -24,13 +24,21 @@ Use the Uploads guide for complete request/response details:
 
 - [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
 
+![Direct Upload to Storage Service]({{ site.baseurl }}/assets/guides/attachments-direct-upload-step1.png)
+
 ### Step 2 - Associate the Uploaded File to the Target Resource
 
 After the upload is complete, associate the resulting upload/prostore file ID with the endpoint you are calling.
 
 For Attachments specifically (`POST /rest/v1.0/attachments`), pass the ProstoreFile ID(s) in the `id` query parameter.
 
-![Direct File Upload]({{ site.baseurl }}/assets/guides/postman-direct-file-upload.png)
+**Example request**
+
+```bash
+curl --request POST "https://api.procore.com/rest/v1.0/attachments?project_id=123&item_type=ManpowerLog&item_id=456&id[]=111&id[]=112" \
+  --header "Authorization: Bearer <ACCESS_TOKEN>" \
+  --header "Procore-Company-Id: <COMPANY_ID>"
+```
 
 ### Step 3 - Verify the File is Attached to the Resource
 
