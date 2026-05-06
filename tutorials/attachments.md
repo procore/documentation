@@ -68,6 +68,8 @@ Reference:
 }
 ```
 
+![Accident log request example]({{ site.baseurl }}/assets/guides/accident-log-direct-upload-request.png)
+
 #### Example response
 
 ```json
