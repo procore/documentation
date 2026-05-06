@@ -51,6 +51,10 @@ Reference:
 
 #### Example request
 
+- Request Method: `POST`
+- Request URL: `/rest/v1.0/projects/{project_id}/accident_logs`
+- Request Body:
+
 ```json
 {
   "accident_log": {
@@ -64,34 +68,157 @@ Reference:
 }
 ```
 
+#### Example response
+
+```json
+{
+  "id": 1047250,
+  "date": "2026-05-06",
+  "datetime": "2026-05-06T16:00:00Z",
+  "status": "approved",
+  "created_by_collaborator": false,
+  "position": 1,
+  "created_at": "2026-05-06T07:05:19Z",
+  "updated_at": "2026-05-06T07:05:19Z",
+  "deleted_at": null,
+  "created_by": {
+    "id": 14078128,
+    "login": "api.user@example.com",
+    "name": "API User"
+  },
+  "attachments": [
+    {
+      "id": 6181940361,
+      "name": "image.png",
+      "url": "https://example.com/files/{file_token}",
+      "filename": "image.png",
+      "content_type": "image/png",
+      "viewable_type": "image",
+      "share_url": "https://example.com/files/{file_token}",
+      "viewable_url": "https://example.com/viewable_documents/{document_id}"
+    }
+  ],
+  "permissions": {
+    "can_update": true,
+    "can_delete": true
+  },
+  "custom_fields": {},
+  "related_items": [],
+  "location": null,
+  "comments": "Accident Log comments",
+  "involved_company": "Procore Technologies",
+  "involved_name": "Roger",
+  "time_hour": 10,
+  "time_minute": 15,
+  "vendor": null
+}
+```
+
 When using `multipart/form-data` for this endpoint, upload file content with `attachments[]` directly.
 
 ### Example B - Upload to images tool
 
-For `Create image`, the recommended direct-upload flow is to pass:
-
-- upload UUID from the Uploads API (field name depends on API version)
-- `image_name` (required when using upload UUID flow)
-- `image[...]` metadata fields
+For `Create image`, use the upload UUID flow from the Uploads API.
 
 Reference:
 
 - [Create image](https://developers.procore.com/reference/rest/images?version=latest#create-image)
 
-For `/rest/v1.0/images`, this is commonly sent as:
+#### Request
+
+- Request Method: `POST`
+- Request URL: `/rest/v1.0/images?project_id={project_id}`
+- Request Body:
 
 ```json
 {
-  "upload_uuid": "1QJ83Q56CVQR4X3C0JG7YV86F8",
-  "image_name": "site-photo.png",
+  "upload": {
+    "source": "Image from API",
+    "uuid": "1QJ83Q56CVQR4X3C0JG7YV86F8",
+    "image_name": "image.png"
+  },
   "image": {
+    "provider_type": "MarkupLayer",
+    "provider_id": 12,
+    "description": "This is a cool image",
     "image_category_id": 2,
-    "description": "Photo captured from API upload flow"
+    "location_id": 13,
+    "log_date": "2018-01-01",
+    "mt_location": [
+      "string"
+    ],
+    "private": false,
+    "starred": true,
+    "trade_ids": [
+      1
+    ]
   }
 }
 ```
 
-For newer Images contracts, the same data may be nested under `upload` (for example `upload.uuid` and `upload.image_name`).
+![Create image request example]({{ site.baseurl }}/assets/guides/attachments-images-request-example.png)
+
+#### Response Body
+
+```json
+{
+  "id": 42,
+  "url": "https://example.com/files/{file_token}",
+  "size": 42,
+  "filename": "image.png",
+  "description": "This is a cool image",
+  "thumbnail_url": "https://example.com/files/{thumbnail_token}",
+  "taken_at": "2026-05-06T07:05:19Z",
+  "created_at": "2026-05-06T07:05:19Z",
+  "updated_at": "2026-05-06T07:05:19Z",
+  "location": {
+    "id": 15504,
+    "name": "1space>1 space",
+    "node_name": "1 space",
+    "parent_id": 788866,
+    "created_at": "2016-08-01T23:33:54Z",
+    "updated_at": "2016-08-01T23:33:54Z"
+  },
+  "image_category_name": "Progress Photos",
+  "image_category_id": 2,
+  "permanently_deleted": false,
+  "private": false,
+  "projection": "regular",
+  "starred": true,
+  "width": 42,
+  "height": 42,
+  "uploader": {
+    "id": 160586,
+    "login": "api.user@example.com",
+    "name": "API User"
+  },
+  "links": {
+    "self": "/rest/v1.0/images/9122752?image_category_id=186339&project_id=173074",
+    "update": "/rest/v1.0/images/9122752?image_category_id=186339&project_id=173074",
+    "delete": "/rest/v1.0/images/9122752?image_category_id=186339&project_id=173074",
+    "permanentlyDelete": "/rest/v1.0/images/9122752?image_category_id=186339&project_id=173074&permanent=true",
+    "retrieve": "/rest/v1.0/images/9122752/retrieve?project_id=173074"
+  },
+  "trades": [
+    {
+      "id": 999,
+      "name": "09 - acoustical panels",
+      "active": true,
+      "updated_at": "2016-08-01T23:33:54Z"
+    }
+  ],
+  "comments_count": 42,
+  "daily_log_segment": {
+    "id": 123456,
+    "name": "Morning Shift",
+    "description": "Work performed during the morning shift",
+    "deleted_at": null,
+    "deleted": false
+  }
+}
+```
+
+Possible responses include `200`, `401`, `403`, and `422` depending on auth and validation.
 `image[data]` in `multipart/form-data` is still supported but marked deprecated in favor of upload UUID flow.
 
 ## Next Step
