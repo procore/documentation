@@ -31,14 +31,6 @@ Use this guide for complete request/response details:
 
 ![Direct File Upload]({{ site.baseurl }}/assets/guides/postman-direct-file-upload.png)
 
-### Endpoint-specific behavior matters
-
-Not all attachment-related endpoints accept direct multipart file-content upload in the same request.
-For example, `POST /rest/v1.0/attachments` follows an uploads-first association flow:
-
-1. Create and complete an upload using the Direct File Uploads flow above.
-2. Call `POST /rest/v1.0/attachments` and associate the uploaded file by identifier (per endpoint contract).
-
 ## Associate the Uploaded File to the Target Resource
 
 After the upload is complete, associate the resulting upload identifier with the endpoint you are calling.
@@ -50,8 +42,7 @@ This page includes two concrete examples of this association step:
 
 ### Example A - Upload to accident_logs
 
-For `Create Accident Log` (`POST /rest/v1.0/projects/{project_id}/accident_logs`), use the direct-upload reference fields from the accident log contract.
-With `application/json`, include attachment references (for example `upload_ids`) in the request body.
+Use the Accident Log direct-upload reference fields for attachment association.
 Reference:
 
 - [Create Accident Log](https://developers.procore.com/reference/rest/accident-logs?version=latest#create-accident-log)
@@ -123,8 +114,6 @@ Reference:
   "vendor": null
 }
 ```
-
-When using `multipart/form-data` for this endpoint, upload file content with `attachments[]` directly.
 
 ### Example B - Upload to images tool
 
@@ -229,7 +218,7 @@ Reference:
 ```
 
 Possible responses include `201`, `401`, `403`, and `422` depending on auth and validation.
-`image[data]` in `multipart/form-data` is still supported but marked deprecated in favor of upload UUID flow.
+`image[data]` in `multipart/form-data` is deprecated; use upload UUID flow instead.
 
 ## Next Step
 
@@ -238,16 +227,11 @@ Use the endpoint-specific reference docs for the resource you are integrating.
 
 ## About multipart/form-data
 
-Some resource endpoints still use `multipart/form-data` for direct file-content upload.
-That behavior is endpoint-specific and parameter names vary by endpoint:
+Some resource endpoints still accept `multipart/form-data`, but this guide recommends using uploads-first association flows.
+Deprecated multipart behavior is endpoint-specific and parameter names vary by endpoint:
 
-- `accident_logs`: supports `attachments[]` in multipart requests, and also supports attachment reference fields in JSON requests.
-- `images`: supports multipart `image[data]`, but the recommended flow is direct upload with `upload_uuid`.
-
-Example multipart request keys:
-
-- `accident_logs`: `accident_log[time_hour]`, `accident_log[comments]`, `attachments[]`
-- `images`: `image[image_category_id]`, `image[data]`
+- `accident_logs`: multipart attachment uploads are deprecated in favor of upload-id association fields in JSON requests.
+- `images`: multipart `image[data]` is deprecated; use direct upload with `upload_uuid`.
 
 Always check the endpoint reference before choosing multipart request-body upload versus upload-reference flow.
 This guide intentionally does not enumerate every tool-specific contract.
