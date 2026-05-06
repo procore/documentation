@@ -42,7 +42,7 @@ This page includes two concrete examples of this association step:
 
 ### Example A - Upload to accident_logs
 
-Use the Accident Log direct-upload reference fields for attachment association.
+Use the Accident Log direct-upload fields for attachment association with `upload_ids`.
 Reference:
 
 - [Create Accident Log](https://developers.procore.com/reference/rest/accident-logs?version=latest#create-accident-log)
@@ -61,7 +61,7 @@ Reference:
     "time_minute": 15,
     "comments": "Minor incident near loading zone",
     "upload_ids": [
-      "4120226e-36a8-416f-970e-880bae78164f"
+      "01FZ8QATJYD0K7BZG2PP5GB4KN"
     ]
   }
 }
@@ -117,11 +117,11 @@ Reference:
 
 ### Example B - Upload to images tool
 
-For `Create image`, use the upload UUID flow from the Uploads API.
+For `Create Image`, use the `upload.uuid` flow from the Uploads API.
 
 Reference:
 
-- [Create image](https://developers.procore.com/reference/rest/images?version=latest#create-image)
+- [Create Image](https://developers.procore.com/reference/rest/images?version=latest#create-image)
 
 #### Request
 
@@ -155,7 +155,7 @@ Reference:
 }
 ```
 
-![Create image request example]({{ site.baseurl }}/assets/guides/attachments-images-request-example.png)
+![Create Image request example]({{ site.baseurl }}/assets/guides/attachments-images-request-example.png)
 
 #### Response Body
 
@@ -218,7 +218,7 @@ Reference:
 ```
 
 Possible responses include `201`, `401`, `403`, and `422` depending on auth and validation.
-`image[data]` in `multipart/form-data` is deprecated; use upload UUID flow instead.
+Some endpoints still support `image[data]` in `multipart/form-data`, but uploads-first with `upload.uuid` is the recommended flow for new integrations.
 
 ## Next Step
 
@@ -228,10 +228,10 @@ Use the endpoint-specific reference docs for the resource you are integrating.
 ## About multipart/form-data
 
 Some resource endpoints still accept `multipart/form-data`, but this guide recommends using uploads-first association flows.
-Deprecated multipart behavior is endpoint-specific and parameter names vary by endpoint:
+Multipart behavior is endpoint-specific and parameter names vary by endpoint:
 
-- `accident_logs`: multipart attachment uploads are deprecated in favor of upload-id association fields in JSON requests.
-- `images`: multipart `image[data]` is deprecated; use direct upload with `upload_uuid`.
+- `accident_logs`: use `upload_ids` in JSON requests, populated with values returned from Create Upload.
+- `images`: use direct upload with `upload.uuid`.
 
 Always check the endpoint reference before choosing multipart request-body upload versus upload-reference flow.
 This guide intentionally does not enumerate every tool-specific contract.
