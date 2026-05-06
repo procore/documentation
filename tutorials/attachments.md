@@ -229,7 +229,7 @@ Reference:
 ```
 
 Possible responses include `201`, `401`, `403`, and `422` depending on auth and validation.
-`image[data]` in `multipart/form-data` is also supported for this endpoint.
+`image[data]` in `multipart/form-data` is still supported but marked deprecated in favor of upload UUID flow.
 
 ## Next Step
 
@@ -242,7 +242,7 @@ Some resource endpoints still use `multipart/form-data` for direct file-content 
 That behavior is endpoint-specific and parameter names vary by endpoint:
 
 - `accident_logs`: supports `attachments[]` in multipart requests, and also supports attachment reference fields in JSON requests.
-- `images`: supports multipart `image[data]`, and this guide shows the uploads-first flow using `upload.uuid` and `upload.image_name`.
+- `images`: supports multipart `image[data]`, but the recommended flow is direct upload with `upload_uuid`.
 
 Example multipart request keys:
 
