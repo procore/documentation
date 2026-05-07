@@ -27,10 +27,10 @@ It is also built with multi-cloud support in mind, so as Procore expands to addi
 ### Key New Feature Highlights
 
 - **Size Agnostic Upload:** The API provides a size-agnostic upload experience, removing the need for client-side branching logic based on file size. To ensure consistency and reliability, all uploads should be treated as "Segmented" (Multipart) regardless of the total file size.
-- **Strict File Size Thresholds:** The system enforces a strict maximum of 100 MB upper limit for each segmented upload.
+- **Strict File Size Thresholds:** The system enforces a strict maximum of 100 MiB (104,857,600 bytes) per segment.
 - **Checksum Verification:** Segment-level validation will be performed using a mandatory SHA-256 checksum, with an optional MD5 check available for additional verification.
 - **24-Hour PDM Tool Association Timeline:** Files uploaded via the Unified File Uploads API must be associated with a PDM tool within 24 hours of upload initialization. If a file is not associated within this timeframe, it will be permanently and automatically deleted from cloud storage with no recovery possible.
-- **Status-Driven Interface:** The API relies on a status field (e.g., `in_progress`, `completed`, `available`). Clients should always check that a file's status is `available` before attempting to download it, which indicates all processing and checksum verifications are finished.
+- **Status-Driven Interface:** The API relies on a status field (`ready`, `receiving`, `complete`, `available`). Clients should always check that a file's status is `available` before attempting to download it, which indicates all processing and checksum verifications are finished.
 - **Standardized ETags:** For uploads, you must explicitly signal completion using an array of `part_etags`.
 
 > **Important — Treat URLs and headers as opaque.**
@@ -40,7 +40,11 @@ It is also built with multi-cloud support in mind, so as Procore expands to addi
 
 ## Endpoints
 
-All endpoints are scoped to a project:
+The Unified File Upload API is available at both the project level and the company level.
+Use project-level endpoints when uploading files that will be associated with a specific project resource (such as a PDM document).
+Use company-level endpoints when uploading files that will be associated with a company-level resource.
+
+**Project-level endpoints:**
 
 | Action | Method | Endpoint URI |
 |---|---|---|
@@ -48,6 +52,15 @@ All endpoints are scoped to a project:
 | Upload File Content | PUT | Presigned URL returned in the `segments[].url` field of the POST response |
 | [Complete Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#complete-unified-upload) | PATCH | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
 | [Get Upload Status](https://developers.procore.com/reference/rest/uploads?version=2.1#get-unified-upload-status) | GET | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/{upload_id}` |
+
+**Company-level endpoints:**
+
+| Action | Method | Endpoint URI |
+|---|---|---|
+| [Create Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#create-unified-upload-company) | POST | `/rest/v2.1/companies/{company_id}/uploads` |
+| Upload File Content | PUT | Presigned URL returned in the `segments[].url` field of the POST response |
+| [Complete Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#complete-unified-upload-company) | PATCH | `/rest/v2.1/companies/{company_id}/uploads/{upload_id}` |
+| [Get Upload Status](https://developers.procore.com/reference/rest/uploads?version=2.1#get-unified-upload-status-company) | GET | `/rest/v2.1/companies/{company_id}/uploads/{upload_id}` |
 
 ## Example 1: Small File Upload (Single Part)
 
@@ -104,12 +117,11 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
     "upload_id": "01JEXAMPLE00000000000000001",
     "file_name": "report.pdf",
     "file_size": 2097152,
-    "total_parts": 1,
     "content_type": "application/pdf",
     "upload_expires_at": 1773900000,
     "segments": [
       {
-        "url": "https://storage.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000001/parts/1?expires_at=1773900000&user_id=1234&sig=...",
+        "url": "https://storage.procore.com/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads/01JEXAMPLE00000000000000001?expires_at=1773900000&user_id=1234&sig=...",
         "url_expires_at": 1773900000,
         "headers": {
           "Content-Length": "2097152"
@@ -243,7 +255,7 @@ The same workflow applies to files of any size — split the file, provide per-p
 ### Step 1 — Split the File and Compute Hashes
 
 Split the source file into parts.
-Each part must be between 5 MB and 100 MB, except the last part which can be smaller.
+Each part must be greater than 5 MiB (5,242,881 bytes minimum) and at most 100 MiB (104,857,600 bytes), except the last part which can be smaller.
 
 ```
 split -b 6000000 test-video.mp4 part_
@@ -317,7 +329,6 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
     "upload_id": "01JEXAMPLE00000000000000002",
     "file_name": "test-video.mp4",
     "file_size": 8829449,
-    "total_parts": 2,
     "content_type": "video/mp4",
     "upload_expires_at": 1773900000,
     "segments": [
@@ -458,16 +469,21 @@ curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projec
 ```
 
 Upload status values include:
-- `ready` — Upload created, waiting for file content
-- `receiving` — Parts are being uploaded (partial ETags submitted)
-- `complete` — All parts uploaded and ETags submitted
-- `available` — File is fully processed and available for use in Procore
+
+| Status | Description |
+|---|---|
+| `ready` | Upload created, waiting for file content |
+| `receiving` | Parts are being uploaded (partial ETags submitted) |
+| `complete` | All parts uploaded and ETags submitted; returned by the PATCH response |
+| `available` | File is fully processed and available for use in Procore |
+
+> **Note:** After a successful PATCH, the upload status is `complete`. The status then transitions to `available` once processing is finished.
 
 ---
 
 ## Important Considerations
 
-- **File parts have a 100 MB maximum size.** Files larger than 100 MB must be split into multiple parts. Each part can be at most 100 MB, with a minimum of 5 MB (except the last part, which can be smaller).
+- **File parts have a 100 MiB (104,857,600 bytes) maximum size.** Files larger than 100 MiB must be split into multiple parts. Each part can be at most 100 MiB, with a minimum of greater than 5 MiB (5,242,881 bytes minimum; exactly 5 MiB is rejected), except the last part which can be smaller.
 - **Maximum of 10,000 parts per upload.** A single upload cannot exceed 10,000 parts. For very large files, increase your part size accordingly to stay within this limit.
 - **Presigned URLs expire.** The `url_expires_at` field indicates when the presigned URL becomes invalid. If a URL expires before you complete the PUT, call the GET upload status endpoint to obtain fresh presigned URLs for the remaining segments.
 - **Copy URLs and headers exactly as returned.** The `url` and `headers` from each segment are opaque. Copy them in their entirety into your PUT request without adding, removing, or modifying any values. Do not parse or make assumptions about the URL structure or header names — they are subject to change without notice.
@@ -477,10 +493,161 @@ Upload status values include:
 - **Uploads expire.** Uploads must be completed and associated with a Procore resource within the expiration window or they will be automatically deleted.
 - **The authenticated user owns the upload.** Only the user who created the upload can complete it and use it in subsequent API requests.
 
+---
+
+## Company-Level Uploads
+
+The company-level upload API uses the same four-step workflow as project-level uploads, but without a project context.
+This is appropriate when the file will be associated with a company-level resource rather than a project-specific one.
+
+### Differences from Project-Level Uploads
+
+| Aspect | Project-Level | Company-Level |
+|---|---|---|
+| **Endpoint base** | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads` | `/rest/v2.1/companies/{company_id}/uploads` |
+| **Required permissions** | Project-level access to the target project | Company-level access |
+| **`Procore-Company-Id` header** | Required | Required |
+| **File association** | Associate with a PDM document upload or other project resource | Associate with a company-level resource |
+| **Upload workflow** | Identical (POST → PUT → PATCH → GET) | Identical (POST → PUT → PATCH → GET) |
+
+> **Note:** All other behaviors — presigned URL handling, checksum requirements, ETag submission, status progression, and expiration rules — are identical between the two levels.
+
+### Example: Small File Upload at the Company Level (Single Part)
+
+This example uploads a 2 MB PDF at the company level as a single part.
+
+#### Step 1 — Compute File Hashes
+
+```
+wc -c < report.pdf
+# 2097152
+
+shasum -a 256 report.pdf
+# e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+
+md5 report.pdf
+# d41d8cd98f00b204e9800998ecf8427e
+```
+
+#### Step 2 — Create the Upload (POST)
+
+Send a POST request to the company-level endpoint.
+
+**Request**
+
+```
+curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/uploads' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer "${access_token}"' \
+  --header 'Procore-Company-Id: {company_id}' \
+  --data '{
+  "file_name": "report.pdf",
+  "file_size": 2097152,
+  "content_type": "application/pdf",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "segments": [
+    {
+      "size": 2097152,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "md5": "d41d8cd98f00b204e9800998ecf8427e"
+    }
+  ]
+}'
+```
+
+**Response (201 Created)**
+
+```
+{
+  "data": {
+    "upload_id": "01JEXAMPLE00000000000000003",
+    "file_name": "report.pdf",
+    "file_size": 2097152,
+    "content_type": "application/pdf",
+    "upload_expires_at": 1773900000,
+    "segments": [
+      {
+        "url": "https://storage.procore.com/rest/v2.1/companies/{company_id}/uploads/01JEXAMPLE00000000000000003?expires_at=1773900000&user_id=1234&sig=...",
+        "url_expires_at": 1773900000,
+        "headers": {
+          "Content-Length": "2097152"
+        }
+      }
+    ],
+    "status": "ready"
+  }
+}
+```
+
+#### Step 3 — Upload the File (PUT)
+
+Upload the binary file content using the `url` and `headers` from the segment, copied exactly as returned.
+
+**Request**
+
+```
+curl -X PUT '{segment_url_from_response}' \
+  --header 'Content-Length: 2097152' \
+  --data-binary '@report.pdf'
+```
+
+**Response**
+
+```
+HTTP/1.1 200 OK
+ETag: "d41d8cd98f00b204e9800998ecf8427e"
+```
+
+#### Step 4 — Complete the Upload (PATCH)
+
+```
+curl -X PATCH 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/uploads/01JEXAMPLE00000000000000003' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer "${access_token}"' \
+  --data '{
+    "part_etags": ["d41d8cd98f00b204e9800998ecf8427e"]
+  }'
+```
+
+**Response (200 OK)**
+
+```
+{
+  "data": {
+    "upload_id": "01JEXAMPLE00000000000000003",
+    "status": "complete"
+  }
+}
+```
+
+#### Step 5 — Poll Until Available (GET)
+
+```
+curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/uploads/01JEXAMPLE00000000000000003' \
+  --header 'Authorization: Bearer "${access_token}"'
+```
+
+**Response (200 OK)**
+
+```
+{
+  "data": {
+    "upload_id": "01JEXAMPLE00000000000000003",
+    "file_name": "report.pdf",
+    "sanitized_file_name": "report.pdf",
+    "content_type": "application/pdf",
+    "file_size": 2097152,
+    "status": "available",
+    "custom_metadata": {}
+  }
+}
+```
+
+Once `status` is `available`, the file can be associated with a company-level resource using the `upload_id`.
 
 ## Coming Soon
 
 The following capabilities are planned for upcoming releases of the Unified File Upload API:
-- **Malware scan status** — Fields indicating whether the uploaded file has been scanned and the scan result
+- **Malware scan** — Automated scanning of uploaded files for malware
 - **Checksum verification status** — Fields confirming whether server-side checksum verification passed
 - **Extended analytics and client metadata** — Additional fields for richer upload telemetry and client identification
