@@ -62,7 +62,7 @@ Use company-level endpoints when uploading files that will be associated with a 
 | [Complete Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#complete-company-upload) | PATCH | `/rest/v2.1/companies/{company_id}/uploads/{upload_id}` |
 | [Get Upload Status](https://developers.procore.com/reference/rest/uploads?version=2.1#get-company-upload-status) | GET | `/rest/v2.1/companies/{company_id}/uploads/{upload_id}` |
 
-## Example 1: Small File Upload (Single Part)
+## Example 1: Project-Level Small File Upload (Single Part)
 
 This example uploads a 2 MB PDF as a single part.
 
@@ -247,7 +247,7 @@ The `file_upload_id` is the `upload_id` returned by the Unified File Upload API 
 
 ---
 
-## Example 2: Large File Upload (Multi-Part)
+## Example 2: Project-Level Large File Upload (Multi-Part)
 
 This example uploads an 8.8 MB video file as two parts.
 The same workflow applies to files of any size — split the file, provide per-part checksums, and upload each part separately.
