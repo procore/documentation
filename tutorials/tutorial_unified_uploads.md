@@ -59,8 +59,8 @@ Use company-level endpoints when uploading files that will be associated with a 
 |---|---|---|
 | [Create Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#create-unified-upload-company) | POST | `/rest/v2.1/companies/{company_id}/uploads` |
 | Upload File Content | PUT | Presigned URL returned in the `segments[].url` field of the POST response |
-| [Complete Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#complete-unified-upload-company) | PATCH | `/rest/v2.1/companies/{company_id}/uploads/{upload_id}` |
-| [Get Upload Status](https://developers.procore.com/reference/rest/uploads?version=2.1#get-unified-upload-status-company) | GET | `/rest/v2.1/companies/{company_id}/uploads/{upload_id}` |
+| [Complete Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#complete-company-upload) | PATCH | `/rest/v2.1/companies/{company_id}/uploads/{upload_id}` |
+| [Get Upload Status](https://developers.procore.com/reference/rest/uploads?version=2.1#get-company-upload-status) | GET | `/rest/v2.1/companies/{company_id}/uploads/{upload_id}` |
 
 ## Example 1: Small File Upload (Single Part)
 
@@ -476,8 +476,6 @@ Upload status values include:
 | `receiving` | Parts are being uploaded (partial ETags submitted) |
 | `complete` | All parts uploaded and ETags submitted; returned by the PATCH response |
 | `available` | File is fully processed and available for use in Procore |
-
-> **Note:** After a successful PATCH, the upload status is `complete`. The status then transitions to `available` once processing is finished.
 
 ---
 
