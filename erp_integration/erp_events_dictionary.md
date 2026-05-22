@@ -2334,11 +2334,11 @@ The ERP Integration is expected to check the state of the prime contract change 
     "request_detail_id": 1,
     "company_id": 7,
     "direct_cost": {
-      "id": "171354581",
-      "accounting_date": "2026-05-01",
-      "ai_autofill": true,
-      "billed_amount": "920.13",
-      "created_at": "2026-05-11T15:09:39Z",
+      "id": "10000001",
+      "accounting_date": "2025-06-01",
+      "ai_autofill": false,
+      "billed_amount": "1000.0",
+      "created_at": "2025-06-01T10:00:00Z",
       "currency_configuration": {
         "base_currency_iso_code": null,
         "currency_exchange_rate": "1.0",
@@ -2346,14 +2346,14 @@ The ERP Integration is expected to check the state of the prime contract change 
       },
       "description": "Invoice description",
       "direct_cost_attachment": {
-        "id": "6192570404",
+        "id": "20000001",
         "content_type": "application/pdf",
-        "created_at": "2026-05-11T15:09:39Z",
+        "created_at": "2025-06-01T10:00:00Z",
         "name": "invoice.pdf",
         "url": "https://storage.procore.com/...",
-        "uuid": "e053c20f079b42ac82bcc09a3ef919568cb5"
+        "uuid": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8"
       },
-      "direct_cost_date": "2026-05-01",
+      "direct_cost_date": "2025-06-01",
       "direct_cost_type": "invoice",
       "discount_date": null,
       "employee": null,
@@ -2371,15 +2371,15 @@ The ERP Integration is expected to check the state of the prime contract change 
           "name": "Test Project"
         }
       ],
-      "received_date": "2026-05-11",
+      "received_date": "2025-06-01",
       "review_status": "ready",
       "status": "approved",
       "terms": null,
-      "updated_at": "2026-05-11T20:01:56Z",
-      "uploaded_at": "2026-05-11T15:09:39Z",
+      "updated_at": "2025-06-01T10:00:00Z",
+      "uploaded_at": "2025-06-01T10:00:00Z",
       "uploaded_by": "user@example.com",
       "vendor": {
-        "id": "18951792",
+        "id": "30000001",
         "name": "Test Vendor",
         "origin_id": "vendor_origin_id",
         "origin_code": "V-00001",
@@ -2390,7 +2390,7 @@ The ERP Integration is expected to check the state of the prime contract change 
       "origin_data": null,
       "line_items": [
         {
-          "id": "385305686",
+          "id": "40000001",
           "company": {
             "id": "7"
           },
@@ -2400,7 +2400,7 @@ The ERP Integration is expected to check the state of the prime contract change 
             "currency_iso_code": "USD"
           },
           "description": "Line item description",
-          "direct_cost_id": "171354581",
+          "direct_cost_id": "10000001",
           "extended_type": "calculated",
           "position": 1,
           "project": {
@@ -2415,9 +2415,9 @@ The ERP Integration is expected to check the state of the prime contract change 
             "read_only": false
           },
           "wbs_code": {
-            "id": "4806434576",
-            "flat_code": "03-10-50.S",
-            "description": "Concrete Coring"
+            "id": "50000001",
+            "flat_code": "01-100",
+            "description": "General Requirements"
           },
           "job_origin_id": "project_origin_id",
           "cost_code_id": 456,
@@ -2440,7 +2440,7 @@ After the company level direct cost has been successfully exported to the ERP sy
   "request_name": "reset_company_level_direct_cost",
   "request_data": {
     "direct_cost": {
-      "id": "171354581"
+      "id": "10000001"
     },
     "origin_id": "direct_cost_origin_id",
     "origin_code": "INV-001",
@@ -2464,11 +2464,11 @@ There are no required actions. If necessary, the ERP Integration can clean up an
     "request_detail_id": 1,
     "company_id": 7,
     "direct_cost": {
-      "id": "171354581",
-      "accounting_date": "2026-05-01",
-      "ai_autofill": true,
-      "billed_amount": "920.13",
-      "created_at": "2026-05-11T15:09:39Z",
+      "id": "10000001",
+      "accounting_date": "2025-06-01",
+      "ai_autofill": false,
+      "billed_amount": "1000.0",
+      "created_at": "2025-06-01T10:00:00Z",
       "currency_configuration": {
         "base_currency_iso_code": "USD",
         "currency_exchange_rate": "1.0",
@@ -2476,14 +2476,14 @@ There are no required actions. If necessary, the ERP Integration can clean up an
       },
       "description": "Invoice description",
       "direct_cost_attachment": {
-        "id": "6192570404",
+        "id": "20000001",
         "content_type": "application/pdf",
-        "created_at": "2026-05-11T15:09:39Z",
+        "created_at": "2025-06-01T10:00:00Z",
         "name": "invoice.pdf",
         "url": "https://storage.procore.com/...",
-        "uuid": "e053c20f079b42ac82bcc09a3ef919568cb5"
+        "uuid": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8"
       },
-      "direct_cost_date": "2026-05-01",
+      "direct_cost_date": "2025-06-01",
       "direct_cost_type": "invoice",
       "discount_date": null,
       "employee": null,
@@ -2501,15 +2501,15 @@ There are no required actions. If necessary, the ERP Integration can clean up an
           "name": "Test Project"
         }
       ],
-      "received_date": "2026-05-11",
+      "received_date": "2025-06-01",
       "review_status": "ready",
       "status": "approved",
       "terms": null,
-      "updated_at": "2026-05-11T20:01:56Z",
-      "uploaded_at": "2026-05-11T15:09:39Z",
+      "updated_at": "2025-06-01T10:00:00Z",
+      "uploaded_at": "2025-06-01T10:00:00Z",
       "uploaded_by": "user@example.com",
       "vendor": {
-        "id": "18951792",
+        "id": "30000001",
         "name": "Test Vendor"
       },
       "origin_id": "direct_cost_origin_id",
