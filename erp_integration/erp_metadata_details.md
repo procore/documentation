@@ -74,6 +74,7 @@ Procore currently supports the following entities:
 - job_cost_transactions
 - commitments
 - commitment_change_orders
+- company_level_direct_costs
 - requisitions
 - payment_applications
 - prime_contracts
@@ -718,6 +719,90 @@ The Payment Application metadata does not contain any custom configurations. Pay
     },
     "save": {
       "fields": {}
+    }
+  }
+}
+```
+
+## Company Level Direct Costs Metadata Structure
+
+The Company Level Direct Costs metadata supports exporting company level direct costs from Procore to the ERP system and unlinking previously synced direct costs.
+
+- **export** - Enabling this configuration allows Procore company level direct costs to be exported to the ERP system.
+- **unlink** - This configuration allows a user to unlink a synced company level direct cost in the ERP tab. When a direct cost is unlinked, a Webhook event is delivered to the ERP Integration. The ERP Integration can choose to perform any cleanup related to the unlinked direct cost.
+
+```
+"company_level_direct_costs": {
+  "enabled": true,
+  "configs": {
+    "export": {
+      "enabled": true
+    },
+    "unlink": {
+      "enabled": true
+    }
+  },
+  "tab": {
+    "enabled": true,
+    "columns": {
+      "code": {
+        "enabled": true,
+        "text": "ERP ID"
+      }
+    }
+  },
+  "rules": {
+    "export": {
+      "warning_message": {
+        "enabled": false,
+        "message": ""
+      },
+      "fields": {
+        "invoice_number": {
+          "enabled": true,
+          "validation": {
+            "present": {
+              "enabled": true,
+              "message": "Invoice number can't be blank."
+            }
+          }
+        },
+        "billing_date": {
+          "enabled": true,
+          "validation": {
+            "present": {
+              "enabled": true,
+              "message": "Billing date can't be blank."
+            }
+          }
+        },
+        "origin_code": {
+          "enabled": true,
+          "validation": {
+            "present": {
+              "enabled": true,
+              "message": "Invoice ID can't be blank."
+            },
+            "max_length": {
+              "enabled": true,
+              "length": 15,
+              "message": "Invoice ID cannot be more than %{length} characters."
+            }
+          }
+        }
+      }
+    },
+    "save": {
+      "fields": {
+        "invoice_number": {
+          "validation": {
+            "max_length": {
+              "enabled": true,
+              "length": 15
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -1669,6 +1754,80 @@ The Payment Application metadata does not contain any custom configurations. Pay
           },
           "save": {
             "fields": {}
+          }
+        }
+      },
+      "company_level_direct_costs": {
+        "enabled": true,
+        "configs": {
+          "export": {
+            "enabled": true
+          },
+          "unlink": {
+            "enabled": true
+          }
+        },
+        "tab": {
+          "enabled": true,
+          "columns": {
+            "code": {
+              "enabled": true,
+              "text": "ERP ID"
+            }
+          }
+        },
+        "rules": {
+          "export": {
+            "warning_message": {
+              "enabled": false,
+              "message": ""
+            },
+            "fields": {
+              "invoice_number": {
+                "enabled": true,
+                "validation": {
+                  "present": {
+                    "enabled": true,
+                    "message": "Invoice number can't be blank."
+                  }
+                }
+              },
+              "billing_date": {
+                "enabled": true,
+                "validation": {
+                  "present": {
+                    "enabled": true,
+                    "message": "Billing date can't be blank."
+                  }
+                }
+              },
+              "origin_code": {
+                "enabled": true,
+                "validation": {
+                  "present": {
+                    "enabled": true,
+                    "message": "Invoice ID can't be blank."
+                  },
+                  "max_length": {
+                    "enabled": true,
+                    "length": 15,
+                    "message": "Invoice ID cannot be more than %{length} characters."
+                  }
+                }
+              }
+            }
+          },
+          "save": {
+            "fields": {
+              "invoice_number": {
+                "validation": {
+                  "max_length": {
+                    "enabled": true,
+                    "length": 15
+                  }
+                }
+              }
+            }
           }
         }
       }
