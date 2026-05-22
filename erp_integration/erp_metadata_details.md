@@ -767,6 +767,15 @@ The Company Level Direct Costs metadata supports exporting company level direct 
             }
           }
         },
+        "billing_date": {
+          "enabled": true,
+          "validation": {
+            "present": {
+              "enabled": true,
+              "message": "Billing date can't be blank."
+            }
+          }
+        },
         "origin_code": {
           "enabled": true,
           "validation": {

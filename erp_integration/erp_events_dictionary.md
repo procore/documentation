@@ -15,7 +15,7 @@ The ERP Platform is events-driven. This means that, as an integrator, you will r
 - Exporting an unsynced record (e.g. **create_commitment**)
 - Staging records from the ERP System (e.g. **sync_sub_jobs**)
 
-The event notification payload can be found [here]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}).
+The event notification payload can be found [here]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}).
 The main property to be aware of is **resource_id**, which is the ERP Request ID. As a system integrator, you are responsible for fetching event payloads from the [ERP Requests Show](https://developers.procore.com/reference/rest/v1/erp-requests#show-erp-request) endpoint using the **resource_id** provided above.
 
 ---
@@ -2332,53 +2332,67 @@ The ERP Integration is expected to check the state of the prime contract change 
   "request_name": "create_company_level_direct_cost",
   "request_data": {
     "request_detail_id": 1,
+    "company_id": 7,
     "direct_cost": {
-      "id": 25,
-      "accounting_date": "2025-06-11",
-      "billed_amount": "0.0",
-      "created_at": "2025-06-11T19:44:03Z",
+      "id": "171354581",
+      "accounting_date": "2026-05-01",
+      "ai_autofill": true,
+      "billed_amount": "920.13",
+      "created_at": "2026-05-11T15:09:39Z",
       "currency_configuration": {
         "base_currency_iso_code": null,
         "currency_exchange_rate": "1.0",
         "currency_iso_code": "USD"
       },
       "description": "Invoice description",
-      "direct_cost_attachment": null,
-      "direct_cost_date": "2025-06-13",
+      "direct_cost_attachment": {
+        "id": "6192570404",
+        "content_type": "application/pdf",
+        "created_at": "2026-05-11T15:09:39Z",
+        "name": "invoice.pdf",
+        "url": "https://storage.procore.com/...",
+        "uuid": "e053c20f079b42ac82bcc09a3ef919568cb5"
+      },
+      "direct_cost_date": "2026-05-01",
       "direct_cost_type": "invoice",
       "discount_date": null,
-      "employee": {
-        "id": 24,
-        "name": "Employee Name"
+      "employee": null,
+      "erp": {
+        "status": "exporting"
       },
       "invoice_number": "INV-001",
       "line_item_total": "1000.0",
-      "paid_status": null,
-      "payment_date": "2025-06-13",
-      "payment_due_date": "2025-06-30",
-      "received_date": "2025-06-13",
-      "review_status": "approved",
+      "paid_status": "unpaid",
+      "payment_date": null,
+      "payment_due_date": null,
+      "projects": [
+        {
+          "id": 86,
+          "name": "Test Project"
+        }
+      ],
+      "received_date": "2026-05-11",
+      "review_status": "ready",
       "status": "approved",
       "terms": null,
-      "updated_at": "2025-06-11T20:01:56Z",
-      "uploaded_at": "2025-06-05T18:48:24Z",
-      "uploaded_by": "User Name",
+      "updated_at": "2026-05-11T20:01:56Z",
+      "uploaded_at": "2026-05-11T15:09:39Z",
+      "uploaded_by": "user@example.com",
       "vendor": {
-        "id": 35,
+        "id": "18951792",
         "name": "Test Vendor",
         "origin_id": "vendor_origin_id",
-        "origin_code": null,
-        "origin_data": null
+        "origin_code": "V-00001",
+        "origin_data": "{}"
       },
       "origin_id": null,
       "origin_code": "INV-001",
       "origin_data": null,
       "line_items": [
         {
-          "id": 1,
+          "id": "385305686",
           "company": {
-            "id": 7,
-            "name": "Test Company"
+            "id": "7"
           },
           "currency_configuration": {
             "base_currency_iso_code": null,
@@ -2386,26 +2400,30 @@ The ERP Integration is expected to check the state of the prime contract change 
             "currency_iso_code": "USD"
           },
           "description": "Line item description",
-          "direct_cost_id": 25,
-          "extended_type": "manual",
+          "direct_cost_id": "171354581",
+          "extended_type": "calculated",
           "position": 1,
           "project": {
-            "id": 86,
+            "id": "86",
             "name": "Test Project"
           },
-          "quantity": "5.0",
-          "total_amount": "500.0",
-          "unit_cost": "100.0",
-          "uom": "ls",
-          "wbs_code": {
-            "id": 123
+          "quantity": "1.0",
+          "total_amount": "1000.0",
+          "unit_cost": "1000.0",
+          "uom": {
+            "name": "ea",
+            "read_only": false
           },
-          "cost_code_id": 456,
-          "cost_code_origin_id": "cost_code_origin_id",
-          "line_item_type_id": 789,
-          "line_item_type_origin_id": "line_item_type_origin_id",
+          "wbs_code": {
+            "id": "4806434576",
+            "flat_code": "03-10-50.S",
+            "description": "Concrete Coring"
+          },
           "job_origin_id": "project_origin_id",
-          "sub_job_id": null
+          "cost_code_id": 456,
+          "line_item_type_id": 789,
+          "cost_code_origin_id": "cost_code_origin_id",
+          "line_item_type_origin_id": "line_item_type_origin_id"
         }
       ]
     }
@@ -2422,7 +2440,7 @@ After the company level direct cost has been successfully exported to the ERP sy
   "request_name": "reset_company_level_direct_cost",
   "request_data": {
     "direct_cost": {
-      "id": 25
+      "id": "171354581"
     },
     "origin_id": "direct_cost_origin_id",
     "origin_code": "INV-001",
@@ -2444,8 +2462,56 @@ There are no required actions. If necessary, the ERP Integration can clean up an
   "request_name": "unlink_company_level_direct_cost",
   "request_data": {
     "request_detail_id": 1,
+    "company_id": 7,
     "direct_cost": {
-      "id": 25,
+      "id": "171354581",
+      "accounting_date": "2026-05-01",
+      "ai_autofill": true,
+      "billed_amount": "920.13",
+      "created_at": "2026-05-11T15:09:39Z",
+      "currency_configuration": {
+        "base_currency_iso_code": "USD",
+        "currency_exchange_rate": "1.0",
+        "currency_iso_code": "USD"
+      },
+      "description": "Invoice description",
+      "direct_cost_attachment": {
+        "id": "6192570404",
+        "content_type": "application/pdf",
+        "created_at": "2026-05-11T15:09:39Z",
+        "name": "invoice.pdf",
+        "url": "https://storage.procore.com/...",
+        "uuid": "e053c20f079b42ac82bcc09a3ef919568cb5"
+      },
+      "direct_cost_date": "2026-05-01",
+      "direct_cost_type": "invoice",
+      "discount_date": null,
+      "employee": null,
+      "erp": {
+        "status": "synced"
+      },
+      "invoice_number": "INV-001",
+      "line_item_total": "1000.0",
+      "paid_status": "unpaid",
+      "payment_date": null,
+      "payment_due_date": null,
+      "projects": [
+        {
+          "id": 86,
+          "name": "Test Project"
+        }
+      ],
+      "received_date": "2026-05-11",
+      "review_status": "ready",
+      "status": "approved",
+      "terms": null,
+      "updated_at": "2026-05-11T20:01:56Z",
+      "uploaded_at": "2026-05-11T15:09:39Z",
+      "uploaded_by": "user@example.com",
+      "vendor": {
+        "id": "18951792",
+        "name": "Test Vendor"
+      },
       "origin_id": "direct_cost_origin_id",
       "origin_code": "INV-001",
       "origin_data": null
