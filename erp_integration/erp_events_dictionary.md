@@ -2315,6 +2315,149 @@ The ERP Integration is expected to check the state of the prime contract change 
 
 ---
 
+## Company Level Direct Costs
+
+| **Name**                                                                        | **Super User** | **Action Required** | **Occurs When**                                                                                             |
+|---------------------------------------------------------------------------------|----------------|---------------------|-------------------------------------------------------------------------------------------------------------|
+| [**create_company_level_direct_cost**](#create_company_level_direct_cost)       | No             | Yes                 | A user exports a company level direct cost from the ERP Tab in Procore.                                     |
+| [**reset_company_level_direct_cost**](#reset_company_level_direct_cost)         | Yes            | No                  | An ERP support representative, at the request of the customer, uses Super User access to reset a synced company level direct cost. |
+| [**unlink_company_level_direct_cost**](#unlink_company_level_direct_cost)       | No             | Yes                 | A user attempts to unlink a company level direct cost in the ERP Integration tool.                          |
+
+<br>
+
+### create_company_level_direct_cost
+**Event Payload:**
+```
+{
+  "request_name": "create_company_level_direct_cost",
+  "request_data": {
+    "request_detail_id": 1,
+    "direct_cost": {
+      "id": 25,
+      "accounting_date": "2025-06-11",
+      "billed_amount": "0.0",
+      "created_at": "2025-06-11T19:44:03Z",
+      "currency_configuration": {
+        "base_currency_iso_code": null,
+        "currency_exchange_rate": "1.0",
+        "currency_iso_code": "USD"
+      },
+      "description": "Invoice description",
+      "direct_cost_attachment": null,
+      "direct_cost_date": "2025-06-13",
+      "direct_cost_type": "invoice",
+      "discount_date": null,
+      "employee": {
+        "id": 24,
+        "name": "Employee Name"
+      },
+      "invoice_number": "INV-001",
+      "line_item_total": "1000.0",
+      "paid_status": null,
+      "payment_date": "2025-06-13",
+      "payment_due_date": "2025-06-30",
+      "received_date": "2025-06-13",
+      "review_status": "approved",
+      "status": "approved",
+      "terms": null,
+      "updated_at": "2025-06-11T20:01:56Z",
+      "uploaded_at": "2025-06-05T18:48:24Z",
+      "uploaded_by": "User Name",
+      "vendor": {
+        "id": 35,
+        "name": "Test Vendor",
+        "origin_id": "vendor_origin_id",
+        "origin_code": null,
+        "origin_data": null
+      },
+      "origin_id": null,
+      "origin_code": "INV-001",
+      "origin_data": null,
+      "line_items": [
+        {
+          "id": 1,
+          "company": {
+            "id": 7,
+            "name": "Test Company"
+          },
+          "currency_configuration": {
+            "base_currency_iso_code": null,
+            "currency_exchange_rate": "1.0",
+            "currency_iso_code": "USD"
+          },
+          "description": "Line item description",
+          "direct_cost_id": 25,
+          "extended_type": "manual",
+          "position": 1,
+          "project": {
+            "id": 86,
+            "name": "Test Project"
+          },
+          "quantity": "5.0",
+          "total_amount": "500.0",
+          "unit_cost": "100.0",
+          "uom": "ls",
+          "wbs_code": {
+            "id": 123
+          },
+          "cost_code_id": 456,
+          "cost_code_origin_id": "cost_code_origin_id",
+          "line_item_type_id": 789,
+          "line_item_type_origin_id": "line_item_type_origin_id",
+          "job_origin_id": "project_origin_id",
+          "sub_job_id": null
+        }
+      ]
+    }
+  }
+}
+```
+**Required Actions:**
+After the company level direct cost has been successfully exported to the ERP system, the integrator must send back its third-party **origin_id** to Procore to mark the direct cost as synced, via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint using **item_type=company_level_direct_cost** and **item_id** equal to the direct cost's **id**. Integrators also need to close out the **request_detail_id** associated with the export request, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints. Any error messages included when closing out the request detail will be displayed to the user in the ERP Tab in Procore.
+
+### reset_company_level_direct_cost
+**Event Payload:**
+```
+{
+  "request_name": "reset_company_level_direct_cost",
+  "request_data": {
+    "direct_cost": {
+      "id": 25
+    },
+    "origin_id": "direct_cost_origin_id",
+    "origin_code": "INV-001",
+    "origin_data": null,
+    "reset_override": false
+  }
+}
+```
+**Additional Info:**
+This will return the company level direct cost to an unsynced state in Procore.
+
+**Required Actions:**
+There are no required actions. If necessary, the ERP Integration can clean up any related cached data for the direct cost.
+
+### unlink_company_level_direct_cost
+**Event Payload:**
+```
+{
+  "request_name": "unlink_company_level_direct_cost",
+  "request_data": {
+    "request_detail_id": 1,
+    "direct_cost": {
+      "id": 25,
+      "origin_id": "direct_cost_origin_id",
+      "origin_code": "INV-001",
+      "origin_data": null
+    }
+  }
+}
+```
+**Required Actions:**
+The ERP Integration is expected to check the state of the company level direct cost. If the direct cost is in a deleted state (e.g. deleted, archived, etc.) in the ERP system, it should be marked as unsynced in Procore via the [ERP External Data Sync](https://developers.procore.com/reference/rest/v1/erp-external-data?version=1.0#sync-external-data) endpoint using **item_type=company_level_direct_cost**. The request detail should then be closed out, optionally with error messages if the direct cost failed to unlink, using the [ERP Request Details](https://developers.procore.com/reference/rest/v1/erp-request-details) endpoints.
+
+---
+
 ## ERP Metadata
 
 | **Name**                            | **Super User** | **Action Required** | **Occurs When**                                                                                           |
