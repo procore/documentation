@@ -2342,7 +2342,7 @@ The ERP Integration is expected to check the state of the prime contract change 
       "currency_configuration": {
         "base_currency_iso_code": null,
         "currency_exchange_rate": "1.0",
-        "currency_iso_code": "USD"
+        "currency_iso_code": null
       },
       "description": "Invoice description",
       "direct_cost_attachment": {
@@ -2397,7 +2397,7 @@ The ERP Integration is expected to check the state of the prime contract change 
           "currency_configuration": {
             "base_currency_iso_code": null,
             "currency_exchange_rate": "1.0",
-            "currency_iso_code": "USD"
+            "currency_iso_code": null
           },
           "description": "Line item description",
           "direct_cost_id": "10000001",
@@ -2470,9 +2470,9 @@ There are no required actions. If necessary, the ERP Integration can clean up an
       "billed_amount": "1000.0",
       "created_at": "2025-06-01T10:00:00Z",
       "currency_configuration": {
-        "base_currency_iso_code": "USD",
+        "base_currency_iso_code": null,
         "currency_exchange_rate": "1.0",
-        "currency_iso_code": "USD"
+        "currency_iso_code": null
       },
       "description": "Invoice description",
       "direct_cost_attachment": {
@@ -2494,7 +2494,7 @@ There are no required actions. If necessary, the ERP Integration can clean up an
       "line_item_total": "1000.0",
       "paid_status": "unpaid",
       "payment_date": null,
-      "payment_due_date": null,
+      "payment_due_date": "2025-06-30T00:00:00Z",
       "projects": [
         {
           "id": 86,
@@ -2504,7 +2504,7 @@ There are no required actions. If necessary, the ERP Integration can clean up an
       "received_date": "2025-06-01",
       "review_status": "ready",
       "status": "approved",
-      "terms": null,
+      "terms": "NET 30",
       "updated_at": "2025-06-01T10:00:00Z",
       "uploaded_at": "2025-06-01T10:00:00Z",
       "uploaded_by": "user@example.com",
