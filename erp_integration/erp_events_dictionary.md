@@ -2342,7 +2342,7 @@ The ERP Integration is expected to check the state of the prime contract change 
       "currency_configuration": {
         "base_currency_iso_code": null,
         "currency_exchange_rate": "1.0",
-        "currency_iso_code": null
+        "currency_iso_code": "USD"
       },
       "description": "Invoice description",
       "direct_cost_attachment": {
@@ -2397,7 +2397,7 @@ The ERP Integration is expected to check the state of the prime contract change 
           "currency_configuration": {
             "base_currency_iso_code": null,
             "currency_exchange_rate": "1.0",
-            "currency_iso_code": null
+            "currency_iso_code": "USD"
           },
           "description": "Line item description",
           "direct_cost_id": "10000001",
@@ -2472,7 +2472,7 @@ There are no required actions. If necessary, the ERP Integration can clean up an
       "currency_configuration": {
         "base_currency_iso_code": null,
         "currency_exchange_rate": "1.0",
-        "currency_iso_code": null
+        "currency_iso_code": "USD"
       },
       "description": "Invoice description",
       "direct_cost_attachment": {
