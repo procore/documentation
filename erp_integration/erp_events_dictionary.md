@@ -15,7 +15,7 @@ The ERP Platform is events-driven. This means that, as an integrator, you will r
 - Exporting an unsynced record (e.g. **create_commitment**)
 - Staging records from the ERP System (e.g. **sync_sub_jobs**)
 
-The event notification payload can be found [here]({{ site.url }}{{ site.baseurl }}{% link webhooks/webhooks_api.md %}).
+The event notification payload can be found [here]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}).
 The main property to be aware of is **resource_id**, which is the ERP Request ID. As a system integrator, you are responsible for fetching event payloads from the [ERP Requests Show](https://developers.procore.com/reference/rest/v1/erp-requests#show-erp-request) endpoint using the **resource_id** provided above.
 
 ---
