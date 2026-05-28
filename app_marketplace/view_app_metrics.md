@@ -3,7 +3,7 @@ permalink: /view-app-metrics
 title: View App Metrics
 sub_header: Learn how to view your App's Marketplace metrics.
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 
 ---
 <!DOCTYPE html>

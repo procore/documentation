@@ -2,7 +2,7 @@
 permalink: /partner-tech-reqs
 title: Technical Requirements
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 ---
 
 <!DOCTYPE html>

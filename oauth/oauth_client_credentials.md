@@ -24,18 +24,9 @@ There are a number of scenarios in which using the Client Credentials grant flow
 
 ## Requesting an Access Token
 
-With a DMSA installed in Procore, you can retrieve an OAuth 2.0 access token by making a POST call to the [/oauth/token](https://developers.procore.com/reference/rest/v1/authentication#get-or-refresh-an-access-token) endpoint in the Procore API.
-The JSON payload for this call is formatted as follows:
+With a DMSA installed in Procore, request an access token by POSTing to the `/oauth/token` endpoint with `grant_type=client_credentials`. For full parameter details, see [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}).
 
-```
-{
-  "grant_type": "client_credentials",
-  "client_id": "242635f69bfc6fb9adax513875a0254a2a908f7bb176x1698d6x169a08f5646d",
-  "client_secret": "041372a09c6e4x92aa08ce3axea1cfc0115cbfbf7134exa125fe10cc103ca626"
-}
-```
-
-And here is a cURL example for calling the [/oauth/token](https://developers.procore.com/reference/rest/v1/authentication#get-or-refresh-an-access-token) endpoint:
+cURL example:
 
 ```
 curl -F grant_type=client_credentials \

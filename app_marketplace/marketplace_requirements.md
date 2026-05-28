@@ -1,13 +1,13 @@
 ---
 permalink: /marketplace-requirements
-title: Build & Prepare Your App
+title: Prepare for the Marketplace
 sub_header: Build, test, and prepare your app for a successful listing on the Procore Marketplace.
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 ---
 
 ## Introduction
-Once you've signed up as a developer, it’s time to build a high-quality integration that delivers value to customers and meets Procore’s Marketplace standards. This page walks you through key development milestones, onboarding best practices, and the steps required to become a Procore Technology Partner.
+Once you've signed up as a developer, it’s time to build a high-quality integration that delivers value to customers and meets Procore’s Marketplace standards. This page covers the development milestones, Marketplace requirements, and onboarding best practices for preparing your app to list. For the end-to-end partner journey — application, agreement, and launch — see the [Technology Partner Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}).
 <br><br>
 
 ***
@@ -25,15 +25,13 @@ Before building, make sure to:
 ## 2. Meet the Marketplace Requirements
 To be listed on the Procore Marketplace, your app must meet the following requirements. These ensure consistency, reliability, and a great experience for customers.
 
+Procore verifies your app's production readiness — security, API efficiency, and reliability — through the **Certification Assessment**, a required review before your app can reach production. The remaining requirements (customer validation, onboarding, and listing quality) are confirmed during the final Marketplace review. See the [Technology Partner Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}) for how certification and listing fit into the journey.
+
 ### App Functionality
 - Your app must be installable in a customer's Procore account.
 - Your app must deliver clear and meaningful value to Procore customers.
 - Your app must be production-ready — demo-only or trial-only apps are not accepted.
 - Your app must pass functional testing with no major bugs or blockers.
-
-### Customer Validation
-- You must have at least one (1) beta customer prior to submission.
-- You must have at least one (1) active customer using the app within the past 12 months.
 
 ### Onboarding & Support
 - You must provide clear, step-by-step onboarding instructions.
@@ -74,7 +72,7 @@ To be listed on the Procore Marketplace, your app must meet the following requir
 
 ***
 ## 3. Onboard and Test with Customers
-As your app nears completion, engage a beta customer to simulate a real-world installation and gather feedback.
+As your app nears completion, we strongly encourage engaging at least one beta customer to simulate a real-world installation and gather feedback before you submit.
 
 - Ensure onboarding is simple, intuitive, and well-documented
 - Choose the appropriate authentication method (User vs. Service Account)
@@ -93,12 +91,13 @@ Once your app is live on the Marketplace, it's important to maintain quality and
 - Regularly update your app to support Procore platform changes
 - Fix bugs and technical issues in a timely manner
 - Monitor performance and user engagement using analytics
+- Maintain active usage — your app must have at least one (1) active customer using it within any rolling 12-month period
 
 ### Enforcement Actions May Be Taken If:
 - Your app has ongoing issues or bugs that are not resolved
 - Customers report broken functionality or spammy behavior
 - Contact/support info in your listing is outdated or missing
-- Your app becomes inactive or no longer meets usage expectations
+- Your app has no active customers using it within the past 12 months
 
 
 Procore may remove or unlist apps that do not meet ongoing requirements.

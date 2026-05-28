@@ -77,7 +77,7 @@ Each role has a defined set of permissions for actions that can be taken by a te
 </details>
 
 ***
-## Giving Collaborators Access to Development Sandbox Environments
+## Giving Collaborators Access to Developer Sandbox Environments
 
 As an App Owner, you can provide your collaborators with access to a development sandbox using the following steps:
 

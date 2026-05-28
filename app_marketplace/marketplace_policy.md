@@ -2,7 +2,7 @@
 permalink: /marketplace-policy
 title: Procore Developer Policy
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 ---
 <style>
   :root {

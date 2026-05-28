@@ -3,7 +3,7 @@ permalink: /marketplace-listing-guidelines
 title: Marketplace Listing Guidelines
 sub_header: Learn about the various fields accessible on your public Marketplace listing and their requirements.
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 ---
 
 ## Overview

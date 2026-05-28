@@ -2,7 +2,7 @@
 permalink: /market-your-app
 title: Market Your App
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 ---
 
 ## Overview

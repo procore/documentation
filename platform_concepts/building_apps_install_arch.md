@@ -1,6 +1,6 @@
 ---
 permalink: /building-apps-install-arch
-title: App Install & Setup Overview
+title: How to Install & Set Up Apps
 sub_header: Understand installation, post-install notes, configurations, and permissions for data connector and embedded apps.
 layout: default
 section_title: Platform Concepts

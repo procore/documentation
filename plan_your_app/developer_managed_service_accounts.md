@@ -1,6 +1,6 @@
 ---
 permalink: /developer-managed-service-accounts
-title: Developer Managed Service Accounts
+title: Developer Managed Service Accounts (DMSA)
 sub_header: Learn how DMSAs provide secure, automated API access without traditional service accounts.
 layout: default
 section_title: Plan Your App

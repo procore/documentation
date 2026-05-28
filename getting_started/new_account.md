@@ -15,12 +15,12 @@ Here are the steps to properly navigate the Developer Portal and successfully re
 1. Select the reCAPTCHA security checkbox.
 1. Select **Create Free Account** to submit your form. You should receive an email shortly with a link to verify your email address.
 
-Once your account is created, a **Development Sandbox** is automatically provisioned for you. You will receive an email with instructions to set your sandbox password.
+Once your account is created, a **Developer Sandbox** is automatically provisioned for you. You will receive an email with instructions to set your sandbox password.
 
 ### What You Get
 
 - **Developer Portal access** — manage your applications, OAuth credentials, and app manifests.
-- **Development Sandbox** — a pre-configured environment with seed project data for testing your integrations without affecting production data.
+- **Developer Sandbox** — a pre-configured environment with seed project data for testing your integrations without affecting production data.
 - **Sandbox OAuth credentials** — separate Client ID and Client Secret for sandbox API calls.
 
 ### Next steps

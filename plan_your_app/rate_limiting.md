@@ -91,5 +91,5 @@ Follow these practices to reduce the chance of hitting rate limits and to build 
 - If your app makes concurrent requests (for example, multi-threaded or trigger-based), enqueue work and control throughput by tuning concurrency (such as adjusting thread pool size).
 - Use index actions to fetch collections in one request instead of requesting individual objects.
 - Cache results whenever possible, especially for public or repeated data.
-- Review your app’s <a href="{{ site.url }}{{ site.baseurl }}{% link announcements/app_performance_metrics.md %}" target="_blank">API usage report</a> to understand and optimize request patterns.
+- Review your app’s <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/app_performance_metrics.md %}" target="_blank">API Call Activity Report</a> to understand and optimize request patterns.
 <br><br>

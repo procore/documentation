@@ -1,6 +1,6 @@
 ---
 permalink: /oauth-keys
-title: Managing OAuth Credentials and Redirect URIs
+title: OAuth Credentials Management
 layout: default
 section_title: Reference
 ---
