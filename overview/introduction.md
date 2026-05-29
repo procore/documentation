@@ -1,6 +1,6 @@
 ---
 permalink: /introduction
-title: Introduction
+title: Start Here
 sub_header: Build on Procore with secure APIs and an app framework.
 layout: default
 section_title: Introduction

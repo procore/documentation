@@ -3,28 +3,28 @@ permalink: /marketplace-checklist
 title: Marketplace Approval Checklist
 sub_header: Learn the app validation process, key review items, and how to submit your app for publication.
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 ---
 
 ## Overview
-Before submitting your app for approval, review this Marketplace Approval Checklist to ensure your integration meets Procore's standards. This checklist outlines key submission requirements to help you avoid delays and improve your chances of a successful listing.
+Before submitting your app for approval, review this Marketplace Approval Checklist to ensure your integration meets Procore's standards. By this point in the [Technology Partner journey]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}), you've been approved as a partner, passed Technical Feasibility, certified your app, and signed the Partner Agreement — so this checklist focuses on the final step: confirming those prerequisites and preparing your listing for submission. It shows you where you are and what's left.
 <br><br>
 
 ***
 <details>
 <summary class="collapseListTierOne">Step 1. Confirm You Are a Procore Partner</summary>
 <p>
-    To be eligible for listing, you must be an approved Procore Technology Partner. Upon completion of the vetting process, you will receive the signed <b>Procore Framework Agreement</b> and <b>Technology Partner Addendum</b> via email.
+    To list on the Marketplace, you must be a <b>full Procore Technology Partner</b> — meaning you have signed the <b>Procore Framework Agreement</b> and <b>Technology Partner Addendum</b> (Step 4 of the partner journey). If you completed that step, you are eligible to list.
     <br><br>
-    If you're unsure of your partner status, contact <a href="mailto:techpartners@procore.com">techpartners@procore.com</a>. You can also apply to become a partner via the Marketplace Listing section of your app in the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>.
+    If you're unsure of your partner status, contact <a href="mailto:techpartners@procore.com">techpartners@procore.com</a>. To start the partner journey, see the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}">Technology Partner Overview</a>.
 </p>
 </details>
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 2: Validate Customer Usage</summary>
+<summary class="collapseListTierOne">Step 2: Validate with a Customer (Recommended)</summary>
 <p>
-    Before submission, your app must have at least one (1) beta or active customer. This real-world use case helps validate onboarding, functionality, and performance.
+    We <b>strongly encourage</b> validating your app with at least one beta or active customer before listing — most partners do this during certification, using their temporary-status production access. Real-world use validates onboarding, functionality, and performance, but is not required to submit.
     <br><br>
     Customer validation builds confidence with both the Marketplace review team and future users.
 </p>
@@ -32,12 +32,12 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 3: Thoroughly Test Your App</summary>
+<summary class="collapseListTierOne">Step 3: Confirm Your App Is Certified & Production-Ready</summary>
 <p>
-    Procore does not accept trial, beta, or partially tested integrations.
+    Your app must have passed the <b>Certification Assessment</b> — Procore's production-readiness review completed during the Build, Test & Certify step of the partner journey. If your app is certified and running in production, you've cleared this step; if not, complete certification before listing.
 </p>
 <p>
-    You must validate:
+    Certification confirmed your app handles:
 </p>
 <ul>
     <li>Installation and configuration workflows (both in your service and in Procore)</li>
@@ -46,99 +46,58 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
     <li>Support for multi-company Procore accounts (if applicable)</li>
 </ul>
 <p>
-    Also ensure your app is handling:
+    It also confirmed correct handling of:
 </p>
 <ul>
     <li>OAuth authentication correctly</li>
     <li>Procore’s rate limits without performance degradation</li>
+</ul>
+<p>
+    Before submitting your listing, double-check your production configuration:
+</p>
+<h4>General Requirements:</h4>
+<ul>
+    <li>Post Installation Notes updated in the <b>Configuration Builder</b></li>
+    <li>App promoted to production via the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a></li>
+</ul>
+<h4>For Embedded Apps:</h4>
+<ul>
+    <li>Correct cross-origin security settings for rendering in Procore</li>
+</ul>
+<h4>For OAuth-Based Apps:</h4>
+<ul>
+    <li>Base URLs: token management to <code>https://login.procore.com</code>, API calls to <code>https://api.procore.com</code></li>
+    <li>Production Client ID and Secret in use</li>
+    <li>Correct callback URL and Procore-Company-Id header handling</li>
+    <li>Least privilege applied to access scopes</li>
 </ul>
 <div class="details-bottom-spacing"></div>
 </details>
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 4: Complete Your Marketplace Listing</summary>
+<summary class="collapseListTierOne">Step 4: Complete & Verify Your Marketplace Listing</summary>
 <p>
-    Once your partner application is approved, the Marketplace Team will enable the Marketplace Listing section of your app in the Developer Portal. 
+    With full partner status, the <b>Marketplace Listing</b> section is automatically available in your app in the Developer Portal — there is no separate enablement step. 
     <br><br>
-    If your listing is not enabled, request to have it activated through the <b>Marketplace Listing</b> tab in your app, accessible via the Developer Portal.
+    Complete your listing, then review the whole thing for accuracy before submitting.
     <br><br>
-    Ensure your listing includes:
+    Make sure it includes:
     <ul>
         <li>Accurate feature descriptions and functionality highlights</li>
-        <li>Clear onboarding instructions for customers</li>
-        <li>Any customer-side requirements for setup or use</li>
+        <li>Clear onboarding instructions and any customer-side setup requirements</li>
+        <li>Correct links, permissions, and a clear value proposition</li>
+        <li>Accessible, actionable instructions if you offer a free trial</li>
     </ul>
-    Refer to the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a> for formatting and submission details.
+    Be transparent about what your app does and how it benefits customers. Refer to the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a> for formatting and submission details.
 </p>
 </details>
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 5: Submit a Demo Video</summary>
+<summary class="collapseListTierOne">Step 5: Submit Your App</summary>
 <p>
-    A 3–5 minute demo video is required when you first submit your app or when major functionality is updated. Upload this in the <b>Admin App Specifications</b> section of your listing.
-</p>
-    <ul>
-        <li>Installation and configuration steps (both in your service/third party service and Procore)</li>
-        <li>Linking a Procore company account, if applicable (e.g., selecting a Procore company)</li>
-        <li>Key app functionality (data sync, visualization, etc.)</li>
-        <li>Embedded experience, if applicable (if your app uses full-screen or side panel views)</li>
-    </ul>
-<p>
-    You may reuse your original video for non-functional changes.
-</p>
-</details>
-
-***
-<details>
-<summary class="collapseListTierOne">Step 6: Verify Listing Information</summary>
-<p>
-    Before submission, review your entire Marketplace Listing for accuracy.
-</p>
-    <ul>
-        <li>Confirm that all descriptions, links, and permissions are correct</li>
-        <li>Ensure the app’s value proposition is clear to customers</li>
-        <li>If offering a free trial, make instructions accessible and actionable</li>
-    </ul>
-<p>
-    Be transparent about what your app does and how it benefits customers.
-</p>
-</details>
-
-***
-<details>
-<summary class="collapseListTierOne">Step 7: Promote to Production</summary>
-<p>
-Your app must be production-ready at submission.
-<h4>General Requirements:</h4>
-<ul>
-    <li>Update “Post Installation Notes” in the <b>Configuration Builder</b></li>
-    <li>Promote your app via the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a></li>
-</ul>
-<h4>For Embedded Apps:</h4>
-<ul>
-    <li>Ensure correct cross-origin security settings for rendering in Procore</li>
-</ul>
-<h4>For OAuth-Based Apps:</h4>
-    <ul>
-        <li>Update base URLs:</li>
-            <ul>
-                <li>Token management → <code>https://login.procore.com</code>.</li>
-                <li>API calls → <code>https://api.procore.com</code></li>
-            </ul>
-        <li>Use the production Client ID and Secret</li>
-        <li>Ensure correct callback URL and company ID header handling</li>
-        <li>Apply the principle of least privilege for access scopes</li>
-    </ul>
-</p>
-</details>
-
-***
-<details>
-<summary class="collapseListTierOne">Step 8: Submit Your App</summary>
-<p>
-    When all steps are complete, submit your app via the <b>Marketplace Listing</b> tab in the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>. If the tab is not enabled, confirm your partner status and request activation in the Developer Portal.
+    When all steps are complete, submit your app via the <b>Marketplace Listing</b> tab in the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>. If you don't see the Marketplace Listing tab, confirm your partner status — the tab is available once you're a full partner.
     <br><br>
     The Marketplace Team will review your app against the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}" target="_blank">Marketplace Requirements</a>.
 </p>
@@ -172,7 +131,7 @@ For more details about the Monthly Sandbox, including the refresh schedule and a
 
 ***
 ## See Also
-- [Become a Technology Partner & Publish Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/listing_your_app.md %})
+- [Technology Partner Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %})
 - [Build & Prepare Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
 - [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %})
 - [Manage & Improve Your Marketplace App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/update_your_marketplace_app.md %})

@@ -1,9 +1,9 @@
 ---
 permalink: /update-your-marketplace-app
-title: Manage & Improve Your Marketplace App
+title: Manage Your Marketplace App
 sub_header: Learn how to update your app, track usage metrics, and optimize performance on the Procore Marketplace.
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 ---
 
 ## Overview

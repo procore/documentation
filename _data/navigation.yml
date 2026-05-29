@@ -1,6 +1,6 @@
 - title: Introduction
   items:
-    - title: Overview
+    - title: Start Here
       url: /introduction
     - title: Verification & Production Access
       url: /verification-and-production-access
@@ -23,28 +23,26 @@
   items:
     - title: Procore Sandboxes
       url: /development-environments
-    - title: App Installation Overview
+    - title: How to Install & Set Up Apps
       url: /building-apps-install-arch
     - title: Handling Procore Regions
       url: /tutorial-mpz
-    - title: Federal Environment Overview
+    - title: Procore's Federal Environment
       url: /federal-zone-overview
     - title: API Usage Guidelines
       url: /api-usage-guidelines
 
 - title: Plan Your App
   items:
-    - title: Available App Types
+    - title: Choose an App Type
       url: /building-apps-app-types
-    - title: Choosing an Authentication Method
+    - title: Choose an Authentication Method
       url: /oauth-choose-grant-type
     - title: Rate Limiting
       url: /rate-limiting
-    - title: Webhooks Overview
+    - title: How Webhooks Work
       url: /webhooks
-    - title: Using the Webhooks API
-      url: /webhooks-api
-    - title: Developer Managed Service Accounts
+    - title: Developer Managed Service Accounts (DMSA)
       url: /developer-managed-service-accounts
 
 - title: Build Your App
@@ -59,7 +57,9 @@
       url: /building-embedded-fullscreen-apps
     - title: Create a Side Panel Embedded App
       url: /building-side-panel-apps
-    - title: App Versioning & Production
+    - title: Set Up Webhooks
+      url: /webhooks-api
+    - title: Promote a Version to Production
       url: /building-apps-promote-manifest
     - title: Manage App Collaborators
       url: /building-apps-manage-collabs
@@ -76,15 +76,15 @@
     # - title: Maximizing Conversation Rates
     #   url: /building-apps-maximizing-conversion-rates - Redirect
 
-- title: App Marketplace
+- title: Marketplace & Partnership
   items:
-    - title: Partner & Marketplace Overview
+    - title: Technology Partner Overview
       url: /procore-partner-overview
-    - title: Build & Prepare Your App
+    - title: Prepare for the Marketplace
       url: /marketplace-requirements
-    - title: Become a Partner & Publish
-      url: /listing-your-app
-    - title: Manage & Improve Your App
+    # - title: Become a Partner & Publish
+    #   url: /listing-your-app - Retired, redirects to /procore-partner-overview
+    - title: Manage Your Marketplace App
       url: /update-your-marketplace-app
     - title: Marketplace Approval Checklist
       url: /marketplace-checklist
@@ -157,7 +157,7 @@
 
 - title: Reference
   items:
-    - title: Managing OAuth Credentials & Redirect URIs
+    - title: OAuth Credentials Management
       url: /oauth-keys
     - title: OAuth 2.0 Authorization Code Grant
       url: /oauth-auth-grant-flow
@@ -167,8 +167,6 @@
       url: /oauth-endpoints
     - title: REST API Overview
       url: /rest-api-overview
-    - title: OAuth for Installed Applications
-      url: /oauth-installed-apps
     - title: API Lifecycle
       url: /rest-api-lifecycle
     - title: RESTful API Concepts
@@ -191,6 +189,10 @@
       url: /error-reference
     - title: Troubleshooting
       url: /troubleshooting
+    - title: Integration Health
+      url: /integration-health
+    - title: API Call Activity Report
+      url: /api-activity-export
 
 - title: Example Apps & SDKs
   items:
@@ -215,8 +217,6 @@
       url: /webhook-fanout-migration
     - title: New REST V2 Version
       url: /new-rest-v2-version
-    - title: API Usage in Developer Portal
-      url: /api-activity-export
 
 # - title: ERP Integration
 #   items:

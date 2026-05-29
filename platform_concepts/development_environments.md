@@ -10,12 +10,12 @@ section_title: Platform Concepts
 
 Procore offers three sandboxes that serve two distinct purposes:
 
-- **For building** — the Development Sandbox, where developers build and test the integration.
+- **For building** — the Developer Sandbox, where developers build and test the integration.
 - **For customer trial and testing** — On-Demand Sandbox and Monthly Sandbox, where Procore customers trial or test the integration inside their own Procore accounts.
 
 This page explains how each sandbox works and when to use it.
 
-> **Note:** Every developer building on Procore can use a Development Sandbox. On-Demand Sandbox and Monthly Sandbox are part of a Procore customer's account — only Procore customers can enable them. If you're a Procore customer building your own integration, you can use both: a Development Sandbox to build, and your company's On-Demand or Monthly Sandbox to test on real data.
+> **Note:** Every developer building on Procore can use a Developer Sandbox. On-Demand Sandbox and Monthly Sandbox are part of a Procore customer's account — only Procore customers can enable them. If you're a Procore customer building your own integration, you can use both: a Developer Sandbox to build, and your company's On-Demand or Monthly Sandbox to test on real data.
 <div class="details-bottom-spacing"></div>
 
 ***
@@ -24,7 +24,7 @@ This page explains how each sandbox works and when to use it.
 
 | Sandbox | Primary user | Set up by | Refresh model | Multi-sandbox | Best for |
 | --- | --- | --- | --- | --- | --- |
-| Development Sandbox | App developer | Auto-created when an app is registered in the Developer Portal | Never — register a new app to start fresh | Yes — one per app | Building and testing the integration |
+| Developer Sandbox | App developer | Auto-created when an app is registered in the Developer Portal | Never — register a new app to start fresh | Yes — one per app | Building and testing the integration |
 | On-Demand Sandbox | A Procore customer's Company Admin | Self-enabled in <a href="https://v2.support.procore.com/product-manuals/admin-company/tutorials/manage-features-with-procore-explore" target="_blank">Procore Explore</a> | Customer-controlled — no automatic refresh | Yes — multiple parallel sandboxes | Trialing the integration on real customer data, with full control |
 | Monthly Sandbox | A Procore customer's Company Admin | Enabled in company General Settings | Automatic monthly refresh from Production | No — one shared per company | Trialing the integration against a recent production snapshot |
 
@@ -33,15 +33,15 @@ This page explains how each sandbox works and when to use it.
 
 ***
 
-## Development Sandbox: For App Building
+## Developer Sandbox: For App Building
 
-The Development Sandbox is the primary environment for building and testing an integration. It's separate from Production, comes pre-loaded with seed data, and uses its own OAuth credentials.
+The Developer Sandbox is the primary environment for building and testing an integration. It's separate from Production, comes pre-loaded with seed data, and uses its own OAuth credentials.
 
 ### What's included
 
-When you register a new app in the Developer Portal, a Development Sandbox is generated within a few minutes. You'll receive an email to set your sandbox password.
+When you register a new app in the Developer Portal, a Developer Sandbox is generated within a few minutes. You'll receive an email to set your sandbox password.
 
-Each Development Sandbox includes:
+Each Developer Sandbox includes:
 
 - A minimum set of users in the Company Directory: Test Architect, Test Subcontractor, and API Support, each with example email addresses (for example, `sandbox+arch@example.com`). To add more, see <a href="https://v2.support.procore.com/product-manuals/directory-company/tutorials/add-a-user-account-to-the-company-directory" target="_blank">Add a User Account to the Company Directory</a>.
 - A starter project named **1234 – Sandbox Test Project** with seed data: three project users, eight Schedule Tasks, a basic folder structure, one Photo, a Drawing Set, one RFI, and one Submittal.
@@ -55,7 +55,7 @@ Each Development Sandbox includes:
 
 Use the **Sandbox OAuth credentials** (Client ID and Client Secret) from your app's configuration page in the Developer Portal.
 
-### Working with the Development Sandbox
+### Working with the Developer Sandbox
 
 Once your sandbox is ready, you can:
 
@@ -67,7 +67,7 @@ Once your sandbox is ready, you can:
 
 ### Important considerations
 
-- Development Sandboxes can't be refreshed or deleted, but you can have many of them. To start with a clean environment, register a new app to get a fresh Development Sandbox, then migrate your app setup. Each new Development Sandbox has its own `company_id`, so update your app's connection to point to the new sandbox.
+- Developer Sandboxes can't be refreshed or deleted, but you can have many of them. To start with a clean environment, register a new app to get a fresh Developer Sandbox, then migrate your app setup. Each new Developer Sandbox has its own `company_id`, so update your app's connection to point to the new sandbox.
 <br><br>
 
 ***
@@ -75,7 +75,9 @@ Once your sandbox is ready, you can:
 
 > **Note:** A Company Admin needs to enable Monthly Sandbox or On-Demand Sandbox in a Procore customer's account before the integration can be tested in either one.
 
-On-Demand and Monthly Sandboxes are both enabled by a Company Admin and use **Production OAuth credentials** — so the integration uses the same Client ID and Client Secret it does in Production. Each new sandbox needs the integration installed separately, and the OAuth connection should be verified after each install.
+On-Demand and Monthly Sandboxes are both enabled by a Company Admin. **Install the app using your Production App Version Key** — the same key used for Production installs. Once installed, the integration authenticates with your **Production OAuth credentials** (Client ID and Client Secret) — the same credentials used in Production. Each new sandbox needs the integration installed separately, and the OAuth connection should be verified after each install.
+
+> **Common confusion:** The Sandbox App Version Key only works in the Developer Sandbox. Even though "Sandbox" appears in the name "Monthly Sandbox" and "On-Demand Sandbox," both require the **Production** App Version Key at install time.
 
 ### On-Demand Sandbox
 
@@ -112,11 +114,13 @@ On-Demand and Monthly Sandboxes are both enabled by a Company Admin and use **Pr
 ## Connection Details
 {:#connection-details}
 
-| Sandbox | Authentication URL | API URL | Credentials |
-| --- | --- | --- | --- |
-| Development Sandbox | `https://login-sandbox.procore.com` | `https://sandbox.procore.com` | Sandbox OAuth credentials. Browser access at `https://sandbox.procore.com`. |
-| On-Demand Sandbox | `https://login.procore.com` | `https://api.procore.com` | Production OAuth credentials. Same endpoints as Production; scope by `company_id`. |
-| Monthly Sandbox | `https://login-sandbox-monthly.procore.com` | `https://api-monthly.procore.com` | Production OAuth credentials. Browser access at `https://api-sandbox-monthly.procore.com`. |
+Use the **App Version Key** at install time. Use the **OAuth credentials** at runtime. Both come from the same app version in the Developer Portal.
+
+| Sandbox | Authentication URL | API URL | App Version Key | OAuth credentials |
+| --- | --- | --- | --- | --- |
+| Developer Sandbox | `https://login-sandbox.procore.com` | `https://sandbox.procore.com` | Sandbox App Version Key | Sandbox OAuth credentials. Browser access at `https://sandbox.procore.com`. |
+| On-Demand Sandbox | `https://login.procore.com` | `https://api.procore.com` | **Production** App Version Key | Production OAuth credentials. Same endpoints as Production; scope by `company_id`. |
+| Monthly Sandbox | `https://login-sandbox-monthly.procore.com` | `https://api-monthly.procore.com` | **Production** App Version Key | Production OAuth credentials. Browser access at `https://api-sandbox-monthly.procore.com`. |
 
 <div class="details-bottom-spacing"></div>
 <div class="details-bottom-spacing"></div>

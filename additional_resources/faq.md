@@ -70,7 +70,7 @@ There are a number of reasons why this might be the case as outlined in the foll
 
 **How can my installed application go through the OAuth flow without any user interaction?**
 
-While our [installed application configuration]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_installed_apps.md %}) does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
+While our [installed application configuration]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}#installed-app-variant-no-browser-redirect) does allow for authentication without any user input, that is after the initial Grant App Authorization step is completed with user input.
 Once you manually go through that step by logging in and getting an authorization code, you can then programmatically authenticate from that point forward without user intervention.
 After the initial App Authorization Grant, you can retrieve a pair of tokens: an access_token and refresh_token.
 The access_token is used to authenticate (passed in under the Authorization header as `Bearer <token>`), and it expires after 90 minutes.
@@ -157,7 +157,7 @@ Please visit our [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% l
 
 **I am receiving a 429 status code error when making a call to the Procore API, what causes this?**
 
-You have exceeded the Procore API rate limit of 3600 requests per hour.
+You have exceeded the Procore API rate limit.
 See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) guide for additional information and suggestions for resolving your issue.
 
 ## Multiple Procore Regions (MPR)

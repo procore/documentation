@@ -1,22 +1,22 @@
 ---
 permalink: /procore-partner-overview
-title: App Marketplace & Technology Partner Overview
+title: Technology Partner Overview
 sub_header: Explore the full journey—from first build to Marketplace listing—as a Procore Technology Partner.
 layout: default
-section_title: App Marketplace
+section_title: Marketplace & Partnership
 ---
 
 ## Overview
 Welcome! The Procore Developer Portal is your starting point for building powerful integrations that connect with the Procore platform and provide value to construction teams worldwide.
 
-Anyone can sign up, explore our APIs, and start building — the platform is **open by design**. When you're ready to reach customers at scale, the **Procore Technology Partner Program** provides a trusted path to list your app on the **Procore Marketplace**.
+Anyone can sign up, explore our APIs, and start building. When you're ready to reach customers at scale, the **Procore Technology Partner Program** is your trusted path to listing on the **Procore Marketplace** — a curated, managed ecosystem of certified apps. A Marketplace listing gives your integration visibility to a global customer base and Procore's stamp of trust.
 <br><br>
 
 ***
 ## Start Building Today
 You don't need to be a Technology Partner to start building. Our developer platform is **fully self-service**, allowing you to explore and build at your own pace.
 
-- **<a href="https://developers.procore.com/signup" target="_blank">Create a Developer Account</a>** to access the Developer Portal and your Sandbox environment
+- **<a href="https://developers.procore.com/signup" target="_blank">Create a Developer Account</a>** to access the Developer Portal and your Sandbox Sandbox
 - **Explore the APIs** to understand <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">available endpoints</a>, <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}">app types</a>, and the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %})
 - **Build and test** your app using the Developer Sandbox and real customer input
 
@@ -39,7 +39,8 @@ Not sure which verification path is right for you? See [Verification & Productio
     <h3 class="step-title">Step 1: Partner Application</h3>
     <p class="step-description">
       - <strong>Submit Your Application:</strong> Complete the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfygvXmaQPUsc0800Sb8XylMJqaq1kax2fzyrcfYCO2NvQKvg/viewform" target="_blank">Marketplace Partner Application</a> so our team can assess your solution for complementarity, strategic alignment, and ecosystem eligibility.<br>
-      - <strong>Vetting Review:</strong> Our team will review your application and contact you regarding next steps.
+      - <strong>Share Your "Better Together" Story:</strong> Within the Marketplace Partner Application, highlight how your integration creates mutual value for joint customers — a core part of how we assess fit.<br>
+      - <strong>Vetting Review:</strong> Our team reviews your application and "Better Together" story, then follows up with a decision.
     </p>
   </div>
 </div>
@@ -53,25 +54,8 @@ Not sure which verification path is right for you? See [Verification & Productio
   <div class="step-content">
     <h3 class="step-title">Step 2: Technical Feasibility</h3>
     <p class="step-description">
-      - <strong>Review Integration Requirements:</strong> Ensure your integration approach aligns with Procore's platform capabilities and <a href="{{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}">API Usage Guidelines</a>.<br>
-      - <strong>Validate Your Architecture:</strong> Confirm your app type, authentication method, and data handling approach meet Procore's standards.<br>
-      - <strong>Engage with Procore:</strong> Work with our team to address any technical questions or constraints before you build.
-    </p>
-  </div>
-</div>
-<br>
-<div class="step-item">
-  <div class="step-icon">
-    <div class="step-icon-inner">
-      <img src="{{ '/assets/guides/partner-program.svg' | relative_url }}" alt="Partner Agreement icon" />
-    </div>
-  </div>
-  <div class="step-content">
-    <h3 class="step-title">Step 3: Partner Agreement</h3>
-    <p class="step-description">
-      - <strong>Sign Agreements:</strong> Complete the Procore Framework Agreement and Technology Partner Addendum.<br>
-      - <strong>Review the Program Guide:</strong> Understand partner tiers, benefits, and associated fees outlined in the <a target="_blank" href="https://downloads.ctfassets.net/8pep15rt0kef/3cqMPZK5V9dt5VM9WvL4hA/9489b69ecdf426bd957f7fdb2ce541d6/Procore_Partner_Program_Guide.pdf">Partner Program Guide</a>.<br>
-      - <strong>Receive Confirmation:</strong> Get your countersigned agreements via email once finalized.
+      - <strong>Complete the Technical Feasibility Assessment:</strong> If your partner application is approved, we'll send you the Technical Feasibility Assessment to complete — documenting your integration's architecture and data flows to confirm your approach is viable.<br>
+      - <strong>Confirm Your Integration Approach:</strong> As part of the assessment, confirm your approach against Procore's platform capabilities — available <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}">app types</a>, authentication methods, and data handling standards outlined in the <a href="{{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}">API Usage Guidelines</a>.
     </p>
   </div>
 </div>
@@ -83,11 +67,26 @@ Not sure which verification path is right for you? See [Verification & Productio
     </div>
   </div>
   <div class="step-content">
-    <h3 class="step-title">Step 4: Build, Test & Certify</h3>
+    <h3 class="step-title">Step 3: Build, Test & Certify</h3>
     <p class="step-description">
-      - <strong>Build Your App:</strong> Finalize your integration using Procore's APIs, Sandbox environment, and <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}">Marketplace Requirements</a>.<br>
-      - <strong>Test with Beta Customers:</strong> Engage at least one beta customer to validate installation, functionality, and real-world usage.<br>
-      - <strong>Certify for Production:</strong> As a trusted partner, promote your app to production. Only verified partners can take this step — ensuring the quality and security of apps that reach customers.
+      - <strong>Build Your App:</strong> Once you pass Technical Feasibility, build and finalize your integration using Procore's APIs, the Developer Sandbox, and <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %}">Marketplace Requirements</a>.<br>
+      - <strong>Complete the Certification Assessment:</strong> With your integration built, submit it for the Certification Assessment — a production-readiness review of security, API efficiency, and reliability. Include your integration diagram and a demo video of your end-to-end user workflow.<br>
+      - <strong>Certify for Production:</strong> When your integration is reviewed and certified, Procore grants you <strong>temporary partner status</strong> to promote it to production. We strongly encourage using this access to validate with at least one beta customer.
+    </p>
+  </div>
+</div>
+<br>
+<div class="step-item">
+  <div class="step-icon">
+    <div class="step-icon-inner">
+      <img src="{{ '/assets/guides/partner-program.svg' | relative_url }}" alt="Partner Agreement icon" />
+    </div>
+  </div>
+  <div class="step-content">
+    <h3 class="step-title">Step 4: Partner Agreement</h3>
+    <p class="step-description">
+      - <strong>Sign Agreements:</strong> After your app is certified, complete the Procore Framework Agreement and Technology Partner Addendum to convert your temporary status into full Technology Partner membership.<br>
+      - <strong>Receive Confirmation:</strong> Get your countersigned agreements via email.
     </p>
   </div>
 </div>
@@ -101,7 +100,7 @@ Not sure which verification path is right for you? See [Verification & Productio
   <div class="step-content">
     <h3 class="step-title">Step 5: Launch & Go-to-Market</h3>
     <p class="step-description">
-      - <strong>Complete Your Marketplace Listing:</strong> Finalize your listing content, screenshots, and demo video following the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a>.<br>
+      - <strong>Complete Your Marketplace Listing:</strong> Once you're a full Technology Partner, finalize your listing content, screenshots, and a marketing demo video, following the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}">Marketplace Listing Guidelines</a>. This customer-facing video is separate from the technical walkthrough submitted at certification.<br>
       - <strong>Submit for Final Review:</strong> Your listing undergoes a final validation before publication on the Marketplace. See the <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_checklist.md %}">Marketplace Approval Checklist</a>.<br>
       - <strong>Launch and Grow:</strong> Track your app's marketplace traffic, installations, and usage through the Developer Portal. Keep your app and listing updated based on platform changes and customer feedback.
     </p>
@@ -109,16 +108,7 @@ Not sure which verification path is right for you? See [Verification & Productio
 </div>
 <br><br>
 
-***
-## Curated for Quality, Open for Flexibility
-The **Procore Marketplace** is a curated, managed ecosystem of certified apps that have completed Procore's partner vetting, technical review, and security certification. Listing on the Marketplace gives your app visibility to a global customer base and Procore's stamp of trust.
-
-We believe in an open ecosystem. While the public Marketplace is reserved for certified, high-quality partners, we support an alternative path for **custom solutions or niche tools** that customers need. Off-marketplace integrations allow you to connect your tech stack with Procore and serve mutual customers — ensuring you always have the flexibility to build what your users require.
-
 <!-- **For existing partners:** Later in FY26, Procore will introduce a recertification process to validate that current Marketplace listings meet updated standards. This process will be streamlined to recognize the operational history of existing partners. -->
-
-Off-marketplace integrations are subject to Procore's <a href="{{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}">Developer Policy</a> and <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a>. Contact <a href="mailto:techpartners@procore.com">techpartners@procore.com</a> to discuss your use case.
-<br><br>
 
 ***
 ## Ready to Get Started?
@@ -132,12 +122,12 @@ Off-marketplace integrations are subject to Procore's <a href="{{ site.url }}{{ 
 </div>
 <br>
 
-**Ready to start building?** You don't need to wait — <a href="https://developers.procore.com/signup" target="_blank">create a Developer Account</a> to access the Developer Portal, explore our APIs, and build in your Sandbox environment. You can start developing your integration while your partnership application is being reviewed.
+**Ready to start building?** You don't need to wait — <a href="https://developers.procore.com/signup" target="_blank">create a Developer Account</a> to access the Developer Portal, explore our APIs, and build in your Developer Sandbox. You can start developing your integration while your partnership application is being reviewed.
 <br><br>
 
 ***
 ## Want to Review the Partner Agreement Before Applying?
-We recommend reviewing our <a target="_blank" href="https://downloads.ctfassets.net/8pep15rt0kef/3cqMPZK5V9dt5VM9WvL4hA/9489b69ecdf426bd957f7fdb2ce541d6/Procore_Partner_Program_Guide.pdf">Partner Program Guide</a> & <a target="_blank" href="https://assets.ctfassets.net/8pep15rt0kef/3p5N8hUCPqxO2d7qIfym0B/05f433ed5d2d4a99d1a1eea8364c6895/partner-framework-agreement.pdf">Terms</a> early in your journey. The Program Guide outlines what to expect regarding partner tiers, benefits, and associated fees, while the Partner Agreements detail the legal terms you'll need to agree to before listing your app on the Marketplace. Familiarizing yourself with both early on can help you plan your integration and go-to-market strategy more effectively.
+We recommend reviewing our <a target="_blank" href="https://downloads.ctfassets.net/8pep15rt0kef/3cqMPZK5V9dt5VM9WvL4hA/9489b69ecdf426bd957f7fdb2ce541d6/Procore_Partner_Program_Guide.pdf">Partner Program Guide</a>, <a target="_blank" href="https://assets.ctfassets.net/8pep15rt0kef/3p5N8hUCPqxO2d7qIfym0B/05f433ed5d2d4a99d1a1eea8364c6895/partner-framework-agreement.pdf">Terms</a>, and <a target="_blank" href="https://assets.ctfassets.net/8pep15rt0kef/Owy2JJPZE8QDSaxL2QXAj/8896c4afe4136f9cd2f14111e29208ac/Procore_Partner_Code_of_Conduct.pdf">Partner Code of Conduct</a> early in your journey. The Program Guide outlines what to expect regarding partner tiers, benefits, and associated fees; the Partner Agreements detail the legal terms you'll need to agree to before listing your app on the Marketplace; and the Code of Conduct sets the standards every partner is expected to uphold. Familiarizing yourself with these early on can help you plan your integration and go-to-market strategy more effectively.
 <br><br>
 
 ***
@@ -148,6 +138,8 @@ We recommend reviewing our <a target="_blank" href="https://downloads.ctfassets.
 - [Build & Prepare Your App]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_requirements.md %})
 - [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %})
 - [Marketplace Listing Guidelines]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %})
+- [Developer Policy]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %})
+- <a target="_blank" href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9">API Terms of Use</a>
 <br><br>
 
 ***

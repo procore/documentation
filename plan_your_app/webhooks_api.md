@@ -1,10 +1,12 @@
 ---
 permalink: /webhooks-api
-title: Using the Webhooks API
+title: Set Up Webhooks
 sub_header: Quick start to creating hooks, adding triggers, and monitoring deliveries.
 layout: default
-section_title: Plan Your App
+section_title: Build Your App
 ---
+
+> **New to webhooks?** This page is the implementation guide — quick start for setting up hooks, triggers, and deliveries via the API. For background concepts, event payload reference, and how delivery works, see [How Webhooks Work]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}).
 
 ## Overview
 

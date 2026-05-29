@@ -1,63 +1,37 @@
 ---
 permalink: /oauth-choose-grant-type
-title: Choosing an OAuth 2.0 Grant Type
+title: Choose an Authentication Method
+sub_header: Pick the right OAuth 2.0 grant type for your app's architecture and use case.
 layout: default
 section_title: Plan Your App
 ---
 
 ## Overview
 
-The first step to implementing an OAuth 2.0 solution for your application or integration is to select the proper OAuth 2.0 authorization grant type for your use case.
-The grant type, or means by which a client application acquires an authorized access token, is used to authenticate a request to a Procore API endpoint.
-Normally, you determine the proper grant type based on the architecture and framework of your particular project.
-Let’s outline the OAuth 2.0 grant types supported by the Procore API.
+Procore supports OAuth 2.0 with two grant types: **Authorization Code** (with a variant for installed apps) and **Client Credentials** (via Developer Managed Service Accounts). Choosing the right one depends on whether your app needs access to a specific user's data and whether it can interact with a browser.
 
-## Authorization Code Grant (Web Server Applications)
+## Decision Tree
 
->**Note:** It is important to keep in mind that when you create any new application on the Developer Portal, OAuth 2.0 credentials for the Authorization Code grant type are provided automatically by the system. You do not need to explicitly select or specify this grant type in your application configuration.
+| Your scenario | Use this | Implementation guide |
+|---|---|---|
+| Web app that acts on behalf of a Procore user | Authorization Code grant | [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) |
+| Headless app or script (no browser) that acts on behalf of a Procore user | Authorization Code grant — Installed-App variant | [Installed-App Variant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}#installed-app-variant-no-browser-redirect) |
+| Data Connection App or backend service — no specific user context required | Client Credentials grant via DMSA | [OAuth 2.0 Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) + [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) |
 
-If you are developing a web server-based solution, then you will want to implement the Authorization Code grant type.
-Web server applications are written in a server-side language where the source code of the application is not visible to the public.
-This means the application is able to take advantage of the Client Secret when communicating with the authorization server, which provides more robust security.
-The authorization grant type is considered a “redirection-based” flow.
-As such, your application must be capable of interacting with the user’s web browser as well as receiving incoming requests (via redirection) from the Procore authorization server.
+## Authorization Code Grant
 
-Here is a diagram illustrating the flow for the Authorization Code grant type. Let’s walk through each step in the flow.
+Use this when your app accesses Procore data on behalf of a specific Procore user. The user logs in to Procore, approves your app's access, and Procore redirects back to your app with an authorization code that you exchange for an access token. Web apps in any server-side language (Ruby, Python, Node.js, Java, etc.) use this flow.
 
-![Auth code grant type]({{ site.baseurl }}/assets/guides/auth-code-grant-type-diag.svg)
+A variant of this grant supports installed applications without a browser by using a special redirect URI (`urn:ietf:wg:oauth:2.0:oob`) that displays the authorization code on a Procore-hosted page for the user to copy.
 
-1. When a Procore user accesses your application, it initiates the authorization grant flow and redirects the user’s web browser to the Procore API Grant App Authorization endpoint (/authorize), so the user can authenticate.
-1. The Procore authorization server authenticates the user (via the browser) and displays a consent dialog where the user can choose to allow or deny your application access to their data in Procore.
-1. Once the user allows access, the Procore authorization server redirects the user back to your application with an Authorization Code that can only be used once and has a 10 minute expiration.
-1. Your application then sends the Authorization Code to the authentication server and asks to exchange it with an access token. This is accomplished using the /token endpoint. When making this request, your application authenticates with the Procore server using your Client ID and Client Secret.
-1. The Procore authentication server authenticates your application, validates the Authorization Code and responds back with the access token.
-1. Your application can now use the access token to make calls to the Procore API on behalf of the user.
+> **Note:** When you create a new app on the Developer Portal, OAuth 2.0 credentials for the Authorization Code grant are provided automatically. You don't need to specify a grant type during app configuration.
 
-### Using the State Parameter to Enhance Security
+For implementation details and step-by-step examples, see [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}).
 
-The [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749) provides for enhanced security through the use of the `state` parameter.
-By incorporating the `state` parameter into the Authorization Grant flow for your application, you can reduce the likelihood of a [Cross-site Request Forgery (CSRF) attack](https://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-10.12).
-CSRF is an exploit in which an attacker causes the user-agent of an end-user to follow a malicious URI to a trusting server.
-The `state` parameter is intended to preserve a state object set by the client in the Authorization request and make it available to the client in the response.
-The client can then verify the state parameter value in the response - something an attacker could not know.
-If the client successfully verifies the value returned, it will reject authorization responses that were generated as the result of requests by third-party attackers trying to log in as the user in the background without the user's knowledge.
+## Client Credentials Grant
 
-In the context of the Procore API, the `state` parameter is passed with the GET request to the [Grant App Authorization](https://developers.procore.com/reference/authentication#grant-app-authorization) endpoint.
-The `state` parameter is an arbitrary alphanumeric string that can represent any value you choose.
-Your application uses the `state` request parameter to deliver a unique value to the Procore authorization server when making an authorization request.
-Once authorization has been granted by the end-user, the Procore authorization server redirects the end user's user-agent (browser) back to your application with the required binding state value included as a query parameter in the redirect URI along with the authorization code.
+Use this when your app accesses Procore data without acting on behalf of a specific user — for example, sync jobs, report generators, backend integrations, and Data Connection Apps.
 
-Though not required for implementing OAuth 2.0 in your Procore integration, we highly recommend including the `state` parameter in your authentication architecture.
+The Procore implementation of Client Credentials uses a **Developer Managed Service Account (DMSA)**, which carries the company- and project-level permissions your app needs. Your client credentials authenticate the app, and the DMSA's permissions determine what the app can access.
 
-## Client Credentials Grant (Data Connection Applications, userless access)
-
-If you are developing an application or integration that does not require access authorization from a specific Procore user, implement the Client Credentials grant type using a Developer Managed Service Account (DMSA).
-See [OAuth 2.0 Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) and [Developer Managed Service Accounts]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) for details.
-
-Here is a diagram illustrating the flow for the Client Credentials grant type. Let’s walk through each step in the flow.
-
-![Client grant type]({{ site.baseurl }}/assets/guides/client-credentials-grant-type-diag.svg)
-
-1. Client requests an access token from the Procore Authentication Server using the Client ID and Client Secret credentials associated with the DMSA in Procore.
-1. The Procore Authentication Server returns a JSON response that includes the access token and other supporting data.
-1. Your application can now use the access token to make calls to the Procore API.
+For implementation details, see [OAuth 2.0 Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}). For DMSA setup, see [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}).

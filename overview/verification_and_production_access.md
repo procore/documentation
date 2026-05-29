@@ -17,7 +17,7 @@ Moving an app to production requires two distinct steps:
 1. **Verify your organization** — Choose the verification path that matches your intentions. This is a one-time step per organization.
 2. **Request production credentials per app** — After your organization is verified, each app you want to promote to production requires its own approval. This ensures every app meets Procore's <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a> and <a href="https://procore.pactsafe.io/legal.html#contract-syqj4fbct" target="_blank">User Terms of Service</a> before production credentials are issued.
 
-If your organization is an active Procore customer, verification through the paths below may not be required — your account may already have production access configured.
+If you're a Procore customer building an integration for your own company's internal use, apply through the [Private Developer](#verified-private-developer) path below — internal, single-account applications are reviewed and approved quickly.
 <br><br>
 
 ***
@@ -38,12 +38,17 @@ Verification is a one-time step for your organization. Once complete, your accou
 ***
 ## Verified: Private Developer
 
-The Private Developer path is for consultants and independent developers building a custom app for a single Procore customer. This is a non-commercial path — your app is built for one client and will not be distributed publicly or listed on the Marketplace.
+The Private Developer path is for integrations bound to a **single Procore account** and not sold as a product. Two situations fit here: a **consultant, contractor, or SI firm** building a custom integration under contract for a client, or a **Procore customer** building an integration for their own company's internal use. Either way, the app serves one account and will not be listed on the Marketplace.
 
 **Best for:**
-- Consultants creating a custom integration for a specific client
-- In-house developers building a proprietary integration exclusively for their own company's use
-- App deployments not intended for broader distribution
+- Consultants, freelancers, or SI firms building a custom integration under contract for one Procore customer
+- Procore customers building an integration for their own company's account (internal use)
+- Bespoke integrations bound to a single Procore account
+
+**This is _not_ the right path — apply as a [Marketplace Partner](#verified-marketplace-partner) instead — if:**
+- You're building a **product or SaaS** that connects to Procore, even if only one customer uses it today
+- You're **piloting with a single customer before listing publicly** — that's still a Marketplace product
+- The same integration could be sold, licensed, or reused across multiple customers
 
 **Requirements:**
 - Business email address (no personal email providers)
@@ -67,7 +72,7 @@ You cannot:
 The Marketplace Partner path is for organizations building apps for commercial distribution on the Procore Marketplace. This path unlocks Marketplace listing tools and allows you to publish your integration for any Procore customer to discover and install.
 
 **Best for:**
-- ISVs building apps to distribute to multiple Procore customers
+- ISVs and product builders connecting a commercial app or SaaS to Procore — including those piloting with a single customer before listing publicly
 - Partners who want to publish and market an integration in the Marketplace
 - Organizations that need listing eligibility and a review process for customer trust
 

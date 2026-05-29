@@ -110,7 +110,7 @@ Refer to the full list of supported view keys and URL patterns in the [Side Pane
 <br><br>
 
 ***
-## Test and Validate in Development Sandbox
+## Test and Validate in Developer Sandbox
 We recommend testing each app version in a development sandbox environment.
 For details on setting up your sandbox, see the [Quick Start Guide]({{ site.url }}{{ site.baseurl }}{% link overview/quick_start_guide.md %}).
 <br><br>

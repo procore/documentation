@@ -1,11 +1,13 @@
 ---
 permalink: /webhooks
-title: Introduction to Webhooks
+title: How Webhooks Work
 sub_header: Learn how Procore notifies your app in real time with webhooks.
 layout: default
 section_title: Plan Your App
 
 ---
+
+> **Ready to implement?** This page covers webhook concepts, event payloads, and how delivery works. For step-by-step setup using the API, see [Set Up Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}).
 
 ## Overview
 

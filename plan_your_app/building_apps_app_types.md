@@ -1,6 +1,6 @@
 ---
 permalink: /building-apps-app-types
-title: Available App Types
+title: Choose an App Type
 sub_header: Choose the right app type for your integration.
 layout: default
 section_title: Plan Your App

@@ -10,7 +10,7 @@ This guide walks you through the complete API workflow for uploading documents, 
 
 Before starting, review the [Document Management Integration Overview]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %}) for prerequisites, core concepts, and best practices. Your service account will specifically need Upload New Files and Submit New Files permissions enabled in the project's Document Management tool. For a reference of all available endpoints, see [Document Management API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %}).
 
-> **Important:** We recommend developing and testing your integration against the [Procore Development Sandbox](https://developers.procore.com/documentation/development-environments) before pointing your integration at a live project. The sandbox environment is a safe place to iterate on requests and validate responses without risk to real project data.
+> **Important:** We recommend developing and testing your integration against the [Procore Developer Sandbox](https://developers.procore.com/documentation/development-environments) before pointing your integration at a live project. The sandbox environment is a safe place to iterate on requests and validate responses without risk to real project data.
 
 ### Base URL
 
