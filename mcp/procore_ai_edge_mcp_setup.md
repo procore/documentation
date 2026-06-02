@@ -40,8 +40,8 @@ The server is currently available in US zones. Use the endpoint matching your Pr
 
 | Zone | MCP endpoint |
 |---|---|
-| US01 | `https://procore-ai-edge-mcp.us01.rnd.procoretech.internal/mcp` |
-| US02 | `https://procore-ai-edge-mcp.us02.rnd.procoretech.internal/mcp` |
+| US01 | `https://app.procore.com/rest/v1.0/mcp` |
+| US02 | `https://us02.procore.com/rest/v1.0/mcp` |
 
 ---
 
@@ -53,7 +53,7 @@ Open `~/.cursor/mcp.json` (create it if it does not exist) and add an entry:
 {
   "mcpServers": {
     "procore-ai-edge": {
-      "url": "https://procore-ai-edge-mcp.us01.rnd.procoretech.internal/mcp",
+      "url": "https://app.procore.com/rest/v1.0/mcp",
       "headers": {
         "Authorization": "Bearer dg_live_...",
         "Datagrid-Teamspace": "<teamspace-uuid>",
@@ -81,7 +81,7 @@ claude mcp add \
   --header 'procore-company-id: <procore-company-id>' \
   --header 'procore-project-id: <procore-project-id>' \
   procore-ai-edge \
-  https://procore-ai-edge-mcp.us01.rnd.procoretech.internal/mcp
+  https://app.procore.com/rest/v1.0/mcp
 ```
 
 Restart the Claude Code session after adding the server. Verify with `/mcp` — you should see the five tools listed.
