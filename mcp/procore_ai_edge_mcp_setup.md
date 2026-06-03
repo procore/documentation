@@ -1,4 +1,4 @@
----
+<!-- ---
 permalink: /procore-ai-edge-mcp-setup
 title: Procore AI Edge MCP Setup
 layout: default
@@ -231,4 +231,4 @@ If neither resolves, project-scoped calls fail with a clear error. If you don't 
 | `whoami` returns a network error | Wrong server URL or network access issue | Confirm you're using the correct zone endpoint |
 | `procore_read` fails with "no company id resolved" | Missing Procore routing | Add `procore-company-id` to headers or pass `companyId` on the call |
 | Tools not listed in Cursor | `mcp.json` syntax error or wrong URL | Validate JSON and reload Cursor's MCP integration |
-| Claude Code does not pick up config changes | Config is read at session start | Restart the Claude Code session |
+| Claude Code does not pick up config changes | Config is read at session start | Restart the Claude Code session | -->

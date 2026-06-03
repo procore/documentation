@@ -207,10 +207,10 @@
     - title: Novorender BIM Web Viewer (Experimental)
       url: /novolib-bim-web-viewer
 
-- title: MCP Integration
-  items:
-    - title: Procore AI Edge MCP Setup
-      url: /procore-ai-edge-mcp-setup
+# - title: MCP Integration
+#   items:
+#     - title: Procore AI Edge MCP Setup
+#       url: /procore-ai-edge-mcp-setup
 
 - title: Announcements
   items:
