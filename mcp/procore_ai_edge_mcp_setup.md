@@ -44,8 +44,8 @@ API keys can be generated from **Settings → API Keys** in the [Datagrid web ap
 |---|---|---|
 | `Authorization` | **Required** | Datagrid API key used to authenticate the request. Format: `Bearer dg_live_...` |
 | `Datagrid-Teamspace` | Optional | Teamspace to operate against. If omitted, the user's default teamspace is used. |
-| `procore-company-id` | Optional | Default Procore company used for tool calls. Can be overridden per individual request. |
-| `procore-project-id` | Optional | Default Procore project used for tool calls. Can be overridden per individual request. |
+| `procore-company-id` | Optional | Default Procore company used for tool calls. |
+| `procore-project-id` | Optional | Default Procore project used for tool calls. |
 
 ---
 
