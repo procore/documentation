@@ -22,15 +22,30 @@ The **Procore AI Edge MCP** is a hosted [Model Context Protocol](https://modelco
 
 ---
 
-## Prerequisites
+## Requirements
 
-You need:
-
-- A **Datagrid API key** (`dg_live_...`) — create one at **Settings → API Keys** in the [Datagrid web app](https://app.datagrid.com).
-- Your **Datagrid Teamspace ID** — found in the Datagrid URL or **Settings → Workspace**.
-- *(Recommended)* Your **Procore Company ID** and **Project ID**. You can discover these by calling `procore_read` with `objectType: "project"` after connecting.
+The only requirement to connect is a **Datagrid API key**. Generate one at **Settings → API Keys** in the [Datagrid web app](https://app.datagrid.com).
 
 > Procore credentials are managed by Datagrid. Your Datagrid admin connects Procore once via the Datagrid UI; all team members inherit it automatically. You never configure Procore credentials directly on the MCP server.
+
+---
+
+## Authentication
+
+The Procore AI Edge MCP server authenticates every request using a Datagrid API key passed in the standard HTTP `Authorization` header.
+
+API keys can be generated from **Settings → API Keys** in the [Datagrid web app](https://app.datagrid.com). Once created, the key grants access to the Datagrid account and teamspaces associated with the authenticated user.
+
+---
+
+## Acceptable Headers
+
+| Header | Required | Description |
+|---|---|---|
+| `Authorization` | **Required** | Datagrid API key used to authenticate the request. Format: `Bearer dg_live_...` |
+| `Datagrid-Teamspace` | Optional | Teamspace to operate against. If omitted, the user's default teamspace is used. |
+| `procore-company-id` | Optional | Default Procore company used for tool calls. |
+| `procore-project-id` | Optional | Default Procore project used for tool calls. |
 
 ---
 
@@ -65,6 +80,8 @@ Open `~/.cursor/mcp.json` (create it if it does not exist) and add an entry:
 }
 ```
 
+Only `Authorization` is required. The remaining headers are optional — see [Acceptable Headers](#acceptable-headers).
+
 Reload Cursor's MCP integration (Cursor → Settings → MCP, or restart the window). You should see `health`, `whoami`, `converse`, `procore_read`, and `procore_write` listed.
 
 ---
@@ -83,6 +100,8 @@ claude mcp add \
   procore-ai-edge \
   https://app.procore.com/rest/v1.0/mcp
 ```
+
+Only `--header 'Authorization: ...'` is required. The remaining headers are optional — see [Acceptable Headers](#acceptable-headers).
 
 Restart the Claude Code session after adding the server. Verify with `/mcp` — you should see the five tools listed.
 
