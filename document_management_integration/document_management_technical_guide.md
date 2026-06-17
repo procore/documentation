@@ -8,9 +8,17 @@ section_title: Document Management Integration
 
 This guide walks you through the complete API workflow for uploading documents, enriching them with metadata, and submitting them as document revisions using the Procore Document Management V2 API.
 
-Before starting, review the [Document Management Integration Overview]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %}) for prerequisites, core concepts, and best practices. Your service account will specifically need Upload New Files and Submit New Files permissions enabled in the project's Document Management tool. For a reference of all available endpoints, see [Document Management API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %}).
+***
+## Related Documentation
 
-> **Important:** We recommend developing and testing your integration against the [Procore Developer Sandbox](https://developers.procore.com/documentation/development-environments) before pointing your integration at a live project. The sandbox environment is a safe place to iterate on requests and validate responses without risk to real project data.
+- [Overview]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %})
+- [API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})
+- **Technical Guide** (this page)
+- [Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})
+
+***
+
+> **Important:** Your service account will need Upload New Files and Submit New Files permissions enabled in the project's Document Management tool. We also recommend developing and testing your integration against the [Procore Developer Sandbox](https://developers.procore.com/documentation/development-environments) before pointing your integration at a live project. The sandbox environment is a safe place to iterate on requests and validate responses without risk to real project data.
 
 ### Base URL
 
@@ -694,7 +702,7 @@ The following errors apply to all Document Management API endpoints. It is recom
 
 | HTTP Status | Reason Code | Description | Resolution |
 | --- | --- | --- | --- |
-| 401 | `INVALID_TOKEN` | Authentication token is missing, invalid, or expired. | Provide a valid OAuth 2.0 access token. See [Authentication]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %}) for details. |
+| 401 | `INVALID_TOKEN` | Authentication token is missing, invalid, or expired. | Provide a valid OAuth 2.0 access token. See [Authentication]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) for details. |
 | 403 | `FORBIDDEN` | The service account lacks permissions for the requested action. | Ensure the service account has the "Upload New Files" and "Submit New Files" permissions in the project's Document Management tool. |
 | 429 | `TOO_MANY_REQUESTS` | The integration has exceeded Procore's API rate limit. | Inspect the `Retry-After` header in the response, pause your upload loop, and retry after the specified number of seconds. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) for details. |
 | 500 | `INTERNAL_SERVER_ERROR` | The server encountered an unexpected error. | Retry the request after a short delay. |
@@ -995,11 +1003,9 @@ Check the `failures` array even on a 201 response. If empty, the document is now
 
 ---
 
-## Additional Resources
+## See Also
 
-- [Document Management Integration Overview]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %})
-- [Document Management API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})
-- [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})
-- [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %})
+- [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+- [Unified File Upload API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_unified_uploads.md %})
 - [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})
 - [Procore Support: Document Management](https://v2.support.procore.com/product-manuals/document-management-project)

@@ -240,11 +240,11 @@
 
 # - title: Document Management Integration
 #   items:
-#     - title: Getting Started
+#     - title: Overview
 #       url: /document-management-intro
-#     - title: Technical Guide
-#       url: /document-management-technical-guide
 #     - title: API Endpoints
 #       url: /document-management-api-endpoints
+#     - title: Technical Guide
+#       url: /document-management-technical-guide
 #     - title: Metadata Details
 #       url: /document-management-metadata-details
