@@ -11,6 +11,16 @@ section_title: Document Management Integration
 The Procore Document Management (PDM) system provides a platform for integrators to programmatically sync documents from external systems into Procore projects.
 Before you begin working with the various Document Management API endpoints, we recommend familiarizing yourself with the core concepts, architecture, and workflows outlined in this guide.
 
+***
+## Related Documentation
+
+- **Overview** (this page)
+- [API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})
+- [Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %})
+- [Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})
+
+***
+
 ### Things to Consider
 
 To get started with the Document Management API, ensure you have completed these steps:
@@ -125,7 +135,8 @@ Consider the following recommendations when building your integration:
 - **API Rate Limits** - Usage of Procore's API is subject to rate limits. The rate limit resets every hour. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) to learn how to reduce the possibility of exceeding the rate limit.
 
 ## See Also
-- [Document Management APIs]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})  
-- [Document Management Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})  
-- [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %})   
+
+- [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
 - [Unified File Upload API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_unified_uploads.md %})
+- [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})
+- [Procore Support: Document Management](https://v2.support.procore.com/product-manuals/document-management-project)
