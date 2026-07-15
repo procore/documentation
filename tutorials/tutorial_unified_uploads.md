@@ -30,7 +30,7 @@ It is also built with multi-cloud support in mind, so as Procore expands to addi
 - **Strict File Size Thresholds:** The system enforces a strict maximum of 100 MiB (104,857,600 bytes) per segment.
 - **Checksum Verification:** Segment-level validation will be performed using a mandatory SHA-256 checksum, with an optional MD5 check available for additional verification.
 - **24-Hour PDM Tool Association Timeline:** Files uploaded via the Unified File Uploads API must be associated with a PDM tool within 24 hours of upload initialization. If a file is not associated within this timeframe, it will be permanently and automatically deleted from cloud storage with no recovery possible.
-- **Status-Driven Interface:** The API relies on a status field (`ready`, `receiving`, `complete`, `available`). Clients should always check that a file's status is `available` before attempting to download it, which indicates all processing and checksum verifications are finished.
+- **Status-Driven Interface:** The API relies on a status field (`ready`, `receiving`, `scanning`, `available`, `failed`). Clients should always check that a file's status is `available` before attempting to download it, which indicates that processing and checksum verification — and malware scanning, where enabled — are complete.
 - **Standardized ETags:** For uploads, you must explicitly signal completion using an array of `part_etags`.
 
 > **Important — Treat URLs and headers as opaque.**
@@ -98,6 +98,7 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
   "file_size":  2097152,
   "content_type": "application/pdf",
   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "uploader_tool_name": "document_management",
   "segments": [
      {
             "size":  2097152,
@@ -108,6 +109,8 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
 }'
 
 ```
+The `uploader_tool_name` field identifies the Procore tool initiating the upload (for example, `document_management`), and is limited to 64 characters.
+It is currently optional but will become required in a future release, so we recommend including it now.
 
 **Response (201 Created)**
 
@@ -118,6 +121,7 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
     "file_name": "report.pdf",
     "file_size": 2097152,
     "content_type": "application/pdf",
+    "uploader_tool_name": "document_management",
     "upload_expires_at": 1773900000,
     "segments": [
       {
@@ -191,6 +195,8 @@ curl -X PATCH 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proj
 }
 ```
 
+The `complete` status in the response confirms that all parts have been uploaded and their ETags submitted. The file then moves into server-side processing.
+
 ### Step 5 — Poll Until Available (GET)
 
 After completing the upload, poll the upload status until it transitions to `available`.
@@ -212,6 +218,7 @@ curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projec
     "file_name": "report.pdf",
     "sanitized_file_name": "report.pdf",
     "content_type": "application/pdf",
+    "uploader_tool_name": "document_management",
     "file_size": 2097152,
     "status": "available",
     "custom_metadata": {}
@@ -306,6 +313,7 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
     "content_type": "video/mp4",
     "sha256": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
     "md5": "f1e2d3c4b5a6f1e2d3c4b5a6f1e2d3c4",
+    "uploader_tool_name": "document_management",
     "segments": [
       {
         "size": 6000000,
@@ -330,6 +338,7 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
     "file_name": "test-video.mp4",
     "file_size": 8829449,
     "content_type": "video/mp4",
+    "uploader_tool_name": "document_management",
     "upload_expires_at": 1773900000,
     "segments": [
       {
@@ -425,6 +434,7 @@ curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projec
     "file_name": "test-video.mp4",
     "sanitized_file_name": "test-video.mp4",
     "content_type": "video/mp4",
+    "uploader_tool_name": "document_management",
     "file_size": 8829449,
     "status": "available",
     "custom_metadata": {},
@@ -460,22 +470,25 @@ curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/projec
     "file_name": "report.pdf",
     "sanitized_file_name": "report.pdf",
     "content_type": "application/pdf",
+    "uploader_tool_name": "document_management",
     "file_size": 2097152,
-    "status": "complete",
+    "status": "available",
+    "error": null,
     "custom_metadata": {},
     "segments": []
   }
 }
 ```
 
-Upload status values include:
+The **Get Upload Status (GET)** endpoint returns one of the following:
 
 | Status | Description |
 |---|---|
 | `ready` | Upload created, waiting for file content |
 | `receiving` | Parts are being uploaded (partial ETags submitted) |
-| `complete` | All parts uploaded and ETags submitted; returned by the PATCH response |
-| `available` | File is fully processed and available for use in Procore |
+| `scanning` | The file is being scanned for malware and is not yet available. Appears only when malware scanning is enabled; when it is not, uploads skip this state. |
+| `available` | File is fully processed and ready for use in Procore |
+| `failed` | The upload could not be completed — for example, the file did not pass its malware scan or the scan could not be run. For malware-scan failures, the response includes an `error` object with `type` and `message`. |
 
 ---
 
@@ -490,6 +503,7 @@ Upload status values include:
 - **Partial progress is supported.** You can submit a PATCH with `null` values in `part_etags` for parts that have not been uploaded yet. Once all values are non-null, the upload is finalized.
 - **Uploads expire.** Uploads must be completed and associated with a Procore resource within the expiration window or they will be automatically deleted.
 - **The authenticated user owns the upload.** Only the user who created the upload can complete it and use it in subsequent API requests.
+- **Files may be scanned for malware before becoming available.** When scanning is enabled, the upload `status` stays `scanning` until the scan completes, then becomes `available`. If a file fails the scan, the status becomes `failed` with an `error` object and the file can't be used. When scanning is not enabled, uploads skip the `scanning` state.
 
 ---
 
@@ -543,6 +557,7 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/uploa
   "file_size": 2097152,
   "content_type": "application/pdf",
   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "uploader_tool_name": "document_management",
   "segments": [
     {
       "size": 2097152,
@@ -562,6 +577,7 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/uploa
     "file_name": "report.pdf",
     "file_size": 2097152,
     "content_type": "application/pdf",
+    "uploader_tool_name": "document_management",
     "upload_expires_at": 1773900000,
     "segments": [
       {
@@ -634,6 +650,7 @@ curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/upload
     "file_name": "report.pdf",
     "sanitized_file_name": "report.pdf",
     "content_type": "application/pdf",
+    "uploader_tool_name": "document_management",
     "file_size": 2097152,
     "status": "available",
     "custom_metadata": {}
@@ -646,6 +663,9 @@ Once `status` is `available`, the file can be associated with a company-level re
 ## Coming Soon
 
 The following capabilities are planned for upcoming releases of the Unified File Upload API:
-- **Malware scan** — Automated scanning of uploaded files for malware
+- **Malware scan** — Automated scanning of all uploaded files for malware
 - **Checksum verification status** — Fields confirming whether server-side checksum verification passed
 - **Extended analytics and client metadata** — Additional fields for richer upload telemetry and client identification
+- **Required `uploader_tool_name`** — The `uploader_tool_name` field will change from optional to required
+- **File-extension allow-list** — Uploads will be restricted to an approved set of file extensions, and uploads with disallowed extensions will be rejected
+- **Content-type validation** — Requests where the declared `content_type` does not match the file's actual content will be rejected
