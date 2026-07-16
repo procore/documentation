@@ -131,8 +131,8 @@
       url: /attachments
     - title: Direct File Uploads
       url: /tutorial-uploads
-    # - title: Unified Uploads
-    #   url: /tutorial-unified-file-uploads //disabled until GA release
+    - title: Unified Uploads
+      url: /tutorial-unified-file-uploads
     - title: Secure File Access
       url: /secure-file-access-tips
     - title: Drawings
@@ -238,13 +238,13 @@
 #     - title: Staged Records
 #       url: /erp-staged-records-details
 
-# - title: Document Management Integration
-#   items:
-#     - title: Overview
-#       url: /document-management-intro
-#     - title: API Endpoints
-#       url: /document-management-api-endpoints
-#     - title: Technical Guide
-#       url: /document-management-technical-guide
-#     - title: Metadata Details
-#       url: /document-management-metadata-details
+- title: Document Management Integration
+  items:
+    - title: Overview
+      url: /document-management-intro
+    - title: API Endpoints
+      url: /document-management-api-endpoints
+    - title: Technical Guide
+      url: /document-management-technical-guide
+    - title: Metadata Details
+      url: /document-management-metadata-details
