@@ -553,8 +553,8 @@ Document Management can process 3D model files (BIM/Building Information Models)
       "type": "lov_entry",
       "values": [],
       "label_source": "NONE",
-      "label": "Level",
-      "description": "The level of a building or structure"
+      "label": "Classification",
+      "description": "The classification of the document revision"
     },
     {
       "id": "58IC8WRCV30EE1URJHN19TNY1",
