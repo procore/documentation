@@ -150,7 +150,7 @@ Standard fields available across all projects for document organization and clas
 | **authored_by** | reference | The person who created the document. Defaults to uploader if not provided. |
 | **classification** | lov_entry | Subtype of a document. |
 | **date_authored** | timestamp | Date the document was created. Auto-populated from document content when detected, but can be edited via API. |
-| **description** | string | A brief title for the document. |
+| **description** | rich_text | A brief title for the document. |
 | **discipline** | lov_entry | Discipline associated with the document. |
 | **document_stage** | lov_entry | The associated stage of the document lifecycle. |
 | **file_locked** | boolean | Whether the file is locked for editing. Can be toggled via API. |
@@ -184,7 +184,7 @@ System-generated fields are automatically populated and cannot be directly modif
 | **download_url** | string | URL to download the file. | Generated on request |
 | **file_size** | string | Size of file in bytes. | Set on file upload |
 | **file_key** | string | File upload ID returned by the file upload API. | Set on file upload |
-| **format** | string | File format/type derived from MIME type. | Set on file upload |
+| **format** | lov_entry | File format/type derived from MIME type. | Set on file upload |
 | **id** | string | Unique identifier assigned at upload creation. Use this ID for update operations. | Set at creation |
 | **integration_statuses** | object | Status of active integrations. | Set at creation, updates during processing |
 | **integrations** | object | Detailed integration information. | Set at creation, updates during processing |
@@ -553,8 +553,8 @@ Document Management can process 3D model files (BIM/Building Information Models)
       "type": "lov_entry",
       "values": [],
       "label_source": "NONE",
-      "label": "Level",
-      "description": "The level of a building or structure"
+      "label": "Classification",
+      "description": "The classification of the document revision"
     },
     {
       "id": "58IC8WRCV30EE1URJHN19TNY1",
