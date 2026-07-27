@@ -31,6 +31,8 @@
       url: /federal-zone-overview
     - title: API Usage Guidelines
       url: /api-usage-guidelines
+    - title: API Security Overview
+      url: /api-security-overview
 
 - title: Plan Your App
   items:
