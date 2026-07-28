@@ -33,7 +33,7 @@ Follow these steps to create a new app in the Developer Portal:
 
 When you create a new app, a Developer Sandbox is automatically provisioned for building and testing with sample project data. You can access it by checking the **OAuth Credentials** section of your app or by following the link in the email sent to the app creator.
 
-For detailed instructions on installing your app in the Developer Sandbox, see <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install a Custom App</a>.
+For step-by-step instructions on installing a version in the Developer Sandbox, see <a href="/install-version-sandbox">Install a Version in Your Developer Sandbox</a>.
 <br><br>
 
 ***

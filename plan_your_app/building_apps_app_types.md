@@ -45,12 +45,10 @@ Run your app inside Procore’s web UI to keep users in context and reduce app s
 ### Fullscreen Apps
 Fullscreen apps occupy the main content area. Users launch them from the **Apps** menu.
 
-See [Building Full Screen Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %}).
-
 ### Side Panel Apps
 A side panel app renders in a fixed 400‑px panel on the right side of the Procore UI. Because side panel apps are installed for specific tools, you can build solutions tailored to a tool or workflow. Users launch side panel apps from the dock on the right edge of the interface.
 
-See [Building Side Panel Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %}).
+See [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) to build either placement.
 <br><br>
 
 ***

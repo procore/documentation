@@ -1,12 +1,16 @@
 ## Introduction
-_URL Parameter Interpolation_ lets you insert dynamic, context-specific values into a URL. In Procore embedded applications, this is how you make your app respond to the **current company** or **project context** without hardcoding values.
+_URL Parameter Interpolation_ makes your app's External URL adapt to each install — inserting dynamic, context-specific values instead of hardcoding them. This is how an embedded app responds to the **current company or project** and to setup values the installing admin provides.
 
-This is commonly used in HTTP GET requests, where data is passed in the URL. Interpolation makes these values dynamic-changing based on the user's context or custom setup.
+There are two kinds of values you can interpolate:
+
+- **Built-in Procore values** — provided automatically by Procore. Just add them to your URL; there's nothing to define.
+- **Custom parameters** — values *you* define, which the admin installing your app enters during setup (for example, a Box folder ID).
 
 ---
 
-## Where Interpolation Works in Procore
-You can use interpolation when defining a component in the Developer Portal in the following parts of a URL:
+## Where Interpolation Works
+You can interpolate values in these parts of a component's URL in the Developer Portal:
+
 - **Subdomain**
 - **Path parameters**
 - **Query parameters**
@@ -15,45 +19,41 @@ This is most common in HTTP GET requests, where data is passed in the URL.
 
 ---
 
-## Examples
-
-**Subdomain:** Pass a value into the subdomain dynamically.
-```{% raw %}
-https://{{subdomain}}.domain.com
-```{% endraw %}
-
-**Path Parameters:** Insert dynamic values directly into the path.
-```{% raw %}
-https://example.domain.com/{{my_path1}}/{{my_path2}}
-```{% endraw %}
-
-**Query Parameters:** Send company or project context (and more) as query string values.
-```{% raw %}
-?companyId={{procore.company.id}}&projectId={{procore.project.id}}&customField={{CustomField}}
-```{% endraw %}
-
----
-
-## Built-in Variables
-Procore provides built-in variables you can use in query parameters to automatically pass context:
+## Built-in Procore Values
+These variables are supplied automatically — add them to your URL and Procore fills in the value at runtime. No setup required.
 
 - `procore.company.id` – ID of the company where the app is installed
 - `procore.company.name` – Name of that company
 - `procore.project.id` – ID of the project where the app is used
 - `procore.project.name` – Name of that project
 
-**Why use them?**  
-These variables save time and prevent mistakes. For example, use `procore.project.id` to fetch project-specific data from your system without asking the user to enter it.
+**Why use them?** They save time and prevent mistakes. For example, use `procore.project.id` to fetch project-specific data from your system without asking the user to enter it.
 
 ---
 
 ## Custom Parameters
-You can also create your own parameters to meet specific needs. These are defined by the installer during app setup and can be required or optional.
+Custom parameters are values the installing admin enters during setup. You define each one in your component, then reference it in your URL as a token. They can be required or optional, and are useful for things like a Box folder ID, a device ID (drone, camera), a subscription or user ID, or a region/locale.
 
-**Common use cases:**
-- Link to a device ID (e.g., drone, camera).
-- Pass a subscription or user ID.
-- Set a region or locale for the app.
+> **Custom keys are your own namespace.** A custom parameter's key is a name you choose — it is *not* part of the `procore.*` built-in set. For instance, a custom `{{project_id}}` you define is a separate value from the built-in `{{procore.project.id}}`. To avoid confusion, don't reuse `procore.`-style names for custom keys.
+
+---
+
+## Examples
+
+**Subdomain** — pass a value into the subdomain dynamically.
+```{% raw %}
+https://{{subdomain}}.domain.com
+```{% endraw %}
+
+**Path parameters** — insert dynamic values directly into the path (built-in or custom).
+```{% raw %}
+https://box.app/{{folderID}}
+```{% endraw %}
+
+**Query parameters** — send Procore context and custom values as query string values.
+```{% raw %}
+?companyId={{procore.company.id}}&projectId={{procore.project.id}}&customField={{CustomField}}
+```{% endraw %}
 
 ---
 
@@ -69,4 +69,4 @@ You can also create your own parameters to meet specific needs. These are define
 
 4. Click **Save Parameter**.
 
-Once saved, your custom parameter can be used in the URL the same way as built-in variables—helping your app deliver the right data in the right context.
+Once saved, reference your custom parameter in the URL as a token (`{% raw %}{{YourKey}}{% endraw %}`), the same way you use built-in values — so your app delivers the right data in the right context.
