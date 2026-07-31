@@ -41,9 +41,9 @@ For step-by-step instructions on installing a version in the Developer Sandbox, 
 After creating your app, use the Configuration Builder to choose the components you want to include. These components define your app’s functionality in Procore and make up the App Manifest. Each saved set of changes becomes a new app version.
 
 Based on the components you select, you can build:
-- [Data Connection Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
-- [Full Screen Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %})
-- [Side Panel Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %})
+- [Agentic Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) (AI Agents or External MCP Servers)
+- [Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
+- [Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) (Full Screen or Side Panel)
 
 You can also combine multiple app types in a single manifest.
 

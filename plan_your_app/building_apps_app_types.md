@@ -8,11 +8,26 @@ section_title: Plan Your App
 
 ## Overview
 
-Procore supports two app types: **data connection apps** and **embedded apps**. You can also combine them to create hybrid apps. Use this page to choose the best fit for your workflow and users.
+Procore apps are built from three families of capabilities — **Agentic**, **Data Connector**, and **Embedded** — and you can combine them in a single app. Use this page to choose the best fit for your workflow and users.
+
+Authentication is chosen separately and applies across families — see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 <br><br>
 
 ***
-## 1. Data Connection Apps
+## 1. Agentic Apps
+
+**What it is**  
+Add AI-driven capabilities to your app, declared in the standard App Manifest and governed through Procore's install-and-consent flow. The agentic runtime is provided by **Datagrid, a Procore Company**.
+
+**Components**
+- **AI Agent** — an AI-powered entity that automates work within the data it is permitted to access.
+- **MCP Server** — exposes **Tools** (the capabilities an agent can call) over the **Model Context Protocol**.
+
+See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
+<br><br>
+
+***
+## 2. Data Connector Apps
 
 **What it is**  
 Move data between Procore and other systems (for example, accounting, ERP, document management, or equipment tracking).
@@ -27,13 +42,13 @@ Move data between Procore and other systems (for example, accounting, ERP, docum
 - Some endpoints support **Sync** actions for batch create/update. See [Using Sync Actions]({{ site.url }}{{ site.baseurl }}{% link tutorials/using_sync_actions.md %}).
 - Use **Webhooks** to receive near real‑time change events. See [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}).
 
-![Data Connection Architecture]({{ site.baseurl }}/assets/guides/data-connection-diag.png)
+![Data Connector Architecture]({{ site.baseurl }}/assets/guides/data-connection-diag.png)
 
-See also: [Building Data Connection Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
+See also: [Building Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
 <br><br>
 
 ***
-## 2. Embedded Apps
+## 3. Embedded Apps
 
 **What it is**  
 Run your app inside Procore’s web UI to keep users in context and reduce app switching.

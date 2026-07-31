@@ -53,10 +53,12 @@
     #   url: /new-account
     - title: Create an App
       url: /building-apps-create-new
+    - title: Build an Agentic App
+      url: /building-agentic-apps
+    - title: Build a Data Connector App
+      url: /building-data-connection-apps
     - title: Build an Embedded App
       url: /building-embedded-apps
-    - title: Build a Data Connection App
-      url: /building-data-connection-apps
     - title: Set Up Webhooks
       url: /webhooks-api
     - title: Install a Version in Your Sandbox

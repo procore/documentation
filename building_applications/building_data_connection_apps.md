@@ -1,14 +1,14 @@
 ---
 permalink: /building-data-connection-apps
-title: Building Data Connection Applications
+title: Building Data Connector Applications
 layout: default
 section_title: Build Your App
-sub_header: Learn how to build a data connection app using either User Level Authentication or Service Account Authentication.
+sub_header: Learn how to build a data connector app using either User Level Authentication or Service Account Authentication.
 ---
 
 ## Introduction
 
-Data connection apps enable secure data exchange between Procore and external platforms. Procore supports two authentication methods for data connection apps:
+Data connector apps enable secure data exchange between Procore and external platforms. Procore supports two authentication methods for data connector apps:
 
 - **User Level Authentication** — Uses OAuth 2.0 Authorization Code Flow to act on behalf of a specific user. API responses are limited by that user's permissions in Procore.
 - **Service Account Authentication** — Uses a Developer Managed Service Account (DMSA) and the OAuth 2.0 Client Credentials Flow for automated, system-to-system communication without requiring user login.

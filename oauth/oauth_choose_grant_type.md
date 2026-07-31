@@ -16,7 +16,7 @@ Procore supports OAuth 2.0 with two grant types: **Authorization Code** (with a 
 |---|---|---|
 | Web app that acts on behalf of a Procore user | Authorization Code grant | [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) |
 | Headless app or script (no browser) that acts on behalf of a Procore user | Authorization Code grant — Installed-App variant | [Installed-App Variant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}#installed-app-variant-no-browser-redirect) |
-| Data Connection App or backend service — no specific user context required | Client Credentials grant via DMSA | [OAuth 2.0 Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) + [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) |
+| Data Connector App or backend service — no specific user context required | Client Credentials grant via DMSA | [OAuth 2.0 Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) + [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) |
 
 ## Authorization Code Grant
 
@@ -30,7 +30,7 @@ For implementation details and step-by-step examples, see [OAuth 2.0 Authorizati
 
 ## Client Credentials Grant
 
-Use this when your app accesses Procore data without acting on behalf of a specific user — for example, sync jobs, report generators, backend integrations, and Data Connection Apps.
+Use this when your app accesses Procore data without acting on behalf of a specific user — for example, sync jobs, report generators, backend integrations, and Data Connector Apps.
 
 The Procore implementation of Client Credentials uses a **Developer Managed Service Account (DMSA)**, which carries the company- and project-level permissions your app needs. Your client credentials authenticate the app, and the DMSA's permissions determine what the app can access.
 
