@@ -23,9 +23,8 @@ Each Procore client is provided with several role-based project permissions temp
 Use the steps below to walk you through the process of using the Procore API to change a project user’s permission template.
 In order to update a project user’s permission template through the API, the user must be first removed from the project and then re-added with the new permission template ID.
 
-> TUTORIAL PREREQUISITES
->
-> To successfully complete this tutorial, you must have `Admin` permissions on the company level Directory tool.
+> **Before you begin.** To successfully complete this tutorial, you must have `Admin` permissions on the company-level Directory tool.
+{: .callout .callout--prereq}
 
 ## Step 1 - Find the user whose permission template will be changed
 

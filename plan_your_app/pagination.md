@@ -65,5 +65,5 @@ From this response you can see that there are **150** total items, **5** items p
 - If `page=3` (as in the example), the `Link` header includes `first`, `prev`, `next`, and `last`.
 - On the last page, `next` is omitted.
 
-> **Note**
-> It’s important to know that not all endpoints support pagination. Check the endpoint’s API reference to confirm support and any per‑page limits.
+> **Not all endpoints support pagination.** Check the endpoint’s API reference to confirm support and any per‑page limits.
+{: .callout .callout--note}
