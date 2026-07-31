@@ -6,7 +6,7 @@ section_title: Guides and Tutorials
 
 ---
 
-## Introduction
+## Overview
 
 Each Procore company account includes an initial default set of project stages from which additional custom project stages can be created.
 Procore project stages (both default and custom) are assigned to a Procore project to define its current phase/stage of construction.

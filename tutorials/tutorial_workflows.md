@@ -5,7 +5,7 @@ layout: default
 section_title: "Product Guides: Project Management"
 ---
 
-## Introduction
+## Overview
 
 Procore’s Workflows tool provides control of the status field on certain objects in Procore.
 Once the Workflows tool has been enabled and configured for your account, you are able to interact with the workflow on objects to perform workflow activities via the Procore API.

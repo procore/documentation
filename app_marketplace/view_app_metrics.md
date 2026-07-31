@@ -18,7 +18,7 @@ section_title: Marketplace & Partnership
 
 <!-- >**It's important to note that App Metrics do not include personally identifiable information (e.g., names, email addresses).**
 
-## Introduction
+## Overview
 Once your app is approved and published, it becomes visible to customers and prospects on the Procore Marketplace, where they can view your listing or install the app. These actions are tracked and made available to you through the App Metrics dashboard in the <a href="https://developers.procore.com/developers" target="blank">Procore Developer Portal</a>, directly in your app.
 <br><br>
 

@@ -6,7 +6,7 @@ section_title: ERP Integration
 
 ---
 
-## Context
+## Overview
 
 Whether Procore Objects are exported from Procore or imported from an external system, every synced Procore Object has an associated External Data record.
 These External Data records map the Procore ID of the Procore Object to the Third-party ID of the Object in the external system, and they can also be used to store additional information related to the Object that integrators may find useful.

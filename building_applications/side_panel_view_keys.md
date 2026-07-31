@@ -16,7 +16,7 @@ main th, main td { word-break: break-word; overflow-wrap: anywhere; white-space:
 }
 </style>
 
-## Introduction
+## Overview
 Side Panel View Keys determine where your embedded application can appear within the Procore user interface. Each view key corresponds to a specific tool or view (e.g., Documents, Daily Log, Prime Contracts).
 
 Use this reference when selecting **Supported Side Panel Views** in the Developer Portal.

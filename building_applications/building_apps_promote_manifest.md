@@ -7,7 +7,7 @@ section_title: Build Your App
 
 ---
 
-## Introduction
+## Overview
 After creating an app, you can modify its components using the Configuration Builder. This page explains how to promote an app version to Production and how these updates are delivered to customers. Each saved set of changes creates a new App Version.
 
 ***

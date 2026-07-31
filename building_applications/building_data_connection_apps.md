@@ -6,7 +6,7 @@ section_title: Build Your App
 sub_header: Learn how to build a data connector app using either User Level Authentication or Service Account Authentication.
 ---
 
-## Introduction
+## Overview
 
 Data connector apps enable secure data exchange between Procore and external platforms. Procore supports two authentication methods for data connector apps:
 

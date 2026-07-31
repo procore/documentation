@@ -12,7 +12,7 @@ section_title: Reference
 > Please see the individual endpoint documentation pages for filtering capability.
 > Filtering coverage will be expanded in future releases of the API.
 
-## Introduction
+## Overview
 
 The Procore API supports filtering on List Actions to make large response data sets easier to work with.
 You can filter on supported attributes included in the response and you can filter on more than one attribute at a time.

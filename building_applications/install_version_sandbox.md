@@ -6,7 +6,7 @@ layout: default
 section_title: Build Your App
 ---
 
-## Introduction
+## Overview
 Every app you create in the Developer Portal includes a **Developer Sandbox** — a Procore company preloaded with sample project data for building and testing. Before you promote a version to production, install it in your Developer Sandbox and run through it exactly as a Procore user would. You'll need the **Sandbox App Version Key** for the version you want to test.
 
 For how installation works across sandbox and production environments, see <a href="/building-apps-install-arch">App Installation Overview</a>.

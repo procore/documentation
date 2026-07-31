@@ -5,7 +5,7 @@ layout: default
 section_title: "Product Guides: Project Management"
 ---
 
-## Introduction
+## Overview
 
 The Correspondence Tool can be leveraged to handle a wide range of business processes that require communication between project stakeholders.
 The Correspondence Tool is built on Procore’s [_custom tool_](https://support.procore.com/products/online/custom-solutions/tools) framework.

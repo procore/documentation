@@ -6,7 +6,7 @@ section_title: "Product Guides: Project Management"
 
 ---
 
-## Background
+## Overview
 
 Work Breakdown Structure (WBS) is a robust, flexible method for organizing and reporting on financial information.
 With WBS, Owners, General Contractors, and Specialty Contractors can create a customized framework of unique segments and rules for tagging, tracking, and reporting with Procore's Financial Management tools.

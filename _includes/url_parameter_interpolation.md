@@ -1,4 +1,4 @@
-## Introduction
+## Overview
 _URL Parameter Interpolation_ makes your app's External URL adapt to each install — inserting dynamic, context-specific values instead of hardcoding them. This is how an embedded app responds to the **current company or project** and to setup values the installing admin provides.
 
 There are two kinds of values you can interpolate:

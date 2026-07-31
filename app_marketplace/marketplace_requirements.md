@@ -6,7 +6,7 @@ layout: default
 section_title: Marketplace & Partnership
 ---
 
-## Introduction
+## Overview
 Once you've signed up as a developer, it’s time to build a high-quality integration that delivers value to customers and meets Procore’s Marketplace standards. This page covers the development milestones, Marketplace requirements, and onboarding best practices for preparing your app to list. For the end-to-end partner journey — application, agreement, and launch — see the [Technology Partner Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %}).
 <br><br>
 

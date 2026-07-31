@@ -6,7 +6,7 @@ section_title: "Product Guides: Financial Tools"
 
 ---
 
-## Introduction
+## Overview
 Budget Changes are a new feature in Procore Financials that replace the functionality originally existing in Budget Modifications. They are a resource that can be created from the Budget Tool or via [the Rest API for Budget Changes](https://developers.procore.com/reference/rest/v1/budget-change?version=1.0) when a company has migrated from Budget Modifications to Budget Changes. New companies created today have Budget Changes enabled and no longer see the Budget Modifications feature.
 
 Budget Changes represent changes to a Project's Budget that can be workflowed, created from Change Events, connected to existing Change Events, as well as integrated with an ERP system. For more detailed information on usage of the feature through the Procore Web Application, please visit [our support documentation on the Budget Changes feature](https://support.procore.com/product-releases/new-releases/budget-new-budget-changes-feature-for-change-management-in-project-financials).

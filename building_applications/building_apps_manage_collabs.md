@@ -7,7 +7,7 @@ section_title: Build Your App
 
 ---
 
-## Introduction
+## Overview
 If you're working with a team, the **Collaborators** feature allows you to manage access and responsibilities across your app. Each collaborator is assigned a role—Owner, Administrator, or Developer—which defines their permissions within the Developer Portal.
 
 To get started, log in to the [Procore Developer Portal](https://developers.procore.com/signin), go to **My Apps**, select your app, and navigate to the **Collaborators** section of the Manage App page. From here, you can view, add, or manage team members and their roles.

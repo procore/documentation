@@ -6,7 +6,7 @@ section_title: ERP Integration
 
 ---
 
-## Context
+## Overview
 
 The ERP Platform is events-driven. This means that, as an integrator, you will receive events for every action that requires communication with the ERP accounting system. You will also receive events when ERP data is mutated by user actions in Procore. Below are a few examples of the sort of actions that may produce events.
 

@@ -6,7 +6,7 @@ section_title: "Product Guides: Documents & Files"
 
 ---
 
-## Introduction
+## Overview
 
 The Procore API supports the capability to post and store files directly in a web file storage service.
 Using the Procore API to directly upload content to a storage service helps to streamline uploads and reduces upload latency.

@@ -6,7 +6,7 @@ section_title: "Product Guides: Project Management"
 
 ---
 
-## Introduction
+## Overview
 
 A _configurable fieldset_ is a group of fields in certain Procore tools that can be set to _optional_, _required_, or _hidden_, depending on the needs of your company.
 When a project user interacts with a tool that supports configurable fieldsets, the fieldset configuration assigned to a given project determines which fields are visible to the user and whether or not they are required fields.

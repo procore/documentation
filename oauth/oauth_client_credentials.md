@@ -5,7 +5,7 @@ layout: default
 section_title: Reference
 ---
 
-## Introduction
+## Overview
 
 The Client Credentials flow is perhaps the most simple of the OAuth 2.0 flows supported by the Procore API.
 The primary difference with the Client Credentials flow is that it is not associated with a specific Procore user (resource owner).

@@ -6,7 +6,7 @@ layout: default
 section_title: Plan Your App
 ---
 
-## Background
+## Overview
 
 For developers building applications using data connector components we recommend leveraging the new Developer Managed Service Accounts (DMSA) feature as a streamlined approach to providing Procore administrators the ability to easily install and provision data connector applications in their company accounts.
 The DMSA feature allows developers to specify the exact company and project level tool permissions that are required for their application to run properly on the Procore platform.

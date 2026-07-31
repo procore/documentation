@@ -6,7 +6,7 @@ section_title: "Product Guides: Documents & Files"
 
 ---
 
-## Introduction
+## Overview
 
 The Unified File Upload API provides a single, consistent workflow for uploading files of any size to Procore.
 Whether you are uploading a small document or a multi-gigabyte video, the API contract is the same:

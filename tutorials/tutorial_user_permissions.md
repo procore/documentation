@@ -6,7 +6,7 @@ section_title: "Product Guides: Project Management"
 
 ---
 
-## Introduction
+## Overview
 
 Procore uses permissions to manage user access to different Procore tools.
 User permissions can be managed at the Company level and Project level and consist of four role-based levels, None, Read-only, Standard, and Admin.

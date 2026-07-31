@@ -6,7 +6,7 @@ section_title: Platform Concepts
 
 ---
 
-## Background
+## Overview
 
 As part of an ongoing infrastructure improvement initiative, we've established Multiple Procore Regions (MPR) in our network topology.
 MPR allows us to distribute our customer load across a larger pool of infrastructure to provide better scalability, durability, and security.

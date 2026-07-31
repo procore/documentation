@@ -6,7 +6,7 @@ layout: default
 section_title: Build Your App
 ---
 
-## Introduction
+## Overview
 Embedded apps run directly within the Procore user interface, keeping users in context and reducing app switching. They are defined using the Procore App Manifest and configured through the Developer Portal's Configuration Builder.
 
 Procore supports two embedded placements:
