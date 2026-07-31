@@ -6,7 +6,7 @@ layout: default
 section_title: Build Your App
 ---
 
-## Introduction
+## Overview
 Whether you're a Procore customer or a Technology Partner, you can use the Procore Developer Portal to build apps that embed external systems in Procore or interact directly with its API. This guide walks you through creating your Developer Portal account and building your first app.
 <br><br>
 
@@ -41,8 +41,9 @@ For step-by-step instructions on installing a version in the Developer Sandbox, 
 After creating your app, use the Configuration Builder to choose the components you want to include. These components define your app’s functionality in Procore and make up the App Manifest. Each saved set of changes becomes a new app version.
 
 Based on the components you select, you can build:
+{% comment %} AGENTIC WIP — restore when the agentic feature ships (~Q3 2026):
 - [Agentic Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) (AI Agents or External MCP Servers)
-- [Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
+{% endcomment %}- [Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
 - [Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) (Full Screen or Side Panel)
 
 You can also combine multiple app types in a single manifest.

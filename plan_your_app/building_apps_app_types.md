@@ -8,12 +8,13 @@ section_title: Plan Your App
 
 ## Overview
 
-Procore apps are built from three families of capabilities — **Agentic**, **Data Connector**, and **Embedded** — and you can combine them in a single app. Use this page to choose the best fit for your workflow and users.
+Procore apps are built from two families of capabilities — **Data Connector** and **Embedded** — and you can combine them in a single app. Use this page to choose the best fit for your workflow and users.
 
 Authentication is chosen separately and applies across families — see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 <br><br>
 
-***
+{% comment %} AGENTIC WIP (hidden until the agentic feature ships, ~Q3 2026). To restore: un-comment this section, re-add "Agentic" to the Overview above, and renumber the families back to 1/2/3.
+
 ## 1. Agentic Apps
 
 **What it is**  
@@ -24,10 +25,10 @@ Add AI-driven capabilities to your app, declared in the standard App Manifest an
 - **MCP Server** — exposes **Tools** (the capabilities an agent can call) over the **Model Context Protocol**.
 
 See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
-<br><br>
+{% endcomment %}
 
 ***
-## 2. Data Connector Apps
+## 1. Data Connector Apps
 
 **What it is**  
 Move data between Procore and other systems (for example, accounting, ERP, document management, or equipment tracking).
@@ -48,7 +49,7 @@ See also: [Building Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link
 <br><br>
 
 ***
-## 3. Embedded Apps
+## 2. Embedded Apps
 
 **What it is**  
 Run your app inside Procore’s web UI to keep users in context and reduce app switching.

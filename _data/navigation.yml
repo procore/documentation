@@ -53,8 +53,9 @@
     #   url: /new-account
     - title: Create an App
       url: /building-apps-create-new
-    - title: Build an Agentic App
-      url: /building-agentic-apps
+    # AGENTIC WIP — restore when the agentic feature ships (~Q3 2026):
+    # - title: Build an Agentic App
+    #   url: /building-agentic-apps
     - title: Build a Data Connector App
       url: /building-data-connection-apps
     - title: Build an Embedded App
