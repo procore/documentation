@@ -8,11 +8,27 @@ section_title: Plan Your App
 
 ## Overview
 
-Procore supports two app types: **data connection apps** and **embedded apps**. You can also combine them to create hybrid apps. Use this page to choose the best fit for your workflow and users.
+Procore apps are built from two families of capabilities — **Data Connector** and **Embedded** — and you can combine them in a single app. Use this page to choose the best fit for your workflow and users.
+
+Authentication is chosen separately and applies across families — see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 <br><br>
 
+{% comment %} AGENTIC WIP (hidden until the agentic feature ships, ~Q3 2026). To restore: un-comment this section, re-add "Agentic" to the Overview above, and renumber the families back to 1/2/3.
+
+## 1. Agentic Apps
+
+**What it is**  
+Add AI-driven capabilities to your app, declared in the standard App Manifest and governed through Procore's install-and-consent flow. The agentic runtime is provided by **Datagrid, a Procore Company**.
+
+**Components**
+- **AI Agent** — an AI-powered entity that automates work within the data it is permitted to access.
+- **MCP Server** — exposes **Tools** (the capabilities an agent can call) over the **Model Context Protocol**.
+
+See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
+{% endcomment %}
+
 ***
-## 1. Data Connection Apps
+## 1. Data Connector Apps
 
 **What it is**  
 Move data between Procore and other systems (for example, accounting, ERP, document management, or equipment tracking).
@@ -27,9 +43,9 @@ Move data between Procore and other systems (for example, accounting, ERP, docum
 - Some endpoints support **Sync** actions for batch create/update. See [Using Sync Actions]({{ site.url }}{{ site.baseurl }}{% link tutorials/using_sync_actions.md %}).
 - Use **Webhooks** to receive near real‑time change events. See [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}).
 
-![Data Connection Architecture]({{ site.baseurl }}/assets/guides/data-connection-diag.png)
+![Data Connector Architecture]({{ site.baseurl }}/assets/guides/data-connection-diag.png)
 
-See also: [Building Data Connection Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
+See also: [Building Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
 <br><br>
 
 ***
@@ -45,12 +61,10 @@ Run your app inside Procore’s web UI to keep users in context and reduce app s
 ### Fullscreen Apps
 Fullscreen apps occupy the main content area. Users launch them from the **Apps** menu.
 
-See [Building Full Screen Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %}).
-
 ### Side Panel Apps
 A side panel app renders in a fixed 400‑px panel on the right side of the Procore UI. Because side panel apps are installed for specific tools, you can build solutions tailored to a tool or workflow. Users launch side panel apps from the dock on the right edge of the interface.
 
-See [Building Side Panel Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %}).
+See [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) to build either placement.
 <br><br>
 
 ***

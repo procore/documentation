@@ -6,7 +6,7 @@ section_title: "Product Guides: Financial Tools"
 
 ---
 
-## Introduction
+## Overview
 
 Project managers rely on Procore's Budget tool to manage change orders, commitments, and direct costs, as well as leverage the built-in forecasting features to track the estimated cost of completion and savings and loss over the course of the project lifecycle.
 The Procore API provides a number of endpoints that support common budget workflows.

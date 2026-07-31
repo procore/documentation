@@ -6,7 +6,7 @@ layout: default
 section_title: Build Your App
 ---
 
-## Introduction
+## Overview
 Whether you're a Procore customer or a Technology Partner, you can use the Procore Developer Portal to build apps that embed external systems in Procore or interact directly with its API. This guide walks you through creating your Developer Portal account and building your first app.
 <br><br>
 
@@ -33,7 +33,7 @@ Follow these steps to create a new app in the Developer Portal:
 
 When you create a new app, a Developer Sandbox is automatically provisioned for building and testing with sample project data. You can access it by checking the **OAuth Credentials** section of your app or by following the link in the email sent to the app creator.
 
-For detailed instructions on installing your app in the Developer Sandbox, see <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install a Custom App</a>.
+For step-by-step instructions on installing a version in the Developer Sandbox, see <a href="/install-version-sandbox">Install a Version in Your Developer Sandbox</a>.
 <br><br>
 
 ***
@@ -41,9 +41,10 @@ For detailed instructions on installing your app in the Developer Sandbox, see <
 After creating your app, use the Configuration Builder to choose the components you want to include. These components define your app’s functionality in Procore and make up the App Manifest. Each saved set of changes becomes a new app version.
 
 Based on the components you select, you can build:
-- [Data Connection Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
-- [Full Screen Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_fullscreen_apps.md %})
-- [Side Panel Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_side_panel_apps.md %})
+{% comment %} AGENTIC WIP — restore when the agentic feature ships (~Q3 2026):
+- [Agentic Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) (AI Agents or External MCP Servers)
+{% endcomment %}- [Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
+- [Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) (Full Screen or Side Panel)
 
 You can also combine multiple app types in a single manifest.
 

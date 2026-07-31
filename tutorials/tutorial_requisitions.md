@@ -15,7 +15,7 @@ section_title: "Product Guides: Financial Tools"
 > Please keep these aspects in mind as you work with the various Subcontractor Invoice API endpoints.
 > For additional information, please review [What happened to Requisitions and Payment Applications?](https://support.procore.com/faq/what-happened-to-requisitions-and-payment-applications) and [Information About Subcontractor Invoices (Requisitions)](https://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/information-about-requisitions) on our [Support Site](http://support.procore.com/).
 
-## Introduction
+## Overview
 
 Subcontractor Invoices allow subcontractors to progressively bill at several stages during the construction process.
 These billings are based on a verified percentage of that commitment's completion.

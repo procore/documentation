@@ -156,6 +156,7 @@ Projected dates are provided for planning. Exact timing can vary based on mainte
 
 - [Choose Your OAuth Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
 - [Quick Start Guide]({{ site.url }}{{ site.baseurl }}{% link overview/quick_start_guide.md %})
+- [Install a Version in Your Developer Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/install_version_sandbox.md %})
 - [App Installation Overview]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/building_apps_install_arch.md %})
 - <a href="https://v2.support.procore.com/product-manuals/admin-company/tutorials/create-and-manage-an-on-demand-sandbox" target="_blank">Create and Manage an On-Demand Sandbox</a> (for Procore customers)
 - <a href="https://support.procore.com/faq/what-is-the-monthly-sandbox-environment" target="_blank">What is the Monthly Sandbox Environment?</a> (for Procore customers)

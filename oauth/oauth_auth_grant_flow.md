@@ -8,7 +8,7 @@ section_title: Reference
 
 > **Before you start.** Confirm Authorization Code is the right grant for your use case in [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}). For full endpoint parameter reference, see [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}).
 
-## Introduction
+## Overview
 
 The Authorization Code grant is a redirection-based flow used when your app accesses Procore data on behalf of a specific Procore user. The user authenticates with Procore, approves your app's access, and Procore redirects back to your app with an authorization code that you exchange for an access token.
 

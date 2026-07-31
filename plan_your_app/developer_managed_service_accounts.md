@@ -6,13 +6,13 @@ layout: default
 section_title: Plan Your App
 ---
 
-## Background
+## Overview
 
-For developers building applications using data connection components we recommend leveraging the new Developer Managed Service Accounts (DMSA) feature as a streamlined approach to providing Procore administrators the ability to easily install and provision data connection applications in their company accounts.
+For developers building applications using data connector components we recommend leveraging the new Developer Managed Service Accounts (DMSA) feature as a streamlined approach to providing Procore administrators the ability to easily install and provision data connector applications in their company accounts.
 The DMSA feature allows developers to specify the exact company and project level tool permissions that are required for their application to run properly on the Procore platform.
 Company administrators can specify which projects the App can access using those permissions.
 
-A DMSA is automatically created in the Company Directory tool when a company administrator installs a data connection App from the Procore App Marketplace, or during a custom install from within Procore.
+A DMSA is automatically created in the Company Directory tool when a company administrator installs a data connector App from the Procore App Marketplace, or during a custom install from within Procore.
 During the installation process, the company administrator can select which projects the App is allowed to run in.
 Once the App is installed, the company administrator can add or remove permitted projects as needed.
 
@@ -190,17 +190,17 @@ The same DMSA credentials can also be used with the Authorization Code Grant Flo
 Applications built on the Procore platform use the industry standard OAuth 2.0 Authorization Framework for authentication with the API.
 The Procore API supports the following two authorization grant types, or authentication flows:
 
-- **Client Credentials (DMSAs and traditional service accounts)** - Most data connection applications use this grant type for authentication with the API.
+- **Client Credentials (DMSAs and traditional service accounts)** - Most data connector applications use this grant type for authentication with the API.
 With the Client Credentials grant type, a single set of API credentials is used (via a DMSA or traditional service account) to authenticate with the Procore API.
 Access to tools and data on the Procore platform is governed by the permissions settings associated with that one account.
 As a result, developers and company administrators can specify the exact tools and projects an application has access to.
-This is the preferred approach for data connection applications.
+This is the preferred approach for data connector applications.
 For additional information on the Client Credentials grant type, see Using the OAuth 2.0 Client Credentials Grant Type.
 
 - **Authorization Code (user login flow)** - Web server and browser-based applications often use this grant type for authentication with the API.
 With the Authorization Code grant type, the application operates on behalf of the currently logged in user when authenticating with the Procore API.
 In this scenario, the application assumes the permissions of the logged in user and has access to any tool, project, or data that particular user is allowed to interact with.
-Because permissions governance can be challenging under this grant type, it is not recommended for data connection applications. For additional information on the Authorization Code grant type, see OAuth 2.0 Authorization Code Grant Flow.
+Because permissions governance can be challenging under this grant type, it is not recommended for data connector applications. For additional information on the Authorization Code grant type, see OAuth 2.0 Authorization Code Grant Flow.
 
 Procore company administrators are ultimately responsible for managing the permissions of their directory users regardless of the authorization grant type used by an integration - authorization_code (logged in user's permissions) or client_credentials (service account/DMSA permissions).
 

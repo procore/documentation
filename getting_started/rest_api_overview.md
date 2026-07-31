@@ -6,7 +6,7 @@ layout: default
 section_title: Reference
 ---
 
-## Introduction
+## Overview
 The Procore REST API provides a versioning architecture, comprehensive resource coverage, and a built-in changelog feature.
 
 ## REST API Versioning Architecture

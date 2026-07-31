@@ -5,7 +5,7 @@ layout: default
 section_title: Reference
 ---
 
-## Introduction
+## Overview
 
 The Client Credentials flow is perhaps the most simple of the OAuth 2.0 flows supported by the Procore API.
 The primary difference with the Client Credentials flow is that it is not associated with a specific Procore user (resource owner).
@@ -18,7 +18,7 @@ The client application requests an access token using its own credentials throug
 
 There are a number of scenarios in which using the Client Credentials grant flow in the Procore API is the preferred approach.
 
-- Data Connection Apps - sync operations, import/export, or other tasks where a specific user’s permission to access their data is not required.
+- Data Connector Apps - sync operations, import/export, or other tasks where a specific user’s permission to access their data is not required.
 - Report generators - data mining, sync operations, or other integrations that access company-wide data.
 - Backend scripts - system maintenance and administration utilities.
 

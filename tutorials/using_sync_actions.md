@@ -6,7 +6,7 @@ section_title: Reference
 
 ---
 
-## Introduction
+## Overview
 
 The Sync action enables batch creation or updates to resources using a single call.
 When using a Sync action, the resources to be created or updated can be specified by supplying either an `id` or an `origin_id` in the request body.

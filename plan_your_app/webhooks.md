@@ -11,9 +11,9 @@ section_title: Plan Your App
 
 ## Overview
 
-A webhook is an HTTP request that one system sends to another when a specific event happens. Webhooks let systems share updates in real time without polling.
+A webhook is an HTTP request that Procore sends to your app the moment something changes — so your integration reacts in seconds instead of constantly polling the API. In Procore, you subscribe to events (create, update, delete) for supported resources; for example, your integration can be notified the instant a new RFI is created.
 
-In Procore, external systems can subscribe to events (create, update, delete) for supported resources. For example, an integration can be notified when a new RFI is created.
+Think of a webhook as a **notification that something already happened in Procore — not the data itself.** By the time Procore sends it, the change has committed and is stored; the webhook just tells you to go fetch it. That makes webhooks a *fast, best‑effort* signal: if one is delayed or lost, the change still succeeded and is waiting in the REST API. So pair webhooks (for speed) with a periodic reconciliation sync (for completeness) — see [Reliability and Your Fallback Strategy](#reliability-and-your-fallback-strategy).
 
 **Why use webhooks**
 - Get near real‑time updates without polling.
@@ -64,7 +64,7 @@ Each webhook delivery includes an event object with the fields below (legacy pay
 <div class="details-bottom-spacing"></div>
 
 ### Payload Formats
-Choose a version below.
+**New integrations should use v4.0** — it's the latest and most capable format: all‑string IDs, a simplified schema, and support for more resource types. Choose an earlier version only to match an existing integration.
 
 <details>
 <summary class="collapseListTierOne">Version v2.0 (legacy)</summary>
@@ -168,17 +168,23 @@ Your notification endpoint must:
 
 
 ***
-## Reliability and Retries
+## Reliability and Your Fallback Strategy
 
-Design your service to be resilient:
-- **Duplicates**: A delivery for the same event can arrive more than once. Make processing **idempotent** (for example, track processed events by `ulid` or event `id`).
+Procore aims to deliver every webhook, quickly and reliably. But a webhook is only a **notification** — by the time it's sent, the underlying change has already committed in Procore and is retrievable from the REST API. Delivery of that *notification* is **best‑effort, not guaranteed**: during a Procore or network incident, or a prolonged failure at your endpoint, notifications can be **delayed** or, in the worst case, **dropped**.
+
+The key distinction: a delayed or missing webhook is a **notification** problem, never a **data** problem. The record is safe in Procore either way — the API is always the source of truth. Your job is to make sure a late or missing notification never turns into missing data on your side.
+
+> **Important — design a reconciliation fallback.** Do not treat webhooks as your only source of truth or as a guaranteed queue. Pair them with a periodic **reconciliation sync**: on a schedule, query the Procore REST API for resources changed since your last successful sync (for example, filtering by `updated_at`) and fill any gaps. Webhooks make your integration *fast*; reconciliation makes it *complete*. This is your safety net for the downtime and delay cases below.
+
+**Make delivery resilient:**
+- **Idempotency**: A delivery for the same event can arrive more than once. Make processing idempotent — track processed events by `ulid` or event `id` so a re‑delivery is a no‑op.
 - **Respond fast**: Return a `2xx` as soon as you receive the event, then handle downstream work asynchronously. Procore’s request timeout is **5 seconds** after a connection is established.
-- **Retry/backoff**: On failures (non‑`2xx`, timeout, or connection issues), deliveries pause and retry with **exponential backoff** (starting at 1 second, up to 1 hour). After **12 hours** of retries, the queue is flushed and queued events are marked **discarded**. A successful delivery resets the counters and normal delivery resumes.
+- **Retry/backoff**: On failures (non‑`2xx`, timeout, or connection issues), deliveries pause and retry with **exponential backoff** (starting at 1 second, up to 1 hour). After **12 hours** of continuous failure the queue is flushed and the queued events are marked **discarded** — precisely the gap your reconciliation sync must close. A successful delivery resets the counters and normal delivery resumes.
+- **Watch for gaps**: Deliveries carry a response status and outcome (see [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %})). Monitor for repeated failures or discards so you know when your reconciliation sync needs to catch up.
 <br><br>
 
 ***
-## See Also
+## Next steps
 
-- [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %})
-- [Configure Company Webhooks](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/configure-company-webhooks)
-- [Configure Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks)
+- **[Set Up Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %})** — create and manage hooks and triggers via the API.
+- Configure in the Procore UI: [Company Webhooks](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/configure-company-webhooks) · [Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks).

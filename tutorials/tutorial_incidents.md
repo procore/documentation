@@ -6,7 +6,7 @@ section_title: "Product Guides: Field Tools"
 
 ---
 
-## Introduction
+## Overview
 
 The Procore API provides a number of endpoints that allow you to work with the Incidents tool to track jobsite hazards, contributing conditions and behavior, person(s) involved, and the paper history associated with each incident throughout the lifecycle of your project.
 Leverage the insights provided by the Incidents tool to identify common hazards and behavior to help facilitate the creation of a safer jobsite.

@@ -6,7 +6,7 @@ section_title: ERP Integration
 
 ---
 
-## Context
+## Overview
 
 The ERP Platform for System Integrators supports exporting/importing/syncing many different entity types and allows for a wide variety of customization.
 This guide will stick to the basics of an ERP integration. It is advised to refer to the other ERP documentation depending on the features of the particular Integration.

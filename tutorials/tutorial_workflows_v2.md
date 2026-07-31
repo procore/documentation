@@ -5,7 +5,7 @@ layout: default
 section_title: "Product Guides: Project Management"
 ---
 
-## Introduction
+## Overview
 
 The company-level Workflows tool was designed to streamline the user experience and to replace time-consuming and manual approval processes.
 Custom workflows can be created that define the responsible roles, groups, and conditions for routing an item through that approval process—and that process is tailored to suit the unique needs and specific requirements of a company's business environment.
