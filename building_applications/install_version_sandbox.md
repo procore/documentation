@@ -9,7 +9,7 @@ section_title: Build Your App
 ## Overview
 Every app you create in the Developer Portal includes a **Developer Sandbox** — a Procore company preloaded with sample project data for building and testing. Before you promote a version to production, install it in your Developer Sandbox and run through it exactly as a Procore user would. You'll need the **Sandbox App Version Key** for the version you want to test.
 
-For how installation works across sandbox and production environments, see <a href="/building-apps-install-arch">App Installation Overview</a>.
+For how installation works across sandbox and production environments, see [App Installation Overview]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/building_apps_install_arch.md %}).
 
 > **Note:** These steps cover the **Developer Sandbox**, which uses the Sandbox App Version Key. To test in a customer's **On-Demand** or **Monthly Sandbox**, install with the **Production** App Version Key instead — see [Procore Sandboxes]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
 <br><br>
@@ -37,4 +37,4 @@ When you create a new version, you receive a new **Sandbox App Version Key**. Re
 
 ***
 ## Next Steps
-Once the version behaves as expected in your sandbox, promote it to make it available for production use. See <a href="/building-apps-promote-manifest">App Versioning &amp; Production</a>.
+Once the version behaves as expected in your sandbox, promote it to make it available for production use. See [App Versioning &amp; Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
