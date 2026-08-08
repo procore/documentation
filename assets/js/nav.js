@@ -45,33 +45,109 @@
       $(this).closest(".collapsible").find(".col_content").slideToggle("350");
       $(this).find(".icon").toggleClass(["fa-square-minus", "fa-square-plus"]);
     });
-  // Ensure search results stay on developers.procore.com under /documentation
-  var basePath = "/documentation";
-  var sjs = SimpleJekyllSearch({
-    searchInput: document.getElementById("search-input"),
-    resultsContainer: document.getElementById("results-container"),
-    json: basePath + "/search.json",
-    searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-    // Force URLs from the index to resolve to this site's origin and base path
-    templateMiddleware: function (prop, value) {
-      if (prop === "url" && value) {
-        try {
-          var u = new URL(value, window.location.origin);
-          var path = u.pathname;
-          if (!path.startsWith(basePath)) {
-            path = basePath.replace(/\/$/, "") + "/" + path.replace(/^\//, "");
-          }
-          // Return a same-origin, site-relative URL (preserves query/hash)
-          return path + (u.search || "") + (u.hash || "");
-        } catch (e) {
-          // Fallback for odd values (e.g., "page.html" or "#anchor")
-          if (value.charAt(0) === "#") return value;
-          return basePath.replace(/\/$/, "") + "/" + value.replace(/^\//, "");
-        }
+  var searchInputEl = document.getElementById("search-input");
+  var resultsContainerEl = document.getElementById("results-container");
+  var searchDebounceTimer = null;
+
+  function parentOrigin() {
+    try {
+      if (window.location.ancestorOrigins && window.location.ancestorOrigins.length > 0) {
+        return window.location.ancestorOrigins[0];
       }
-      return value;
-    },
-  });
+      if (document.referrer) {
+        return new URL(document.referrer).origin;
+      }
+    } catch (e) {
+      console.warn("Could not determine parent origin:", e);
+    }
+    return null;
+  }
+
+  function searchApiBase() {
+    // 1. When embedded in an iframe the parent app IS the dev-portal; use its
+    //    origin so the request is always same-origin from the parent's point
+    //    of view (avoids CORS entirely).
+    var parent = parentOrigin();
+    if (parent) return parent;
+
+    // 2. Value baked in at Jekyll build/serve time via the DEV_PORTAL_BASE_URL
+    //    environment variable (see _plugins/env_config.rb).  This is the
+    //    authoritative config-time answer and is preferred over runtime
+    //    hostname sniffing.
+    if (window.DEV_PORTAL_BASE_URL && window.DEV_PORTAL_BASE_URL !== "") {
+      return window.DEV_PORTAL_BASE_URL;
+    }
+
+    // 3. Runtime fallback — keeps things working even if the global is somehow
+    //    absent (e.g. an older cached build).
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      return "http://localhost:3001";
+    }
+    if (window.location.hostname.indexOf("github.io") !== -1) {
+      return "https://developers.procore.com";
+    }
+    return window.location.origin;
+  }
+
+  function buildSearchUrl(query) {
+    return (
+      searchApiBase() +
+      "/api/v1/documentations?q=" +
+      encodeURIComponent(query) +
+      "&page=1&per_page=10"
+    );
+  }
+
+  function clearSearchResults() {
+    resultsContainerEl.innerHTML = "";
+  }
+
+  function renderSearchResults(results) {
+    clearSearchResults();
+    if (!results || results.length === 0) return;
+
+    results.forEach(function(result) {
+      var li = document.createElement("li");
+      var link = document.createElement("a");
+      link.textContent = result.title || result.file_path || "Untitled";
+      link.href = result.url || ("/documentation/" + (result.file_path || "").replace(/\.md$/, ""));
+      li.appendChild(link);
+      resultsContainerEl.appendChild(li);
+    });
+  }
+
+  function performSearch(query) {
+    if (!query || query.length < 2) {
+      clearSearchResults();
+      return;
+    }
+
+    fetch(buildSearchUrl(query))
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error("Search request failed with status " + response.status);
+        }
+        return response.json();
+      })
+      .then(function(payload) {
+        renderSearchResults(payload.results || []);
+        rewriteSearchResultLinks();
+      })
+      .catch(function(error) {
+        console.warn("Documentation search request failed:", error);
+        clearSearchResults();
+      });
+  }
+
+  if (searchInputEl && resultsContainerEl) {
+    searchInputEl.addEventListener("input", function(event) {
+      var query = event.target.value.trim();
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(function() {
+        performSearch(query);
+      }, 200);
+    });
+  }
   
   // Helper function to check if a link should be skipped during rewriting
   function shouldSkipLink($link, originalHref) {

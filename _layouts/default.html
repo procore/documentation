@@ -56,7 +56,11 @@
         </main>
       </section>
     </article>
-    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+    <script>
+      // Injected at Jekyll build/serve time from site.dev_portal_base_url
+      // (set in _config.yml or overridden via the DEV_PORTAL_BASE_URL env var).
+      window.DEV_PORTAL_BASE_URL = "{{ site.dev_portal_base_url | escape }}";
+    </script>
     <script src="{{ 'assets/js/nav.js' | relative_url }}"></script>
     <script>
       function submitFeedback(value, btn) {
