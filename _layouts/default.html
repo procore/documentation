@@ -13,15 +13,19 @@
   </head>
   <body>
     <nav>
-    <input type="text" id="search-input" placeholder="Search Articles...">
-    <ul id="results-container"></ul>
+    <button type="button" class="nav-close" id="nav-close" aria-label="Close menu">&times;</button>
+    <div class="search-wrap">
+      <input type="text" id="search-input" placeholder="Search Articles...">
+      <button type="button" id="search-clear" class="search-clear" aria-label="Clear search">&times;</button>
+      <ul id="results-container"></ul>
+    </div>
       {% for section in site.data.navigation %}
         <dl class="collapsible">
-          <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger"><i class="icon fa-regular fa-square-plus"></i> {{ section.title }}</dt>
+          <dt{% if page.section_title == section.title %} class="active trigger" {% endif %} class="trigger"><i class="icon fa-solid fa-chevron-right"></i> {{ section.title }}</dt>
           <dl class="col_content">    
             {% for item in section.items %}
               <dd{% if item.url == page.url %} class="active"{% endif %}>
-              <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}">
+              <a href="{% if item.absolute != true %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}" title="{{ item.title }}">
               <!-- <a href="https://66ea-165-85-45-220.ngrok-free.app/documentation/{{ item.url }}"> -->
                 {{ item.title }}
               </a>
@@ -31,13 +35,14 @@
         </dl>
       {% endfor %}
     </nav>
+    <div class="nav-backdrop" id="nav-backdrop"></div>
     <article>
       <section>
         <header>
           <div class="title-wrapper">
             <div class="page-title-container">
               <h1>
-                <button class="hamburger"><div></div><div></div><div></div></button>
+                <button class="hamburger" aria-label="Open menu">Browse Docs</button>
                 {{ page.title }}
               </h1>
               <p class="sub-header">{{ page.sub_header }}</p> <!-- Sub-header as H2 -->

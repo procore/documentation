@@ -203,8 +203,7 @@ body {
 
   hr {
     border: none;          /* Removes the default border */
-    border-top: 2px solid #3498db; /* Sets a custom color and thickness */
-    border-color: #D6DADC;
+    border-top: 1px solid rgb(217, 217, 217); /* Match the header divider weight/color */
 }
 
 /* Partner Program Steps */

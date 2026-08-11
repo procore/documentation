@@ -3,6 +3,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     const hamburgerEL = document.getElementsByClassName("hamburger")[0];
     const navEl = document.getElementsByTagName("nav")[0];
+    const backdropEl = document.getElementById("nav-backdrop");
+    const closeEl = document.getElementById("nav-close");
     const params = new URLSearchParams(window.location.search);
     const shouldHideNav = params.get("hideNav");
     addNavEventListeners();
@@ -13,16 +15,27 @@
 
     function addNavEventListeners() {
       hamburgerEL.addEventListener("click", toggleMobileNav);
+      if (backdropEl) backdropEl.addEventListener("click", closeMobileNav);
+      if (closeEl) closeEl.addEventListener("click", closeMobileNav);
+    }
+
+    function openMobileNav() {
+      hamburgerEL.classList.add("open");
+      navEl.classList.add("open");
+      if (backdropEl) backdropEl.classList.add("open");
+      document.documentElement.classList.add("nav-locked");
+    }
+
+    function closeMobileNav() {
+      hamburgerEL.classList.remove("open");
+      navEl.classList.remove("open");
+      if (backdropEl) backdropEl.classList.remove("open");
+      document.documentElement.classList.remove("nav-locked");
     }
 
     function toggleMobileNav() {
-      if (hamburgerEL.classList.contains("open")) {
-        hamburgerEL.classList.remove("open");
-        navEl.classList.remove("open");
-      } else {
-        hamburgerEL.classList.add("open");
-        navEl.classList.add("open");
-      }
+      if (navEl.classList.contains("open")) closeMobileNav();
+      else openMobileNav();
     }
 
     function hideNav() {
@@ -38,12 +51,12 @@
   $(".collapsible")
     .has("dd.active")
     .find(".icon")
-    .toggleClass(["fa-square-minus", "fa-square-plus"]);
+    .addClass("open");
   $(".collapsible")
     .find(".trigger")
     .on("click", function () {
       $(this).closest(".collapsible").find(".col_content").slideToggle("350");
-      $(this).find(".icon").toggleClass(["fa-square-minus", "fa-square-plus"]);
+      $(this).find(".icon").toggleClass("open");
     });
   // Ensure search results stay on developers.procore.com under /documentation
   var basePath = "/documentation";
@@ -52,6 +65,7 @@
     resultsContainer: document.getElementById("results-container"),
     json: basePath + "/search.json",
     searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+    noResultsText: '<li class="no-results">No results found</li>',
     // Force URLs from the index to resolve to this site's origin and base path
     templateMiddleware: function (prop, value) {
       if (prop === "url" && value) {
@@ -72,7 +86,24 @@
       return value;
     },
   });
-  
+
+  // Clear-search ("X") button — appears when the field has text
+  (function () {
+    var searchInput = document.getElementById("search-input");
+    var clearBtn = document.getElementById("search-clear");
+    var resultsContainer = document.getElementById("results-container");
+    if (!searchInput || !clearBtn) return;
+    searchInput.addEventListener("input", function () {
+      clearBtn.classList.toggle("visible", searchInput.value.length > 0);
+    });
+    clearBtn.addEventListener("click", function () {
+      searchInput.value = "";
+      if (resultsContainer) resultsContainer.innerHTML = "";
+      clearBtn.classList.remove("visible");
+      searchInput.focus();
+    });
+  })();
+
   // Helper function to check if a link should be skipped during rewriting
   function shouldSkipLink($link, originalHref) {
     // Skip if already processed, missing href, or special protocol links
