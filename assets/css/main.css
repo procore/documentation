@@ -300,10 +300,8 @@ body {
     margin: 16px 0px;
     -webkit-box-align: center;
     align-items: center;
-    border-left: 8px solid #e61920;
     border-radius: 4px;
     padding: 4px 16px;
-    box-shadow: #0000001a 0px 1px 3px 0px, #00000033 0px 1px 2px 0px;
     background-color: #fef6f6;
   }
 
@@ -333,18 +331,15 @@ body {
   /* Note — neutral grey (Torque info banner) */
   blockquote.callout--note {
     background-color: #F4F5F6;
-    border: 1px solid #EDEDED;
   }
   blockquote.callout--note::before {
     content: "\f05a";             /* info-circle */
     color: #6B7280;
   }
 
-  /* Warning — red left bar + tint + shadow (Torque error banner) */
+  /* Warning — pink tint + icon, no left bar, no shadow */
   blockquote.callout--warning {
     background-color: #FDF6F6;
-    border-left: 8px solid #D92626;
-    box-shadow: rgba(34, 40, 42, 0.16) 0px 2px 8px -1px;
   }
   blockquote.callout--warning::before {
     content: "\f071";             /* exclamation-triangle */
@@ -354,7 +349,6 @@ body {
   /* Prerequisite — neutral, quiet (derives from Note) */
   blockquote.callout--prereq {
     background-color: #F4F5F6;
-    border-left: 4px solid #C7CBD1;
   }
   blockquote.callout--prereq::before {
     content: "\f058";             /* check-circle */
