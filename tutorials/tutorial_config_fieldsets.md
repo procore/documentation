@@ -8,23 +8,18 @@ section_title: "Product Guides: Project Management"
 
 ## Overview
 
+> **Some tools don't support configurable fieldsets.** Most Procore API endpoints respect configurable fieldsets, but a handful of tools do not yet support them.
+{: .callout .callout--note}
+
 A _configurable fieldset_ is a group of fields in certain Procore tools that can be set to _optional_, _required_, or _hidden_, depending on the needs of your company.
 When a project user interacts with a tool that supports configurable fieldsets, the fieldset configuration assigned to a given project determines which fields are visible to the user and whether or not they are required fields.
 
->**Tools Not Supported**
->
->While the majority of Procore’s API endpoints respect the configurable fieldsets that are created and managed within the Procore web application tools, some tools do not yet support configurable fieldsets:
->
->* Coordination Issues
->* Meetings
->* Schedule
->* Action Plans
->* Forms
->* Budget
->* Change Orders
->* Direct Costs
+The following tools do not yet support configurable fieldsets: Coordination Issues, Meetings, Schedule, Action Plans, Forms, Budget, Change Orders, and Direct Costs.
 
 ## Understanding Configurable Validations
+
+> **Include null-valued required fields on update, or validation fails.** When updating a resource, a required field that already has a value only needs to be sent if you intend to change it — but if its existing value is null, you must include it in the request.
+{: .callout .callout--warning}
 
 When one or more configurable fields on a resource are set to required, the `run_configurable_validations` attribute must be present in the JSON request body and set to “true” when creating or updating that particular resource via the API.
 This ensures that the API endpoints respect and validate those configurable fields.
@@ -39,11 +34,6 @@ In this scenario, creating a new project using the Create Project API endpoint r
 The absence of required fields in the request body returns an error indicating which fields are needed for a successful create action.
 
 ![project error]({{ site.baseurl }}/assets/guides/project-error.png)
-
-> CONFIGURABLE VALIDATIONS AND UPDATE ACTIONS
->
-> It is important to note that when updating a resource, if a required field already has an existing value, it only needs to be included in the JSON request body if you intend to update it.
-> However, if the existing value is "null", then the field must be included in the request, otherwise the validation will fail.
 
 ## Working with Custom Fields
 

@@ -35,12 +35,11 @@ Please see the [Integration Experience Features](#integration-experience-feature
 To connect Procore with your ERP system, an application will need to be developed to push and pull information to and from Procore and your ERP.
 Procore’s clients often work with a systems integrator, however we also work with many clients who develop an integration using their own resources, or a system integrator of their choosing.
 
-> DATABASE CONNECTION LIMITATIONS
->
-> A direct database connection to Procore is not supported.
+> **Database connection limitations.** A direct database connection to Procore is not supported.
 > In order to access content within the Procore database, you are required to use our REST API which uses JSON as the data format.
 > RDBMS schema, database tables, or XML and/or SOAP-style integrations are also not supported.
 > To get started, see our [API introduction]({{ site.url }}{{ site.baseurl }}{% link overview/introduction.md %}).
+{: .callout .callout--note}
 
 ## Integration Development Overview
 

@@ -15,7 +15,9 @@ Procore offers three sandboxes that serve two distinct purposes:
 
 This page explains how each sandbox works and when to use it.
 
-> **Note:** Every developer building on Procore can use a Developer Sandbox. On-Demand Sandbox and Monthly Sandbox are part of a Procore customer's account — only Procore customers can enable them. If you're a Procore customer building your own integration, you can use both: a Developer Sandbox to build, and your company's On-Demand or Monthly Sandbox to test on real data.
+> **Any developer can use a Developer Sandbox, but only Procore customers can enable On-Demand or Monthly Sandboxes.** If you're a customer building your own integration, use both — a Developer Sandbox to build, and your company's On-Demand or Monthly Sandbox to test on real data.
+{: .callout .callout--note}
+<div class="details-bottom-spacing"></div>
 <div class="details-bottom-spacing"></div>
 
 ***
@@ -73,11 +75,12 @@ Once your sandbox is ready, you can:
 ***
 ## On-Demand and Monthly Sandboxes
 
-> **Note:** A Company Admin needs to enable Monthly Sandbox or On-Demand Sandbox in a Procore customer's account before the integration can be tested in either one.
+> **A Company Admin must enable Monthly Sandbox or On-Demand Sandbox** in a Procore customer's account before the integration can be tested in either one.
+{: .callout .callout--prereq}
 
-On-Demand and Monthly Sandboxes are both enabled by a Company Admin. **Install the app using your Production App Version Key** — the same key used for Production installs. Once installed, the integration authenticates with your **Production OAuth credentials** (Client ID and Client Secret) — the same credentials used in Production. Each new sandbox needs the integration installed separately, and the OAuth connection should be verified after each install.
+On-Demand and Monthly Sandboxes are both enabled by a Company Admin. **Install the app using your Production App Version Key** — the same key used for Production installs; despite the "Sandbox" name, the Sandbox App Version Key works only in the Developer Sandbox. 
 
-> **Common confusion:** The Sandbox App Version Key only works in the Developer Sandbox. Even though "Sandbox" appears in the name "Monthly Sandbox" and "On-Demand Sandbox," both require the **Production** App Version Key at install time.
+Once installed, the integration authenticates with your **Production OAuth credentials** (Client ID and Client Secret) — the same credentials used in Production. Each new sandbox needs the integration installed separately, and the OAuth connection should be verified after each install.
 
 ### On-Demand Sandbox
 
@@ -87,12 +90,10 @@ On-Demand and Monthly Sandboxes are both enabled by a Company Admin. **Install t
 
 **Setup notes:** Each new On-Demand Sandbox needs the integration installed separately. After installation, verify the OAuth connection succeeds.
 
-> **Important:** Each On-Demand Sandbox has its own `company_id`. To your app, every sandbox looks like a separate customer company. Install the app in each new sandbox.
-
 **What you need to know:**
 
 - On-Demand Sandbox runs on Production infrastructure with the same Production endpoints (`https://api.procore.com`, `https://login.procore.com`) and Production OAuth credentials.
-- **Each On-Demand Sandbox is independent.** A Company Admin must install the app separately in each one. Plan for this if multiple sandboxes are in use.
+- **Each On-Demand Sandbox is independent** and has its own `company_id` — to your app, every sandbox looks like a separate customer company. A Company Admin must install the app separately in each one. Plan for this if multiple sandboxes are in use.
 - Sandboxes are managed on the customer's schedule (create and use as needed), and data is not wiped on a fixed cadence.
 
 ### Monthly Sandbox

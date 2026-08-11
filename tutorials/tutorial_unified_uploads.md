@@ -33,10 +33,8 @@ It is also built with multi-cloud support in mind, so as Procore expands to addi
 - **Status-Driven Interface:** The API relies on a status field (`ready`, `receiving`, `scanning`, `available`, `failed`). Clients should always check that a file's status is `available` before attempting to download it, which indicates that processing and checksum verification — and malware scanning, where enabled — are complete.
 - **Standardized ETags:** For uploads, you must explicitly signal completion using an array of `part_etags`.
 
-> **Important — Treat URLs and headers as opaque.**
-> The presigned `url` and `headers` returned in each segment must be copied in their entirety and used exactly as provided in your PUT request.
-> Do not parse, pattern-match, or make any assumptions about the URL structure or the set of headers.
-> Both the URL format and the headers are subject to change across API versions and environments without prior notice.
+> **Treat URLs and headers as opaque.** The presigned `url` and `headers` returned in each segment must be copied in their entirety and used exactly as provided in your PUT request. Do not parse, pattern-match, or make any assumptions about the URL structure or the set of headers — both are subject to change across API versions and environments without prior notice.
+{: .callout .callout--warning}
 
 ## Endpoints
 
@@ -522,7 +520,8 @@ This is appropriate when the file will be associated with a company-level resour
 | **File association** | Associate with a PDM document upload or other project resource | Associate with a company-level resource |
 | **Upload workflow** | Identical (POST → PUT → PATCH → GET) | Identical (POST → PUT → PATCH → GET) |
 
-> **Note:** All other behaviors — presigned URL handling, checksum requirements, ETag submission, status progression, and expiration rules — are identical between the two levels.
+> **All other behaviors are identical** — presigned URL handling, checksum requirements, ETag submission, status progression, and expiration rules match between the two levels.
+{: .callout .callout--note}
 
 ### Example: Small File Upload at the Company Level (Single Part)
 

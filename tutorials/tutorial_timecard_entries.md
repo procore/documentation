@@ -8,6 +8,9 @@ section_title: "Product Guides: Field Tools"
 
 ## Overview
 
+> **Before you begin.** Working with the Timecard Entry API endpoints requires the Company-level Timecard tool to be enabled in your Procore account, with 'Admin' level permissions on that tool to create or update timecard entries.
+{: .callout .callout--prereq}
+
 Project managers rely on Procore's Budget tool to manage change orders, commitments, and direct costs, as well as leverage built-in forecasting features to track the estimated cost of completion and savings and loss over the course of the project lifecycle.
 In addition, Procore's Timecard tool can be used to track labor hours and manage field productivity.
 For companies using third-party labor tracking systems, the Procore API provides a Timecard Entry resource that can be used to integrate labor hours managed in external systems with budget views in Procore.
@@ -22,13 +25,6 @@ In preparation for working with timecard entries using the Procore API, we recom
 - [Edit a Timecard Entry](https://support.procore.com/products/online/user-guide/company-level/timecard/tutorials/edit-a-timecard-entry)
 
 In addition, we recommend completing the [Construction Financials](https://learn.procore.com/series/procore-certification/procore-certification-project-manager-construction-financials) video training course available at [learn.procore.com](https://learn.procore.com/)
-
-> PREREQUISITES
->
-> Working with the Timecard Entry API endpoints to integrate with external systems requires the following:
->
-> - Company level Timecard tool must be enabled in the Procore account.
-> - 'Admin' level permissions on the Company level Timecard tool required to create/update timecard entries in Procore.
 
 ## Timecard Entry API Endpoints
 

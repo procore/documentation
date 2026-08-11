@@ -11,6 +11,7 @@ section_title: Platform Concepts
 The **Federal Zone** is a separate Procore environment for U.S. federal agencies and contractors that require heightened security, compliance, and data governance. It is distinct from Procore’s Commercial environment and is designed to meet FedRAMP Moderate Compliance.
 
 This page explains how the Federal Zone differs from Commercial, what changes for developers, and how to request access and publish to the Federal Marketplace.
+<br><br>
 
 ***
 
@@ -20,12 +21,14 @@ This page explains how the Federal Zone differs from Commercial, what changes fo
 - Unique app registration and credentials per environment.
 - Different OAuth and API endpoints (see table below).
 - No sandbox environments in the Federal Zone.
+<br><br>
 
 ***
 
 ## Key Differences Between Federal and Commercial Environments
-> **Note:** Each environment requires its own app registration, credentials, and listing. Plan and scope development accordingly.
-<div class="details-bottom-spacing"></div>
+
+> **Apps can't be shared between environments.** Each needs its own registration, credentials, and Marketplace listing.
+{: .callout .callout--note}
 
 | Feature                 | Federal Zone                                   | Commercial (Production)          |
 |-------------------------|-----------------------------------------------|----------------------------------|
@@ -38,6 +41,7 @@ This page explains how the Federal Zone differs from Commercial, what changes fo
 | Marketplace             | Separate Federal Marketplace                  | Procore Marketplace              |
 
 <div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
 ***
 
@@ -49,14 +53,18 @@ The Federal Zone does not offer sandbox environments. To validate your app for F
 - **Limit scope and use non‑sensitive data.** Perform only the minimum validation required in the Federal Zone using controlled test cases and restricted access.
 
 While not a full substitute for a sandbox, this approach provides the closest model for validating behavior in the Federal Zone.
+<br><br>
 
 ***
 
 ## How to Get Started as a Procore for Government Marketplace Partner
 
-> ⚠️ **Important:** The Federal Zone does not provide sandbox accounts. All development and most testing should occur outside the Federal Zone before final validation.
+> **The Federal Zone does not provide sandbox accounts.** All development and most testing should occur outside the Federal Zone before final validation.
+{: .callout .callout--note}
 
 If you want your app available in the **Federal Zone**, follow these steps to gain access to the **FedRAMP Developer Portal** and publish to the **Federal Marketplace**.
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
 ***
 <details>
@@ -119,6 +127,7 @@ If you want your app available in the **Federal Zone**, follow these steps to ga
 - <a target="_blank" href="https://www.fedramp.gov/">What is FedRAMP?</a>
 - <a target="_blank" href="https://developers.procoregov.com/">Federal Developer Portal</a>
 - <a target="_blank" href="https://marketplace.procoregov.com/">Federal Marketplace</a>
-- For questions or support, contact <a href="mailto:marketplaceqa@procore.com">marketplaceqa@procore.com</a>.
 - [Handling Procore Regions]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_mpz.md %})
 - [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+
+For questions or support, contact <a href="mailto:marketplaceqa@procore.com">marketplaceqa@procore.com</a>.

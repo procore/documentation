@@ -78,7 +78,10 @@ In the Budget Changes API, Budget Modifications are analogous to the `adjustment
   "change_event_line_item_id": 78
 }
 ```
->It's important to note that the first Adjustment Line Item is considered the Adjustment. All subsequent Adjustment Line Items function as Allocation Line Items for that Adjustment. The comments field is only available on the Adjustment ("id": 1), and is not available on Adjustment Allocation Line Items ("id": >1). Any comments directed to Adjustment Line Item 1 will be accepted. Any comment directed to subsequent Adjustment Line Items will be discarded.
+The first Adjustment Line Item is considered the Adjustment; all subsequent Adjustment Line Items function as Allocation Line Items for it.
+
+> **Comments are only saved on the Adjustment.** The comments field applies only to the first Adjustment Line Item (`"id": 1`); any comment directed to a subsequent line item is silently discarded.
+{: .callout .callout--warning}
 
 
 | Budget Modification Field | Description | Budget Change Adjustment Line Item Field | Description

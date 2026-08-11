@@ -300,11 +300,59 @@ body {
     margin: 16px 0px;
     -webkit-box-align: center;
     align-items: center;
-    border-left: 8px solid #e61920;
     border-radius: 4px;
     padding: 4px 16px;
-    box-shadow: #0000001a 0px 1px 3px 0px, #00000033 0px 1px 2px 0px;
     background-color: #fef6f6;
+  }
+
+  /* ── Callout system (Note / Warning / Prerequisite) ── anchored on Torque banners */
+  blockquote.callout {
+    display: flex;
+    align-items: center;          /* vertically center icon (matches Torque banner) */
+    gap: 12px;
+    margin: 16px 0;
+    padding: 12px 16px;
+    border: none;
+    border-left: none;            /* reset the generic red bar */
+    border-radius: 4px;
+    box-shadow: none;
+    color: #232729;
+  }
+  blockquote.callout::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;             /* solid style */
+    font-size: 16px;
+    line-height: 1;               /* tight glyph box; parent centers it */
+    flex: 0 0 auto;
+  }
+  blockquote.callout > :first-child { margin-top: 0; }
+  blockquote.callout > :last-child { margin-bottom: 0; }
+
+  /* Note — neutral grey (Torque info banner) */
+  blockquote.callout--note {
+    background-color: #F4F5F6;
+  }
+  blockquote.callout--note::before {
+    content: "\f05a";             /* info-circle */
+    color: #6B7280;
+  }
+
+  /* Warning — pink tint + icon, no left bar, no shadow */
+  blockquote.callout--warning {
+    background-color: #FDF6F6;
+  }
+  blockquote.callout--warning::before {
+    content: "\f071";             /* exclamation-triangle */
+    color: #D92626;
+  }
+
+  /* Prerequisite — neutral, quiet (derives from Note) */
+  blockquote.callout--prereq {
+    background-color: #F4F5F6;
+  }
+  blockquote.callout--prereq::before {
+    content: "\f058";             /* check-circle */
+    color: #6B7280;
   }
 
   /* Heading Links */

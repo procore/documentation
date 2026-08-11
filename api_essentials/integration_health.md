@@ -32,6 +32,11 @@ The page is organized into three areas:
 ***
 ## Status states
 
+> **Start every investigation with the API Call Activity Report.** When an observation is flagged, it is your fastest path to the root cause, and every remediation step below begins here.
+{: .callout .callout--note}
+
+The API Call Activity Report contains the last 30 days of production API calls — endpoints, status codes, HTTP methods, and daily counts — so you can filter to the flagged status code or compliance signal and see exactly which endpoints, workflows, and trends are driving it.
+
 Each observation row, and the rolled-up integration status, uses one of three states. Integration Health reflects a rolling 14-day view of your production traffic, refreshed daily — so each status summarizes a recent trend, not a single moment.
 
 | Status | What it means | What to do |
@@ -41,9 +46,6 @@ Each observation row, and the rolled-up integration status, uses one of three st
 | 🟢 **Healthy** | No critical activity, and any warnings are isolated. | No action needed. |
 
 Expand any observation row to see its **Daily status** — the raw severity (`Critical`, `Warning`, or `Healthy`) for each individual day, which can differ from the rolled-up pill above it.
-<div class="details-bottom-spacing"></div>
-
-> **Start every investigation with the API Call Activity Report.** When an observation is flagged, the API Call Activity Report is your fastest path to the root cause. It contains the last 30 days of production API calls — endpoints, status codes, HTTP methods, and daily counts — so you can filter to the flagged status code or compliance signal and see exactly which endpoints, workflows, and trends are driving it. Every remediation step below begins here.
 <br><br>
 
 ***

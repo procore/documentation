@@ -13,7 +13,7 @@ Data connector apps enable secure data exchange between Procore and external pla
 - **User Level Authentication** — Uses OAuth 2.0 Authorization Code Flow to act on behalf of a specific user. API responses are limited by that user's permissions in Procore.
 - **Service Account Authentication** — Uses a Developer Managed Service Account (DMSA) and the OAuth 2.0 Client Credentials Flow for automated, system-to-system communication without requiring user login.
 
-To get started, first [create a Developer Portal account and app]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %}).
+Because data connector apps work entirely through the Procore REST API, review the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) — including rate limits and permitted usage — before you build. To get started, first [create a Developer Portal account and app]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %}).
 <br><br>
 
 ***
@@ -79,3 +79,10 @@ For details on setting up your sandbox, see the [Quick Start Guide]({{ site.url 
 ***
 ## Promote the Updated Sandbox Manifest to Production
 Once you're satisfied with testing, promote your sandbox version to production. See [Managing App Versions & Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) to learn how.
+<br><br>
+
+***
+## Next steps
+- [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) — rate limits, permitted usage, and when to use REST vs. Agentic APIs.
+- [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) — pick User Level vs. Service Account authentication.
+- [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) — set up Service Account authentication.
