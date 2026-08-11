@@ -1,93 +1,254 @@
-nav,
+/* ============================================================
+   Navigation — desktop sidebar
+   (mobile drawer is the next pass; the @media block below is
+   the original behaviour, left intact for now)
+   ============================================================ */
+
 article {
   padding: 48px;
+}
+
+nav {
+  width: 300px;
+  box-sizing: border-box;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  padding: 32px 20px;
+  border-right: 1px solid rgb(217, 217, 217);
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .trigger:hover {
   cursor: pointer;
 }
 
-nav {
-  width: 300px;
-  height: 100%;
+/* ---------------- Search ---------------- */
+
+#search-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 38px;
+  margin-bottom: 4px;
+  padding: 0 34px 0 36px;
+  border: 1px solid #d9dce1;
+  border-radius: 8px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  background-size: 15px 15px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a9099' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  color: #232729;
+  font-size: 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#search-input::placeholder {
+  color: #8a9099;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #006ddf;
+  box-shadow: 0 0 0 3px rgba(0, 109, 223, 0.15);
+}
+
+.search-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 38px;
+  width: 34px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #8a9099;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.search-clear.visible {
+  display: flex;
+}
+
+.search-clear:hover {
+  color: #232729;
+}
+
+.search-wrap {
+  position: relative;
+}
+
+#results-container {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#results-container:not(:empty) {
+  padding: 6px;
+  background-color: #fff;
+  border: 1px solid #e3e6ea;
+  border-radius: 10px;
+  box-shadow: 0 10px 28px -8px rgba(34, 40, 42, 0.28);
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+}
+
+#results-container:not(:empty)::before {
+  content: "Search Results";
+  display: block;
+  padding: 4px 8px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8a9099;
+}
+
+#results-container li {
+  list-style: none;
+}
+
+#results-container a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #232729;
+  text-decoration: none;
+}
+
+#results-container a:hover {
+  background-color: #f4f5f6;
+  text-decoration: none;
+}
+
+#results-container .no-results {
+  list-style: none;
+  padding: 6px 10px 8px;
+  color: #6b7280;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ---------------- Section triggers ---------------- */
+
+nav dl {
+  margin: 0;
+}
+
+dl.collapsible {
+  margin-bottom: 2px;
+}
+
+nav dt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #232729;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+nav dt:hover {
+  background-color: #e6e8eb;
+}
+
+nav dt.active {
+  color: #006ddf;
+}
+
+nav dt .icon {
+  flex: 0 0 auto;
+  font-size: 13px;
+  color: #232729;
+  transition: transform 0.2s ease, color 0.12s ease;
+}
+
+nav dt .icon.open {
+  transform: rotate(90deg);
+}
+
+nav dt.active .icon {
+  color: #006ddf;
+}
+
+/* ---------------- Section items ---------------- */
+
+dl.col_content {
+  margin: 2px 0 6px;
+  padding-left: 11px;
+}
+
+nav dd {
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid #ededed;
 }
 
 nav dd a {
-  color: #202020;
+  display: block;
+  padding: 7px 14px;
+  color: #4a4f54;
+  text-decoration: none;
+  border-radius: 0 6px 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.12s ease, color 0.12s ease;
 }
 
-nav dt.active,
-nav dd.active a {
-  color: #006ddf;
+nav dd a:hover {
+  background-color: #e6e8eb;
+  color: #232729;
 }
 
 nav dd.active {
   border-left-color: #006ddf;
 }
 
-nav dl {
-  margin-top: 0;
-}
-nav dt {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-nav dd {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-left: 4px solid #e6e6e6;
-  padding-left: 20px;
-  align-items: center;
-  margin-left: 0px;
+nav dd.active a {
+  color: #006ddf;
+  background-color: #d6e8fb;
+  font-weight: 500;
 }
 
+/* ============================================================
+   Mobile — UNCHANGED (rebuild is the next pass)
+   ============================================================ */
+
+/* Menu button — a dark text pill (mobile only) */
 .hamburger {
-  background: transparent;
-  border: none;
-  cursor: pointer;
   display: none;
-  flex-direction: column;
-  height: 24px;
-  justify-content: space-around;
-  left: 10px;
-  padding: 0;
-  position: absolute;
-  top: 51px;
-  width: 24px;
+  position: static;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 4px;
+  background: #232729;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
-.hamburger div {
-  background: gray;
-  border-radius: 10px;
-  height: 4px;
-  position: relative;
-  transform-origin: 1px;
-  transition: all 0.3s linear;
-  width: 24px;
-}
-
-.hamburger div:first-child {
-  transform: rotate(0);
-}
-
-.hamburger div:nth-child(2) {
-  opacity: 1;
-}
-
-.hamburger div:nth-child(3) {
-  transform: rotate(0);
-}
-
-.hamburger.open div:first-child {
-  transform: rotate(45deg);
-}
-
-.hamburger.open div:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.open div:nth-child(3) {
-  transform: rotate(-45deg);
+.hamburger:hover {
+  background: #3a3f43;
 }
 
 article.no-padding {
@@ -100,41 +261,92 @@ section.full-width {
   width: 100%;
 }
 
+/* Drawer chrome — hidden on desktop, shown at the mobile breakpoint */
+.nav-backdrop {
+  display: none;
+}
+
+.nav-close {
+  display: none;
+}
+
+.nav-close:hover {
+  color: #232729;
+}
+
+html.nav-locked {
+  overflow: hidden;
+}
+
 @media only screen and (max-width: 1100px) {
   .hamburger {
-    display: flex;
-  }
-  nav {
-    display: none;
-  }
-
-  nav.open {
-    display: block;
-    min-width: 100vw;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
-  nav,
+  /* Stack the Browse Docs button above the title, left-aligned with it */
+  article h1 {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
   article {
-    padding: 0px;
+    padding: 0;
+  }
+
+  /* Nav becomes a left slide-in drawer */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(320px, 82vw);
+    height: 100%;
+    z-index: 1200;
+    padding: 20px;
+    background-color: #ffffff;
+    border-right: none;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
   }
 
   nav.open {
-    padding: 48px;
+    transform: translateX(0);
+    box-shadow: 8px 0 40px rgba(0, 0, 0, 0.18);
   }
-}
-nav i.icon {
-  color: #2066DF;
-}
 
-#results-container a {
-  color: #095ac6;
-}
+  .nav-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin: -4px -4px 8px auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+  }
 
-#results-container a:hover {
-  text-decoration: underline;
-}
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1150;
+    background-color: rgba(20, 24, 28, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+  }
 
-#search-input {
-  width: 75%;
-  height: 1.5em;
+  .nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+  }
 }
