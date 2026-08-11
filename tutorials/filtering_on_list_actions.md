@@ -6,16 +6,15 @@ section_title: Reference
 
 ---
 
-> LIMITED FILTERING COVERAGE
->
-> Please note that only a subset of the available List Actions in the Procore API currently support filtering.
-> Please see the individual endpoint documentation pages for filtering capability.
-> Filtering coverage will be expanded in future releases of the API.
-
 ## Overview
 
 The Procore API supports filtering on List Actions to make large response data sets easier to work with.
 You can filter on supported attributes included in the response and you can filter on more than one attribute at a time.
+
+> **Limited filtering coverage.** Please note that only a subset of the available List Actions in the Procore API currently support filtering. Please see the individual endpoint documentation pages for filtering capability. Filtering coverage will be expanded in future releases of the API.
+{: .callout .callout--note}
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
 ## Filtering Syntax
 
@@ -176,7 +175,3 @@ Note that you can also multi-sort by passing in comma-separated field attributes
 
 By default, sorting occurs in ascending order.
 You can use `sort=-` to sort results in descending order.
-
-> LIMITED SORTING COVERAGE
->
-> Please note that only a subset of the available List Actions in the Procore API currently support sorting.

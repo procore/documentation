@@ -53,12 +53,13 @@ See [Document Management - Glossary](https://support.procore.com/products/online
 **Folderless organization** - Document Management [does not](https://v2.support.procore.com/faq-does-the-document-management-tool-support-folders/) support a traditional folder hierarchy. Organization is driven by document attributes and metadata. You must design your integration around document metadata instead of a folder structure.  
 **Version history grouping** - Document Revisions are automatically grouped into Document Containers based on their metadata. Each container maintains a version history chain with sequential version numbers. When you submit Document Revisions with the appropriate metadata, the system manages containerization and version numbering automatically. Providing consistent metadata values allows documents to be grouped correctly.
 
+***
 ## How Document Management Works
-The Procore Document Management (PDM) system is a metadata-driven platform that organizes project documents based on their attributes. It provides granular permission controls and uses ML to automate metadata detection.
 
-> The section below provides a high-level workflow overview.  
-For detailed step-by-step implementation instructions, see the [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}).  
-For all available API endpoints, see [Document Management API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %}).
+> **The steps below are a high-level workflow overview.** For detailed step-by-step implementation instructions, see [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}).
+{: .callout .callout--note}
+
+The Procore Document Management (PDM) system is a metadata-driven platform that organizes project documents based on their attributes. It provides granular permission controls and uses ML to automate metadata detection. For all available API endpoints, see [Document Management API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %}).
 
 **Step 1: Initialize Document Upload** - Create a Document Upload by providing filename and mime type. The system returns a unique upload ID.
 

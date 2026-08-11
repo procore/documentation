@@ -104,10 +104,8 @@ This step is common at the outset of a project when the initial set of drawings 
 The Procore API provides the Create Drawing Upload endpoint to enable creating a new Drawing Upload programmatically from your application.
 Here are a few things to keep in mind when working with the Create Drawing Upload endpoint.
 
-> PDF REQUIREMENT
->
-> Please note that all files uploaded to the Procore Drawings tool must in PDF format.
-> Other image file formats are currently not supported.
+> **PDF requirement.** Please note that all files uploaded to the Procore Drawings tool must in PDF format. Other image file formats are currently not supported.
+{: .callout .callout--note}
 
 - **File Format** - Files you include in your Drawing Upload must be PDF.
 - **Required Parameters** - The Create Drawing Upload reference page indicates that `project_id`, `drawing_set_id`, and `drawing_area_id` are required parameters. However, it should be noted that `drawing_area_id` is only required if you have drawing areas enabled on your project.

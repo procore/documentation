@@ -59,6 +59,7 @@ This page explains the full app installation and setup flow for a Procore compan
   Installers can reopen these notes anytime in **Company Admin** > **App Management** by selecting the app.
 
   > **For developers:** Define these in the **Developer Portal** under **Instructions and Post‑Installation Notes** so installers know exactly what to do next.
+  {: .callout .callout--note}
 
   ![Post Install Steps]({{ site.baseurl }}/assets/guides/app-install-instructions-final.png)
 

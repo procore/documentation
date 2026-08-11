@@ -7,11 +7,12 @@ section_title: Build Your App
 ---
 
 ## Overview
+> **These steps cover the Developer Sandbox,** which uses the Sandbox App Version Key. To test in a customer's On-Demand or Monthly Sandbox, install with the **Production** App Version Key instead. See [Procore Sandboxes]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
+{: .callout .callout--note}
+
 Every app you create in the Developer Portal includes a **Developer Sandbox** — a Procore company preloaded with sample project data for building and testing. Before you promote a version to production, install it in your Developer Sandbox and run through it exactly as a Procore user would. You'll need the **Sandbox App Version Key** for the version you want to test.
 
 For how installation works across sandbox and production environments, see [App Installation Overview]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/building_apps_install_arch.md %}).
-
-> **Note:** These steps cover the **Developer Sandbox**, which uses the Sandbox App Version Key. To test in a customer's **On-Demand** or **Monthly Sandbox**, install with the **Production** App Version Key instead — see [Procore Sandboxes]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
 <br><br>
 
 ***

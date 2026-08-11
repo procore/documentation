@@ -6,22 +6,18 @@ section_title: "Product Guides: Financial Tools"
 
 ---
 
-> IMPORTANT: REQUISITIONS ARE NOW SUBCONTRACTOR INVOICES
->
-> In July, 2018 Requisitions were renamed to Subcontractor Invoices in the Procore user interface.
-> Note, however, that the corresponding API endpoint URIs still use the requisition nomenclature.
-> For example, the endpoint URI for the List Subcontractor Invoices For Project action is still `/rest/v1.0/requisitions`.
-> In addition, related query parameter and response attribute names retain the requisition naming convention.
-> Please keep these aspects in mind as you work with the various Subcontractor Invoice API endpoints.
-> For additional information, please review [What happened to Requisitions and Payment Applications?](https://support.procore.com/faq/what-happened-to-requisitions-and-payment-applications) and [Information About Subcontractor Invoices (Requisitions)](https://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/information-about-requisitions) on our [Support Site](http://support.procore.com/).
-
 ## Overview
+
+> **Requisitions are now Subcontractor Invoices.** The tool was renamed in the Procore UI in July 2018, but the corresponding API endpoint URIs, query parameters, and response attributes still use the requisition nomenclature.
+{: .callout .callout--note}
 
 Subcontractor Invoices allow subcontractors to progressively bill at several stages during the construction process.
 These billings are based on a verified percentage of that commitment's completion.
 General contractors can configure billing period start and end dates, as well as the billing date, for each billing period.
 They can invite subcontractors to complete invoices for the most recent billing period, or they can create invoices on behalf of the subcontractor.
 Once the subcontractor invoice has been approved, payment can be issued against the commitment.
+
+For example, the endpoint URI for the List Subcontractor Invoices for Project action is still `/rest/v1.0/requisitions`, and related query parameters and response attributes retain the requisition naming convention. For background on the rename, see [What happened to Requisitions and Payment Applications?](https://support.procore.com/faq/what-happened-to-requisitions-and-payment-applications) and [Information About Subcontractor Invoices (Requisitions)](https://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/information-about-requisitions) on our [Support Site](http://support.procore.com/).
 
 For additional detail on subcontractor invoices and how they work in Procore, see [Information About Subcontractor Invoices](http://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/information-about-requisitions) on our [Support Site](http://support.procore.com/).
 
@@ -230,7 +226,6 @@ We recommend the following articles on our [Support Site](http://support.procore
 - [Commitments](https://support.procore.com/products/online/user-guide/project-level/commitments)
 - [Change Orders](https://support.procore.com/products/online/user-guide/project-level/change-orders)
 - [Commitment Change Order Tiers](https://support.procore.com/faq/what-are-the-different-change-order-tiers#Commitment_Change_Order_Tiers)
-
 - [Financial Tools Overview]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_financial_tools.md %})
 - [Budget Tools]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_line_items.md %})
 - [Budget Changes API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_budget_changes_api.md %})

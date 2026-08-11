@@ -6,9 +6,10 @@ layout: default
 section_title: Build Your App
 ---
 
-> **New to webhooks?** This page is the implementation guide — quick start for setting up hooks, triggers, and deliveries via the API. For background concepts, event payload reference, and how delivery works, see [How Webhooks Work]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}).
-
 ## Overview
+
+> **New to webhooks?** This page is the implementation guide — a quick start for setting up hooks, triggers, and deliveries via the API. For background concepts, event payloads, and how delivery works, see [How Webhooks Work]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}).
+{: .callout .callout--note}
 
 Use the Webhooks API to programmatically create and manage webhook configuration in Procore. You’ll create a **hook** (the endpoint + scope) and then add one or more **triggers** (the resources and events you care about). Finally, you can review recent **deliveries** for troubleshooting.
 
@@ -31,6 +32,9 @@ This guide is a quick start with light best practices. It intentionally avoids U
 
 ***
 ## 1) Create a Hook
+
+> **Keep `destination_headers` minimal and do not log secrets.** Rotate tokens periodically.
+{: .callout .callout--warning}
 
 Create a hook for the company **or** project you want to receive events from.
 
@@ -67,8 +71,7 @@ Create a hook for the company **or** project you want to receive events from.
   }
 }
 ```
-
-> Tip: Keep `destination_headers` minimal and do **not** log secrets. Rotate tokens periodically.
+<div class="details-bottom-spacing"></div>
 <div class="details-bottom-spacing"></div>
 
 ***

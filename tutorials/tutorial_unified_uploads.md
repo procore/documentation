@@ -520,7 +520,8 @@ This is appropriate when the file will be associated with a company-level resour
 | **File association** | Associate with a PDM document upload or other project resource | Associate with a company-level resource |
 | **Upload workflow** | Identical (POST → PUT → PATCH → GET) | Identical (POST → PUT → PATCH → GET) |
 
-> **Note:** All other behaviors — presigned URL handling, checksum requirements, ETag submission, status progression, and expiration rules — are identical between the two levels.
+> **All other behaviors are identical** — presigned URL handling, checksum requirements, ETag submission, status progression, and expiration rules match between the two levels.
+{: .callout .callout--note}
 
 ### Example: Small File Upload at the Company Level (Single Part)
 

@@ -37,17 +37,14 @@ The Procore API provides the following endpoints for working with Timecard Entri
 
 ## Timesheets
 
+> **Match your parameters to the timesheet's time-entry setting.** A timesheet is configured at the project level for either Total Hours or Start Time and Stop Time, and creating entries via the API requires parameters consistent with that setting.
+{: .callout .callout--note}
+
 Each Timesheet represent a grouping of one or more Timecard Entries for one day.
 When Timecard Entries are associated with a Timesheet, users are able to interact with them in the Timesheets tool.
 Timesheets offer the most advanced time tracking functionality in the Procore web app, allowing users to attach a signature, approve entries, fill out production quantities, and more.
 
-> TIME ENTRY SETTINGS
->
-> Timesheets are configured for time entry at the project level using either Total Hours or Start Time and Stop Time.
-> It is important to note that when you create timecard entries for a timesheet using the API, you must use parameters consistent with the time entry setting for the particular timesheet you are working with.
-> For example, if the timesheet is configured for Total Hours time entry then you would simply use the `hours` parameter.
-> Alternately, if the timesheet is configured to use Start Time and Stop Time, you would use the `time_in`, `time_out`, and `lunch_time` parameters.
-> Under this scenario, `time_in` and `time_out` are passed as ISO8601-compliant strings and `lunch_time` is passed as the number of minutes spent for a lunch break.
+If the timesheet is configured for Total Hours, use the `hours` parameter. If it is configured for Start Time and Stop Time, use the `time_in`, `time_out`, and `lunch_time` parameters — `time_in` and `time_out` are passed as ISO8601-compliant strings, and `lunch_time` is the number of minutes spent on a lunch break.
 
 ### Timesheet Endpoints
 

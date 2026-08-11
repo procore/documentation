@@ -6,9 +6,10 @@ layout: default
 section_title: Reference
 ---
 
-> **Before you start.** Confirm Authorization Code is the right grant for your use case in [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}). For full endpoint parameter reference, see [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}).
-
 ## Overview
+
+> **Before you begin.** Confirm the Authorization Code grant fits your use case before you implement it. See [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) and [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}).
+{: .callout .callout--prereq}
 
 The Authorization Code grant is a redirection-based flow used when your app accesses Procore data on behalf of a specific Procore user. The user authenticates with Procore, approves your app's access, and Procore redirects back to your app with an authorization code that you exchange for an access token.
 
@@ -35,9 +36,10 @@ The high-level flow:
 6. Your app exchanges the authorization code for an access token via `/oauth/token`.
 7. Your app calls Procore APIs using the access token.
 
-> **Production vs. Sandbox.** Access tokens and refresh tokens are not shared between production and sandbox environments. Use the credentials and base URL for whichever environment you're targeting. The examples below use the production base URL (`https://login.procore.com`).
-
 ## Step 1: Redirect the User to Procore's Authorization Endpoint
+
+> **Production vs. Sandbox.** Access tokens and refresh tokens are not shared between production and sandbox environments. Use the credentials and base URL for whichever environment you're targeting; the examples below use the production base URL (`https://login.procore.com`).
+{: .callout .callout--note}
 
 Direct the user to:
 

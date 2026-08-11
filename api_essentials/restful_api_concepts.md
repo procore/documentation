@@ -19,11 +19,10 @@ Resources comprise data and functionality and are accessed using Uniform Resourc
 Resources are acted upon by using a set of standard, well-defined operations.
 Clients and servers exchange representations of resources by using a standardized interface and protocol – typically HTTP.
 
-> HTTPS PROTOCOL REQUIREMENT
->
-> Because all Procore API resources are protected by Secure Sockets Layer (SSL) encryption, any call you make to a Procore API resource must use the `HTTPS` scheme in the URL.
+> **HTTPS protocol requirement.** Because all Procore API resources are protected by Secure Sockets Layer (SSL) encryption, any call you make to a Procore API resource must use the `HTTPS` scheme in the URL.
 > SSL establishes an encrypted link between the Procore resource server and your application.
 > This link ensures that all data passed between the resource server and your application remains private.
+{: .callout .callout--warning}
 
 ## HTTP Resource Methods
 

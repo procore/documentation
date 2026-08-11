@@ -283,6 +283,9 @@ The example JSON response above includes three properties, two (`url` and `field
 
 ### Step 2: Upload File to a Storage Service Using HTTP POST Request
 
+> **Don't send your Procore access token in this request.** This POST targets the storage service (AWS S3), not the Procore server — including your access token results in an error.
+{: .callout .callout--warning}
+
 Once we have successfully created an Upload (as described in the previous step), we use the data returned in the JSON response to construct a POST request to the storage service (AWS S3 for this example) that includes the file we want to upload along with the `url` and `fields` retrieved in Step 1 as form data.
 Note that in this example we are using "https://s3.amazonaws.com/pro-core.com" as the value for the `url` attribute, but your `url` attribute value will be different depending on the storage service location you are targeting.
 Be sure to use the exact `url` value returned from the call to the Create Uploads endpoint.
@@ -298,13 +301,12 @@ Note that you must use `file` as the Key name for specifying the file to upload.
 Remember that all values you define in the request payload must match those returned from the Create Upload endpoint. Choosing the Send button submits the POST request with the payload we've defined.
 Returned status codes in the 4xx and 5xx range indicate a problem with the request.
 
-> IMPORTANT CONSIDERATIONS
->
-> - You must initiate a direct file upload within one hour from the time you retrieve data from the Create Upload endpoint(s), or you can expect a 403 Forbidden response and must call Create Upload again.
-> - The currently authenticated user becomes the owner of the Upload and only that user can use the Upload in subsequent requests.
-> - The URL and fields necessary to complete a direct file upload may vary between companies and may also change over time so none of these may be hard-coded.
-> - Uploads must be associated with a Procore resource within one week or it will be automatically deleted from Procore servers.
-> - Be sure _not_ to include your access token in this request as it will result in an error. Bear in mind that this request is pointing to the AWS server and not the Procore Server.
+Keep the following in mind when performing a direct file upload:
+
+- You must initiate a direct file upload within one hour from the time you retrieve data from the Create Upload endpoint(s), or you can expect a 403 Forbidden response and must call Create Upload again.
+- The currently authenticated user becomes the owner of the Upload and only that user can use the Upload in subsequent requests.
+- The URL and fields necessary to complete a direct file upload may vary between companies and may also change over time, so none of these may be hard-coded.
+- Uploads must be associated with a Procore resource within one week or they will be automatically deleted from Procore servers.
 
 ## Moving an Uploaded File into Procore
 
@@ -326,6 +328,10 @@ The following endpoints may also be used to move uploaded files into Procore dep
 This section provides examples of how to use the upload id when integrating with various Procore endpoints.
 
 ### What is upload_id?
+
+> **Prefer `upload_id` for new integrations.** Procore maintains compatibility with both `upload_id` and the legacy approach, but `upload_id` is strongly preferred for its better performance and resilience.
+{: .callout .callout--note}
+
 The `upload_id` refers to a unique identifier created during Procore's direct S3 upload process. 
 This identifier represents a file that has been uploaded directly to Amazon S3 storage.
 
@@ -334,13 +340,6 @@ When a file is uploaded via the direct S3 method:
 1. An upload record is created with a upload_id
 2. The file is uploaded directly to S3 from the client
 3. The upload_id can then be referenced in subsequent API calls to associate the file with specific Procore resources
-
-
-> IMPORTANT CONSIDERATIONS
->
-> The system is designed to maintain compatibility with both new direct uploads using upload_id
-> and the legacy approach, but the upload_id method is strongly preferred for new implementations
-> due to its superior performance and resilience characteristics.
 
 ### Example-1: Using Upload id with Action Plans
 

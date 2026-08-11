@@ -10,7 +10,11 @@ section_title: Reference
 ## Overview
 
 Most Procore REST endpoints support pagination to keep responses fast and predictable when working with large result sets. Use pagination to request a subset of results and follow the links Procore returns to get the next page.
-<br><br>
+
+> **Not all endpoints support pagination.** Check the endpoint’s API reference to confirm support and any per‑page limits.
+{: .callout .callout--note}
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
 ***
 ## per_page and page parameters
@@ -29,6 +33,7 @@ curl -i -H "Authorization: Bearer <ACCESS_TOKEN>" \
   "https://api.procore.com/rest/v1.0/punch_items?project_id=14406&per_page=5&page=3"
 ```
 See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) for information on API rate limits.
+<br><br>
 
 ***
 ## Use Link headers to navigate
@@ -64,6 +69,3 @@ From this response you can see that there are **150** total items, **5** items p
 - If `page=2`, the `Link` header includes `first`, `next`, and `last`.
 - If `page=3` (as in the example), the `Link` header includes `first`, `prev`, `next`, and `last`.
 - On the last page, `next` is omitted.
-
-> **Not all endpoints support pagination.** Check the endpoint’s API reference to confirm support and any per‑page limits.
-{: .callout .callout--note}

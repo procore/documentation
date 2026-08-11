@@ -7,16 +7,13 @@ section_title: Reference
 
 ## Overview
 
+> **Production and sandbox are fully separate environments.** Access and refresh tokens are not shared across them, and each has its own OAuth credentials (Client ID and Client Secret) and authentication base URL. See [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
+{: .callout .callout--note}
+
 The Procore API provides a set of authentication endpoints you will use to implement the OAuth 2.0 protocol in your application.
 The following sections describe these endpoints along with their request parameters and special considerations.
 
-> PRODUCTION VS. SANDBOX ENVIRONMENTS
->
-> Access/refresh tokens are not shared across production and sandbox environments. Use separate OAuth credentials (Client ID and Client Secret) for each environment. Each environment also has its own authentication base URL.
->
-> For environment URLs and details, see [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
->
-> The examples below use the production authentication base URL (`https://login.procore.com`).
+The examples below use the production authentication base URL (`https://login.procore.com`).
 
 ## Grant App Authorization ([/oauth/authorize](https://developers.procore.com/reference/authentication#grant-app-authorization))
 

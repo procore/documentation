@@ -6,6 +6,8 @@ section_title: Reference
 ---
 
 ## Overview
+> **Keep your Client Secret confidential — never ship it in client-side code.** Single-page (JavaScript) and native apps can't protect a secret, so plan accordingly and do not use Client Credentials as your grant type.
+{: .callout .callout--warning}
 
 Once you have registered a new application on the Developer Portal you will work with two sets of OAuth credentials - one set for your _development sandbox_ and a separate set for the _production environment_.
 Initially during the development phase, you use the sandbox credentials to make API calls to your sandbox company account.
@@ -13,10 +15,6 @@ Once you have promoted your sandbox application manifest to production, you will
 See [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for additional information.
 You will use your Client IDs, which are considered public information, to build login URLs or include in Javascript source.
 Your Client Secrets, on the other hand, must be kept confidential.
-
-> CLIENT SECRET CONFIDENTIALITY
->
-> If your application is unable to maintain confidentiality with the Client Secret, as is the case with single-page Javascript applications or native applications, then you should not use the Client Secret.
 
 Once a user successfully authorizes your app to access their data in Procore, the Procore authorization server redirects them back to your app with either an authorization code or access token in the URL depending on the particular [OAuth 2.0 _grant type_]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) you have implemented.
 To ensure that the user's browser is directed back to the proper location, you are required to define one or more _Redirect URIs_ for your application.

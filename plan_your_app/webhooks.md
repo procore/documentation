@@ -7,9 +7,10 @@ section_title: Plan Your App
 
 ---
 
-> **Ready to implement?** This page covers webhook concepts, event payloads, and how delivery works. For step-by-step setup using the API, see [Set Up Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}).
-
 ## Overview
+
+> **Ready to implement?** This page covers webhook concepts, event payloads, and how delivery works. For step-by-step API setup, see [Set Up Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}).
+{: .callout .callout--note}
 
 A webhook is an HTTP request that Procore sends to your app the moment something changes — so your integration reacts in seconds instead of constantly polling the API. In Procore, you subscribe to events (create, update, delete) for supported resources; for example, your integration can be notified the instant a new RFI is created.
 
@@ -60,8 +61,7 @@ Each webhook delivery includes an event object with the fields below (legacy pay
 | `ulid` | 26‑character unique identifier. |
 | `user_id` | User who initiated the event. |
 
-> Events are sent in one or more **deliveries** to your endpoint. Deliveries include additional fields such as response status and outcome. For details, see [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}).
-<div class="details-bottom-spacing"></div>
+Events are sent in one or more **deliveries** to your endpoint. Deliveries include additional fields such as response status and outcome. For details, see [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}).
 
 ### Payload Formats
 **New integrations should use v4.0** — it's the latest and most capable format: all‑string IDs, a simplified schema, and support for more resource types. Choose an earlier version only to match an existing integration.
@@ -169,12 +169,12 @@ Your notification endpoint must:
 
 ***
 ## Reliability and Your Fallback Strategy
+> **Design a reconciliation fallback.** Don't rely on webhooks as your only source of truth — pair them with a periodic sync that queries the REST API for resources changed since your last run and fills any gaps.
+{: .callout .callout--note}
 
 Procore aims to deliver every webhook, quickly and reliably. But a webhook is only a **notification** — by the time it's sent, the underlying change has already committed in Procore and is retrievable from the REST API. Delivery of that *notification* is **best‑effort, not guaranteed**: during a Procore or network incident, or a prolonged failure at your endpoint, notifications can be **delayed** or, in the worst case, **dropped**.
 
-The key distinction: a delayed or missing webhook is a **notification** problem, never a **data** problem. The record is safe in Procore either way — the API is always the source of truth. Your job is to make sure a late or missing notification never turns into missing data on your side.
-
-> **Important — design a reconciliation fallback.** Do not treat webhooks as your only source of truth or as a guaranteed queue. Pair them with a periodic **reconciliation sync**: on a schedule, query the Procore REST API for resources changed since your last successful sync (for example, filtering by `updated_at`) and fill any gaps. Webhooks make your integration *fast*; reconciliation makes it *complete*. This is your safety net for the downtime and delay cases below.
+The key distinction: a delayed or missing webhook is a **notification** problem, never a **data** problem. The record is safe in Procore either way — the API is always the source of truth. Your job is to make sure a late or missing notification never turns into missing data on your side. Webhooks make your integration *fast*; a reconciliation sync makes it *complete*.
 
 **Make delivery resilient:**
 - **Idempotency**: A delivery for the same event can arrive more than once. Make processing idempotent — track processed events by `ulid` or event `id` so a re‑delivery is a no‑op.

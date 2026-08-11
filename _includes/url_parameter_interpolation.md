@@ -5,8 +5,9 @@ There are two kinds of values you can interpolate:
 
 - **Built-in Procore values** — provided automatically by Procore. Just add them to your URL; there's nothing to define.
 - **Custom parameters** — values *you* define, which the admin installing your app enters during setup (for example, a Box folder ID).
+<br><br>
 
----
+***
 
 ## Where Interpolation Works
 You can interpolate values in these parts of a component's URL in the Developer Portal:
@@ -16,8 +17,9 @@ You can interpolate values in these parts of a component's URL in the Developer 
 - **Query parameters**
 
 This is most common in HTTP GET requests, where data is passed in the URL.
+<br><br>
 
----
+***
 
 ## Built-in Procore Values
 These variables are supplied automatically — add them to your URL and Procore fills in the value at runtime. No setup required.
@@ -28,15 +30,18 @@ These variables are supplied automatically — add them to your URL and Procore 
 - `procore.project.name` – Name of that project
 
 **Why use them?** They save time and prevent mistakes. For example, use `procore.project.id` to fetch project-specific data from your system without asking the user to enter it.
+<br><br>
 
----
+***
 
 ## Custom Parameters
+> **Custom keys are your own namespace.** A custom parameter's key is a name you choose — it is *not* part of the `procore.*` built-in set. For instance, a custom `{% raw %}{{project_id}}{% endraw %}` you define is a separate value from the built-in `{% raw %}{{procore.project.id}}{% endraw %}`. To avoid confusion, don't reuse `procore.`-style names for custom keys.
+{: .callout .callout--note}
+
 Custom parameters are values the installing admin enters during setup. You define each one in your component, then reference it in your URL as a token. They can be required or optional, and are useful for things like a Box folder ID, a device ID (drone, camera), a subscription or user ID, or a region/locale.
+<br><br>
 
-> **Custom keys are your own namespace.** A custom parameter's key is a name you choose — it is *not* part of the `procore.*` built-in set. For instance, a custom `{{project_id}}` you define is a separate value from the built-in `{{procore.project.id}}`. To avoid confusion, don't reuse `procore.`-style names for custom keys.
-
----
+***
 
 ## Examples
 
@@ -55,7 +60,10 @@ https://box.app/{{folderID}}
 ?companyId={{procore.company.id}}&projectId={{procore.project.id}}&customField={{CustomField}}
 ```{% endraw %}
 
----
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
+
+***
 
 ## How to Add Custom URL Parameters
 

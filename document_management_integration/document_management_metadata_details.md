@@ -214,7 +214,8 @@ Placeholder fields enable creation of document uploads for files that are expect
 
 Workflow-controlled fields track document review and approval processes. These fields are **managed by the workflow engine**, but several can also be set directly via the Document Upload PATCH API. The table below indicates each field's editability.
 
-> **Note:** While the API accepts values for editable workflow fields, setting them manually may conflict with the workflow engine's own updates. Use caution when overriding workflow-managed values. In most integration scenarios, `assigned_workflow` is the only workflow field you need to set — the workflow engine populates the remaining fields automatically based on the configured workflow template.
+> **While the API accepts values for editable workflow fields, setting them manually may conflict with the workflow engine's own updates.** Use caution when overriding workflow-managed values. In most integration scenarios, `assigned_workflow` is the only workflow field you need to set — the workflow engine populates the remaining fields automatically based on the configured workflow template.
+{: .callout .callout--note}
 
 **Editable workflow fields:**
 

@@ -5,11 +5,14 @@ sub_header: Learn about our developer resources, how to get help, and where to l
 layout: default
 section_title: Introduction
 ---
-> **Check our [FAQ]({{ site.url }}{{ site.baseurl }}{% link additional_resources/faq.md %}) for quick answers to common questions.**
 
 ## Overview
 Here’s where to learn, find answers, and get help as you build on Procore. Use the resources below to get up to speed, solve problems, and connect with experts.
-<br><br>
+
+> **Check our [FAQ]({{ site.url }}{{ site.baseurl }}{% link additional_resources/faq.md %}) for quick answers to common questions.**
+{: .callout .callout--note}
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
 ***
 ## Get Help at a Glance

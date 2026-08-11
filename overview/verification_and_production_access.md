@@ -7,10 +7,7 @@ section_title: Introduction
 ---
 
 ## Overview
-
 When you sign up for the Developer Portal, your account starts as **Unverified**. You can immediately create apps, access the Developer Sandbox, and install and test your integration — no verification required to get started.
-
-> **The Developer Sandbox is available at every stage.** Whether your account is Unverified or verified, you always have full access to the Developer Sandbox. Build, install, and iterate freely — verification only gates production access.
 
 Moving an app to production requires two distinct steps:
 
@@ -18,7 +15,11 @@ Moving an app to production requires two distinct steps:
 2. **Request production credentials per app** — After your organization is verified, each app you want to promote to production requires its own approval. This ensures every app meets Procore's <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a> and <a href="https://procore.pactsafe.io/legal.html#contract-syqj4fbct" target="_blank">User Terms of Service</a> before production credentials are issued.
 
 If you're a Procore customer building an integration for your own company's internal use, apply through the [Private Developer](#verified-private-developer) path below — internal, single-account applications are reviewed and approved quickly.
-<br><br>
+
+> **The Developer Sandbox is available at every stage.** Whether your account is Unverified or verified, you always have full access to it — verification only gates production access.
+{: .callout .callout--note}
+<div class="details-bottom-spacing"></div>
+<div class="details-bottom-spacing"></div>
 
 ***
 ## Unverified
@@ -97,9 +98,10 @@ Reaching production requires clearing two gates, regardless of which verificatio
 
 ### Step 1: Verify your organization
 
-If your account is Unverified, the **Become a Verified Developer** prompt replaces production options in your app dashboard. Complete the verification process to establish who you are and how you intend to use your app. Once approved, your account transitions to either Private Developer or Marketplace Partner.
+> **A business email address is required for verification.** Personal email addresses (such as Gmail, Yahoo, or Outlook.com) are not accepted — your account must use a company or organization domain.
+{: .callout .callout--note}
 
-> **A business email address is required for verification.** Personal email addresses (such as Gmail, Yahoo, or Outlook.com) are not accepted. Your Developer Portal account must be associated with a company or organization domain before verification can be completed.
+If your account is Unverified, the **Become a Verified Developer** prompt replaces production options in your app dashboard. Complete the verification process to establish who you are and how you intend to use your app. Once approved, your account transitions to either Private Developer or Marketplace Partner.
 
 This step happens once per organization. An app's production access is determined by the verification status of its **owner** — not its collaborators. This is one reason app ownership matters: even if collaborators are added to an app, the owner's verification status governs what production options are available.
 
