@@ -3,7 +3,7 @@ permalink: /api-activity-export
 title: API Call Activity Report
 sub_header: Generate a 30-day CSV of your app's production API calls — endpoints, status codes, and timestamps — to investigate observations, troubleshoot issues, and track usage trends.
 layout: default
-section_title: Reference
+section_title: Manage & Monitor Your App
 ---
 
 ## Overview

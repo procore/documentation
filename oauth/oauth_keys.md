@@ -2,7 +2,7 @@
 permalink: /oauth-keys
 title: OAuth Credentials Management
 layout: default
-section_title: Reference
+section_title: Manage & Monitor Your App
 ---
 
 ## Overview
