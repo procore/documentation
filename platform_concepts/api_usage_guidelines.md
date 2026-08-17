@@ -56,6 +56,7 @@ To maintain platform performance and stay in compliance:
 - [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}) — for AI agents, semantic retrieval, and advanced analytics use cases
 - [Developer Policy]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %})
 - <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a>
+{: .link-list}
 <br><br>
 
 ***

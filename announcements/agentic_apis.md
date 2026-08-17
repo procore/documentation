@@ -92,4 +92,5 @@ Dates are directional, not committed. Subscribe through the form above to hear w
 - [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) for when to use REST versus Agentic
 - [Developer Policy]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_policy.md %}) for data handling and acceptable use
 - [Announcements]({{ site.url }}{{ site.baseurl }}{% link announcements/overview.md %}) for the platform changelog
+{: .link-list}
 <br><br>

@@ -135,6 +135,7 @@ This step happens for every app you want to promote to production. If you build 
 - [Partner & Marketplace Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %})
 - [Create an App]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %})
 - [Procore Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %})
+{: .link-list}
 <br><br>
 
 ***

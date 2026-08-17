@@ -5,11 +5,11 @@
    ============================================================ */
 
 article {
-  padding: 48px;
+  padding: 48px 48px 48px 0; /* no left padding so the content card can center on the full page (past the nav) */
 }
 
 nav {
-  width: 300px;
+  width: 340px;
   box-sizing: border-box;
   height: 100vh;
   position: sticky;
@@ -294,6 +294,11 @@ html.nav-locked {
 
   article {
     padding: 0;
+  }
+
+  /* Mobile: cancel the desktop page-centering offset — content is full-width in the drawer layout */
+  article section {
+    margin-left: 0;
   }
 
   /* Nav becomes a left slide-in drawer */
