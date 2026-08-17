@@ -204,7 +204,7 @@ This applies to "Payments Issued" on a commitment and "Payments Received" on a p
 ### Workflow
 
 Procore’s workflow tool provides control of the status field on certain objects in Procore.
-See the [Workflow API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %}) guide for additional information.
+See the [legacy Workflows API]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %}) guide, or [Interacting with Workflows]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows_v2.md %}) for the company-level Self-Serve Workflows tool.
 
 ### Webhooks
 

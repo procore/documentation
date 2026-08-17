@@ -2,7 +2,7 @@
 permalink: /document-management-intro
 title: Document Management Integration Overview
 layout: default
-section_title: Document Management Integration
+section_title: "Integration Guides: Document Management"
 
 ---
 
@@ -15,9 +15,9 @@ Before you begin working with the various Document Management API endpoints, we 
 ## Related Documentation
 
 - **Overview** (this page)
-- [API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})
 - [Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %})
 - [Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})
+- [API Reference: Document Management](https://developers.procore.com/reference/rest/document-uploads?version=2.0) — canonical endpoint list, maintained per API version
 
 ***
 
@@ -59,7 +59,7 @@ See [Document Management - Glossary](https://support.procore.com/products/online
 > **The steps below are a high-level workflow overview.** For detailed step-by-step implementation instructions, see [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}).
 {: .callout .callout--note}
 
-The Procore Document Management (PDM) system is a metadata-driven platform that organizes project documents based on their attributes. It provides granular permission controls and uses ML to automate metadata detection. For all available API endpoints, see [Document Management API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %}).
+The Procore Document Management (PDM) system is a metadata-driven platform that organizes project documents based on their attributes. It provides granular permission controls and uses ML to automate metadata detection. For the full list of available endpoints, see the [Document Management API reference](https://developers.procore.com/reference/rest/document-uploads?version=2.0).
 
 **Step 1: Initialize Document Upload** - Create a Document Upload by providing filename and mime type. The system returns a unique upload ID.
 

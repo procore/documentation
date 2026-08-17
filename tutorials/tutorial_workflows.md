@@ -7,7 +7,11 @@ section_title: "Product Guides: Project Management"
 
 ## Overview
 
-Procore’s Workflows tool provides control of the status field on certain objects in Procore.
+> **Which Workflows page do I need?** This page covers the **legacy Workflows tool** and its REST v1.0 API — the `workflow_instances` and `workflow_activity_histories` endpoints. It is still supported.
+> If you are building against the **company-level Self-Serve Workflows tool** — templates, presets, and instances, with their own separate endpoints — see [Interacting with Workflows]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows_v2.md %}) instead. The two tools have different APIs, not different versions of one API.
+{: .callout .callout--note}
+
+Procore’s legacy Workflows tool provides control of the status field on certain objects in Procore.
 Once the Workflows tool has been enabled and configured for your account, you are able to interact with the workflow on objects to perform workflow activities via the Procore API.
 
 A workflow is a Business Process Automation (BPA) solution that provides a company the ability to create customized approval processes that work with different Procore project tools.

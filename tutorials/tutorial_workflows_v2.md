@@ -7,6 +7,10 @@ section_title: "Product Guides: Project Management"
 
 ## Overview
 
+> **Which Workflows page do I need?** This page covers the **company-level Self-Serve Workflows tool** — templates, presets, and instances, and the workflow template, preset, instance, and response endpoints.
+> If you are working with the **legacy Workflows tool** — the `workflow_instances` and `workflow_activity_histories` endpoints, still supported — see [Interacting with Workflows (Legacy)]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_workflows.md %}) instead. The two tools have different APIs, not different versions of one API.
+{: .callout .callout--note}
+
 The company-level Workflows tool was designed to streamline the user experience and to replace time-consuming and manual approval processes.
 Custom workflows can be created that define the responsible roles, groups, and conditions for routing an item through that approval process—and that process is tailored to suit the unique needs and specific requirements of a company's business environment.
 See [Self-Serve Workflows User Guide](https://support.procore.com/products/online/user-guide/company-level/workflows/tutorials/user-guide) for additional information on using the Workflows tool in Procore.

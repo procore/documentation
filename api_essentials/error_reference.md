@@ -9,7 +9,7 @@ section_title: Reference
 ## Overview
 When making calls to the Procore API, you may encounter HTTP status codes that indicate the success or failure of your request. This page provides a comprehensive reference for common error codes, their causes, and how to resolve them.
 
-For general REST API concepts, see [RESTful API Concepts]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}).
+This page is the single source of truth for Procore API status codes. For how requests and responses are structured, see [API Request and Response Format]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}).
 <br><br>
 
 ***
@@ -82,7 +82,7 @@ A `403 Forbidden` on a specific endpoint usually means the authenticated user's 
 ## See Also
 
 - [Troubleshooting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/troubleshooting.md %})
-- [RESTful API Concepts]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %})
+- [API Request and Response Format]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %})
 - [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})
 - [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %})
 - [FAQ]({{ site.url }}{{ site.baseurl }}{% link additional_resources/faq.md %})

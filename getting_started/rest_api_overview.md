@@ -53,6 +53,50 @@ The resource version is specified in the URL using the following format.
 
 _example_: https://api.procore.com/rest/v1.2/projects
 
+## REST v2
+
+REST v2 is a major version of the Procore REST API that introduces changes to path structure, response shape, and error formatting.
+It is not a drop-in replacement for v1 — the differences below affect how you build requests and parse responses.
+
+### Paths Are Scoped to Company and Project
+
+v2 paths begin with `/rest/v2.x/...` and most are scoped to a company and, where applicable, a project.
+
+- Company-level resources: `/rest/v2.x/companies/{company_id}/resource(s)`
+- Project-level resources: `/rest/v2.x/companies/{company_id}/projects/{project_id}/resource(s)`
+
+This differs from v1, where the company is typically supplied as the `Procore-Company-Id` header rather than in the path.
+
+### Responses Use a Data Envelope
+
+Successful (200-level) v2 responses wrap the payload in a top-level `data` key, and ID attributes are returned as **strings** rather than integers.
+
+```
+# JSON Response Example
+
+{
+  "data": {
+    "id": "160586",
+    "login": "carl.contractor@example.com",
+    "name": "Carl Contractor"
+  }
+}
+```
+
+> **Parse IDs as strings in v2.** Code that assumes integer IDs from v1 will break against v2 responses.
+{: .callout .callout--warning}
+
+### Collection Endpoints Are Paginated
+
+v2 collection endpoints — those returning an array as the main payload under `data` — are paginated, with a default page size of 10 and a maximum of 100.
+Pagination information is returned in the `Per-Page`, `Total`, and `Link` response headers.
+See [Pagination]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/pagination.md %}) for how to work with these parameters and headers.
+
+### Errors Follow a Standard Format
+
+v2 returns 400-level errors in a standardized JSON response format.
+See [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %}) for status codes, causes, and resolutions.
+
 ## REST API Changelog
 
 The REST API includes a changelog feature.
@@ -94,3 +138,6 @@ Filters allow you to drill down on the types of changes you are most interested 
 ## Further Reading
 
 - [API Lifecycle and Deprecation]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})
+- [API Request and Response Format]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %})
+- [Pagination]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/pagination.md %})
+- [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %})

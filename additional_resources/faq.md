@@ -105,18 +105,6 @@ As a result, Procore does not publish a list of IP addresses for whitelisting pu
 If your internal network environment requires whitelisted IPs in order to allow access, we suggest hosting a server outside your network (e.g.
 in a network DMZ) to proxy requests from Procore into the internal network.
 
-## JSON
-
-**What is JavaScript Object Notation (JSON)?**
-
-JSON is an open-standard file format that uses human-readable text to transmit data objects consisting of attribute–value pairs and array data types. It is the data format used for Procore API requests/responses.
-
-**Is there a standard design pattern for how object attributes are ordered in Procore API JSON responses?**
-
-No. In general, an object will have an unordered set of name/value pairs.
-On the other hand, you may sometimes see ordered lists, either lexically or otherwise.
-However, this is not something you should generally expect or rely on for Procore API endpoints, new or existing.
-
 ## Testing
 
 **What is the recommended method for testing my Procore API calls?**
@@ -179,7 +167,8 @@ For additional information see [What is App Management?](https://support.procore
 
 **I'm receiving a particular error code. What does it mean?**
 
-Our [RESTful API Concepts]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}) guide includes a section that lists standard error codes you may encounter while working with the Procore API.
+The [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %}) lists the status codes you may encounter, their common causes, and how to resolve each one.
+For symptom-based help, see [Troubleshooting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/troubleshooting.md %}).
 If you need additional assistance with dealing with errors, please contact <apisupport@procore.com>.
 <br><br>
 

@@ -1,6 +1,7 @@
 ---
 permalink: /date-time
-title: Dates, Times & Time Zones
+title: Dates, Times, and Country Codes
+sub_header: Format dates, times, time zones, and ISO country and state codes correctly in Procore API requests.
 layout: default
 section_title: Reference
 
@@ -111,6 +112,26 @@ For example, if you are sending a `due_date` field value it must contain the tim
 In the example above we are sending `2018-06-26T00:00:00Z` for the `due_date` attribute value with the time component simply being `T00:00:00Z`.
 Note that if you do not send a properly formatted value the POST request will not fail, but it will be stored as a `null` value in the database.
 Here is a [downloadable JavaScript example]({{ site.baseurl }}/assets/static/datetime-post-sample-code.html) that helps illustrate how to properly include date/time data in the request body in the context of a single-page JavaScript application.
+<br><br>
+
+***
+## Country and State Codes
+
+Procore API endpoints that accept geographic location information expose `country_code` and `state_code` parameters.
+Both expect values that adhere to the Alpha-2 variant of the [ISO-3166 specification](https://www.iso.org/iso-3166-country-codes.html) — a unique, upper-case, two-character code for each country and each country subdivision.
+For example, the ISO-3166 Alpha-2 code for the United States is `US`, and the code for California is `CA`.
+
+> **Use a library, not your own lookup table.** Rather than creating and maintaining your own table of code values, leverage one of the many available ISO-3166 libraries for your language and platform. ISO owns the list and revises it — a hand-maintained copy will drift.
+{: .callout .callout--note}
+
+### Endpoints That Accept `country_code` and `state_code`
+
+- Company Users [[Create](https://developers.procore.com/reference/rest/v1/company-users#create-company-user), [Sync](https://developers.procore.com/reference/rest/v1/company-users#sync-company-users), [Update](https://developers.procore.com/reference/rest/v1/company-users#update-company-user)]
+- Company Offices [[Create](https://developers.procore.com/reference/rest/v1/company-offices#create-company-office), [Update](https://developers.procore.com/reference/rest/v1/company-offices#update-company-office)]
+- Company Vendors [[Create](https://developers.procore.com/reference/rest/v1/company-vendors#create-company-vendor), [Sync](https://developers.procore.com/reference/rest/v1/company-vendors#sync-company-vendors), [Update](https://developers.procore.com/reference/rest/v1/company-vendors#update-company-vendor)]
+- Projects [[Create](https://developers.procore.com/reference/rest/v1/projects#create-project), [Sync](https://developers.procore.com/reference/rest/v1/projects#sync-projects), [Update](https://developers.procore.com/reference/rest/v1/projects#update-project)]
+- Project Users [[Create](https://developers.procore.com/reference/rest/v1/project-users#create-project-user), [Update](https://developers.procore.com/reference/rest/v1/project-users#update-project-user)]
+- Project Vendors [[Create](https://developers.procore.com/reference/rest/v1/project-vendors#create-project-vendor), [Update](https://developers.procore.com/reference/rest/v1/project-vendors#update-project-vendor)]
 <br><br>
 
 ***
@@ -276,3 +297,12 @@ For example, using `"US Pacific Time"` will fail — use `"US/Pacific"` instead.
 | Nuku'alofa                   | Pacific           | +13:00             |
 | Samoa                        | Pacific           | +13:00             |
 | Tokelau Is.                  | Pacific           | +13:00             |
+
+<br><br>
+
+***
+## See Also
+
+- [Filtering & Sorting]({{ site.url }}{{ site.baseurl }}{% link tutorials/filtering_on_list_actions.md %})
+- [Pagination]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/pagination.md %})
+- [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %})
