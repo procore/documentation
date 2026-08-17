@@ -14,6 +14,16 @@ The headers returned may reflect either the spike limit or the hourly limit. The
 <br><br>
 
 ***
+## What counts against your limit
+
+Every request your app sends counts against your rate limit, including requests that fail. A `400`, `403`, or `404` response consumes quota exactly like a successful call.
+
+This matters more than it first appears. An app with a high client-error rate can spend a substantial share of its hourly allocation on calls that return nothing useful — malformed requests, calls to resources the app lacks permission for, or requests to routes that do not exist. Fixing those errors can recover meaningful capacity without any change to your limit.
+
+Use the <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/app_performance_metrics.md %}" target="_blank">API Call Activity Report</a> to see your error distribution by status code and endpoint.
+<br><br>
+
+***
 ## Interpret Rate Limit Headers
 
 There are three important rate limit headers returned when making a request to the Procore API. These values reflect your current limits. They can change at any time, so your application should always read and adapt to them.
@@ -91,5 +101,12 @@ Follow these practices to reduce the chance of hitting rate limits and to build 
 - If your app makes concurrent requests (for example, multi-threaded or trigger-based), enqueue work and control throughput by tuning concurrency (such as adjusting thread pool size).
 - Use index actions to fetch collections in one request instead of requesting individual objects.
 - Cache results whenever possible, especially for public or repeated data.
+- Subscribe to <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}" target="_blank">webhooks</a> for change detection and reduce how often you poll. Polling on a short interval spends most of your quota confirming that nothing changed. Keep polling as a lower-frequency reconciliation pass rather than your primary way of detecting updates.
 - Review your app’s <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/app_performance_metrics.md %}" target="_blank">API Call Activity Report</a> to understand and optimize request patterns.
+<br><br>
+
+***
+## Request a higher limit
+
+If your app consistently approaches its limit after you have applied these practices, you can request an increase. Approval depends on your production traffic, your backoff behavior, and your error rate. See [Request a Rate Limit Increase]({{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limit_increase.md %}).
 <br><br>
