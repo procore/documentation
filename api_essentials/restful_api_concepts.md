@@ -1,6 +1,7 @@
 ---
 permalink: /restful-api-concepts
-title: RESTful API Concepts
+title: API Request and Response Format
+sub_header: How Procore API requests and responses are structured — transport, supported methods, JSON payloads, and user IDs.
 layout: default
 section_title: Reference
 
@@ -8,26 +9,19 @@ section_title: Reference
 
 ## Overview
 
-Representational state transfer (REST) is a common architectural style used for web development.
-Systems and sites designed using this style aim for fast performance, reliability and the ability to scale easily.
+This page covers the conventions that apply to every Procore API call regardless of which resource you are working with: how requests must be transported, which HTTP methods are supported, how request and response payloads are shaped, and how user IDs are scoped.
 
-## Resources
-
-The primary abstraction of information in a REST architecture is a resource.
-Any information that can be named can be a resource - a document or image, a service, a collection of other resources, and so on.
-Resources comprise data and functionality and are accessed using Uniform Resource Identifiers (URIs).
-Resources are acted upon by using a set of standard, well-defined operations.
-Clients and servers exchange representations of resources by using a standardized interface and protocol – typically HTTP.
+For status codes and error responses, see [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %}).
+For versioning and URL structure, see [REST API Overview]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_overview.md %}).
 
 > **HTTPS protocol requirement.** Because all Procore API resources are protected by Secure Sockets Layer (SSL) encryption, any call you make to a Procore API resource must use the `HTTPS` scheme in the URL.
 > SSL establishes an encrypted link between the Procore resource server and your application.
 > This link ensures that all data passed between the resource server and your application remains private.
 {: .callout .callout--warning}
 
-## HTTP Resource Methods
+## Supported HTTP Methods
 
-Another important characteristic of REST is the use of resource methods to perform a desired operation.
-Similar to other RESTful APIs, Procore API supports the following set of standard HTTP verbs as resource methods.
+The Procore API supports the following HTTP verbs as resource methods.
 
 | HTTP Verb | CRUD    | Description                                                                                                                                                                                                             |
 | ----------| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -36,7 +30,8 @@ Similar to other RESTful APIs, Procore API supports the following set of standar
 | PATCH     | Update  | Partial update of existing resources. For example, if you wanted to change the status of an RFI, you would perform a PATCH call where you could update just the status of the RFI or change other supported parameters. |
 | DELETE    | Delete  | Delete resources. Use the DELETE call to remove an existing resource.       |
 
-To learn more about HTTP verbs as RESTful methods, see... [HTTP Methods for RESTful Services](https://www.restapitutorial.com/lessons/httpmethods.html).
+> **Procore uses PATCH, not PUT, for updates.** Updates are partial — send only the attributes you intend to change. `PUT` is not supported.
+{: .callout .callout--note}
 
 ## API Requests and Responses
 
@@ -124,42 +119,22 @@ The following example shows the response from the request shown above.
 }
 ```
 
-## HTTP Status Codes
+### Attribute Ordering
 
-Every request includes a HTTP status code with the result.
-The code indicates the success or failure of an API request.
-In general, codes in the **2xx range indicate success**, codes in the **4xx indicate an error** with the provided information, and codes in the **5xx range indicate a server-side error**.
-
-**Successful status codes (2xx)**
-
-- **200 OK** - The request was successful.
-- **201 Created** - The resource was successfully created. Confirms a success when creating a new employee, time off request, etc.
-
-**Client error status codes (4xx)**
-
-- **400 Bad Request** - The request was invalid or could not be understood by the server. Resubmitting the request will likely result in the same error.
-- **401 Unauthorized** - Your API key is missing.
-- **403 Forbidden** - The application is attempting to perform an action it does not have privileges to access. Verify your API key belongs to an enabled user with the required permissions.
-- **404 Not Found** - The resource was not found with the given identifier. Either the URL given is not a valid API, or the ID of the object specified in the request is invalid.
-- **406 Not Acceptable** - The request contains references to non-existent fields.
-- **409 Conflict** - The request attempts to create a duplicate and conflicts with the current state of the server.
-- **422 Unprocessable Entity** - The structure, syntax, etc of the API call was correct, but due to business logic the server is unable to process the request.
-- **429 Limit Exceeded** - Too many requests in a given amount of time (see [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})).
-
-**Server error status codes (5xx)**
-
-- **500 Internal Server Error** - The server encountered an error while processing your request and failed.
-- **502 Gateway Error** - The load balancer or web server had trouble connecting to the backend service. Please try the request again.
-- **503 Service Unavailable** - The service is temporarily unavailable. Please try the request again.
-
-You can future proof your code by using the following status code ranges:
-
-- 200–299 as success
-- 400–499 as client request errors
-- 500–599 as server errors
+Do not rely on the order of attributes in a JSON response.
+In general, an object has an unordered set of name/value pairs.
+You may sometimes see ordered lists, either lexically or otherwise, but this is not something to expect or depend on for any Procore API endpoint, new or existing.
 
 ## Globally Unique User IDs
 
 When a new user is added to Procore, the integer ID assigned to that user has global scope and is unique across all company accounts and projects.
 A user can be a member of multiple Procore company accounts by virtue of their unique email address.
 As you add that user to project-level directories within a company, the `user_id` value remains the same across those projects — it is inherited from the company-level directory.
+
+## See Also
+
+- [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %})
+- [REST API Overview]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_overview.md %})
+- [Pagination]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/pagination.md %})
+- [Filtering & Sorting]({{ site.url }}{{ site.baseurl }}{% link tutorials/filtering_on_list_actions.md %})
+- [Dates, Times, and Country Codes]({{ site.url }}{{ site.baseurl }}{% link best_practices/date_time.md %})

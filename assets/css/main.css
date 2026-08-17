@@ -8,8 +8,49 @@ body {
   }
 
   a {
-  color: #f47e42;
-  text-decoration: none;
+    color: #1D5CC9;
+    text-decoration: none;
+    font-feature-settings: 'liga' off, 'clig' off;
+  }
+
+  a:hover {
+    color: #133D86;
+  }
+
+  a:focus-visible {
+    outline: 2px solid #1D5CC9;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* ── Link styling & accessibility ── Docs House Standards §7 (WCAG 2.2 AA) ──
+     Rule: underline when a link sits among non-link text; the underline may be
+     dropped only where the whole block is links. Nav lives outside <main>, so
+     this selector underlines content links and leaves nav chrome bare. */
+  main a {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    text-decoration-skip-ink: auto;   /* keep descenders legible */
+    text-underline-offset: 0.15em;
+  }
+
+  /* Link-only blocks (See also lists, link-only table cells).
+     WCAG 2.5.8 Target Size (Minimum): 24x24px. The "inline" exception covers
+     links inside a sentence — it does NOT cover a stack of bare links, which is
+     why these need an explicit target box. Underline is retained for site-wide
+     consistency (3.2.4); to render these bare, add
+     `text-decoration-line: none` to the `a` rules below. */
+  main .link-list li {
+    line-height: 26px;   /* keeps adjacent targets from overlapping */
+  }
+
+  /* Vertical padding (not display:inline-block) grows the hit area past 24px while
+     leaving the link inline, so long labels still wrap mid-link. 5px each side on a
+     ~15.5px inline box lands at 25.5px. */
+  main .link-list li > a,
+  main td.link-cell > a {
+    padding-block: 5px;
   }
 
   body {
@@ -29,6 +70,9 @@ body {
 
   article section {
     max-width: 1200px;
+    /* Center the container on the FULL page (nav space counted), clamped so it never crowds the nav */
+    margin-left: max(24px, calc(50vw - 940px));
+    margin-right: auto;
     background-color: white;
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px, rgb(0 0 0 / 10%) 0px 1px 3px;
@@ -103,10 +147,13 @@ body {
   line-height: 1.4;
 }
 
+/* Underlined via text-decoration, not border-bottom — border-bottom collides
+   with descenders and can't skip ink (Docs House Standards §7). */
 .feedback-email-link {
-  color: #f57d20;
-  text-decoration: none;
-  border-bottom: 1px solid #f57d20;
+  color: #1D5CC9;
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 0.15em;
   font-weight: 500;
 }
 
@@ -371,6 +418,13 @@ body {
     padding: 5px;
     opacity: 0;
     position: absolute;
+    /* 24x24 minimum target (WCAG 2.5.8) — this anchor is not inline in a sentence */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    min-height: 24px;
+    box-sizing: border-box;
   }
 
   .heading-link::before {
@@ -378,6 +432,12 @@ body {
   }
 
   .heading-link:hover {
+    opacity: 1;
+  }
+
+  /* Without this a keyboard user tabs onto an invisible link — the focus ring is
+     painted but opacity:0 hides it, failing WCAG 2.4.7 Focus Visible. */
+  .heading-link:focus-visible {
     opacity: 1;
   }
 
@@ -486,19 +546,19 @@ body {
   }
 
   .helpful-widget button:hover {
-    border-color: #f47e42;
-    color: #f47e42;
+    border-color: #1D5CC9;
+    color: #1D5CC9;
   }
 
   .helpful-widget button.selected {
-    background: #fff3e0;
-    border-color: #f47e42;
-    color: #f47e42;
+    background: #EAF2FD;
+    border-color: #1D5CC9;
+    color: #1D5CC9;
     font-weight: 600;
   }
 
   .helpful-thanks {
     font-size: 13px;
-    color: #f47e42;
+    color: #1D5CC9;
     display: none;
   }

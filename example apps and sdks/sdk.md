@@ -6,7 +6,17 @@ section_title: Tools
 
 ---
 
-Software Development Kits and Sample Applications designed to get you up and running quickly with the Procore API.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/introduction" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/introduction">click here</a>.</p>
+  </body>
+</html>
+
+<!-- Software Development Kits and Sample Applications designed to get you up and running quickly with the Procore API.
 
 ## Procore JavaScript SDK
 
@@ -47,4 +57,4 @@ The application is configured to access either Procore's production environment 
 In addition, it allows you to make a test call to the [Show User Info](https://developers.procore.com/reference/me) endpoint.
 For more information, visit the link below and refer to the README page in the GitHub repository.
 
-- [Procore Python Sample App](https://github.com/procore/Procore-Sample-Python)
+- [Procore Python Sample App](https://github.com/procore/Procore-Sample-Python) -->

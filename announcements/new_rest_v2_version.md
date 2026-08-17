@@ -5,6 +5,24 @@ layout: default
 section_title: Announcements
 ---
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/rest-api-overview" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/rest-api-overview">click here</a>.</p>
+  </body>
+</html>
+
+<!-- Retired 2026-08-17. Merged into REST API Overview (/rest-api-overview) as the "REST v2" section.
+     Rationale: the content was evergreen concept material (path format, data envelope, string IDs,
+     pagination, error format) sitting in Announcements, where readers expect dated news. It also left
+     REST API Overview documenting only the v1 URL scheme, which was misleading about v2's
+     company/project-scoped paths. Trimmed on merge: the pagination detail now links to /pagination and
+     the error-format note links to /error-reference rather than restating either.
+     Original content preserved below for reference.
+
 ## What is Procore’s Rest V2 API
 
 Procore’s Rest V2 API is a new major version of Procore Rest API, introducing significant updates in the areas of consistency and performance.
@@ -72,3 +90,4 @@ GET /rest/v2.0/companies/{company_id}/items
 
 # And the associated pagination information is provided with these response headers `Per-Page`, `Total`, and `Link`.
 ```
+-->

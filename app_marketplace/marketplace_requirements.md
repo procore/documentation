@@ -16,7 +16,7 @@ Before building, make sure to:
 - Review our API documentation to explore <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">available endpoints</a> and <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}">app types</a>
 - Review the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) to understand how Procore's APIs are designed to be used
 - Understand <a href="{{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}">OAuth 2.0 authentication flows</a> (User vs. Service Account)
-- Your app **must** implement proper <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %}">error handling</a> and comply with Procore's <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}">rate limits</a>
+- Your app **must** implement proper <a href="{{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %}">error handling</a> and comply with Procore's <a href="{{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}">rate limits</a>
 - Use your Developer Sandbox to test <a target="_blank" href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app">app installations</a> and simulate real-world usage
 - Invite <a href="{{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %}">collaborators</a> to your app via the Developer Portal
 <br><br>

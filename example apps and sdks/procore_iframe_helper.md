@@ -2,7 +2,7 @@
 permalink: /procore-iframe-helper
 title: Procore Iframe Helper
 layout: default
-section_title: Building Applications
+section_title: Example Apps & SDKs
 ---
 
 To aid you in developing your embedded App, we have published an open-source Javascript library to help simplify the implementation of the required authorization and authentication components of your App.

@@ -2,7 +2,7 @@
 permalink: /document-management-technical-guide
 title: Document Management Integration Technical Guide
 layout: default
-section_title: Document Management Integration
+section_title: "Integration Guides: Document Management"
 
 ---
 
@@ -12,9 +12,9 @@ This guide walks you through the complete API workflow for uploading documents, 
 ## Related Documentation
 
 - [Overview]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %})
-- [API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})
 - **Technical Guide** (this page)
 - [Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})
+- [API Reference: Document Management](https://developers.procore.com/reference/rest/document-uploads?version=2.0) — canonical endpoint list, maintained per API version
 
 ***
 

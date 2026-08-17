@@ -3,7 +3,7 @@ permalink: /troubleshooting
 title: Troubleshooting
 sub_header: Solutions for common issues developers encounter when integrating with the Procore API.
 layout: default
-section_title: Reference
+section_title: Manage & Monitor Your App
 ---
 
 ## Overview

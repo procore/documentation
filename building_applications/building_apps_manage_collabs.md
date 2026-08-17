@@ -3,7 +3,7 @@ permalink: /building-apps-manage-collabs
 title: Managing App Collaboration
 sub_header: Learn how to manage your Procore developer app by inviting collaborators and transferring app ownership.
 layout: default
-section_title: Build Your App
+section_title: Manage & Monitor Your App
 
 ---
 

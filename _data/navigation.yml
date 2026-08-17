@@ -29,6 +29,8 @@
       url: /tutorial-mpz
     - title: Procore's Federal Environment
       url: /federal-zone-overview
+    - title: API Lifecycle
+      url: /rest-api-lifecycle
     - title: API Usage Guidelines
       url: /api-usage-guidelines
     - title: API Security Overview
@@ -66,8 +68,6 @@
       url: /install-version-sandbox
     - title: Promote a Version to Production
       url: /building-apps-promote-manifest
-    - title: Manage App Collaborators
-      url: /building-apps-manage-collabs
     # - title: Creating an App Manifest - NEEDED FOR REDIRECT
     #   url: /building-apps-define-manifest
     # - title: App Versioning and Update Notification - NEEDED FOR REDIRECT
@@ -80,6 +80,21 @@
     #   url: /building-apps-metrics - Redirect
     # - title: Maximizing Conversation Rates
     #   url: /building-apps-maximizing-conversion-rates - Redirect
+
+- title: Manage & Monitor Your App
+  items:
+    - title: Integration Health
+      url: /integration-health
+    - title: API Call Activity Report
+      url: /api-activity-export
+    - title: Troubleshooting
+      url: /troubleshooting
+    - title: Request a Rate Limit Increase
+      url: /rate-limit-increase
+    - title: Manage App Collaborators
+      url: /building-apps-manage-collabs
+    - title: OAuth Credentials Management
+      url: /oauth-keys
 
 - title: Marketplace & Partnership
   items:
@@ -160,75 +175,18 @@
     - title: Workflows (Legacy)
       url: /tutorial-workflows
 
-- title: Reference
+- title: "Integration Guides: Document Management"
   items:
-    - title: OAuth Credentials Management
-      url: /oauth-keys
-    - title: OAuth 2.0 Authorization Code Grant
-      url: /oauth-auth-grant-flow
-    - title: OAuth 2.0 Client Credentials Grant
-      url: /oauth-client-credentials
-    - title: Authentication Endpoints
-      url: /oauth-endpoints
-    - title: REST API Overview
-      url: /rest-api-overview
-    - title: API Lifecycle
-      url: /rest-api-lifecycle
-    - title: RESTful API Concepts
-      url: /restful-api-concepts
-    - title: Pagination
-      url: /pagination
-    - title: Filtering & Sorting
-      url: /filtering-on-list-actions
-    - title: URL Parameter Interpolation
-      url: /building-apps-url-parameter-interpolation
-    - title: Side Panel View Keys
-      url: /side-panel-view-keys
-    - title: Dates, Times & Time Zones
-      url: /date-time
-    - title: Country Codes
-      url: /country-codes
-    - title: Sync Actions
-      url: /using-sync-actions
-    - title: Error Code Reference
-      url: /error-reference
-    - title: Troubleshooting
-      url: /troubleshooting
-    - title: Integration Health
-      url: /integration-health
-    - title: API Call Activity Report
-      url: /api-activity-export
+    - title: Overview
+      url: /document-management-intro
+    # - title: API Endpoints
+    #   url: /document-management-api-endpoints - Retired 2026-08-17, re-hosted endpoint data; see the REST reference. Needed for Redirect
+    - title: Technical Guide
+      url: /document-management-technical-guide
+    - title: Metadata Details
+      url: /document-management-metadata-details
 
-- title: Example Apps & SDKs
-  items:
-    - title: SDKs & Sample Applications
-      url: /sdk
-    - title: Procore Iframe Helper
-      url: /procore-iframe-helper
-    - title: BIM Web Viewer API
-      url: /bim-web-viewer
-    - title: BIM Web Viewer Demo
-      url: /bim-web-viewer-demo
-    - title: Novorender BIM Web Viewer (Experimental)
-      url: /novolib-bim-web-viewer
-
-# - title: MCP Integration
-#   items:
-#     - title: Procore AI Edge MCP Setup
-#       url: /procore-ai-edge-mcp-setup
-
-- title: Announcements
-  items:
-    - title: Changelog
-      url: /overview
-    - title: Agentic APIs
-      url: /agentic-apis
-    - title: "Deprecation: Project Directory Update Webhooks"
-      url: /webhook-fanout-migration
-    - title: New REST V2 Version
-      url: /new-rest-v2-version
-
-# - title: ERP Integration
+# - title: "Integration Guides: ERP"
 #   items:
 #     - title: Getting Started
 #       url: /erp-intro
@@ -243,13 +201,60 @@
 #     - title: Staged Records
 #       url: /erp-staged-records-details
 
-- title: Document Management Integration
+# - title: "Integration Guides: MCP"
+#   items:
+#     - title: Procore AI Edge MCP Setup
+#       url: /procore-ai-edge-mcp-setup
+
+- title: Reference
   items:
-    - title: Overview
-      url: /document-management-intro
-    - title: API Endpoints
-      url: /document-management-api-endpoints
-    - title: Technical Guide
-      url: /document-management-technical-guide
-    - title: Metadata Details
-      url: /document-management-metadata-details
+    - title: OAuth 2.0 Authorization Code Grant
+      url: /oauth-auth-grant-flow
+    - title: OAuth 2.0 Client Credentials Grant
+      url: /oauth-client-credentials
+    - title: Authentication Endpoints
+      url: /oauth-endpoints
+    - title: REST API Overview
+      url: /rest-api-overview
+    - title: Request & Response Format
+      url: /restful-api-concepts
+    - title: Pagination
+      url: /pagination
+    - title: Filtering & Sorting
+      url: /filtering-on-list-actions
+    - title: URL Parameter Interpolation
+      url: /building-apps-url-parameter-interpolation
+    - title: Side Panel View Keys
+      url: /side-panel-view-keys
+    - title: Dates, Times & Codes
+      url: /date-time
+    # - title: Country Codes
+    #   url: /country-codes - Retired 2026-08-17, merged into /date-time. Needed for Redirect
+    - title: Sync Actions
+      url: /using-sync-actions
+    - title: Error Code Reference
+      url: /error-reference
+
+- title: Example Apps & SDKs
+  items:
+    # - title: SDKs & Sample Applications - Needed for Redirect
+    #   url: /sdk - Needed for Redirect
+    - title: Procore Iframe Helper
+      url: /procore-iframe-helper
+    - title: BIM Web Viewer API
+      url: /bim-web-viewer
+    - title: BIM Web Viewer Demo
+      url: /bim-web-viewer-demo
+    - title: Novorender BIM Web Viewer (Experimental)
+      url: /novolib-bim-web-viewer
+
+- title: Announcements
+  items:
+    - title: Changelog
+      url: /overview
+    - title: Agentic APIs
+      url: /agentic-apis
+    - title: "Deprecation: Project Directory Update Webhooks"
+      url: /webhook-fanout-migration
+    # - title: New REST V2 Version
+    #   url: /new-rest-v2-version - Retired 2026-08-17, merged into /rest-api-overview. Needed for Redirect

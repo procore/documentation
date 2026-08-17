@@ -3,8 +3,24 @@ permalink: /country-codes
 title: Working with Country Codes
 layout: default
 section_title: Reference
-
 ---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/documentation/date-time" />
+  </head>
+  <body>
+    <p>If you are not redirected, <a href="/documentation/date-time">click here</a>.</p>
+  </body>
+</html>
+
+<!-- Retired 2026-08-17. Merged into Dates, Times, and Country Codes (/date-time).
+     Rationale: the page was a single concept (use ISO-3166 Alpha-2) plus an endpoint list, which the
+     Page Granularity & Content Minimalism Standard classifies as a section, not a page. It also told the
+     reader not to maintain a code table while existing largely to host one. Both halves now live under
+     "Country and State Codes" on /date-time, alongside the other value-format guidance.
+     Original content preserved below for reference.
 
 ## Overview
 
@@ -33,3 +49,4 @@ Here are the Procore API endpoints that include `country_code` and `state_code` 
 
 - [Dates, Times & Time Zones]({{ site.url }}{{ site.baseurl }}{% link best_practices/date_time.md %})
 - [Filtering & Sorting]({{ site.url }}{{ site.baseurl }}{% link tutorials/filtering_on_list_actions.md %})
+-->

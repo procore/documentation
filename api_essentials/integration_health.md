@@ -3,7 +3,7 @@ permalink: /integration-health
 title: Integration Health
 sub_header: Monitor your app's health and compliance against Procore's best practices — what each observation means, why it matters, and how to resolve unhealthy states.
 layout: default
-section_title: Reference
+section_title: Manage & Monitor Your App
 ---
 
 ## Overview

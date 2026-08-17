@@ -2,7 +2,7 @@
 permalink: /document-management-metadata-details
 title: Document Management Metadata Details
 layout: default
-section_title: Document Management Integration
+section_title: "Integration Guides: Document Management"
 
 ---
 Document metadata is the foundation of how Procore Document Management (PDM) organizes, filters, and manages documents.  
@@ -14,9 +14,9 @@ This reference describes the metadata structure returned by **Document Upload** 
 ## Related Documentation
 
 - [Overview]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %})
-- [API Endpoints]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_api_endpoints.md %})
 - [Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %})
 - **Metadata Details** (this page)
+- [API Reference: Document Management](https://developers.procore.com/reference/rest/document-uploads?version=2.0) — canonical endpoint list, maintained per API version
 
 ***
 

@@ -133,10 +133,6 @@ Projected dates are provided for planning. Exact timing can vary based on mainte
 
 | Month | Date | Day |
 | --- | --- | --- |
-| May 2026 | 05/05/2026 | Tuesday |
-| June 2026 | 06/02/2026 | Tuesday |
-| July 2026 | 07/01/2026 | Wednesday |
-| August 2026 | 08/04/2026 | Tuesday |
 | September 2026 | 09/01/2026 | Tuesday |
 | October 2026 | 10/01/2026 | Thursday |
 | November 2026 | 11/03/2026 | Tuesday |
