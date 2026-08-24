@@ -35,8 +35,7 @@ The Procore API provides the following endpoints for working with Timecard Entri
 | [Update Timecard Entry](https://developers.procore.com/reference/rest/v1/timecard-entries#update-timecard-entry) | Updates the information for a given Timecard Entry in the specified Project.     |
 | [Delete Timecard Entry](https://developers.procore.com/reference/rest/v1/timecard-entries#delete-timecard-entry) | Deletes a given Timecard Entry in the specified Project.                         |
 
-## Timesheets
-
+## Timesheet Configuration
 > **Match your parameters to the timesheet's time-entry setting.** A timesheet is configured at the project level for either Total Hours or Start Time and Stop Time, and creating entries via the API requires parameters consistent with that setting.
 {: .callout .callout--note}
 

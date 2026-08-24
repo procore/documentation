@@ -72,7 +72,7 @@ Your app's pricing plan is an important part of the submission process, providin
 <br><br>
 
 ***
-## Features
+## Feature Descriptions
 #### **Requirement:** Each feature must be 200 characters or less, no special characters or emojis
 The **Features** section highlights the key functionalities of your app, emphasizing the value it delivers to end-users. Each feature should be clear, specific, and focused on tangible benefits of the app.
 
@@ -105,8 +105,7 @@ This map visually represents how data flows between Procore and the external sys
 <br><br> -->
 
 ***
-## Media
-
+## Media Requirements
 ### Logo
 #### **Requirement:** JPG or PNG, 200x200px 
 Your app icon is one of the first things users notice in the Marketplace, so it should clearly represent your app’s identity. Make sure it's unique, eye-catching, and easy to understand.

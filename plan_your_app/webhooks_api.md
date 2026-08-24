@@ -31,7 +31,7 @@ This guide is a quick start with light best practices. It intentionally avoids U
 <br><br>
 
 ***
-## 1) Create a Hook
+## 1. Create a Hook
 
 > **Keep `destination_headers` minimal and do not log secrets.** Rotate tokens periodically.
 {: .callout .callout--warning}
@@ -75,7 +75,7 @@ Create a hook for the company **or** project you want to receive events from.
 <div class="details-bottom-spacing"></div>
 
 ***
-## 2) Add Triggers
+## 2. Add Triggers
 
 Triggers define which resource events should generate webhooks.
 
@@ -103,7 +103,7 @@ Triggers define which resource events should generate webhooks.
 <br><br>
 
 ***
-## 3) Monitor Deliveries
+## 3. Monitor Deliveries
 
 Use deliveries to see what Procore sent to your endpoint and how your endpoint responded.
 
@@ -153,8 +153,7 @@ In order to ensure that you do not receive multiple notifications, it is recomme
 <br><br>
 
 ***
-## Troubleshooting
-
+## Troubleshoot Webhooks
 - Nothing arriving? Confirm you created both a **hook** and at least one **trigger** in the **same scope** (company vs project) and API version.
 - Seeing loops? Filter out events initiated by your service account or app using event metadata.
 - Many failures? Inspect delivery `response_status` and `response_error`, confirm your endpoint returns `2xx` on success, and that secrets/URLs are correct.

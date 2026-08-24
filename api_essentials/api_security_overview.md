@@ -11,7 +11,12 @@ Procore customers often ask how Procore secures the apps and integrations that t
 
 ***
 
-## How Procore authenticates API access
+## Overview
+
+Procore's API security model rests on OAuth 2.0: every request is authorised, every app is installed deliberately by a customer, and access can be revoked at any time.
+This page explains how authentication works, how tokens behave, how customers control what an app can reach, and where your responsibilities sit alongside Procore's.
+
+## OAuth 2.0 Authentication
 
 Procore uses <a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2.0</a>, a widely adopted standard for authorizing and authenticating third-party access to user data. OAuth 2.0 lets an app act on a user's behalf without ever handling that user's Procore password or other sign-in credentials.
 
@@ -22,7 +27,7 @@ Developers choose one of several [OAuth 2.0 authorization grant types]({{ site.u
 
 ***
 
-## How access tokens behave
+## Access and Refresh Tokens
 
 OAuth 2.0 uses two kinds of tokens: _access tokens_ and _refresh tokens_.
 
@@ -35,7 +40,7 @@ In the authorization code grant, an app generates its first access token by comb
 
 ***
 
-## How apps access your data
+## App Data Access
 
 An app reaches a company's Procore data through OAuth 2.0 in one of two ways, depending on the grant type it uses. The two models differ in whose permissions the app inherits.
 
@@ -54,7 +59,7 @@ For more on the modern model, see <a href="https://v2.support.procore.com/faq-wh
 
 ***
 
-## How customers control app access
+## Customer Access Controls
 
 Every app must be installed in a company's Procore account before it can access any data there. An app that is not installed cannot function and has no access to that company's data — installation is the gate that grants an app entry to a company. For how installation works, see [How to Install & Set Up Apps]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/building_apps_install_arch.md %}).
 
@@ -67,14 +72,14 @@ For a customer-facing explanation of this model, see <a href="https://v2.support
 
 ***
 
-## Rate limits
+## Rate Limits
 
 Procore enforces rate limits on API requests. Beyond keeping the platform stable, rate limits guard customers and Procore against abuse and runaway or excessive request volume from an integration. An app that exceeds the hourly limit or the short-term spike limit receives an `HTTP 429 Too Many Requests` response and should back off and retry rather than keep calling. For how the hourly and spike limits work, the rate limit headers Procore returns so your app can pace itself, and how to handle a `429`, see [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) and the [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}).
 <br><br>
 
 ***
 
-## Shared responsibility for security
+## Shared Responsibility for Security
 
 Securing an integration is a shared responsibility across Procore, the developers who build integrations, and the customers who install them.
 
@@ -87,7 +92,7 @@ Some Marketplace listings display a **Security & Trust — Partner Self-Certifie
 
 ***
 
-## Further reading
+## See Also
 
 - [Introduction to OAuth 2.0]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_introduction.md %})
 - [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})

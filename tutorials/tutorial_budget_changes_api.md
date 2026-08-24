@@ -15,12 +15,10 @@ Once Budget Changes are enabled for a Company, Budget Modifications are no longe
 
 As this feature is meant to extend the functionality of Budget Modifications, it is useful to know how Budget Changes relate to Budget Modifications. All of the original features available for Budget Modifications are available for Budget Changes. However the APIs do not behave similarly. This document is intended to provide a detailed explanation of how the Budget Modifications API, its request params and responses, correlate to the Budget Changes API.
 
-## Audience
-
+## Who This Guide Is For
 Any developer who has an application leveraging the [Budget Modifications Rest API](https://developers.procore.com/reference/rest/v1/budget-modifications?version=1.0) can use this document as a guide in building an application that uses the Budget Changes API to perform similar actions in the domain of Budget Changes.
 
-## Endpoints
-
+## Endpoint Reference
 ### Quick Reference
 * [List Endpoints](#list-apis)
 * [Show Endpoints](#show-apis)

@@ -18,7 +18,7 @@ Once the App is installed, the company administrator can add or remove permitted
 
 Developers utilize DMSAs to provide a more convenient and secure alternative to traditional service accounts that must be created, configured, and managed manually by a company administrator.
 
-## Benefits of Using Developer Managed Service Accounts (DMSAs)
+## DMSA Benefits
 
 There are a number of benefits to be gained by using DMSAs over traditional service accounts:
 
@@ -35,7 +35,7 @@ With traditional service accounts, project access is configured and managed manu
 - **Better Insight on Application Usage** - Because DMSAs are installed using App Management, company administrators have visibility into application usage in the form of application metrics such as the number of API requests, which users have installed and/or used an application, which projects are permitted to use an application, and more
 With traditional service accounts, such metrics are neither gathered nor accessible.
 
-## Risks Associated with Traditional Service Accounts
+## Traditional Service Account Risks
 
 Installing and using applications that utilize traditional service accounts comes with the following risks:
 
@@ -46,7 +46,7 @@ The transmission of this sensitive information can unfortunately occur through u
 
 - **Potential for Human Error** - The requirement to manually configure and manage the permissions associated with a traditional service account can be error prone and lead to unexpected application behavior.
 
-## How does a DMSA differ from a traditional service account?
+## DMSA vs. Traditional Service Accounts
 
 Here are some of the primary differences between DMSAs and traditional service accounts.
 
@@ -138,7 +138,7 @@ The App will only have access to the data in these permitted projects.
 After the App is installed, company administrators can use the App Management feature in Procore to add/remove permitted projects as needed.
 See [What is App Management?](https://support.procore.com/faq/what-is-app-management), [Add a Permitted Project to a Data Connection App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-permitted-project), and [Remove a Permitted Project from a Data Connection App](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/remove-permitted-project).
 
-## Best Practices for DMSA Permissions Management
+## Permissions Best Practices
 
 Managing permissions for a Developer Managed Service Account (DMSA) involves careful consideration to ensure application functionality and account security.
 Below are best practices and important considerations for managing permissions effectively.

@@ -33,7 +33,7 @@ The Procore API supports the following HTTP verbs as resource methods.
 > **Procore uses PATCH, not PUT, for updates.** Updates are partial — send only the attributes you intend to change. `PUT` is not supported.
 {: .callout .callout--note}
 
-## API Requests and Responses
+## Request and Response Basics
 
 ### Requests
 

@@ -17,7 +17,7 @@ In preparation for working with budget views and budget line items using the Pro
 
 In addition, we recommend completing the [Construction Financials](https://learn.procore.com/series/procore-certification/procore-certification-project-manager-construction-financials) video training course available at [learn.procore.com](https://learn.procore.com/)
 
-## Understanding Budget Views
+## Budget Views
 Before working with budget line items using the Procore API, it is important to gain an understanding of _budget views_ and their associated workflows.
 Budgets created using the Procore Budget tool can have one or more views.
 Views provide visibility and insight into specific aspects of a budget, such as a buyout savings, change order analysis, commitment billing, and so on.
@@ -26,8 +26,7 @@ Prior to working with budget views we recommend visiting the following articles 
 - [Which budget views should I add to my projects?](https://support.procore.com/faq/which-budget-views-should-i-add-to-my-projects)
 - [Set up a New Budget View](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/set-up-a-new-budget-view)
 
-## Accessing Budget Views and Line Items Using the API
-
+## Access Budget Views and Line Items
 The Procore API provides the following endpoints for working with budget views and budget line items.
 
 | Endpoint                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                   |

@@ -23,14 +23,14 @@ Here’s where to learn, find answers, and get help as you build on Procore. Use
 <br><br>
 
 ***
-## Procore certifications
+## Procore Certifications
 New to Procore? Start with our free, role‑based courses. You’ll learn product workflows in short, self‑paced modules that help you design better integrations and speak your users’ language.
 
 Take courses at <a href="https://learn.procore.com/" target="_blank">Procore Learning</a> (sign in with your Procore Developer account).
 <br><br>
 
 ***
-## Procore support site
+## Procore Support Site
 The Support Site is the primary source for customer‑facing product documentation. It includes:
 - Tutorials and step‑by‑step guides
 - FAQs
@@ -41,7 +41,7 @@ Explore the <a href="https://support.procore.com/products/online/user-guide" tar
 <br><br>
 
 ***
-## Developer support
+## Developer Support
 If you still have questions or run into an issue after checking the resources above, our Developer Support team can help with technical and non‑technical topics related to app development and API usage.
 
 **How to reach us**

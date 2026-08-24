@@ -45,8 +45,7 @@ Breaking down this example further we see…
 - A new RFIs resource is added to REST API v2.0 starting with resource version 0.
 - REST v3.0 is released with all three example resources set to v3.0.
 
-## Making REST API Calls
-
+## Make REST API Calls
 The resource version is specified in the URL using the following format.
 
     /rest/v{api_version}.{resource_version}
@@ -135,7 +134,7 @@ Filters allow you to drill down on the types of changes you are most interested 
 
 ![changelog page]({{ site.baseurl }}/assets/guides/changelog-page.png)
 
-## Further Reading
+## See Also
 
 - [API Lifecycle and Deprecation]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})
 - [API Request and Response Format]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %})

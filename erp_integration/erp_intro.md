@@ -6,8 +6,7 @@ section_title: ERP Integration
 
 ---
 
-## Working with ERP Objects
-
+## Work with ERP Objects
 ERP Objects provide system integrators the ability to support the synchronization of Procore financial objects into and out of Procore via a designated approval workflow.
 Inside Procore, the ERP Integrations Tool acts as a type of “staging area” wherein financial objects require specific accounting approval before being formally added to a Procore company (import), or sent out for creation in an external application (export).
 ERP Objects effectively represent the staged record of financial objects pending approval in this designated staging area.
@@ -70,8 +69,7 @@ When the object is successfully created in the External Application, System Inte
 
 See the [ERP Technical Guide]({{ site.url }}{{ site.baseurl }}{% link erp_integration/erp_technical_guide.md %}) for details on creating the Webhook, Trigger, and ERP Connection.
 
-## Definitions
-
+## Key Terms
 | Term                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Accounting Approver       | A Procore user with admin-granted permission to review staged financial records in the ERP Integrations Tool. On ERP Imports, Accounting Approvers are responsible for vetting information before adding the detail to Procore itself. On ERP Exports, Accounting Approvers are responsible for vetting the object prior to create a parallel record in the External Application.                                                                                                                                                                                                                        |

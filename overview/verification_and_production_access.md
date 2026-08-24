@@ -22,8 +22,7 @@ If you're a Procore customer building an integration for your own company's inte
 <div class="details-bottom-spacing"></div>
 
 ***
-## Unverified
-
+## Unverified Accounts
 All new Developer Portal accounts start as Unverified.
 
 As an Unverified developer, you can:
@@ -92,8 +91,7 @@ As a verified Marketplace Partner, you can:
 <br><br>
 
 ***
-## Getting to Production
-
+## Get to Production
 Reaching production requires clearing two gates, regardless of which verification path you take.
 
 ### Step 1: Verify your organization
@@ -115,8 +113,7 @@ This step happens for every app you want to promote to production. If you build 
 <br><br>
 
 ***
-## Comparison
-
+## Compare the Paths
 | | Unverified | Private Developer | Marketplace Partner |
 |---|:---:|:---:|:---:|
 | Create apps | ✓ | ✓ | ✓ |
@@ -129,7 +126,7 @@ This step happens for every app you want to promote to production. If you build 
 <div class="details-bottom-spacing"></div>
 
 ***
-## See also
+## See Also
 
 - [App Versioning & Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %})
 - [Partner & Marketplace Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %})

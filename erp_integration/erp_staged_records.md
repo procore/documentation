@@ -11,8 +11,7 @@ section_title: ERP Integration
 For an ERP object to be imported into Procore, records must be staged in the ERP Integration tool where an accountant can review and approve records for import. 
 Integrators can use the publicly accessible [**Staged Records API**](https://developers.procore.com/reference/rest/v1/erp-staged-record).
 
-## Configuration
-
+## Staged Records Configuration
 Procore utilizes the ERP metadata to determine whether or not an ERP Integration uses Staged Records instead of the legacy endpoints (`erp_vendors`, `erp_jobs`, etc).
 Staged Records functionality is enabled/disabled at the entity type level. 
 To enable Staged Records for an entity, add the following field to the ERP metadata.:
@@ -77,8 +76,7 @@ There are a few details to keep in mind when staging records for import.
 3. For Commitment-Level item types, only Staged Records that belong to a **synced** Project and **synced** Commitment will be displayed.
 4. Depending on the ERP Integration, Prime Contracts can be re-imported. In this case, the Prime Contract can be re-imported if it is marked as `imported`.
 
-## Staging Project-Level Item Types
-
+## Stage Project-Level Item Types
 When creating Staged Records via the API for the item types below, it is **required** to include information about which Project the Staged Record belongs to.
 
 **Item Types:** `commitment_change_order, prime_contract, purchase_order_contract, sub_job, work_order_contract`
@@ -109,8 +107,7 @@ PATCH /staged_records/sync
   }
 ```
 
-## Staging Commitment-Level Item Types
-
+## Stage Commitment-Level Item Types
 In addition to being a Project-level item type, `commitment_change_order` must also belong to a `purchase_order_contract` or a `work_order_contract`.
 
 The payload **must** include `project_origin_id` **and** `commitment_origin_id` nested inside the `data` attribute. 
@@ -138,8 +135,7 @@ PATCH /staged_records/sync
   }
 ```
 
-## Staging Children Item Types
-
+## Stage Child Item Types
 Currently, the only supported child item type is `line_item`. 
 The `parent_id` attribute connects the children to a parent Staged Record.
 

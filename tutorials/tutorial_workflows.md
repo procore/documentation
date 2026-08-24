@@ -50,8 +50,7 @@ Next, the Reviewer role can execute the `Approve` activity to transition the Pur
 Or, the Reviewer role can execute the `Deny` activity to send the Purchase Order back to the `Start` state for re-work by the Project Manager.
 We will refer to this example workflow as we work through the following sections.
 
-## Retrieving Workflow Information
-
+## Retrieve Workflow Information
 Each object (such as a Subcontract or Purchase Order) that has an associated workflow will have one (and only one) _workflow instance_.
 The workflow instance includes the name of the applied workflow, the current workflow state, and the activities that can be performed from the current workflow state.
 You can retrieve a list of active workflow instances for your company using the [List Workflow Instances](https://developers.procore.com/reference/rest/v1/workflow#list-workflow-instances) endpoint.
@@ -116,8 +115,7 @@ The example response provides details on a single workflow instance - `"id": 568
 However, under most conditions this call would return multiple instances as there would likely be more than one Purchase Order with a workflow applied.
 Examining this response we can determine the `current_workflow_state` (Start), the available `current_workflow_activities` (Submit for Approval), and other useful information about the workflow instance associated with our sample Purchase Order.
 
-## Performing Workflow Activities
-
+## Perform Workflow Activities
 In addition to retrieving information on existing workflow instances in your company, you can use the Workflow API to execute workflow actions (activities) to transition from one workflow state to the next.
 Once you have located the specific workflow instance you want to work with using the [List Workflow Instances](https://developers.procore.com/reference/rest/v1/workflow#list-workflow-instances) endpoint, you can use the [Create Workflow Activity History](https://developers.procore.com/reference/rest/v1/workflow#create-workflow-activity-history) endpoint to execute a workflow activity.
 The response returned from the [List Workflow Instances](https://developers.procore.com/reference/rest/v1/workflow#list-workflow-instances) endpoint provides information you need to perform the next activity in a specific workflow.
@@ -175,8 +173,7 @@ Executing this call returns a JSON response similar to the following:
 }
 ```
 
-## Retrieving a List of Workflow Activity Histories
-
+## Retrieve Workflow Activity Histories
 Once a workflow instance has been initiated, you can use the [List Workflow Activity Histories](https://developers.procore.com/reference/rest/v1/workflow#list-workflow-activity-histories) endpoint to retrieve a list of the activities that have been executed on the workflow.
 
 A sample GET request to the [List Workflow Activity Histories](https://developers.procore.com/reference/rest/v1/workflow#list-workflow-activity-histories) endpoint would take the following format:

@@ -65,7 +65,7 @@ For technical questions or issues, please email our API Support team: <apisuppor
 In addition to just the technical [API Reference](https://developers.procore.com/reference) documentation, there are a few extended features that Procore provides to create a deeper, more robust integration between Procore and your ERP system.
 These features are covered in the following sections.
 
-## External IDs and Data - origin_id, origin_data, and origin_code
+## External IDs and Origin Data
 
 The `origin_id`, `origin_data`, and `origin_code` fields provide areas to store external data on a Procore object.
 These fields apply to the Projects, Vendors, Commitments, Change Orders, Direct Costs, Cost Codes, Users, Change Events, and Prime Contract resources.

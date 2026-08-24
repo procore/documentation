@@ -54,7 +54,8 @@ See the <a href="https://developers.procore.com/reference/rest/docs/rest-api-ove
 <br><br>
 
 ***
-## Start Here
+## Where to Begin
+{: .toc-exclude}
 - **Make your first API call:** [Quick Start Guide]({{ site.url }}{{ site.baseurl }}{% link overview/quick_start_guide.md %})
 - **Choose your app type:** [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})
 - **Set up authentication:** [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
@@ -62,6 +63,7 @@ See the <a href="https://developers.procore.com/reference/rest/docs/rest-api-ove
 - **Publish to the Marketplace:** [Technology Partner Overview]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/procore_partner_overview.md %})
 
 ## Go Deeper
+{: .toc-exclude}
 - **Understand API usage:** [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %})
 - **Plan for pagination:** [Using Pagination]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/pagination.md %})
 - **Receive change events:** [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %})

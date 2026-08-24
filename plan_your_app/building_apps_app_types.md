@@ -13,9 +13,9 @@ Procore apps are built from two families of capabilities — **Data Connector** 
 Authentication is chosen separately and applies across families — see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 <br><br>
 
-{% comment %} AGENTIC WIP (hidden until the agentic feature ships, ~Q3 2026). To restore: un-comment this section, re-add "Agentic" to the Overview above, and renumber the families back to 1/2/3.
+{% comment %} AGENTIC WIP (hidden until the agentic feature ships, ~Q3 2026). To restore: un-comment this section, re-add "Agentic" to the Overview above. Do NOT renumber — these are alternatives to choose between, not steps (see H2 Heading Standard).
 
-## 1. Agentic Apps
+## Agentic Apps
 
 **What it is**  
 Add AI-driven capabilities to your app, declared in the standard App Manifest and governed through Procore's install-and-consent flow. The agentic runtime is provided by **Datagrid, a Procore Company**.
@@ -28,7 +28,7 @@ See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link buil
 {% endcomment %}
 
 ***
-## 1. Data Connector Apps
+## Data Connector Apps
 
 **What it is**  
 Move data between Procore and other systems (for example, accounting, ERP, document management, or equipment tracking).
@@ -49,7 +49,7 @@ See also: [Building Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link
 <br><br>
 
 ***
-## 2. Embedded Apps
+## Embedded Apps
 
 **What it is**  
 Run your app inside Procore’s web UI to keep users in context and reduce app switching.
@@ -67,8 +67,7 @@ A side panel app renders in a fixed 400‑px panel on the right side of the Proc
 See [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) to build either placement.
 <br><br>
 
-***
-## Example Images (Optional)
+### Optional: Example Images
 
 Use these examples to understand placement and layout.
 

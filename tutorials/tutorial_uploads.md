@@ -16,7 +16,7 @@ File uploads can be either segmented or non-segmented.
 The JSON block returned by these endpoints contains attributes that form the 'instructions' for uploading and storing files.
 Subsequent steps use these attributes to form a POST request to the file storage service.
 Once a file has been uploaded to a storage service you can use the Procore API to move the file into Procore and associate it with a resource.
-See [Moving an Uploaded File into Procore](#moving-an-uploaded-file-into-procore) for additional information.
+See [Move an Uploaded File into Procore](#move-an-uploaded-file-into-procore) for additional information.
 
 ## Upload Endpoints
 
@@ -308,7 +308,7 @@ Keep the following in mind when performing a direct file upload:
 - The URL and fields necessary to complete a direct file upload may vary between companies and may also change over time, so none of these may be hard-coded.
 - Uploads must be associated with a Procore resource within one week or they will be automatically deleted from Procore servers.
 
-## Moving an Uploaded File into Procore
+## Move an Uploaded File into Procore
 
 Once a file has been successfully uploaded to a storage service, we can move the file into Procore and associate it with a resource.
 This example shows using the [Create Project File](https://developers.procore.com/reference/rest/v1/project-folders-and-files#create-project-file) endpoint to move the file into Procore as a project document file.
@@ -323,7 +323,7 @@ The following endpoints may also be used to move uploaded files into Procore dep
 - [Create Project File](https://developers.procore.com/reference/rest/project-folders-and-files?version=latest#create-project-file)
 
 
-## Using upload id in API Requests
+## Use the Upload ID in API Requests
 
 This section provides examples of how to use the upload id when integrating with various Procore endpoints.
 
@@ -486,7 +486,7 @@ Creating a Meeting Topic with an attachment:
 }
 ```
 
-## Migrating from Legacy Uploads
+## Migrate from Legacy Uploads
 If you're currently using the legacy upload approach (via `attachments` or `data` attributes), we strongly recommend migrating to the `upload_id` approach. The benefits include:
 
 - Improved upload performance and reliability

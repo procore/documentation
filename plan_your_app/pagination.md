@@ -17,7 +17,7 @@ Most Procore REST endpoints support pagination to keep responses fast and predic
 <div class="details-bottom-spacing"></div>
 
 ***
-## per_page and page parameters
+## `per_page` and `page` Parameters
 
 Use two query parameters to paginate results:
 
@@ -36,7 +36,7 @@ See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_l
 <br><br>
 
 ***
-## Use Link headers to navigate
+## Use Link Headers to Navigate
 
 Procore includes pagination metadata in response headers:
 
@@ -63,7 +63,7 @@ From this response you can see that there are **150** total items, **5** items p
 <br><br>
 
 ***
-## Notes on the `page` parameter
+## Notes on the `page` Parameter
 
 - If `page=1`, the `Link` header includes `next` and `last`.
 - If `page=2`, the `Link` header includes `first`, `next`, and `last`.

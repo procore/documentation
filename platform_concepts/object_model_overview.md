@@ -17,7 +17,7 @@ The objects are grouped into three primary resource categories:
 
 Project-level resources are further broken down into the primary Procore Product Lines:
 
-- [Core]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/object_model_project.md %}#core)
+- [Core Resources]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/object_model_project.md %}#core-resources)
 - [Project Management]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/object_model_project.md %}#project-management)
 - [Quality and Safety]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/object_model_project.md %}#quality-and-safety)
 - [Construction Financials]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/object_model_project.md %}#construction-financials)

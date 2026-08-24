@@ -16,8 +16,7 @@ When a project user interacts with a tool that supports configurable fieldsets, 
 
 The following tools do not yet support configurable fieldsets: Coordination Issues, Meetings, Schedule, Action Plans, Forms, Budget, Change Orders, and Direct Costs.
 
-## Understanding Configurable Validations
-
+## Configurable Validations
 > **Include null-valued required fields on update, or validation fails.** When updating a resource, a required field that already has a value only needs to be sent if you intend to change it — but if its existing value is null, you must include it in the request.
 {: .callout .callout--warning}
 
@@ -35,8 +34,7 @@ The absence of required fields in the request body returns an error indicating w
 
 ![project error]({{ site.baseurl }}/assets/guides/project-error.png)
 
-## Working with Custom Fields
-
+## Work with Custom Fields
 _Custom fields_ can be created for certain tools in Procore to allow for additional information to be filled out when creating or editing items.
 Custom fields can be created within fieldsets, or created separately and later applied to fieldsets.
 The following Procore Support Site articles provide general information on custom fields and how they are managed using the Procore web application.

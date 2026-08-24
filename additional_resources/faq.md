@@ -33,14 +33,14 @@ We also recommend visiting [learn.procore.com](https://learn.procore.com/) to ac
 
 The [Procore Support Site](https://support.procore.com/) includes a reference page with a comprehensive breakdown of all user actions and the specific user permission(s) (Read-only, Standard, and/or Admin) that are required to perform a given action.
 
-## Development environments
+## Development Environments
 
 **What time does the monthly sandbox restore?**
 
 The monthly sandbox is refreshed on the first working day of each month (morning to mid‑afternoon ET).
 To ensure that changes you make in your production environment are available in the next monthly refresh, we recommend including those changes by the end of the last working day of the current month.
 
-## OAuth 2.0 authentication
+## OAuth 2.0 Authentication
 
 **How long does my access token last?**
 
@@ -95,7 +95,7 @@ If this occurs, the following workaround will resolve the issue.
 
 - Users should explicitly navigate to “https://login.procore.com” anytime they want to access the Procore web application while simultaneously working with an integrated web application.
 
-## IP whitelisting
+## IP Whitelisting
 
 **Does Procore publish a list of IP addresses for whitelisting purposes?**
 
@@ -105,20 +105,18 @@ As a result, Procore does not publish a list of IP addresses for whitelisting pu
 If your internal network environment requires whitelisted IPs in order to allow access, we suggest hosting a server outside your network (e.g.
 in a network DMZ) to proxy requests from Procore into the internal network.
 
-## Testing
-
+## API Testing
 **What is the recommended method for testing my Procore API calls?**
 
 We recommend using <a href="https://www.postman.com/" target="_blank">Postman</a> to test Procore API endpoints. You can download the OpenAPI (OAS) spec from the <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">Developer Portal API Reference</a> and import it directly into Postman to get pre-configured endpoints. <a href="https://curl.se/" target="_blank">cURL</a> is also a great option for quick command-line testing.
 
-## Deprecation
-
+## Deprecation Policy
 **How is deprecation handled for Procore API endpoints, and what is the policy?**
 
 As you browse through our Procore API documentation you may see deprecation warning banners on some of our endpoint reference pages.
 Please see our [API Lifecycle guide]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %}) for information on our API deprecation policy.
 
-## Cross-origin resource sharing (CORS)
+## Cross-Origin Resource Sharing (CORS)
 
 **Does the Procore API support Cross-Origin Resource Sharing (CORS)?**
 
@@ -141,7 +139,7 @@ While it is certainly possible have more than one domain whitelisted for CORS, p
 Our Webhooks feature allows you to establish a system through which you can receive notifications for changes that occur to specific resources.
 Please visit our [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}) guides on the Developer Portal for additional information.
 
-## Procore API rate limit
+## Rate Limiting
 
 **I am receiving a 429 status code error when making a call to the Procore API, what causes this?**
 
@@ -154,7 +152,7 @@ See our [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/ra
 
 Yes. If the endpoint you are working with normally requires a `company_id` as either a path or query parameter, you still need to include it in your call, regardless of MPR header requirements.
 
-## App management
+## App Management
 
 **I’ve suddenly started getting a 403 forbidden error with the message "App is not connected to this company". Why is this?**
 
@@ -163,7 +161,7 @@ As a result, your application is no longer able to access data in that company.
 To resolve this issue, use the App Management page in Procore Web to reconnect your application to that company.
 For additional information see [What is App Management?](https://support.procore.com/faq/what-is-app-management).
 
-## Error codes
+## Error Codes
 
 **I'm receiving a particular error code. What does it mean?**
 

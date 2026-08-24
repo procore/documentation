@@ -7,9 +7,9 @@ section_title: Example Apps & SDKs
 
 <!-- markdownlint-disable no-inline-html -->
 
-## Getting started
+## Get Started
 
-<p class="heading-link-container"><a class="heading-link" href="#getting-started"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#get-started"></a></p>
 
 ### Installation from NPM (recommended)
 
@@ -4668,8 +4668,7 @@ GUI
 
 ---
 
-## Options
-
+## Viewer Options
 <p class="heading-link-container"><a class="heading-link" href="#options"></a></p>
 
 ### Required Options
@@ -5029,9 +5028,9 @@ Locale to use for display language, number formatting, and other localization.
 
 Defaults to `'en'`.
 
-## Objects
+## Viewer Objects
 
-<p class="heading-link-container"><a class="heading-link" href="#objects"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#viewer-objects"></a></p>
 
 ### Perspective Camera Object
 
@@ -5332,10 +5331,10 @@ export const derangify = (rangified: {
 }
 ```
 
-## Constants
+## Viewer Constants
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#constants"></a>
+  <a class="heading-link" href="#viewer-constants"></a>
 </p>
 
 ### Uom

@@ -35,8 +35,7 @@ The Procore API provides the following endpoints for working with project stages
 | [Update Project Stage](https://developers.procore.com/reference/rest/v1/project-stages#update-project-stage) | Update a specified project stage.                                         |
 | [Delete Project Stage](https://developers.procore.com/reference/rest/v1/project-stages#delete-project-stage) | Delete a specified project stage.                                         |
 
-## Creating Custom Project Stages
-
+## Create Custom Project Stages
 You can use the Create Project Stage endpoint to create a new custom project stage.
 Each custom project stage you create is associated with one of the default project stages in your company account.
 The enumerated value you assign to the `category_type` attribute determines which default project stage the new custom project stage is mapped to.

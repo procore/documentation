@@ -14,7 +14,7 @@ The report is available for **all apps** in the Procore Developer Portal, includ
 <br><br>
 
 ***
-## Why this matters
+## Why the Report Matters
 
 Use the API Call Activity Report to:
 
@@ -26,7 +26,7 @@ Use the API Call Activity Report to:
 <br><br>
 
 ***
-## How to generate the report
+## How to Generate the Report
 
 1. Log in to the [Procore Developer Portal](https://developers.procore.com/developers).
 2. Open **My Apps** and select the app you want to inspect.
@@ -51,7 +51,7 @@ The CSV covers the last 30 days of your app's **production** API calls.
 <div class="details-bottom-spacing"></div>
 
 ***
-## Tips for using this data
+## Tips for Using This Data
 
 - **Investigating a Needs Attention observation?** Filter by the relevant Response Code (401/403/404/429) and sort by Count descending — the top rows are usually the offenders.
 - **Spot errors quickly** — filter by failed calls to identify problem endpoints.
@@ -63,7 +63,7 @@ By regularly reviewing your app's API activity, you can maintain reliability, im
 <br><br>
 
 ***
-## Related documentation
+## See Also
 
 - [Integration Health]({{ site.url }}{{ site.baseurl }}{% link api_essentials/integration_health.md %})
 - [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %})

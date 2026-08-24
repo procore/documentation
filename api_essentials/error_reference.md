@@ -13,7 +13,7 @@ This page is the single source of truth for Procore API status codes. For how re
 <br><br>
 
 ***
-## Successful responses (2xx)
+## Successful Responses (2xx)
 
 | Code | Status | Description |
 |------|--------|-------------|
@@ -24,7 +24,7 @@ This page is the single source of truth for Procore API status codes. For how re
 <br><br>
 
 ***
-## Client errors (4xx)
+## Client Errors (4xx)
 
 | Code | Status | Common Cause | How to Fix |
 |------|--------|-------------|------------|
@@ -41,7 +41,7 @@ This page is the single source of truth for Procore API status codes. For how re
 <br><br>
 
 ***
-## Server errors (5xx)
+## Server Errors (5xx)
 
 | Code | Status | Common Cause | How to Fix |
 |------|--------|-------------|------------|
@@ -52,7 +52,7 @@ This page is the single source of truth for Procore API status codes. For how re
 <br><br>
 
 ***
-## Common error patterns
+## Common Error Patterns
 
 ### "App is not connected to this company"
 **HTTP 403** — Your app has been disconnected from the company via App Management in Procore. The company admin needs to reconnect your app. See [What is App Management?](https://support.procore.com/faq/what-is-app-management)
@@ -69,7 +69,7 @@ A `403 Forbidden` on a specific endpoint usually means the authenticated user's 
 <br><br>
 
 ***
-## Best practices for error handling
+## Best Practices for Error Handling
 
 1. **Always check status codes** — Don't assume success. Check the response status code before processing the response body.
 2. **Parse error messages** — The response body for 4xx errors often contains a `message` or `errors` field with specific details.

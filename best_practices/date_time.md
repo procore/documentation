@@ -135,8 +135,7 @@ For example, the ISO-3166 Alpha-2 code for the United States is `US`, and the co
 <br><br>
 
 ***
-## Working with Time Zones
-
+## Work with Time Zones
 Setting or updating a Project's time zone using the Procore API requires that specific string values are properly applied for the `time_zone` attribute.
 If the string value provided does not match exactly what the Procore API is expecting, a `422 Unprocessable Entity` error will be returned.
 

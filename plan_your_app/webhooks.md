@@ -23,7 +23,7 @@ Think of a webhook as a **notification that something already happened in Procor
 <br><br>
 
 ***
-## How Webhooks Work
+## The Webhook Flow
 1. An event occurs in Procore (Web, Mobile, or API).
 2. If webhooks are configured at the company or project level, Procore sends an HTTPS `POST` to your endpoint with an **event object** in the JSON body.
 3. For creates and updates, your service can make a follow‑up `GET` to the Procore API to retrieve details for the changed resource.
@@ -184,7 +184,7 @@ The key distinction: a delayed or missing webhook is a **notification** problem,
 <br><br>
 
 ***
-## Next steps
+## Next Steps
 
 - **[Set Up Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %})** — create and manage hooks and triggers via the API.
 - Configure in the Procore UI: [Company Webhooks](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/configure-company-webhooks) · [Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks).

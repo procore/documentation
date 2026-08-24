@@ -44,7 +44,7 @@ For the full list of supported view keys and URL patterns, see the [Side Panel V
 ***
 <details>
   <summary class="collapseListH2">
-    Accessing Procore Context
+    Access Procore Context
     <span class="collapseSubhead">Side panel apps can read the Procore context they're running in — company, project, resource, and view — using the MessageEvent interface and Window.postMessage(). Expand for the fields and setup code.</span>
   </summary>
   <div markdown="1">

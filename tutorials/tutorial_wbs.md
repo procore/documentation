@@ -25,8 +25,7 @@ Before working with the WBS endpoints, we suggest a thorough review of the follo
 * [(WBS) Company Administration Guide](https://support.procore.com/products/online/work-breakdown-structure/company-administration-guide)
 * [(WBS) Project Administration Guide](https://support.procore.com/products/online/work-breakdown-structure/project-administration-guide)
 
-## Limitations
-
+## WBS Limitations
 * Creation of custom WBS segments is **not** currently supported in companies with Field Productivity and/or ERP Integrations tools enabled.
 
 ## WBS Resources
@@ -85,8 +84,7 @@ See [API Lifecycle](https://developers.procore.com/documentation/rest-api-lifecy
 If your existing integration uses any of these deprecated endpoints, or Cost Code, Cost Type and Sub Job endpoints in general, we encourage you to adopt the new [Work Breakdown Structure endpoints](https://developers.procore.com/reference/rest/v1/codes?version=1.0) and update your integration as needed.
 If you have any concerns please reach out to [apisupport@procore.com](mailto:apisupport@procore.com).
 
-## Understanding WBS Budget Code Patterns and Segments
-
+## WBS Budget Code Patterns and Segments
 ### Default Company WBS Pattern
 
 Each company includes a default WBS pattern representing a company budget code structure with the following legacy segments.

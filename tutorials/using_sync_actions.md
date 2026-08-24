@@ -22,7 +22,7 @@ The attributes for each successfully created or updated resource will appear in 
 The attributes for each resource will match those returned by the Show action.
 For each resource which could not be created or updated, the attributes supplied by the caller are present in the errors list, along with an additional errors attribute which provides reasons for the failure.
 
-## Behavior
+## Sync Behavior
 The Sync action uses two different types of unique identifiers to determine whether a new resource is to be created or an existing resource is to be updated.
 The unique identifiers are supplied as the `id` and/or `origin_id` attributes.
 If neither of these identifiers are provided, a new resource is created.
@@ -45,8 +45,7 @@ The same Origin ID may not be used in more than one project within a given compa
 Origin IDs are allowed to be the same across companies.
 In other words, the same Origin ID can be used in more than one company, but cannot be used in more than one project within a single company.
 
-## Examples
-
+## Sync Examples
 **Example 1 - Caller does not pass ID or Origin ID**
 
 In the following examples we'll use Projects to illustrate using the Sync action.

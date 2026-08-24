@@ -43,7 +43,7 @@ Custom parameters are values the installing admin enters during setup. You defin
 
 ***
 
-## Examples
+## Interpolation Examples
 
 **Subdomain** — pass a value into the subdomain dynamically.
 ```{% raw %}

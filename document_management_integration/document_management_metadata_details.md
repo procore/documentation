@@ -5,6 +5,9 @@ layout: default
 section_title: "Integration Guides: Document Management"
 
 ---
+
+## Overview
+
 Document metadata is the foundation of how Procore Document Management (PDM) organizes, filters, and manages documents.  
 Document Metadata is a set of attributes that provide information about a document. Metadata can include file-level attributes (Type, Discipline, Number, Status) that describe what the document is, project/company attributes (Location, Trade, Area, etc.) that describe where and how the document applies, and other custom fields configured at the project level.
 
@@ -402,7 +405,7 @@ Use the following structuring rules and reference table to correctly construct y
 
 To identify which fields are configured for a specific project, query the [List Project Fields](https://developers.procore.com/reference/rest/project-fields?version=2.0#list-project-fields) endpoint.
 
-## Metadata Population Sources
+## How Metadata Gets Populated
 
 Metadata can be populated through several automated and manual mechanisms:
 
@@ -412,8 +415,7 @@ Metadata can be populated through several automated and manual mechanisms:
 
 Each field's `label_source` property in API responses indicates how the value was populated.
 
-## Understanding Field Value Sources
-
+## The `label_source` Property
 When metadata is populated in Document Management, each field includes a `label_source` property indicating how the value was populated:
 
 | Source | Description | User-Overrideable? |

@@ -18,7 +18,7 @@ Make your first Procore API call; this guide walks you through a single, linear 
 <br><br>
 
 <details>
-<summary class="collapseListTierOne">Step 1: Create Your App in the Developer Portal</summary>
+<summary class="collapseListH2">Step 1: Create Your App in the Developer Portal</summary>
 <p>
   <ol>
     <li>Sign in to the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>.</li>
@@ -31,7 +31,7 @@ Make your first Procore API call; this guide walks you through a single, linear 
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 2: Add a Data Connector Component</summary>
+<summary class="collapseListH2">Step 2: Add a Data Connector Component</summary>
 <p>
   A <b>Data Connector Component</b> enables your app to access Procore's REST APIs.
   <ol>
@@ -46,7 +46,7 @@ Make your first Procore API call; this guide walks you through a single, linear 
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 3: Update Your App's Redirect URI (for testing)</summary>
+<summary class="collapseListH2">Step 3: Update Your App's Redirect URI (for testing)</summary>
 <p>
   For quick testing, set a temporary out‑of‑band Redirect URI.
   <ol>
@@ -61,7 +61,7 @@ Make your first Procore API call; this guide walks you through a single, linear 
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 4: Install Your App in the Developer Sandbox</summary>
+<summary class="collapseListH2">Step 4: Install Your App in the Developer Sandbox</summary>
 <p>
   Each app includes a Developer Sandbox for testing. Only the App Creator is added by default. To add testers, see <a href="https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/add-a-user-account-to-the-company-directory" target="_blank">Add a User Account to the Company Directory</a>.
   <ol>
@@ -76,7 +76,7 @@ Make your first Procore API call; this guide walks you through a single, linear 
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 5: Generate an Authorization Code</summary>
+<summary class="collapseListH2">Step 5: Generate an Authorization Code</summary>
 <p>
   Replace <b>CLIENT_ID</b> with your Sandbox Client ID and open the URL in your browser to authorize.
   <ul>
@@ -88,7 +88,7 @@ Make your first Procore API call; this guide walks you through a single, linear 
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 6: Exchange the Code for an Access Token</summary>
+<summary class="collapseListH2">Step 6: Exchange the Code for an Access Token</summary>
 <p>
   Use Postman (or any API client) to exchange the code for a token.
   <ol>
@@ -117,7 +117,7 @@ Make your first Procore API call; this guide walks you through a single, linear 
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 7: Test API Requests</summary>
+<summary class="collapseListH2">Step 7: Test API Requests</summary>
 <p>
   With a valid access token, you can call Procore's REST APIs. Use the <b>Authorization</b> header with the Bearer token. API calls use the <code>https://sandbox.procore.com</code> base URL.
   <br><br>
@@ -150,7 +150,7 @@ Make your first Procore API call; this guide walks you through a single, linear 
 <div class="details-bottom-spacing"></div>
 
 ***
-## You just made your first Procore API call
+## Next Steps
 You've created an app, authenticated with OAuth 2.0, and retrieved real data from Procore. From here:
 
 - **Plan your integration:** [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})

@@ -8,12 +8,12 @@ section_title: Platform Concepts
 
 The Project-level API resources are grouped into the following Procore Product Lines:
 
-- [Core](#core)
+- [Core Resources](#core-resources)
 - [Project Management](#project-management)
 - [Quality and Safety](#quality-and-safety)
 - [Construction Financials](#construction-financials)
 
-## Core
+## Core Resources
 
 ![Project-level Core Resources]({{ site.baseurl }}/assets/guides/resource-model-project-level-core.svg)
 

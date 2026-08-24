@@ -19,7 +19,7 @@ This page explains the full app installation and setup flow for a Procore compan
 ***
 <details>
   <summary class="collapseListH2">
-    Step 1. App Installation
+    Step 1: Install the App
     <span class="collapseSubhead">All apps must be installed in the customer’s Procore company before they can run. Until installed, API requests that need company or project context return 4xx errors. If your app serves multiple customers, install it in <b>each</b> customer company you call.</span>
   </summary>
   <div markdown="1">
@@ -46,7 +46,7 @@ This page explains the full app installation and setup flow for a Procore compan
 ***
 <details>
   <summary class="collapseListH2">
-    Step 2. View Post‑Installation Notes
+    Step 2: View Post‑Installation Notes
     <span class="collapseSubhead">After install, Procore shows the developer‑provided post‑installation notes. Use these to tell installers what to do next in your product and in Procore.</span>
   </summary>
   <div markdown="1">
@@ -69,7 +69,7 @@ This page explains the full app installation and setup flow for a Procore compan
 ***
 <details>
   <summary class="collapseListH2">
-    Step 3. Finalize App Setup
+    Step 3: Finalize App Setup
     <span class="collapseSubhead">Installation enables access, but most apps still require setup. Follow the pattern for your app capabilities.</span>
   </summary>
   <div markdown="1">
@@ -108,16 +108,14 @@ This page explains the full app installation and setup flow for a Procore compan
 </details>
 
 ***
-## Related Articles
+## See Also
+
 - <a href="https://support.procore.com/faq/what-is-app-management" target="_blank">What is App Management?</a>
 - <a href="https://support.procore.com/faq/what-are-app-configurations" target="_blank">What are App Configurations and How Do I Work With Them?</a>
 - <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-app-from-marketplace" target="_blank">Install an App from the Marketplace</a>
 - <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/install-a-custom-app" target="_blank">Install a Custom App</a>
 - <a href="https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-app-configuration" target="_blank">Create an App Configuration and Apply it to Projects</a>
 - <a href="https://support.procore.com/products/online/user-guide/project-level/home/tutorials/launch-embedded-app" target="_blank">Launch an Embedded App in a Project</a>
-
-## See Also
-
 - [Procore Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %})
 - [Create an App]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_intro.md %})
 - [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})

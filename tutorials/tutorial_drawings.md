@@ -21,8 +21,7 @@ Before you begin working with the various Drawings tool endpoints we recommend f
     - [Mark Up Drawings](https://www.youtube.com/watch?v=CzicT-q_O7k)
     - [Upload Drawing Revisions](https://www.youtube.com/watch?v=0DLPzeFT0v0)
 
-## Getting Started
-
+## Get Started
 ### Drawing Resources
 
 Before working with the Drawings Tool endpoints we recommend familiarizing yourself with the various Drawings Tool resources and how they relate to one another.
@@ -92,9 +91,7 @@ You can use the Permissions Table to manage/change user permissions for the Draw
 | [List Drawing Revisions](https://developers.procore.com/reference/rest/v1/drawings#list-drawing-revisions) | GET /rest/v1.0/projects/{project_id}/drawing_revisions                                     | Returns a list of all Drawing Revisions in the specified Project.                                                       |
 | [List Drawing Tiles](https://developers.procore.com/reference/rest/v1/drawings#list-drawing-tiles)         | GET /rest/v1.0/projects/{project_id}/drawing_revisions/{drawing_revision_id}/drawing_tiles | Lists the Drawing Tiles in the specified Project and Drawing Revision, along with the maximum Zoom Level and Tile Size. |
 
-## Using the API to Populate the Drawings Tool with Assets
-
-
+## Populate the Drawings Tool
 The following sections describe in general terms the tasks for setting up and populating the Drawing Tool with drawing assets.
 
 ### Creating a New Drawing Upload

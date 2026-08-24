@@ -21,16 +21,14 @@ To ensure that the user's browser is directed back to the proper location, you a
 You can optionally manage two distinct sets of Redirect URIs for the sandbox and production environments, though this is not required.
 The `http://localhost` redirect URI is registered by default when you create a new application in the Developer Portal. Please note that dynamic URIs are not supported at this time.
 
-## Managing Sandbox OAuth Credentials and Redirect URIs
-
+## Manage Sandbox Credentials
 Using the OAuth Credentials section on the Manage App page you can view and manage the OAuth credentials and Redirect URIs for your sandbox.
 Your sandbox Client ID and Client Secret is accessible in this section and you can reset the Client Secret as needed.
 You can also add, update, or delete Redirect URIs for your sandbox.
 
 ![Sandbox Account screenshot]({{ site.baseurl }}/assets/guides/form-based-sandbox-oauth-creds.png)
 
-## Managing Production OAuth Credentials and Redirect URIs
-
+## Manage Production Credentials
 Using the OAuth Credentials section on the Manage App page you can view and manage the OAuth credentials and Redirect URIs for your production environment.
 Your production Client ID is accessible in this section and you can reset the Client Secret as needed.
 It is important to note that your production Client Secret is hidden from view in the OAuth Credentials section and only visible to you once when you initially obtain production credentials through the manifest promotion process.

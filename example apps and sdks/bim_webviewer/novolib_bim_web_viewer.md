@@ -7,9 +7,9 @@ section_title: Example Apps & SDKs
 
 <!-- markdownlint-disable no-inline-html -->
 
-## Getting started
+## Get Started
 
-<p class="heading-link-container"><a class="heading-link" href="#getting-started"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#get-started"></a></p>
 
 ### Installation from NPM (recommended)
 

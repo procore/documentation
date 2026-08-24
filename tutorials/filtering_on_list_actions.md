@@ -39,8 +39,7 @@ Some filters return an array of attribute values and can be used with the follow
 
 ```
 
-## Examples
-
+## Filter Examples
 Here are a few examples to get you started using the filtering capabilities in Procore API.
 
 First, let's look at a simple case of filtering a list of Work Order Contracts (subcontract) on the Status field.
@@ -74,8 +73,7 @@ GET https://sandbox.procore.com/rest/v1.0/purchase_order_contracts/
 It is important to note that the date-time string used with the `created_at` and `updated_at` parameters must adhere to ISO8601 standards.
 In addition, these parameters must be formatted as a range using the `...` delimiter.
 
-## Filtering on Deleted Objects
-
+## Filter on Deleted Objects
 You can return a list of only the deleted objects for a resource using the `filters[include_deleted]` query parameter.
 Here is an example for returning a list of deleted work order contracts.
 
@@ -86,8 +84,7 @@ GET https://api.procore.com/rest/v1.0/work_order_contracts/?project_id=123456&fi
 Notice that we use only as the value for the `filters[include_deleted]` parameter.
 This returns just the deleted items. Using a value of `with` returns deleted and undeleted items.
 
-## Filtering on User-Defined Field Values
-
+## Filter on User-Defined Field Values
 There are a number of resources in the Procore API (such as RFIs) that provide List Action filtering on fields that have user-defined values.
 For example, the List RFIs endpoint allows you to filter the response by responsible contractor ID using `filters[responsible_contractor_id]` as a query parameter.
 However, you must first use a helper method that returns the available values for the `responsible_contractor_id` field as illustrated below.
@@ -153,8 +150,7 @@ Note that calling the List Action with no date query parameters only returns rec
 
 See [Working with Daily Logs]({{ site.url }}{{ site.baseurl }}{% link tutorials/daily_logs.md %}) for additional information.
 
-## Sorting on List Actions
-
+## Sort on List Actions
 In addition to filtering the results of List Actions, you can also sort the results based on specified fields.
 Add sorting to your API call by adding the `sort` query parameter with the following syntax:
 
