@@ -117,26 +117,25 @@ nav:not(.toc) {
   height: 38px;
   margin-bottom: 4px;
   padding: 0 34px 0 36px;
-  border: 1px solid #d9dce1;
+  border: 1px solid #acb5b9;
   border-radius: 8px;
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: 12px center;
   background-size: 15px 15px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a9099' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23232729' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
   color: #232729;
   font-size: 14px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.15s ease;
 }
 
 #search-input::placeholder {
-  color: #8a9099;
+  color: #5e696e;
 }
 
 #search-input:focus {
   outline: none;
-  border-color: #006ddf;
-  box-shadow: 0 0 0 3px rgba(0, 109, 223, 0.15);
+  border: 2px solid #006ddf;
 }
 
 .search-clear {
@@ -290,7 +289,9 @@ nav dd {
 nav dd a {
   display: block;
   padding: 7px 14px;
-  color: #4a4f54;
+  /* Same black as the section titles (nav dt) so both levels of the sidebar
+     read at the same colour weight. */
+  color: #232729;
   text-decoration: none;
   border-radius: 0 6px 6px 0;
   white-space: nowrap;
