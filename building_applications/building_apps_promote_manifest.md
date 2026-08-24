@@ -12,7 +12,7 @@ After creating an app, you can modify its components using the Configuration Bui
 <br><br>
 
 ***
-## Versioning Your App
+## Versioning and Release Notes
 When you are ready to release a new app version, promote it to Production and include release notes that describe what has changed. These notes appear to Procore Company Admins during the update process and—if your app is listed on the Marketplace—also appear on your Marketplace listing.
 
 Use clear and accurate release notes to help users understand what is new or changed.
@@ -26,7 +26,7 @@ Procore apps follow <a href="https://semver.org/" target="_blank">Semantic Versi
 </details>
 
 ***
-## Promoting Your App & Notifying Users
+## Promote to Production
 After promoting a version to Production, Procore notifies customers when an update is available. Company Admins will see an **"Update Available"** badge in the App Management section of the Company Admin Tool.
 
 ### Promotion Steps

@@ -6,8 +6,7 @@ section_title: "Integration Guides: Document Management"
 
 ---
 
-## Working with Document Management
-
+## Overview
 The Procore Document Management (PDM) system provides a platform for integrators to programmatically sync documents from external systems into Procore projects.
 Before you begin working with the various Document Management API endpoints, we recommend familiarizing yourself with the core concepts, architecture, and workflows outlined in this guide.
 

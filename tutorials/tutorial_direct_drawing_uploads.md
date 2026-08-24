@@ -91,14 +91,10 @@ When we log in to Procore, navigate to the Drawings tool in our project and sele
 
 ![ready-for-review]({{ site.baseurl }}/assets/guides/ready-for-review.png)
 
-## Further Reading
-
-Refer to Working with [Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}) for general information on creating file uploads using the Procore API.
-
 ## See Also
 
 - [Working with the Documents Tool]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_documents.md %})
 - [Working with File Attachments and Image Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/attachments.md %})
-- [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %})
+- [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}) — general information on creating file uploads using the Procore API
 - [Working with Secure File Access]({{ site.url }}{{ site.baseurl }}{% link best_practices/secure_file_access_tips.md %})
 - [Working with Drawings]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_drawings.md %})

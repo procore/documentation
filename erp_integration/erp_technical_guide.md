@@ -13,8 +13,7 @@ This guide will stick to the basics of an ERP integration. It is advised to refe
 
 ---
 
-## Getting Started
-
+## Get Started
 Before the Integration can start receiving Webhook events and processing events for a particular Procore company, a few things need to be setup:
 
 ### 1. Create a Developer Managed Service Account
@@ -64,8 +63,7 @@ Then you created a Trigger to indicate which resource you want to receive events
 
 ---
 
-## Receiving and Proccessing Events
-
+## Receive and Process Events
 At this point you may be asking, what causes an event to be fired off?
 
 There are a few main categories of events:

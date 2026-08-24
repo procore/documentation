@@ -15,7 +15,7 @@ If your use case involves AI agents, semantic retrieval, or large-scale analytic
 <br><br>
 
 ***
-## Permitted use cases
+## Permitted Use Cases
 
 REST APIs are built for transactional workflows that complement your app's core integration:
 
@@ -26,7 +26,7 @@ REST APIs are built for transactional workflows that complement your app's core 
 <br><br>
 
 ***
-## What REST APIs are not designed for
+## What REST APIs Are Not Designed For
 
 Procore's transactional REST APIs are **not intended for**:
 
@@ -39,7 +39,7 @@ These activities can impact platform stability, degrade performance for customer
 <br><br>
 
 ***
-## Best practices
+## Best Practices
 
 To maintain platform performance and stay in compliance:
 
@@ -50,7 +50,7 @@ To maintain platform performance and stay in compliance:
 <br><br>
 
 ***
-## See also
+## See Also
 - <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Reference</a>
 - [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %})
 - [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}) — for AI agents, semantic retrieval, and advanced analytics use cases

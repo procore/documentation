@@ -6,7 +6,15 @@ layout: default
 section_title: Announcements
 ---
 
-## What is changing
+## Overview
+
+The `update` event type on the **Project Users** and **Project Vendors** webhook triggers is being deprecated, with a hard cutoff of **June 30, 2026**.
+These triggers cause a fanout problem — a single contact edit in the Directory tool can generate thousands of duplicate events across projects.
+
+This page covers what is changing, how to tell whether your app is affected, and the steps to migrate before the cutoff.
+Only the `update` event type on those two triggers is affected; `create` and `delete` continue to work, as do all Company Directory triggers.
+
+## What Is Changing
 
 Procore is deprecating the `update` event type on two webhook triggers: **Project Users** and **Project Vendors**. After **June 30, 2026**, these triggers stop delivering `update` events. Your app will no longer receive them.
 
@@ -24,7 +32,7 @@ The `create` and `delete` event types on these same triggers are **not affected*
 <br><br>
 
 ***
-## Why this is happening
+## Why We’re Deprecating These Triggers
 
 Procore's Directory tool exists at two levels: Company and Project. When a contact record is updated in a Project Directory, here is what happens:
 
@@ -44,8 +52,7 @@ One edit to one contact produces one webhook event per project that contact is a
 <br><br>
 
 ***
-## Timeline
-
+## Migration Timeline
 | Date | What happens |
 | --- | --- |
 | April 2026 | Deprecation announced. Migration window begins. |
@@ -55,7 +62,7 @@ One edit to one contact produces one webhook event per project that contact is a
 <br><br>
 
 ***
-## How to tell if your app is affected
+## How to Tell If Your App Is Affected
 
 Check whether your app subscribes to either of these trigger and event type combinations:
 
@@ -68,7 +75,7 @@ If your app only uses `create` or `delete` event types on these triggers, no mig
 <br><br>
 
 ***
-## Migration steps
+## Migration Steps
 
 ### Step 1: Subscribe to Company Directory webhooks
 
@@ -106,7 +113,7 @@ Once you have validated the new subscriptions:
 <br><br>
 
 ***
-## Quick reference
+## Quick Reference
 
 | Trigger level | Fanout risk | Recommendation |
 | --- | --- | --- |
@@ -117,7 +124,7 @@ Once you have validated the new subscriptions:
 <br><br>
 
 ***
-## Frequently asked questions
+## Frequently Asked Questions
 
 **Will my existing subscriptions break immediately?**
 No. The deprecated triggers continue to deliver events until June 30, 2026. You have a migration window to transition.

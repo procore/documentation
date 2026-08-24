@@ -54,9 +54,7 @@ _Note_: The following Procore API endpoints _do not_ require a request header co
 The exception to this rule is when you are using Service Accounts with the OAuth 2.0 Client Credentials grant type.
 See [Using Service Accounts with MPR]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}#using-service-accounts-with-mpz) for additional information.
 
-## Requirements
-
-All applications accessing the Procore API must be MPR-compliant. The `Procore-Company-Id` request header is required on all API calls (with the exception of the endpoints listed above). Applications that do not include this header will not be able to access data for Procore customers.
+Applications that do not include the `Procore-Company-Id` header will not be able to access data for Procore customers.
 
 ## Resource ID Value Size
 
@@ -71,6 +69,6 @@ _Answer_: Yes.
 Sandbox environments also require MPR-compliant API calls, including the `Procore-Company-Id` request header.
 For sandbox environment URLs and setup details, see [Sandbox Environments]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/development_environments.md %}).
 
-## Need Additional Information?
+## Need Help?
 
 If you have any questions or need help in determining the impacts of MPR on your application codebase, please contact our [Technical Services](mailto:apisupport@procore.com) team for assistance.

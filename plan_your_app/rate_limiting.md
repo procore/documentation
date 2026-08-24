@@ -14,7 +14,7 @@ The headers returned may reflect either the spike limit or the hourly limit. The
 <br><br>
 
 ***
-## What counts against your limit
+## What Counts Against Your Limit
 
 Every request your app sends counts against your rate limit, including requests that fail. A `400`, `403`, or `404` response consumes quota exactly like a successful call.
 
@@ -106,7 +106,7 @@ Follow these practices to reduce the chance of hitting rate limits and to build 
 <br><br>
 
 ***
-## Request a higher limit
+## Request a Higher Limit
 
 If your app consistently approaches its limit after you have applied these practices, you can request an increase. Approval depends on your production traffic, your backoff behavior, and your error rate. See [Request a Rate Limit Increase]({{ site.url }}{{ site.baseurl }}{% link api_essentials/rate_limit_increase.md %}).
 <br><br>

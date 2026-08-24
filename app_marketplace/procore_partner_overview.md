@@ -13,7 +13,7 @@ Anyone can sign up, explore our APIs, and start building. When you're ready to r
 <br><br>
 
 ***
-## Start Building Today
+## Build Before Partnering
 You don't need to be a Technology Partner to start building. Our developer platform is **fully self-service**, allowing you to explore and build at your own pace.
 
 - **<a href="https://developers.procore.com/signup" target="_blank">Create a Developer Account</a>** to access the Developer Portal and your Sandbox Sandbox
@@ -111,7 +111,7 @@ Not sure which verification path is right for you? See [Verification & Productio
 <!-- **For existing partners:** Later in FY26, Procore will introduce a recertification process to validate that current Marketplace listings meet updated standards. This process will be streamlined to recognize the operational history of existing partners. -->
 
 ***
-## Ready to Get Started?
+## Apply to the Partner Program
 
 **Want to become a Technology Partner?** Submit your application and our team will assess your solution for complementarity, strategic alignment, and ecosystem eligibility.
 
@@ -126,12 +126,12 @@ Not sure which verification path is right for you? See [Verification & Productio
 <br><br>
 
 ***
-## Want to Review the Partner Agreement Before Applying?
+## Partner Agreement and Terms
 We recommend reviewing our <a target="_blank" href="https://downloads.ctfassets.net/8pep15rt0kef/3cqMPZK5V9dt5VM9WvL4hA/9489b69ecdf426bd957f7fdb2ce541d6/Procore_Partner_Program_Guide.pdf">Partner Program Guide</a>, <a target="_blank" href="https://assets.ctfassets.net/8pep15rt0kef/3p5N8hUCPqxO2d7qIfym0B/05f433ed5d2d4a99d1a1eea8364c6895/partner-framework-agreement.pdf">Terms</a>, and <a target="_blank" href="https://assets.ctfassets.net/8pep15rt0kef/Owy2JJPZE8QDSaxL2QXAj/8896c4afe4136f9cd2f14111e29208ac/Procore_Partner_Code_of_Conduct.pdf">Partner Code of Conduct</a> early in your journey. The Program Guide outlines what to expect regarding partner tiers, benefits, and associated fees; the Partner Agreements detail the legal terms you'll need to agree to before listing your app on the Marketplace; and the Code of Conduct sets the standards every partner is expected to uphold. Familiarizing yourself with these early on can help you plan your integration and go-to-market strategy more effectively.
 <br><br>
 
 ***
-## Explore Our Resources
+## See Also
 - <a target="_blank" href="https://docs.google.com/document/d/19kHjHF4z-5ajDs6B5o27FEupgKVN7vbN9ds0RKl45Wc/edit?tab=t.0#heading=h.l90ieu5n7004">Technology Program FAQs</a>
 - <a target="_blank" href="https://www.procore.com/partners/documents">Procore Partner Program Documents</a>
 - [Help & Learning Center]({{ site.url }}{{ site.baseurl }}{% link overview/help_and_learning_center.md %})

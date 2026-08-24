@@ -16,7 +16,7 @@ For a complete reference of HTTP status codes, see the [Error Code Reference]({{
 <br><br>
 
 ***
-## Where to find this in the Developer Portal
+## Open the Integration Health Tab
 
 1. Log in to the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>.
 2. Open **My Apps** and select the app you want to inspect.
@@ -30,7 +30,7 @@ The page is organized into three areas:
 <br><br>
 
 ***
-## Status states
+## What Each Status Means
 
 > **Start every investigation with the API Call Activity Report.** When an observation is flagged, it is your fastest path to the root cause, and every remediation step below begins here.
 {: .callout .callout--note}
@@ -49,7 +49,7 @@ Expand any observation row to see its **Daily status** — the raw severity (`Cr
 <br><br>
 
 ***
-## How your status improves
+## How Your Status Improves
 
 Because Integration Health is a rolling 14-day view, your status recovers on its own once you fix the underlying issue — there's nothing to manually clear or dismiss.
 
@@ -61,7 +61,7 @@ Use the **API Call Activity Report** after each release to confirm the offending
 <br><br>
 
 ***
-## Recommended monitoring cadence
+## Recommended Monitoring Cadence
 
 Treat Integration Health as part of your operational rhythm rather than something you check only when alerted:
 
@@ -74,8 +74,7 @@ Treat Integration Health as part of your operational rhythm rather than somethin
 <br><br>
 
 ***
-## Observations
-
+## The Seven Observations
 This section covers each of the seven observations shown on the Integration Health tab. Expand the observation that matches your status pill to see what it means and how to resolve it. **Every resolution path starts with the API Call Activity Report** — download it to see the exact endpoints, status codes, and daily counts behind each flagged observation.
 <br><br>
 
@@ -212,7 +211,7 @@ This section covers each of the seven observations shown on the Integration Heal
 <div class="details-bottom-spacing"></div>
 <div class="details-bottom-spacing"></div>
 
-## Frequently asked questions
+## Frequently Asked Questions
 
 ### Where do I find the API Call Activity Report?
 
@@ -245,7 +244,7 @@ Each status reflects the mix of critical and warning days across the rolling 14-
 <br><br>
 
 ***
-## Related documentation
+## See Also
 
 - [Troubleshooting]({{ site.url }}{{ site.baseurl }}{% link api_essentials/troubleshooting.md %})
 - [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %})

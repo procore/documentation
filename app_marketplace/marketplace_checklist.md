@@ -12,7 +12,7 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 1. Confirm You Are a Procore Partner</summary>
+<summary class="collapseListH2">Step 1: Confirm You Are a Procore Partner</summary>
 <p>
     To list on the Marketplace, you must be a <b>full Procore Technology Partner</b> — meaning you have signed the <b>Procore Framework Agreement</b> and <b>Technology Partner Addendum</b> (Step 4 of the partner journey). If you completed that step, you are eligible to list.
     <br><br>
@@ -22,7 +22,7 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 2: Validate with a Customer (Recommended)</summary>
+<summary class="collapseListH2">Step 2: Validate with a Customer (Recommended)</summary>
 <p>
     We <b>strongly encourage</b> validating your app with at least one beta or active customer before listing — most partners do this during certification, using their temporary-status production access. Real-world use validates onboarding, functionality, and performance, but is not required to submit.
     <br><br>
@@ -32,7 +32,7 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 3: Confirm Your App Is Certified & Production-Ready</summary>
+<summary class="collapseListH2">Step 3: Confirm Production Readiness</summary>
 <p>
     Your app must have passed the <b>Certification Assessment</b> — Procore's production-readiness review completed during the Build, Test & Certify step of the partner journey. If your app is certified and running in production, you've cleared this step; if not, complete certification before listing.
 </p>
@@ -76,7 +76,7 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 4: Complete & Verify Your Marketplace Listing</summary>
+<summary class="collapseListH2">Step 4: Complete & Verify Your Marketplace Listing</summary>
 <p>
     With full partner status, the <b>Marketplace Listing</b> section is automatically available in your app in the Developer Portal — there is no separate enablement step. 
     <br><br>
@@ -95,7 +95,7 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
 
 ***
 <details>
-<summary class="collapseListTierOne">Step 5: Submit Your App</summary>
+<summary class="collapseListH2">Step 5: Submit Your App</summary>
 <p>
     When all steps are complete, submit your app via the <b>Marketplace Listing</b> tab in the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>. If you don't see the Marketplace Listing tab, confirm your partner status — the tab is available once you're a full partner.
     <br><br>

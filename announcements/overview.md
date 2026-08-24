@@ -11,7 +11,7 @@ This page tracks significant changes to the Procore Developer Platform, includin
 <br><br>
 
 ***
-## April 2026 — Project Directory Webhook Update Triggers Deprecated
+## April 2026 — Directory Update Triggers Deprecated
 **Category:** Deprecation
 
 We are deprecating the `update` event type on the **Project Users** and **Project Vendors** webhook triggers. These triggers cause a fanout issue — a single contact edit in the Directory tool can generate hundreds or thousands of duplicate webhook events across projects.

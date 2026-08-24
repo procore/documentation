@@ -18,7 +18,7 @@ Each role has a defined set of permissions for actions that can be taken by a te
 
 ***
 <details>
-  <summary class="collapseListTierOne">Collaborator Permission Overview</summary>
+  <summary class="collapseListH2">Collaborator Permissions</summary>
     <p>
     Before inviting team members to collaborate on your app, it's important to understand the roles available and the actions each can perform within the Developer Portal. There are three collaborator roles:
     </p>
@@ -77,8 +77,7 @@ Each role has a defined set of permissions for actions that can be taken by a te
 </details>
 
 ***
-## Giving Collaborators Access to Developer Sandbox Environments
-
+## Give Collaborators Sandbox Access
 As an App Owner, you can provide your collaborators with access to a development sandbox using the following steps:
 
 1. Log in to the sandbox company for your app and navigate to the **Company Directory** tool.

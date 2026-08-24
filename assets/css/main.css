@@ -1,6 +1,6 @@
 body {
     font-family: Inter, Noto, Arial, sans-serif;
-    background-color: #f1f3f3;
+    background-color: #ffffff;
     color: #202020;
     font-size: 14px;
     line-height: 20px;
@@ -68,14 +68,13 @@ body {
     flex: 1 1 0%;
   }
 
+  /* No card. The page is a single white surface (Stripe-style), so the content
+     column is positioned by the gaps on <article> rather than by centering a
+     floating panel — see the padding on `article` in nav.css. */
   article section {
     max-width: 1200px;
-    /* Center the container on the FULL page (nav space counted), clamped so it never crowds the nav */
-    margin-left: max(24px, calc(50vw - 940px));
+    margin-left: 0;
     margin-right: auto;
-    background-color: white;
-    border-radius: 4px;
-    box-shadow: rgb(0 0 0 / 20%) 0px 1px 2px, rgb(0 0 0 / 10%) 0px 1px 3px;
   }
 
   article h1 {

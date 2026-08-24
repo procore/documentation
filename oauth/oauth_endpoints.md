@@ -32,7 +32,7 @@ Three required request parameters are used with this endpoint as described in in
 
 Unlike the other endpoints, the Grant App Authorization endpoint requires user interaction. For step-by-step usage examples, see [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}).
 
-## Get Or Refresh an Access Token ([/oauth/token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token))
+## Get or Refresh an Access Token ([/oauth/token](https://developers.procore.com/reference/authentication#get-or-refresh-an-access-token))
 
 The Get or Refresh an Access Token endpoint retrieves a new access token or refreshes an existing access token.
 Certain parameter combinations and values are used depending on which scenario you are handling.

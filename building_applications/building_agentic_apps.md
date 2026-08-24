@@ -45,7 +45,7 @@ Agentic components are authored in the same manifest and versioning flow as the 
 <br><br>
 
 ***
-## Next steps
+## Next Steps
 - [Choose an App Type]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}) — how Agentic fits among the app families.
 - [Create an App]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %}) — start an app and its manifest.
 - <a href="https://v2.support.procore.com/product-manuals/procore-ai/tutorials/about-procore-ai" target="_blank">About Procore AI</a> — the customer experience your capabilities surface in.

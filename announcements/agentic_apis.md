@@ -25,8 +25,7 @@ If your app currently uses REST APIs for AI-powered features or large-scale data
 
 ***
 
-## Using the Converse API
-
+## Use the Converse API
 The Converse API takes a natural-language prompt and returns an agent's response, with optional citations to source records and a conversation ID for multi-turn follow-ups. Call-level options include streaming, structured output, and citation generation. Agent-level behavior — knowledge sources, tools, and Model Context Protocol (MCP) server connections — is configured on the agent itself and can be overridden per call.
 
 Most use cases — agents, RAG, semantic search — are built by configuring different agents and calling Converse, rather than against many purpose-built endpoints.
@@ -52,7 +51,7 @@ Most use cases — agents, RAG, semantic search — are built by configuring dif
 
 ***
 
-## Get early access
+## Get Early Access
 
 The Ecosystem team reviews Design Partner pilot submissions on a rolling basis. We select partners based on whether the use case fits the API's capabilities and whether customers are asking for it. Pilot use cases are reviewed through the same partnership review process as other Marketplace integrations.
 
@@ -74,8 +73,7 @@ Here's what happens after you submit:
 
 ***
 
-## Roadmap
-
+## Planned Capabilities
 In development:
 
 - Declaring agentic components (MCP servers and agents) in your app manifest through the Developer Portal, so Marketplace customers can install your agent without a separate Datagrid relationship
@@ -86,7 +84,7 @@ Dates are directional, not committed. Subscribe through the form above to hear w
 
 ***
 
-## See also
+## See Also
 
 - <a href="https://developers.datagrid.com/api-reference/converse/converse" target="_blank">Converse API reference</a>
 - [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) for when to use REST versus Agentic

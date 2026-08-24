@@ -60,7 +60,7 @@ For more information on app versions, see [App Versioning and Update Notificatio
 <br><br>
 
 ***
-## Explore Our Resources
+## See Also
 - [Managing App Collaborators]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %})
 - [Available App Types]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %})
 - [Managing App Versions & Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %})

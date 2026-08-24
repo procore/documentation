@@ -7,9 +7,9 @@ section_title: Example Apps & SDKs
 
 <!-- markdownlint-disable no-inline-html -->
 
-## Getting started
+## Get Started
 
-<p class="heading-link-container"><a class="heading-link" href="#getting-started"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#get-started"></a></p>
 
 ### Installation from NPM (recommended)
 
@@ -73,7 +73,7 @@ const viewer = new ProcoreBim.Webviewer(options);
 viewer.start();
 ```
 
-See the [Options](#options) section for more detail on the options object.
+See the [Viewer Options](#viewer-options) section for more detail on the options object.
 
 ## Background Color
 
@@ -2613,7 +2613,7 @@ setOptions(options);
 #### Description
 
 Sets Webviewer configuration options.
-See [Options](#options).
+See [Viewer Options](#viewer-options).
 Currently can only set `selection`.
 
 #### Parameters
@@ -4604,7 +4604,7 @@ formatUnit(value, unit);
 
 Formats the value with the unit.
 
-- Uses locale passed in to [`Webviewer` options](#options) to display correct thousands and decimals separators for the locale.
+- Uses locale passed in to [`Webviewer` options](#viewer-options) to display correct thousands and decimals separators for the locale.
 - Rounds values to 4 decimal places and truncates trailing zeroes.
 
 ```ts
@@ -4668,9 +4668,8 @@ GUI
 
 ---
 
-## Options
-
-<p class="heading-link-container"><a class="heading-link" href="#options"></a></p>
+## Viewer Options
+<p class="heading-link-container"><a class="heading-link" href="#viewer-options"></a></p>
 
 ### Required Options
 
@@ -5029,9 +5028,9 @@ Locale to use for display language, number formatting, and other localization.
 
 Defaults to `'en'`.
 
-## Objects
+## Viewer Objects
 
-<p class="heading-link-container"><a class="heading-link" href="#objects"></a></p>
+<p class="heading-link-container"><a class="heading-link" href="#viewer-objects"></a></p>
 
 ### Perspective Camera Object
 
@@ -5332,10 +5331,10 @@ export const derangify = (rangified: {
 }
 ```
 
-## Constants
+## Viewer Constants
 
 <p class="heading-link-container">
-  <a class="heading-link" href="#constants"></a>
+  <a class="heading-link" href="#viewer-constants"></a>
 </p>
 
 ### Uom

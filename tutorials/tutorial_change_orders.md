@@ -12,8 +12,7 @@ This tutorial provides insight and guidance for developers using the Change Orde
 Procore's Project level Change Orders tool streamlines the change management process by providing a centralized location for monitoring change orders that affect prime contracts and commitments.
 In construction management, _change orders_ represent the specific details of new work item added to the original scope of a construction project.
 
-## Understanding Change Order Tiers
-
+## Change Order Tiers
 In order to work effectively with the Change Orders API, you'll need a solid understanding of how Change Order Tiers work in Procore.
 Before, exploring the various Change Order API resources and endpoints, we recommend reading [What are the different change order tiers?](https://support.procore.com/faq/what-are-the-different-change-order-tiers) on the Procore Support site.
 

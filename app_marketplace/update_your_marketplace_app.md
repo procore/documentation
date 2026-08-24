@@ -14,7 +14,7 @@ This guide covers how to manage updates to your app, view key metrics, and imple
 
 ***
 
-## Manage Your App
+## Update Your App
 You can update your app’s functionality, features, or Marketplace Listing at any time through the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a>. Note that some changes may require approval from the Marketplace team.
 
 If you're unable to access the app in the Developer Portal, see [Managing App Collaborators]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_manage_collabs.md %}) to check your role or request access.
@@ -110,7 +110,7 @@ Key metrics include:
 ***
 <div class="details-bottom-spacing"></div>
 
-## Marketing & Growing Your App
+## Market and Grow Your App
 Publishing your app on the Procore Marketplace is just the first step toward scaling adoption and maximizing its impact. This section focuses on the different aspects of growing and maintaining your app, as well as some of the self-service marketing activities.
 
 ### Leverage Procore’s Marketing Guides

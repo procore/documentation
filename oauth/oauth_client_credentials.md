@@ -22,8 +22,7 @@ There are a number of scenarios in which using the Client Credentials grant flow
 - Report generators - data mining, sync operations, or other integrations that access company-wide data.
 - Backend scripts - system maintenance and administration utilities.
 
-## Requesting an Access Token
-
+## Request an Access Token
 With a DMSA installed in Procore, request an access token by POSTing to the `/oauth/token` endpoint with `grant_type=client_credentials`. For full parameter details, see [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}).
 
 cURL example:
@@ -50,8 +49,7 @@ The JSON response block from the call includes an `access_token` string and addi
 - `expires_in` - value of 5400 indicates that the access token is valid for 5400 seconds (1.5 hours).
 - `created_at` - date/time the access token was generated in UNIX time format.
 
-## Making a Test Call to the Procore API
-
+## Make a Test Call
 Now that you have a valid access token you can make a test call to the Procore API. For this simple example, we will make a call to the [List Projects](https://developers.procore.com/reference/rest/v1/projects#list-projects) endpoint to return a list of the active projects in our company.
 
 ```
@@ -89,8 +87,7 @@ If successful, this call will return a JSON response block similar to the follow
 }
 ```
 
-## Using Developer Managed Service Accounts with MPR
-
+## Use DMSAs with MPR
 If you intend to use DMSAs with Multiple Procore Regions (MPR), you _must_ include the `Procore-Company-Id` request header when making calls to the `/rest/v1.0/me` or `/rest/v1.0/companies` endpoints.
 
 Here is a cURL example showing a call to `GET /rest/v1.0/me`:

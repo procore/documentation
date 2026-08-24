@@ -18,13 +18,15 @@ section_title: Marketplace & Partnership
   ol.roman > li:last-child { margin-bottom: 0; }
 </style>
 
-### Effective: September 30, 2025
+**Effective: September 30, 2025**
+
+## Overview
 
 Welcome to the Procore developer ecosystem! Our goal is to foster a vibrant community where developers can create innovative Applications that connect seamlessly with the Procore Services and enable our Customers to enhance their construction management capabilities. This Developer Policy (“Policy”) outlines the rules and standards aimed at ensuring that any Applications you wish to Commercially Distribute provide a secure, user-friendly, and high-quality experience for all users within the Procore ecosystem. By developing Applications that utilize Procore's APIs you agree to comply with this Procore Developer Policy, as well as the <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a>, which govern the use of our APIs and related services. Please read on to understand how to align your development practices with our expectations and contribute positively to the Procore ecosystem. Terms not defined in this Policy are defined in the API Terms.
 <br><br>
 
 ***
-### 1. Security
+## 1. Security
 
 At Procore, we take the security of our Customers’ data very seriously, and we expect the highest standards from our developers. Your Applications, operating systems, networks, and web services must be configured to operate securely, and all Data must be stored within your system using strong encryption.
 
@@ -48,7 +50,7 @@ Developers and their Applications will not, directly or indirectly:
 <div class="details-bottom-spacing"></div>
 
 ***
-### 2. Use of Data
+## 2. Use of Data
 
 Protecting API Data is paramount at Procore, and it must be for you as well. You are responsible for good API Data stewardship practices, and you have no independent rights to any API Data.
 
@@ -75,7 +77,7 @@ Developers and their Applications will not, directly or indirectly:
 <div class="details-bottom-spacing"></div>
 
 ***
-### 3. User Experience
+## 3. User Experience
 
 Every Application must meet a legitimate business need, respect user privacy, and provide a positive user experience.
 
@@ -94,7 +96,7 @@ Developers and their Applications will not, directly or indirectly:
 <div class="details-bottom-spacing"></div>
 
 ***
-### 4. Business Integrity
+## 4. Business Integrity
 
 While using Procore APIs, developers must agree to respect our business and operate in accordance with appropriate and accepted business conduct.
 
@@ -111,7 +113,7 @@ Developers and their Applications will not, directly or indirectly:
 <div class="details-bottom-spacing"></div>
 
 ***
-### 5. Design
+## 5. Design
 
 Good design is an important part of product development, and we want all users to enjoy a delightful experience. We support developers in their efforts to build applications that provide meaningful and relevant user experiences.
 
@@ -125,7 +127,7 @@ Developers and their Applications will not, directly or indirectly:
 <div class="details-bottom-spacing"></div>
 
 ***
-### 6. Legal Compliance & Safety
+## 6. Legal Compliance & Safety
 
 Applications must not create unsafe environments or hardships for Customers. Each Application must comply with all applicable laws and legal requirements in all locations where it is made available.
 
@@ -149,13 +151,13 @@ Developers and their Applications will not, directly or indirectly:
 <div class="details-bottom-spacing"></div>
 
 ***
-### 7. Data Breach
+## 7. Data Breach
 
 If API Data is breached, exposed, exploited, or otherwise compromised through your Application or company, you must immediately inform all affected Customers and Procore in accordance with the API Terms. Please contact us at <a href="mailto:security@procore.com">security@procore.com</a> immediately.
 <br><br>
 
 ***
-### 8. Compliance and Consequences of Violations
+## 8. Compliance and Consequences of Violations
 
 Developers who wish to Commercially Distribute their Applications are required to comply with this Policy, as well as all other Procore guidelines and policies, including the API Terms. We expect developers to exercise good judgment, build and submit Applications with reasonable work-related purposes, and ensure they are a good fit for Procore Customers. You will also notify us immediately if you materially change the function of or discontinue your Application.
 

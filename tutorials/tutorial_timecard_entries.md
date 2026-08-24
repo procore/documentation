@@ -71,8 +71,7 @@ In the request body for the [Create Timecard Entry](https://developers.procore.c
 
 ![create-timecard-entry]({{ site.baseurl }}/assets/guides/create-timecard-entry.png)
 
-## Including Timecard Entry Hours in Project Budget Views
-
+## Include Timecard Hours in Budget Views
 After timecard entries are added to a project, labor hours can be accessed and included in project budget views using the Timecard Entry Hours source column.
 In order to make Timecard Entry Hours available as a source column, we first need to create a Timesheet to Budget Configuration.
 We include the `line_item_type_id` in the request body.

@@ -84,8 +84,7 @@ The endpoint names are linked to their corresponding reference pages.
 | [List Correspondence Type Defaults](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-defaults)                   | GET    | /correspondence_types/defaults                                                                              | Returns a list of all Correspondence Types Defaults for the specified Project.                           |
 | [List Correspondence Type Users](https://developers.procore.com/reference/rest/v1/correspondences?version=1.0#list-correspondence-type-users)                         | GET    | /correspondence_types/users                                                                                 | Returns a list of all Correspondence Types Users Availability for the specified Project.                 |
 
-## Understanding Correspondence Tool Permissions
-
+## Correspondence Tool Permissions
 One key aspect of working with the Correspondence Tool API centers around the concept of permissions.
 Certain access levels (Read Only, Standard, and Admin) are required to perform certain tasks within the Correspondence Tool.
 Refer to the [Correspondence Tool Permissions](https://support.procore.com/products/online/user-guide/project-level/correspondence/permissions) article on the Procore Support Site for detailed information on the tasks allowed under each access level.
@@ -455,17 +454,12 @@ The request body defines updated field values for one or more items.
 
 ![Bulk Update Correspondence Items]({{ site.baseurl }}/assets/guides/batch-update-corres-items.png)
 
-## Webhooks
-
+## Correspondence Webhooks
 The Correspondence tool supports webhooks as described in [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}). Procore customers can configure Correspondence webhooks using the Project Admin tool as outlined in [Configure Project Webhooks](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/configure-webhooks).
-
-## Further Reading
-
-- [Procore Support Articles - Correspondence Tool](https://support.procore.com/products/online/user-guide/project-level/correspondence)
-- [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
 
 ## See Also
 
+- [Procore Support Articles - Correspondence Tool](https://support.procore.com/products/online/user-guide/project-level/correspondence)
 - [Working with Configurable Fieldsets]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_config_fieldsets.md %})
 - [Working with User Permissions and Permission Templates]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_user_permissions.md %})
 - [Work Breakdown Structure]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_wbs.md %})

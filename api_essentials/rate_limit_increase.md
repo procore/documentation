@@ -18,7 +18,7 @@ An increase raises your ceiling. It does not change the behavior that reached th
 {: .callout .callout--note}
 
 ***
-## Before you apply
+## Before You Apply
 
 Work through the efficiency practices in [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}#tips-for-working-within-the-rate-limit) first — index endpoints, caching, and reduced polling.
 
@@ -33,7 +33,7 @@ If Integration Health flags errors, especially `4xx` responses, resolve those fi
 {: .callout .callout--note}
 
 ***
-## Consider whether more quota is the right fix
+## Consider Whether More Quota Is the Right Fix
 
 Some workloads are better served by a different approach. These are worth evaluating before you apply, and in some cases they remove the need for an increase entirely.
 
@@ -47,7 +47,7 @@ Procore Analytics is licensed at the company level. If you are building an integ
 <br><br>
 
 ***
-## What we review
+## What We Review
 
 Every signal below comes from your app's own production traffic over the past 30 days.
 
@@ -61,7 +61,7 @@ Every signal below comes from your app's own production traffic over the past 30
 <div class="details-bottom-spacing"></div>
 
 ***
-## Requests we typically decline
+## Requests We Typically Decline
 
 We rarely approve an increase in these cases:
 
@@ -75,7 +75,7 @@ A declined request is not final. Reapply once the underlying issue is resolved a
 <br><br>
 
 ***
-## How to apply
+## How to Apply
 
 1. Confirm your app is running in production and generating consistent traffic.
 2. Review your [Integration Health]({{ site.url }}{{ site.baseurl }}{% link api_essentials/integration_health.md %}) status, then download your [API Call Activity Report]({{ site.url }}{{ site.baseurl }}{% link api_essentials/app_performance_metrics.md %}) to investigate further.
@@ -88,7 +88,7 @@ The form explains what each field needs. Two values are worth locating before yo
 <br><br>
 
 ***
-## Temporary increases
+## Temporary Increases
 
 Some work needs headroom for a defined period rather than permanently — a data migration, an archival job, or a one-time backfill. Give an end date on the form rather than requesting an ongoing increase.
 
@@ -96,8 +96,7 @@ A temporary increase is granted with an agreed revert date. On that date your ap
 <br><br>
 
 ***
-## Keeping your increase
-
+## Keep Your Increase
 > **Inactive apps lose their increase, without advance notice.** An app that records zero production API calls for a full calendar month returns to the default limits.
 {: .callout .callout--warning}
 
@@ -109,7 +108,7 @@ Removal is not permanent. If your app becomes active again, apply through the sa
 <br><br>
 
 ***
-## Next steps
+## Next Steps
 - [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) — headers, `429` handling, and efficiency practices.
 - [Integration Health]({{ site.url }}{{ site.baseurl }}{% link api_essentials/integration_health.md %}) — the status we review with your request.
 - [API Call Activity Report]({{ site.url }}{{ site.baseurl }}{% link api_essentials/app_performance_metrics.md %}) — the 30-day CSV that shows what drives your volume.

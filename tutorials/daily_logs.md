@@ -6,13 +6,14 @@ section_title: "Product Guides: Field Tools"
 
 ---
 
+## Overview
+
 Procore's Project level Daily Log tool is designed to provide project team members with a central location for viewing, tracking, and emailing updates about daily project activities.
 This guide provides some helpful hints for working with the Daily Log API endpoints.
 
 For additional information on Procore's Daily Log feature, see the [Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log) articles on the [Procore Support](https://support.procore.com) site.
 
-## Filtering Logs by Date and Date Ranges
-
+## Filter Logs by Date
 Daily log information retrieved by List action endpoints can be filtered by date (or date ranges) using the following guidelines.
 
 - **Filtering by a Specific Date** - If you want to find logs for a specific date you must use the log_date query parameter with a date format of `YYYY-MM-DD`.  For example, `?log_date=2016-08-09`.
@@ -20,8 +21,7 @@ Daily log information retrieved by List action endpoints can be filtered by date
 
 **Note**: If none of the date parameters are provided in the call, only logs from the current (today's) date are returned.
 
-## Working with Locations in Daily Logs
-
+## Work with Locations
 A number of daily log endpoints support both single locations as well as multi-tier locations.
 For information on multi-tier locations in Procore, see this helpful [Support FAQ](https://support.procore.com/faq/how-do-i-add-a-multi-tiered-location-to-an-item).
 Here we use `quantity_log` as an example, but you can replace it with the name of the log you want to work with.
@@ -106,8 +106,7 @@ Currently, locations are supported in the Manpower log, Equipment log, Quantity 
 }
 ```
 
-## Working With Attachments
-
+## Work with Attachments
 Some logs have attachment capabilities through the API with the following limitations.
 
 - The following Daily Logs do **not** support attachments on the web:

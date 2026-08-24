@@ -220,7 +220,7 @@ Reference:
 Possible responses include `201`, `401`, `403`, and `422` depending on auth and validation.
 Some endpoints still support `image[data]` in `multipart/form-data`, but uploads-first with `upload.uuid` is the recommended flow for new integrations.
 
-## Next Step
+## Next Steps
 
 After you create or update the resource, use that tool's resource endpoint(s) to confirm the association in the returned payload.
 Use the endpoint-specific reference docs for the resource you are integrating.

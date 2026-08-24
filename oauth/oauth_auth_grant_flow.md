@@ -36,7 +36,7 @@ The high-level flow:
 6. Your app exchanges the authorization code for an access token via `/oauth/token`.
 7. Your app calls Procore APIs using the access token.
 
-## Step 1: Redirect the User to Procore's Authorization Endpoint
+## Step 1: Redirect the User
 
 > **Production vs. Sandbox.** Access tokens and refresh tokens are not shared between production and sandbox environments. Use the credentials and base URL for whichever environment you're targeting; the examples below use the production base URL (`https://login.procore.com`).
 {: .callout .callout--note}
@@ -59,7 +59,7 @@ Where:
 
 The user is presented with a Procore login screen. After successful login and approval, Procore redirects to your `<REDIRECT_URI>` with the authorization code in the query string. The authorization code is single-use and expires in 10 minutes.
 
-## Step 2: Exchange the Authorization Code for an Access Token
+## Step 2: Exchange the Code
 
 POST to `/oauth/token` with the authorization code:
 
@@ -95,8 +95,7 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
      -X GET https://api.procore.com/rest/v1.0/me
 ```
 
-## Refreshing the Access Token
-
+## Refresh the Access Token
 The access token expires after 1.5 hours (5400 seconds). To renew it, POST to `/oauth/token` with the refresh token:
 
 ```
@@ -161,7 +160,7 @@ The initial authorization requires a one-time user interaction (logging in and p
 - Each refresh response returns a new access token AND a new refresh token. Save both.
 - As long as your app refreshes before the access token expires (1.5 hours), no further user interaction is needed.
 
-## Additional Resources
+## See Also
 
 - Most languages have OAuth 2.0 client libraries that wrap the request/exchange logic. See the [OAuth 2.0 client libraries directory](https://oauth.net/code/#client-libraries).
 - [Authentication Endpoints]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_endpoints.md %}) — full parameter reference for `/oauth/authorize`, `/oauth/token`, `/oauth/token/info`, and `/oauth/revoke`.

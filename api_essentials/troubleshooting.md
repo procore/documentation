@@ -103,7 +103,7 @@ Body (x-www-form-urlencoded):
 <br><br>
 
 ***
-## Rate Limiting
+## Rate Limit Errors
 
 ### 429: Too Many Requests
 
@@ -217,8 +217,7 @@ See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_l
 <br><br>
 
 ***
-## Getting Help
-
+## Get Help
 If you cannot resolve your issue using the guidance above:
 
 1. **Check the status page:** <a href="https://status.procore.com/" target="_blank">status.procore.com</a> for ongoing incidents.

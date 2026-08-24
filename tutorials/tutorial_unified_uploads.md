@@ -36,8 +36,7 @@ It is also built with multi-cloud support in mind, so as Procore expands to addi
 > **Treat URLs and headers as opaque.** The presigned `url` and `headers` returned in each segment must be copied in their entirety and used exactly as provided in your PUT request. Do not parse, pattern-match, or make any assumptions about the URL structure or the set of headers — both are subject to change across API versions and environments without prior notice.
 {: .callout .callout--warning}
 
-## Endpoints
-
+## Endpoint Reference
 The Unified File Upload API is available at both the project level and the company level.
 Use project-level endpoints when uploading files that will be associated with a specific project resource (such as a PDM document).
 Use company-level endpoints when uploading files that will be associated with a company-level resource.
@@ -448,8 +447,7 @@ Use the `upload_id` from this upload (`01JEXAMPLE00000000000000002`) as the `fil
 
 ---
 
-## Checking Upload Status (GET)
-
+## Check Upload Status
 Use the Get Upload Status endpoint to check the current state of an upload, or to poll until the file is fully processed and available.
 
 **Request**
@@ -659,8 +657,7 @@ curl -X GET 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/upload
 
 Once `status` is `available`, the file can be associated with a company-level resource using the `upload_id`.
 
-## Coming Soon
-
+## Planned Capabilities
 The following capabilities are planned for upcoming releases of the Unified File Upload API:
 - **Malware scan** — Automated scanning of all uploaded files for malware
 - **Checksum verification status** — Fields confirming whether server-side checksum verification passed

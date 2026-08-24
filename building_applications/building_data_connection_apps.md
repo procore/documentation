@@ -82,7 +82,7 @@ Once you're satisfied with testing, promote your sandbox version to production. 
 <br><br>
 
 ***
-## Next steps
+## Next Steps
 - [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) — rate limits, permitted usage, and when to use REST vs. Agentic APIs.
 - [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) — pick User Level vs. Service Account authentication.
 - [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) — set up Service Account authentication.

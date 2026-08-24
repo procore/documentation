@@ -15,17 +15,13 @@ This page explains how the Federal Zone differs from Commercial, what changes fo
 
 ***
 
-## What’s Different at a Glance
+## Federal vs. Commercial Differences
 - Separate environment, infrastructure, and tenants from Commercial.
 - Separate **Developer Portal** and **Marketplace**; apps are not shared between environments.
 - Unique app registration and credentials per environment.
 - Different OAuth and API endpoints (see table below).
 - No sandbox environments in the Federal Zone.
 <br><br>
-
-***
-
-## Key Differences Between Federal and Commercial Environments
 
 > **Apps can't be shared between environments.** Each needs its own registration, credentials, and Marketplace listing.
 {: .callout .callout--note}
@@ -57,7 +53,7 @@ While not a full substitute for a sandbox, this approach provides the closest mo
 
 ***
 
-## How to Get Started as a Procore for Government Marketplace Partner
+## Get Started as a Government Partner
 
 > **The Federal Zone does not provide sandbox accounts.** All development and most testing should occur outside the Federal Zone before final validation.
 {: .callout .callout--note}

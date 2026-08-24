@@ -23,8 +23,7 @@ To install the package on your computer, run the following command in your proje
 
 If you need to install `npm` to your computer, visit the [NPM website](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and follow the installation instructions they provide for your particular operating system.
 
-## Using the Library
-
+## Use the Library
 The Procore Iframe Helper library provides functions that help simplify your implementation of OAuth 2.0 within your embedded App. We recommend reviewing [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) and related Developer Portal articles before incorporating the library into your application. Here are the high-level steps for implementing authorization and authentication via OAuth 2.0 with the Procore Iframe Helper library:
 
 - On the landing page for your application, initialize the library using `const context = ProcoreIframeHelpers.initialize();`. This sets the proper context for subsequent calls to the library functions.

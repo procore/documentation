@@ -6,7 +6,12 @@ layout: default
 section_title: Platform Concepts
 ---
 
-## API Lifecycle Phases
+## Overview
+
+Every Procore REST API resource moves through a defined lifecycle, from active support to eventual sunset.
+This page explains the three lifecycle phases, how Procore manages a resource through them, and what each phase means for an integration you have already built.
+
+## Lifecycle Phases
 
 The API lifecycle comprises three distinct phases.
 
@@ -14,7 +19,7 @@ The API lifecycle comprises three distinct phases.
 - **Deprecated**: Has been superseded by a newer API version. A deprecated API version will be supported for a period of one (1) year following the date of deprecation. However, no new development occurs during this phase. New applications are denied access to deprecated APIs.
 - **Sunset**: API resources are no longer available on production. This occurs at the conclusion of the ‘Deprecated’ phase.
 
-## API Lifecycle Management
+## Lifecycle Management
 
 This table provides additional information on how the Rest API product is managed through the lifecycle.
 
@@ -24,8 +29,7 @@ This table provides additional information on how the Rest API product is manage
 | Deprecated | API is live in Production                 | - Fixes deployed as needed<br>- No new development<br>- Technical support available at <apisupport@procore.com>                                        | - Endpoint reference pages marked as 'Deprecated'                        | - Developer Portal notification and announcement prior to deprecation<br> - Changelog entries published only for fixes and related changes  |
 | Sunset     | API is no longer accessible in Production | - Support no longer provided                                                                                                                           | - Reference pages no longer accessible in Production                     | - Developer Portal notification and announcement prior to sunset<br> - Final sunset announcement                                            |
 
-## Support
-
+## Need Help?
 Please reach out to <apisupport@procore.com> if you have any questions regarding the API lifecycle.
 
 ## See Also
