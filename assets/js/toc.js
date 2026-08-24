@@ -242,6 +242,16 @@
       revealTarget(target);
       target.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
 
+      // preventDefault() suppresses the browser's native fragment navigation,
+      // which also moves focus and resets the sequential-navigation start point
+      // to the target. Without restoring that, a keyboard or screen-reader user
+      // jumps the viewport but keeps focus in the rail, and tabbing continues
+      // from the rail rather than the section they just chose.
+      // tabindex="-1" makes a non-interactive heading programmatically
+      // focusable; preventScroll leaves the smooth scroll above undisturbed.
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+
       // replaceState, not pushState. An iframe shares its session history with
       // the host page, so pushing an entry per jump makes the reader's Back
       // button crawl backwards through in-page anchors instead of leaving
