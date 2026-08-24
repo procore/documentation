@@ -1,0 +1,237 @@
+/* ============================================================
+   On this page — in-page H2 navigation rail (AGX-7204)
+
+   Markup is rendered at runtime by assets/js/toc.js. The layout
+   only switches on when toc.js adds `.has-toc` to <body>, so the
+   ~30 pages with too few headings keep the original single-column
+   layout untouched.
+
+   Two display modes matter:
+     - standalone  — left nav (--nav-width) + content + rail
+     - embedded    — ?hideNav=true strips the left nav entirely
+                     (see hideNav() in nav.js); content + rail only.
+       This is the production reader experience on
+       developers.procore.com, where the rail is the ONLY in-page
+       navigation available.
+   ============================================================ */
+
+/* Width matches docs.stripe.com's TOC text column (its RightPane is 250px with
+   48px of left padding).
+
+   The gap does NOT follow Stripe. The nav→content gap is the source of truth
+   for column spacing on this site, so content→TOC uses the same 113px that
+   `article`'s left padding sets in nav.css — the reading column sits in equal
+   gutters rather than being pushed against the rail. Keep the two in step: if
+   one changes, change both. */
+:root {
+  --toc-width: 202px;
+  --toc-gap: 113px;
+  /* Drops the rail so "On this page" starts level with the h1's text rather
+     than with its box. Mirrors the 48px top padding on `article h1` in
+     main.css — if that padding changes, change this with it. Purely vertical:
+     the rail's column position and the prose width are untouched. */
+  --toc-offset: 48px;
+
+  /* Procore AnchorSection palette (core 12.49.0) — see .toc__link below. */
+  --toc-rule-rest: #e3e6e8;
+  --toc-rule-hover: #919ca1;
+  --toc-rule-active: #232729;
+  --toc-fill: #e3e6e8;
+}
+
+/* ---------------- Layout ---------------- */
+
+body.has-toc article {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--toc-gap);
+  /* <article> is itself a flex item of <body>. Its default min-width:auto
+     pins it to its content width, so without this the third column pushes the
+     page into horizontal scroll instead of the content column giving way. */
+  min-width: 0;
+}
+
+/* min-width:0 lets the content column shrink; without it a wide table or
+   code block refuses to give the rail its width and pushes it off-screen. */
+body.has-toc article section {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Flex items shrink by default, and the rail widens <article>'s min-content
+   width. Without this the left nav gives up its own width to make room —
+   it collapsed to ~176px on pages with wide tables. --nav-width is defined in
+   nav.css; this must stay pinned to the same value. */
+body.has-toc nav:not(.toc) {
+  flex: 0 0 var(--nav-width);
+}
+
+/* With the nav pinned and a third column in play there is no spare width left
+   to donate to an oversized table, so tables scroll inside the content column
+   rather than stretching the page. Scoped to .has-toc so the ~30 pages without
+   a rail keep their current behaviour exactly. */
+body.has-toc main table {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Embedded mode. `section.full-width` forces width:100%, which combined with
+   the inherited margin-left overflowed the frame by 24px even before the rail
+   existed — that is the horizontal scrollbar visible on the live site. Letting
+   flex size the column fixes the overflow and makes room for the rail. */
+body.has-toc section.full-width {
+  max-width: none;
+  min-width: 0;
+  width: auto;
+  margin-left: 0;
+}
+
+
+/* ---------------- The rail ---------------- */
+
+.toc {
+  flex: 0 0 var(--toc-width);
+  width: var(--toc-width);
+  box-sizing: border-box;
+  /* Explicit, so nothing from the sidebar's <nav> rules can reintroduce a
+     gutter or a divider here. */
+  padding: 0;
+  border: 0;
+  margin-top: var(--toc-offset);
+  position: sticky;
+  top: 48px;
+  /* Longest page in the vault has 29 H2s, so the rail has to scroll itself
+     rather than run off the bottom of the viewport. */
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  /* 14px matches the sidebar nav, so the two navigations read at the same
+     scale rather than the rail looking like fine print. */
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.toc[hidden] {
+  display: none;
+}
+
+/* Sentence case, same 14px as the entries. Weight and colour do the work of
+   marking it as the heading — no uppercasing, and no letter-spacing, which
+   only ever existed to open up the all-caps setting. */
+.toc__title {
+  font-size: 14px;
+  font-weight: 600;
+  /* Overrides the 0.15px tracking `article h2` would otherwise apply here. */
+  letter-spacing: normal;
+  color: #232729;
+  margin: 0 0 10px;
+  padding: 0;
+  line-height: 20px;
+}
+
+.toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc__item {
+  margin: 0;
+}
+
+/* States lifted from Procore's own AnchorSection component (core 12.49.0), as
+   used for the in-page section nav on the Project Webhooks tool — the closest
+   thing we have to a house pattern for exactly this control. Values read off
+   the live stylesheet:
+     rest    4px #E3E6E8 rule, no fill
+     hover   4px #919CA1 rule, #E3E6E8 fill
+     active  4px #232729 rule, #E3E6E8 fill, 600 weight
+   Colour alone never carries state — the rule darkens AND a fill appears, so
+   it survives greyscale and low-vision viewing. */
+.toc__link {
+  display: block;
+  padding: 6px 8px;
+  /* --selected-rule-width is declared in nav.css and shared with the sidebar's
+     `nav dd`, so both navigations mark the current item at the same weight. */
+  border-left: var(--selected-rule-width) solid var(--toc-rule-rest);
+  border-radius: 0 4px 4px 0;
+  background-color: transparent;
+  color: #232729;
+  text-decoration: none;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+/* Only the fill and the rule change on hover — the label colour is deliberately
+   held. The explicit `color` is load-bearing: the global `a:hover` in main.css
+   is (0,1,1) and outranks `.toc__link` (0,1,0), so without restating it here
+   the label turns link-blue on hover. */
+.toc__link:hover {
+  border-left-color: var(--toc-rule-hover);
+  background-color: var(--toc-fill);
+  color: #232729;
+}
+
+.toc__link:focus-visible {
+  outline: 2px solid #006ddf;
+  outline-offset: -2px;
+}
+
+/* After :hover deliberately — same specificity, so source order wins and the
+   active item does not shift under the cursor. Matches AnchorSection, whose
+   active:hover rule is identical to its active rule. */
+.toc__link[aria-current="true"] {
+  border-left-color: var(--toc-rule-active);
+  background-color: var(--toc-fill);
+  font-weight: 600;
+}
+
+/* ---------------- Scroll targets ---------------- */
+
+/* Keeps a jumped-to heading clear of the top edge instead of flush against it.
+   Harmless on pages with no rail, so it is not scoped to .has-toc. */
+main h2,
+main h3,
+main h4,
+main summary.collapseListH2 {
+  scroll-margin-top: 24px;
+}
+
+/* ---------------- Narrow viewports ----------------
+   Steps in lockstep with the left gutter in nav.css so the nav→prose and
+   prose→rail gaps stay equal as they collapse. See the responsive ladder
+   comment there for the ordering rationale. */
+
+@media only screen and (max-width: 1700px) {
+  :root {
+    --toc-gap: 64px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  :root {
+    --toc-gap: 32px;
+  }
+}
+
+/* The rail is the first whole column to go — once the gutters have bottomed
+   out it is the cheapest thing left to spend, and dropping it returns ~234px
+   to the prose. 1200px per design; kept clear of the nav drawer breakpoint
+   (1100px) so the two structural transitions never land on the same resize
+   step. Note the prose is at its narrowest (~465px) just above this
+   breakpoint, where the rail is still holding its column. */
+@media only screen and (max-width: 1200px) {
+  .toc {
+    display: none;
+  }
+
+  body.has-toc article {
+    display: block;
+  }
+
+  body.has-toc article section {
+    margin-left: 0;
+  }
+}

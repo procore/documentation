@@ -4,19 +4,103 @@
    the original behaviour, left intact for now)
    ============================================================ */
 
-article {
-  padding: 48px 48px 48px 0; /* no left padding so the content card can center on the full page (past the nav) */
+/* Sidebar width. Referenced again by toc.css, which has to pin the same value
+   as a flex-basis so the rail cannot squeeze the nav — keep it a variable so
+   the two cannot drift apart. */
+:root {
+  --nav-width: 400px;
+  --page-margin: 100px;
+  /* One divider colour for the layout: the sidebar's trailing edge and the two
+     page-frame rules. */
+  --rule-color: rgb(217, 217, 217);
+
+  /* Selected-state pair for the sidebar, per design 2026-08-19. The previous
+     #006ddf on #d6e8fb measured 3.95:1 — under the 4.5:1 AA floor for 14px
+     text. This pair measures 7.02:1 (AA and AAA), and #0F45A2 on white is
+     8.77:1, so the same ink is safe on both backgrounds. */
+  --nav-selected-ink: #0f45a2;
+  --nav-selected-fill: #dae7fa;
+
+  /* Selected-item accent rule. Shared with the "On this page" rail in toc.css
+     so the sidebar and the rail mark the current item identically — declared
+     once here rather than as a literal in each file, so they cannot drift.
+     4px is Procore's AnchorSection value (core 12.49.0). */
+  --selected-rule-width: 4px;
 }
 
-nav {
-  width: 340px;
+/* Page frame — a gutter at each screen edge with the rule on its INNER edge,
+   so the line sits against the content rather than out at the page boundary.
+   Borders live on <body> (the flex row holding nav + article), which puts them
+   exactly at the margin/content boundary and runs them the full content
+   height. */
+body {
+  margin-left: var(--page-margin);
+  margin-right: var(--page-margin);
+  border-left: 1px solid var(--rule-color);
+  border-right: 1px solid var(--rule-color);
+}
+
+/* Column gaps, measured from docs.stripe.com at a 1600px viewport: left nav →
+   prose 113px and a 128px right margin. The nav→prose gap is the source of
+   truth for column spacing — prose → TOC matches it via --toc-gap in toc.css.
+   The left value carries that gap now that the content card is gone and there
+   is no panel to centre. */
+article {
+  padding: 48px 128px 48px 113px;
+}
+
+/* ---------------- Responsive ladder ----------------
+   The content column is the focal point and is protected for as long as
+   possible: it is not reduced until mobile, when there is nothing left to
+   spend. Everything else is sacrificed first, in this order:
+
+     1. The page frame  — margins + rules. Genuinely wide monitors only; below
+        that it is dead space, so it goes first and goes completely.
+     2. The column gutters — collapsed in steps, which walks the content left
+        toward the nav rather than narrowing it.
+     3. The rail — the first whole column to go, once no whitespace is left.
+     4. The nav — off-canvas at the mobile breakpoint, last of all.
+
+   --toc-gap steps in lockstep with the left gutter (see toc.css) so the
+   nav→prose and prose→rail gaps stay equal the whole way down. */
+
+/* The frame earns its keep only on a genuinely wide monitor. */
+@media (max-width: 2100px) {
+  :root {
+    --page-margin: 0px;
+  }
+
+  body {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+/* Whitespace next — pull the content left instead of narrowing it. */
+@media (max-width: 1700px) {
+  article {
+    padding: 48px 64px;
+  }
+}
+
+@media (max-width: 1400px) {
+  article {
+    padding: 48px 32px;
+  }
+}
+
+/* :not(.toc) — the "On this page" rail is also a <nav>, and without this it
+   inherits the sidebar's width, 100vh height, 32px/20px padding and
+   right border. */
+nav:not(.toc) {
+  width: var(--nav-width);
   box-sizing: border-box;
   height: 100vh;
   position: sticky;
   top: 0;
   overflow-y: auto;
   padding: 32px 20px;
-  border-right: 1px solid rgb(217, 217, 217);
+  border-right: 1px solid var(--rule-color);
   font-size: 14px;
   line-height: 1.4;
 }
@@ -169,7 +253,7 @@ nav dt:hover {
 }
 
 nav dt.active {
-  color: #006ddf;
+  color: var(--nav-selected-ink);
 }
 
 nav dt .icon {
@@ -184,7 +268,7 @@ nav dt .icon.open {
 }
 
 nav dt.active .icon {
-  color: #006ddf;
+  color: var(--nav-selected-ink);
 }
 
 /* ---------------- Section items ---------------- */
@@ -197,7 +281,10 @@ dl.col_content {
 nav dd {
   margin: 0;
   padding: 0;
-  border-left: 2px solid #ededed;
+  /* Transparent rather than removed: the expanded-section rail is gone, but the
+     width is still reserved so items don't shift horizontally, and the current
+     page keeps its accent via `nav dd.active` below. */
+  border-left: var(--selected-rule-width) solid transparent;
 }
 
 nav dd a {
@@ -218,12 +305,12 @@ nav dd a:hover {
 }
 
 nav dd.active {
-  border-left-color: #006ddf;
+  border-left-color: var(--nav-selected-ink);
 }
 
 nav dd.active a {
-  color: #006ddf;
-  background-color: #d6e8fb;
+  color: var(--nav-selected-ink);
+  background-color: var(--nav-selected-fill);
   font-weight: 500;
 }
 
@@ -251,8 +338,13 @@ nav dd.active a {
   background: #3a3f43;
 }
 
+/* hideNav() strips the desktop gutters for the embedded view. Those gutters
+   used to be optional because the white content card supplied its own inset
+   against the grey page; now that the page is a single white surface, zeroing
+   the padding would run body text flush into the iframe edge. Keep a modest
+   symmetric inset instead — the host page supplies the outer chrome. */
 article.no-padding {
-  padding: 0;
+  padding: 24px 48px;
 }
 
 section.full-width {
@@ -296,13 +388,21 @@ html.nav-locked {
     padding: 0;
   }
 
+  /* The page frame costs 200px of width — too much once the nav is a drawer. */
+  body {
+    margin-left: 0;
+    margin-right: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
   /* Mobile: cancel the desktop page-centering offset — content is full-width in the drawer layout */
   article section {
     margin-left: 0;
   }
 
   /* Nav becomes a left slide-in drawer */
-  nav {
+  nav:not(.toc) {
     position: fixed;
     top: 0;
     left: 0;
