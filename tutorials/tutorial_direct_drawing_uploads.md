@@ -22,8 +22,7 @@ The example workflow presented below covers the following steps.
 ## Determine Drawing Area and Drawing Set IDs
 
 Our first step is to retrieve the IDs for the drawing area and drawing set in which the new drawing will be created.
-We'll use these values in subsequent steps in the workflow.
-The [List Drawing Areas](https://developers.procore.com/reference/rest/v1/drawings#list-drawing-areas) endpoint returns this information.
+We'll use these values in subsequent steps in the workflow. The [List Drawing Sets](https://developers.procore.com/reference/rest/drawings?version=latest#list-drawing-sets) and the [List Drawing Areas](https://developers.procore.com/reference/rest/v1/drawings#list-drawing-areas) endpoints provide this information.
 
 ![list-drawing-areas]({{ site.baseurl }}/assets/guides/drawing-area-id.png)
 
