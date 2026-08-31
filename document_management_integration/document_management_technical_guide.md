@@ -30,10 +30,10 @@ The sandbox environment is a safe place to iterate on requests and validate resp
 All V2 Document Management endpoints use the following base path:
 
 ```
-/rest/v2.0/companies/{company_id}/projects/{project_id}/document_management
+/rest/v{version}/companies/{company_id}/projects/{project_id}/document_management
 ```
 
-Replace `{company_id}` and `{project_id}` with your actual Procore company and project IDs.
+Replace `{version}` with the version shown in each step (`2.0` or `2.1`). Replace `{company_id}` and `{project_id}` with your actual Procore company and project IDs.
 
 ### Workflow Summary
 
@@ -46,7 +46,7 @@ Replace `{company_id}` and `{project_id}` with your actual Procore company and p
 | 5 | `/rest/v2.1/companies/{company_id}/projects/{project_id}/uploads` | POST, PUT, PATCH, GET | Upload binary file to Procore storage and poll processing status using the **V2.1 Unified File Upload API** |
 | 6 | `.../document_uploads` | PATCH | Associate the uploaded file, set metadata, mark upload as COMPLETED |
 | 7 | `.../document_uploads/{document_upload_id}` | GET | Retrieve `latest_event_id` (required for submission) and optionally review Machine Learning (ML)  populated fields |
-| 8 | `.../document_revisions` | POST | Submit uploads to create document revisions |
+| 8 | `/rest/v2.1/companies/{company_id}/projects/{project_id}/document_management/document_revisions` | POST | Submit uploads to create document revisions |
 
 Step 5 (binary file upload) can be performed before or after Step 4 (initialize document upload records). Both steps must be completed before Step 6 (Patch document uploads).
 Keep batches to 100 items or fewer in Steps 4, 6, and 8 as larger payloads increase the risk of timeouts and make partial-failure recovery more complex.
@@ -636,10 +636,13 @@ GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/
 
 Convert your document upload into a permanent project record. Once a document upload has `upload_status: COMPLETED`, all required metadata fields populated, and a `latest_event_id` retrieved, it is ready for final submission. Submitted document uploads get removed from the uploads list and are no longer retrievable. This POST request consumes your temporary upload ID and creates a versioned Document Revision. Procore will automatically place this new revision into the correct Document Container based on the metadata matching criteria.
 
-**Request** — [Create Document Revisions](https://developers.procore.com/reference/rest/document-revisions?version=2.0#bulk-create-document-revisions)
+> This submit step uses the **V2.1** Document Revisions endpoint.
+{: .callout .callout--note}
+
+**Request** — [Create Document Revisions](https://developers.procore.com/reference/rest/document-revisions?version=2.1#bulk-create-document-revisions)
 
 ```
-POST /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/document_revisions
+POST /rest/v2.1/companies/{company_id}/projects/{project_id}/document_management/document_revisions
 ```
 
 **Request Body**
@@ -673,7 +676,6 @@ POST /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management
 <pre><code>{
   "data": {
     "ids": ["01JDXMPK0TRV0BA5K8GSSY6J0Y"],
-    "failureIds": [],
     "failures": [
       {
         "upload_id": "01JDXMPK0NTP0G50E3NYY51Q5S",
@@ -687,7 +689,7 @@ POST /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management
 
 **`ids`** — The created document revision IDs. These are stable, permanent identifiers — use them (not upload IDs) for any subsequent references or integrations.
 
-**`failures`** — Array of per-item failures that occurred during processing. Check this array even on a 201 response. Each entry contains `upload_id`, `reason_code`, and `message`. `failureIds` is also present but deprecated, use `failures` instead.
+**`failures`** — Array of per-item failures that occurred during processing. Check this array even on a 201 response. Each entry contains `upload_id`, `reason_code`, and `message`.
 
 ***
 
@@ -990,7 +992,7 @@ Fields used from previous steps:
 - `upload_latest_event_id`: `latest_event_id` from Step 7 (`01JDXMPK0REV0D87H0JVVZ8M2W`)
 
 ```json
-POST /rest/v2.0/companies/8089/projects/2305/document_management/document_revisions
+POST /rest/v2.1/companies/8089/projects/2305/document_management/document_revisions
 
 {
   "uploads": [
