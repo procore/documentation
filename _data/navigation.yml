@@ -183,6 +183,8 @@
     #   url: /document-management-api-endpoints - Retired 2026-08-17, re-hosted endpoint data; see the REST reference. Needed for Redirect
     - title: Technical Guide
       url: /document-management-technical-guide
+    # - title: Document Revisions
+    #   url: /document-management-document-revisions - Hidden until DOCINT-1853 flips List Document Revisions to public visibility
     - title: Metadata Details
       url: /document-management-metadata-details
 
