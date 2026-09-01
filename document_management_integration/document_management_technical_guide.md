@@ -720,9 +720,10 @@ The following errors apply to all Document Management API endpoints. It is recom
 | HTTP Status | Reason Code | Description | Resolution |
 | --- | --- | --- | --- |
 | 401 | `INVALID_TOKEN` | Authentication token is missing, invalid, or expired. | Provide a valid OAuth 2.0 access token. See [Authentication]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) for details. |
-| 403 | `FORBIDDEN` | The service account lacks permissions for the requested action. | Ensure the service account has the "Upload New Files" and "Submit New Files" permissions in the project's Document Management tool. |
-| 429 | `TOO_MANY_REQUESTS` | The integration has exceeded Procore's API rate limit. | Inspect the `Retry-After` header in the response, pause your upload loop, and retry after the specified number of seconds. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) for details. |
-| 500 | `INTERNAL_SERVER_ERROR` | The server encountered an unexpected error. | Retry the request after a short delay. |
+| 403 | `ACCESS_DENIED` | The service account lacks permissions for the requested action. The top-level `error.code` is `FORBIDDEN`; the machine-readable `reason_code` is `ACCESS_DENIED`. | Ensure the service account has the "Upload New Files" and "Submit New Files" permissions in the project's Document Management tool. |
+| 500 | `INTERNAL_ERROR` | The server encountered an unexpected error. The top-level `error.code` is `INTERNAL_SERVER_ERROR`; the machine-readable `reason_code` is `INTERNAL_ERROR`. | Retry the request after a short delay. |
+
+Rate limiting is enforced at the API gateway, not as a Document Management `reason_code`. Inspect the `Retry-After` header, pause, and retry. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}).
 
 ### Endpoint-Specific Errors
 
