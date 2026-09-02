@@ -10,7 +10,7 @@ section_title: "Integration Guides: Document Management"
 
 The [Document Management Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %}) covers the eight-step submit flow: initialize an upload, put the file in storage, enrich metadata, and submit. After Step 8, the upload is consumed and the permanent record is a **Document Revision** in a **Document Container**.
 
-This guide covers the read side of that lifecycle: how to list revisions after submit, fetch a known set of revision IDs, walk a container's version history, detect changes by polling, reconcile recycles, and download files.
+This guide covers the read side of that lifecycle: how to list revisions after submit, fetch a known set of revision IDs, walk a container's version history, detect changes with webhooks or by polling, reconcile recycles, and download files.
 
 ***
 ## Related Documentation
@@ -226,13 +226,50 @@ A `per_page` above the ceiling for the current `view` returns HTTP 400 with `rea
 
 ***
 
-## Change Detection by Polling
+## Change Detection
+
+Webhooks are the fast signal: a delivery tells you which revision changed and why. Polling is the completeness signal: it catches missed deliveries, index lag, and permission-scope drift. Use both.
+
+### Webhook Events
+
+The `Document Revision` resource emits `created`, `updated`, and `recycled`. Subscribe if you want to be notified as soon as a revision is submitted, edited, or moved to the Recycle Bin.
+
+Deliveries carry identifiers only — there is no `data` object. A webhook tells you which revision changed (`resource_id`, the revision ID) and why (`reason`). Hydrate the record with [List Selected Document Revisions](#list-selected-document-revisions).
+
+Create the hook with `api_version: "v4.0"`; deliveries echo that value back as `payload_version`. Add one trigger per event, each with `resource_name: "Document Revision"` and an `event_type` of `created`, `updated`, or `recycled`. The past-tense form is required — a trigger registered with `create`, `update`, or `delete` never matches, because those verbs are not among the reasons this resource emits. In the Webhooks trigger picker the same three appear under **Core › Documents** as `Document Revision.Created`, `Document Revision.Updated`, and `Document Revision.Recycled`.
+
+<details>
+<summary class="collapseListTierOne">View example delivery (v4.0)</summary>
+<pre><code>{
+  "id": "01HZXQ4M7N8P9R0S1T2V3W4X5Y",
+  "timestamp": "2026-09-01T21:07:13.115792Z",
+  "reason": "created",
+  "company_id": "1234",
+  "project_id": "5678",
+  "user_id": "9012",
+  "resource_type": "Document Revision",
+  "resource_id": "01JDXMPK0TRV0BA5K8GSSY6J0Y",
+  "payload_version": "v4.0"
+}</code></pre>
+</details>
+
+`id` is the event identifier — use it to make processing idempotent, because the same event can be delivered more than once. `user_id` is the actor who made the change; system-initiated and workflow-driven changes report a Procore internal user rather than a person.
+
+**A delivery is not a permission decision.** Events are emitted once per change regardless of who can see the revision — the payload carries no resource body precisely because one event fans out to subscribers holding different permission scopes. A delivery can therefore arrive for a revision your token cannot read; hydrating it returns a masked row, not a 404. See [Permission Scoping](#permission-scoping).
+
+`recycled` is a true tombstone — a recycled revision is terminal and does not return to the main list. Confirm the row against [List Recycled Document Revisions](#list-recycled-document-revisions); on the main list a recycle is indistinguishable from a permission change that hides the document.
+
+**Do not treat webhooks as a complete change log.** `updated` covers most user-initiated edits — metadata and status changes, workflow transitions, bulk edits, and the prior revision in a workflow-conflict supersession. It does not cover every write that moves `updated_at`, it fires once per revision in a batch whether or not that revision's own data changed, and delivery is best-effort. Supersession without a workflow conflict does not rewrite the prior revision, so no event fires for that revision — the new revision still emits `created`. Keep the [Polling](#polling) pass as the authoritative reconciliation path. See [How Each Kind of Change Surfaces](#how-each-kind-of-change-surfaces).
+
+See [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) and [Using the Webhooks API]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks_api.md %}) for setup, retry, and delivery-monitoring details.
+
+### Polling
 
 There is no `changed_since` cursor type. Change detection is an `updated_at` range on List Document Revisions.
 
 `updated_at` moves for any change. The delta tells you **that** a revision changed, not **what** changed — there is no dedicated status-changed timestamp. Diff against your stored copy to see which fields moved.
 
-### Recommended Two-Phase Pass
+#### Recommended Two-Phase Pass
 
 Use the two-phase pattern when the changed set can be large. If your typical delta is small, skip Phase 1 and request full records directly from the list with the same `updated_at` filter.
 
@@ -256,7 +293,7 @@ Use the two-phase pattern when the changed set can be large. If your typical del
 
 Omitting `per_page` on Phase 2 silently returns 10 rows. The `ids` body can carry the full changed set; page the response instead of chunking the request.
 
-### How Each Kind of Change Surfaces
+#### How Each Kind of Change Surfaces
 
 - **Created or updated** — the revision's `updated_at` moves, so the row appears in the delta. Hydrate and apply.
 - **Withdrawn** — a status value on the same revision. The row reappears in the delta; apply the new status from `fields[]`.
@@ -264,7 +301,7 @@ Omitting `per_page` on Phase 2 silently returns 10 rows. The `ids` body can carr
 - **Superseded (workflow conflict)** — if the prior revision had an active workflow and the submit supplied `termination_reason` and `terminated_revision_status_id`, the prior revision is written and reappears in the delta.
 - **Recycled** — the row drops out of the main list with no tombstone. Confirm against [List Recycled Document Revisions](#list-recycled-document-revisions). Absence alone is not a deletion.
 
-### Periodic Full Re-List
+#### Periodic Full Re-List
 
 Do not treat the delta as self-sufficient. Run a periodic full enumeration (no `updated_at` filter) and set-difference against local state. That backstop covers revisions that missed a tight cursor because they were not yet in the search index, and it catches permission-scope drift. It is not the primary removal signal — use the recycled list for that.
 
