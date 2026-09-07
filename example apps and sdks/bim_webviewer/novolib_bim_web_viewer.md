@@ -3498,6 +3498,7 @@ type InitOptions = {
      objectMeasure?: boolean;
      disableIncrementalCaching?: boolean;
      enableBimIndex?: boolean;
+     gpuGuidance?: boolean;
   };
   platform?: Platform;
   overlayElementsZIndex?: number;
@@ -3597,6 +3598,7 @@ optional procore?: {
   objectMeasure?: boolean;
   disableIncrementalCaching?: boolean;
   enableBimIndex?: boolean;
+  gpuGuidance?: boolean;
 };
 ```
 
@@ -3734,6 +3736,25 @@ optional enableBimIndex?: boolean;
 Enable BIM index for this Procore viewer instance. The embedding host
 evaluates its rollout flag (for example, LaunchDarkly) and passes the
 resolved value. When off, the BIM index is not used.
+
+###### Default
+
+```ts
+false
+```
+
+##### gpuGuidance?
+
+```ts
+optional gpuGuidance?: boolean;
+```
+
+Enable GPU capability detection and guidance for this Procore viewer
+instance. The embedding host evaluates its rollout flag (for example,
+LaunchDarkly `dv-enable-bim-gpu-guidance`) and passes the resolved value.
+Detection runs only on desktop web (`platform: Platform.Web`): mobile
+flavors ignore this value. When off, detection does not run and no
+guidance UI is shown.
 
 ###### Default
 
