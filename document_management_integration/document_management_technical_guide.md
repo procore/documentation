@@ -15,6 +15,7 @@ This guide walks you through the complete API workflow for uploading documents, 
 
 - [Overview]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_intro.md %})
 - **Technical Guide** (this page)
+- [Working with Document Revisions]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_document_revisions.md %})
 - [Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})
 - [API Reference: Document Management](https://developers.procore.com/reference/rest/document-uploads?version=2.0) — canonical endpoint list, maintained per API version
 
