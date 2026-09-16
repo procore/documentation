@@ -15,6 +15,7 @@ Before you begin working with the various Document Management API endpoints, we 
 
 - **Overview** (this page)
 - [Technical Guide]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_technical_guide.md %})
+- [Working with Document Revisions]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_document_revisions.md %})
 - [Metadata Details]({{ site.url }}{{ site.baseurl }}{% link document_management_integration/document_management_metadata_details.md %})
 - [API Reference: Document Management](https://developers.procore.com/reference/rest/document-uploads?version=2.0) — canonical endpoint list, maintained per API version
 
