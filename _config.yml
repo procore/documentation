@@ -38,14 +38,22 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Setting `exclude` REPLACES Jekyll's built-in default list rather than adding to
+# it (contrary to the note above), so the defaults are repeated here verbatim.
+# Anything added below must keep them.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # Procore AI Edge MCP is not published. Commenting out its front matter is not
+  # enough on its own: jekyll-optional-front-matter (bundled with github-pages)
+  # renders any front-matter-less markdown as a page, and Jekyll copies the raw
+  # .md alongside it. Excluding the directory stops both.
+  - mcp/
