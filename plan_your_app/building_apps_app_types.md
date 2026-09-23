@@ -8,24 +8,10 @@ section_title: Plan Your App
 
 ## Overview
 
-Procore apps are built from two families of capabilities — **Data Connector** and **Embedded** — and you can combine them in a single app. Use this page to choose the best fit for your workflow and users.
+Procore apps are built from three families of capabilities — **Data Connector**, **Embedded**, and **Agentic** — and you can combine them in a single app. Use this page to choose the best fit for your workflow and users.
 
 Authentication is chosen separately and applies across families — see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 <br><br>
-
-{% comment %} AGENTIC WIP (hidden until the agentic feature ships, ~Q3 2026). To restore: un-comment this section, re-add "Agentic" to the Overview above. Do NOT renumber — these are alternatives to choose between, not steps (see H2 Heading Standard).
-
-## Agentic Apps
-
-**What it is**  
-Add AI-driven capabilities to your app, declared in the standard App Manifest and governed through Procore's install-and-consent flow. The agentic runtime is provided by **Datagrid, a Procore Company**.
-
-**Components**
-- **AI Agent** — an AI-powered entity that automates work within the data it is permitted to access.
-- **MCP Server** — exposes **Tools** (the capabilities an agent can call) over the **Model Context Protocol**.
-
-See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
-{% endcomment %}
 
 ***
 ## Data Connector Apps
@@ -83,4 +69,53 @@ Use these examples to understand placement and layout.
 <p>Here is an example of a side panel application (contextual help) running within the Procore web UI.</p>
 <img src="{{ site.baseurl }}/assets/guides/side-panel-example.png" alt="Side Panel example">
 </details>
+<div class="details-bottom-spacing"></div>
+
 ***
+## Agentic Apps
+{% include agentic_closed_beta.md %}
+
+**What it is**  
+Add AI-driven behavior to your app by declaring its components on an app version, governed through Procore's install-and-consent flow. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects to your MCP server.
+
+**Components**
+- **MCPs** — a **Model Context Protocol (MCP)** server that connects your external system to Procore AI, so users and Agents can query data from your system alongside their Procore data.
+- **Agents** — an Agent hosted in Procore AI that uses Procore data and your connected tools to perform user-approved actions.
+
+**When to use**
+- You want Procore AI to draw on your app's data when a customer asks it a question.
+- You want an Agent to propose changes in Procore for the customer to approve, such as updating an RFI or drafting a Submittal.
+- You want customers to install your agent through the Marketplace rather than set one up themselves.
+
+**Two constraints to weigh before you choose this capability**
+- Customers need **Procore AI Pro or Enterprise**. Without it they can still install your app and use its Embedded or Data Connector capabilities, but they cannot connect Agentic to a project.
+- Procore AI is not available in the Developer Sandbox, so Agentic cannot be tested there.
+
+See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
+<br><br>
+
+***
+## Which Direction Your Integration Runs
+Agentic work on Procore runs in two directions, and they are separate paths with separate entry points. Which one you need depends on where the conversation starts.
+
+| | Agentic capability | Agentic APIs |
+| --- | --- | --- |
+| **Direction** | Procore AI reaches **out** to your app | Your system reaches **in** to Procore AI |
+| **You declare** | Agents and MCP servers on an app version | Nothing on the app version |
+| **Starts from** | A customer asking a question in Procore AI | Your own product or service |
+| **Built for** | Marketplace and custom apps customers install | External systems that need Procore context |
+| **Availability** | Closed beta, Marketplace Partners | Design Partner pilot |
+
+The two are not exclusive. An app can offer the Agentic capability to customers working inside Procore and also call the Agentic APIs from its own backend.
+
+For the reach-in path, see [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}).
+<br><br>
+
+***
+## See Also
+- [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %})
+- [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %})
+- [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %})
+- [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+{: .link-list}
+<br><br>

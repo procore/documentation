@@ -40,11 +40,10 @@ For step-by-step instructions on installing a version in the Developer Sandbox, 
 ## 3. App Manifest Overview
 After creating your app, use the Configuration Builder to choose the components you want to include. These components define your app’s functionality in Procore and make up the App Manifest. Each saved set of changes becomes a new app version.
 
-Based on the components you select, you can build:
-{% comment %} AGENTIC WIP — restore when the agentic feature ships (~Q3 2026):
-- [Agentic Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) (AI Agents or External MCP Servers)
-{% endcomment %}- [Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
+Based on the capabilities you add, you can build:
+- [Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
 - [Embedded Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) (Full Screen or Side Panel)
+- [Agentic Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) (MCPs or Agents, in closed beta)
 
 You can also combine multiple app types in a single manifest.
 
