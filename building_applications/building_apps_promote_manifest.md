@@ -8,7 +8,7 @@ section_title: Build Your App
 ---
 
 ## Overview
-After creating an app, you can modify its components using the Configuration Builder. This page explains how to promote an app version to Production and how these updates are delivered to customers. Each saved set of changes creates a new App Version.
+After creating an app, you add and configure its components on an app version. This page explains how to promote an app version to Production and how these updates are delivered to customers.
 <br><br>
 
 ***
@@ -34,10 +34,10 @@ After promoting a version to Production, Procore notifies customers when an upda
 > **Before you can promote to production,** your organization must be verified. If you see a **Become a Verified Developer** prompt instead of production options, complete the verification process first. See [Verification & Production Access]({{ site.url }}{{ site.baseurl }}{% link overview/verification_and_production_access.md %}) for the two available paths.
 {: .callout .callout--prereq}
 
-1. Open the Configuration Builder on the Manage App page.
-2. Click **Promote Version**.
+1. Open your app in the Developer Portal and go to **App Details & Versions**.
+2. Select **Promote Version** on the version you want to release.
 3. Add release notes.
-4. Click **Promote**.
+4. Select **Promote**.
 
 - For custom apps, update notifications are sent automatically after promotion.
 - For Marketplace apps, updates must be approved before notifications are sent to customers.

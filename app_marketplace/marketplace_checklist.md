@@ -57,7 +57,7 @@ Before submitting your app for approval, review this Marketplace Approval Checkl
 </p>
 <h4>General Requirements:</h4>
 <ul>
-    <li>Post Installation Notes updated in the <b>Configuration Builder</b></li>
+    <li>Post-Installation Instructions completed on the app version</li>
     <li>App promoted to production via the <a href="https://developers.procore.com/developers" target="_blank">Procore Developer Portal</a></li>
 </ul>
 <h4>For Embedded Apps:</h4>

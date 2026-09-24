@@ -38,7 +38,7 @@ For step-by-step instructions on installing a version in the Developer Sandbox, 
 
 ***
 ## 3. App Manifest Overview
-After creating your app, use the Configuration Builder to choose the components you want to include. These components define your app’s functionality in Procore and make up the App Manifest. Each saved set of changes becomes a new app version.
+After creating your app, select **Create Version**, then **Edit Components** to choose what that version contains. These components define your app’s functionality in Procore and make up the App Manifest.
 
 Based on the capabilities you add, you can build:
 - [Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) (User Level or Service Account Authentication)
@@ -50,10 +50,10 @@ You can also combine multiple app types in a single manifest.
 ### Create New Manifest Versions
 After your initial version, you can continue iterating by creating new app versions:
 
-1. In the Configuration Builder, make any necessary changes, such as updating permissions or modifying components.
-2. Click **Save Version** and enter a version number.
+1. Select **Create Version**, then **Edit Components** to add or remove components, and **Manage** to change how one is configured.
+2. Select **Save Version**. Procore assigns the version number for you.
 3. After saving, you'll receive a new Sandbox App Version Key. Use this key to install and test the new version in your Developer Sandbox.
-4. When you are satisfied with the updates, click **Promote Version** to move it to production.
+4. When you are satisfied with the updates, select **Promote Version** to move it to production.
 
 For more information on app versions, see [App Versioning and Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
 <br><br>
