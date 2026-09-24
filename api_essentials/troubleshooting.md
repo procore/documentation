@@ -147,7 +147,7 @@ See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_l
 **Cause:** OAuth credentials (Client ID and Client Secret) are different between sandbox and production environments.
 
 **Solution:**
-- Use the **Sandbox OAuth Credentials** (found in the Developer Portal under your app's OAuth Credentials section) for sandbox testing.
+- Use the **Sandbox OAuth Credentials** (found on the **Credentials** tab of your app in the Developer Portal) for sandbox testing.
 - Never mix sandbox and production credentials, tokens, or base URLs.
 <br><br>
 
