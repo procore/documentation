@@ -7,7 +7,7 @@ sub_header: Learn how to build a data connector app using either User Level Auth
 ---
 
 ## Overview
-The **Data Connector** capability moves data between Procore and external platforms through the Procore REST API. You add its components to an app version in the Developer Portal, alongside any Embedded or Agentic components, and Procore governs how customers install and consent to them.
+The **Data Connector** capability moves data between Procore and external platforms through the <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">Procore REST API</a>. You add its components to an app version in the Developer Portal, alongside any Embedded or Agentic components, and Procore governs how customers install and consent to them.
 
 Data Connector has two components:
 
