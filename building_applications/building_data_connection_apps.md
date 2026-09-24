@@ -18,23 +18,16 @@ Because data connector apps work entirely through the REST API, review the [API 
 <br><br>
 
 ***
-## Choose an Authentication Method
-These are not alternatives. **User Level Authentication is always required**, and Service Account Authentication is added on top of it when your app also needs to work without a signed-in user — a nightly sync, or a webhook handler that runs when nobody is logged in.
+## How Your App Authenticates
+User Level Authentication is always the base, with Service Account Authentication built on top of it when your app also needs to work without a signed-in user — a nightly sync, or a webhook handler that runs when nobody is logged in.
 
-| | User Level Authentication | Service Account Authentication |
-| --- | --- | --- |
-| **OAuth Flow** | Authorization Code | Client Credentials |
-| **Acts as** | A specific Procore user | A generic service account user |
-| **Permissions** | Inherited from the logged-in user | Declared by you, at install |
-| **Best for** | Resolving what a user can see | Server-to-server data sync |
-
-Two things follow from this, and both shape how you write your integration.
+Two things follow from that, and both shape how you write your integration.
 
 **Your app has one Client ID and Client Secret per environment** — one pair for your Developer Sandbox, one for production. The same credentials serve both flows. You are not managing separate service account credentials.
 
 **Resolve companies and projects as the end user, not as the service account.** A service account's view of what exists is not the user's view. Call the API with user-level authentication to determine which companies and projects a person can reach, then use the service account for the background work against those resources. Mixing the two per call, rather than picking one for the whole integration, is the pattern to build toward.
 
-For more on the underlying flows, see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
+For how each OAuth grant works and which one a given call should use, see [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 <br><br>
 
 ***
