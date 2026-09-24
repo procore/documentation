@@ -13,7 +13,17 @@ Embedded has two components, and you can add either or both:
 
 - **Full Screen** — your app occupies the main content area as a full-page workspace. Users launch it from the **Apps** menu in the top right of Procore, at both the Company and Project level.
 - **Side Panel** — your app renders in a fixed 400-px panel on the right side of the UI, scoped to specific tools and views. Users launch it from the dock on the right edge of the interface.
+<br><br>
 
+***
+## Call the Procore API From Your App
+An Embedded component does not authenticate anything. Procore renders your External URL in an iframe, and what loads there is your own web app, signed in however your product normally signs people in. The OAuth grants that govern Procore API access do not apply to the iframe itself.
+
+To read or write Procore data from an embedded app, add a **Data Connector** component to the same app version. The two capabilities work well together, and a side panel is the clearest case: the panel already knows which company, project, resource, and view it was opened in, so you can take that context and call the Procore API for the detail. A side panel opened on a commitment can fetch that commitment and render it, without asking the user to say where they are.
+
+For the context fields and the listener that receives them, see **Access Procore Context** on this page. To add the component, see [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
+
+Each capability still stands on its own. An embedded app with no Data Connector simply renders your URL, and a Data Connector app with no embedded surface syncs data without ever appearing in the Procore UI.
 <br><br>
 
 ***

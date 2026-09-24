@@ -8,7 +8,9 @@ section_title: Plan Your App
 
 ## Overview
 
-Procore apps are built from three families of capabilities — **Data Connector**, **Embedded**, and **Agentic** — and you can combine them in a single app. Use this page to choose the best fit for your workflow and users.
+Procore apps are built from three families of capabilities — **Data Connector**, **Embedded**, and **Agentic** — and you can combine them in a single app, so a customer installs one app and gets everything it offers. Use this page to choose the best fit for your workflow and users.
+
+Each capability works on its own and none depends on another. Data Connector and Embedded do pair naturally, though: an embedded side panel knows which project and record it was opened on, and a Data Connector lets it call the Procore API for the detail.
 
 Whether your app calls the Procore REST API — and how it authenticates when it does — is a separate decision. See [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 <br><br>
