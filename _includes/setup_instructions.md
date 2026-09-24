@@ -1,15 +1,20 @@
-## Define Setup Instructions and Post‑Installation Notes
+## Define Setup Instructions and Post-Installation Notes
 
-You must provide setup instructions and post-installation notes to help Procore users complete the installation and setup of your application in a Procore project.
+Setup instructions tell a company administrator what to do once your app is installed — sign up for an account on your platform, configure settings there, or complete an authentication step before the app will work.
 
-Clear post-installation guidance is required to ensure users know exactly what to do after installing your app. For example, they may need to sign up for an external account, configure settings on your platform, or complete authentication steps before the app can be used.
+Company admins see them in the Installation Successful dialog, and can reopen them later from **Company Admin > App Management**.
 
-These instructions are displayed to the user immediately after installation and remain accessible in the App Management section of the Procore Admin Tool.
+On the **Create Version** screen, fill in the **Post-Installation Instructions** section:
 
-To populate the install notes, expand the **Instructions and Post-Installation Notes** section, and follow these steps to define setup instructions:
+1. **Setup Guide URL** — a link to step-by-step setup instructions on your own website.
+2. **Setup Guide URL Label** — the text shown for that link.
+3. **Post-Installation Notes** — the steps a company admin needs to complete, in your product or in Procore.
 
-1. In the **Instructions URL** field, enter a link to your company’s support site or a page with step-by-step setup instructions.
-2. In the **Instructions Page Name** field, enter the label you want to display as the hyperlink text for the Instructions URL.
-3. In the **Post-Installation Notes** field, add any additional details or reminders the users need to complete setup successfully.
+Add a setup guide and notes together, or leave both blank. Anything a customer must do before your app works belongs here, because it is the only guidance shown at the moment they finish installing.
 
-![Post Install Steps]({{ site.baseurl }}/assets/guides/app-install-instructions-final.png)
+<!--
+Screenshot removed 2026-09-23: assets/guides/app-install-instructions-final.png shows the
+retired field labels ("Instructions URL", "Instructions Page Name") and the old
+"Instructions and Post-Installation Notes" section. Replace with a capture of the current
+Create Version screen, then restore.
+-->

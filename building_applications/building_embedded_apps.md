@@ -7,39 +7,66 @@ section_title: Build Your App
 ---
 
 ## Overview
-Embedded apps run directly within the Procore user interface, keeping users in context and reducing app switching. They are defined using the Procore App Manifest and configured through the Developer Portal's Configuration Builder.
+The **Embedded** capability runs your app directly inside the Procore user interface, keeping users in context and reducing app switching. You add its components to an app version in the Developer Portal, alongside any Data Connector or Agentic components, and Procore governs how customers install and consent to them.
 
-Procore supports two embedded placements:
+Embedded has two components, and you can add either or both:
 
-- **Full Screen** — occupies the main content area. Users launch it from the **Apps** menu in the top-right of Procore, available at both the Company and Project level.
-- **Side Panel** — renders in a fixed 400-px panel on the right side of the UI, scoped to specific tools and views. Users launch it from the dock on the right edge of the interface.
+- **Full Screen** — your app occupies the main content area as a full-page workspace. Users launch it from the **Apps** menu in the top right of Procore, at both the Company and Project level.
+- **Side Panel** — your app renders in a fixed 400-px panel on the right side of the UI, scoped to specific tools and views. Users launch it from the dock on the right edge of the interface.
 
-You can add one or both to a single app. To get started, first [create a Developer Portal account and app]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_create_new.md %}).
 <br><br>
 
 ***
-## Add a Full Screen Component
-Full screen apps require a URL to define which page appears in the Procore UI.
+## Create a Version and Add Components
+Components belong to an app version, so start by creating one.
 
-1. In the Configuration Builder on the Manage App page, expand the **Components** section and click **Add Component**.
-2. From the drop-down list, select **Full Screen** for the Type.
-3. In the URL field, enter the base web address for your application (e.g., `https://example.com/1234/12`).
-4. (Optional) Add dynamic URL parameters so your app adapts to each company, project, or install. See [Understanding URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %}).
-5. Click **Save Component**.
+1. Open your app in the Developer Portal and select **Create Version**.
+2. Under **Components**, select **Edit Components**.
+3. In the **Embedded** group, select **Full Screen**, **Side Panel**, or both.
+4. Select **Save**.
+
+Procore assigns the version number for you. Override it only if your own release numbering depends on it.
+
+Each component you added now appears in the **Components** list with a status and a **Manage** button. Adding a component does not configure it — you supply the details next, one component at a time.
 <br><br>
 
 ***
-## Add a Side Panel Component
-1. In your Developer Portal app, expand the **Embedded Components** section.
-2. Click **Add Component**.
-3. For **Type**, select **Side Panel**.
-4. In the **URL** field, enter your app's base web address (e.g., `https://example.com/1234/12`).
-5. Select from the supported Side Panel Views.
-   - Use the **Side Panel Views** menu to select one or more tools and views where your app will be accessible.
-6. (Optional) Add dynamic URL parameters so your app adapts to each company, project, or install. See [Understanding URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %}).
-7. Click **Save Component**.
+## Configure Your Full Screen Component
+In the **Components** list, select **Manage** on the **Full Screen** row. One field is required:
+
+1. **External URL** — the address of your app to display in Full Screen, for example `https://example.com/1234/12`.
+
+Select **Save Configuration** when you are done.
+<br><br>
+
+***
+## Configure Your Side Panel Component
+Select **Manage** on the **Side Panel** row. Two fields are required:
+
+1. **External URL** — the address of your app to display in the Side Panel.
+2. **Supported Side Panel Views** — the Procore views where users can open your Side Panel. Views are grouped by tool — Budgeting, Change Events, Commitments, Daily Log, RFI, Submittal Logs and more — so expand a group to choose individual views within it.
+
+Select **Save Configuration** when you are done.
 
 For the full list of supported view keys and URL patterns, see the [Side Panel View Key Reference]({{ site.url }}{{ site.baseurl }}{% link building_applications/side_panel_view_keys.md %}).
+<br><br>
+
+***
+## Add Dynamic URL Parameters
+Both components carry a **Dynamic URL Parameters** section that makes your External URL adapt to each install. It covers two kinds of value.
+
+**Procore's built-in values** work as soon as you add them to your External URL — there is nothing to define. Four are available: {% raw %}`{{procore.company.id}}`, `{{procore.company.name}}`, `{{procore.project.id}}`, and `{{procore.project.name}}`{% endraw %}.
+
+**Custom parameters** are values the administrator installing your app enters during setup. Select **Add Parameter** and fill in:
+
+- **Name** — the field label the installing administrator sees. Make it specific.
+- **Key** — the token you insert in your URL. This is internal and is not shown to the administrator.
+- **Description** — optional, also shown to the administrator. Explain what to enter and where to find it.
+- **Required** — select this when your app cannot function without the value.
+
+Reference a custom parameter in your External URL as a token, the same way you use a built-in value. Custom parameters can fill a subdomain, a path segment, or a query value.
+
+For worked examples and the full built-in set, see [Understanding URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %}).
 
 ***
 <details>
@@ -121,23 +148,21 @@ window.addEventListener('message', (event) => {
 <br><br>
 
 ***
-## Create the Initial App Manifest Version
-After configuring your component(s), save your App Manifest and create a version.
-
-1. Click **Save** at the top of the page.
-2. Click **Create Version**.
-3. Enter a semantic version number (e.g., `0.1.0`). Versions must be three integers separated by dots (`x.x.x`).
-   - For details, see [App Versioning &amp; Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
-4. Click **Create**.
-
-The version is saved with the status **Ready for Testing**. As you continue development, click **Save Version** to capture new changes.
+## Test and Validate in the Developer Sandbox
+Install the version in your Developer Sandbox and confirm your app renders and behaves as expected in each placement you declared, before you promote it. See [Install a Version in Your Developer Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/install_version_sandbox.md %}).
 <br><br>
 
 ***
-## Test and Validate in Your Developer Sandbox
-Test each version of your app in your Developer Sandbox before promoting it to production. See [Install a Version in Your Developer Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/install_version_sandbox.md %}).
+## Save and Promote the Version
+Return to the **Create Version** screen and select **Save Version**. Promote the version when you are ready for production.
+
+For the versioning flow itself, see [App Versioning and Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
 <br><br>
 
 ***
-## Promote to Production
-Once you're satisfied with testing, promote your sandbox version to production. See [App Versioning &amp; Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) to learn how.
+## Next Steps
+- [Side Panel View Key Reference]({{ site.url }}{{ site.baseurl }}{% link building_applications/side_panel_view_keys.md %}) — the tools and views a side panel app can attach to.
+- [Understanding URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %}) — pass company, project, and install values into your URL.
+- [Choose an App Type]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}) — how Embedded fits among the capabilities.
+{: .link-list}
+<br><br>
