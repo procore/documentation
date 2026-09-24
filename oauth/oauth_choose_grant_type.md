@@ -8,7 +8,7 @@ section_title: Plan Your App
 
 ## Overview
 
-Procore supports OAuth 2.0 with two grant types: **Authorization Code** (with a variant for installed apps) and **Client Credentials** (via Developer Managed Service Accounts).
+Procore supports OAuth 2.0 with two grant types: **Authorization Code** and **Client Credentials**.
 
 These grants govern how your app calls the **Procore REST API**, which is what Data Connector components exist for. The other capabilities do not use them. An **Embedded** component does not authenticate at all — the iframe loads your own web app, signed in however your product normally signs people in. An **Agentic** app's MCP server signs customers in through a redirect-based flow to your system, which is not one of the grants here.
 
@@ -24,7 +24,7 @@ Your app has one Client ID and Client Secret per environment — one pair for yo
 
 Use this when your app accesses Procore data on behalf of a specific Procore user. The user logs in to Procore, approves your app's access, and Procore redirects back to your app with an authorization code that you exchange for an access token. Web apps in any server-side language (Ruby, Python, Node.js, Java, etc.) use this flow.
 
-A variant of this grant supports installed applications without a browser by using a special redirect URI (`urn:ietf:wg:oauth:2.0:oob`) that displays the authorization code on a Procore-hosted page for the user to copy.
+A variant covers apps that cannot open a browser, such as cron jobs, scripts, and command-line tools. Rather than redirecting, it uses a special redirect URI (`urn:ietf:wg:oauth:2.0:oob`) that displays the authorization code on a Procore-hosted page for the user to copy.
 
 For implementation details and step-by-step examples, see [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}).
 <br><br>
