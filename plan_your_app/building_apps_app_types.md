@@ -10,7 +10,7 @@ section_title: Plan Your App
 
 Procore apps are built from three families of capabilities — **Data Connector**, **Embedded**, and **Agentic** — and you can combine them in a single app. Use this page to choose the best fit for your workflow and users.
 
-Authentication is chosen separately and applies across families — see [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
+Whether your app calls the Procore REST API — and how it authenticates when it does — is a separate decision. See [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
 <br><br>
 
 ***

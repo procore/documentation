@@ -10,6 +10,8 @@ section_title: Plan Your App
 
 Procore supports OAuth 2.0 with two grant types: **Authorization Code** (with a variant for installed apps) and **Client Credentials** (via Developer Managed Service Accounts).
 
+These grants govern how your app calls the **Procore REST API**. A Data Connector app exists to do exactly that, so its two components map directly onto them. Other capabilities authenticate their own surfaces separately — an Agentic app's MCP server signs customers in through a redirect-based flow to your system, which is not one of the grants here. Any app that calls the Procore API, whatever else it does, declares Data Connector components and uses the grants below.
+
 They are layers, not a fork. Authorization Code is the baseline — your app declares User Level Authentication and acts on behalf of a signed-in user. Client Credentials is added on top when your app also needs to reach Procore with nobody logged in. It cannot be used on its own.
 
 Your app has one Client ID and Client Secret per environment — one pair for your Developer Sandbox, one for production — and the same credentials serve both grants. There are no separate service account credentials to manage.
