@@ -67,14 +67,24 @@ https://box.app/{{folderID}}
 
 ## How to Add Custom URL Parameters
 
-1. In your component configuration, click **Add Parameter**.  
-   ![Component Add Param]({{ site.baseurl }}/assets/guides/form-based-component-add-param.png)
+Custom parameters are defined on the component itself. In the **Components** list on your app version, select **Manage** on the component, then find the **Dynamic URL Parameters** section.
 
-2. Define the **Name**, **Type**, **Key**, and **Description**.  
-   ![Component Add Param Field]({{ site.baseurl }}/assets/guides/form-based-component-add-param-custom.png)
+1. Select **Add Parameter**.
+2. Enter a **Name** — the field label shown to the administrator who installs your app. Make it clear and specific.
+3. Enter a **Key** — the token you insert in your External URL. This is internal and is never shown to the installing administrator.
+4. Optionally add a **Description**, also shown to the administrator. Explain what to enter and where to find it.
+5. Select **Required** when your app cannot function without the value.
+6. Select **Add Parameter** again for each additional value, then save the component with **Save Configuration**.
 
-3. Mark the parameter as **Required** (or leave it optional) for installation.
+Reference a custom parameter in your External URL as a token, the same way you use a built-in value — so your app delivers the right data in the right context.
 
-4. Click **Save Parameter**.
-
-Once saved, reference your custom parameter in the URL as a token (`{% raw %}{{YourKey}}{% endraw %}`), the same way you use built-in values — so your app delivers the right data in the right context.
+<!--
+Screenshots removed 2026-09-23: assets/guides/form-based-component-add-param.png and
+form-based-component-add-param-custom.png show the retired Configuration Builder. Both are
+stale against the current UI, which renames the section from "Parameter Interpolation" to
+"Dynamic URL Parameters", defines parameters inline in the component drawer rather than in
+an "Add Parameter" modal with its own "Save Parameter" button, makes Description optional
+rather than required, and uses a checkbox for Required rather than a toggle. Replace with
+captures of the current component drawer, then restore.
+-->
+<div class="details-bottom-spacing"></div>

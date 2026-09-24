@@ -57,16 +57,9 @@ Both components carry a **Dynamic URL Parameters** section that makes your Exter
 
 **Procore's built-in values** work as soon as you add them to your External URL — there is nothing to define. Four are available: {% raw %}`{{procore.company.id}}`, `{{procore.company.name}}`, `{{procore.project.id}}`, and `{{procore.project.name}}`{% endraw %}.
 
-**Custom parameters** are values the administrator installing your app enters during setup. Select **Add Parameter** and fill in:
+**Custom parameters** are values the administrator installing your app enters during setup — a Box folder ID, a subdomain, a region. You define each one with **Add Parameter**, then reference it in your External URL as a token. They can fill a subdomain, a path segment, or a query value.
 
-- **Name** — the field label the installing administrator sees. Make it specific.
-- **Key** — the token you insert in your URL. This is internal and is not shown to the administrator.
-- **Description** — optional, also shown to the administrator. Explain what to enter and where to find it.
-- **Required** — select this when your app cannot function without the value.
-
-Reference a custom parameter in your External URL as a token, the same way you use a built-in value. Custom parameters can fill a subdomain, a path segment, or a query value.
-
-For worked examples and the full built-in set, see [Understanding URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %}).
+For the field-by-field steps and worked examples, see [Understanding URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %}).
 
 ***
 <details>
