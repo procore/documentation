@@ -9,10 +9,15 @@ section_title: Manage & Monitor Your App
 > **Keep your Client Secret confidential — never ship it in client-side code.** Single-page (JavaScript) and native apps can't protect a secret, so plan accordingly and do not use Client Credentials as your grant type.
 {: .callout .callout--warning}
 
-Once you have registered a new application on the Developer Portal you will work with two sets of OAuth credentials - one set for your _development sandbox_ and a separate set for the _production environment_.
-Initially during the development phase, you use the sandbox credentials to make API calls to your sandbox company account.
-Once you have promoted your sandbox application manifest to production, you will have access to your production credentials.
-See [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for additional information.
+Your app works with two sets of OAuth credentials — one for your **Developer Sandbox**, and one for **production**, which is also what you use in the On-Demand and Monthly Sandbox environments.
+
+Neither set is issued when you register the app. Credentials follow the Data Connector component, because that component is what gives an app a reason to call the Procore API:
+
+- **Sandbox credentials** are generated once a version carries a Data Connector component.
+- **Production credentials** are populated once you promote a version to production **with** a Data Connector component in it. Promotion alone is not enough.
+
+Until then the panels are empty, and there is nothing to collect. See [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) to add the component, and [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for the promotion flow.
+
 You will use your Client IDs, which are considered public information, to build login URLs or include in Javascript source.
 Your Client Secrets, on the other hand, must be kept confidential.
 
@@ -34,9 +39,11 @@ none of which are in the current UI. Replace with a capture of the Developer San
 -->
 
 ## Manage Production Credentials
-Use the **Production OAuth Credentials** panel for your live app. The same credentials also work in the On-Demand and Monthly Sandbox environments — only the Developer Sandbox uses a separate pair.
+Use the **Production OAuth Credentials** panel for your live app, and in the On-Demand and Monthly Sandbox environments. Only the Developer Sandbox uses a separate pair.
 
-A production Client Secret is not created for you. The panel reads **No Client Secret generated yet** until you select **Generate Client Secret**.
+The panel appears populated once you promote a version carrying a Data Connector component. It holds your production Client ID and the Redirect URI, with an **Edit** control beside it.
+
+The Client Secret is a separate, deliberate step. Until you create one the panel reads **No Client Secret generated yet**, alongside a **Generate Client Secret** button. Once generated, the secret is masked and that button becomes **Reset Client Secret**.
 
 <!--
 Screenshot removed 2026-09-24: assets/guides/form-based-production-oauth-creds.png predates the
