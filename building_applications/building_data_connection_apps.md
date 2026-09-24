@@ -23,6 +23,8 @@ User Level Authentication is always the base, with Service Account Authenticatio
 
 **Your app has one Client ID and Client Secret per environment** — one pair for your Developer Sandbox, one for production. The same credentials serve both flows. You are not managing separate service account credentials.
 
+Find them on the **Credentials** tab of your app. Adding a Data Connector component to a version is what generates them, so there is nothing to collect on that tab until you have done it. Sandbox credentials come first; production credentials become available once you promote a version. See [OAuth Credentials Management]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_keys.md %}) to manage them and your redirect URIs.
+
 **Resolve companies and projects as the end user, not as the service account.** A service account's view of what exists is not the user's view. Call the API with user-level authentication to determine which companies and projects a person can reach, then use the service account for the background work against those resources. Mixing the two per call, rather than picking one for the whole integration, is the pattern to build toward.
 
 For how each OAuth grant works and which one a given call should use, see [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
