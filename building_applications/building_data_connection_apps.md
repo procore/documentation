@@ -75,13 +75,13 @@ Install the version in your Developer Sandbox and confirm your API calls succeed
 ## Save and Promote the Version
 Return to the **Create Version** screen and select **Save Version**. Promote the version when you are ready for production.
 
-For the versioning flow itself, see [App Versioning and Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
+For the versioning flow itself, see [Promote a Version to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
 <br><br>
 
 ***
 ## Next Steps
 - [API Usage Guidelines]({{ site.url }}{{ site.baseurl }}{% link platform_concepts/api_usage_guidelines.md %}) — rate limits, permitted usage, and when to use REST versus Agentic APIs.
-- [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) — pick User Level versus Service Account authentication.
+- [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}) — pick User Level versus Service Account authentication.
 - [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) — set up Service Account authentication.
 - [Choose an App Type]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}) — how Data Connector fits among the capabilities.
 {: .link-list}

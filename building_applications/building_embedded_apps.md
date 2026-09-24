@@ -159,7 +159,7 @@ Install the version in your Developer Sandbox and confirm your app renders and b
 ## Save and Promote the Version
 Return to the **Create Version** screen and select **Save Version**. Promote the version when you are ready for production.
 
-For the versioning flow itself, see [App Versioning and Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
+For the versioning flow itself, see [Promote a Version to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
 <br><br>
 
 ***

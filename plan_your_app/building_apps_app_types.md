@@ -33,7 +33,7 @@ Move data between Procore and other systems (for example, accounting, ERP, docum
 
 ![Data Connector Architecture]({{ site.baseurl }}/assets/guides/data-connection-diag.png)
 
-See also: [Building Data Connector Apps]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
+See also: [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
 <br><br>
 
 ***
@@ -118,6 +118,6 @@ For the reach-in path, see [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% lin
 - [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %})
 - [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %})
 - [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %})
-- [Choosing an OAuth 2.0 Grant Type]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
+- [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %})
 {: .link-list}
 <br><br>

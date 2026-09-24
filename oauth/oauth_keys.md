@@ -16,7 +16,7 @@ Neither set is issued when you register the app. Credentials follow the Data Con
 - **Sandbox credentials** are generated once a version carries a Data Connector component.
 - **Production credentials** are populated once you promote a version to production **with** a Data Connector component in it. Promotion alone is not enough.
 
-Until then the panels are empty, and there is nothing to collect. See [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) to add the component, and [Promoting a Sandbox Manifest to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for the promotion flow.
+Until then the panels are empty, and there is nothing to collect. See [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) to add the component, and [Promote a Version to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}) for the promotion flow.
 
 You will use your Client IDs, which are considered public information, to build login URLs or include in Javascript source.
 Your Client Secrets, on the other hand, must be kept confidential.

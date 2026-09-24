@@ -96,7 +96,7 @@ Return to the **Create Version** screen, add any **Post-Installation Instruction
 
 This is the main reason Agentic is a closed beta rather than generally available. Arrange end-to-end validation with the Marketplace team before you put an agentic version in front of customers.
 
-For the versioning flow itself, see [App Versioning and Update Notifications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
+For the versioning flow itself, see [Promote a Version to Production]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_promote_manifest.md %}).
 <br><br>
 
 ***
