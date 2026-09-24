@@ -44,23 +44,17 @@ Use the rate limit headers to pace requests without needing separate logic for t
 - When `X-Rate-Limit-Remaining` reaches `0`, pause requests until after `X-Rate-Limit-Reset`, then resume processing.
 - If your app makes concurrent requests (for example, multi-threaded or trigger-based), enqueue work and control throughput by tuning concurrency (such as adjusting thread pool size).
 
-**Best practice:** Treat the headers as the source of truth and throttle based on the current response, not a single assumed limit (such as `3600/hour`).
+**Best practice:** Treat the headers as the source of truth and throttle based on the current response, not on a limit you assume or hardcode.
 
-**Example: hourly limit headers**
-
-```
-X-Rate-Limit-Limit: 600
-X-Rate-Limit-Remaining: 589
-X-Rate-Limit-Reset: 1466182244
-```
-
-**Example: spike limit headers**
+**Example response headers**
 
 ```
-X-Rate-Limit-Limit: 25
-X-Rate-Limit-Remaining: 24
-X-Rate-Limit-Reset: 1466182247
+X-Rate-Limit-Limit: <the limit you are closest to exceeding>
+X-Rate-Limit-Remaining: <requests left in the current window>
+X-Rate-Limit-Reset: <Unix timestamp when that window resets>
 ```
+
+The same three headers report whichever limit you are closest to exceeding, so read the values off each response rather than tracking the hourly and spike limits separately.
 <div class="details-bottom-spacing"></div>
 
 
@@ -84,7 +78,7 @@ While the response body for both may be similar, a `429` can be triggered by eit
 **What not to do**
 
 - Don’t keep sending requests while over the limit.
-- Don’t assume a single fixed window (for example, only `3600/hour`). Always use the current response headers as the source of truth.
+- Don’t assume a single fixed window or hardcode a limit value. Always use the current response headers as the source of truth.
 
 ### Heavy Load Throttling (`503 Service Unavailable`)
 In rare instances when the Procore platform is experiencing exceptionally heavy load, we may temporarily throttle traffic to maintain overall system health. In these situations, you will receive a `503 Service Unavailable` response.

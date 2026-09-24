@@ -36,7 +36,7 @@ Additional tips for working with Documents tool integrations:
 
 - To retrieve all Company files, use the [Company Folders and Files](https://developers.procore.com/reference/rest/v1/company-folders-and-files) endpoints.
 - Use the Procore API to directly upload content to a storage service to streamline uploads and reduce upload latency. See [Working with Direct File Uploads]({{ site.url }}{{ site.baseurl }}{% link tutorials/tutorial_uploads.md %}).
-- Usage of Procore's API is subject to rate limits — 3,600 requests per hour, resetting every hour. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) to learn how to reduce the possibility of exceeding the limit. You can also use [Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) to reduce the risk of exceeding rate limit caps.
+- Usage of Procore's API is subject to rate limits. See [Rate Limiting]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/rate_limiting.md %}) to learn how to reduce the possibility of exceeding the limit. You can also use [Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}) to reduce the risk of exceeding rate limit caps.
 - Refer to the [User Permissions](https://support.procore.com/references/user-permissions-matrix-web#Documents-CL) matrix for information on Documents tool permissions.
 - Have Procore API questions? Contact our API Support team at <apisupport@procore.com>.
 

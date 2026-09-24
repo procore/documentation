@@ -145,15 +145,17 @@ Below are best practices and important considerations for managing permissions e
 
 1. **Use the Permissions Tab for Project Membership** - To manage DMSA project access, including adding or removing project memberships, utilize the Permissions tab within the app under App Management.
 This option is available to Company Administrators.
+Projects created after installation must be added to the permitted list, unless the Directory tool is configured to add the DMSA user automatically.
 
-2. **Permissions Reconfiguration on App Update or Reinstall** - Each time an app is updated or reinstalled, Company Administrators must reconfigure the list of permitted projects.
-Future projects requiring DMSA access must also be manually added to the permitted list.
+2. **Permission Changes Apply Automatically on App Update** - When an app update changes the permissions declared in the manifest, Procore applies those changes across all of the customer's projects as soon as a Company Administrator accepts the update.
+Administrators do not need to reconfigure the permitted project list after an update.
+The one exception is a company that has overridden the app's permissions with a permissions template in the Directory tool.
 
 3. **Using the Directory Tool for Permissions Templates** - Some administrators use the Directory tool with a permissions template to streamline DMSA management:
 
     - Enabling the “Add [DMSA user] to all new projects” checkbox can simplify permissions by automatically adding the DMSA user to future projects.
-    - **Important Note:** When an app is updated or reinstalled, permissions defined in the app’s manifest do not automatically transfer to the permissions template in the Directory tool, potentially affecting app functionality.
-This misalignment should be manually reconciled.
+    - **Important Note:** A permissions template overrides the permissions declared in the app's manifest, and an app update does not replace it.
+Where a template is in use, manifest permission changes do not reach those projects until an administrator reconciles the template manually, which can affect app functionality.
 
 4. **Avoid Manual Updates to DMSA Permissions** - Manually adjusting DMSA permissions within the Directory tool is generally discouraged, as it can lead to inconsistencies and complicate account management.
 
