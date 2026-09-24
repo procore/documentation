@@ -21,8 +21,6 @@ Because data connector apps work entirely through the REST API, review the [API 
 ## How Your App Authenticates
 User Level Authentication is always the base, with Service Account Authentication built on top of it when your app also needs to work without a signed-in user — a nightly sync, or a webhook handler that runs when nobody is logged in.
 
-Two things follow from that, and both shape how you write your integration.
-
 **Your app has one Client ID and Client Secret per environment** — one pair for your Developer Sandbox, one for production. The same credentials serve both flows. You are not managing separate service account credentials.
 
 **Resolve companies and projects as the end user, not as the service account.** A service account's view of what exists is not the user's view. Call the API with user-level authentication to determine which companies and projects a person can reach, then use the service account for the background work against those resources. Mixing the two per call, rather than picking one for the whole integration, is the pattern to build toward.
