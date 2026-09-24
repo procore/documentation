@@ -1,14 +1,18 @@
 ---
 permalink: /oauth-choose-grant-type
 title: Choose an Authentication Method
-sub_header: Pick the right OAuth 2.0 grant type for your app's architecture and use case.
+sub_header: Understand how Procore's two OAuth 2.0 grant types layer together, and which ones your app needs.
 layout: default
 section_title: Plan Your App
 ---
 
 ## Overview
 
-Procore supports OAuth 2.0 with two grant types: **Authorization Code** (with a variant for installed apps) and **Client Credentials** (via Developer Managed Service Accounts). Choosing the right one depends on whether your app needs access to a specific user's data and whether it can interact with a browser.
+Procore supports OAuth 2.0 with two grant types: **Authorization Code** (with a variant for installed apps) and **Client Credentials** (via Developer Managed Service Accounts).
+
+They are layers, not a fork. Authorization Code is the baseline — your app declares User Level Authentication and acts on behalf of a signed-in user. Client Credentials is added on top when your app also needs to reach Procore with nobody logged in. It cannot be used on its own.
+
+Your app has one Client ID and Client Secret per environment — one pair for your Developer Sandbox, one for production — and the same credentials serve both grants. There are no separate service account credentials to manage.
 <br><br>
 
 ***
@@ -24,9 +28,11 @@ For implementation details and step-by-step examples, see [OAuth 2.0 Authorizati
 ***
 ## Client Credentials Grant
 
-Use this when your app accesses Procore data without acting on behalf of a specific user — for example, sync jobs, report generators, backend integrations, and Data Connector Apps.
+Add this when your app also needs to work without a signed-in user — sync jobs, report generators, backend integrations, and webhook handlers that fire when nobody is logged in.
 
 The Procore implementation of Client Credentials uses a **Developer Managed Service Account (DMSA)**, which carries the company- and project-level permissions your app needs. Your client credentials authenticate the app, and the DMSA's permissions determine what the app can access.
+
+**Resolve companies and projects as the user, not as the service account.** A service account's view of what exists is not the signed-in user's view. Use the Authorization Code grant to determine which companies and projects a person can reach, then use the service account for the background work against those resources. Choose per call rather than picking one grant for your whole integration.
 
 For implementation details, see [OAuth 2.0 Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}). For DMSA setup, see [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}).
 <br><br>
@@ -38,6 +44,16 @@ Still unsure after reading both grants? Match your scenario to the right one in 
 
 | Your scenario | Use this | Implementation guide |
 |---|---|---|
-| Web app that acts on behalf of a Procore user | Authorization Code grant | [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) |
-| Headless app or script (no browser) that acts on behalf of a Procore user | Authorization Code grant — Installed-App variant | [Installed-App Variant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}#installed-app-variant-no-browser-redirect) |
-| Data Connector App or backend service — no specific user context required | Client Credentials grant via DMSA | [OAuth 2.0 Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) + [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) |
+| Your app acts only on behalf of a signed-in Procore user | Authorization Code grant | [OAuth 2.0 Authorization Code Grant Flow]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}) |
+| Your app has no browser and acts on behalf of a signed-in user | Authorization Code grant — Installed-App variant | [Installed-App Variant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_auth_grant_flow.md %}#installed-app-variant-no-browser-redirect) |
+| Your app also runs unattended — sync jobs, overnight webhook handlers | Authorization Code grant, plus Client Credentials via DMSA | [OAuth 2.0 Client Credentials Grant]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_client_credentials.md %}) + [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) |
+
+<div class="details-bottom-spacing"></div>
+
+***
+## See Also
+- [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) — declare these components on an app version.
+- [Developer Managed Service Accounts (DMSA)]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/developer_managed_service_accounts.md %}) — permissions, and how they behave across app updates.
+- [Choose an App Type]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}) — the capabilities you can combine in one app.
+{: .link-list}
+<br><br>
