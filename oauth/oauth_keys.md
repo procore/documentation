@@ -21,16 +21,25 @@ To ensure that the user's browser is directed back to the proper location, you a
 You can optionally manage two distinct sets of Redirect URIs for the sandbox and production environments, though this is not required.
 The `http://localhost` redirect URI is registered by default when you create a new application in the Developer Portal. Please note that dynamic URIs are not supported at this time.
 
-## Manage Sandbox Credentials
-On the **Credentials** tab of your app you can view and manage the OAuth credentials and Redirect URIs for your sandbox.
-Your sandbox Client ID and Client Secret is accessible in this section and you can reset the Client Secret as needed.
-You can also add, update, or delete Redirect URIs for your sandbox.
+The **Credentials** tab of your app carries both sets, in two panels: **Developer Sandbox OAuth Credentials** and **Production OAuth Credentials**.
 
-![Sandbox Account screenshot]({{ site.baseurl }}/assets/guides/form-based-sandbox-oauth-creds.png)
+## Manage Sandbox Credentials
+Use the **Developer Sandbox OAuth Credentials** panel while you build and test. It holds your sandbox Client ID, your Sandbox URL, the Redirect URI, and the Client Secret. Select **Reset Client Secret** to roll the secret, and **Edit** beside the Redirect URI to change where Procore sends users after they authorize your app.
+
+<!--
+Screenshot removed 2026-09-24: assets/guides/form-based-sandbox-oauth-creds.png predates the
+Credentials tab. It shows a panel titled "Sandbox OAuth Credentials", an editable Redirect URI
+textarea with an Update button, and an "App is set to Authorization Code Grant Type" line -
+none of which are in the current UI. Replace with a capture of the Developer Sandbox panel.
+-->
 
 ## Manage Production Credentials
-On the **Credentials** tab of your app you can view and manage the OAuth credentials and Redirect URIs for your production environment.
-Your production Client ID is accessible there and you can reset the Client Secret as needed.
-It is important to note that your production Client Secret is hidden from view on that tab and only visible to you once when you initially obtain production credentials through the manifest promotion process.
+Use the **Production OAuth Credentials** panel for your live app. The same credentials also work in the On-Demand and Monthly Sandbox environments — only the Developer Sandbox uses a separate pair.
 
-![App Credentials screenshot]({{ site.baseurl }}/assets/guides/form-based-production-oauth-creds.png)
+A production Client Secret is not created for you. The panel reads **No Client Secret generated yet** until you select **Generate Client Secret**.
+
+<!--
+Screenshot removed 2026-09-24: assets/guides/form-based-production-oauth-creds.png predates the
+Credentials tab. Replace with a capture of the Production panel.
+-->
+
