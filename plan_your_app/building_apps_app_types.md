@@ -79,6 +79,16 @@ Run your app inside Procore’s web UI, so users work with it without leaving th
 - **Full Screen** — your app takes the main content area as a full-page workspace, keeping the Procore header. Users launch it from the **Apps** menu, at both Company and Project level.
 - **Side Panel** — your app renders in a fixed 400‑px panel on the right side of the UI, scoped to the Procore views you choose. Because a side panel is attached to specific tools, you can tailor it to one tool or workflow. Users launch it from the dock on the right edge.
 
+A Full Screen app fills the main content area. Here the <a href="https://marketplace.procore.com/apps/procore-integration-for-google-sheets" target="_blank">Procore Integration for Google Sheets&trade;</a> is open, launched from the **Apps** menu:
+
+![A Google Sheets worksheet filling the main content area of Procore, with the Apps menu open beside it and the app's entry highlighted]({{ site.baseurl }}/assets/guides/google-sheets-example.png)
+
+A Side Panel app sits beside whatever the user is already working on. Here a contextual help panel is open next to a Commitments record, launched from the dock on the right edge:
+
+![A help panel docked to the right of a Procore Commitments subcontract page, with the dock icon that opens it highlighted]({{ site.baseurl }}/assets/guides/side-panel-example.png)
+
+<div class="details-bottom-spacing"></div>
+
 **When to use**
 - You want users to act on your data without leaving the Procore tool they are working in.
 - Your app's value is in its interface, rather than in moving records around in the background.
@@ -95,24 +105,6 @@ Run your app inside Procore’s web UI, so users work with it without leaving th
 
 See [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) to build either placement.
 <br><br>
-
-### Optional: Example Images
-
-Use these examples to understand placement and layout.
-
-<details>
-<summary class="collapseListTierOne">Full Screen Example</summary>
-<p>Here is an example of the full screen <a href="https://marketplace.procore.com/apps/procore-integration-for-google-sheets" target="_blank">Procore Integration for Google Sheets™</a> embedded application running in Procore.</p>
-<img src="{{ site.baseurl }}/assets/guides/google-sheets-example.png" alt="Google Sheets example">
-</details>
-
-***
-<details>
-<summary class="collapseListTierOne">Side Panel Example</summary>
-<p>Here is an example of a side panel application (contextual help) running within the Procore web UI.</p>
-<img src="{{ site.baseurl }}/assets/guides/side-panel-example.png" alt="Side Panel example">
-</details>
-<div class="details-bottom-spacing"></div>
 
 ***
 ## See Also
