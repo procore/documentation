@@ -44,9 +44,9 @@ How much notice you get depends on the stage the endpoint was in when its deprec
 | **Beta** | 6 months |
 | **Pilot** | 3 months |
 
-A Pilot endpoint with no external consumers may be removed without a sunset period.
+These minimums apply where an endpoint has consumers. Where usage data shows it has none — no usage, so no impact — Procore may deprecate and sunset it on an accelerated timeline, and a Pilot endpoint in that position may be removed with no sunset period at all.
 
-These are minimums rather than targets. If migration to a replacement is going slowly, Procore may extend a sunset date, but never shorten one.
+A sunset date can move the other way too. If migration to a replacement is going slowly, Procore may extend it.
 
 <div class="details-bottom-spacing"></div>
 
@@ -72,7 +72,7 @@ How Procore manages an endpoint through each phase.
 
 | Phase      | API Resources                             | Support                                                                                                                                                | Documentation                                                            | Change Notification                                                                                                                         |
 | ---------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Active     | API is live in Production                 | - New resource versions released periodically with new features, refinements, fixes, etc.<br>- Technical support available at <apisupport@procore.com> | - Released with new API versions<br>- Reference documentation maintained | - Changelog entries published for updates to resource endpoints<br> - Developer Portal notifications covering new resource version releases |
+| General Availability | API is live in Production       | - New resource versions released periodically with new features, refinements, fixes, etc.<br>- Technical support available at <apisupport@procore.com> | - Released with new API versions<br>- Reference documentation maintained | - Changelog entries published for updates to resource endpoints<br> - Developer Portal notifications covering new resource version releases |
 | Deprecated | API is live in Production                 | - Fixes deployed as needed<br>- No new development<br>- Technical support available at <apisupport@procore.com>                                        | - Endpoint reference pages marked as 'Deprecated'                        | - Developer Portal notification and announcement prior to deprecation<br> - Changelog entries published only for fixes and related changes  |
 | Sunset     | API is no longer accessible in Production | - Support no longer provided                                                                                                                           | - Reference pages no longer accessible in Production                     | - Developer Portal notification and announcement prior to sunset<br> - Final sunset announcement                                            |
 
