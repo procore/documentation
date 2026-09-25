@@ -42,21 +42,29 @@ See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link buil
 ## Data Connector Apps
 
 **What it is**  
-Move data between Procore and other systems (for example, accounting, ERP, document management, or equipment tracking).
+Move data between Procore and an external system — accounting, ERP, document management, equipment tracking — by calling the Procore REST API. The work runs on your own infrastructure and your own schedule, mostly out of sight of the Procore UI.
+
+**Components**
+- **User Level Authentication** — your app acts on behalf of a signed-in user and sees only what that person's Procore permissions allow. Every Data Connector app starts here.
+- **Service Account Authentication** — your app acts on its own through a Developer Managed Service Account (DMSA), with permissions you declare and a company administrator approves at install. It is added on top of User Level Authentication and cannot be used alone.
 
 **When to use**
 - You need to sync or transform data between Procore and another system.
-- Most work happens outside the Procore UI.
-- Jobs run on a schedule or respond to events via webhooks.
+- The work runs on a schedule, or reacts to events through webhooks, rather than when someone is looking at a screen.
+- Another capability in your app needs Procore data — an embedded side panel fetching the record it was opened on, for example.
 
 **How it works**
 - Create, update, and read Procore resources with API calls.
 - Some endpoints support **Sync** actions for batch create/update. See [Using Sync Actions]({{ site.url }}{{ site.baseurl }}{% link tutorials/using_sync_actions.md %}).
-- Use **Webhooks** to receive near real‑time change events. See [Introduction to Webhooks]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}).
+- Use **Webhooks** to receive near real‑time change events. See [How Webhooks Work]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/webhooks.md %}).
 
 ![Data Connector Architecture]({{ site.baseurl }}/assets/guides/data-connection-diag.png)
 
-See also: [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
+**Two things to know before you choose this capability**
+- Adding a Data Connector component is what generates your OAuth credentials. Until you do, the **Credentials** tab has nothing to collect. See [OAuth Credentials Management]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_keys.md %}).
+- A Data Connector carried over from a previous app version cannot be removed, so decide what Procore access your app needs before you promote.
+
+See [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}).
 <br><br>
 
 ***
