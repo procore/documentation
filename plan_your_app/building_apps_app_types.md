@@ -20,14 +20,14 @@ Whether your app calls the Procore REST API — and how it authenticates when it
 {% include agentic_closed_beta.md %}
 
 **What it is**  
-Add AI-driven behavior to your app by declaring its components on an app version, governed through Procore's install-and-consent flow. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects to your MCP server.
+Let Procore AI reach out to your external system. You declare the components on an app version, governed through Procore's install-and-consent flow. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects out to your external MCP server.
 
 **Components**
-- **MCPs** — a **Model Context Protocol (MCP)** server that connects your external system to Procore AI, so users and Agents can query data from your system alongside their Procore data.
-- **Agents** — an Agent hosted in Procore AI that uses Procore data and your connected tools to perform user-approved actions.
+- **MCPs** — an external **Model Context Protocol (MCP)** server that you host, connecting your system to Procore AI so users and Agents can query your external data alongside their Procore data.
+- **Agents** — an Agent hosted in Procore AI that uses Procore data and the external tools you connect to perform user-approved actions.
 
 **When to use**
-- You want Procore AI to draw on your app's data when a customer asks it a question.
+- You want Procore AI to draw on your app's external data when a customer asks it a question.
 - You want an Agent to propose changes in Procore for the customer to approve, such as updating an RFI or drafting a Submittal.
 - You want customers to install your agent through the Marketplace rather than set one up themselves.
 

@@ -1,7 +1,7 @@
 ---
 permalink: /building-agentic-apps
 title: Building Agentic Applications
-sub_header: Add Agents and MCP servers to an app version so Procore AI can use what your app can do.
+sub_header: Add Agents and MCP servers to an app version so Procore AI can reach out to your external system.
 layout: default
 section_title: Build Your App
 ---
@@ -9,14 +9,14 @@ section_title: Build Your App
 ## Overview
 {% include agentic_closed_beta.md %}
 
-The **Agentic** capability lets **Procore AI** draw on what your app can do. You add its components to an app version in the Developer Portal, alongside any Data Connector or Embedded components, and Procore governs how customers install and consent to them. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects to your MCP server.
+The **Agentic** capability lets **Procore AI** reach out to your external system. You add its components to an app version in the Developer Portal, alongside any Data Connector or Embedded components, and Procore governs how customers install and consent to them. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects out to your external MCP server.
 
 Agentic has two components, and you can add either or both:
 
-- **MCPs** — a **Model Context Protocol (MCP)** server that connects your external system to Procore AI, so users and Agents can query data from your system alongside their Procore data.
-- **Agents** — an Agent hosted in Procore AI that uses Procore data and your connected tools to perform user-approved actions.
+- **MCPs** — an external **Model Context Protocol (MCP)** server that you host, connecting your system to Procore AI so users and Agents can query your external data alongside their Procore data.
+- **Agents** — an Agent hosted in Procore AI that uses Procore data and the external tools you connect to perform user-approved actions.
 
-When a customer asks a question in Procore AI, Procore AI invokes the Agents you declared and calls the Tools on your MCP server to help answer it. What your app can do becomes part of the answer without the customer leaving Procore AI.
+When a customer asks a question in Procore AI, Procore AI invokes the Agents you declared and calls the Tools on your external MCP server to help answer it. Your external data becomes part of the answer without the customer leaving Procore AI.
 
 Agents are not limited to answering. They can also propose changes in Procore on the customer's behalf — updating an RFI, drafting a Submittal, and similar work. Every proposed change is staged for the customer to review and approve before anything is written.
 
@@ -60,14 +60,14 @@ In the **Components** list, select **Manage** on the **MCPs** row, then select *
 
 Select **Save Configuration**. You can declare up to five MCP servers on one app version — select **Add MCP** again for each.
 
-**Your server must authenticate through a redirect-based flow.** Datagrid connects using the OAuth 2.0 authorization code grant, so the customer signs in to your system and approves access in their own browser. Manually entered credentials and static bearer tokens are not supported at this time.
+**Your external MCP server must authenticate through a redirect-based flow.** Datagrid connects out using the OAuth 2.0 authorization code grant, so the customer signs in to your system and approves access in their own browser. Manually entered credentials and static bearer tokens are not supported at this time.
 
-You do not list your Tools anywhere. Procore discovers them by calling `tools/list` on your server when a customer installs your app, so the Tools a customer gets are the ones your server advertises at that moment.
+You do not list your Tools anywhere. Procore discovers them by calling `tools/list` on your external server when a customer installs your app, so the Tools a customer gets are the ones your server advertises at that moment.
 <br><br>
 
 ***
 ## Configure Your Agents
-An Agent answers questions from Procore data and the Tools you connect, and it can propose changes back into Procore — updating an RFI, creating a draft Submittal, and similar work. Procore AI stages every proposed change for the customer to approve, so define what your Agent is allowed to propose, not only what it should know.
+An Agent answers questions from Procore data and the external Tools you connect, and it can propose changes back into Procore — updating an RFI, creating a draft Submittal, and similar work. Procore AI stages every proposed change for the customer to approve, so define what your Agent is allowed to propose, not only what it should know.
 
 Select **Manage** on the **Agents** row, then select **Add Agent**. Three fields are required:
 
