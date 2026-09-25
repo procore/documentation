@@ -29,7 +29,7 @@ Let Procore AI reach out to your external system. You declare the components on 
 **When to use**
 - You want Procore AI to draw on your app's external data when a customer asks it a question.
 - You want an Agent to propose changes in Procore for the customer to approve, such as updating an RFI or drafting a Submittal.
-- You want customers to install your agent through the Marketplace rather than set one up themselves.
+- You want a centralized way to manage your Agent and MCP server declarations across the many Procore customers who install your app.
 
 **Two constraints to weigh before you choose this capability**
 - Customers need **Procore AI Pro or Enterprise**. Without it they can still install your app and use its Embedded or Data Connector capabilities, but they cannot connect Agentic to a project.
