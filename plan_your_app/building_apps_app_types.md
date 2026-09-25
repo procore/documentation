@@ -35,7 +35,9 @@ Let Procore AI reach out to your external system. You declare the components on 
 - Customers need **Procore AI Pro or Enterprise**. Without it they can still install your app and use its Embedded or Data Connector capabilities, but they cannot connect Agentic to a project.
 - Procore AI is not available in the Developer Sandbox, so Agentic cannot be tested there.
 
-See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) to build it. That is Procore AI reaching **out** to your system. For the opposite direction — your own product calling **in** to converse over a customer's Procore context — see [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}), a separate path with its own access process.
+Agentic is Procore AI reaching **out** to your system. For the opposite direction — your own product calling **in** to converse over a customer's Procore context — see [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}), a separate path with its own access process.
+
+See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
 <br><br>
 
 ***
