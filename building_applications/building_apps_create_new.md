@@ -15,11 +15,11 @@ Whether you're a Procore customer or a Technology Partner, you can use the Proco
 Start by registering for a Procore Developer Portal account. Once registered, you can create your first app.
 
 1. Open your browser and go to the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>.
-2. Select **Sign Up** and fill out the required fields: first name, last name, and email.
-3. Set and confirm your password.
-4. (Optional) Enter your company name.
+2. Select **Sign Up**.
+3. Enter your first name, last name, and email. Company name is optional.
+4. Set and confirm your password.
 5. Complete the reCAPTCHA.
-6. Select **Create Free Account**, then check your inbox for a verification email.
+6. Select **Create free account**, then check your inbox for a verification email.
 <br><br>
 
 ***
@@ -28,10 +28,10 @@ Follow these steps to create a new app in the Developer Portal:
 
 1. Go to the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a> and sign in to your account.
 2. Go to the **My Apps** page and select **Create a New App**.
-3. Enter an app name. The first name you choose is important, so label it carefully.
-4. Select **Create**.
+3. Enter an **App Name**. This is how you refer to the app internally within your organization, not what customers see, and you can rename it later.
+4. Select **Create App**. Creating an app accepts the User Terms of Service, API Terms of Use, and Privacy Notice.
 
-When you create a new app, a Developer Sandbox is automatically provisioned for building and testing with sample project data. You can find its URL on the **Credentials** tab of your app or by following the link in the email sent to the app creator.
+When you create a new app, a Developer Sandbox is automatically provisioned for building and testing with sample project data. Its **Sandbox URL** is on the **App Details & Versions** tab, under **App Information**, from the moment the app exists. The link is also in the email sent to the app creator.
 
 For step-by-step instructions on installing a version in the Developer Sandbox, see [Install a Version in Your Developer Sandbox]({{ site.url }}{{ site.baseurl }}{% link building_applications/install_version_sandbox.md %}).
 <br><br>
