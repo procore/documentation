@@ -136,7 +136,7 @@ Filters allow you to drill down on the types of changes you are most interested 
 
 ## See Also
 
-- [API Lifecycle and Deprecation]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})
+- [API Lifecycle]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_lifecycle.md %})
 - [API Request and Response Format]({{ site.url }}{{ site.baseurl }}{% link api_essentials/restful_api_concepts.md %})
 - [Pagination]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/pagination.md %})
 - [Error Code Reference]({{ site.url }}{{ site.baseurl }}{% link api_essentials/error_reference.md %})
