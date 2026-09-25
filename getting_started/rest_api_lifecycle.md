@@ -53,34 +53,38 @@ A sunset date can move the other way too. If migration to a replacement is going
 ***
 ## Find Deprecated Endpoints You Use
 
-There are two routes, depending on whether you want to check your own traffic or the specification itself.
+**Use Integration Health.** It is scoped to your app, so it answers the question that actually matters — *are any of the endpoints I call deprecated* — instead of listing everything Procore has ever deprecated.
 
-**Start with Integration Health.** Its **Deprecated Endpoint Usage** observation flags deprecated routes your app is actually calling, and the **API Call Activity Report** shows which ones and how often. This answers "does this affect me", rather than "what is deprecated" — check it as soon as a deprecation is announced, not after sunset. See [Integration Health]({{ site.url }}{{ site.baseurl }}{% link api_essentials/integration_health.md %}#deprecated-endpoint-usage) and [API Call Activity Report]({{ site.url }}{{ site.baseurl }}{% link api_essentials/app_performance_metrics.md %}).
+Its **Deprecated Endpoint Usage** observation flags deprecated routes your app is actively calling. The **API Call Activity Report** then confirms which ones and how often, including the infrequent code paths that are easiest to miss — a deprecated call buried in a once-monthly export is exactly what this surfaces.
 
-**The OpenAPI Specification** carries the annotations, so you can also detect deprecation programmatically:
+Check it as soon as a deprecation is announced, not after sunset. See [Integration Health]({{ site.url }}{{ site.baseurl }}{% link api_essentials/integration_health.md %}#deprecated-endpoint-usage) and [API Call Activity Report]({{ site.url }}{{ site.baseurl }}{% link api_essentials/app_performance_metrics.md %}).
 
-| Field | What it tells you |
-| --- | --- |
-| `deprecated: true` | The endpoint is deprecated. |
-| `x-deprecated-at` | The date deprecation was announced, as `YYYY-MM-DD`. |
-| `x-sunset` | The date the endpoint will stop responding, as `YYYY-MM-DD`. |
-
-Download the specification from the <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Reference</a>. Checking `x-sunset` against the endpoints your integration calls — as a step in your own build — is the cheapest way to find out you are on a clock.
-
-<div class="details-bottom-spacing"></div>
+If you would rather automate the check, Procore's OpenAPI Specification annotates deprecated endpoints with `deprecated: true`, the announcement date in `x-deprecated-at`, and the removal date in `x-sunset`, all as `YYYY-MM-DD`. Download it from the <a href="https://developers.procore.com/reference/rest/docs/rest-api-overview" target="_blank">REST API Reference</a>.
+<br><br>
 
 ***
 ## Lifecycle Management
 
-How Procore manages an endpoint through each phase.
+What changes for you at each phase.
 
-| Phase      | API Resources                             | Support                                                                                                                                                | Documentation                                                            | Change Notification                                                                                                                         |
-| ---------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| General Availability | API is live in Production       | - New resource versions released periodically with new features, refinements, fixes, etc.<br>- Technical support available at <apisupport@procore.com> | - Released with new API versions<br>- Reference documentation maintained | - Changelog entries published for updates to resource endpoints<br> - Developer Portal notifications covering new resource version releases |
-| Deprecated | API is live in Production                 | - Fixes deployed as needed<br>- No new development<br>- Technical support available at <apisupport@procore.com>                                        | - Endpoint reference pages marked as 'Deprecated'                        | - Developer Portal notification and announcement prior to deprecation<br> - Changelog entries published only for fixes and related changes  |
-| Sunset     | API is no longer accessible in Production | - Support no longer provided                                                                                                                           | - Reference pages no longer accessible in Production                     | - Developer Portal notification and announcement prior to sunset<br> - Final sunset announcement                                            |
+### General Availability
+- **Availability** — live in production.
+- **Support** — new resource versions ship periodically with features, refinements, and fixes. Technical support at <apisupport@procore.com>.
+- **Documentation** — reference documentation is maintained, and released alongside new API versions.
+- **Notifications** — changelog entries for endpoint updates, and Developer Portal notifications for new resource version releases.
 
-<div class="details-bottom-spacing"></div>
+### Deprecated
+- **Availability** — still live in production.
+- **Support** — fixes deployed as needed, no new development. Technical support at <apisupport@procore.com>.
+- **Documentation** — endpoint reference pages are marked Deprecated.
+- **Notifications** — a Developer Portal notification and announcement before deprecation, then changelog entries only for fixes and related changes.
+
+### Sunset
+- **Availability** — no longer accessible in production.
+- **Support** — no longer provided.
+- **Documentation** — reference pages are removed from production.
+- **Notifications** — a Developer Portal notification and announcement before sunset, then a final sunset announcement.
+<br><br>
 
 ***
 ## Need Help?
