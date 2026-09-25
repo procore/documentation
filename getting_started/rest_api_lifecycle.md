@@ -16,30 +16,24 @@ Every Procore REST API endpoint sits at a lifecycle stage that tells you how sta
 
 An endpoint matures through Pilot, Beta, and General Availability, then retires through Deprecated and Sunset. Sunset is an exit from any stage — an endpoint does not have to reach General Availability before it is retired.
 
-| Stage | Your calls | What to do |
-| --- | --- | --- |
-| **Pilot** | Work now, but can change without notice | Build on it only if you can absorb that |
-| **Beta** | Work, but the contract is still moving | Build, and watch the changelog |
-| **General Availability** | Work, and keep working | Nothing |
-| **Deprecated** | Still work, but nothing new is built on it | Migrate before the sunset date |
-| **Sunset** | Stop working | Nothing — the endpoint is gone |
+| Stage | Your calls | Minimum notice before sunset | What to do |
+| --- | --- | --- | --- |
+| **Pilot** | Work now, but can change without notice | 3 months | Build on it only if you can absorb that |
+| **Beta** | Work, but the contract is still moving | 6 months | Build, and watch the changelog |
+| **General Availability** | Work, and keep working | 1 year | Nothing |
+| **Deprecated** | Still work, but nothing new is built on it | Already announced | Migrate before the sunset date |
+| **Sunset** | Stop working | — | Nothing — the endpoint is gone |
 
-Pilot is sometimes called Alpha.
+The notice you get is set by the stage the endpoint was in when its deprecation was announced. A Beta endpoint deprecated before it reaches General Availability gets the Beta period, not the GA one.
 
 <div class="details-bottom-spacing"></div>
 
 ***
 ## Deprecation and Sunset
 
-Deprecation is the announced window before an endpoint is removed. How long that window is depends on the stage the endpoint was in when the deprecation was announced.
+Deprecation is the announced window before an endpoint is removed.
 
-| Stage at deprecation | Minimum notice before sunset |
-| --- | --- |
-| **General Availability** | 1 year |
-| **Beta** | 6 months |
-| **Pilot** | 3 months |
-
-These minimums apply where an endpoint has consumers. Where usage data shows it has none — no usage, so no impact — Procore may deprecate and sunset it on an accelerated timeline, and a Pilot endpoint in that position may be removed with no sunset period at all. A date can move the other way too: if migration to a replacement is going slowly, Procore may extend it.
+Those minimums apply where an endpoint has consumers. Where usage data shows it has none — no usage, so no impact — Procore may deprecate and sunset it on an accelerated timeline, and a Pilot endpoint in that position may be removed with no sunset period at all. A date can move the other way too: if migration to a replacement is going slowly, Procore may extend it.
 
 **During the window**, your calls keep working and Procore keeps deploying fixes, but no new development happens on the endpoint and new applications are denied access. Reference pages are marked **Deprecated** and changelog entries cover fixes only.
 
