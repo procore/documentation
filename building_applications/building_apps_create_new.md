@@ -44,9 +44,9 @@ Components are grouped into three capabilities. One app version can carry any mi
 
 | Capability | Components | Guide |
 |---|---|---|
+| **Agentic** | MCPs, Agents | [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) |
 | **Data Connector** | User Level Authentication, Service Account Authentication | [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) |
 | **Embedded** | Full Screen, Side Panel | [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) |
-| **Agentic** | MCPs, Agents | [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) |
 
 Each capability stands on its own and none requires another. Data Connector and Embedded do pair naturally: a side panel knows which company, project, and record it was opened on, and a Data Connector lets it call the Procore API for the detail.
 

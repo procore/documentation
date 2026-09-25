@@ -8,11 +8,34 @@ section_title: Plan Your App
 
 ## Overview
 
-Procore apps are built from three families of capabilities — **Data Connector**, **Embedded**, and **Agentic** — and you can combine them in a single app, so a customer installs one app and gets everything it offers. Use this page to choose the best fit for your workflow and users.
+Procore apps are built from three families of capabilities — **Agentic**, **Data Connector**, and **Embedded** — and you can combine them in a single app, so a customer installs one app and gets everything it offers. Use this page to choose the best fit for your workflow and users.
 
 Each capability works on its own and none depends on another. Data Connector and Embedded do pair naturally, though: an embedded side panel knows which project and record it was opened on, and a Data Connector lets it call the Procore API for the detail.
 
 Whether your app calls the Procore REST API — and how it authenticates when it does — is a separate decision. See [Choose an Authentication Method]({{ site.url }}{{ site.baseurl }}{% link oauth/oauth_choose_grant_type.md %}).
+<br><br>
+
+***
+## Agentic Apps
+{% include agentic_closed_beta.md %}
+
+**What it is**  
+Add AI-driven behavior to your app by declaring its components on an app version, governed through Procore's install-and-consent flow. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects to your MCP server.
+
+**Components**
+- **MCPs** — a **Model Context Protocol (MCP)** server that connects your external system to Procore AI, so users and Agents can query data from your system alongside their Procore data.
+- **Agents** — an Agent hosted in Procore AI that uses Procore data and your connected tools to perform user-approved actions.
+
+**When to use**
+- You want Procore AI to draw on your app's data when a customer asks it a question.
+- You want an Agent to propose changes in Procore for the customer to approve, such as updating an RFI or drafting a Submittal.
+- You want customers to install your agent through the Marketplace rather than set one up themselves.
+
+**Two constraints to weigh before you choose this capability**
+- Customers need **Procore AI Pro or Enterprise**. Without it they can still install your app and use its Embedded or Data Connector capabilities, but they cannot connect Agentic to a project.
+- Procore AI is not available in the Developer Sandbox, so Agentic cannot be tested there.
+
+See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
 <br><br>
 
 ***
@@ -72,29 +95,6 @@ Use these examples to understand placement and layout.
 <img src="{{ site.baseurl }}/assets/guides/side-panel-example.png" alt="Side Panel example">
 </details>
 <div class="details-bottom-spacing"></div>
-
-***
-## Agentic Apps
-{% include agentic_closed_beta.md %}
-
-**What it is**  
-Add AI-driven behavior to your app by declaring its components on an app version, governed through Procore's install-and-consent flow. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects to your MCP server.
-
-**Components**
-- **MCPs** — a **Model Context Protocol (MCP)** server that connects your external system to Procore AI, so users and Agents can query data from your system alongside their Procore data.
-- **Agents** — an Agent hosted in Procore AI that uses Procore data and your connected tools to perform user-approved actions.
-
-**When to use**
-- You want Procore AI to draw on your app's data when a customer asks it a question.
-- You want an Agent to propose changes in Procore for the customer to approve, such as updating an RFI or drafting a Submittal.
-- You want customers to install your agent through the Marketplace rather than set one up themselves.
-
-**Two constraints to weigh before you choose this capability**
-- Customers need **Procore AI Pro or Enterprise**. Without it they can still install your app and use its Embedded or Data Connector capabilities, but they cannot connect Agentic to a project.
-- Procore AI is not available in the Developer Sandbox, so Agentic cannot be tested there.
-
-See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
-<br><br>
 
 ***
 ## Which Direction Your Integration Runs
