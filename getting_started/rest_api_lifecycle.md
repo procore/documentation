@@ -51,9 +51,13 @@ A sunset date can move the other way too. If migration to a replacement is going
 <div class="details-bottom-spacing"></div>
 
 ***
-## Detect Deprecation in the API Spec
+## Find Deprecated Endpoints You Use
 
-Deprecated endpoints are annotated in Procore's OpenAPI Specification, so you can find them programmatically instead of watching announcements.
+There are two routes, depending on whether you want to check your own traffic or the specification itself.
+
+**Start with Integration Health.** Its **Deprecated Endpoint Usage** observation flags deprecated routes your app is actually calling, and the **API Call Activity Report** shows which ones and how often. This answers "does this affect me", rather than "what is deprecated" — check it as soon as a deprecation is announced, not after sunset. See [Integration Health]({{ site.url }}{{ site.baseurl }}{% link api_essentials/integration_health.md %}#deprecated-endpoint-usage) and [API Call Activity Report]({{ site.url }}{{ site.baseurl }}{% link api_essentials/app_performance_metrics.md %}).
+
+**The OpenAPI Specification** carries the annotations, so you can also detect deprecation programmatically:
 
 | Field | What it tells you |
 | --- | --- |
