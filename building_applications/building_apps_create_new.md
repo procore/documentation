@@ -15,11 +15,11 @@ Whether you're a Procore customer or a Technology Partner, you can use the Proco
 Start by registering for a Procore Developer Portal account. Once registered, you can create your first app.
 
 1. Open your browser and go to the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a>.
-2. Click **Sign Up** and fill out the required fields: first name, last name, and email.
+2. Select **Sign Up** and fill out the required fields: first name, last name, and email.
 3. Set and confirm your password.
 4. (Optional) Enter your company name.
 5. Complete the reCAPTCHA.
-6. Click **Create Free Account**, then check your inbox for a verification email.
+6. Select **Create Free Account**, then check your inbox for a verification email.
 <br><br>
 
 ***
@@ -27,9 +27,9 @@ Start by registering for a Procore Developer Portal account. Once registered, yo
 Follow these steps to create a new app in the Developer Portal:
 
 1. Go to the <a href="https://developers.procore.com/developers" target="_blank">Developer Portal</a> and sign in to your account.
-2. Navigate to the **My Apps** page and click **Create a New App**.
+2. Go to the **My Apps** page and select **Create a New App**.
 3. Enter an app name. The first name you choose is important, so label it carefully.
-4. Click **Create**.
+4. Select **Create**.
 
 When you create a new app, a Developer Sandbox is automatically provisioned for building and testing with sample project data. You can find its URL on the **Credentials** tab of your app or by following the link in the email sent to the app creator.
 
@@ -37,7 +37,7 @@ For step-by-step instructions on installing a version in the Developer Sandbox, 
 <br><br>
 
 ***
-## 3. App Manifest Overview
+## 3. Add Components to a Version
 After creating your app, select **Create Version**, then **Edit Components** to choose what that version contains. These components define your app’s functionality in Procore and make up the App Manifest.
 
 Components are grouped into three capabilities. One app version can carry any mix of them, including all three at once, so a customer installs a single app and gets everything it offers.
