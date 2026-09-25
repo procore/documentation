@@ -7,7 +7,7 @@ section_title: Build Your App
 ---
 
 ## Overview
-Whether you're a Procore customer or a Technology Partner, you can use the Procore Developer Portal to build apps that let Procore AI reach out to your external system, move data between Procore and your own platforms, or run inside the Procore UI. One app can do all three. This guide walks you through creating your Developer Portal account and building your first app.
+Whether you're a Procore customer or a Technology Partner, you can use the Procore Developer Portal to build apps that let <a href="https://v2.support.procore.com/product-manuals/procore-ai" target="_blank">Procore AI</a> reach out to your external system, move data between Procore and your own platforms, or run inside the Procore UI. One app can do all three. This guide walks you through creating your Developer Portal account and building your first app.
 <br><br>
 
 ***

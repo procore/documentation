@@ -18,7 +18,7 @@ Use Agentic APIs if your integration needs:
 - RAG applications grounded in real project data
 - Agents that reason across Procore data and take multi-step action
 
-Agentic APIs are the path for your own system to call in to Procore AI. If instead you want Procore AI to call out to what your app can do, you add the Agentic capability to an app version — see [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
+Agentic APIs are the path for your own system to call in to <a href="https://v2.support.procore.com/product-manuals/procore-ai" target="_blank">Procore AI</a>. If instead you want Procore AI to call out to what your app can do, you add the Agentic capability to an app version — see [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
 
 For create, read, update, and delete (CRUD) operations against individual records (RFIs, submittals, budgets, daily logs), keep using the transactional [REST APIs]({{ site.url }}{{ site.baseurl }}{% link overview/introduction.md %}).
 

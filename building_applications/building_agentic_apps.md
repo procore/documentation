@@ -9,7 +9,7 @@ section_title: Build Your App
 ## Overview
 {% include agentic_closed_beta.md %}
 
-The **Agentic** capability lets **Procore AI** reach out to your external system. You add its components to an app version in the Developer Portal, alongside any Data Connector or Embedded components, and Procore governs how customers install and consent to them. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects out to your external MCP server.
+The **Agentic** capability lets <strong><a href="https://v2.support.procore.com/product-manuals/procore-ai" target="_blank">Procore AI</a></strong> reach out to your external system. You add its components to an app version in the Developer Portal, alongside any Data Connector or Embedded components, and Procore governs how customers install and consent to them. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects out to your external MCP server.
 
 Agentic has two components, and you can add either or both:
 

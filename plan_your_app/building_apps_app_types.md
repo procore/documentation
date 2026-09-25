@@ -20,7 +20,7 @@ Whether your app calls the Procore REST API — and how it authenticates when it
 {% include agentic_closed_beta.md %}
 
 **What it is**  
-Let Procore AI reach out to your external system. You declare the components on an app version, governed through Procore's install-and-consent flow. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects out to your external MCP server.
+Let <a href="https://v2.support.procore.com/product-manuals/procore-ai" target="_blank">Procore AI</a> reach out to your external system. You declare the components on an app version, governed through Procore's install-and-consent flow. Procore AI is powered by **Datagrid, a Procore Company**, which runs the Agents you declare and connects out to your external MCP server.
 
 **Components**
 - **MCPs** — an external **Model Context Protocol (MCP)** server that you host, connecting your system to Procore AI so users and Agents can query your external data alongside their Procore data.
