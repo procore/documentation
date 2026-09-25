@@ -35,7 +35,7 @@ Let Procore AI reach out to your external system. You declare the components on 
 - Customers need **Procore AI Pro or Enterprise**. Without it they can still install your app and use its Embedded or Data Connector capabilities, but they cannot connect Agentic to a project.
 - Procore AI is not available in the Developer Sandbox, so Agentic cannot be tested there.
 
-See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}).
+See [Building Agentic Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_agentic_apps.md %}) to build it. That is Procore AI reaching **out** to your system. For the opposite direction — your own product calling **in** to converse over a customer's Procore context — see [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}), a separate path with its own access process.
 <br><br>
 
 ***
@@ -111,23 +111,6 @@ Use these examples to understand placement and layout.
 <img src="{{ site.baseurl }}/assets/guides/side-panel-example.png" alt="Side Panel example">
 </details>
 <div class="details-bottom-spacing"></div>
-
-***
-## Which Direction Your Integration Runs
-Agentic work on Procore runs in two directions, and they are separate paths with separate entry points. Which one you need depends on where the conversation starts.
-
-| | Agentic capability | Agentic APIs |
-| --- | --- | --- |
-| **Direction** | Procore AI reaches **out** to your app | Your system reaches **in** to Procore AI |
-| **You declare** | Agents and MCP servers on an app version | Nothing on the app version |
-| **Starts from** | A customer asking a question in Procore AI | Your own product or service |
-| **Built for** | Marketplace and custom apps customers install | External systems that need Procore context |
-| **Availability** | Closed beta, Marketplace Partners | Design Partner pilot |
-
-The two are not exclusive. An app can offer the Agentic capability to customers working inside Procore and also call the Agentic APIs from its own backend.
-
-For the reach-in path, see [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}).
-<br><br>
 
 ***
 ## See Also
