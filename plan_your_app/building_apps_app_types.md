@@ -71,17 +71,25 @@ See [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% li
 ## Embedded Apps
 
 **What it is**  
-Run your app inside Procore’s web UI to keep users in context and reduce app switching.
+Run your app inside Procore’s web UI, so users work with it without leaving the tool they are in. Procore renders your External URL in an iframe, and what loads there is your own web app.
 
-**Key details**
-- The app **manifest** defines behavior and settings.
-- Use URL parameter interpolation to pass values from install configuration or user input.
+**Components**
+- **Full Screen** — your app takes the main content area as a full-page workspace, keeping the Procore header. Users launch it from the **Apps** menu, at both Company and Project level.
+- **Side Panel** — your app renders in a fixed 400‑px panel on the right side of the UI, scoped to the Procore views you choose. Because a side panel is attached to specific tools, you can tailor it to one tool or workflow. Users launch it from the dock on the right edge.
 
-### Fullscreen Apps
-Fullscreen apps occupy the main content area. Users launch them from the **Apps** menu.
+**When to use**
+- You want users to act on your data without leaving the Procore tool they are working in.
+- Your app's value is in its interface, rather than in moving records around in the background.
+- You want the experience to follow context — the project, tool, and record the user is looking at.
 
-### Side Panel Apps
-A side panel app renders in a fixed 400‑px panel on the right side of the Procore UI. Because side panel apps are installed for specific tools, you can build solutions tailored to a tool or workflow. Users launch side panel apps from the dock on the right edge of the interface.
+**How it works**
+- Procore renders your **External URL** in an iframe inside the Procore UI.
+- Use **Dynamic URL Parameters** to adapt that URL to each install, with Procore's built-in values or custom values the installing administrator supplies. See [Understanding URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %}).
+- A side panel can read the company, project, resource, and view it was opened in, and hand that context to your app.
+
+**Two things to know before you choose this capability**
+- Embedded components do not authenticate. The iframe loads your own web app, signed in however your product normally signs people in.
+- To read or write Procore data, pair this with a Data Connector component. The side panel knows which record it was opened on; the Data Connector is what lets it fetch the detail.
 
 See [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_embedded_apps.md %}) to build either placement.
 <br><br>
@@ -91,7 +99,7 @@ See [Building Embedded Applications]({{ site.url }}{{ site.baseurl }}{% link bui
 Use these examples to understand placement and layout.
 
 <details>
-<summary class="collapseListTierOne">Fullscreen Example</summary>
+<summary class="collapseListTierOne">Full Screen Example</summary>
 <p>Here is an example of the full screen <a href="https://marketplace.procore.com/apps/procore-integration-for-google-sheets" target="_blank">Procore Integration for Google Sheets™</a> embedded application running in Procore.</p>
 <img src="{{ site.baseurl }}/assets/guides/google-sheets-example.png" alt="Google Sheets example">
 </details>
