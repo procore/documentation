@@ -94,7 +94,7 @@ The three prompts do different jobs, and keeping them separate is what makes an 
 | **Planning Prompt** | The steps to follow, and which Tools and data to use | Brief and explicit |
 | **Custom Prompt** | How the answer looks — format, tone, and next steps | As detailed as you need |
 
-Write the workflow you want rather than a list of prohibitions. A prompt that gains a new "don't" every time the Agent surprises you still leaves its actual path undefined, and each addition dilutes every rule around it. A numbered sequence in the **Planning Prompt**, closing with one sentence on what to do when a request falls outside scope, replaces most prohibitions.
+Write the workflow you want rather than a list of prohibitions — a "don't" leaves the Agent's path undefined. For how to write each prompt, and how to test what you wrote, see [Design a High-Quality Agent]({{ site.url }}{{ site.baseurl }}{% link building_applications/design_a_high_quality_agent.md %}).
 
 Configure your MCP servers before your Agents. **Connected MCP Servers** lists only the servers already declared on this version, so an Agent cannot be attached to a server that does not exist yet.
 <br><br>

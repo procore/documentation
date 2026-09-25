@@ -57,6 +57,8 @@
       url: /building-apps-create-new
     - title: Build an Agentic App
       url: /building-agentic-apps
+    - title: Design a High-Quality Agent
+      url: /design-a-high-quality-agent
     - title: Build a Data Connector App
       url: /building-data-connection-apps
     - title: Build an Embedded App
