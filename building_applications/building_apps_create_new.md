@@ -31,9 +31,8 @@ Follow these steps to create a new app in the Developer Portal:
 3. Enter an **App Name**.
    - For a custom app, this is the name customers see in App Management, so choose it with that in mind.
    - For a Marketplace app, the name customers see comes from your [Marketplace listing]({{ site.url }}{{ site.baseurl }}{% link app_marketplace/marketplace_listing_guidelines.md %}) instead.
-   - You can rename it later either way.
 4. Select **Create App**.
-   - Creating an app accepts the User Terms of Service, API Terms of Use, and Privacy Notice.
+   - Creating an app accepts the <a href="https://procore.pactsafe.io/legal.html#contract-syqj4fbct" target="_blank">User Terms of Service</a>, <a href="https://procore.pactsafe.io/legal.html#contract-hymckkfc9" target="_blank">API Terms of Use</a>, and <a href="https://procore.pactsafe.io/legal.html#contract-r17jbfz5y" target="_blank">Privacy Notice</a>.
 
 When you create a new app, a Developer Sandbox is automatically provisioned for building and testing with sample project data. Its **Sandbox URL** is on the **App Details & Versions** tab, under **App Information**, from the moment the app exists. The link is also in the email sent to the app creator.
 
