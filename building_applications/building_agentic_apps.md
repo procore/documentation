@@ -30,6 +30,8 @@ This page covers that direction, where Procore AI calls out to your app. For the
 
 This is a subscription gate on the customer's side, not something you configure. Account for it when you size your audience and when you write your Marketplace listing.
 
+**The customer pays for every run.** Each Agent run draws credits from that customer's Datagrid pool, and their administrators see the usage attributed to your app by name. A narrow Agent that calls fewer Tools per run costs them less, which is worth weighing when you decide how much work one Agent should do.
+
 If your app pairs Agentic with the Embedded or Data Connector capabilities, the rest of your app is unaffected. A customer without Procore AI Pro or Enterprise installs your app and uses those capabilities normally.
 
 What they cannot do is put Agentic to work. The install succeeds and the capability appears in their Procore account, but they cannot connect it to a project, because their projects do not have Procore AI Pro or Enterprise enabled.
@@ -83,6 +85,16 @@ Four more are optional:
 - **Tools** — the capabilities this Agent can call.
 
 Select **Save Configuration** when you are done. You can declare up to five Agents on one app version.
+
+The three prompts do different jobs, and keeping them separate is what makes an Agent predictable.
+
+| Prompt | Use it for | Length |
+| --- | --- | --- |
+| **System Prompt** | The Agent's role, and the rules that always hold | Short and stable |
+| **Planning Prompt** | The steps to follow, and which Tools and data to use | Brief and explicit |
+| **Custom Prompt** | How the answer looks — format, tone, and next steps | As detailed as you need |
+
+Write the workflow you want rather than a list of prohibitions. A prompt that gains a new "don't" every time the Agent surprises you still leaves its actual path undefined, and each addition dilutes every rule around it. A numbered sequence in the **Planning Prompt**, closing with one sentence on what to do when a request falls outside scope, replaces most prohibitions.
 
 Configure your MCP servers before your Agents. **Connected MCP Servers** lists only the servers already declared on this version, so an Agent cannot be attached to a server that does not exist yet.
 <br><br>
