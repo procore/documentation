@@ -2,6 +2,6 @@
 permalink: /tutorial-timezones
 title: Working with Time Zones
 layout: default
-section_title: Best Practices
+section_title: Reference
 redirect_to: /date-time#working-with-time-zones
 ---
