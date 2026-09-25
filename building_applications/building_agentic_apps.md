@@ -100,7 +100,7 @@ For the versioning flow itself, see [Promote a Version to Production]({{ site.ur
 <br><br>
 
 ***
-## Next Steps
+## See Also
 - [Choose an App Type]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}) — how Agentic fits among the capabilities.
 - [Agentic APIs]({{ site.url }}{{ site.baseurl }}{% link announcements/agentic_apis.md %}) — the other direction, where your system calls in to Procore AI.
 - [Building Data Connector Applications]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_data_connection_apps.md %}) — the capability that gives your app access to Procore data.

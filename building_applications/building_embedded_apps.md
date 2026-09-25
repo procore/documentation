@@ -163,7 +163,7 @@ For the versioning flow itself, see [Promote a Version to Production]({{ site.ur
 <br><br>
 
 ***
-## Next Steps
+## See Also
 - [Side Panel View Key Reference]({{ site.url }}{{ site.baseurl }}{% link building_applications/side_panel_view_keys.md %}) — the tools and views a side panel app can attach to.
 - [Understanding URL Parameter Interpolation]({{ site.url }}{{ site.baseurl }}{% link building_applications/building_apps_url_parameter_interpolation.md %}) — pass company, project, and install values into your URL.
 - [Choose an App Type]({{ site.url }}{{ site.baseurl }}{% link plan_your_app/building_apps_app_types.md %}) — how Embedded fits among the capabilities.
