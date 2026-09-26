@@ -3,7 +3,7 @@ permalink: /design-a-high-quality-agent
 title: Design a High-Quality Agent
 sub_header: Choose the right workflow, design Tools an Agent can actually use, and write instructions that make it behave predictably.
 layout: default
-section_title: Build Your App
+section_title: Reference
 ---
 
 ## Overview
