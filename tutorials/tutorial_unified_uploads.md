@@ -107,7 +107,7 @@ curl -X POST 'https://sandbox.procore.com/rest/v2.1/companies/{company_id}/proje
 
 ```
 The `uploader_tool_name` field identifies the Procore tool initiating the upload (for example, `document_management`), and is limited to 64 characters.
-It is currently optional but will become required in a future release, so we recommend including it now.
+It is required and must be one of the allowed tool names listed in the [Create Upload](https://developers.procore.com/reference/rest/uploads?version=2.1#create-unified-upload) API reference.
 
 **Response (201 Created)**
 
@@ -662,6 +662,5 @@ The following capabilities are planned for upcoming releases of the Unified File
 - **Malware scan** — Automated scanning of all uploaded files for malware
 - **Checksum verification status** — Fields confirming whether server-side checksum verification passed
 - **Extended analytics and client metadata** — Additional fields for richer upload telemetry and client identification
-- **Required `uploader_tool_name`** — The `uploader_tool_name` field will change from optional to required
 - **File-extension allow-list** — Uploads will be restricted to an approved set of file extensions, and uploads with disallowed extensions will be rejected
 - **Content-type validation** — Requests where the declared `content_type` does not match the file's actual content will be rejected
