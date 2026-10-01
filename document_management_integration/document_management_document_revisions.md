@@ -23,10 +23,10 @@ This guide covers the read side of that lifecycle: how to list revisions after s
 
 ***
 
-> **List Document Revisions and List Recycled Document Revisions are private and beta.** Both are annotated `visibility: private` and `stage: beta` in the Document Management service. List Selected Document Revisions is public and beta.
+> **These endpoints are in beta.** Watch the changelog for new [resource versions]({{ site.url }}{{ site.baseurl }}{% link getting_started/rest_api_overview.md %}).
 {: .callout .callout--warning}
 
-All three endpoints require a valid OAuth 2.0 token. Results are scoped to the calling principal's Document Management permission groups — the same request returns different rows for different tokens. How a withheld revision appears depends on the call: a discovery list omits it with no withheld-count signal; a hydration call by ID returns a masked row. See [Permission Scoping](#permission-scoping).
+All endpoints require a valid OAuth 2.0 token. Results are scoped to the calling principal's Document Management permission groups — the same request returns different rows for different tokens. How a withheld revision appears depends on the call: a discovery list omits it with no withheld-count signal; a hydration call by ID returns a masked row. See [Permission Scoping](#permission-scoping).
 
 ### Base URL
 
@@ -36,7 +36,7 @@ Document Revision read endpoints use the following base path:
 /rest/v{version}/companies/{company_id}/projects/{project_id}/document_management
 ```
 
-Replace `{version}` with the version shown on each endpoint (`2.0` or `2.1`). Replace `{company_id}` and `{project_id}` with your actual Procore company and project IDs. List Document Revisions and List Selected Document Revisions are mounted on both `2.0` and `2.1`. List Recycled Document Revisions is mounted on `2.0` only.
+Replace `{version}` with the version shown on each endpoint (`2.0` or `2.1`). Replace `{company_id}` and `{project_id}` with your actual Procore company and project IDs. List Document Revisions, List Selected Document Revisions, and Download Document Revision are mounted on both `2.0` and `2.1`. List Recycled Document Revisions and Download Recycled Document Revision are mounted on `2.0` only.
 
 ### Three Endpoints, Three Jobs
 
@@ -321,11 +321,21 @@ How a withheld revision appears depends on the call:
 
 ## Downloading a Revision
 
-Full-record list, selected-revisions, and recycled-revisions responses include `download_url` when the caller has view access:
+Full-record list, selected-revisions, and recycled-revisions responses include `download_url` when the caller has view access.
+
+**Request** — [Download Document Revision](https://developers.procore.com/reference/rest/document-revisions?version=2.0#download-document-revision)
 
 ```
-https://{host}/rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/document_revisions/{document_revision_id}/download
+GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/document_revisions/{document_revision_id}/download
 ```
+
+**Request** — [Download Recycled Document Revision](https://developers.procore.com/reference/rest/document-revisions?version=2.0#download-recycled-document-revision)
+
+```
+GET /rest/v2.0/companies/{company_id}/projects/{project_id}/document_management/document_revisions/recycled_revisions/{document_revision_id}/download
+```
+
+This endpoint is `2.0` only. It requires Recycle Bin view permission (`view_recycle_bin`).
 
 GET that URL with the same OAuth 2.0 token. The service responds with HTTP 302 to a short-lived storage URL. Follow the redirect to retrieve the file bytes. Pass `no_redirect=true` to receive HTTP 200 with a JSON body instead of the 302.
 
