@@ -1,6 +1,6 @@
 ---
-permalink: /procore-ai-edge-claude-connector
-title: Procore AI Edge Connector for Claude
+permalink: /procore-ai-mcp-claude-connector
+title: Procore AI MCP Connector for Claude
 layout: default
 section_title: MCP Integration
 sub_header: Ask Claude about your Procore projects. The connector gives Claude read-only access to RFIs, submittals, observations, daily logs, drawings, specifications, and more.
@@ -18,8 +18,6 @@ noindex: true
 
 {% comment %}
 TODO before launch (remove this block when resolved):
-- Naming: confirm "Procore AI Edge" vs. the public product name with product/marketing (DGAAI-986 acceptance criteria).
-- Zones: confirm the supported zones and whether the Directory listing uses one URL or several (DGAAI-993).
 - Privacy: replace the privacy links with the policy approved by Legal, including the Datagrid disclosure (DGAAI-987).
 - Support: confirm the support contact and security disclosure channel (DGAAI-992).
 - Claude UI: re-check the menu names in the "Connect" and "Disconnect" steps against the current Claude apps.
@@ -27,7 +25,7 @@ TODO before launch (remove this block when resolved):
 
 ## Overview
 
-The **Procore AI Edge connector** links [Claude](https://claude.ai) to your Procore account through the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP). Once connected, you can ask Claude questions about your Procore projects in plain language, such as "Which RFIs on the Main Street project are overdue?", and Claude looks up the answer in Procore for you.
+The **Procore AI MCP connector** links [Claude](https://claude.ai) to your Procore account through the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP). Once connected, you can ask Claude questions about your Procore projects in plain language, such as "Which RFIs on the Main Street project are overdue?", and Claude looks up the answer in Procore for you.
 
 The connector is **read-only**. It reads Procore data and does not create, update, or delete anything in Procore. Write actions are turned off for this connector.
 
@@ -64,30 +62,30 @@ Before you connect, make sure you have the following:
 | US01 | `app.procore.com` | `https://app.procore.com/rest/v1.0/mcp` |
 | US02 | `us02.procore.com` | `https://us02.procore.com/rest/v1.0/mcp` |
 
-Other zones are not supported yet.
+The connector uses one fixed URL per zone. Other zones are not supported.
 
 ---
 
 ## Connect Claude to Procore
 
 1. In Claude, open **Settings** → **Connectors**.
-2. Click **Browse connectors** and search for **Procore AI Edge**.
-3. Click **Connect**. Claude opens a Procore sign-in window.
+2. Click **Browse connectors** and search for **Procore AI MCP**.
+3. Click **Connect**. If Claude asks which server to use, choose the one for your [zone](#supported-zones): US01 if you sign in to Procore at `app.procore.com`, or US02 if you sign in at `us02.procore.com`. Claude then opens a Procore sign-in window.
 4. Sign in with your Procore account. You are redirected through Datagrid, which connects your sign-in to your Datagrid teamspace.
 5. When sign-in finishes, you are returned to Claude and the connector shows as connected.
 
 To check the connection, start a new chat and ask:
 
-> "Use the Procore AI Edge connector to tell me who I'm signed in as."
+> "Use the Procore AI MCP connector to tell me who I'm signed in as."
 
 Claude calls the `whoami` tool and replies with your Datagrid user and teamspace. If it fails, see [Troubleshooting](#troubleshooting).
 
 ### Connect with a custom connector URL
 
-If your organization adds connectors by URL, or your company is in US02, add the connector as a custom connector:
+If your organization adds connectors by URL instead of from the directory, add the connector as a custom connector:
 
 1. In Claude, open **Settings** → **Connectors** and click **Add custom connector**.
-2. Enter a name, such as `Procore`, and the [MCP server URL](#supported-zones) for your zone.
+2. Enter a name, such as `Procore AI MCP`, and the [MCP server URL](#supported-zones) for your zone.
 3. Click **Add**, then **Connect**, and sign in as described above.
 
 ---
@@ -97,7 +95,7 @@ If your organization adds connectors by URL, or your company is in US02, add the
 To stop Claude from reading your Procore data:
 
 1. In Claude, open **Settings** → **Connectors**.
-2. Select **Procore AI Edge** and click **Disconnect**.
+2. Select **Procore AI MCP** and click **Disconnect**.
 
 Disconnecting deletes the sign-in tokens that Claude stores for the connector. Claude can no longer call the connector until you connect again.
 
