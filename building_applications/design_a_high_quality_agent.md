@@ -68,24 +68,39 @@ Three prompts shape an Agent, and each has its own job. The **System Prompt** ho
 
 **Write the workflow you want, not a list of prohibitions.** A common pattern is a prompt that gains a new "don't" every time the Agent surprises its author:
 
-> Answer questions about fabrication status. Don't use budget data. Don't answer scheduling questions. Don't guess dates. Don't use web search. Don't mention internal order numbers.
+```text
+Answer questions about fabrication status. Don't use budget data. Don't
+answer scheduling questions. Don't guess dates. Don't use web search.
+Don't mention internal order numbers.
+```
 
 That names five things to avoid and still leaves the Agent guessing how to answer a fabrication question, so it improvises. Each prohibition also lengthens the prompt and dilutes every other rule in it. A sequence defines the path instead:
 
-> For every fabrication question, follow these steps.
-> 1. Identify the package or scope.
-> 2. Call the fabrication status Tool for current status and ship date.
-> 3. Check Procore RFIs for open items on the same scope.
-> 4. Determine whether any open RFI blocks fabrication.
-> 5. Answer with the status, ship date, and blockers, citing each record.
->
-> If the request falls outside fabrication tracking, say so in one sentence and state what this Agent covers.
+```text
+For every fabrication question, follow these steps.
+
+1. Identify the package or scope.
+2. Call the fabrication status Tool for current status and ship date.
+3. Check Procore RFIs for open items on the same scope.
+4. Determine whether any open RFI blocks fabrication.
+5. Answer with the status, ship date, and blockers, citing each record.
+
+If the request falls outside fabrication tracking, say so in one
+sentence and state what this Agent covers.
+```
 
 That closing sentence replaces most prohibitions. If you find yourself writing a third "don't", make the positive instruction above it more specific.
 
 **Say when your data comes first.** An Agent can reach both Procore data and your Tools, and it needs telling which to prefer. Put that in the Planning Prompt — "for schedule-impact questions, combine Procore RFI records with fabrication data from your system" — then test with questions that never mention your product. Your instructions are working when the Agent reaches your data anyway.
 
-**Keep hard rules in the System Prompt.** A good one is short: *You are a fabrication tracking assistant for project engineers. Be precise and evidence-based. Never invent records, dates, or statuses. When a field is empty or a Tool returns nothing, say so and name what you could not reach.*
+**Keep hard rules in the System Prompt.** A good one is short:
+
+```text
+You are a fabrication tracking assistant for project engineers. Be
+precise and evidence-based. Never invent records, dates, or statuses.
+When a field is empty or a Tool returns nothing, say so and name what
+you could not reach.
+```
 
 Whatever you write, every Agent needs these four properties:
 
