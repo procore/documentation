@@ -47,6 +47,43 @@ To run the project locally complete the following steps:
 
 As you edit the source code and save your changes, the HTML output is regenerated automatically.
 
+## How the site is built and published
+
+Every push runs a CircleCI pipeline (`.circleci/config.yml`) that builds the site
+with `bundle exec jekyll build` and checks the result with
+`./scripts/verify_site.sh`. Nothing about local authoring changes — `bundle exec
+jekyll serve` still works with no extra setup.
+
+On `main`, the pipeline also packages `_site` and uploads it to Artifactory:
+
+| Artifact | Path |
+| --- | --- |
+| Versioned site | `ecosystem-generic-local/documentation/documentation-<short-sha>.tar.gz` |
+| Moving pointer | `ecosystem-generic-local/documentation/documentation-latest.tar.gz` |
+
+The tarball holds the contents of `_site` at its root, so a consumer extracts it
+straight into whatever directory it wants to serve from. `jf rt build-publish`
+records build info, so a published site traces back to a commit and a CI run.
+
+This replaces the GitHub Pages build. The Developer Portal consumes the artifact
+at image build time rather than iframing `procore.github.io`.
+
+### Previewing a pull request
+
+The `build` job stores the rendered site under the **Artifacts** tab in
+CircleCI. Individual pages render there, but links resolve against the
+`/documentation` baseurl, so you cannot navigate between pages from the
+artifact browser. For a full working preview, run `bundle exec jekyll serve`
+against the branch.
+
+### Checking the build against GitHub Pages
+
+While GitHub Pages is still live, `./scripts/compare_with_pages.sh _site`
+byte-compares every built page against `procore.github.io/documentation`. It is
+also a CircleCI job, off by default — trigger a pipeline with the
+`verify_against_pages` parameter set to `true` after any change to the Ruby,
+Jekyll, or plugin versions. Delete both once Pages is retired.
+
 ## How to contribute to the **documentation** repository
 
 Did you find a typo, or some incorrect or missing information? You can update the content for the **Procore Developer Center** by doing the following:

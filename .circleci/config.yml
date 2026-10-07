@@ -1,0 +1,163 @@
+version: 2.1
+
+parameters:
+  verify_against_pages:
+    type: boolean
+    default: false
+    description: >
+      Run the byte-for-byte comparison of the built site against the live GitHub
+      Pages output. Off by default — it makes one request per page to
+      procore.github.io, and it stops being meaningful once GitHub Pages is
+      retired. Trigger it from the CircleCI UI ("Trigger Pipeline") when the
+      Jekyll toolchain changes.
+
+executors:
+  jekyll:
+    docker:
+      - image: containers.artifacts.procoretech.com/cimg/ruby:3.3.11
+        auth:
+          username: $ARTIFACTORY_PULL_USERNAME
+          password: $ARTIFACTORY_PULL_ACCESS_TOKEN
+    working_directory: ~/documentation
+  jfrog:
+    docker:
+      - image: containers.artifacts.procoretech.com/developer-tooling/jfrog-cli:latest
+        auth:
+          username: $ARTIFACTORY_USERNAME
+          password: $ARTIFACTORY_ACCESS_TOKEN
+    working_directory: ~/documentation
+
+commands:
+  install_gems:
+    description: Install the Jekyll toolchain, cached on Gemfile.lock
+    steps:
+      - restore_cache:
+          keys:
+            - documentation-bundle-v1-{{ checksum "Gemfile.lock" }}
+            - documentation-bundle-v1-
+      - run:
+          name: Install Ruby dependencies
+          command: |
+            # Gemfile.lock pins the Bundler version in its final line; the image
+            # ships a different one and will refuse to continue without it.
+            gem install bundler -v "$(tail -n 1 Gemfile.lock | tr -d '[:space:]')" --no-document
+            bundle config set --local path vendor/bundle
+            bundle config set --local deployment true
+            bundle install --jobs 4
+      - save_cache:
+          key: documentation-bundle-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+jobs:
+  build:
+    executor: jekyll
+    steps:
+      - checkout
+      - install_gems
+      - run:
+          name: Build the site
+          # JEKYLL_ENV=production matches what the GitHub Pages builder uses. The
+          # output is byte-identical to Pages today; keep it that way.
+          command: JEKYLL_ENV=production bundle exec jekyll build --trace
+      - run:
+          name: Verify the built site
+          command: ./scripts/verify_site.sh _site
+      - run:
+          name: Package the site
+          command: |
+            VERSION="${CIRCLE_SHA1:0:7}"
+            mkdir -p tmp
+            # Contents at the tarball root, not under a `_site/` prefix, so the
+            # consumer picks the destination directory.
+            tar -czf "tmp/documentation-${VERSION}.tar.gz" -C _site .
+            ls -lh tmp/
+      # The rendered site doubles as the PR preview: browse it from the
+      # Artifacts tab of this job. Links resolve against the `/documentation`
+      # baseurl, so navigation between pages does not work from there — it is a
+      # per-page preview, not a working site. See README for the caveat.
+      - store_artifacts:
+          path: _site
+          destination: site
+      - store_artifacts:
+          path: tmp
+          destination: tarball
+      - persist_to_workspace:
+          root: ~/documentation
+          paths:
+            - tmp
+
+  compare_with_pages:
+    executor: jekyll
+    steps:
+      - checkout
+      - install_gems
+      - run:
+          name: Build the site
+          command: JEKYLL_ENV=production bundle exec jekyll build --trace
+      - run:
+          name: Compare against live GitHub Pages
+          command: ./scripts/compare_with_pages.sh _site
+
+  publish:
+    executor: jfrog
+    environment:
+      # Artifactory repository key and path. The generic repo key is the one the
+      # AGX-5074 prototype used; the path segment follows AGX-7684.
+      ARTIFACTORY_REPO: ecosystem-generic-local
+      ARTIFACTORY_PATH: documentation
+    steps:
+      - attach_workspace:
+          at: ~/documentation
+      - run:
+          name: Configure JFrog CLI
+          command: jf config add --url "https://artifacts.procoretech.com/" --access-token "$ARTIFACTORY_ACCESS_TOKEN"
+      - run:
+          name: Upload the site to Artifactory
+          command: |
+            VERSION="${CIRCLE_SHA1:0:7}"
+            TARBALL="tmp/documentation-${VERSION}.tar.gz"
+            BUILD_NAME="${CIRCLE_PROJECT_REPONAME}"
+            BUILD_NUMBER="${CIRCLE_WORKFLOW_ID}"
+
+            jf rt upload \
+              "${TARBALL}" \
+              "${ARTIFACTORY_REPO}/${ARTIFACTORY_PATH}/documentation-${VERSION}.tar.gz" \
+              --build-name="${BUILD_NAME}" \
+              --build-number="${BUILD_NUMBER}"
+
+            # A moving pointer alongside the immutable SHA artifact. Consumers
+            # that resolve it do so at image build time, so the image they
+            # produce is still immutable.
+            jf rt upload \
+              "${TARBALL}" \
+              "${ARTIFACTORY_REPO}/${ARTIFACTORY_PATH}/documentation-latest.tar.gz"
+      - run:
+          name: Publish build info
+          command: |
+            jf rt build-collect-env "${CIRCLE_PROJECT_REPONAME}" "${CIRCLE_WORKFLOW_ID}" || true
+            jf rt build-publish "${CIRCLE_PROJECT_REPONAME}" "${CIRCLE_WORKFLOW_ID}"
+
+workflows:
+  build_and_publish:
+    when:
+      not: << pipeline.parameters.verify_against_pages >>
+    jobs:
+      - build:
+          context:
+            - artifactory-production-pull
+      - publish:
+          context:
+            - artifactory-production
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
+
+  verify:
+    when: << pipeline.parameters.verify_against_pages >>
+    jobs:
+      - compare_with_pages:
+          context:
+            - artifactory-production-pull
