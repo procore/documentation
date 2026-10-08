@@ -4,6 +4,7 @@
     <meta name="description" content="Documentation for Procore developers" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    {% if page.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
     <title>{{ page.title }}</title>
     <base target="_parent">
     <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
